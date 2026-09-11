@@ -2,63 +2,166 @@
 import { Player, LeagueRules, FormationSlot } from '../types';
 
 export function calculateExpectedScore(player: Player, rules: LeagueRules): number {
-  // Base: Fantamedia weighted
-  let xS = player.fantamedia * 0.4;
+  // Base: Fantamedia (peso principale)
+  let votoPrevisto = player.fantamedia * 0.5;
 
-  // Media voto contribution
-  xS += player.mediaVoto * 0.25;
+  // Media voto (peso significativo)
+  votoPrevisto += player.mediaVoto * 0.3;
 
-  // Titolarità factor (0-1 scale)
+  // Fattore titolarità (impatta fortemente)
   const titularFactor = player.titolarita / 100;
-  xS *= (0.5 + 0.5 * titularFactor);
+  votoPrevisto *= (0.6 + 0.4 * titularFactor);
 
-  // Form factor (last 5 matches average)
+  // Fattore forma recente (ULTIME 5 PARTITE - peso aumentato)
   const formAvg = player.forma.reduce((a, b) => a + b, 0) / player.forma.length;
-  xS += (formAvg - 6) * 0.3; // deviation from 6
+  const formDeviation = formAvg - 6;
 
-  // Home/Away factor
-  if (player.inCasa) {
-    xS += 0.3;
+  // Forma ha impatto esponenziale: giocatori in forma ottengono bonus maggiori
+  if (formDeviation > 0) {
+    votoPrevisto += formDeviation * 0.6; // Bonus per forma positiva
   } else {
-    xS -= 0.2;
+    votoPrevisto += formDeviation * 0.4; // Malus per forma negativa
   }
 
-  // Opponent difficulty (1-5 scale, lower is easier)
-  const difficultyFactor = (5 - player.difficoltaAvversario) / 4;
-  xS += difficultyFactor * 0.5;
+  // Tendenza recente (ultime 2 partite vs media)
+  const recentForm = (player.forma[3] + player.forma[4]) / 2;
+  const recentDeviation = recentForm - formAvg;
+  votoPrevisto += recentDeviation * 0.3; // Bonus se sta migliorando
 
-  // Goalkeeper-specific: Clean Sheet bonus
+  // FATTORE CASA/TRASERTA (più significativo)
+  if (player.inCasa) {
+    votoPrevisto += 0.4; // Bonus casa
+  } else {
+    votoPrevisto -= 0.3; // Malus trasferta
+  }
+
+  // IMPATTO AVVERSARIO (molto più significativo)
+  // Difficoltà 1 (molto facile) → +1.5
+  // Difficoltà 2 (facile) → +0.8
+  // Difficoltà 3 (media) → 0
+  // Difficoltà 4 (difficile) → -0.8
+  // Difficoltà 5 (molto difficile) → -1.5
+  const difficultyMap: Record<number, number> = {
+    1: 1.5,
+    2: 0.8,
+    3: 0,
+    4: -0.8,
+    5: -1.5,
+  };
+  const difficultyBonus = difficultyMap[player.difficoltaAvversario] || 0;
+  votoPrevisto += difficultyBonus;
+
+  // BONUS SPECIFICI PER RUOLO
+
+  // PORTIERI
   if (player.role === 'P') {
+    // Clean sheet bonus (basato su difficoltà avversario)
+    const cleanSheetProbability = player.difficoltaAvversario <= 2 ? 0.7 :
+                                   player.difficoltaAvversario <= 3 ? 0.5 :
+                                   player.difficoltaAvversario <= 4 ? 0.3 : 0.15;
+
     if (rules.bonusImbattibilita !== 'off') {
       const bonusValue = rules.bonusImbattibilita === '1' ? 1 : 0.5;
-      xS += player.cleanSheetOdds * bonusValue;
+      votoPrevisto += cleanSheetProbability * bonusValue * 0.8;
+    }
+
+    // Parate bonus (più parate contro avversari forti)
+    if (player.difficoltaAvversario >= 4) {
+      votoPrevisto += 0.3; // Più opportunità di parate decisive
     }
   }
 
-  // Defender-specific: Clean Sheet bonus for modificatore
+  // DIFENSORI
   if (player.role === 'D') {
+    // Clean sheet bonus per difensori
+    const cleanSheetProbability = player.difficoltaAvversario <= 2 ? 0.6 :
+                                   player.difficoltaAvversario <= 3 ? 0.4 :
+                                   player.difficoltaAvversario <= 4 ? 0.25 : 0.1;
+
     if (rules.modificatoreDifesa !== 'off') {
-      xS += player.cleanSheetOdds * 0.3;
+      votoPrevisto += cleanSheetProbability * 0.4;
+    }
+
+    // Gol fatto bonus (difensori offensivi)
+    if (player.difficoltaAvversario <= 2) {
+      votoPrevisto += 0.3; // Più probabilità di gol su palla inattiva
+    }
+
+    // Malus contro attacchi forti
+    if (player.difficoltaAvversario >= 4) {
+      votoPrevisto -= 0.2;
     }
   }
 
-  // Attacking players: goal/assist probability
-  if (player.role === 'A' || player.role === 'C') {
-    // Higher difficulty = fewer goal chances
-    const attackFactor = player.difficoltaAvversario <= 2 ? 0.4 :
-                         player.difficoltaAvversario <= 3 ? 0.2 : 0;
-    xS += attackFactor;
+  // CENTROCAMPISTI
+  if (player.role === 'C') {
+    // Gol/assist probability basata su difficoltà
+    const goalProbability = player.difficoltaAvversario <= 2 ? 0.5 :
+                            player.difficoltaAvversario <= 3 ? 0.3 :
+                            player.difficoltaAvversario <= 4 ? 0.15 : 0.05;
+
+    votoPrevisto += goalProbability * 1.2; // Bonus gol
 
     // Assist bonus
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
-      xS += 0.15 * assistValue * (player.difficoltaAvversario <= 3 ? 1 : 0.5);
+      const assistProbability = player.difficoltaAvversario <= 2 ? 0.6 :
+                                player.difficoltaAvversario <= 3 ? 0.4 :
+                                player.difficoltaAvversario <= 4 ? 0.25 : 0.1;
+      votoPrevisto += assistProbability * assistValue * 0.5;
     }
+
+    // Bonus casa per centrocampisti (più controllo del gioco)
+    if (player.inCasa && player.difficoltaAvversario <= 3) {
+      votoPrevisto += 0.2;
+    }
+  }
+
+  // ATTACCANTI
+  if (player.role === 'A') {
+    // Gol probability MOLTO sensibile alla difficoltà
+    const goalProbability = player.difficoltaAvversario === 1 ? 0.8 :
+                            player.difficoltaAvversario === 2 ? 0.6 :
+                            player.difficoltaAvversario === 3 ? 0.4 :
+                            player.difficoltaAvversario === 4 ? 0.2 : 0.1;
+
+    votoPrevisto += goalProbability * 1.5; // Bonus gol significativo
+
+    // Assist bonus per attaccanti
+    if (rules.assist !== 'off') {
+      const assistValue = rules.assist === '1' ? 1 : 0.5;
+      const assistProbability = player.difficoltaAvversario <= 2 ? 0.5 :
+                                player.difficoltaAvversario <= 3 ? 0.35 :
+                                player.difficoltaAvversario <= 4 ? 0.2 : 0.1;
+      votoPrevisto += assistProbability * assistValue * 0.6;
+    }
+
+    // Rigore probability
+    const rigoreProbability = player.difficoltaAvversario <= 3 ? 0.15 : 0.08;
+    votoPrevisto += rigoreProbability * 0.5;
+
+    // Super bonus contro difese deboli (casa + avversario facile)
+    if (player.inCasa && player.difficoltaAvversario <= 2) {
+      votoPrevisto += 0.5;
+    }
+
+    // Super malus contro difese forti (trasferta + avversario difficile)
+    if (!player.inCasa && player.difficoltaAvversario >= 4) {
+      votoPrevisto -= 0.4;
+    }
+  }
+
+  // Fattore "momentum" (forma recente + avversario)
+  if (formDeviation > 0.3 && player.difficoltaAvversario <= 2) {
+    votoPrevisto += 0.4; // Giocatore in forma contro avversario facile
+  }
+  if (formDeviation < -0.3 && player.difficoltaAvversario >= 4) {
+    votoPrevisto -= 0.3; // Giocatore in crisi contro avversario difficile
   }
 
   // Arrotonda ai valori 0.5 più vicini nel range 5-8
   // Valori possibili: 5, 5.5, 6, 6.5, 7, 7.5, 8
-  const rounded = Math.round(xS * 2) / 2;
+  const rounded = Math.round(votoPrevisto * 2) / 2;
   return Math.max(5, Math.min(8, rounded));
 }
 
