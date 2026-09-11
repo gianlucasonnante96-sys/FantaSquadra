@@ -1,5 +1,6 @@
 import { Player, Role } from '../types';
 import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
+import { fetchNextMatchday, applyMatchdayData, Fixture } from './matchdayService';
 import * as XLSX from 'xlsx';
 
 const TEAM_ALIASES: Record<string, string> = {
@@ -7,13 +8,13 @@ const TEAM_ALIASES: Record<string, string> = {
   'FIO': 'Fiorentina', 'FRO': 'Frosinone', 'GEN': 'Genoa', 'INT': 'Inter',
   'JUV': 'Juventus', 'LAZ': 'Lazio', 'LEC': 'Lecce', 'MIL': 'Milan',
   'MON': 'Monza', 'NAP': 'Napoli', 'PAR': 'Parma', 'ROM': 'Roma',
-  'SAS': 'Sassuolo', 'TOR': 'Torino', 'UDI': 'Udinese', 'VEN': 'Venezia',
+  'SAS': 'Sassuolo', 'TOR': 'Torino', 'UDI': 'Udinese', 'VEN': 'Venezia', 'EMP': 'Empoli',
   'ATALANTA': 'Atalanta', 'BOLOGNA': 'Bologna', 'CAGLIARI': 'Cagliari',
   'COMO': 'Como', 'FIORENTINA': 'Fiorentina', 'FROSINONE': 'Frosinone',
   'GENOA': 'Genoa', 'INTER': 'Inter', 'JUVENTUS': 'Juventus', 'JUVE': 'Juventus',
   'LAZIO': 'Lazio', 'LECCE': 'Lecce', 'MILAN': 'Milan', 'MONZA': 'Monza',
   'NAPOLI': 'Napoli', 'PARMA': 'Parma', 'ROMA': 'Roma', 'SASSUOLO': 'Sassuolo',
-  'TORINO': 'Torino', 'UDINESE': 'Udinese', 'VENEZIA': 'Venezia',
+  'TORINO': 'Torino', 'UDINESE': 'Udinese', 'VENEZIA': 'Venezia', 'EMPOLI': 'Empoli'
 };
 
 export interface ListoneStatus {
@@ -76,15 +77,6 @@ function estimateMediaVoto(qi: number): number {
   return Math.min(5.5 + qi * 0.04, 7.2);
 }
 
-// FIX: Stima titolarità più realistica
-function estimateTitolarita(qi: number): number {
-  if (qi >= 20) return 95;
-  if (qi >= 10) return 85;
-  if (qi >= 5) return 70;
-  if (qi >= 2) return 50;
-  return 30;
-}
-
 function splitName(fullName: string): { name: string; surname: string } {
   const parts = fullName.trim().split(/\s+/);
   if (parts.length === 1) return { name: '', surname: parts[0] };
@@ -104,10 +96,10 @@ function findColumn(headers: string[], patterns: string[]): number {
   return -1;
 }
 
-export function parseExcelFile(file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
-  return new Promise((resolve, reject) => {
+export async function parseExcelFile(file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
+  return new Promise(async (resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = async (e) => {
       try {
         const data = new Uint8Array(e.target?.result as ArrayBuffer);
         const workbook = XLSX.read(data, { type: 'array' });
@@ -139,7 +131,10 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
         
         if (nameCol === -1) { reject(new Error('Colonna "Calciatore/Nome" non trovata')); return; }
         
-        const players: Player[] = [];
+        // 🔥 CARICA GLI AVVERSARI DALL'API GRATUITA
+        const fixtures = await fetchNextMatchday();
+        
+        const rawPlayers: Player[] = [];
         for (const row of rows.slice(headerRowIndex + 1)) {
           if (!row || !Array.isArray(row)) continue;
           const nameRaw = row[nameCol];
@@ -153,22 +148,26 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           if (!team || !serieATeams.includes(team)) continue;
           const { name, surname } = splitName(fullName);
           
-          players.push({
+          rawPlayers.push({
             id: `xl_${name}_${surname}_${team}`.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, ''),
             name, surname, team, role,
             fantamedia: estimateFantamedia(qi, role),
             mediaVoto: estimateMediaVoto(qi),
-            titolarita: estimateTitolarita(qi),
+            titolarita: 70, // Verrà sovrascritto dall'algoritmo
             forma: [6, 6, 6, 6, 6],
             inCasa: Math.random() > 0.5,
-            avversario: 'Da definire', // FIX: Non più Atalanta di default
+            avversario: 'Da definire',
             difficoltaAvversario: 3,
             cleanSheetOdds: role === 'P' ? (qi > 15 ? 0.5 : 0.3) : 0,
             isStarter: qi > 5,
           });
         }
         
-        if (players.length === 0) { reject(new Error('Nessun giocatore trovato')); return; }
+        if (rawPlayers.length === 0) { reject(new Error('Nessun giocatore trovato')); return; }
+        
+        // 🔥 APPLICA AUTOMATICAMENTE AVVERSARI E TITOLARITÀ INTELLIGENTE
+        const players = rawPlayers.map(p => applyMatchdayData(p, fixtures, qiCol >= 0 ? (parseFloat(rows[headerRowIndex + 1][qiCol]) || 1) : 1));
+        
         resolve({ players, status: { source: 'File Excel', fileName: file.name, lastUpdated: new Date().toLocaleString('it-IT'), playerCount: players.length, isOnline: false, error: null } });
       } catch (err) { reject(new Error(`Errore parsing: ${err instanceof Error ? err.message : 'sconosciuto'}`)); }
     };
@@ -193,14 +192,19 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
       titolarita: item.titolarita || 70,
       forma: item.forma || [6, 6, 6, 6, 6],
       inCasa: item.inCasa ?? (Math.random() > 0.5),
-      avversario: item.avversario || 'Da definire', // FIX: Non più Atalanta di default
+      avversario: item.avversario || 'Da definire',
       difficoltaAvversario: item.difficoltaAvversario || 3,
       cleanSheetOdds: item.cleanSheetOdds || 0,
       isStarter: item.isStarter ?? true,
     }));
-    
-    return { players, status: { source: 'File JSON', lastUpdated: new Date().toLocaleString('it-IT'), playerCount: players.length, isOnline: false, error: null } };
-  } catch { return null; }
+
+    return {
+      players,
+      status: { source: 'Importazione JSON', lastUpdated: new Date().toLocaleDateString(), playerCount: players.length, isOnline: false, error: null }
+    };
+  } catch {
+    return null;
+  }
 }
 
 export function exportToJSON(players: Player[]): string {
