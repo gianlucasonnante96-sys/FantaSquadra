@@ -8,17 +8,14 @@ interface ProbabileFormazione {
   giocatori: string[]; // Lista dei nomi dei giocatori titolari
 }
 
-interface TitolaritaUpdate {
-  playerId: string;
-  titolarita: number;
-}
-
 const PROB_FORMAZIONI_KEY = 'fantaconsiglio_probabili_formazioni';
+const LAST_FETCH_KEY = 'fantaconsiglio_last_fetch';
 
 // Salva le probabili formazioni nel localStorage
 export function saveProbabiliFormazioni(formazioni: ProbabileFormazione[]): void {
   try {
     localStorage.setItem(PROB_FORMAZIONI_KEY, JSON.stringify(formazioni));
+    localStorage.setItem(LAST_FETCH_KEY, new Date().toISOString());
   } catch {
     console.error('Errore nel salvataggio delle probabili formazioni');
   }
@@ -101,6 +98,7 @@ export async function fetchProbabiliFormazioni(): Promise<ProbabileFormazione[] 
 
       if (formazioni.length > 0) {
         console.log(`Probabili formazioni scaricate da ${source.name}:`, formazioni.length, 'squadre');
+        saveProbabiliFormazioni(formazioni);
         return formazioni;
       }
     } catch (error) {
@@ -119,7 +117,6 @@ function parseProbabiliFormazioniHTML(html: string): ProbabileFormazione[] {
   const doc = parser.parseFromString(html, 'text/html');
 
   // Cerca i container delle formazioni
-  // Questo è un parsing generico, potrebbe需要 essere adattato alla struttura specifica del sito
   const formazioneElements = doc.querySelectorAll('.formation, .probabile-formazione, [class*="formation"]');
 
   formazioneElements.forEach(element => {
@@ -180,4 +177,31 @@ export function applyProbabiliFormazioni(players: Player[]): Player[] {
   }
 
   return updateTitolaritaFromProbabili(players, probabili);
+}
+
+// Inizializza il servizio: carica le probabili formazioni salvate e tenta un aggiornamento
+export async function initializeProbabiliFormazioni(): Promise<void> {
+  // Controlla se abbiamo già delle probabili formazioni salvate
+  const cached = loadProbabiliFormazioni();
+
+  if (cached.length === 0) {
+    // Se non abbiamo nulla, tenta di scaricare
+    console.log('Nessuna probabile formazione salvata, tentativo di download...');
+    await fetchProbabiliFormazioni();
+  } else {
+    // Controlla se è passato più di 1 giorno dall'ultimo fetch
+    const lastFetch = localStorage.getItem(LAST_FETCH_KEY);
+    if (lastFetch) {
+      const lastDate = new Date(lastFetch);
+      const now = new Date();
+      const hoursDiff = (now.getTime() - lastDate.getTime()) / (1000 * 60 * 60);
+
+      if (hoursDiff > 24) {
+        console.log('Probabili formazioni scadute, tentativo di aggiornamento...');
+        await fetchProbabiliFormazioni();
+      } else {
+        console.log('Probabili formazioni già caricate:', cached.length, 'squadre');
+      }
+    }
+  }
 }
