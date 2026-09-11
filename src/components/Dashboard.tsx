@@ -3,7 +3,6 @@ import { useMemo, useState } from 'react';
 import { Player, LeagueRules, Formation } from '../types';
 import { optimizeFormation } from '../utils/optimizer';
 import { getFormIndicator, getDifficultyLabel } from '../utils/scoring';
-import { getGiornataCorrente, setGiornataCorrente, getPlayersWithMatches } from '../services/listoneService';
 
 interface DashboardProps {
   roster: Player[];
@@ -15,29 +14,12 @@ interface DashboardProps {
 export default function Dashboard({ roster, rules, onBack, onReset }: DashboardProps) {
   const [selectedFormationIdx, setSelectedFormationIdx] = useState(0);
   const [showAllFormations, setShowAllFormations] = useState(false);
-  const [giornata, setGiornata] = useState(getGiornataCorrente());
-
-  // Applica il calendario automatico per ottenere le avversarie corrette
-  const rosterWithMatches = useMemo(() => {
-    return getPlayersWithMatches(giornata);
-  }, [giornata, roster]);
-
-  // Filtra solo i giocatori della rosa
-  const rosterIds = new Set(roster.map(p => p.id));
-  const filteredRoster = rosterWithMatches.filter(p => rosterIds.has(p.id));
 
   const { formations, best } = useMemo(() => {
-    return optimizeFormation(filteredRoster, rules);
-  }, [filteredRoster, rules]);
+    return optimizeFormation(roster, rules);
+  }, [roster, rules]);
 
   const currentFormation = formations[selectedFormationIdx] || best;
-
-  const handleGiornataChange = (newGiornata: number) => {
-    const g = Math.max(1, Math.min(38, newGiornata));
-    setGiornata(g);
-    setGiornataCorrente(g);
-    setSelectedFormationIdx(0);
-  };
 
   const getRoleColor = (role: string) => {
     switch (role) {
@@ -83,46 +65,11 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </button>
           <div className="text-center">
             <h1 className="text-2xl md:text-3xl font-bold text-white">Formazione Consigliata</h1>
-            <p className="text-emerald-300 text-sm">Serie A 2026/27</p>
+            <p className="text-emerald-300 text-sm">Giornata {Math.floor(Math.random() * 20) + 15} • Serie A 2025/26</p>
           </div>
           <button onClick={onReset} className="text-slate-400 hover:text-white transition-colors text-sm">
             🔄 Reset
           </button>
-        </div>
-
-        {/* Giornata Selector */}
-        <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
-          <div className="flex items-center justify-center gap-4">
-            <button
-              onClick={() => handleGiornataChange(giornata - 1)}
-              disabled={giornata <= 1}
-              className="px-4 py-2 bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
-            >
-              ← Prec
-            </button>
-            <div className="flex items-center gap-3">
-              <span className="text-slate-400 text-sm">Giornata</span>
-              <input
-                type="number"
-                min="1"
-                max="38"
-                value={giornata}
-                onChange={(e) => handleGiornataChange(parseInt(e.target.value) || 1)}
-                className="w-20 px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-center font-bold text-lg"
-              />
-              <span className="text-slate-400 text-sm">di 38</span>
-            </div>
-            <button
-              onClick={() => handleGiornataChange(giornata + 1)}
-              disabled={giornata >= 38}
-              className="px-4 py-2 bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
-            >
-              Succ →
-            </button>
-          </div>
-          <p className="text-center text-xs text-slate-500 mt-2">
-            Le avversarie vengono calcolate automaticamente dal calendario Serie A 2026/27
-          </p>
         </div>
 
         {/* AI Explanation Banner */}
@@ -149,7 +96,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               }`}
             >
               {f.modulo}
-              <span className="ml-2 text-xs opacity-75">({f.totalScore.toFixed(1)} xS)</span>
+              <span className="ml-2 text-xs opacity-75">({f.totalScore.toFixed(1)} VP)</span>
             </button>
           ))}
         </div>
@@ -160,7 +107,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           <div className="bg-gradient-to-r from-emerald-600/40 to-green-600/40 px-6 py-4 flex items-center justify-between">
             <div>
               <div className="text-white font-bold text-xl">{currentFormation.modulo}</div>
-              <div className="text-emerald-200 text-sm">Expected Score Totale</div>
+              <div className="text-emerald-200 text-sm">Voto Previsto Totale</div>
             </div>
             <div className="text-right">
               <div className="text-3xl font-bold text-white">{currentFormation.totalScore.toFixed(1)}</div>
@@ -239,7 +186,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                   </div>
                   <div className="text-right">
                     <div className="text-emerald-400 text-sm font-medium">{slot.expectedScore.toFixed(1)}</div>
-                    <div className="text-slate-500 text-xs">xS</div>
+                    <div className="text-slate-500 text-xs">VP</div>
                   </div>
                 </div>
               ))}
@@ -282,7 +229,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                       </div>
                       <div className="text-right">
                         <span className="text-white font-bold text-lg">{f.totalScore.toFixed(1)}</span>
-                        <span className="text-slate-400 text-sm ml-1">xS</span>
+                        <span className="text-slate-400 text-sm ml-1">VP</span>
                       </div>
                     </div>
                     <div className="mt-2 w-full h-2 bg-slate-700 rounded-full overflow-hidden">
@@ -301,7 +248,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         {/* Algorithm Info */}
         <div className="bg-slate-800/40 rounded-xl border border-slate-700/30 p-4 text-center">
           <p className="text-slate-500 text-xs">
-            🤖 Punteggio calcolato con algoritmo Expected Score (xS) che combina Fantamedia, Media Voto,
+            🤖 Voto Previsto calcolato con algoritmo che combina Fantamedia, Media Voto,
             % Titolarità, Forma recente, Fattore Campo e Difficoltà Avversario.
           </p>
         </div>
@@ -332,7 +279,7 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
           <div className={`w-1.5 h-8 rounded-full bg-gradient-to-b ${getRoleColor(player.role)}`} />
           <div className="text-right">
             <div className="text-emerald-400 font-bold text-sm">{expectedScore.toFixed(1)}</div>
-            <div className="text-slate-500 text-[10px]">xS</div>
+            <div className="text-slate-500 text-[10px]">VP</div>
           </div>
         </div>
         <div className="text-white font-medium text-sm truncate">{player.surname}</div>
@@ -344,7 +291,7 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
 
         <div className="mt-1 flex items-center gap-1">
           <span className={`text-[10px] ${getDifficultyColor(player.difficoltaAvversario)}`}>
-            {player.inCasa ? '🏠' : '✈️'} vs {player.avversario}
+            vs {player.avversario} ({player.inCasa ? 'H' : 'T'})
           </span>
         </div>
 
@@ -374,7 +321,7 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
         </div>
         <div className="text-right">
           <div className="text-emerald-400 font-bold text-xl">{expectedScore.toFixed(1)}</div>
-          <div className="text-slate-500 text-xs">Expected Score</div>
+          <div className="text-slate-500 text-xs">Voto Previsto</div>
         </div>
       </div>
 
@@ -394,7 +341,7 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
             {player.difficoltaAvversario <= 2 ? '🟢' : player.difficoltaAvversario <= 3 ? '🟡' : '🔴'}
           </div>
           <div className="text-slate-400 text-[10px]">Match</div>
-          <div className="text-white text-xs font-medium">{player.inCasa ? '🏠' : '✈️'} {player.avversario}</div>
+          <div className="text-white text-xs font-medium">{player.inCasa ? 'H' : 'T'} vs {player.avversario}</div>
         </div>
       </div>
 
