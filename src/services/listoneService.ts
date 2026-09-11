@@ -1,7 +1,4 @@
---- 2_LISTONESERVICE.txt (原始)
 
-
-+++ 2_LISTONESERVICE.txt (修改后)
 import { Player, Role } from '../types';
 import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
 import * as XLSX from 'xlsx';
