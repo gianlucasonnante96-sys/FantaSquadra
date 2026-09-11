@@ -1,7 +1,4 @@
---- 1_SCORING.txt (原始)
 
-
-+++ 1_SCORING.txt (修改后)
 import { Player, LeagueRules, FormationSlot } from '../types';
 
 export function calculateExpectedScore(player: Player, rules: LeagueRules): number {
