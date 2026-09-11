@@ -33,7 +33,6 @@ export default function App() {
 
   const [availablePlayers, setAvailablePlayers] = useState<Player[]>([]);
   const [listoneStatus, setListoneStatus] = useState<ListoneStatus | null>(null);
-  
   const [currentMatchDay, setCurrentMatchDay] = useState<MatchDay | null>(null);
   const [probableFormations, setProbableFormations] = useState<Record<string, string[]>>({});
   const [isLoadingMatchData, setIsLoadingMatchData] = useState(false);
@@ -51,7 +50,6 @@ export default function App() {
   useEffect(() => {
     const savedMatchDay = localStorage.getItem('fanta_matchday');
     if (savedMatchDay) setCurrentMatchDay(JSON.parse(savedMatchDay));
-    
     const savedFormations = localStorage.getItem('fanta_formations');
     if (savedFormations) setProbableFormations(JSON.parse(savedFormations));
   }, []);
@@ -107,26 +105,13 @@ export default function App() {
       <div className={listoneStatus ? 'pt-8' : ''}>
         {step === 'setup' && (
           <>
-            <MatchDaySetup
-              currentMatchDay={currentMatchDay}
-              isLoading={isLoadingMatchData}
-              onLoadMatchDay={loadMatchDayData}
-              onFormationsUpdate={setProbableFormations}
-            />
+            <MatchDaySetup currentMatchDay={currentMatchDay} isLoading={isLoadingMatchData} onLoadMatchDay={loadMatchDayData} onFormationsUpdate={setProbableFormations} />
             <Setup rules={rules} onSave={setRules} onNext={() => setStep('roster')} />
           </>
         )}
         
         {step === 'roster' && (
-          <Roster
-            roster={roster}
-            onSave={setRoster}
-            onNext={() => setStep('dashboard')}
-            onBack={() => setStep('setup')}
-            availablePlayers={updatedAvailablePlayers}
-            listoneStatus={listoneStatus}
-            onListoneChange={reloadListone}
-          />
+          <Roster roster={roster} onSave={setRoster} onNext={() => setStep('dashboard')} onBack={() => setStep('setup')} availablePlayers={updatedAvailablePlayers} listoneStatus={listoneStatus} onListoneChange={reloadListone} />
         )}
         
         {step === 'dashboard' && (
