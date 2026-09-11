@@ -57,18 +57,15 @@ function normalizeTeam(team: string): string {
   return TEAM_ALIASES[upper] || team.trim();
 }
 
-// ✅ FUNZIONE CORRETTA: Legge SOLO la colonna "R" (P, D, C, A)
+// ✅ Legge SOLO la colonna "R" (P, D, C, A)
 function normalizeRole(role: string): Role {
   if (!role) return 'C';
   const r = role.toString().trim().toUpperCase();
-  
-  // Legge solo i valori base: P, D, C, A
   if (r === 'P') return 'P';
   if (r === 'D') return 'D';
   if (r === 'C') return 'C';
   if (r === 'A') return 'A';
-  
-  return 'C'; // fallback
+  return 'C';
 }
 
 function estimateFantamedia(qi: number, role: Role): number {
@@ -99,14 +96,22 @@ function splitName(fullName: string): { name: string; surname: string } {
   return { name: parts[0], surname: parts.slice(1).join(' ') };
 }
 
-// ✅ FUNZIONE CORRETTA: Cerca la colonna "R" esatta (non "RM")
-function findColumn(headers: string[], exactMatch: string, patterns: string[]): number {
-  // Prima cerca match esatto
+// ✅ FUNZIONE CORRETTA: Trova l'indice della colonna "R" ESATTA (non "RM")
+function findRoleColumn(headers: string[]): number {
+  for (let i = 0; i < headers.length; i++) {
+    const h = (headers[i] || '').toString().trim();
+    // Match esatto "R" (una sola lettera, non "RM" o "Ruolo")
+    if (h.toUpperCase() === 'R') return i;
+  }
+  // Fallback: cerca "Ruolo" ma escludi "Ruolo Modificatore"
   for (let i = 0; i < headers.length; i++) {
     const h = (headers[i] || '').toString().toLowerCase().trim();
-    if (h === exactMatch.toLowerCase()) return i;
+    if (h === 'ruolo' || h === 'role') return i;
   }
-  // Poi cerca pattern
+  return -1;
+}
+
+function findColumn(headers: string[], patterns: string[]): number {
   for (let i = 0; i < headers.length; i++) {
     const h = (headers[i] || '').toString().toLowerCase().trim();
     for (const pattern of patterns) {
@@ -114,6 +119,20 @@ function findColumn(headers: string[], exactMatch: string, patterns: string[]): 
     }
   }
   return -1;
+}
+
+// ✅ Controlla se una riga è un separatore di sezione (da saltare)
+function isSeparatorRow(row: any[]): boolean {
+  if (!row || row.length === 0) return true;
+  const firstCell = (row[0] || '').toString().trim();
+  const secondCell = (row[1] || '').toString().trim();
+  // Riga con "Quotazioni Fantacalcio" ripetuto
+  if (firstCell.includes('Quotazioni') || firstCell.includes('Calciatori Ceduti')) return true;
+  // Riga con "---" (separatore markdown)
+  if (firstCell === '---' || secondCell === '---') return true;
+  // Riga vuota o con solo spazi
+  if (firstCell === '' && row.every(c => !c || c.toString().trim() === '')) return true;
+  return false;
 }
 
 export async function parseExcelFile(file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
@@ -126,15 +145,14 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
         const rows = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1 });
         
-        // ✅ Trova l'header principale (prima occorrenza con "Id", "R", "RM", "Nome")
+        // ✅ Trova l'header principale (prima riga con "Id", "R", "Nome", "Squadra")
         let headerRowIndex = -1;
         let headers: string[] = [];
         
         for (let i = 0; i < Math.min(20, rows.length); i++) {
           const row = rows[i] as any[];
-          if (row && row.length > 5) {
+          if (row && row.length >= 5) {
             const rowText = row.map(c => (c || '').toString().toLowerCase()).join(' ');
-            // Cerca la riga con "Id", "R", "Nome" (header principale)
             if (rowText.includes('id') && rowText.includes('nome') && rowText.includes('squadra')) {
               headerRowIndex = i;
               headers = row.map(h => (h || '').toString());
@@ -148,19 +166,24 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
           return;
         }
         
-        // ✅ Cerca le colonne corrette
-        const idCol = findColumn(headers, 'id', ['id']);
-        const roleCol = findColumn(headers, 'r', ['ruolo']); // Cerca "R" esatto
-        const nameCol = findColumn(headers, 'nome', ['nome', 'calciatore']);
-        const teamCol = findColumn(headers, 'squadra', ['squadra', 'team']);
-        const qiCol = findColumn(headers, 'qt.a', ['qt.a', 'quotazione']);
+        // ✅ Trova gli indici delle colonne
+        const idCol = findColumn(headers, ['id']);
+        const roleCol = findRoleColumn(headers); // ✅ Cerca "R" esatta
+        const nameCol = findColumn(headers, ['nome', 'calciatore']);
+        const teamCol = findColumn(headers, ['squadra', 'team']);
+        const qiCol = findColumn(headers, ['qt.a', 'quotazione']);
+        const fvmCol = findColumn(headers, ['fvm']);
         
-        console.log(' DEBUG HEADERS:', headers);
-        console.log('🔍 DEBUG INDICI -> ID:', idCol, 'Ruolo(R):', roleCol, 'Nome:', nameCol, 'Squadra:', teamCol, 'Qt.A:', qiCol);
+        console.log('🔍 DEBUG HEADERS:', headers);
+        console.log('🔍 DEBUG INDICI -> Id:', idCol, 'Ruolo(R):', roleCol, 'Nome:', nameCol, 'Squadra:', teamCol, 'Qt.A:', qiCol, 'FVM:', fvmCol);
         
         if (nameCol === -1 || teamCol === -1) {
           reject(new Error('Colonne "Nome" o "Squadra" non trovate'));
           return;
+        }
+        
+        if (roleCol === -1) {
+          console.warn('⚠️ Colonna "R" non trovata, uso fallback su indice 1');
         }
         
         // Carica gli avversari dall'API
@@ -173,14 +196,8 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
           const row = rows[i] as any[];
           if (!row || !Array.isArray(row)) continue;
           
-          // ✅ Salta le righe di intestazione ripetute e separatori
-          const firstCell = (row[0] || '').toString().trim();
-          if (firstCell === '' || firstCell.includes('Quotazioni') || firstCell.includes('Portieri') || 
-              firstCell.includes('Difensori') || firstCell.includes('Centrocampisti') || 
-              firstCell.includes('Attaccanti') || firstCell.includes('Ceduti') ||
-              firstCell === '---') {
-            continue;
-          }
+          // ✅ Salta le righe separatore tra sezioni
+          if (isSeparatorRow(row)) continue;
           
           const nameRaw = row[nameCol];
           if (!nameRaw || nameRaw.toString().trim() === '') continue;
@@ -194,12 +211,13 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
           
           const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
           const playerId = idCol >= 0 ? row[idCol]?.toString() || '' : '';
+          const fvm = fvmCol >= 0 ? (parseFloat(row[fvmCol]) || 0) : 0;
           
           // Salta se la squadra non è in Serie A
           if (!team || !serieATeams.includes(team)) continue;
           
           // Evita duplicati
-          const uniqueId = playerId || `${name}_${team}`;
+          const uniqueId = playerId || `${fullName}_${team}`;
           if (seenIds.has(uniqueId)) continue;
           seenIds.add(uniqueId);
           
@@ -227,7 +245,7 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         
         // Applica automaticamente avversari e titolarità
         const players = rawPlayers.map((p, i) => {
-          const qi = rawPlayers[i].fantamedia * 3; // Stima Qi dalla fantamedia
+          const qi = rawPlayers[i].fantamedia * 3;
           return applyMatchdayData(p, fixtures, qi);
         });
         
