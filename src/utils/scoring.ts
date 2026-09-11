@@ -56,7 +56,10 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     }
   }
 
-  return Math.round(xS * 100) / 100;
+  // Arrotonda ai valori 0.5 più vicini nel range 5-8
+  // Valori possibili: 5, 5.5, 6, 6.5, 7, 7.5, 8
+  const rounded = Math.round(xS * 2) / 2;
+  return Math.max(5, Math.min(8, rounded));
 }
 
 export function calculateModificatoreBonus(
