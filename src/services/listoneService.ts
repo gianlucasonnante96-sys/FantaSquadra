@@ -57,7 +57,6 @@ function normalizeTeam(team: string): string {
   return TEAM_ALIASES[upper] || team.trim();
 }
 
-// ✅ Legge SOLO la colonna "R" (P, D, C, A)
 function normalizeRole(role: string): Role {
   if (!role) return 'C';
   const r = role.toString().trim().toUpperCase();
@@ -96,41 +95,31 @@ function splitName(fullName: string): { name: string; surname: string } {
   return { name: parts[0], surname: parts.slice(1).join(' ') };
 }
 
-// ✅ FUNZIONE CORRETTA: Trova l'indice della colonna "R" ESATTA (non "RM")
-function findRoleColumn(headers: string[]): number {
-  for (let i = 0; i < headers.length; i++) {
-    const h = (headers[i] || '').toString().trim();
-    // Match esatto "R" (una sola lettera, non "RM" o "Ruolo")
-    if (h.toUpperCase() === 'R') return i;
-  }
-  // Fallback: cerca "Ruolo" ma escludi "Ruolo Modificatore"
-  for (let i = 0; i < headers.length; i++) {
-    const h = (headers[i] || '').toString().toLowerCase().trim();
-    if (h === 'ruolo' || h === 'role') return i;
-  }
-  return -1;
-}
-
-function findColumn(headers: string[], patterns: string[]): number {
-  for (let i = 0; i < headers.length; i++) {
-    const h = (headers[i] || '').toString().toLowerCase().trim();
-    for (const pattern of patterns) {
-      if (h.includes(pattern.toLowerCase())) return i;
-    }
-  }
-  return -1;
+// ✅ FUNZIONE CORRETTA: Usa indici fissi basati sulla struttura reale del file Excel
+// Colonna 0: Id, Colonna 1: R, Colonna 2: RM, Colonna 3: Nome, Colonna 4: Squadra, Colonna 5: Qt.A
+function findColumnIndices(headers: string[]): { id: number; role: number; name: number; team: number; qi: number } {
+  // Cerca gli indici esatti delle colonne
+  const idCol = headers.findIndex(h => h.toString().trim().toLowerCase() === 'id');
+  const roleCol = headers.findIndex(h => h.toString().trim().toUpperCase() === 'R'); // Solo "R" esatto
+  const nameCol = headers.findIndex(h => h.toString().trim().toLowerCase() === 'nome');
+  const teamCol = headers.findIndex(h => h.toString().trim().toLowerCase() === 'squadra');
+  const qiCol = headers.findIndex(h => h.toString().trim().toLowerCase() === 'qt.a');
+  
+  console.log(' DEBUG INDICI TROVATI -> Id:', idCol, 'Ruolo(R):', roleCol, 'Nome:', nameCol, 'Squadra:', teamCol, 'Qt.A:', qiCol);
+  console.log('🔍 DEBUG HEADERS:', headers);
+  
+  return { id: idCol, role: roleCol, name: nameCol, team: teamCol, qi: qiCol };
 }
 
 // ✅ Controlla se una riga è un separatore di sezione (da saltare)
 function isSeparatorRow(row: any[]): boolean {
   if (!row || row.length === 0) return true;
   const firstCell = (row[0] || '').toString().trim();
-  const secondCell = (row[1] || '').toString().trim();
-  // Riga con "Quotazioni Fantacalcio" ripetuto
+  // Riga con "Quotazioni Fantacalcio" o "Calciatori Ceduti"
   if (firstCell.includes('Quotazioni') || firstCell.includes('Calciatori Ceduti')) return true;
-  // Riga con "---" (separatore markdown)
-  if (firstCell === '---' || secondCell === '---') return true;
-  // Riga vuota o con solo spazi
+  // Riga con "---"
+  if (firstCell === '---') return true;
+  // Riga vuota
   if (firstCell === '' && row.every(c => !c || c.toString().trim() === '')) return true;
   return false;
 }
@@ -145,7 +134,7 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
         const rows = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1 });
         
-        // ✅ Trova l'header principale (prima riga con "Id", "R", "Nome", "Squadra")
+        // ✅ Trova l'header principale
         let headerRowIndex = -1;
         let headers: string[] = [];
         
@@ -167,23 +156,16 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         }
         
         // ✅ Trova gli indici delle colonne
-        const idCol = findColumn(headers, ['id']);
-        const roleCol = findRoleColumn(headers); // ✅ Cerca "R" esatta
-        const nameCol = findColumn(headers, ['nome', 'calciatore']);
-        const teamCol = findColumn(headers, ['squadra', 'team']);
-        const qiCol = findColumn(headers, ['qt.a', 'quotazione']);
-        const fvmCol = findColumn(headers, ['fvm']);
+        const indices = findColumnIndices(headers);
         
-        console.log('🔍 DEBUG HEADERS:', headers);
-        console.log('🔍 DEBUG INDICI -> Id:', idCol, 'Ruolo(R):', roleCol, 'Nome:', nameCol, 'Squadra:', teamCol, 'Qt.A:', qiCol, 'FVM:', fvmCol);
-        
-        if (nameCol === -1 || teamCol === -1) {
+        if (indices.name === -1 || indices.team === -1) {
           reject(new Error('Colonne "Nome" o "Squadra" non trovate'));
           return;
         }
         
-        if (roleCol === -1) {
-          console.warn('⚠️ Colonna "R" non trovata, uso fallback su indice 1');
+        if (indices.role === -1) {
+          console.warn('️ Colonna "R" non trovata, uso indice fisso 1');
+          indices.role = 1; // Fallback su indice fisso
         }
         
         // Carica gli avversari dall'API
@@ -196,22 +178,22 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
           const row = rows[i] as any[];
           if (!row || !Array.isArray(row)) continue;
           
-          // ✅ Salta le righe separatore tra sezioni
+          // ✅ Salta le righe separatore
           if (isSeparatorRow(row)) continue;
           
-          const nameRaw = row[nameCol];
+          // ✅ Usa gli indici fissi per leggere i dati
+          const nameRaw = row[indices.name];
           if (!nameRaw || nameRaw.toString().trim() === '') continue;
           
           const fullName = nameRaw.toString().trim();
-          const team = teamCol >= 0 ? normalizeTeam(row[teamCol]?.toString() || '') : '';
+          const team = normalizeTeam(row[indices.team]?.toString() || '');
           
-          // ✅ Legge SOLO la colonna "R" (P, D, C, A)
-          const rawRole = roleCol >= 0 ? row[roleCol]?.toString() || '' : '';
+          // ✅ Legge SOLO la colonna "R" (indice 1 o quello trovato)
+          const rawRole = row[indices.role]?.toString() || '';
           const role = normalizeRole(rawRole);
           
-          const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
-          const playerId = idCol >= 0 ? row[idCol]?.toString() || '' : '';
-          const fvm = fvmCol >= 0 ? (parseFloat(row[fvmCol]) || 0) : 0;
+          const qi = indices.qi >= 0 ? (parseFloat(row[indices.qi]) || 1) : 1;
+          const playerId = indices.id >= 0 ? row[indices.id]?.toString() || '' : '';
           
           // Salta se la squadra non è in Serie A
           if (!team || !serieATeams.includes(team)) continue;
