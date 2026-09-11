@@ -2,8 +2,9 @@
 import { Player, Role } from '../types';
 import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
 import * as XLSX from 'xlsx';
-import { applyCalendarToPlayers, getMatchesForGiornata } from './calendarService';
+import { getAvversario } from './calendarService';
 
+// Mappa abbreviazioni squadre fantacalcio.it -> nome completo
 const TEAM_ABBR: Record<string, string> = {
   'ATA': 'Atalanta', 'BOL': 'Bologna', 'CAG': 'Cagliari', 'COM': 'Como',
   'FIO': 'Fiorentina', 'FRO': 'Frosinone', 'GEN': 'Genoa', 'INT': 'Inter',
@@ -12,6 +13,7 @@ const TEAM_ABBR: Record<string, string> = {
   'SAS': 'Sassuolo', 'TOR': 'Torino', 'UDI': 'Udinese', 'VEN': 'Venezia',
 };
 
+// Alias per nomi squadra che potrebbero apparire nei file Excel
 const TEAM_ALIASES: Record<string, string> = {
   ...TEAM_ABBR,
   'ATALANTA': 'Atalanta', 'BOLOGNA': 'Bologna', 'CAGLIARI': 'Cagliari',
@@ -20,6 +22,7 @@ const TEAM_ALIASES: Record<string, string> = {
   'LAZIO': 'Lazio', 'LECCE': 'Lecce', 'MILAN': 'Milan', 'MONZA': 'Monza',
   'NAPOLI': 'Napoli', 'PARMA': 'Parma', 'ROMA': 'Roma', 'SASSUOLO': 'Sassuolo',
   'TORINO': 'Torino', 'UDINESE': 'Udinese', 'VENEZIA': 'Venezia',
+  // Varianti con spazi o caratteri speciali
   'A C MILAN': 'Milan', 'AC MILAN': 'Milan', 'INTERNAZIONALE': 'Inter',
   'HELLAS VERONA': 'Verona', 'VERONA': 'Verona', 'H VERONA': 'Verona',
 };
@@ -33,16 +36,6 @@ export interface ListoneStatus {
   error: string | null;
 }
 
-export interface Match {
-  homeTeam: string;
-  awayTeam: string;
-}
-
-export interface Matchday {
-  giornata: number;
-  matches: Match[];
-}
-
 interface CachedData {
   players: Player[];
   status: ListoneStatus;
@@ -50,19 +43,20 @@ interface CachedData {
 }
 
 const CACHE_KEY = 'fantaconsiglio_listone_cache';
-const GIORNATA_KEY = 'fantaconsiglio_giornata_corrente';
 
+// Carica i dati dalla cache localStorage
 function loadFromCache(): CachedData | null {
   try {
     const cached = localStorage.getItem(CACHE_KEY);
     if (!cached) return null;
-    const data = JSON.parse(cached) as CachedData;
+    const data: CachedData = JSON.parse(cached);
     return data;
   } catch {
     return null;
   }
 }
 
+// Salva i dati nella cache localStorage
 export function saveToCache(players: Player[], status: ListoneStatus): void {
   try {
     const data: CachedData = {
@@ -72,72 +66,55 @@ export function saveToCache(players: Player[], status: ListoneStatus): void {
     };
     localStorage.setItem(CACHE_KEY, JSON.stringify(data));
   } catch {
+    // localStorage non disponibile o pieno
   }
 }
 
+// Elimina la cache
 export function clearCache(): void {
   localStorage.removeItem(CACHE_KEY);
 }
 
-// Gestione giornata corrente
-export function getGiornataCorrente(): number {
-  try {
-    const saved = localStorage.getItem(GIORNATA_KEY);
-    return saved ? parseInt(saved) : 1;
-  } catch {
-    return 1;
-  }
-}
-
-export function setGiornataCorrente(giornata: number): void {
-  try {
-    localStorage.setItem(GIORNATA_KEY, giornata.toString());
-  } catch {
-  }
-}
-
-// Funzione per ottenere i giocatori con le avversarie aggiornate
-export function getPlayersWithMatches(giornata?: number): Player[] {
-  const cached = loadFromCache();
-  let players = cached && cached.players.length > 0 ? cached.players : fallbackPlayers;
-
-  const g = giornata ?? getGiornataCorrente();
-
-  // Applica il calendario automatico
-  players = applyCalendarToPlayers(players, g);
-
-  return players;
-}
-
+// Normalizza il nome della squadra
 function normalizeTeam(team: string): string {
   const trimmed = team.trim();
   const upper = trimmed.toUpperCase();
 
+  // Match esatto
   if (TEAM_ALIASES[upper]) {
     return TEAM_ALIASES[upper];
   }
 
+  // Match parziale (cerca se il nome della squadra è contenuto in uno degli alias)
   for (const [alias, fullName] of Object.entries(TEAM_ALIASES)) {
     if (upper.includes(alias) || alias.includes(upper)) {
       return fullName;
     }
   }
 
+  // Match con le squadre Serie A (cerca se il nome è contenuto)
   for (const serieATeam of serieATeams) {
     if (upper.includes(serieATeam.toUpperCase()) || serieATeam.toUpperCase().includes(upper)) {
       return serieATeam;
     }
   }
 
+  // Se non trova nulla, ritorna il nome originale
   return trimmed;
 }
 
+// Determina il ruolo da una stringa
 function normalizeRole(role: string): Role {
   const r = role.trim().toUpperCase();
-  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r.startsWith('P')) return 'P';
-  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r.startsWith('D')) return 'D';
-  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r.startsWith('A')) return 'A';
-  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r.startsWith('C')) return 'C';
+  // Portieri
+  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r === 'P' || r.startsWith('P')) return 'P';
+  // Difensori
+  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r === 'D' || r.startsWith('D')) return 'D';
+  // Attaccanti
+  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r === 'A' || r.startsWith('A')) return 'A';
+  // Centrocampisti (default se non riconosciuto)
+  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r === 'C' || r.startsWith('C')) return 'C';
+  // Fallback: cerca di dedurre dal contenuto
   if (r.includes('POR')) return 'P';
   if (r.includes('DIF')) return 'D';
   if (r.includes('ATT')) return 'A';
@@ -145,6 +122,7 @@ function normalizeRole(role: string): Role {
   return 'C';
 }
 
+// Stima la fantamedia dalla quotazione
 function estimateFantamedia(qi: number, role: Role): number {
   if (role === 'P') return Math.min(2 + qi * 0.1, 5.5);
   if (role === 'D') return Math.min(2 + qi * 0.12, 6);
@@ -152,10 +130,12 @@ function estimateFantamedia(qi: number, role: Role): number {
   return Math.min(3 + qi * 0.15, 8);
 }
 
+// Stima la media voto dalla quotazione
 function estimateMediaVoto(qi: number): number {
   return Math.min(5.5 + qi * 0.04, 7.2);
 }
 
+// Stima la titolarità dalla quotazione
 function estimateTitolarita(qi: number): number {
   if (qi >= 20) return 95;
   if (qi >= 10) return 85;
@@ -164,15 +144,18 @@ function estimateTitolarita(qi: number): number {
   return 30;
 }
 
+// Separa nome completo in nome e cognome
 function splitName(fullName: string): { name: string; surname: string } {
   const parts = fullName.trim().split(/\s+/);
   if (parts.length === 1) return { name: '', surname: parts[0] };
+  // Se il primo elemento è corto (iniziale o nome breve), è il nome
   if (parts[0].length <= 3 || parts[0].endsWith('.')) {
     return { name: parts[0].replace('.', ''), surname: parts.slice(1).join(' ') };
   }
   return { name: parts[0], surname: parts.slice(1).join(' ') };
 }
 
+// Trova la colonna nel foglio Excel (case-insensitive, con fuzzy matching)
 function findColumn(headers: string[], patterns: string[]): number {
   for (let i = 0; i < headers.length; i++) {
     const h = (headers[i] || '').toString().toLowerCase().trim();
@@ -183,6 +166,7 @@ function findColumn(headers: string[], patterns: string[]): number {
   return -1;
 }
 
+// Parsa un file Excel e restituisce i giocatori
 export function parseExcelFile(file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -192,9 +176,11 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
         const data = new Uint8Array(e.target?.result as ArrayBuffer);
         const workbook = XLSX.read(data, { type: 'array' });
 
+        // Usa il primo foglio
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
 
+        // Converti in array di array
         const rows = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1 });
 
         if (rows.length < 2) {
@@ -202,13 +188,16 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           return;
         }
 
+        // Trova l'header (prima riga con testo)
         let headerRowIndex = 0;
         let headers: string[] = [];
 
+        // Cerca l'header in modo più flessibile
         for (let i = 0; i < Math.min(15, rows.length); i++) {
           const row = rows[i] as any[];
           if (row && row.length > 2) {
             const rowText = row.join(' ').toLowerCase();
+            // Cerca parole chiave che indicano un header
             if (rowText.includes('calciatore') || rowText.includes('nome') ||
                 rowText.includes('giocatore') || rowText.includes('ruolo') ||
                 rowText.includes('squadra') || rowText.includes('quotazione') ||
@@ -221,6 +210,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           }
         }
 
+        // Se non trova un header chiaro, usa la prima riga non vuota
         if (headers.length === 0) {
           for (let i = 0; i < Math.min(5, rows.length); i++) {
             const row = rows[i] as any[];
@@ -233,6 +223,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           }
         }
 
+        // Trova le colonne
         const nameCol = findColumn(headers, ['calciatore', 'nome', 'giocatore', 'player', 'cognome']);
         const teamCol = findColumn(headers, ['squadra', 'sq', 'team', 'società', 'societa']);
         const roleCol = findColumn(headers, ['ruolo cl', 'ruolo classic', 'ruolo', 'role', 'rl']);
@@ -243,10 +234,13 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           return;
         }
 
+        // Se non troviamo la colonna del ruolo, proviamo a cercarla in modo più intelligente
         let effectiveRoleCol = roleCol;
         if (effectiveRoleCol === -1) {
+          // Cerca una colonna che contenga solo P, D, C, A
           for (let i = 0; i < headers.length; i++) {
             if (i === nameCol || i === teamCol || i === qiCol) continue;
+            // Controlla le prime 10 righe di dati
             let validRoles = 0;
             for (let j = headerRowIndex + 1; j < Math.min(headerRowIndex + 11, rows.length); j++) {
               const val = (rows[j] as any[])?.[i]?.toString().trim().toUpperCase();
@@ -254,6 +248,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
                 validRoles++;
               }
             }
+            // Se almeno il 50% delle righe ha un ruolo valido, è probabilmente la colonna del ruolo
             if (validRoles >= 5) {
               effectiveRoleCol = i;
               break;
@@ -286,6 +281,9 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           const role = effectiveRoleCol >= 0 ? normalizeRole(row[effectiveRoleCol]?.toString() || 'C') : 'C';
           const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
 
+          // Non filtrare per squadra - carica tutti i giocatori
+          // if (!team || !serieATeams.includes(team)) continue;
+
           const { name, surname } = splitName(fullName);
 
           players.push({
@@ -299,7 +297,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
             titolarita: estimateTitolarita(qi),
             forma: [6, 6, 6, 6, 6],
             inCasa: true,
-            avversario: 'ND',
+            avversario: serieATeams[0],
             difficoltaAvversario: 3,
             cleanSheetOdds: role === 'P' ? 0.35 : 0,
             isStarter: qi > 3,
@@ -333,6 +331,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
   });
 }
 
+// Importa da JSON
 export function importFromJSON(jsonContent: string): { players: Player[]; status: ListoneStatus } | null {
   try {
     const data = JSON.parse(jsonContent);
@@ -352,7 +351,7 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
       titolarita: item.titolarita || 70,
       forma: item.forma || [6, 6, 6, 6, 6],
       inCasa: item.inCasa ?? true,
-      avversario: item.avversario || 'ND',
+      avversario: item.avversario || serieATeams[0],
       difficoltaAvversario: item.difficoltaAvversario || 3,
       cleanSheetOdds: item.cleanSheetOdds || 0,
       isStarter: item.isStarter ?? true,
@@ -372,10 +371,12 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
   }
 }
 
+// Esporta i dati attuali in formato JSON
 export function exportToJSON(players: Player[]): string {
   return JSON.stringify(players, null, 2);
 }
 
+// Ottieni lo stato attuale dei dati
 export function getCurrentStatus(): ListoneStatus {
   const cached = loadFromCache();
   if (cached) {
@@ -390,15 +391,22 @@ export function getCurrentStatus(): ListoneStatus {
   };
 }
 
+// Ottieni i giocatori dalla cache o dal fallback
 export function getPlayers(): Player[] {
-  return getPlayersWithMatches();
+  const cached = loadFromCache();
+  if (cached && cached.players.length > 0) {
+    return cached.players;
+  }
+  return fallbackPlayers;
 }
 
+// Carica il listone (dalla cache o fallback)
 export function loadListone(): { players: Player[]; status: ListoneStatus } {
   const cached = loadFromCache();
   if (cached && cached.players.length > 0) {
     return { players: cached.players, status: cached.status };
   }
+  // Fallback ai dati hardcoded
   const fallbackStatus: ListoneStatus = {
     source: 'Listone Offline (hardcoded)',
     lastUpdated: null,
@@ -407,4 +415,27 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
     error: 'Nessun file caricato. Usa il listone hardcoded di esempio.',
   };
   return { players: fallbackPlayers, status: fallbackStatus };
+}
+
+// Aggiorna i giocatori con le avversarie corrette in base alla giornata
+export function updateAvversari(players: Player[], giornata: number): Player[] {
+  return players.map(player => {
+    const avversarioInfo = getAvversario(player.team, giornata);
+
+    if (avversarioInfo) {
+      return {
+        ...player,
+        avversario: avversarioInfo.avversario,
+        inCasa: avversarioInfo.inCasa,
+      };
+    }
+
+    return player;
+  });
+}
+
+// Ottieni i giocatori con avversarie aggiornate per una giornata specifica
+export function getPlayersWithAvversari(giornata: number): Player[] {
+  const players = getPlayers();
+  return updateAvversari(players, giornata);
 }
