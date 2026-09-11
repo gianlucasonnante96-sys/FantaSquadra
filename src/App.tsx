@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { AppStep, LeagueRules, Player } from './types';
 import { loadListone, ListoneStatus, getPlayers, getCurrentStatus } from './services/listoneService';
-import { initializeProbabiliFormazioni, applyProbabiliFormazioni } from './services/probabiliFormazioniService';
 import Setup from './components/Setup';
 import Roster from './components/Roster';
 import Dashboard from './components/Dashboard';
@@ -18,49 +17,89 @@ const defaultRules: LeagueRules = {
   rigoreSbagliato: -3,
 };
 
+// Chiavi localStorage
+const RULES_KEY = 'fantaconsiglio_rules';
+const ROSTER_KEY = 'fantaconsiglio_roster';
+const STEP_KEY = 'fantaconsiglio_step';
+
 export default function App() {
   const [step, setStep] = useState<AppStep>('setup');
   const [rules, setRules] = useState<LeagueRules>(defaultRules);
   const [roster, setRoster] = useState<Player[]>([]);
   const [availablePlayers, setAvailablePlayers] = useState<Player[]>([]);
   const [listoneStatus, setListoneStatus] = useState<ListoneStatus | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  // Carica il listone e inizializza le probabili formazioni all'avvio dell'app
+  // Carica configurazione, rosa e listone all'avvio
   useEffect(() => {
-    const initApp = async () => {
-      // Controlla se ci sono dati in cache
-      const cachedStatus = getCurrentStatus();
-      if (cachedStatus.playerCount > 0) {
-        // Usa la cache immediatamente
-        setAvailablePlayers(getPlayers());
-        setListoneStatus({ ...cachedStatus, isOnline: false });
-        setIsLoading(false);
-
-        // Inizializza le probabili formazioni in background
-        await initializeProbabiliFormazioni();
-
-        // Aggiorna i giocatori con le probabili formazioni
-        const updatedPlayers = applyProbabiliFormazioni(getPlayers());
-        setAvailablePlayers(updatedPlayers);
-      } else {
-        // Primo avvio: carica il listone
-        const { players, status } = await loadListone();
-        setAvailablePlayers(players);
-        setListoneStatus(status);
-        setIsLoading(false);
-
-        // Inizializza le probabili formazioni
-        await initializeProbabiliFormazioni();
-
-        // Aggiorna i giocatori con le probabili formazioni
-        const updatedPlayers = applyProbabiliFormazioni(players);
-        setAvailablePlayers(updatedPlayers);
+    // Carica configurazione salvata
+    try {
+      const savedRules = localStorage.getItem(RULES_KEY);
+      if (savedRules) {
+        setRules(JSON.parse(savedRules));
       }
-    };
+    } catch (e) {
+      console.error('Errore caricamento regole:', e);
+    }
 
-    initApp();
+    // Carica rosa salvata
+    try {
+      const savedRoster = localStorage.getItem(ROSTER_KEY);
+      if (savedRoster) {
+        setRoster(JSON.parse(savedRoster));
+      }
+    } catch (e) {
+      console.error('Errore caricamento rosa:', e);
+    }
+
+    // Carica step salvato
+    try {
+      const savedStep = localStorage.getItem(STEP_KEY) as AppStep | null;
+      if (savedStep && ['setup', 'roster', 'dashboard'].includes(savedStep)) {
+        setStep(savedStep);
+      }
+    } catch (e) {
+      console.error('Errore caricamento step:', e);
+    }
+
+    // Carica il listone
+    const { players, status } = loadListone();
+    setAvailablePlayers(players);
+    setListoneStatus(status);
   }, []);
+
+  // Salva configurazione quando cambia
+  useEffect(() => {
+    try {
+      localStorage.setItem(RULES_KEY, JSON.stringify(rules));
+    } catch (e) {
+      console.error('Errore salvataggio regole:', e);
+    }
+  }, [rules]);
+
+  // Salva rosa quando cambia
+  useEffect(() => {
+    try {
+      localStorage.setItem(ROSTER_KEY, JSON.stringify(roster));
+    } catch (e) {
+      console.error('Errore salvataggio rosa:', e);
+    }
+  }, [roster]);
+
+  // Salva step quando cambia
+  useEffect(() => {
+    try {
+      localStorage.setItem(STEP_KEY, step);
+    } catch (e) {
+      console.error('Errore salvataggio step:', e);
+    }
+  }, [step]);
+
+  // Funzione per ricaricare il listone (dopo importazione o eliminazione)
+  const reloadListone = () => {
+    const { players, status } = loadListone();
+    setAvailablePlayers(players);
+    setListoneStatus(status);
+  };
 
   const handleReset = () => {
     setStep('setup');
@@ -106,11 +145,7 @@ export default function App() {
             onBack={() => setStep('setup')}
             availablePlayers={availablePlayers}
             listoneStatus={listoneStatus}
-            onListoneChange={() => {
-              const { players, status } = loadListone();
-              setAvailablePlayers(players);
-              setListoneStatus(status);
-            }}
+            onListoneChange={reloadListone}
           />
         )}
         {step === 'dashboard' && (
