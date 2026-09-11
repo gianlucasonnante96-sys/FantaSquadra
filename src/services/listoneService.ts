@@ -57,14 +57,18 @@ function normalizeTeam(team: string): string {
   return TEAM_ALIASES[upper] || team.trim();
 }
 
+// ✅ FUNZIONE CORRETTA: Legge SOLO la colonna "R" (P, D, C, A)
 function normalizeRole(role: string): Role {
   if (!role) return 'C';
-  const r = role.toString().trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
-  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r === '1') return 'P';
-  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r === '2') return 'D';
-  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r === '4') return 'A';
-  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r === '3') return 'C';
-  return 'C';
+  const r = role.toString().trim().toUpperCase();
+  
+  // Legge solo i valori base: P, D, C, A
+  if (r === 'P') return 'P';
+  if (r === 'D') return 'D';
+  if (r === 'C') return 'C';
+  if (r === 'A') return 'A';
+  
+  return 'C'; // fallback
 }
 
 function estimateFantamedia(qi: number, role: Role): number {
@@ -95,7 +99,14 @@ function splitName(fullName: string): { name: string; surname: string } {
   return { name: parts[0], surname: parts.slice(1).join(' ') };
 }
 
-function findColumn(headers: string[], patterns: string[]): number {
+// ✅ FUNZIONE CORRETTA: Cerca la colonna "R" esatta (non "RM")
+function findColumn(headers: string[], exactMatch: string, patterns: string[]): number {
+  // Prima cerca match esatto
+  for (let i = 0; i < headers.length; i++) {
+    const h = (headers[i] || '').toString().toLowerCase().trim();
+    if (h === exactMatch.toLowerCase()) return i;
+  }
+  // Poi cerca pattern
   for (let i = 0; i < headers.length; i++) {
     const h = (headers[i] || '').toString().toLowerCase().trim();
     for (const pattern of patterns) {
@@ -115,56 +126,83 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
         const rows = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1 });
         
-        let headerRowIndex = 0;
+        // ✅ Trova l'header principale (prima occorrenza con "Id", "R", "RM", "Nome")
+        let headerRowIndex = -1;
         let headers: string[] = [];
-        for (let i = 0; i < Math.min(10, rows.length); i++) {
+        
+        for (let i = 0; i < Math.min(20, rows.length); i++) {
           const row = rows[i] as any[];
-          if (row && row.length > 3) {
-            const rowText = row.join(' ').toLowerCase();
-            if (rowText.includes('calciatore') || rowText.includes('nome') || rowText.includes('ruolo')) {
+          if (row && row.length > 5) {
+            const rowText = row.map(c => (c || '').toString().toLowerCase()).join(' ');
+            // Cerca la riga con "Id", "R", "Nome" (header principale)
+            if (rowText.includes('id') && rowText.includes('nome') && rowText.includes('squadra')) {
               headerRowIndex = i;
               headers = row.map(h => (h || '').toString());
               break;
             }
           }
         }
-        if (headers.length === 0) {
-          headers = (rows[0] as any[]).map(h => (h || '').toString());
-          headerRowIndex = 0;
+        
+        if (headerRowIndex === -1) {
+          reject(new Error('Header del file non trovato'));
+          return;
         }
         
-        const nameCol = findColumn(headers, ['calciatore', 'nome', 'giocatore']);
-        const teamCol = findColumn(headers, ['squadra', 'sq', 'team']);
-        const roleCol = findColumn(headers, ['ruolo', 'role', 'r.']);
-        const qiCol = findColumn(headers, ['quotazione', 'qi', 'prezzo']);
+        // ✅ Cerca le colonne corrette
+        const idCol = findColumn(headers, 'id', ['id']);
+        const roleCol = findColumn(headers, 'r', ['ruolo']); // Cerca "R" esatto
+        const nameCol = findColumn(headers, 'nome', ['nome', 'calciatore']);
+        const teamCol = findColumn(headers, 'squadra', ['squadra', 'team']);
+        const qiCol = findColumn(headers, 'qt.a', ['qt.a', 'quotazione']);
         
-        // 🔍 DEBUG: Stampiamo cosa vede il codice
-        console.log('🔍 DEBUG HEADERS:', headers);
-        console.log('🔍 DEBUG INDICI -> Nome:', nameCol, 'Squadra:', teamCol, 'Ruolo:', roleCol, 'Qi:', qiCol);
-        if (roleCol >= 0 && rows.length > headerRowIndex + 1) {
-          console.log('🔍 DEBUG ESEMPIO RUOLO RIGA 2:', rows[headerRowIndex + 1][roleCol]);
+        console.log(' DEBUG HEADERS:', headers);
+        console.log('🔍 DEBUG INDICI -> ID:', idCol, 'Ruolo(R):', roleCol, 'Nome:', nameCol, 'Squadra:', teamCol, 'Qt.A:', qiCol);
+        
+        if (nameCol === -1 || teamCol === -1) {
+          reject(new Error('Colonne "Nome" o "Squadra" non trovate'));
+          return;
         }
-
-        if (nameCol === -1) { reject(new Error('Colonna "Calciatore/Nome" non trovata')); return; }
         
+        // Carica gli avversari dall'API
         const fixtures = await fetchNextMatchday();
-        const rawPlayers: Player[] = [];
-        const qiValues: number[] = [];
         
-        for (const row of rows.slice(headerRowIndex + 1)) {
+        const rawPlayers: Player[] = [];
+        const seenIds = new Set<string>();
+        
+        for (let i = headerRowIndex + 1; i < rows.length; i++) {
+          const row = rows[i] as any[];
           if (!row || !Array.isArray(row)) continue;
+          
+          // ✅ Salta le righe di intestazione ripetute e separatori
+          const firstCell = (row[0] || '').toString().trim();
+          if (firstCell === '' || firstCell.includes('Quotazioni') || firstCell.includes('Portieri') || 
+              firstCell.includes('Difensori') || firstCell.includes('Centrocampisti') || 
+              firstCell.includes('Attaccanti') || firstCell.includes('Ceduti') ||
+              firstCell === '---') {
+            continue;
+          }
+          
           const nameRaw = row[nameCol];
           if (!nameRaw || nameRaw.toString().trim() === '') continue;
           
           const fullName = nameRaw.toString().trim();
           const team = teamCol >= 0 ? normalizeTeam(row[teamCol]?.toString() || '') : '';
           
-          // Se roleCol è -1, forza 'C', altrimenti legge il valore
+          // ✅ Legge SOLO la colonna "R" (P, D, C, A)
           const rawRole = roleCol >= 0 ? row[roleCol]?.toString() || '' : '';
           const role = normalizeRole(rawRole);
-          const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
           
+          const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
+          const playerId = idCol >= 0 ? row[idCol]?.toString() || '' : '';
+          
+          // Salta se la squadra non è in Serie A
           if (!team || !serieATeams.includes(team)) continue;
+          
+          // Evita duplicati
+          const uniqueId = playerId || `${name}_${team}`;
+          if (seenIds.has(uniqueId)) continue;
+          seenIds.add(uniqueId);
+          
           const { name, surname } = splitName(fullName);
           
           rawPlayers.push({
@@ -180,12 +218,18 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
             cleanSheetOdds: role === 'P' ? (qi > 15 ? 0.5 : 0.3) : 0,
             isStarter: qi > 5,
           });
-          qiValues.push(qi);
         }
         
-        if (rawPlayers.length === 0) { reject(new Error('Nessun giocatore trovato')); return; }
+        if (rawPlayers.length === 0) {
+          reject(new Error('Nessun giocatore trovato'));
+          return;
+        }
         
-        const players = rawPlayers.map((p, i) => applyMatchdayData(p, fixtures, qiValues[i]));
+        // Applica automaticamente avversari e titolarità
+        const players = rawPlayers.map((p, i) => {
+          const qi = rawPlayers[i].fantamedia * 3; // Stima Qi dalla fantamedia
+          return applyMatchdayData(p, fixtures, qi);
+        });
         
         resolve({ players, status: { source: 'File Excel', fileName: file.name, lastUpdated: new Date().toLocaleString('it-IT'), playerCount: players.length, isOnline: false, error: null } });
       } catch (err) { reject(new Error(`Errore parsing: ${err instanceof Error ? err.message : 'sconosciuto'}`)); }
