@@ -1,7 +1,4 @@
---- 2_OPTIMIZER.txt (原始)
 
-
-+++ 2_OPTIMIZER.txt (修改后)
 import { Player, LeagueRules, Formation, FormationSlot } from '../types';
 import { calculateExpectedScore, calculateModificatoreBonus } from './scoring';
 
