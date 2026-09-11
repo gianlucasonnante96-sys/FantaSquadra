@@ -1,3 +1,7 @@
+--- 2_OPTIMIZER.txt (原始)
+
+
++++ 2_OPTIMIZER.txt (修改后)
 import { Player, LeagueRules, Formation, FormationSlot } from '../types';
 import { calculateExpectedScore, calculateModificatoreBonus } from './scoring';
 
@@ -50,25 +54,25 @@ export function optimizeFormation(
   rules: LeagueRules
 ): { formations: Formation[]; best: Formation } {
   const allowedModules = MODULES.filter(m => rules.moduliConsentiti.includes(m.name));
-  
+
   // Calculate xS for all players
   const playersWithScore = roster.map(p => ({
     player: p,
     xS: calculateExpectedScore(p, rules),
   }));
-  
+
   const formations: Formation[] = [];
-  
+
   for (const module of allowedModules) {
     const slots: FormationSlot[] = [];
     const usedIds = new Set<string>();
     let totalScore = 0;
-    
+
     for (const pos of module.positions) {
       const available = playersWithScore
         .filter(ps => ps.player.role === pos.role && !usedIds.has(ps.player.id))
         .sort((a, b) => b.xS - a.xS);
-      
+
       const selected = available.slice(0, pos.count);
       for (const sel of selected) {
         usedIds.add(sel.player.id);
@@ -81,11 +85,12 @@ export function optimizeFormation(
         totalScore += sel.xS;
       }
     }
-    
+
     // Calculate modificatore bonus
     const defenders = slots.filter(s => s.player.role === 'D');
-    const modificatoreBonus = calculateModificatoreBonus(defenders, rules);
-    
+    const goalkeeper = slots.find(s => s.player.role === 'P') || null;
+    const modificatoreBonus = calculateModificatoreBonus(defenders, goalkeeper, rules);
+
     // Build bench from remaining players
     const bench: FormationSlot[] = [];
     const remaining = playersWithScore
@@ -96,13 +101,13 @@ export function optimizeFormation(
         const bScore = b.xS * 0.6 + (b.player.titolarita / 100) * 0.4;
         return bScore - aScore;
       });
-    
+
     // Bench order: P, D, C, A with high titolarità first
     const benchByRole = { P: [] as typeof remaining, D: [] as typeof remaining, C: [] as typeof remaining, A: [] as typeof remaining };
     for (const r of remaining) {
       benchByRole[r.player.role].push(r);
     }
-    
+
     for (const role of ['P', 'D', 'C', 'A'] as const) {
       for (const r of benchByRole[role]) {
         bench.push({
@@ -112,7 +117,7 @@ export function optimizeFormation(
         });
       }
     }
-    
+
     formations.push({
       modulo: module.name,
       slots,
@@ -122,10 +127,10 @@ export function optimizeFormation(
       explanation: generateExplanation(module.name, slots, modificatoreBonus, rules),
     });
   }
-  
+
   // Sort by total score
   formations.sort((a, b) => b.totalScore - a.totalScore);
-  
+
   return { formations, best: formations[0] };
 }
 
@@ -138,36 +143,36 @@ function generateExplanation(
   const defenders = slots.filter(s => s.player.role === 'D');
   const attackers = slots.filter(s => s.player.role === 'A');
   const midfielders = slots.filter(s => s.player.role === 'C');
-  
+
   let explanation = `Il modulo ${modulo} è stato selezionato come ottimale. `;
-  
+
   if (modificatoreBonus > 0) {
     explanation += `La difesa garantisce un bonus modificatore di +${modificatoreBonus} punti grazie alle prestazioni attese dei difensori. `;
   }
-  
+
   // Find best performer
   const bestPerformer = [...slots].sort((a, b) => b.expectedScore - a.expectedScore)[0];
   explanation += `Il giocatore con il punteggio atteso più alto è ${bestPerformer.player.name} ${bestPerformer.player.surname} (${bestPerformer.player.team}) con xS di ${bestPerformer.expectedScore.toFixed(2)}. `;
-  
+
   // Home advantage
   const homePlayers = slots.filter(s => s.player.inCasa);
   if (homePlayers.length > 6) {
     explanation += `La maggior parte della formazione gioca in casa, garantendo un vantaggio di rendimento. `;
   }
-  
+
   // Easy matches
   const easyMatches = slots.filter(s => s.player.difficoltaAvversario <= 2);
   if (easyMatches.length > 4) {
     explanation += `Ben ${easyMatches.length} titolari affrontano avversari con difficoltà bassa. `;
   }
-  
+
   if (rules.bonusImbattibilita !== 'off') {
     const gk = slots.find(s => s.player.role === 'P');
     if (gk && gk.player.cleanSheetOdds > 0.4) {
       explanation += `Il portiere ha buone probabilità di clean sheet (${(gk.player.cleanSheetOdds * 100).toFixed(0)}%).`;
     }
   }
-  
+
   return explanation;
 }
 
