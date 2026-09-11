@@ -59,11 +59,27 @@ function normalizeTeam(team: string): string {
 }
 
 function normalizeRole(role: string): Role {
-  const r = role.trim().toUpperCase();
-  if (r === 'P' || r === 'POR') return 'P';
-  if (r === 'D' || r === 'DIF') return 'D';
-  if (r === 'C' || r === 'CEN') return 'C';
-  if (r === 'A' || r === 'ATT') return 'A';
+  if (!role) return 'C';
+  const r = role.trim().toUpperCase().replace(/\./g, ''); // rimuove punti
+  
+  // Formato lettera singola o abbreviazione
+  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r === 'PORTIERI') return 'P';
+  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r === 'DIFENSORI') return 'D';
+  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r === 'CENTROCAMPISTI') return 'C';
+  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r === 'ATTACCANTI') return 'A';
+  
+  // Formato numerico (usato da alcuni listoni: 1=P, 2=D, 3=C, 4=A)
+  if (r === '1') return 'P';
+  if (r === '2') return 'D';
+  if (r === '3') return 'C';
+  if (r === '4') return 'A';
+  
+  // Fallback: cerca di indovinare dal contenuto
+  if (r.includes('PORT')) return 'P';
+  if (r.includes('DIF')) return 'D';
+  if (r.includes('ATT')) return 'A';
+  if (r.includes('CEN')) return 'C';
+  
   return 'C';
 }
 
@@ -135,7 +151,7 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         
         const nameCol = findColumn(headers, ['calciatore', 'nome', 'giocatore']);
         const teamCol = findColumn(headers, ['squadra', 'sq', 'team']);
-        const roleCol = findColumn(headers, ['ruolo', 'role']);
+        const roleCol = findColumn(headers, ['ruolo', 'role', 'r.', 'rol']);
         const qiCol = findColumn(headers, ['quotazione', 'qi', 'prezzo']);
         
         if (nameCol === -1) { reject(new Error('Colonna "Calciatore/Nome" non trovata')); return; }
