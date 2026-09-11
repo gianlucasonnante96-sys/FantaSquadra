@@ -1,0 +1,40 @@
+name: Aggiorna Probabili Formazioni
+
+on:
+  schedule:
+    # Ogni giorno alle 9:00 UTC (11:00 italiane)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Lanciabile a mano
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installa Puppeteer
+        run: npm install puppeteer
+
+      - name: Esegui lo scraper
+        run: node scripts/scraper.js
+
+      - name: Commit e push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/formazioni.json
+          if ! git diff --staged --quiet; then
+            git commit -m "🤖 Aggiorna probabili formazioni [skip ci]"
+            git push
+          else
+            echo "Nessun cambiamento da committare"
+          fi
