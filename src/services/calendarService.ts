@@ -1,7 +1,4 @@
---- 1_CALENDARSERVICE.txt (原始)
 
-
-+++ 1_CALENDARSERVICE.txt (修改后)
 import { Match, Matchday } from './listoneService';
 
 // Calendario completo Serie A 2026/27 - Aggiornato al 7 settembre 2026
