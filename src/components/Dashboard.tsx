@@ -1,7 +1,9 @@
+
 import { useMemo, useState } from 'react';
 import { Player, LeagueRules, Formation } from '../types';
 import { optimizeFormation } from '../utils/optimizer';
 import { getFormIndicator, getDifficultyLabel } from '../utils/scoring';
+import { getGiornataCorrente, setGiornataCorrente, getPlayersWithMatches } from '../services/listoneService';
 
 interface DashboardProps {
   roster: Player[];
@@ -13,12 +15,29 @@ interface DashboardProps {
 export default function Dashboard({ roster, rules, onBack, onReset }: DashboardProps) {
   const [selectedFormationIdx, setSelectedFormationIdx] = useState(0);
   const [showAllFormations, setShowAllFormations] = useState(false);
+  const [giornata, setGiornata] = useState(getGiornataCorrente());
+
+  // Applica il calendario automatico per ottenere le avversarie corrette
+  const rosterWithMatches = useMemo(() => {
+    return getPlayersWithMatches(giornata);
+  }, [giornata, roster]);
+
+  // Filtra solo i giocatori della rosa
+  const rosterIds = new Set(roster.map(p => p.id));
+  const filteredRoster = rosterWithMatches.filter(p => rosterIds.has(p.id));
 
   const { formations, best } = useMemo(() => {
-    return optimizeFormation(roster, rules);
-  }, [roster, rules]);
+    return optimizeFormation(filteredRoster, rules);
+  }, [filteredRoster, rules]);
 
   const currentFormation = formations[selectedFormationIdx] || best;
+
+  const handleGiornataChange = (newGiornata: number) => {
+    const g = Math.max(1, Math.min(38, newGiornata));
+    setGiornata(g);
+    setGiornataCorrente(g);
+    setSelectedFormationIdx(0);
+  };
 
   const getRoleColor = (role: string) => {
     switch (role) {
@@ -64,11 +83,46 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </button>
           <div className="text-center">
             <h1 className="text-2xl md:text-3xl font-bold text-white">Formazione Consigliata</h1>
-            <p className="text-emerald-300 text-sm">Giornata {Math.floor(Math.random() * 20) + 15} • Serie A 2025/26</p>
+            <p className="text-emerald-300 text-sm">Serie A 2026/27</p>
           </div>
           <button onClick={onReset} className="text-slate-400 hover:text-white transition-colors text-sm">
             🔄 Reset
           </button>
+        </div>
+
+        {/* Giornata Selector */}
+        <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
+          <div className="flex items-center justify-center gap-4">
+            <button
+              onClick={() => handleGiornataChange(giornata - 1)}
+              disabled={giornata <= 1}
+              className="px-4 py-2 bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+            >
+              ← Prec
+            </button>
+            <div className="flex items-center gap-3">
+              <span className="text-slate-400 text-sm">Giornata</span>
+              <input
+                type="number"
+                min="1"
+                max="38"
+                value={giornata}
+                onChange={(e) => handleGiornataChange(parseInt(e.target.value) || 1)}
+                className="w-20 px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-center font-bold text-lg"
+              />
+              <span className="text-slate-400 text-sm">di 38</span>
+            </div>
+            <button
+              onClick={() => handleGiornataChange(giornata + 1)}
+              disabled={giornata >= 38}
+              className="px-4 py-2 bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+            >
+              Succ →
+            </button>
+          </div>
+          <p className="text-center text-xs text-slate-500 mt-2">
+            Le avversarie vengono calcolate automaticamente dal calendario Serie A 2026/27
+          </p>
         </div>
 
         {/* AI Explanation Banner */}
@@ -204,7 +258,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             </h3>
             <span className="text-emerald-400">{showAllFormations ? '▲' : '▼'}</span>
           </button>
-          
+
           {showAllFormations && (
             <div className="p-4 border-t border-slate-700/50">
               <div className="space-y-3">
@@ -247,7 +301,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         {/* Algorithm Info */}
         <div className="bg-slate-800/40 rounded-xl border border-slate-700/30 p-4 text-center">
           <p className="text-slate-500 text-xs">
-            🤖 Punteggio calcolato con algoritmo Expected Score (xS) che combina Fantamedia, Media Voto, 
+            🤖 Punteggio calcolato con algoritmo Expected Score (xS) che combina Fantamedia, Media Voto,
             % Titolarità, Forma recente, Fattore Campo e Difficoltà Avversario.
           </p>
         </div>
@@ -283,17 +337,17 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
         </div>
         <div className="text-white font-medium text-sm truncate">{player.surname}</div>
         <div className="text-slate-400 text-xs truncate">{player.team}</div>
-        
+
         <div className="mt-2 flex items-center gap-2 text-[10px]">
           <span className={`${getFormColor(form)}`}>{getFormEmoji(form)} {form === 'hot' ? 'In forma' : form === 'warm' ? 'OK' : 'Freddo'}</span>
         </div>
-        
+
         <div className="mt-1 flex items-center gap-1">
           <span className={`text-[10px] ${getDifficultyColor(player.difficoltaAvversario)}`}>
-            vs {player.avversario} ({player.inCasa ? 'H' : 'T'})
+            {player.inCasa ? '🏠' : '✈️'} vs {player.avversario}
           </span>
         </div>
-        
+
         <div className="mt-1 flex items-center gap-2">
           <div className="flex-1 h-1 bg-slate-600 rounded-full overflow-hidden">
             <div
@@ -323,7 +377,7 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
           <div className="text-slate-500 text-xs">Expected Score</div>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-3 gap-2 text-center">
         <div className="bg-slate-800/50 rounded-lg p-2">
           <div className={`${getFormColor(form)} text-lg`}>{getFormEmoji(form)}</div>
@@ -340,10 +394,10 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
             {player.difficoltaAvversario <= 2 ? '🟢' : player.difficoltaAvversario <= 3 ? '🟡' : '🔴'}
           </div>
           <div className="text-slate-400 text-[10px]">Match</div>
-          <div className="text-white text-xs font-medium">{player.inCasa ? 'H' : 'T'} vs {player.avversario}</div>
+          <div className="text-white text-xs font-medium">{player.inCasa ? '🏠' : '✈️'} {player.avversario}</div>
         </div>
       </div>
-      
+
       {player.cleanSheetOdds > 0 && (
         <div className="mt-2 text-center text-xs text-slate-400">
           Clean Sheet: <span className="text-emerald-400 font-medium">{(player.cleanSheetOdds * 100).toFixed(0)}%</span>
