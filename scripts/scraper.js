@@ -1,6 +1,11 @@
-const puppeteer = require('puppeteer');
-const fs = require('fs');
-const path = require('path');
+// scripts/scraper.js
+import puppeteer from 'puppeteer';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function scrapeFormazioni() {
   console.log('🚀 Avvio browser headless...');
@@ -12,7 +17,6 @@ async function scrapeFormazioni() {
   
   const page = await browser.newPage();
   
-  // User-Agent realistico per evitare blocchi
   await page.setUserAgent(
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
     '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
@@ -24,10 +28,7 @@ async function scrapeFormazioni() {
     timeout: 60000
   });
   
-  // Aspetta che le formazioni siano renderizzate
   await page.waitForSelector('li.match.match-item', { timeout: 20000 });
-  
-  // Piccola pausa per far caricare tutte le immagini/dati
   await new Promise(r => setTimeout(r, 3000));
   
   console.log('🔍 Estrazione dati...');
@@ -35,54 +36,36 @@ async function scrapeFormazioni() {
   const formazioni = await page.evaluate(() => {
     const risultato = {};
     
-    // Itera su ogni partita
     document.querySelectorAll('li.match.match-item').forEach(matchEl => {
-      const matchId = matchEl.getAttribute('data-match-has'); // es. "VEN-FIO"
+      const matchId = matchEl.getAttribute('data-match-has');
       if (!matchId) return;
       
       const [casa, trasferta] = matchId.split('-');
       
       risultato[matchId] = {
-        casa: { sigla: casa, titolari: [], panchina: [] },
-        trasferta: { sigla: trasferta, titolari: [], panchina: [] }
+        casa: { sigla: casa, titolari: [] },
+        trasferta: { sigla: trasferta, titolari: [] }
       };
       
-      // Estrai squadra in casa
       const homeEl = matchEl.querySelector('.team-home');
       if (homeEl) {
-        risultato[matchId].casa.titolari = estraiGiocatori(homeEl, 'titolari');
-        risultato[matchId].casa.panchina = estraiGiocatori(homeEl, 'panchina');
+        risultato[matchId].casa.titolari = estraiGiocatori(homeEl);
       }
       
-      // Estrai squadra in trasferta
       const awayEl = matchEl.querySelector('.team-away') 
                   || matchEl.querySelectorAll('.team')[1];
       if (awayEl) {
-        risultato[matchId].trasferta.titolari = estraiGiocatori(awayEl, 'titolari');
-        risultato[matchId].trasferta.panchina = estraiGiocatori(awayEl, 'panchina');
+        risultato[matchId].trasferta.titolari = estraiGiocatori(awayEl);
       }
     });
     
-    // Funzione interna per estrarre i nomi dai giocatori
-    function estraiGiocatori(teamEl, tipo) {
+    function estraiGiocatori(teamEl) {
       const nomi = [];
-      // Prova vari selettori in base alla struttura osservata
-      const selettori = [
-        'ul.team-lineup li.player a.player-name span',
-        'ul.team-lineup li.player span',
-        '.player-name span'
-      ];
-      
-      for (const sel of selettori) {
-        const elementi = teamEl.querySelectorAll(sel);
-        if (elementi.length > 0) {
-          elementi.forEach(el => {
-            const nome = el.textContent.trim();
-            if (nome && !nomi.includes(nome)) nomi.push(nome);
-          });
-          break;
-        }
-      }
+      const elementi = teamEl.querySelectorAll('a.player-name span');
+      elementi.forEach(el => {
+        const nome = el.textContent.trim();
+        if (nome && !nomi.includes(nome)) nomi.push(nome);
+      });
       return nomi;
     }
     
@@ -91,14 +74,12 @@ async function scrapeFormazioni() {
   
   await browser.close();
   
-  // Prepara l'output
   const output = {
     aggiornato: new Date().toISOString(),
     fonte: 'fantacalcio.it',
     partite: formazioni
   };
   
-  // Salva il file
   const outputPath = path.join(__dirname, '..', 'src', 'data', 'formazioni.json');
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
