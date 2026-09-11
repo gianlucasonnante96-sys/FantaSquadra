@@ -11,7 +11,7 @@ export interface Fixture {
 }
 
 export async function fetchNextMatchday(): Promise<Fixture[]> {
-  if (!API_KEY || API_KEY === 'LA_TUA_API_KEY_QUI') {
+  if (!API_KEY || API_KEY === '50edc6a6c8f2202be5440038d7924652') {
     console.warn('API key non configurata. Usa dati di fallback.');
     return getFallbackFixtures();
   }
