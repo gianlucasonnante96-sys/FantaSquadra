@@ -57,23 +57,13 @@ function normalizeTeam(team: string): string {
   return TEAM_ALIASES[upper] || team.trim();
 }
 
-// ✅ FUNZIONE CORRETTA: Gestisce TUTTI i formati di ruolo
 function normalizeRole(role: string): Role {
   if (!role) return 'C';
-  const r = role.trim().toUpperCase().replace(/\./g, '').replace(/\s+/g, '');
-  
-  // Formato lettera
-  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r === 'PORTIERI' || r === '1') return 'P';
-  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r === 'DIFENSORI' || r === '2') return 'D';
-  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r === 'CENTROCAMPISTI' || r === '3') return 'C';
-  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r === 'ATTACCANTI' || r === '4') return 'A';
-  
-  // Fallback intelligente
-  if (r.includes('PORT')) return 'P';
-  if (r.includes('DIF')) return 'D';
-  if (r.includes('ATT')) return 'A';
-  if (r.includes('CEN')) return 'C';
-  
+  const r = role.toString().trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r === '1') return 'P';
+  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r === '2') return 'D';
+  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r === '4') return 'A';
+  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r === '3') return 'C';
   return 'C';
 }
 
@@ -148,11 +138,16 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         const roleCol = findColumn(headers, ['ruolo', 'role', 'r.']);
         const qiCol = findColumn(headers, ['quotazione', 'qi', 'prezzo']);
         
+        // 🔍 DEBUG: Stampiamo cosa vede il codice
+        console.log('🔍 DEBUG HEADERS:', headers);
+        console.log('🔍 DEBUG INDICI -> Nome:', nameCol, 'Squadra:', teamCol, 'Ruolo:', roleCol, 'Qi:', qiCol);
+        if (roleCol >= 0 && rows.length > headerRowIndex + 1) {
+          console.log('🔍 DEBUG ESEMPIO RUOLO RIGA 2:', rows[headerRowIndex + 1][roleCol]);
+        }
+
         if (nameCol === -1) { reject(new Error('Colonna "Calciatore/Nome" non trovata')); return; }
         
-        // ✅ CARICA GLI AVVERSARI DALL'API
         const fixtures = await fetchNextMatchday();
-        
         const rawPlayers: Player[] = [];
         const qiValues: number[] = [];
         
@@ -163,7 +158,10 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
           
           const fullName = nameRaw.toString().trim();
           const team = teamCol >= 0 ? normalizeTeam(row[teamCol]?.toString() || '') : '';
-          const role = roleCol >= 0 ? normalizeRole(row[roleCol]?.toString() || '') : 'C';
+          
+          // Se roleCol è -1, forza 'C', altrimenti legge il valore
+          const rawRole = roleCol >= 0 ? row[roleCol]?.toString() || '' : '';
+          const role = normalizeRole(rawRole);
           const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
           
           if (!team || !serieATeams.includes(team)) continue;
@@ -177,7 +175,7 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
             titolarita: estimateTitolarita(qi),
             forma: [6, 6, 6, 6, 6],
             inCasa: true,
-            avversario: 'Da definire', // ✅ NON PIÙ ATALANTA!
+            avversario: 'Da definire',
             difficoltaAvversario: 3,
             cleanSheetOdds: role === 'P' ? (qi > 15 ? 0.5 : 0.3) : 0,
             isStarter: qi > 5,
@@ -187,7 +185,6 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         
         if (rawPlayers.length === 0) { reject(new Error('Nessun giocatore trovato')); return; }
         
-        // ✅ APPLICA AUTOMATICAMENTE GLI AVVERSARI REALI
         const players = rawPlayers.map((p, i) => applyMatchdayData(p, fixtures, qiValues[i]));
         
         resolve({ players, status: { source: 'File Excel', fileName: file.name, lastUpdated: new Date().toLocaleString('it-IT'), playerCount: players.length, isOnline: false, error: null } });
@@ -214,16 +211,13 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
       titolarita: item.titolarita || 70,
       forma: item.forma || [6, 6, 6, 6, 6],
       inCasa: item.inCasa ?? (Math.random() > 0.5),
-      avversario: item.avversario || 'Da definire', // ✅ NON PIÙ ATALANTA!
+      avversario: item.avversario || 'Da definire',
       difficoltaAvversario: item.difficoltaAvversario || 3,
       cleanSheetOdds: item.cleanSheetOdds || 0,
       isStarter: item.isStarter ?? true,
     }));
 
-    return {
-      players,
-      status: { source: 'Importazione JSON', lastUpdated: new Date().toLocaleDateString(), playerCount: players.length, isOnline: false, error: null }
-    };
+    return { players, status: { source: 'Importazione JSON', lastUpdated: new Date().toLocaleDateString(), playerCount: players.length, isOnline: false, error: null } };
   } catch {
     return null;
   }
@@ -235,24 +229,12 @@ export function exportToJSON(players: Player[]): string {
 
 export function getCurrentStatus(): ListoneStatus {
   const cached = loadFromCache();
-  if (cached) {
-    return cached.status;
-  }
-  return {
-    source: 'Nessun listone caricato',
-    lastUpdated: null,
-    playerCount: 0,
-    isOnline: false,
-    error: null,
-  };
+  return cached ? cached.status : { source: 'Nessun listone', lastUpdated: null, playerCount: 0, isOnline: false, error: null };
 }
 
 export function getPlayers(): Player[] {
   const cached = loadFromCache();
-  if (cached && cached.players.length > 0) {
-    return cached.players;
-  }
-  return fallbackPlayers;
+  return (cached && cached.players.length > 0) ? cached.players : fallbackPlayers;
 }
 
 export function loadListone(): { players: Player[]; status: ListoneStatus } {
@@ -260,12 +242,5 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
   if (cached && cached.players.length > 0) {
     return { players: cached.players, status: cached.status };
   }
-  const fallbackStatus: ListoneStatus = {
-    source: 'Listone Offline (hardcoded)',
-    lastUpdated: null,
-    playerCount: fallbackPlayers.length,
-    isOnline: false,
-    error: 'Nessun file caricato. Usa il listone hardcoded di esempio.',
-  };
-  return { players: fallbackPlayers, status: fallbackStatus };
+  return { players: fallbackPlayers, status: { source: 'Listone Offline', lastUpdated: null, playerCount: fallbackPlayers.length, isOnline: false, error: 'Nessun file caricato.' } };
 }
