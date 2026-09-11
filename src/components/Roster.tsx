@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Player, Role } from '../types';
 import { ListoneStatus, importFromJSON, exportToJSON, parseExcelFile, saveToCache, clearCache } from '../services/listoneService';
 
@@ -28,6 +29,8 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   const [showUpload, setShowUpload] = useState(false);
   const [importError, setImportError] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [searchMenuPosition, setSearchMenuPosition] = useState({ top: 0, left: 0, width: 0 });
 
   const rosterByRole = useMemo(() => {
     const grouped: Record<Role, Player[]> = { P: [], D: [], C: [], A: [] };
@@ -65,6 +68,25 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   );
 
   const hasMinimumPlayers = localRoster.length >= 11; // Almeno 11 per fare una formazione
+
+  useEffect(() => {
+    if (!searchInputRef.current || searchResults.length === 0) return;
+
+    const updateSearchMenuPosition = () => {
+      const rect = searchInputRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      setSearchMenuPosition({ top: rect.bottom + 8, left: rect.left, width: rect.width });
+    };
+
+    updateSearchMenuPosition();
+    window.addEventListener('resize', updateSearchMenuPosition);
+    window.addEventListener('scroll', updateSearchMenuPosition, true);
+
+    return () => {
+      window.removeEventListener('resize', updateSearchMenuPosition);
+      window.removeEventListener('scroll', updateSearchMenuPosition, true);
+    };
+  }, [searchResults.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8">
@@ -234,6 +256,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
         <div className="relative z-[9999] bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
           <div className="relative">
             <input
+              ref={searchInputRef}
               type="text"
               placeholder="🔍 Cerca giocatore (nome, cognome, squadra)..."
               value={searchTerm}
@@ -241,28 +264,34 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
               className="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition-colors"
             />
             {searchResults.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-slate-700 border border-slate-600 rounded-xl shadow-xl z-[10000] max-h-64 overflow-y-auto">
-                {searchResults.map(player => (
-                  <button
-                    key={player.id}
-                    onClick={() => addPlayer(player)}
-                    className="w-full px-4 py-3 text-left hover:bg-slate-600/50 transition-colors flex items-center justify-between border-b border-slate-600/50 last:border-0"
-                  >
-                    <div>
-                      <span className="text-white font-medium">{player.name} {player.surname}</span>
-                      <span className="text-slate-400 text-sm ml-2">({player.team})</span>
-                    </div>
-                    <span className={`px-2 py-0.5 rounded text-xs font-medium ${
-                      player.role === 'P' ? 'bg-yellow-500/20 text-yellow-400' :
-                      player.role === 'D' ? 'bg-blue-500/20 text-blue-400' :
-                      player.role === 'C' ? 'bg-green-500/20 text-green-400' :
-                      'bg-red-500/20 text-red-400'
-                    }`}>
-                      {player.role}
-                    </span>
-                  </button>
-                ))}
-              </div>
+              createPortal(
+                <div
+                  className="fixed bg-slate-700 border border-slate-600 rounded-xl shadow-xl z-[99999] max-h-64 overflow-y-auto"
+                  style={{ top: searchMenuPosition.top, left: searchMenuPosition.left, width: searchMenuPosition.width }}
+                >
+                  {searchResults.map(player => (
+                    <button
+                      key={player.id}
+                      onClick={() => addPlayer(player)}
+                      className="w-full px-4 py-3 text-left hover:bg-slate-600/50 transition-colors flex items-center justify-between border-b border-slate-600/50 last:border-0"
+                    >
+                      <div>
+                        <span className="text-white font-medium">{player.name} {player.surname}</span>
+                        <span className="text-slate-400 text-sm ml-2">({player.team})</span>
+                      </div>
+                      <span className={`px-2 py-0.5 rounded text-xs font-medium ${
+                        player.role === 'P' ? 'bg-yellow-500/20 text-yellow-400' :
+                        player.role === 'D' ? 'bg-blue-500/20 text-blue-400' :
+                        player.role === 'C' ? 'bg-green-500/20 text-green-400' :
+                        'bg-red-500/20 text-red-400'
+                      }`}>
+                        {player.role}
+                      </span>
+                    </button>
+                  ))}
+                </div>,
+                document.body
+              )
             )}
           </div>
         </div>
