@@ -32,7 +32,8 @@ interface CachedData {
   timestamp: number;
 }
 
-const CACHE_KEY = 'fantaconsiglio_listone_cache';
+// FIX: Ripristinato il vecchio CACHE_KEY per compatibilità con i dati già salvati
+const CACHE_KEY = 'fanta_listone_cache';
 
 function loadFromCache(): CachedData | null {
   try {
@@ -75,6 +76,14 @@ function estimateFantamedia(qi: number, role: Role): number {
 
 function estimateMediaVoto(qi: number): number {
   return Math.min(5.5 + qi * 0.04, 7.2);
+}
+
+function estimateTitolarita(qi: number): number {
+  if (qi >= 20) return 95;
+  if (qi >= 10) return 85;
+  if (qi >= 5) return 70;
+  if (qi >= 2) return 50;
+  return 30;
 }
 
 function splitName(fullName: string): { name: string; surname: string } {
@@ -131,7 +140,7 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         
         if (nameCol === -1) { reject(new Error('Colonna "Calciatore/Nome" non trovata')); return; }
         
-        // 🔥 CARICA GLI AVVERSARI DALL'API GRATUITA
+        // Carica gli avversari dall'API
         const fixtures = await fetchNextMatchday();
         
         const rawPlayers: Player[] = [];
@@ -153,7 +162,7 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
             name, surname, team, role,
             fantamedia: estimateFantamedia(qi, role),
             mediaVoto: estimateMediaVoto(qi),
-            titolarita: 70, // Verrà sovrascritto dall'algoritmo
+            titolarita: estimateTitolarita(qi),
             forma: [6, 6, 6, 6, 6],
             inCasa: Math.random() > 0.5,
             avversario: 'Da definire',
@@ -165,8 +174,12 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         
         if (rawPlayers.length === 0) { reject(new Error('Nessun giocatore trovato')); return; }
         
-        // 🔥 APPLICA AUTOMATICAMENTE AVVERSARI E TITOLARITÀ INTELLIGENTE
-        const players = rawPlayers.map(p => applyMatchdayData(p, fixtures, qiCol >= 0 ? (parseFloat(rows[headerRowIndex + 1][qiCol]) || 1) : 1));
+        // Applica automaticamente avversari e titolarità
+        const players = rawPlayers.map(p => {
+          const qi = rawPlayers.find(r => r.id === p.id);
+          const qiValue = qi ? (parseFloat(qi.fantamedia.toString()) * 3) : 1;
+          return applyMatchdayData(p, fixtures, qiValue);
+        });
         
         resolve({ players, status: { source: 'File Excel', fileName: file.name, lastUpdated: new Date().toLocaleString('it-IT'), playerCount: players.length, isOnline: false, error: null } });
       } catch (err) { reject(new Error(`Errore parsing: ${err instanceof Error ? err.message : 'sconosciuto'}`)); }
@@ -211,9 +224,27 @@ export function exportToJSON(players: Player[]): string {
   return JSON.stringify(players, null, 2);
 }
 
+// FIX: Ripristinate tutte le funzioni necessarie
+export function getCurrentStatus(): ListoneStatus {
+  const cached = loadFromCache();
+  if (cached) {
+    return cached.status;
+  }
+  return {
+    source: 'Nessun listone caricato',
+    lastUpdated: null,
+    playerCount: 0,
+    isOnline: false,
+    error: null,
+  };
+}
+
 export function getPlayers(): Player[] {
   const cached = loadFromCache();
-  return (cached && cached.players.length > 0) ? cached.players : fallbackPlayers;
+  if (cached && cached.players.length > 0) {
+    return cached.players;
+  }
+  return fallbackPlayers;
 }
 
 export function loadListone(): { players: Player[]; status: ListoneStatus } {
@@ -221,5 +252,12 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
   if (cached && cached.players.length > 0) {
     return { players: cached.players, status: cached.status };
   }
-  return { players: fallbackPlayers, status: { source: 'Listone Offline', lastUpdated: null, playerCount: fallbackPlayers.length, isOnline: false, error: 'Nessun file caricato.' } };
+  const fallbackStatus: ListoneStatus = {
+    source: 'Listone Offline (hardcoded)',
+    lastUpdated: null,
+    playerCount: fallbackPlayers.length,
+    isOnline: false,
+    error: 'Nessun file caricato. Usa il listone hardcoded di esempio.',
+  };
+  return { players: fallbackPlayers, status: fallbackStatus };
 }
