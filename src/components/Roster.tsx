@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from 'react';
 import { Player, Role } from '../types';
 import { ListoneStatus, importFromJSON, exportToJSON, parseExcelFile, saveToCache, clearCache } from '../services/listoneService';
@@ -31,32 +30,55 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   const [importError, setImportError] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
+  // 🔒 SAFE: raggruppa per ruolo con controlli
   const rosterByRole = useMemo(() => {
     const grouped: Record<Role, Player[]> = { P: [], D: [], C: [], A: [] };
-    localRoster.forEach(p => grouped[p.role].push(p));
+    if (!Array.isArray(localRoster)) return grouped;
+    
+    localRoster.forEach(p => {
+      if (!p || !p.role) return;
+      if (grouped[p.role]) {
+        grouped[p.role].push(p);
+      }
+    });
     return grouped;
   }, [localRoster]);
 
+  // 🔒 SAFE: ricerca con controlli su tutti i campi
   const searchResults = useMemo(() => {
     if (!searchTerm || searchTerm.length < 2) return [];
-    const rosterIds = new Set(localRoster.map((p: Player) => p.id));
+    if (!Array.isArray(availablePlayers)) return [];
+    
+    const rosterIds = new Set(
+      (localRoster || [])
+        .filter((p) => p && p.id)
+        .map((p: Player) => p.id)
+    );
+    
+    const searchLower = searchTerm.toLowerCase().trim();
+    if (!searchLower) return [];
+    
     return availablePlayers
       .filter((p: Player) => {
-        const matchesSearch = `${p.name} ${p.surname} ${p.team}`.toLowerCase().includes(searchTerm.toLowerCase());
+        if (!p) return false;
+        const haystack = `${p.name || ''} ${p.surname || ''} ${p.team || ''}`.toLowerCase();
+        const matchesSearch = haystack.includes(searchLower);
         return matchesSearch && !rosterIds.has(p.id);
       })
       .slice(0, 10);
   }, [searchTerm, localRoster, availablePlayers]);
 
   const addPlayer = (player: Player) => {
+    if (!player) return;
     setLocalRoster(prev => [...prev, player]);
     setSearchTerm('');
   };
 
   const addPlayers = (players: Player[]) => {
+    if (!Array.isArray(players)) return;
     setLocalRoster(prev => {
       const existingIds = new Set(prev.map(p => p.id));
-      const newPlayers = players.filter(p => !existingIds.has(p.id));
+      const newPlayers = players.filter(p => p && !existingIds.has(p.id));
       return [...prev, ...newPlayers];
     });
   };
@@ -74,7 +96,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
     ([role, players]) => players.length >= roleCounts[role as Role]
   );
 
-  const hasMinimumPlayers = localRoster.length >= 11; // Almeno 11 per fare una formazione
+  const hasMinimumPlayers = localRoster.length >= 11;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8">
@@ -113,7 +135,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
 
           {showUpload && (
             <div className="mt-4 space-y-4">
-              {/* Status Info */}
               <div className="bg-slate-700/50 rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
@@ -132,7 +153,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                 )}
               </div>
 
-              {/* File Upload (Excel/JSON) */}
               <div className="border-t border-slate-700 pt-4">
                 <p className="text-sm text-slate-300 mb-3">
                   📥 Carica un nuovo listone (il file verrà salvato e utilizzato dall'IA):
@@ -162,7 +182,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                         const ext = file.name.split('.').pop()?.toLowerCase();
 
                         if (ext === 'json') {
-                          // JSON
                           const text = await file.text();
                           const result = importFromJSON(text);
                           if (result) {
@@ -172,7 +191,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                             setImportError('File JSON non valido. Controlla il formato.');
                           }
                         } else {
-                          // Excel/CSV
                           const result = await parseExcelFile(file);
                           saveToCache(result.players, { ...result.status, fileName: file.name });
                           onListoneChange();
@@ -181,7 +199,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                         setImportError(err instanceof Error ? err.message : 'Errore nel caricamento del file');
                       } finally {
                         setIsProcessing(false);
-                        // Reset the input so the same file can be re-selected
                         e.target.value = '';
                       }
                     }}
@@ -200,7 +217,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                 )}
               </div>
 
-              {/* Delete & Export */}
               <div className="border-t border-slate-700 pt-4 flex flex-wrap gap-2">
                 <button
                   onClick={() => {
@@ -230,7 +246,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                 </button>
               </div>
 
-              {/* Info box */}
               <div className="bg-slate-700/30 rounded-lg p-3 text-xs text-slate-400">
                 <p className="font-medium text-slate-300 mb-1">💡 Formato file Excel supportato:</p>
                 <p>Il file deve contenere colonne per: <strong>Calciatore</strong> (nome), <strong>Squadra</strong>, <strong>Ruolo</strong> (P/D/C/A), <strong>Quotazione</strong>.</p>
@@ -247,9 +262,10 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
           onAggiungiGiocatori={addPlayers}
         />
 
-          {/* Search */}
-          <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6 relative z-40">
-            <div className="relative">            <input
+        {/* Search */}
+        <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6 relative z-40">
+          <div className="relative">
+            <input
               type="text"
               placeholder="🔍 Cerca giocatore (nome, cognome, squadra)..."
               value={searchTerm}
@@ -389,7 +405,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
             </div>
           </div>
 
-          {/* Role breakdown */}
           <div className="flex gap-3 mb-3 text-xs">
             <span className="text-yellow-400">P: {rosterByRole.P.length}/3</span>
             <span className="text-blue-400">D: {rosterByRole.D.length}/8</span>
@@ -397,7 +412,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
             <span className="text-red-400">A: {rosterByRole.A.length}/6</span>
           </div>
 
-          {/* Progress bar */}
           <div className="w-full h-2 bg-slate-700 rounded-full mb-4 overflow-hidden">
             <div
               className={`h-full rounded-full transition-all duration-500 ${
