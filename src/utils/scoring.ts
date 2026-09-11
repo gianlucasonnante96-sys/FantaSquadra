@@ -2,55 +2,62 @@ import { Player, LeagueRules, FormationSlot } from '../types';
 import { isProbabileTitolare, getLivelloTitolarita } from './titolarita';
 
 /**
- * 🆕 Calcola un fattore di titolarità "arricchito" che combina:
+ * Calcola un fattore di titolarità "arricchito" che combina:
  * - La titolarità dichiarata (0-100) dal dataset interno
  * - La probabile formazione da Fantacalcio.it
- *
- * Logica:
- * - Se il giocatore è NELLE probabili formazioni → boost fino a +15%
- * - Se NON è nelle probabili formazioni ma ha titolarità >50 → penalità -20%
- * - Altrimenti → lascia invariato
  */
 function calcolaFattoreTitolaritaArricchito(player: Player): number {
-  const baseTitolarita = player.titolarita / 100; // da 0 a 1
-  const probabile = isProbabileTitolare(player.nome);
+  // 🔒 SAFE: se player non ha nome o surname, ritorna valore neutro
+  if (!player || (!player.name && !player.surname)) return 0.5;
+  
+  const baseTitolarita = (player.titolarita ?? 50) / 100;
+  
+  // 🔒 FIX: uso `player.name` (non `player.nome`) e passo nome completo
+  const nomeCompleto = `${player.name || ''} ${player.surname || ''}`.trim();
+  if (!nomeCompleto) return baseTitolarita;
+  
+  const probabile = isProbabileTitolare(nomeCompleto);
   
   if (probabile) {
-    // È nei titolari probabili → spingi verso l'alto
     return Math.min(1.0, baseTitolarita + 0.15);
   } else {
-    // NON è nei titolari probabili
     if (baseTitolarita > 0.5) {
-      // Il dataset interno dice che è titolare, ma Fantacalcio no
-      // → riduci l'affidabilità (probabile ballottaggio o panchina)
       return Math.max(0.1, baseTitolarita - 0.2);
     }
-    // Già bassa, lascia com'è
     return baseTitolarita;
   }
 }
 
 export function calculateExpectedScore(player: Player, rules: LeagueRules): number {
-  // Base: Fantamedia (peso principale)
-  let votoPrevisto = player.fantamedia * 0.5;
+  // 🔒 SAFE: se player è undefined, ritorna un valore di default
+  if (!player) return 6;
 
-  // Media voto (peso significativo)
-  votoPrevisto += player.mediaVoto * 0.3;
+  // 🔒 SAFE: garantisci che forma sia un array di 5 numeri
+  const forma = Array.isArray(player.forma) && player.forma.length >= 5
+    ? player.forma
+    : [6, 6, 6, 6, 6];
 
-  // 🆕 Fattore titolarità ARRICCHITO con probabili formazioni
+  // Base: Fantamedia
+  let votoPrevisto = (player.fantamedia ?? 5) * 0.5;
+
+  // Media voto
+  votoPrevisto += (player.mediaVoto ?? 6) * 0.3;
+
+  // Fattore titolarità arricchito
   const titularFactor = calcolaFattoreTitolaritaArricchito(player);
   votoPrevisto *= (0.6 + 0.4 * titularFactor);
 
-  // 🆕 PENALITÀ EXTRA se il giocatore è chiaramente NON titolare
-  const livello = getLivelloTitolarita(player.nome);
-  if (livello === 'incerto' && player.titolarita < 30) {
-    // Giocatore con bassa titolarità E non nelle probabili formazioni
-    // → molto probabilmente in panchina
-    votoPrevisto -= 0.5;
+  // Penalità extra se non titolare
+  const nomeCompleto = `${player.name || ''} ${player.surname || ''}`.trim();
+  if (nomeCompleto) {
+    const livello = getLivelloTitolarita(nomeCompleto);
+    if (livello === 'incerto' && (player.titolarita ?? 50) < 30) {
+      votoPrevisto -= 0.5;
+    }
   }
 
-  // Fattore forma recente (ULTIME 5 PARTITE - peso aumentato)
-  const formAvg = player.forma.reduce((a, b) => a + b, 0) / player.forma.length;
+  // Forma recente (usa `forma` sicuro)
+  const formAvg = forma.reduce((a, b) => a + (b || 6), 0) / forma.length;
   const formDeviation = formAvg - 6;
 
   if (formDeviation > 0) {
@@ -60,18 +67,19 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   }
 
   // Tendenza recente
-  const recentForm = (player.forma[3] + player.forma[4]) / 2;
+  const recentForm = ((forma[3] || 6) + (forma[4] || 6)) / 2;
   const recentDeviation = recentForm - formAvg;
   votoPrevisto += recentDeviation * 0.3;
 
-  // Fattore casa/trasferta
+  // Casa/trasferta
   if (player.inCasa) {
     votoPrevisto += 0.4;
   } else {
     votoPrevisto -= 0.3;
   }
 
-  // Impatto avversario
+  // Difficoltà avversario
+  const difficulty = player.difficoltaAvversario ?? 3;
   const difficultyMap: Record<number, number> = {
     1: 1.5,
     2: 0.8,
@@ -79,105 +87,106 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     4: -0.8,
     5: -1.5,
   };
-  const difficultyBonus = difficultyMap[player.difficoltaAvversario] || 0;
-  votoPrevisto += difficultyBonus;
+  votoPrevisto += difficultyMap[difficulty] || 0;
 
-  // ===== BONUS SPECIFICI PER RUOLO =====
+  // ===== BONUS PER RUOLO =====
 
   // PORTIERI
   if (player.role === 'P') {
-    const cleanSheetProbability = player.difficoltaAvversario <= 2 ? 0.7 :
-                                   player.difficoltaAvversario <= 3 ? 0.5 :
-                                   player.difficoltaAvversario <= 4 ? 0.3 : 0.15;
+    const cleanSheetProbability = difficulty <= 2 ? 0.7 :
+                                   difficulty <= 3 ? 0.5 :
+                                   difficulty <= 4 ? 0.3 : 0.15;
 
     if (rules.bonusImbattibilita !== 'off') {
       const bonusValue = rules.bonusImbattibilita === '1' ? 1 : 0.5;
       votoPrevisto += cleanSheetProbability * bonusValue * 0.8;
     }
 
-    if (player.difficoltaAvversario >= 4) {
+    if (difficulty >= 4) {
       votoPrevisto += 0.3;
     }
   }
 
   // DIFENSORI
   if (player.role === 'D') {
-    const cleanSheetProbability = player.difficoltaAvversario <= 2 ? 0.6 :
-                                   player.difficoltaAvversario <= 3 ? 0.4 :
-                                   player.difficoltaAvversario <= 4 ? 0.25 : 0.1;
+    const cleanSheetProbability = difficulty <= 2 ? 0.6 :
+                                   difficulty <= 3 ? 0.4 :
+                                   difficulty <= 4 ? 0.25 : 0.1;
 
     if (rules.modificatoreDifesa !== 'off') {
       votoPrevisto += cleanSheetProbability * 0.4;
     }
 
-    if (player.difficoltaAvversario <= 2) {
+    if (difficulty <= 2) {
       votoPrevisto += 0.3;
     }
 
-    if (player.difficoltaAvversario >= 4) {
+    if (difficulty >= 4) {
       votoPrevisto -= 0.2;
     }
   }
 
   // CENTROCAMPISTI
   if (player.role === 'C') {
-    const goalProbability = player.difficoltaAvversario <= 2 ? 0.5 :
-                            player.difficoltaAvversario <= 3 ? 0.3 :
-                            player.difficoltaAvversario <= 4 ? 0.15 : 0.05;
+    const goalProbability = difficulty <= 2 ? 0.5 :
+                            difficulty <= 3 ? 0.3 :
+                            difficulty <= 4 ? 0.15 : 0.05;
 
     votoPrevisto += goalProbability * 1.2;
 
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
-      const assistProbability = player.difficoltaAvversario <= 2 ? 0.6 :
-                                player.difficoltaAvversario <= 3 ? 0.4 :
-                                player.difficoltaAvversario <= 4 ? 0.25 : 0.1;
+      const assistProbability = difficulty <= 2 ? 0.6 :
+                                difficulty <= 3 ? 0.4 :
+                                difficulty <= 4 ? 0.25 : 0.1;
       votoPrevisto += assistProbability * assistValue * 0.5;
     }
 
-    if (player.inCasa && player.difficoltaAvversario <= 3) {
+    if (player.inCasa && difficulty <= 3) {
       votoPrevisto += 0.2;
     }
   }
 
   // ATTACCANTI
   if (player.role === 'A') {
-    const goalProbability = player.difficoltaAvversario === 1 ? 0.8 :
-                            player.difficoltaAvversario === 2 ? 0.6 :
-                            player.difficoltaAvversario === 3 ? 0.4 :
-                            player.difficoltaAvversario === 4 ? 0.2 : 0.1;
+    const goalProbability = difficulty === 1 ? 0.8 :
+                            difficulty === 2 ? 0.6 :
+                            difficulty === 3 ? 0.4 :
+                            difficulty === 4 ? 0.2 : 0.1;
 
     votoPrevisto += goalProbability * 1.5;
 
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
-      const assistProbability = player.difficoltaAvversario <= 2 ? 0.5 :
-                                player.difficoltaAvversario <= 3 ? 0.35 :
-                                player.difficoltaAvversario <= 4 ? 0.2 : 0.1;
+      const assistProbability = difficulty <= 2 ? 0.5 :
+                                difficulty <= 3 ? 0.35 :
+                                difficulty <= 4 ? 0.2 : 0.1;
       votoPrevisto += assistProbability * assistValue * 0.6;
     }
 
-    const rigoreProbability = player.difficoltaAvversario <= 3 ? 0.15 : 0.08;
+    const rigoreProbability = difficulty <= 3 ? 0.15 : 0.08;
     votoPrevisto += rigoreProbability * 0.5;
 
-    if (player.inCasa && player.difficoltaAvversario <= 2) {
+    if (player.inCasa && difficulty <= 2) {
       votoPrevisto += 0.5;
     }
 
-    if (!player.inCasa && player.difficoltaAvversario >= 4) {
+    if (!player.inCasa && difficulty >= 4) {
       votoPrevisto -= 0.4;
     }
   }
 
-  // Fattore "momentum"
-  if (formDeviation > 0.3 && player.difficoltaAvversario <= 2) {
+  // Momentum
+  if (formDeviation > 0.3 && difficulty <= 2) {
     votoPrevisto += 0.4;
   }
-  if (formDeviation < -0.3 && player.difficoltaAvversario >= 4) {
+  if (formDeviation < -0.3 && difficulty >= 4) {
     votoPrevisto -= 0.3;
   }
 
-  // Arrotonda ai valori 0.5 più vicini nel range 5-8
+  // 🔒 SAFE: se il risultato è NaN, ritorna 6
+  if (!Number.isFinite(votoPrevisto)) return 6;
+
   const rounded = Math.round(votoPrevisto * 2) / 2;
   return Math.max(5, Math.min(8, rounded));
 }
@@ -188,20 +197,25 @@ export function calculateModificatoreBonus(
   rules: LeagueRules
 ): number {
   if (rules.modificatoreDifesa === 'off') return 0;
-  if (defenders.length === 0) return 0;
+  if (!Array.isArray(defenders) || defenders.length === 0) return 0;
 
   if (defenders.length !== 4 && defenders.length !== 5) {
     return 0;
   }
 
-  const sortedDefenders = [...defenders].sort((a, b) => b.player.mediaVoto - a.player.mediaVoto);
+  const validDefenders = defenders.filter(d => d && d.player);
+  if (validDefenders.length < 3) return 0;
+
+  const sortedDefenders = [...validDefenders].sort(
+    (a, b) => (b.player.mediaVoto ?? 6) - (a.player.mediaVoto ?? 6)
+  );
   const top3Defenders = sortedDefenders.slice(0, 3);
 
-  let totalVotes = top3Defenders.reduce((sum, d) => sum + d.player.mediaVoto, 0);
+  let totalVotes = top3Defenders.reduce((sum, d) => sum + (d.player.mediaVoto ?? 6), 0);
   let count = 3;
 
-  if (goalkeeper) {
-    totalVotes += goalkeeper.player.mediaVoto;
+  if (goalkeeper && goalkeeper.player) {
+    totalVotes += goalkeeper.player.mediaVoto ?? 6;
     count = 4;
   }
 
@@ -224,16 +238,18 @@ export function calculateModificatoreBonus(
 }
 
 export function getFormIndicator(forma: number[]): 'hot' | 'warm' | 'cold' {
-  const avg = forma.reduce((a, b) => a + b, 0) / forma.length;
+  if (!Array.isArray(forma) || forma.length === 0) return 'warm';
+  const avg = forma.reduce((a, b) => a + (b || 6), 0) / forma.length;
   if (avg >= 6.7) return 'hot';
   if (avg >= 6.2) return 'warm';
   return 'cold';
 }
 
 export function getDifficultyLabel(difficulty: number): string {
-  if (difficulty <= 1) return 'Molto Facile';
-  if (difficulty <= 2) return 'Facile';
-  if (difficulty <= 3) return 'Media';
-  if (difficulty <= 4) return 'Difficile';
+  const d = difficulty ?? 3;
+  if (d <= 1) return 'Molto Facile';
+  if (d <= 2) return 'Facile';
+  if (d <= 3) return 'Media';
+  if (d <= 4) return 'Difficile';
   return 'Molto Difficile';
 }
