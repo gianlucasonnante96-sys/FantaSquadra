@@ -52,10 +52,10 @@ export function optimizeFormation(
 ): { formations: Formation[]; best: Formation } {
   const allowedModules = MODULES.filter(m => rules.moduliConsentiti.includes(m.name));
 
-  // Calculate xS for all players
+  // Calcola Voto Previsto per tutti i giocatori
   const playersWithScore = roster.map(p => ({
     player: p,
-    xS: calculateExpectedScore(p, rules),
+    votoPrevisto: calculateExpectedScore(p, rules),
   }));
 
   const formations: Formation[] = [];
@@ -68,18 +68,18 @@ export function optimizeFormation(
     for (const pos of module.positions) {
       const available = playersWithScore
         .filter(ps => ps.player.role === pos.role && !usedIds.has(ps.player.id))
-        .sort((a, b) => b.xS - a.xS);
+        .sort((a, b) => b.votoPrevisto - a.votoPrevisto);
 
       const selected = available.slice(0, pos.count);
       for (const sel of selected) {
         usedIds.add(sel.player.id);
         const slot: FormationSlot = {
           player: sel.player,
-          expectedScore: sel.xS,
+          expectedScore: sel.votoPrevisto,
           position: pos.label,
         };
         slots.push(slot);
-        totalScore += sel.xS;
+        totalScore += sel.votoPrevisto;
       }
     }
 
@@ -94,8 +94,8 @@ export function optimizeFormation(
       .filter(ps => !usedIds.has(ps.player.id))
       .sort((a, b) => {
         // Prioritize by titolarità for bench (safe subs)
-        const aScore = a.xS * 0.6 + (a.player.titolarita / 100) * 0.4;
-        const bScore = b.xS * 0.6 + (b.player.titolarita / 100) * 0.4;
+        const aScore = a.votoPrevisto * 0.6 + (a.player.titolarita / 100) * 0.4;
+        const bScore = b.votoPrevisto * 0.6 + (b.player.titolarita / 100) * 0.4;
         return bScore - aScore;
       });
 
@@ -109,7 +109,7 @@ export function optimizeFormation(
       for (const r of benchByRole[role]) {
         bench.push({
           player: r.player,
-          expectedScore: r.xS,
+          expectedScore: r.votoPrevisto,
           position: role,
         });
       }
@@ -149,7 +149,7 @@ function generateExplanation(
 
   // Find best performer
   const bestPerformer = [...slots].sort((a, b) => b.expectedScore - a.expectedScore)[0];
-  explanation += `Il giocatore con il punteggio atteso più alto è ${bestPerformer.player.name} ${bestPerformer.player.surname} (${bestPerformer.player.team}) con xS di ${bestPerformer.expectedScore.toFixed(2)}. `;
+  explanation += `Il giocatore con il voto previsto più alto è ${bestPerformer.player.name} ${bestPerformer.player.surname} (${bestPerformer.player.team}) con voto previsto di ${bestPerformer.expectedScore.toFixed(1)}. `;
 
   // Home advantage
   const homePlayers = slots.filter(s => s.player.inCasa);
