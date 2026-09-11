@@ -1,4 +1,3 @@
-
 import { Player, Role } from '../types';
 import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
 import * as XLSX from 'xlsx';
@@ -13,7 +12,6 @@ const TEAM_ABBR: Record<string, string> = {
   'SAS': 'Sassuolo', 'TOR': 'Torino', 'UDI': 'Udinese', 'VEN': 'Venezia',
 };
 
-// Alias per nomi squadra che potrebbero apparire nei file Excel
 const TEAM_ALIASES: Record<string, string> = {
   ...TEAM_ABBR,
   'ATALANTA': 'Atalanta', 'BOLOGNA': 'Bologna', 'CAGLIARI': 'Cagliari',
@@ -22,7 +20,6 @@ const TEAM_ALIASES: Record<string, string> = {
   'LAZIO': 'Lazio', 'LECCE': 'Lecce', 'MILAN': 'Milan', 'MONZA': 'Monza',
   'NAPOLI': 'Napoli', 'PARMA': 'Parma', 'ROMA': 'Roma', 'SASSUOLO': 'Sassuolo',
   'TORINO': 'Torino', 'UDINESE': 'Udinese', 'VENEZIA': 'Venezia',
-  // Varianti con spazi o caratteri speciali
   'A C MILAN': 'Milan', 'AC MILAN': 'Milan', 'INTERNAZIONALE': 'Inter',
   'HELLAS VERONA': 'Verona', 'VERONA': 'Verona', 'H VERONA': 'Verona',
 };
@@ -43,6 +40,17 @@ interface CachedData {
 }
 
 const CACHE_KEY = 'fantaconsiglio_listone_cache';
+
+// 🔒 SAFE: normalizza un valore a stringa
+function safeString(valore: unknown): string {
+  if (typeof valore === 'string') return valore;
+  if (valore === null || valore === undefined) return '';
+  try {
+    return String(valore);
+  } catch {
+    return '';
+  }
+}
 
 // Carica i dati dalla cache localStorage
 function loadFromCache(): CachedData | null {
@@ -75,46 +83,43 @@ export function clearCache(): void {
   localStorage.removeItem(CACHE_KEY);
 }
 
-// Normalizza il nome della squadra
-function normalizeTeam(team: string): string {
-  const trimmed = team.trim();
+// 🔒 SAFE: normalizza il nome della squadra
+function normalizeTeam(team: string | undefined | null): string {
+  const trimmed = safeString(team).trim();
+  if (!trimmed) return '';
+  
   const upper = trimmed.toUpperCase();
 
-  // Match esatto
   if (TEAM_ALIASES[upper]) {
     return TEAM_ALIASES[upper];
   }
 
-  // Match parziale (cerca se il nome della squadra è contenuto in uno degli alias)
   for (const [alias, fullName] of Object.entries(TEAM_ALIASES)) {
     if (upper.includes(alias) || alias.includes(upper)) {
       return fullName;
     }
   }
 
-  // Match con le squadre Serie A (cerca se il nome è contenuto)
   for (const serieATeam of serieATeams) {
-    if (upper.includes(serieATeam.toUpperCase()) || serieATeam.toUpperCase().includes(upper)) {
+    const teamUpper = safeString(serieATeam).toUpperCase();
+    if (teamUpper && (upper.includes(teamUpper) || teamUpper.includes(upper))) {
       return serieATeam;
     }
   }
 
-  // Se non trova nulla, ritorna il nome originale
   return trimmed;
 }
 
-// Determina il ruolo da una stringa
-function normalizeRole(role: string): Role {
-  const r = role.trim().toUpperCase();
-  // Portieri
-  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r === 'P' || r.startsWith('P')) return 'P';
-  // Difensori
-  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r === 'D' || r.startsWith('D')) return 'D';
-  // Attaccanti
-  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r === 'A' || r.startsWith('A')) return 'A';
-  // Centrocampisti (default se non riconosciuto)
-  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r === 'C' || r.startsWith('C')) return 'C';
-  // Fallback: cerca di dedurre dal contenuto
+// 🔒 SAFE: determina il ruolo da una stringa
+function normalizeRole(role: string | undefined | null): Role {
+  const r = safeString(role).trim().toUpperCase();
+  if (!r) return 'C';
+  
+  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r.startsWith('P')) return 'P';
+  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r.startsWith('D')) return 'D';
+  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r.startsWith('A')) return 'A';
+  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r.startsWith('C')) return 'C';
+  
   if (r.includes('POR')) return 'P';
   if (r.includes('DIF')) return 'D';
   if (r.includes('ATT')) return 'A';
@@ -122,45 +127,49 @@ function normalizeRole(role: string): Role {
   return 'C';
 }
 
-// Stima la fantamedia dalla quotazione
 function estimateFantamedia(qi: number, role: Role): number {
-  if (role === 'P') return Math.min(2 + qi * 0.1, 5.5);
-  if (role === 'D') return Math.min(2 + qi * 0.12, 6);
-  if (role === 'C') return Math.min(2.5 + qi * 0.15, 7.5);
-  return Math.min(3 + qi * 0.15, 8);
+  const q = Number(qi) || 1;
+  if (role === 'P') return Math.min(2 + q * 0.1, 5.5);
+  if (role === 'D') return Math.min(2 + q * 0.12, 6);
+  if (role === 'C') return Math.min(2.5 + q * 0.15, 7.5);
+  return Math.min(3 + q * 0.15, 8);
 }
 
-// Stima la media voto dalla quotazione
 function estimateMediaVoto(qi: number): number {
-  return Math.min(5.5 + qi * 0.04, 7.2);
+  const q = Number(qi) || 1;
+  return Math.min(5.5 + q * 0.04, 7.2);
 }
 
-// Stima la titolarità dalla quotazione
 function estimateTitolarita(qi: number): number {
-  if (qi >= 20) return 95;
-  if (qi >= 10) return 85;
-  if (qi >= 5) return 70;
-  if (qi >= 2) return 50;
+  const q = Number(qi) || 1;
+  if (q >= 20) return 95;
+  if (q >= 10) return 85;
+  if (q >= 5) return 70;
+  if (q >= 2) return 50;
   return 30;
 }
 
-// Separa nome completo in nome e cognome
-function splitName(fullName: string): { name: string; surname: string } {
-  const parts = fullName.trim().split(/\s+/);
+// 🔒 SAFE: separa nome completo
+function splitName(fullName: string | undefined | null): { name: string; surname: string } {
+  const safe = safeString(fullName).trim();
+  if (!safe) return { name: '', surname: '' };
+  
+  const parts = safe.split(/\s+/);
   if (parts.length === 1) return { name: '', surname: parts[0] };
-  // Se il primo elemento è corto (iniziale o nome breve), è il nome
   if (parts[0].length <= 3 || parts[0].endsWith('.')) {
     return { name: parts[0].replace('.', ''), surname: parts.slice(1).join(' ') };
   }
   return { name: parts[0], surname: parts.slice(1).join(' ') };
 }
 
-// Trova la colonna nel foglio Excel (case-insensitive, con fuzzy matching)
+// 🔒 SAFE: trova la colonna nel foglio Excel
 function findColumn(headers: string[], patterns: string[]): number {
+  if (!Array.isArray(headers)) return -1;
   for (let i = 0; i < headers.length; i++) {
-    const h = (headers[i] || '').toString().toLowerCase().trim();
+    const h = safeString(headers[i]).toLowerCase().trim();
+    if (!h) continue;
     for (const pattern of patterns) {
-      if (h.includes(pattern.toLowerCase())) return i;
+      if (h.includes(safeString(pattern).toLowerCase())) return i;
     }
   }
   return -1;
@@ -176,11 +185,8 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
         const data = new Uint8Array(e.target?.result as ArrayBuffer);
         const workbook = XLSX.read(data, { type: 'array' });
 
-        // Usa il primo foglio
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
-
-        // Converti in array di array
         const rows = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1 });
 
         if (rows.length < 2) {
@@ -188,34 +194,30 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           return;
         }
 
-        // Trova l'header (prima riga con testo)
         let headerRowIndex = 0;
         let headers: string[] = [];
 
-        // Cerca l'header in modo più flessibile
         for (let i = 0; i < Math.min(15, rows.length); i++) {
           const row = rows[i] as any[];
           if (row && row.length > 2) {
             const rowText = row.join(' ').toLowerCase();
-            // Cerca parole chiave che indicano un header
             if (rowText.includes('calciatore') || rowText.includes('nome') ||
                 rowText.includes('giocatore') || rowText.includes('ruolo') ||
                 rowText.includes('squadra') || rowText.includes('quotazione') ||
                 rowText.includes('fantamedia') || rowText.includes('media')) {
               headerRowIndex = i;
-              headers = row.map(h => (h || '').toString());
+              headers = row.map(h => safeString(h));
               console.log('Header trovato alla riga', i, ':', headers);
               break;
             }
           }
         }
 
-        // Se non trova un header chiaro, usa la prima riga non vuota
         if (headers.length === 0) {
           for (let i = 0; i < Math.min(5, rows.length); i++) {
             const row = rows[i] as any[];
-            if (row && row.length > 2 && row.some(cell => cell && cell.toString().trim())) {
-              headers = row.map(h => (h || '').toString());
+            if (row && row.length > 2 && row.some(cell => cell && safeString(cell).trim())) {
+              headers = row.map(h => safeString(h));
               headerRowIndex = i;
               console.log('Usando prima riga come header:', headers);
               break;
@@ -223,7 +225,6 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           }
         }
 
-        // Trova le colonne
         const nameCol = findColumn(headers, ['calciatore', 'nome', 'giocatore', 'player', 'cognome']);
         const teamCol = findColumn(headers, ['squadra', 'sq', 'team', 'società', 'societa']);
         const roleCol = findColumn(headers, ['ruolo cl', 'ruolo classic', 'ruolo', 'role', 'rl']);
@@ -234,21 +235,17 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           return;
         }
 
-        // Se non troviamo la colonna del ruolo, proviamo a cercarla in modo più intelligente
         let effectiveRoleCol = roleCol;
         if (effectiveRoleCol === -1) {
-          // Cerca una colonna che contenga solo P, D, C, A
           for (let i = 0; i < headers.length; i++) {
             if (i === nameCol || i === teamCol || i === qiCol) continue;
-            // Controlla le prime 10 righe di dati
             let validRoles = 0;
             for (let j = headerRowIndex + 1; j < Math.min(headerRowIndex + 11, rows.length); j++) {
-              const val = (rows[j] as any[])?.[i]?.toString().trim().toUpperCase();
+              const val = safeString((rows[j] as any[])?.[i]).trim().toUpperCase();
               if (val === 'P' || val === 'D' || val === 'C' || val === 'A') {
                 validRoles++;
               }
             }
-            // Se almeno il 50% delle righe ha un ruolo valido, è probabilmente la colonna del ruolo
             if (validRoles >= 5) {
               effectiveRoleCol = i;
               break;
@@ -261,7 +258,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
         let skippedRows = 0;
 
         console.log('Inizio parsing:', dataRows.length, 'righe di dati');
-        console.log('Colonne trovate - Nome:', nameCol, 'Squadra:', teamCol, 'Ruolo:', effectiveRoleCol, 'Quotazione:', qiCol);
+        console.log('Colonne - Nome:', nameCol, 'Squadra:', teamCol, 'Ruolo:', effectiveRoleCol, 'Quotazione:', qiCol);
 
         for (const row of dataRows) {
           if (!row || !Array.isArray(row)) {
@@ -269,20 +266,17 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
             continue;
           }
 
-          const nameRaw = row[nameCol];
-          if (!nameRaw || nameRaw.toString().trim() === '') {
+          const nameRaw = safeString(row[nameCol]).trim();
+          if (!nameRaw) {
             skippedRows++;
             continue;
           }
 
-          const fullName = nameRaw.toString().trim();
-          const teamRaw = teamCol >= 0 ? row[teamCol]?.toString() || '' : '';
+          const fullName = nameRaw;
+          const teamRaw = teamCol >= 0 ? safeString(row[teamCol]) : '';
           const team = normalizeTeam(teamRaw);
-          const role = effectiveRoleCol >= 0 ? normalizeRole(row[effectiveRoleCol]?.toString() || 'C') : 'C';
-          const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
-
-          // Non filtrare per squadra - carica tutti i giocatori
-          // if (!team || !serieATeams.includes(team)) continue;
+          const role = effectiveRoleCol >= 0 ? normalizeRole(safeString(row[effectiveRoleCol])) : 'C';
+          const qi = qiCol >= 0 ? (parseFloat(safeString(row[qiCol])) || 1) : 1;
 
           const { name, surname } = splitName(fullName);
 
@@ -297,7 +291,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
             titolarita: estimateTitolarita(qi),
             forma: [6, 6, 6, 6, 6],
             inCasa: true,
-            avversario: serieATeams[0],
+            avversario: serieATeams[0] || 'Inter',
             difficoltaAvversario: 3,
             cleanSheetOdds: role === 'P' ? 0.35 : 0,
             isStarter: qi > 3,
@@ -307,7 +301,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
         console.log('Parsing completato:', players.length, 'giocatori caricati,', skippedRows, 'righe scartate');
 
         if (players.length === 0) {
-          reject(new Error(`Nessun giocatore trovato nel file. Controlla che il formato sia corretto. Righe totali: ${dataRows.length}, Righe scartate: ${skippedRows}`));
+          reject(new Error(`Nessun giocatore trovato nel file. Righe: ${dataRows.length}, Scartate: ${skippedRows}`));
           return;
         }
 
@@ -342,16 +336,16 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
 
     const players: Player[] = data.map((item: any, index: number) => ({
       id: item.id || `import_${index}`,
-      name: item.name || '',
-      surname: item.surname || '',
-      team: item.team || '',
-      role: (item.role || 'C') as Role,
+      name: safeString(item.name),
+      surname: safeString(item.surname),
+      team: safeString(item.team),
+      role: normalizeRole(item.role),
       fantamedia: item.fantamedia || 4,
       mediaVoto: item.mediaVoto || item.media || 6,
       titolarita: item.titolarita || 70,
-      forma: item.forma || [6, 6, 6, 6, 6],
+      forma: Array.isArray(item.forma) ? item.forma : [6, 6, 6, 6, 6],
       inCasa: item.inCasa ?? true,
-      avversario: item.avversario || serieATeams[0],
+      avversario: item.avversario || serieATeams[0] || 'Inter',
       difficoltaAvversario: item.difficoltaAvversario || 3,
       cleanSheetOdds: item.cleanSheetOdds || 0,
       isStarter: item.isStarter ?? true,
@@ -371,12 +365,10 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
   }
 }
 
-// Esporta i dati attuali in formato JSON
 export function exportToJSON(players: Player[]): string {
   return JSON.stringify(players, null, 2);
 }
 
-// Ottieni lo stato attuale dei dati
 export function getCurrentStatus(): ListoneStatus {
   const cached = loadFromCache();
   if (cached) {
@@ -391,22 +383,19 @@ export function getCurrentStatus(): ListoneStatus {
   };
 }
 
-// Ottieni i giocatori dalla cache o dal fallback
 export function getPlayers(): Player[] {
   const cached = loadFromCache();
-  if (cached && cached.players.length > 0) {
+  if (cached && Array.isArray(cached.players) && cached.players.length > 0) {
     return cached.players;
   }
   return fallbackPlayers;
 }
 
-// Carica il listone (dalla cache o fallback)
 export function loadListone(): { players: Player[]; status: ListoneStatus } {
   const cached = loadFromCache();
-  if (cached && cached.players.length > 0) {
+  if (cached && Array.isArray(cached.players) && cached.players.length > 0) {
     return { players: cached.players, status: cached.status };
   }
-  // Fallback ai dati hardcoded
   const fallbackStatus: ListoneStatus = {
     source: 'Listone Offline (hardcoded)',
     lastUpdated: null,
@@ -417,25 +406,42 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
   return { players: fallbackPlayers, status: fallbackStatus };
 }
 
-// Aggiorna i giocatori con le avversarie corrette in base alla giornata
+// 🔒 SAFE: aggiorna i giocatori con le avversarie
 export function updateAvversari(players: Player[], giornata: number): Player[] {
+  if (!Array.isArray(players)) return [];
+  
   return players.map(player => {
-    const avversarioInfo = getAvversario(player.team, giornata);
+    if (!player) return player;
+    
+    try {
+      // 🔒 Check: team deve essere stringa valida
+      const team = safeString(player.team);
+      if (!team) return player;
+      
+      const avversarioInfo = getAvversario(team, giornata);
 
-    if (avversarioInfo) {
-      return {
-        ...player,
-        avversario: avversarioInfo.avversario,
-        inCasa: avversarioInfo.inCasa,
-      };
+      if (avversarioInfo) {
+        return {
+          ...player,
+          avversario: avversarioInfo.avversario,
+          inCasa: avversarioInfo.inCasa,
+        };
+      }
+    } catch (e) {
+      console.warn('Errore getAvversario per', player?.team, e);
     }
 
     return player;
   });
 }
 
-// Ottieni i giocatori con avversarie aggiornate per una giornata specifica
+// 🔒 SAFE: getPlayersWithAvversari con try/catch globale
 export function getPlayersWithAvversari(giornata: number): Player[] {
-  const players = getPlayers();
-  return updateAvversari(players, giornata);
+  try {
+    const players = getPlayers();
+    return updateAvversari(players, giornata);
+  } catch (e) {
+    console.error('Errore getPlayersWithAvversari:', e);
+    return getPlayers();
+  }
 }
