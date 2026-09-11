@@ -1,7 +1,4 @@
---- listoneService.ts (原始)
 
-
-+++ listoneService.ts (修改后)
 import { Player, Role } from '../types';
 import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
 import * as XLSX from 'xlsx';
@@ -47,7 +44,7 @@ function loadFromCache(): CachedData | null {
   try {
     const cached = localStorage.getItem(CACHE_KEY);
     if (!cached) return null;
-    const  CachedData = JSON.parse(cached);
+    const data = JSON.parse(cached) as CachedData;
     return data;
   } catch {
     return null;
@@ -56,7 +53,7 @@ function loadFromCache(): CachedData | null {
 
 export function saveToCache(players: Player[], status: ListoneStatus): void {
   try {
-    const  CachedData = {
+    const data: CachedData = {
       players,
       status,
       timestamp: Date.now(),
