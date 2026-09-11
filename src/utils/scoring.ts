@@ -1,5 +1,5 @@
 import { Player, LeagueRules, FormationSlot } from '../types';
-import { isProbabileTitolare, getLivelloTitolarita } from './utils/titolarita';
+import { isProbabileTitolare, getLivelloTitolarita } from './titolarita';
 
 /**
  * 🆕 Calcola un fattore di titolarità "arricchito" che combina:
