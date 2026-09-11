@@ -1,6 +1,6 @@
 import { Player, Role } from '../types';
 import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
-import { fetchNextMatchday, applyMatchdayData, Fixture } from './matchdayService';
+import { fetchNextMatchday, applyMatchdayData } from './matchdayService';
 import * as XLSX from 'xlsx';
 
 const TEAM_ALIASES: Record<string, string> = {
@@ -32,7 +32,6 @@ interface CachedData {
   timestamp: number;
 }
 
-// FIX: Ripristinato il vecchio CACHE_KEY per compatibilità con i dati già salvati
 const CACHE_KEY = 'fanta_listone_cache';
 
 function loadFromCache(): CachedData | null {
@@ -58,23 +57,18 @@ function normalizeTeam(team: string): string {
   return TEAM_ALIASES[upper] || team.trim();
 }
 
+// ✅ FUNZIONE CORRETTA: Gestisce TUTTI i formati di ruolo
 function normalizeRole(role: string): Role {
   if (!role) return 'C';
-  const r = role.trim().toUpperCase().replace(/\./g, ''); // rimuove punti
+  const r = role.trim().toUpperCase().replace(/\./g, '').replace(/\s+/g, '');
   
-  // Formato lettera singola o abbreviazione
-  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r === 'PORTIERI') return 'P';
-  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r === 'DIFENSORI') return 'D';
-  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r === 'CENTROCAMPISTI') return 'C';
-  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r === 'ATTACCANTI') return 'A';
+  // Formato lettera
+  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r === 'PORTIERI' || r === '1') return 'P';
+  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r === 'DIFENSORI' || r === '2') return 'D';
+  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r === 'CENTROCAMPISTI' || r === '3') return 'C';
+  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r === 'ATTACCANTI' || r === '4') return 'A';
   
-  // Formato numerico (usato da alcuni listoni: 1=P, 2=D, 3=C, 4=A)
-  if (r === '1') return 'P';
-  if (r === '2') return 'D';
-  if (r === '3') return 'C';
-  if (r === '4') return 'A';
-  
-  // Fallback: cerca di indovinare dal contenuto
+  // Fallback intelligente
   if (r.includes('PORT')) return 'P';
   if (r.includes('DIF')) return 'D';
   if (r.includes('ATT')) return 'A';
@@ -151,15 +145,17 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
         
         const nameCol = findColumn(headers, ['calciatore', 'nome', 'giocatore']);
         const teamCol = findColumn(headers, ['squadra', 'sq', 'team']);
-        const roleCol = findColumn(headers, ['ruolo', 'role', 'r.', 'rol']);
+        const roleCol = findColumn(headers, ['ruolo', 'role', 'r.']);
         const qiCol = findColumn(headers, ['quotazione', 'qi', 'prezzo']);
         
         if (nameCol === -1) { reject(new Error('Colonna "Calciatore/Nome" non trovata')); return; }
         
-        // Carica gli avversari dall'API
+        // ✅ CARICA GLI AVVERSARI DALL'API
         const fixtures = await fetchNextMatchday();
         
         const rawPlayers: Player[] = [];
+        const qiValues: number[] = [];
+        
         for (const row of rows.slice(headerRowIndex + 1)) {
           if (!row || !Array.isArray(row)) continue;
           const nameRaw = row[nameCol];
@@ -167,7 +163,7 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
           
           const fullName = nameRaw.toString().trim();
           const team = teamCol >= 0 ? normalizeTeam(row[teamCol]?.toString() || '') : '';
-          const role = roleCol >= 0 ? normalizeRole(row[roleCol]?.toString() || 'C') : 'C';
+          const role = roleCol >= 0 ? normalizeRole(row[roleCol]?.toString() || '') : 'C';
           const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
           
           if (!team || !serieATeams.includes(team)) continue;
@@ -180,22 +176,19 @@ export async function parseExcelFile(file: File): Promise<{ players: Player[]; s
             mediaVoto: estimateMediaVoto(qi),
             titolarita: estimateTitolarita(qi),
             forma: [6, 6, 6, 6, 6],
-            inCasa: Math.random() > 0.5,
-            avversario: 'Da definire',
+            inCasa: true,
+            avversario: 'Da definire', // ✅ NON PIÙ ATALANTA!
             difficoltaAvversario: 3,
             cleanSheetOdds: role === 'P' ? (qi > 15 ? 0.5 : 0.3) : 0,
             isStarter: qi > 5,
           });
+          qiValues.push(qi);
         }
         
         if (rawPlayers.length === 0) { reject(new Error('Nessun giocatore trovato')); return; }
         
-        // Applica automaticamente avversari e titolarità
-        const players = rawPlayers.map(p => {
-          const qi = rawPlayers.find(r => r.id === p.id);
-          const qiValue = qi ? (parseFloat(qi.fantamedia.toString()) * 3) : 1;
-          return applyMatchdayData(p, fixtures, qiValue);
-        });
+        // ✅ APPLICA AUTOMATICAMENTE GLI AVVERSARI REALI
+        const players = rawPlayers.map((p, i) => applyMatchdayData(p, fixtures, qiValues[i]));
         
         resolve({ players, status: { source: 'File Excel', fileName: file.name, lastUpdated: new Date().toLocaleString('it-IT'), playerCount: players.length, isOnline: false, error: null } });
       } catch (err) { reject(new Error(`Errore parsing: ${err instanceof Error ? err.message : 'sconosciuto'}`)); }
@@ -221,7 +214,7 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
       titolarita: item.titolarita || 70,
       forma: item.forma || [6, 6, 6, 6, 6],
       inCasa: item.inCasa ?? (Math.random() > 0.5),
-      avversario: item.avversario || 'Da definire',
+      avversario: item.avversario || 'Da definire', // ✅ NON PIÙ ATALANTA!
       difficoltaAvversario: item.difficoltaAvversario || 3,
       cleanSheetOdds: item.cleanSheetOdds || 0,
       isStarter: item.isStarter ?? true,
@@ -240,7 +233,6 @@ export function exportToJSON(players: Player[]): string {
   return JSON.stringify(players, null, 2);
 }
 
-// FIX: Ripristinate tutte le funzioni necessarie
 export function getCurrentStatus(): ListoneStatus {
   const cached = loadFromCache();
   if (cached) {
