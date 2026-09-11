@@ -1,4 +1,3 @@
-
 import { useMemo, useState } from 'react';
 import { Player, LeagueRules, Formation } from '../types';
 import { optimizeFormation } from '../utils/optimizer';
@@ -17,20 +16,65 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   const [showAllFormations, setShowAllFormations] = useState(false);
   const [giornata, setGiornata] = useState(1);
 
-  // Aggiorna i giocatori con le avversarie corrette in base alla giornata
+  // 🔒 SAFE: aggiorna i giocatori con le avversarie, con try/catch
   const rosterWithAvversari = useMemo(() => {
-    return getPlayersWithAvversari(giornata);
+    try {
+      const result = getPlayersWithAvversari(giornata);
+      return Array.isArray(result) ? result : [];
+    } catch (e) {
+      console.error('Errore getPlayersWithAvversari:', e);
+      return [];
+    }
   }, [giornata, roster]);
 
-  // Filtra solo i giocatori della rosa
-  const rosterIds = new Set(roster.map(p => p.id));
-  const filteredRoster = rosterWithAvversari.filter(p => rosterIds.has(p.id));
+  // 🔒 SAFE: filtro roster con controllo
+  const filteredRoster = useMemo(() => {
+    if (!Array.isArray(rosterWithAvversari)) return [];
+    if (!Array.isArray(roster)) return [];
+    
+    const rosterIds = new Set(
+      roster.filter(p => p && p.id).map(p => p.id)
+    );
+    
+    return rosterWithAvversari.filter(p => p && p.id && rosterIds.has(p.id));
+  }, [rosterWithAvversari, roster]);
 
+  // 🔒 SAFE: optimizeFormation con try/catch
   const { formations, best } = useMemo(() => {
-    return optimizeFormation(filteredRoster, rules);
+    try {
+      const result = optimizeFormation(filteredRoster, rules);
+      return {
+        formations: Array.isArray(result?.formations) ? result.formations : [],
+        best: result?.best || null,
+      };
+    } catch (e) {
+      console.error('Errore optimizeFormation:', e);
+      return { formations: [], best: null };
+    }
   }, [filteredRoster, rules]);
 
   const currentFormation = formations[selectedFormationIdx] || best;
+
+  // 🔒 SAFE: se non c'è formazione, mostra schermata di errore
+  if (!currentFormation) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8 flex items-center justify-center">
+        <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-red-500/30 p-6 max-w-md text-center">
+          <div className="text-4xl mb-3">⚠️</div>
+          <h2 className="text-white font-semibold text-lg mb-2">Impossibile calcolare la formazione</h2>
+          <p className="text-slate-400 text-sm mb-4">
+            Controlla che la tua rosa contenga almeno 11 giocatori validi.
+          </p>
+          <button
+            onClick={onBack}
+            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors"
+          >
+            ← Torna alla rosa
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const getRoleColor = (role: string) => {
     switch (role) {
@@ -149,7 +193,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
 
         {/* Main Formation Display */}
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-emerald-500/20 overflow-hidden mb-6">
-          {/* Score Header */}
           <div className="bg-gradient-to-r from-emerald-600/40 to-green-600/40 px-6 py-4 flex items-center justify-between">
             <div>
               <div className="text-white font-bold text-xl">{currentFormation.modulo}</div>
@@ -163,7 +206,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             </div>
           </div>
 
-          {/* Formation Field */}
           <div className="p-4 md:p-6">
             {/* Goalkeeper */}
             <div className="mb-6">
@@ -315,8 +357,12 @@ interface PlayerCardProps {
 
 function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficultyColor, compact }: PlayerCardProps) {
   const { player, expectedScore } = slot;
-  const form = getFormIndicator(player.forma);
-  const difficulty = getDifficultyLabel(player.difficoltaAvversario);
+  
+  // 🔒 SAFE: controlli sui dati del player
+  const forma = Array.isArray(player?.forma) ? player.forma : [6, 6, 6, 6, 6];
+  const form = getFormIndicator(forma);
+  const difficulty = getDifficultyLabel(player?.difficoltaAvversario ?? 3);
+  const titolarita = player?.titolarita ?? 50;
 
   if (compact) {
     return (
@@ -328,33 +374,32 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
             <div className="text-slate-500 text-[10px]">VP</div>
           </div>
         </div>
-        <div className="text-white font-medium text-sm truncate">{player.surname}</div>
-        <div className="text-slate-400 text-xs truncate">{player.team}</div>
+        <div className="text-white font-medium text-sm truncate">{player.surname || player.name || '?'}</div>
+        <div className="text-slate-400 text-xs truncate">{player.team || '?'}</div>
 
         <div className="mt-2 flex items-center gap-2 text-[10px]">
           <span className={`${getFormColor(form)}`}>{getFormEmoji(form)} {form === 'hot' ? 'In forma' : form === 'warm' ? 'OK' : 'Freddo'}</span>
         </div>
 
         <div className="mt-1 flex items-center gap-1">
-          <span className={`text-[10px] ${getDifficultyColor(player.difficoltaAvversario)}`}>
-            vs {player.avversario} ({player.inCasa ? 'H' : 'T'})
+          <span className={`text-[10px] ${getDifficultyColor(player.difficoltaAvversario || 3)}`}>
+            vs {player.avversario || '?'} ({player.inCasa ? 'H' : 'T'})
           </span>
         </div>
 
         <div className="mt-1 flex items-center gap-2">
           <div className="flex-1 h-1 bg-slate-600 rounded-full overflow-hidden">
             <div
-              className={`h-full rounded-full ${player.titolarita > 80 ? 'bg-emerald-500' : player.titolarita > 50 ? 'bg-yellow-500' : 'bg-red-500'}`}
-              style={{ width: `${player.titolarita}%` }}
+              className={`h-full rounded-full ${titolarita > 80 ? 'bg-emerald-500' : titolarita > 50 ? 'bg-yellow-500' : 'bg-red-500'}`}
+              style={{ width: `${titolarita}%` }}
             />
           </div>
-          <span className="text-[10px] text-slate-400">{player.titolarita}%</span>
+          <span className="text-[10px] text-slate-400">{titolarita}%</span>
         </div>
       </div>
     );
   }
 
-  // Full card for goalkeeper
   return (
     <div className="bg-slate-700/40 rounded-xl p-4 hover:bg-slate-700/60 transition-colors border border-slate-600/30 max-w-xs mx-auto">
       <div className="flex items-start justify-between mb-3">
@@ -375,16 +420,16 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
         <div className="bg-slate-800/50 rounded-lg p-2">
           <div className={`${getFormColor(form)} text-lg`}>{getFormEmoji(form)}</div>
           <div className="text-slate-400 text-[10px]">Forma</div>
-          <div className="text-white text-xs font-medium">{(player.forma.reduce((a, b) => a + b, 0) / player.forma.length).toFixed(1)}</div>
+          <div className="text-white text-xs font-medium">{(forma.reduce((a, b) => a + b, 0) / forma.length).toFixed(1)}</div>
         </div>
         <div className="bg-slate-800/50 rounded-lg p-2">
           <div className="text-yellow-400 text-lg">🎯</div>
           <div className="text-slate-400 text-[10px]">Titolarità</div>
-          <div className="text-white text-xs font-medium">{player.titolarita}%</div>
+          <div className="text-white text-xs font-medium">{titolarita}%</div>
         </div>
         <div className="bg-slate-800/50 rounded-lg p-2">
-          <div className={`${getDifficultyColor(player.difficoltaAvversario)} text-lg`}>
-            {player.difficoltaAvversario <= 2 ? '🟢' : player.difficoltaAvversario <= 3 ? '🟡' : '🔴'}
+          <div className={`${getDifficultyColor(player.difficoltaAvversario || 3)} text-lg`}>
+            {(player.difficoltaAvversario || 3) <= 2 ? '🟢' : (player.difficoltaAvversario || 3) <= 3 ? '🟡' : '🔴'}
           </div>
           <div className="text-slate-400 text-[10px]">Match</div>
           <div className="text-white text-xs font-medium">{player.inCasa ? 'H' : 'T'} vs {player.avversario}</div>
