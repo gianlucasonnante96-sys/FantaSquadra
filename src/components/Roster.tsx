@@ -231,7 +231,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
         </div>
 
         {/* Search */}
-        <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
+        <div className="relative z-[9999] bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
           <div className="relative">
             <input
               type="text"
@@ -241,7 +241,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
               className="w-full px-4 py-3 bg-slate-700/80 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition-colors"
             />
             {searchResults.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-slate-700 border border-slate-600 rounded-xl shadow-xl z-10 max-h-64 overflow-y-auto">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-slate-700 border border-slate-600 rounded-xl shadow-xl z-[10000] max-h-64 overflow-y-auto">
                 {searchResults.map(player => (
                   <button
                     key={player.id}
