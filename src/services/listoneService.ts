@@ -1,7 +1,11 @@
+--- 2_LISTONESERVICE.txt (原始)
 
+
++++ 2_LISTONESERVICE.txt (修改后)
 import { Player, Role } from '../types';
 import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
 import * as XLSX from 'xlsx';
+import { applyCalendarToPlayers, getMatchesForGiornata } from './calendarService';
 
 const TEAM_ABBR: Record<string, string> = {
   'ATA': 'Atalanta', 'BOL': 'Bologna', 'CAG': 'Cagliari', 'COM': 'Como',
@@ -32,6 +36,16 @@ export interface ListoneStatus {
   error: string | null;
 }
 
+export interface Match {
+  homeTeam: string;
+  awayTeam: string;
+}
+
+export interface Matchday {
+  giornata: number;
+  matches: Match[];
+}
+
 interface CachedData {
   players: Player[];
   status: ListoneStatus;
@@ -39,6 +53,7 @@ interface CachedData {
 }
 
 const CACHE_KEY = 'fantaconsiglio_listone_cache';
+const GIORNATA_KEY = 'fantaconsiglio_giornata_corrente';
 
 function loadFromCache(): CachedData | null {
   try {
@@ -65,6 +80,36 @@ export function saveToCache(players: Player[], status: ListoneStatus): void {
 
 export function clearCache(): void {
   localStorage.removeItem(CACHE_KEY);
+}
+
+// Gestione giornata corrente
+export function getGiornataCorrente(): number {
+  try {
+    const saved = localStorage.getItem(GIORNATA_KEY);
+    return saved ? parseInt(saved) : 1;
+  } catch {
+    return 1;
+  }
+}
+
+export function setGiornataCorrente(giornata: number): void {
+  try {
+    localStorage.setItem(GIORNATA_KEY, giornata.toString());
+  } catch {
+  }
+}
+
+// Funzione per ottenere i giocatori con le avversarie aggiornate
+export function getPlayersWithMatches(giornata?: number): Player[] {
+  const cached = loadFromCache();
+  let players = cached && cached.players.length > 0 ? cached.players : fallbackPlayers;
+
+  const g = giornata ?? getGiornataCorrente();
+
+  // Applica il calendario automatico
+  players = applyCalendarToPlayers(players, g);
+
+  return players;
 }
 
 function normalizeTeam(team: string): string {
@@ -257,7 +302,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
             titolarita: estimateTitolarita(qi),
             forma: [6, 6, 6, 6, 6],
             inCasa: true,
-            avversario: serieATeams[0],
+            avversario: 'ND',
             difficoltaAvversario: 3,
             cleanSheetOdds: role === 'P' ? 0.35 : 0,
             isStarter: qi > 3,
@@ -310,7 +355,7 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
       titolarita: item.titolarita || 70,
       forma: item.forma || [6, 6, 6, 6, 6],
       inCasa: item.inCasa ?? true,
-      avversario: item.avversario || serieATeams[0],
+      avversario: item.avversario || 'ND',
       difficoltaAvversario: item.difficoltaAvversario || 3,
       cleanSheetOdds: item.cleanSheetOdds || 0,
       isStarter: item.isStarter ?? true,
@@ -349,11 +394,7 @@ export function getCurrentStatus(): ListoneStatus {
 }
 
 export function getPlayers(): Player[] {
-  const cached = loadFromCache();
-  if (cached && cached.players.length > 0) {
-    return cached.players;
-  }
-  return fallbackPlayers;
+  return getPlayersWithMatches();
 }
 
 export function loadListone(): { players: Player[]; status: ListoneStatus } {
