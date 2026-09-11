@@ -1,24 +1,36 @@
-
 import { Player, Role } from '../types';
-import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
+import { allPlayers as fallbackPlayers } from '../data/players';
 import * as XLSX from 'xlsx';
 
-const TEAM_ABBR: Record<string, string> = {
-  'ATA': 'Atalanta', 'BOL': 'Bologna', 'CAG': 'Cagliari', 'COM': 'Como',
-  'FIO': 'Fiorentina', 'FRO': 'Frosinone', 'GEN': 'Genoa', 'INT': 'Inter',
-  'JUV': 'Juventus', 'LAZ': 'Lazio', 'LEC': 'Lecce', 'MIL': 'Milan',
-  'MON': 'Monza', 'NAP': 'Napoli', 'PAR': 'Parma', 'ROM': 'Roma',
-  'SAS': 'Sassuolo', 'TOR': 'Torino', 'UDI': 'Udinese', 'VEN': 'Venezia',
-};
+export const serieATeams = [
+  'Atalanta', 'Bologna', 'Cagliari', 'Como', 'Empoli', 'Fiorentina', 'Frosinone',
+  'Genoa', 'Inter', 'Juventus', 'Lazio', 'Lecce', 'Milan',
+  'Monza', 'Napoli', 'Parma', 'Roma', 'Sassuolo', 'Torino',
+  'Udinese', 'Venezia'
+];
 
 const TEAM_ALIASES: Record<string, string> = {
-  ...TEAM_ABBR,
-  'ATALANTA': 'Atalanta', 'BOLOGNA': 'Bologna', 'CAGLIARI': 'Cagliari',
-  'COMO': 'Como', 'FIORENTINA': 'Fiorentina', 'FROSINONE': 'Frosinone',
-  'GENOA': 'Genoa', 'INTER': 'Inter', 'JUVENTUS': 'Juventus', 'JUVE': 'Juventus',
-  'LAZIO': 'Lazio', 'LECCE': 'Lecce', 'MILAN': 'Milan', 'MONZA': 'Monza',
-  'NAPOLI': 'Napoli', 'PARMA': 'Parma', 'ROMA': 'Roma', 'SASSUOLO': 'Sassuolo',
-  'TORINO': 'Torino', 'UDINESE': 'Udinese', 'VENEZIA': 'Venezia',
+  'ATA': 'Atalanta', 'ATALANTA': 'Atalanta',
+  'BOL': 'Bologna', 'BOLOGNA': 'Bologna',
+  'CAG': 'Cagliari', 'CAGLIARI': 'Cagliari',
+  'COM': 'Como', 'COMO': 'Como',
+  'EMP': 'Empoli', 'EMPOLI': 'Empoli',
+  'FIO': 'Fiorentina', 'FIORENTINA': 'Fiorentina',
+  'FRO': 'Frosinone', 'FROSINONE': 'Frosinone',
+  'GEN': 'Genoa', 'GENOA': 'Genoa',
+  'INT': 'Inter', 'INTER': 'Inter',
+  'JUV': 'Juventus', 'JUVENTUS': 'Juventus', 'JUVE': 'Juventus',
+  'LAZ': 'Lazio', 'LAZIO': 'Lazio',
+  'LEC': 'Lecce', 'LECCE': 'Lecce',
+  'MIL': 'Milan', 'MILAN': 'Milan',
+  'MON': 'Monza', 'MONZA': 'Monza',
+  'NAP': 'Napoli', 'NAPOLI': 'Napoli',
+  'PAR': 'Parma', 'PARMA': 'Parma',
+  'ROM': 'Roma', 'ROMA': 'Roma',
+  'SAS': 'Sassuolo', 'SASSUOLO': 'Sassuolo',
+  'TOR': 'Torino', 'TORINO': 'Torino',
+  'UDI': 'Udinese', 'UDINESE': 'Udinese',
+  'VEN': 'Venezia', 'VENEZIA': 'Venezia'
 };
 
 export interface ListoneStatus {
@@ -36,29 +48,20 @@ interface CachedData {
   timestamp: number;
 }
 
-const CACHE_KEY = 'fantaconsiglio_listone_cache';
+const CACHE_KEY = 'fanta_listone_cache';
 
 function loadFromCache(): CachedData | null {
   try {
     const cached = localStorage.getItem(CACHE_KEY);
     if (!cached) return null;
-    const  CachedData = JSON.parse(cached);
-    return data;
-  } catch {
-    return null;
-  }
+    return JSON.parse(cached);
+  } catch { return null; }
 }
 
 export function saveToCache(players: Player[], status: ListoneStatus): void {
   try {
-    const  CachedData = {
-      players,
-      status,
-      timestamp: Date.now(),
-    };
-    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-  } catch {
-  }
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ players, status, timestamp: Date.now() }));
+  } catch {}
 }
 
 export function clearCache(): void {
@@ -70,181 +73,142 @@ function normalizeTeam(team: string): string {
   return TEAM_ALIASES[upper] || team.trim();
 }
 
-function normalizeRole(role: string): Role {
-  const r = role.trim().toUpperCase();
-  if (r === 'P' || r === 'POR' || r === 'PORTIERE' || r.startsWith('P')) return 'P';
-  if (r === 'D' || r === 'DIF' || r === 'DIFENSORE' || r.startsWith('D')) return 'D';
-  if (r === 'A' || r === 'ATT' || r === 'ATTACCANTE' || r.startsWith('A')) return 'A';
-  if (r === 'C' || r === 'CEN' || r === 'CENTROCAMPISTA' || r.startsWith('C')) return 'C';
-  if (r.includes('POR')) return 'P';
-  if (r.includes('DIF')) return 'D';
-  if (r.includes('ATT')) return 'A';
-  if (r.includes('CEN')) return 'C';
-  return 'C';
-}
-
-function estimateFantamedia(qi: number, role: Role): number {
-  if (role === 'P') return Math.min(2 + qi * 0.1, 5.5);
-  if (role === 'D') return Math.min(2 + qi * 0.12, 6);
-  if (role === 'C') return Math.min(2.5 + qi * 0.15, 7.5);
-  return Math.min(3 + qi * 0.15, 8);
-}
-
-function estimateMediaVoto(qi: number): number {
-  return Math.min(5.5 + qi * 0.04, 7.2);
-}
-
-function estimateTitolarita(qi: number): number {
-  if (qi >= 20) return 95;
-  if (qi >= 10) return 85;
-  if (qi >= 5) return 70;
-  if (qi >= 2) return 50;
-  return 30;
-}
-
-function splitName(fullName: string): { name: string; surname: string } {
-  const parts = fullName.trim().split(/\s+/);
-  if (parts.length === 1) return { name: '', surname: parts[0] };
-  if (parts[0].length <= 3 || parts[0].endsWith('.')) {
-    return { name: parts[0].replace('.', ''), surname: parts.slice(1).join(' ') };
-  }
-  return { name: parts[0], surname: parts.slice(1).join(' ') };
-}
-
-function findColumn(headers: string[], patterns: string[]): number {
-  for (let i = 0; i < headers.length; i++) {
-    const h = (headers[i] || '').toString().toLowerCase().trim();
-    for (const pattern of patterns) {
-      if (h.includes(pattern.toLowerCase())) return i;
-    }
-  }
-  return -1;
-}
-
-export function parseExcelFile(file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
+export async function parseExcelFile(file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-
     reader.onload = (e) => {
       try {
         const data = new Uint8Array(e.target?.result as ArrayBuffer);
         const workbook = XLSX.read(data, { type: 'array' });
-
-        const sheetName = workbook.SheetNames[0];
-        const sheet = workbook.Sheets[sheetName];
-
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
         const rows = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1 });
-
-        if (rows.length < 2) {
-          reject(new Error('Il file è vuoto o non contiene dati'));
-          return;
-        }
-
-        let headerRowIndex = 0;
+        
+        // 1. Trova la prima riga di intestazione valida
+        let headerRowIndex = -1;
         let headers: string[] = [];
-
-        for (let i = 0; i < Math.min(10, rows.length); i++) {
+        
+        for (let i = 0; i < Math.min(30, rows.length); i++) {
           const row = rows[i] as any[];
-          if (row && row.length > 3) {
-            const rowText = row.join(' ').toLowerCase();
-            if (rowText.includes('calciatore') || rowText.includes('nome') ||
-                rowText.includes('giocatore') || rowText.includes('ruolo')) {
-              headerRowIndex = i;
-              headers = row.map(h => (h || '').toString());
-              break;
-            }
-          }
-        }
-
-        if (headers.length === 0) {
-          headers = (rows[0] as any[]).map(h => (h || '').toString());
-          headerRowIndex = 0;
-        }
-
-        const nameCol = findColumn(headers, ['calciatore', 'nome', 'giocatore', 'player', 'cognome']);
-        const teamCol = findColumn(headers, ['squadra', 'sq', 'team', 'società', 'societa']);
-        const roleCol = findColumn(headers, ['ruolo cl', 'ruolo classic', 'ruolo', 'role', 'rl']);
-        const qiCol = findColumn(headers, ['quotazione iniziale', 'qi', 'quotazione attuale', 'qa', 'quotazione', 'prezzo', 'value', 'fvm']);
-
-        if (nameCol === -1) {
-          reject(new Error('Colonna "Calciatore/Nome" non trovata nel file'));
-          return;
-        }
-
-        let effectiveRoleCol = roleCol;
-        if (effectiveRoleCol === -1) {
-          for (let i = 0; i < headers.length; i++) {
-            if (i === nameCol || i === teamCol || i === qiCol) continue;
-            let validRoles = 0;
-            for (let j = headerRowIndex + 1; j < Math.min(headerRowIndex + 11, rows.length); j++) {
-              const val = (rows[j] as any[])?.[i]?.toString().trim().toUpperCase();
-              if (val === 'P' || val === 'D' || val === 'C' || val === 'A') {
-                validRoles++;
+          if (row && row.length >= 10) {
+            const rowText = row.map(c => (c || '').toString().toLowerCase()).join(' ');
+            // Cerca la riga con "id", "r", "nome", "squadra"
+            if (rowText.includes('id') && rowText.includes('nome') && rowText.includes('squadra')) {
+              // Verifica che ci sia anche la colonna "R" (ruolo)
+              const hasRoleCol = row.some(c => c && c.toString().trim().toUpperCase() === 'R');
+              if (hasRoleCol) {
+                headerRowIndex = i;
+                headers = row.map(h => (h || '').toString().trim());
+                break;
               }
             }
-            if (validRoles >= 5) {
-              effectiveRoleCol = i;
-              break;
-            }
           }
+        }
+        
+        if (headerRowIndex === -1) {
+          reject(new Error('Intestazione del file non trovata. Assicurati di usare il listone ufficiale Fantacalcio.it'));
+          return;
+        }
+        
+        // 2. Trova gli indici delle colonne
+        const colId = headers.findIndex(h => h.toLowerCase() === 'id');
+        const colR = headers.findIndex(h => h.toUpperCase() === 'R');
+        const colNome = headers.findIndex(h => h.toLowerCase() === 'nome');
+        const colSquadra = headers.findIndex(h => h.toLowerCase() === 'squadra');
+        const colQtA = headers.findIndex(h => h.toLowerCase() === 'qt.a');
+        const colFVM = headers.findIndex(h => h.toLowerCase() === 'fvm');
+        
+        console.log('🔍 DEBUG Colonne trovate -> Id:', colId, 'R:', colR, 'Nome:', colNome, 'Squadra:', colSquadra, 'Qt.A:', colQtA, 'FVM:', colFVM);
+        
+        if (colNome === -1 || colSquadra === -1 || colR === -1) {
+          reject(new Error('Colonne necessarie (Id, R, Nome, Squadra) non trovate.'));
+          return;
         }
 
         const players: Player[] = [];
-        const dataRows = rows.slice(headerRowIndex + 1);
+        const seenIds = new Set<string>();
 
-        for (const row of dataRows) {
-          if (!row || !Array.isArray(row)) continue;
-
-          const nameRaw = row[nameCol];
-          if (!nameRaw || nameRaw.toString().trim() === '') continue;
-
-          const fullName = nameRaw.toString().trim();
-          const team = teamCol >= 0 ? normalizeTeam(row[teamCol]?.toString() || '') : '';
-          const role = effectiveRoleCol >= 0 ? normalizeRole(row[effectiveRoleCol]?.toString() || 'C') : 'C';
-          const qi = qiCol >= 0 ? (parseFloat(row[qiCol]) || 1) : 1;
-
-          if (!team || !serieATeams.includes(team)) continue;
-
-          const { name, surname } = splitName(fullName);
-
+        // 3. Estrai i giocatori
+        for (let i = headerRowIndex + 1; i < rows.length; i++) {
+          const row = rows[i] as any[];
+          if (!row || row.length === 0) continue;
+          
+          const firstCell = (row[0] || '').toString().trim();
+          
+          // Salta righe di separazione, intestazioni ripetute, o sezioni
+          if (firstCell === '' || 
+              firstCell.includes('Quotazioni') || 
+              firstCell.includes('Ceduti') ||
+              firstCell === '---' ||
+              ['Portieri', 'Difensori', 'Centrocampisti', 'Attaccanti', 'Tutti'].includes(firstCell)) {
+            continue;
+          }
+          
+          const nomeRaw = row[colNome];
+          if (!nomeRaw || nomeRaw.toString().trim() === '') continue;
+          
+          const nome = nomeRaw.toString().trim();
+          const squadraRaw = colSquadra >= 0 ? row[colSquadra]?.toString().trim() : '';
+          const rRaw = colR >= 0 ? row[colR]?.toString().trim().toUpperCase() : 'C';
+          const qtA = colQtA >= 0 ? (parseFloat(row[colQtA]) || 1) : 1;
+          const fvm = colFVM >= 0 ? (parseFloat(row[colFVM]) || 60) : 60;
+          const idRaw = colId >= 0 ? row[colId]?.toString().trim() : '';
+          
+          const squadra = normalizeTeam(squadraRaw);
+          if (!squadra || !serieATeams.includes(squadra)) continue;
+          
+          // Ruolo dalla colonna "R" (P, D, C, A)
+          let role: Role = 'C';
+          if (rRaw === 'P') role = 'P';
+          else if (rRaw === 'D') role = 'D';
+          else if (rRaw === 'C') role = 'C';
+          else if (rRaw === 'A') role = 'A';
+          
+          const uniqueId = idRaw || `${nome}_${squadra}`;
+          if (seenIds.has(uniqueId)) continue;
+          seenIds.add(uniqueId);
+          
+          const parts = nome.split(' ');
+          const surname = parts.pop() || '';
+          const name = parts.join(' ');
+          
           players.push({
-            id: `xl_${name}_${surname}_${team}`.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, ''),
-            name,
-            surname,
-            team,
-            role,
-            fantamedia: estimateFantamedia(qi, role),
-            mediaVoto: estimateMediaVoto(qi),
-            titolarita: estimateTitolarita(qi),
+            id: `xl_${name}_${surname}_${squadra}`.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, ''),
+            name: name || surname,
+            surname: surname,
+            team: squadra,
+            role: role,
+            fantamedia: role === 'P' ? Math.min(2 + qtA * 0.1, 5.5) : Math.min(3 + qtA * 0.15, 8),
+            mediaVoto: fvm > 0 ? fvm / 10 : 6,
+            titolarita: qtA >= 15 ? 95 : qtA >= 8 ? 80 : qtA >= 3 ? 50 : 20,
             forma: [6, 6, 6, 6, 6],
-            inCasa: true,
-            avversario: serieATeams[0],
+            inCasa: Math.random() > 0.5,
+            avversario: 'Da definire',
             difficoltaAvversario: 3,
-            cleanSheetOdds: role === 'P' ? 0.35 : 0,
-            isStarter: qi > 3,
+            cleanSheetOdds: role === 'P' ? (qtA > 10 ? 0.5 : 0.3) : 0,
+            isStarter: qtA > 5,
           });
         }
-
+        
         if (players.length === 0) {
-          reject(new Error('Nessun giocatore trovato nel file. Controlla che il formato sia corretto.'));
+          reject(new Error('Nessun giocatore valido trovato nel file.'));
           return;
         }
-
-        const status: ListoneStatus = {
-          source: 'File Excel',
-          fileName: file.name,
-          lastUpdated: new Date().toLocaleString('it-IT'),
-          playerCount: players.length,
-          isOnline: false,
-          error: null,
-        };
-
-        resolve({ players, status });
+        
+        resolve({ 
+          players, 
+          status: { 
+            source: 'File Excel', 
+            fileName: file.name, 
+            lastUpdated: new Date().toLocaleString('it-IT'), 
+            playerCount: players.length, 
+            isOnline: false, 
+            error: null 
+          } 
+        });
       } catch (err) {
-        reject(new Error(`Errore nel parsing del file: ${err instanceof Error ? err.message : 'sconosciuto'}`));
+        reject(new Error(`Errore nel parsing: ${err instanceof Error ? err.message : 'sconosciuto'}`));
       }
     };
-
     reader.onerror = () => reject(new Error('Errore nella lettura del file'));
     reader.readAsArrayBuffer(file);
   });
@@ -253,66 +217,21 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
 export function importFromJSON(jsonContent: string): { players: Player[]; status: ListoneStatus } | null {
   try {
     const data = JSON.parse(jsonContent);
-
-    if (!Array.isArray(data) || data.length === 0) {
-      return null;
-    }
-
-    const players: Player[] = data.map((item: any, index: number) => ({
-      id: item.id || `import_${index}`,
-      name: item.name || '',
-      surname: item.surname || '',
-      team: item.team || '',
-      role: (item.role || 'C') as Role,
-      fantamedia: item.fantamedia || 4,
-      mediaVoto: item.mediaVoto || item.media || 6,
-      titolarita: item.titolarita || 70,
-      forma: item.forma || [6, 6, 6, 6, 6],
-      inCasa: item.inCasa ?? true,
-      avversario: item.avversario || serieATeams[0],
-      difficoltaAvversario: item.difficoltaAvversario || 3,
-      cleanSheetOdds: item.cleanSheetOdds || 0,
-      isStarter: item.isStarter ?? true,
-    }));
-
-    const status: ListoneStatus = {
-      source: 'File JSON',
-      lastUpdated: new Date().toLocaleString('it-IT'),
-      playerCount: players.length,
-      isOnline: false,
-      error: null,
+    if (!Array.isArray(data) || data.length === 0) return null;
+    return {
+      players: data.map((item: any, i: number) => ({ ...item, id: item.id || `import_${i}` })),
+      status: { source: 'JSON', lastUpdated: new Date().toLocaleString('it-IT'), playerCount: data.length, isOnline: false, error: null }
     };
-
-    return { players, status };
-  } catch {
-    return null;
-  }
+  } catch { return null; }
 }
 
 export function exportToJSON(players: Player[]): string {
   return JSON.stringify(players, null, 2);
 }
 
-export function getCurrentStatus(): ListoneStatus {
-  const cached = loadFromCache();
-  if (cached) {
-    return cached.status;
-  }
-  return {
-    source: 'Nessun listone caricato',
-    lastUpdated: null,
-    playerCount: 0,
-    isOnline: false,
-    error: null,
-  };
-}
-
 export function getPlayers(): Player[] {
   const cached = loadFromCache();
-  if (cached && cached.players.length > 0) {
-    return cached.players;
-  }
-  return fallbackPlayers;
+  return (cached && cached.players.length > 0) ? cached.players : fallbackPlayers;
 }
 
 export function loadListone(): { players: Player[]; status: ListoneStatus } {
@@ -320,12 +239,8 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
   if (cached && cached.players.length > 0) {
     return { players: cached.players, status: cached.status };
   }
-  const fallbackStatus: ListoneStatus = {
-    source: 'Listone Offline (hardcoded)',
-    lastUpdated: null,
-    playerCount: fallbackPlayers.length,
-    isOnline: false,
-    error: 'Nessun file caricato. Usa il listone hardcoded di esempio.',
+  return { 
+    players: fallbackPlayers, 
+    status: { source: 'Listone Offline', lastUpdated: null, playerCount: fallbackPlayers.length, isOnline: false, error: 'Nessun file caricato.' } 
   };
-  return { players: fallbackPlayers, status: fallbackStatus };
 }
