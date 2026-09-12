@@ -1,115 +1,355 @@
 {
-  "aggiornato": "2026-09-12T13:49:22.608Z",
+  "aggiornato": "2026-09-12T13:52:05.731Z",
   "fonte": "fantacalcio.it",
   "partite": {
-    "venezia-fiorentina_17994": {
+    "VEN-FIO": {
       "matchId": "17994",
       "casa": {
-        "sigla": "venezia",
-        "titolari": []
+        "sigla": "VEN",
+        "titolari": [
+          "Adams A.",
+          "Yeboah J.",
+          "Sagrado",
+          "Sohm",
+          "Busio",
+          "Perez K.",
+          "Hainaut",
+          "Haps",
+          "Moreno M.",
+          "Schingtienne",
+          "Stankovic F."
+        ]
       },
       "trasferta": {
-        "sigla": "fiorentina",
-        "titolari": []
+        "sigla": "FIO",
+        "titolari": [
+          "Beto",
+          "Njie",
+          "Mastantuono",
+          "Atta",
+          "Fagioli",
+          "Ndour",
+          "Ranieri L.",
+          "Viery",
+          "Dragusin",
+          "Jimenez A.",
+          "De Gea"
+        ]
       }
     },
-    "genoa-frosinone_17987": {
+    "GEN-FRO": {
       "matchId": "17987",
       "casa": {
-        "sigla": "genoa",
-        "titolari": []
+        "sigla": "GEN",
+        "titolari": [
+          "Osmajic",
+          "Colombo",
+          "Ellertsson",
+          "Baldanzi",
+          "Sow",
+          "Frendrup",
+          "Ehizibue",
+          "Vasquez",
+          "Ostigard",
+          "Marcandalli",
+          "Bijlow"
+        ]
       },
       "trasferta": {
-        "sigla": "frosinone",
-        "titolari": []
+        "sigla": "FRO",
+        "titolari": [
+          "Raimondo",
+          "Kvernadze",
+          "Schmid",
+          "Ghedjemis",
+          "Masini",
+          "Calò",
+          "Bracaglia",
+          "Cittadini",
+          "Calvani",
+          "Oyono A.",
+          "Palmisani"
+        ]
       }
     },
-    "lazio-milan_17989": {
+    "LAZ-MIL": {
       "matchId": "17989",
       "casa": {
-        "sigla": "lazio",
-        "titolari": []
+        "sigla": "LAZ",
+        "titolari": [
+          "Zaccagni",
+          "Pinamonti",
+          "Isaksen",
+          "Taylor K.",
+          "Belahyane",
+          "Frattesi",
+          "Tavares N.",
+          "Provstgaard",
+          "Sutalo J.",
+          "Floriani Mussolini",
+          "Mandas"
+        ]
       },
       "trasferta": {
-        "sigla": "milan",
-        "titolari": []
+        "sigla": "MIL",
+        "titolari": [
+          "Ramos G.",
+          "Cissè A.",
+          "Loftus-Cheek",
+          "Estupinan",
+          "Rabiot",
+          "Modric",
+          "Chukwueze",
+          "Pavlovic",
+          "De Winter",
+          "Gila",
+          "Maignan"
+        ]
       }
     },
-    "atalanta-cagliari_17985": {
+    "ATA-CAG": {
       "matchId": "17985",
       "casa": {
-        "sigla": "atalanta",
-        "titolari": []
+        "sigla": "ATA",
+        "titolari": [
+          "Rowe",
+          "Scamacca",
+          "De Ketelaere",
+          "Ederson D.S.",
+          "Kessiè",
+          "Samardzic",
+          "Bernasconi",
+          "Scalvini",
+          "Kossounou",
+          "Bellanova",
+          "Carnesecchi"
+        ]
       },
       "trasferta": {
-        "sigla": "cagliari",
-        "titolari": []
+        "sigla": "CAG",
+        "titolari": [
+          "Mendy P.",
+          "Maldini",
+          "Fazzini",
+          "Romano",
+          "Winks",
+          "Adopo",
+          "Obert",
+          "Rodriguez Ju.",
+          "Mina",
+          "Zè Pedro",
+          "Caprile"
+        ]
       }
     },
-    "lecce-monza_17990": {
+    "LEC-MON": {
       "matchId": "17990",
       "casa": {
-        "sigla": "lecce",
-        "titolari": []
+        "sigla": "LEC",
+        "titolari": [
+          "Monteiro J.",
+          "Stulic",
+          "Pierotti",
+          "Ilic",
+          "Ngom",
+          "Coulibaly L.",
+          "Gallo",
+          "Tiago Gabriel",
+          "Gaspar K.",
+          "Veiga D.",
+          "Falcone"
+        ]
       },
       "trasferta": {
-        "sigla": "monza",
-        "titolari": []
+        "sigla": "MON",
+        "titolari": [
+          "Varela G.",
+          "Robinson J.",
+          "Colpani",
+          "Mangas",
+          "Folorunsho",
+          "Akinsanmiro",
+          "Birindelli",
+          "Carboni A.",
+          "Lucchesi",
+          "Kouadio",
+          "Thiam"
+        ]
       }
     },
-    "napoli-bologna_17991": {
+    "NAP-BOL": {
       "matchId": "17991",
       "casa": {
-        "sigla": "napoli",
-        "titolari": []
+        "sigla": "NAP",
+        "titolari": [
+          "Neres",
+          "Hojlund",
+          "Politano",
+          "Vergara",
+          "Lobotka",
+          "Gilmour",
+          "Spinazzola",
+          "Marin R.",
+          "Rrahmani",
+          "Di Lorenzo",
+          "Milinkovic-Savic V."
+        ]
       },
       "trasferta": {
-        "sigla": "bologna",
-        "titolari": []
+        "sigla": "BOL",
+        "titolari": [
+          "Cambiaghi",
+          "Piccoli",
+          "Bernardeschi",
+          "Pobega",
+          "Ferguson",
+          "Odgaard",
+          "Miranda J.",
+          "Theate",
+          "Heggem",
+          "Holm",
+          "Skorupski"
+        ]
       }
     },
-    "sassuolo-juventus_17992": {
+    "SAS-JUV": {
       "matchId": "17992",
       "casa": {
-        "sigla": "sassuolo",
-        "titolari": []
+        "sigla": "SAS",
+        "titolari": [
+          "Laurientè",
+          "Bowie",
+          "Berardi",
+          "Adzic",
+          "Matic",
+          "Thorstvedt",
+          "Doig",
+          "Leysen F.",
+          "Idzes",
+          "Cinquegrano",
+          "Muric"
+        ]
       },
       "trasferta": {
-        "sigla": "juventus",
-        "titolari": []
+        "sigla": "JUV",
+        "titolari": [
+          "Kolo Muani",
+          "Gonzalez N.",
+          "Woltemade",
+          "Conceicao",
+          "Douglas Luiz",
+          "Koopmeiners",
+          "Celik",
+          "Lucumì",
+          "Bremer",
+          "Kalulu",
+          "Vicario"
+        ]
       }
     },
-    "como-parma_17986": {
+    "COM-PAR": {
       "matchId": "17986",
       "casa": {
-        "sigla": "como",
-        "titolari": []
+        "sigla": "COM",
+        "titolari": [
+          "Kean",
+          "Baturina",
+          "Paz N.",
+          "Diao",
+          "Perrone",
+          "Da Cunha",
+          "Kaiki",
+          "Ramon",
+          "Chalobah T.",
+          "Smolcic I.",
+          "Butez"
+        ]
       },
       "trasferta": {
-        "sigla": "parma",
-        "titolari": []
+        "sigla": "PAR",
+        "titolari": [
+          "Tourè E.",
+          "Lontani",
+          "Valeri",
+          "Ordonez C.",
+          "Sierro",
+          "Keita M.",
+          "Britschgi",
+          "Diego Carlos",
+          "Troilo",
+          "Delprato",
+          "Corvi"
+        ]
       }
     },
-    "torino-roma_17993": {
+    "TOR-ROM": {
       "matchId": "17993",
       "casa": {
-        "sigla": "torino",
-        "titolari": []
+        "sigla": "TOR",
+        "titolari": [
+          "Simeone",
+          "Vlasic",
+          "Adams C.",
+          "Cacciamani",
+          "Fitz-Jim",
+          "Mandragora",
+          "Fortini",
+          "Comert",
+          "Ismajli",
+          "Comuzzo",
+          "Perri"
+        ]
       },
       "trasferta": {
-        "sigla": "roma",
-        "titolari": []
+        "sigla": "ROM",
+        "titolari": [
+          "Malen",
+          "Mora",
+          "Soulè",
+          "Wesley",
+          "Pisilli",
+          "Cristante",
+          "Molina N.",
+          "Hermoso",
+          "N'Dicka",
+          "Mancini",
+          "Svilar"
+        ]
       }
     },
-    "inter-udinese_17988": {
+    "INT-UDI": {
       "matchId": "17988",
       "casa": {
-        "sigla": "inter",
-        "titolari": []
+        "sigla": "INT",
+        "titolari": [
+          "Esposito F.P.",
+          "Martinez L.",
+          "Dimarco",
+          "Zielinski",
+          "Calhanoglu",
+          "Barella",
+          "Diouf",
+          "Bastoni",
+          "Stones",
+          "Akanji",
+          "Martinez Jo."
+        ]
       },
       "trasferta": {
-        "sigla": "udinese",
-        "titolari": []
+        "sigla": "UDI",
+        "titolari": [
+          "Davis K.",
+          "Ekkelenkamp",
+          "Unai Gomez",
+          "Kamara H.",
+          "Karlstrom",
+          "Miller L.",
+          "Vojvoda",
+          "Ebosse",
+          "Kabasele",
+          "Abankwah",
+          "Okoye"
+        ]
       }
     }
   }
