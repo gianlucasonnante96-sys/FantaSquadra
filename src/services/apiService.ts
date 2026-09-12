@@ -13,10 +13,6 @@ export interface MatchDay {
   }>;
 }
 
-// ============================================================
-// 1. RECUPERO CALENDARIO DA API-FOOTBALL
-// ============================================================
-
 export async function getCurrentMatchDay(): Promise<MatchDay | null> {
   if (!API_FOOTBALL_KEY) {
     console.warn('⚠️ API_FOOTBALL_KEY mancante');
@@ -55,10 +51,6 @@ export async function getCurrentMatchDay(): Promise<MatchDay | null> {
   }
 }
 
-// ============================================================
-// 2. CALCOLO DIFFICOLTÀ AVVERSARIO
-// ============================================================
-
 export function calculateDifficulty(opponent: string, isHome: boolean): number {
   const topTeams = ['Inter', 'Juventus', 'Milan', 'Napoli', 'Atalanta', 'Roma', 'Lazio'];
   const midTeams = ['Fiorentina', 'Bologna', 'Torino', 'Sassuolo'];
@@ -68,10 +60,6 @@ export function calculateDifficulty(opponent: string, isHome: boolean): number {
   return isHome ? 1 : 3;
 }
 
-// ============================================================
-// 3. MAPPA SIGLE → NOMI COMPLETI
-// ============================================================
-
 const SIGLA_TO_NOME: Record<string, string> = {
   'ATA': 'Atalanta', 'BOL': 'Bologna', 'CAG': 'Cagliari', 'COM': 'Como',
   'FIO': 'Fiorentina', 'FRO': 'Frosinone', 'GEN': 'Genoa', 'INT': 'Inter',
@@ -80,20 +68,12 @@ const SIGLA_TO_NOME: Record<string, string> = {
   'SAS': 'Sassuolo', 'TOR': 'Torino', 'UDI': 'Udinese', 'VEN': 'Venezia',
 };
 
-/**
- * Converte il nome della squadra dal formato di formazioni.json (sigla o nome)
- * al formato usato dai Player (nome completo).
- */
 function normalizzaTeamApi(team: string | undefined | null): string {
   if (typeof team !== 'string' || !team) return '';
   const upper = team.trim().toUpperCase();
   if (SIGLA_TO_NOME[upper]) return SIGLA_TO_NOME[upper];
   return team.trim();
 }
-
-// ============================================================
-// 4. ARRICCHIMENTO PLAYER CON TITOLARITÀ + DATI PARTITA
-// ============================================================
 
 function normalizzaNome(valore: unknown): string {
   if (typeof valore !== 'string' || !valore) return '';
@@ -104,14 +84,21 @@ function normalizzaNome(valore: unknown): string {
   }
 }
 
+/**
+ * 🔥 NUOVA VERSIONE: applica la PERCENTUALE ESATTA dalle formazioni.
+ * 
+ * - Se il giocatore è in lista con perc=100 → titolarità 95
+ * - Se in lista con perc<100 → titolarità = perc
+ * - Se NON in lista → titolarità 10
+ */
 export function updatePlayersWithMatchData(
   players: Player[],
   matchDay: MatchDay | null,
-  probabiliFormazioni?: Record<string, string[]> | null
+  probabiliFormazioni?: Record<string, Array<{ nome: string; perc: number }>> | null
 ): Player[] {
   if (!Array.isArray(players)) return [];
   
-  // 🔥 Se non ci sono formazioni passate come parametro, leggile dal file JSON
+  // Se non ci sono formazioni passate, leggile dal file
   let formazioniDaApplicare = probabiliFormazioni;
   
   if (!formazioniDaApplicare) {
@@ -119,10 +106,12 @@ export function updatePlayersWithMatchData(
       const formazioniFile = loadFormazioniDaFile();
       formazioniDaApplicare = {};
       for (const f of formazioniFile) {
-        // Converti sigla → nome completo per matchare con `player.team`
         const nomeCompleto = normalizzaTeamApi(f.team);
         if (nomeCompleto) {
-          formazioniDaApplicare[nomeCompleto] = f.giocatori;
+          formazioniDaApplicare[nomeCompleto] = f.giocatori.map(g => {
+            if (typeof g === 'string') return { nome: g, perc: 100 };
+            return { nome: g.nome || '', perc: g.perc ?? 100 };
+          }).filter(g => g.nome);
         }
       }
       console.log(`📋 Applicate ${Object.keys(formazioniDaApplicare).length} formazioni dal file`);
@@ -147,7 +136,6 @@ export function updatePlayersWithMatchData(
     const isHome = match.homeTeam === player.team;
     const opponent = isHome ? match.awayTeam : match.homeTeam;
     
-    // 🔒 RECUPERO FORMAZIONE SAFE
     const teamFormation = Array.isArray(formazioni[player.team])
       ? formazioni[player.team]
       : [];
@@ -155,27 +143,31 @@ export function updatePlayersWithMatchData(
     const playerSurname = normalizzaNome(player.surname);
     const playerName = normalizzaNome(player.name);
     
-    const isInProbable =
-      teamFormation.length > 0 &&
-      teamFormation.some((name) => {
-        if (typeof name !== 'string' || !name) return false;
-        try {
-          const nameLower = name.toLowerCase();
-          return (
-            (playerSurname && nameLower.includes(playerSurname)) ||
-            (playerName && nameLower.includes(playerName))
-          );
-        } catch {
-          return false;
-        }
-      });
+    // 🔥 Cerca la percentuale ESATTA
+    let percentualeTrovata = 0;
+    let matchTrovato = false;
     
-    // 🎯 AGGIORNAMENTO TITOLARITÀ
-    let newTitolarita = player.titolarita ?? 50;
-    if (isInProbable) {
-      newTitolarita = Math.min(95, newTitolarita + 15);
-    } else if (teamFormation.length > 0) {
-      newTitolarita = Math.max(10, newTitolarita - 25);
+    for (const g of teamFormation) {
+      const nomeLower = normalizzaNome(g.nome);
+      if (!nomeLower) continue;
+      
+      if (
+        (playerSurname && playerSurname.length >= 4 && nomeLower.includes(playerSurname)) ||
+        (playerName && playerName.length >= 4 && nomeLower.includes(playerName)) ||
+        nomeLower === playerSurname
+      ) {
+        percentualeTrovata = g.perc;
+        matchTrovato = true;
+        break;
+      }
+    }
+    
+    // 🔥 Applica la percentuale
+    let newTitolarita: number;
+    if (matchTrovato) {
+      newTitolarita = percentualeTrovata >= 100 ? 95 : percentualeTrovata;
+    } else {
+      newTitolarita = 10;
     }
     
     return {
@@ -187,10 +179,6 @@ export function updatePlayersWithMatchData(
     };
   });
 }
-
-// ============================================================
-// 5. FUNZIONI LEGACY (per compatibilità)
-// ============================================================
 
 export function parseProbableFormations(text: string): Record<string, string[]> {
   const formations: Record<string, string[]> = {};
