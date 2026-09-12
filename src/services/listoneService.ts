@@ -3,7 +3,6 @@ import { allPlayers as fallbackPlayers, serieATeams } from '../data/players';
 import * as XLSX from 'xlsx';
 import { getAvversario } from './calendarService';
 
-// Mappa abbreviazioni squadre fantacalcio.it -> nome completo
 const TEAM_ABBR: Record<string, string> = {
   'ATA': 'Atalanta', 'BOL': 'Bologna', 'CAG': 'Cagliari', 'COM': 'Como',
   'FIO': 'Fiorentina', 'FRO': 'Frosinone', 'GEN': 'Genoa', 'INT': 'Inter',
@@ -41,7 +40,6 @@ interface CachedData {
 
 const CACHE_KEY = 'fantaconsiglio_listone_cache';
 
-// 🔒 SAFE: normalizza un valore a stringa
 function safeString(valore: unknown): string {
   if (typeof valore === 'string') return valore;
   if (valore === null || valore === undefined) return '';
@@ -52,7 +50,6 @@ function safeString(valore: unknown): string {
   }
 }
 
-// Carica i dati dalla cache localStorage
 function loadFromCache(): CachedData | null {
   try {
     const cached = localStorage.getItem(CACHE_KEY);
@@ -64,7 +61,6 @@ function loadFromCache(): CachedData | null {
   }
 }
 
-// Salva i dati nella cache localStorage
 export function saveToCache(players: Player[], status: ListoneStatus): void {
   try {
     const data: CachedData = {
@@ -78,12 +74,10 @@ export function saveToCache(players: Player[], status: ListoneStatus): void {
   }
 }
 
-// Elimina la cache
 export function clearCache(): void {
   localStorage.removeItem(CACHE_KEY);
 }
 
-// 🔒 SAFE: normalizza il nome della squadra
 function normalizeTeam(team: string | undefined | null): string {
   const trimmed = safeString(team).trim();
   if (!trimmed) return '';
@@ -110,7 +104,6 @@ function normalizeTeam(team: string | undefined | null): string {
   return trimmed;
 }
 
-// 🔒 SAFE: determina il ruolo da una stringa
 function normalizeRole(role: string | undefined | null): Role {
   const r = safeString(role).trim().toUpperCase();
   if (!r) return 'C';
@@ -127,29 +120,25 @@ function normalizeRole(role: string | undefined | null): Role {
   return 'C';
 }
 
-function estimateFantamedia(qi: number, role: Role): number {
-  const q = Number(qi) || 1;
-  if (role === 'P') return Math.min(2 + q * 0.1, 5.5);
-  if (role === 'D') return Math.min(2 + q * 0.12, 6);
-  if (role === 'C') return Math.min(2.5 + q * 0.15, 7.5);
-  return Math.min(3 + q * 0.15, 8);
+// 🔥 CAMBIA: fantamedia parte da 0 (dato mancante)
+function estimateFantamedia(_qi: number, _role: Role): number {
+  return 0; // ← Non stimare, lascia 0. Verrà gestito nel scoring.
 }
 
-function estimateMediaVoto(qi: number): number {
-  const q = Number(qi) || 1;
-  return Math.min(5.5 + q * 0.04, 7.2);
+// 🔥 CAMBIA: media voto parte da 6 (neutra)
+function estimateMediaVoto(_qi: number): number {
+  return 6; // ← Valore neutro
 }
 
 function estimateTitolarita(qi: number): number {
   const q = Number(qi) || 1;
-  if (q >= 20) return 95;
-  if (q >= 10) return 85;
-  if (q >= 5) return 70;
+  if (q >= 20) return 90;
+  if (q >= 10) return 80;
+  if (q >= 5) return 65;
   if (q >= 2) return 50;
   return 30;
 }
 
-// 🔒 SAFE: separa nome completo
 function splitName(fullName: string | undefined | null): { name: string; surname: string } {
   const safe = safeString(fullName).trim();
   if (!safe) return { name: '', surname: '' };
@@ -162,7 +151,6 @@ function splitName(fullName: string | undefined | null): { name: string; surname
   return { name: parts[0], surname: parts.slice(1).join(' ') };
 }
 
-// 🔒 SAFE: trova la colonna nel foglio Excel
 function findColumn(headers: string[], patterns: string[]): number {
   if (!Array.isArray(headers)) return -1;
   for (let i = 0; i < headers.length; i++) {
@@ -175,7 +163,6 @@ function findColumn(headers: string[], patterns: string[]): number {
   return -1;
 }
 
-// Parsa un file Excel e restituisce i giocatori
 export function parseExcelFile(file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -229,6 +216,10 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
         const teamCol = findColumn(headers, ['squadra', 'sq', 'team', 'società', 'societa']);
         const roleCol = findColumn(headers, ['ruolo cl', 'ruolo classic', 'ruolo', 'role', 'rl']);
         const qiCol = findColumn(headers, ['quotazione iniziale', 'qi', 'quotazione attuale', 'qa', 'quotazione', 'prezzo', 'value', 'fvm']);
+        
+        // 🔥 NUOVO: cerca colonna fantamedia e media voto
+        const fantaCol = findColumn(headers, ['fantamedia', 'fm', 'fanta media', 'fantamedia attuale']);
+        const mediaCol = findColumn(headers, ['media voto', 'mv', 'media', 'voto medio']);
 
         if (nameCol === -1) {
           reject(new Error('Colonna "Calciatore/Nome" non trovata nel file'));
@@ -258,7 +249,7 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
         let skippedRows = 0;
 
         console.log('Inizio parsing:', dataRows.length, 'righe di dati');
-        console.log('Colonne - Nome:', nameCol, 'Squadra:', teamCol, 'Ruolo:', effectiveRoleCol, 'Quotazione:', qiCol);
+        console.log('Colonne - Nome:', nameCol, 'Squadra:', teamCol, 'Ruolo:', effectiveRoleCol, 'Quotazione:', qiCol, 'Fantamedia:', fantaCol, 'Media Voto:', mediaCol);
 
         for (const row of dataRows) {
           if (!row || !Array.isArray(row)) {
@@ -278,6 +269,20 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
           const role = effectiveRoleCol >= 0 ? normalizeRole(safeString(row[effectiveRoleCol])) : 'C';
           const qi = qiCol >= 0 ? (parseFloat(safeString(row[qiCol])) || 1) : 1;
 
+          // 🔥 LEGGI FANTAMEDIA E MEDIA VOTO DAL FILE (se esistono)
+          let fantamedia = 0;
+          let mediaVoto = 6;
+          
+          if (fantaCol >= 0) {
+            const fantaRaw = parseFloat(safeString(row[fantaCol]));
+            if (!isNaN(fantaRaw) && fantaRaw > 0) fantamedia = fantaRaw;
+          }
+          
+          if (mediaCol >= 0) {
+            const mediaRaw = parseFloat(safeString(row[mediaCol]));
+            if (!isNaN(mediaRaw) && mediaRaw > 0) mediaVoto = mediaRaw;
+          }
+
           const { name, surname } = splitName(fullName);
 
           players.push({
@@ -286,8 +291,8 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
             surname,
             team,
             role,
-            fantamedia: estimateFantamedia(qi, role),
-            mediaVoto: estimateMediaVoto(qi),
+            fantamedia,  // ← 0 se non presente nel file
+            mediaVoto,   // ← 6 di default se non presente
             titolarita: estimateTitolarita(qi),
             forma: [6, 6, 6, 6, 6],
             inCasa: true,
@@ -325,7 +330,6 @@ export function parseExcelFile(file: File): Promise<{ players: Player[]; status:
   });
 }
 
-// Importa da JSON
 export function importFromJSON(jsonContent: string): { players: Player[]; status: ListoneStatus } | null {
   try {
     const data = JSON.parse(jsonContent);
@@ -340,7 +344,7 @@ export function importFromJSON(jsonContent: string): { players: Player[]; status
       surname: safeString(item.surname),
       team: safeString(item.team),
       role: normalizeRole(item.role),
-      fantamedia: item.fantamedia || 4,
+      fantamedia: item.fantamedia || 0,       // 🔥 0 se non presente
       mediaVoto: item.mediaVoto || item.media || 6,
       titolarita: item.titolarita || 70,
       forma: Array.isArray(item.forma) ? item.forma : [6, 6, 6, 6, 6],
@@ -406,7 +410,6 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
   return { players: fallbackPlayers, status: fallbackStatus };
 }
 
-// 🔒 SAFE: aggiorna i giocatori con le avversarie
 export function updateAvversari(players: Player[], giornata: number): Player[] {
   if (!Array.isArray(players)) return [];
   
@@ -414,7 +417,6 @@ export function updateAvversari(players: Player[], giornata: number): Player[] {
     if (!player) return player;
     
     try {
-      // 🔒 Check: team deve essere stringa valida
       const team = safeString(player.team);
       if (!team) return player;
       
@@ -435,7 +437,6 @@ export function updateAvversari(players: Player[], giornata: number): Player[] {
   });
 }
 
-// 🔒 SAFE: getPlayersWithAvversari con try/catch globale
 export function getPlayersWithAvversari(giornata: number): Player[] {
   try {
     const players = getPlayers();
