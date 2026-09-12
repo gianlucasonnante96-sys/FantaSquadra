@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { Player, LeagueRules, Formation } from '../types';
 import { optimizeFormation } from '../utils/optimizer';
 import { getFormIndicator, getDifficultyLabel } from '../utils/scoring';
-import { getPlayersWithAvversari } from '../services/listoneService';
+import { getAvversario } from '../services/calendarService';
 
 interface DashboardProps {
   roster: Player[];
@@ -16,30 +16,47 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   const [showAllFormations, setShowAllFormations] = useState(false);
   const [giornata, setGiornata] = useState(1);
 
-  // 🔒 SAFE: aggiorna i giocatori con le avversarie, con try/catch
+  // 🔥 FIX: usa il `roster` come base e aggiorna SOLO gli avversari.
+  // NON rileggere dal listone, altrimenti perdi le titolarità delle formazioni.
   const rosterWithAvversari = useMemo(() => {
+    if (!Array.isArray(roster)) return [];
+    
     try {
-      const result = getPlayersWithAvversari(giornata);
-      return Array.isArray(result) ? result : [];
+      // Applica solo gli avversari usando il roster che ha già le titolarità aggiornate
+      return roster.map(player => {
+        if (!player) return player;
+        
+        const team = typeof player.team === 'string' ? player.team : '';
+        if (!team) return player;
+        
+        try {
+          const avversarioInfo = getAvversario(team, giornata);
+          if (avversarioInfo) {
+            return {
+              ...player,
+              avversario: avversarioInfo.avversario,
+              inCasa: avversarioInfo.inCasa,
+            };
+          }
+        } catch (e) {
+          console.warn('Errore getAvversario:', team, e);
+        }
+        
+        return player;
+      });
     } catch (e) {
-      console.error('Errore getPlayersWithAvversari:', e);
-      return [];
+      console.error('Errore rosterWithAvversari:', e);
+      return roster;
     }
   }, [giornata, roster]);
 
-  // 🔒 SAFE: filtro roster con controllo
+  // 🔥 SAFE: filtro roster con controllo
   const filteredRoster = useMemo(() => {
     if (!Array.isArray(rosterWithAvversari)) return [];
-    if (!Array.isArray(roster)) return [];
-    
-    const rosterIds = new Set(
-      roster.filter(p => p && p.id).map(p => p.id)
-    );
-    
-    return rosterWithAvversari.filter(p => p && p.id && rosterIds.has(p.id));
-  }, [rosterWithAvversari, roster]);
+    return rosterWithAvversari.filter(p => p && p.id);
+  }, [rosterWithAvversari]);
 
-  // 🔒 SAFE: optimizeFormation con try/catch
+  // 🔥 SAFE: optimizeFormation con try/catch
   const { formations, best } = useMemo(() => {
     try {
       const result = optimizeFormation(filteredRoster, rules);
@@ -55,7 +72,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
 
   const currentFormation = formations[selectedFormationIdx] || best;
 
-  // 🔒 SAFE: se non c'è formazione, mostra schermata di errore
+  // 🔥 SAFE: se non c'è formazione, mostra schermata di errore
   if (!currentFormation) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8 flex items-center justify-center">
@@ -207,7 +224,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
 
           <div className="p-4 md:p-6">
-            {/* Goalkeeper */}
             <div className="mb-6">
               {currentFormation.slots
                 .filter(s => s.player.role === 'P')
@@ -216,7 +232,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                 ))}
             </div>
 
-            {/* Defenders */}
             <div className="mb-6">
               <div className="text-slate-400 text-xs uppercase tracking-wider mb-2">Difesa</div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -228,7 +243,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               </div>
             </div>
 
-            {/* Midfielders */}
             <div className="mb-6">
               <div className="text-slate-400 text-xs uppercase tracking-wider mb-2">Centrocampo</div>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -240,7 +254,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               </div>
             </div>
 
-            {/* Attackers */}
             <div>
               <div className="text-slate-400 text-xs uppercase tracking-wider mb-2">Attacco</div>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -333,7 +346,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           )}
         </div>
 
-        {/* Algorithm Info */}
         <div className="bg-slate-800/40 rounded-xl border border-slate-700/30 p-4 text-center">
           <p className="text-slate-500 text-xs">
             🤖 Voto Previsto calcolato con algoritmo che combina Fantamedia, Media Voto,
@@ -358,10 +370,8 @@ interface PlayerCardProps {
 function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficultyColor, compact }: PlayerCardProps) {
   const { player, expectedScore } = slot;
   
-  // 🔒 SAFE: controlli sui dati del player
   const forma = Array.isArray(player?.forma) ? player.forma : [6, 6, 6, 6, 6];
   const form = getFormIndicator(forma);
-  const difficulty = getDifficultyLabel(player?.difficoltaAvversario ?? 3);
   const titolarita = player?.titolarita ?? 50;
 
   if (compact) {
@@ -435,12 +445,6 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
           <div className="text-white text-xs font-medium">{player.inCasa ? 'H' : 'T'} vs {player.avversario}</div>
         </div>
       </div>
-
-      {player.cleanSheetOdds > 0 && (
-        <div className="mt-2 text-center text-xs text-slate-400">
-          Clean Sheet: <span className="text-emerald-400 font-medium">{(player.cleanSheetOdds * 100).toFixed(0)}%</span>
-        </div>
-      )}
     </div>
   );
 }
