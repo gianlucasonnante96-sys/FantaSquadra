@@ -120,63 +120,44 @@ async function scrapeListone(page) {
       
       rows.forEach(row => {
         try {
-          // 🔥 RUOLO con 5 strategie
+          // 🔥 FIX RUOLO: leggi da data-filter-role-classic del <tr>
           let role = '';
-          const roleEl = row.querySelector('th.player-role');
           
-          if (roleEl) {
-            // Strategia 1: testo diretto
-            role = (roleEl.textContent || '').trim();
-            
-            // Strategia 2: data-role attribute
-            if (!role) {
-              role = (roleEl.getAttribute('data-role') || '').trim();
+          // Strategia 1: attributo del <tr> (LA MIGLIORE!)
+          const roleAttr = row.getAttribute('data-filter-role-classic');
+          if (roleAttr) {
+            role = roleAttr.toUpperCase().trim();
+          }
+          
+          // Strategia 2: span.role data-value
+          if (!role) {
+            const roleSpan = row.querySelector('span.role');
+            if (roleSpan) {
+              const dataValue = roleSpan.getAttribute('data-value');
+              if (dataValue) {
+                role = dataValue.toUpperCase().trim();
+              }
             }
-            
-            // Strategia 3: classi tipo "player-role-A"
-            if (!role) {
-              const classes = (roleEl.className || '').split(/\s+/);
+          }
+          
+          // Strategia 3: classi del <th class="player-role...">
+          if (!role) {
+            const roleTh = row.querySelector('th.player-role');
+            if (roleTh) {
+              const classes = (roleTh.className || '').split(/\s+/);
               for (const cls of classes) {
-                const match = cls.match(/^player-role-([PDCA])$/i);
-                if (match) {
-                  role = match[1].toUpperCase();
-                  break;
-                }
-              }
-            }
-            
-            // Strategia 4: span interno
-            if (!role) {
-              const spanEl = roleEl.querySelector('span');
-              if (spanEl) {
-                role = (spanEl.textContent || '').trim();
-              }
-            }
-            
-            // Strategia 5: prima lettera valida dal testo del th
-            if (!role) {
-              const text = (roleEl.textContent || '').trim().toUpperCase();
-              for (const char of text) {
-                if (['P', 'D', 'C', 'A'].includes(char)) {
-                  role = char;
+                const m = cls.match(/([PDCA])/);
+                if (m && 'PDCA'.includes(m[1].toUpperCase())) {
+                  role = m[1].toUpperCase();
                   break;
                 }
               }
             }
           }
           
-          // Fallback: cerca qualsiasi elemento con classe role
-          if (!role) {
-            const anyRoleEl = row.querySelector('[class*="role"]');
-            if (anyRoleEl) {
-              const text = (anyRoleEl.textContent || '').trim().toUpperCase();
-              for (const char of text) {
-                if (['P', 'D', 'C', 'A'].includes(char)) {
-                  role = char;
-                  break;
-                }
-              }
-            }
+          // Validazione: deve essere P/D/C/A
+          if (!['P', 'D', 'C', 'A'].includes(role)) {
+            role = '';
           }
           
           // NOME
@@ -231,8 +212,8 @@ async function scrapeListone(page) {
     console.log(`📊 Ruoli estratti: P=${ruoliCount.P}, D=${ruoliCount.D}, C=${ruoliCount.C}, A=${ruoliCount.A}, vuoti=${ruoliCount['']}`);
     
     if (listoneData.length > 0) {
-      console.log('📊 Esempio primi 3 giocatori:');
-      listoneData.slice(0, 3).forEach(g => {
+      console.log('📊 Esempio primi 5 giocatori:');
+      listoneData.slice(0, 5).forEach(g => {
         console.log(`  - ${g.nome} (${g.squadra}, ${g.ruolo || '?'}): Qi=${g.quotazioneIniziale}, Qa=${g.quotazioneAttuale}, FVM=${g.fvm}`);
       });
     }
