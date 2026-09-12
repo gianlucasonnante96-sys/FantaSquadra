@@ -3,6 +3,7 @@ import { Player, LeagueRules, Formation } from '../types';
 import { optimizeFormation } from '../utils/optimizer';
 import { getFormIndicator, getDifficultyLabel } from '../utils/scoring';
 import { getAvversario } from '../services/calendarService';
+import { calculateDifficulty } from '../services/apiService';
 
 interface DashboardProps {
   roster: Player[];
@@ -16,13 +17,11 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   const [showAllFormations, setShowAllFormations] = useState(false);
   const [giornata, setGiornata] = useState(1);
 
-  // 🔥 FIX: usa il `roster` come base e aggiorna SOLO gli avversari.
-  // NON rileggere dal listone, altrimenti perdi le titolarità delle formazioni.
+  // 🔥 FIX: aggiorna avversario E difficoltà in base alla giornata
   const rosterWithAvversari = useMemo(() => {
     if (!Array.isArray(roster)) return [];
     
     try {
-      // Applica solo gli avversari usando il roster che ha già le titolarità aggiornate
       return roster.map(player => {
         if (!player) return player;
         
@@ -32,10 +31,13 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         try {
           const avversarioInfo = getAvversario(team, giornata);
           if (avversarioInfo) {
+            const difficolta = calculateDifficulty(avversarioInfo.avversario, avversarioInfo.inCasa);
+            
             return {
               ...player,
               avversario: avversarioInfo.avversario,
               inCasa: avversarioInfo.inCasa,
+              difficoltaAvversario: difficolta,  // 🔥 AGGIORNATA!
             };
           }
         } catch (e) {
@@ -50,13 +52,11 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
     }
   }, [giornata, roster]);
 
-  // 🔥 SAFE: filtro roster con controllo
   const filteredRoster = useMemo(() => {
     if (!Array.isArray(rosterWithAvversari)) return [];
     return rosterWithAvversari.filter(p => p && p.id);
   }, [rosterWithAvversari]);
 
-  // 🔥 SAFE: optimizeFormation con try/catch
   const { formations, best } = useMemo(() => {
     try {
       const result = optimizeFormation(filteredRoster, rules);
@@ -72,7 +72,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
 
   const currentFormation = formations[selectedFormationIdx] || best;
 
-  // 🔥 SAFE: se non c'è formazione, mostra schermata di errore
   if (!currentFormation) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8 flex items-center justify-center">
@@ -130,7 +129,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <button onClick={onBack} className="text-slate-400 hover:text-white transition-colors text-sm">
             ← Modifica Rosa
@@ -144,7 +142,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </button>
         </div>
 
-        {/* Giornata Selector */}
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
           <div className="flex items-center justify-center gap-4">
             <button
@@ -179,7 +176,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </p>
         </div>
 
-        {/* AI Explanation Banner */}
         <div className="bg-gradient-to-r from-emerald-600/30 to-green-600/30 backdrop-blur-sm rounded-xl border border-emerald-500/30 p-4 mb-6">
           <div className="flex items-start gap-3">
             <span className="text-2xl">💡</span>
@@ -190,7 +186,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
         </div>
 
-        {/* Formation Selector */}
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
           {formations.map((f, i) => (
             <button
@@ -208,7 +203,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           ))}
         </div>
 
-        {/* Main Formation Display */}
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-emerald-500/20 overflow-hidden mb-6">
           <div className="bg-gradient-to-r from-emerald-600/40 to-green-600/40 px-6 py-4 flex items-center justify-between">
             <div>
@@ -267,12 +261,10 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
         </div>
 
-        {/* Bench */}
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden mb-6">
           <div className="px-6 py-3 bg-slate-700/40 border-b border-slate-600/50">
             <h3 className="text-white font-semibold flex items-center gap-2">
               <span>🪑</span> Panchina
-              <span className="text-xs text-slate-400 ml-2">(ordinata per priorità di sostituzione)</span>
             </h3>
           </div>
           <div className="p-4">
@@ -295,57 +287,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
         </div>
 
-        {/* All Formations Comparison */}
-        <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden mb-6">
-          <button
-            onClick={() => setShowAllFormations(!showAllFormations)}
-            className="w-full px-6 py-4 flex items-center justify-between text-white hover:bg-slate-700/30 transition-colors"
-          >
-            <h3 className="font-semibold flex items-center gap-2">
-              <span>📊</span> Confronto Moduli
-            </h3>
-            <span className="text-emerald-400">{showAllFormations ? '▲' : '▼'}</span>
-          </button>
-
-          {showAllFormations && (
-            <div className="p-4 border-t border-slate-700/50">
-              <div className="space-y-3">
-                {formations.map((f, i) => (
-                  <div
-                    key={f.modulo}
-                    className={`p-4 rounded-xl border-2 transition-all ${
-                      i === selectedFormationIdx
-                        ? 'border-emerald-500 bg-emerald-500/10'
-                        : 'border-slate-700 bg-slate-700/20'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-white font-bold">{f.modulo}</span>
-                        {f.modificatoreBonus > 0 && (
-                          <span className="ml-2 text-xs text-emerald-400 bg-emerald-500/20 px-2 py-0.5 rounded">
-                            +{f.modificatoreBonus} mod.
-                          </span>
-                        )}
-                      </div>
-                      <div className="text-right">
-                        <span className="text-white font-bold text-lg">{f.totalScore.toFixed(1)}</span>
-                        <span className="text-slate-400 text-sm ml-1">VP</span>
-                      </div>
-                    </div>
-                    <div className="mt-2 w-full h-2 bg-slate-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-emerald-500 to-green-400 rounded-full"
-                        style={{ width: `${(f.totalScore / formations[0].totalScore) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-
         <div className="bg-slate-800/40 rounded-xl border border-slate-700/30 p-4 text-center">
           <p className="text-slate-500 text-xs">
             🤖 Voto Previsto calcolato con algoritmo che combina Fantamedia, Media Voto,
@@ -357,7 +298,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   );
 }
 
-// Player Card Component
 interface PlayerCardProps {
   slot: { player: Player; expectedScore: number; position: string };
   getRoleColor: (role: string) => string;
@@ -388,12 +328,12 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
         <div className="text-slate-400 text-xs truncate">{player.team || '?'}</div>
 
         <div className="mt-2 flex items-center gap-2 text-[10px]">
-          <span className={`${getFormColor(form)}`}>{getFormEmoji(form)} {form === 'hot' ? 'In forma' : form === 'warm' ? 'OK' : 'Freddo'}</span>
+          <span className={`${getFormColor(form)}`}>{getFormEmoji(form)}</span>
         </div>
 
         <div className="mt-1 flex items-center gap-1">
           <span className={`text-[10px] ${getDifficultyColor(player.difficoltaAvversario || 3)}`}>
-            vs {player.avversario || '?'} ({player.inCasa ? 'H' : 'T'})
+            vs {player.avversario || '?'} ({player.inCasa ? 'H' : 'T'}, {player.difficoltaAvversario || 3})
           </span>
         </div>
 
@@ -442,7 +382,7 @@ function PlayerCard({ slot, getRoleColor, getFormColor, getFormEmoji, getDifficu
             {(player.difficoltaAvversario || 3) <= 2 ? '🟢' : (player.difficoltaAvversario || 3) <= 3 ? '🟡' : '🔴'}
           </div>
           <div className="text-slate-400 text-[10px]">Match</div>
-          <div className="text-white text-xs font-medium">{player.inCasa ? 'H' : 'T'} vs {player.avversario}</div>
+          <div className="text-white text-xs font-medium">{player.inCasa ? 'H' : 'T'} vs {player.avversario} (diff {player.difficoltaAvversario || 3})</div>
         </div>
       </div>
     </div>
