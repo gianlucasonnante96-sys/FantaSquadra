@@ -8,11 +8,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://www.fantacalcio.it/probabili-formazioni-serie-a';
-const DELAY_BETWEEN_MATCHES = 2000;
 
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
+
+// 🔥 Domini da bloccare (banner cookie + tracker + ads)
+const BLOCKED_DOMAINS = [
+  'quantcast.com',
+  'qc-cmp2',
+  'cmp.quantcast',
+  'googletagmanager.com',
+  'googlesyndication.com',
+  'google-analytics.com',
+  'doubleclick.net',
+  'facebook.net',
+  'rubiconproject.com',
+  'criteo.com',
+  'taboola.com',
+  'outbrain.com',
+];
 
 async function scrapeFormazioni() {
   console.log('🚀 Avvio browser headless...');
@@ -37,63 +52,70 @@ async function scrapeFormazioni() {
   
   await page.evaluateOnNewDocument(() => {
     Object.defineProperty(navigator, 'webdriver', { get: () => false });
+    // 🔥 Override di window.__tcfapi e simili per far credere alla pagina che i cookie siano già accettati
+    window.__tcfapi = function() {};
+    window.__gpp = function() {};
+    window.__cmp = function() {};
+  });
+  
+  // 🔥 BLOCCA richieste verso domini di banner/tracker
+  console.log('🛡️ Attivo blocco domini (Quantcast + tracker)...');
+  await page.setRequestInterception(true);
+  
+  page.on('request', (req) => {
+    const url = req.url().toLowerCase();
+    const shouldBlock = BLOCKED_DOMAINS.some(domain => url.includes(domain));
+    
+    if (shouldBlock) {
+      req.abort();
+    } else {
+      req.continue();
+    }
   });
   
   console.log('📡 Navigazione pagina principale...');
-  await page.goto(BASE_URL, {
-    waitUntil: 'domcontentloaded',
-    timeout: 90000
-  });
-  
-  console.log('✅ Titolo pagina:', await page.title());
-  
-  // === STEP 1: Gestione banner cookie Quantcast ===
-  console.log('🍪 Ricerca banner cookie...');
-  await sleep(3000); // Aspetta che il banner appaia
-  
-  const cookieHandled = await page.evaluate(() => {
-    // Prova diversi selettori per il pulsante "Accetta" del banner Quantcast
-    const selettori = [
-      // Quantcast CMP - pulsante "Consenti"
-      'button[title="Consenti"]',
-      'button[aria-label="Consenti"]',
-      'button[title="Accept"]',
-      'button[aria-label="Accept"]',
-      // Quantcast CMP - selettori generici
-      '.qc-cmp2-summary-buttons button:first-child',
-      '.qc-cmp2-buttons-container button:first-child',
-      '[class*="qc-cmp2"] button[class*="accept"]',
-      // Fallback generico
-      'button[class*="accept"]',
-      'button[class*="consent"]',
-    ];
-    
-    for (const sel of selettori) {
-      try {
-        const btn = document.querySelector(sel);
-        if (btn && btn.offsetParent !== null) { // visibile
-          btn.click();
-          return { clicked: true, selector: sel };
-        }
-      } catch (e) {
-        // Ignora e continua
-      }
-    }
-    return { clicked: false, selector: null };
-  });
-  
-  if (cookieHandled.clicked) {
-    console.log(`✅ Cookie accettati (selettore: ${cookieHandled.selector})`);
-    await sleep(3000); // Aspetta che il banner sparisca e la pagina ricarichi
-  } else {
-    console.log('⚠️ Nessun banner cookie trovato (forse già accettato)');
+  try {
+    await page.goto(BASE_URL, {
+      waitUntil: 'domcontentloaded',
+      timeout: 90000
+    });
+  } catch (e) {
+    console.log('⚠️ Errore goto:', e.message);
   }
   
-  // === STEP 2: Aspetta il caricamento delle formazioni ===
+  console.log('✅ Titolo pagina:', await page.title());
   console.log('⏳ Attesa rendering formazioni...');
-  await sleep(5000);
+  await sleep(8000);
   
-  // === STEP 3: Trova tutte le partite ===
+  // 🔥 Rimuovi fisicamente qualsiasi traccia del banner Quantcast
+  await page.evaluate(() => {
+    // Rimuovi tutti gli elementi con classi Quantcast
+    document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"], [class*="qc-cmp2"], [id*="qc-cmp2"]').forEach(el => el.remove());
+    
+    // Rimuovi overlay e modal
+    document.querySelectorAll('[class*="overlay"], [class*="modal"]').forEach(el => {
+      const cls = (el.className || '').toString();
+      if (cls.toLowerCase().includes('qc-') || cls.toLowerCase().includes('cmp')) {
+        el.remove();
+      }
+    });
+    
+    // Sblocca lo scroll
+    document.body.style.overflow = 'auto';
+    document.body.style.position = 'static';
+    document.documentElement.style.overflow = 'auto';
+  });
+  
+  // 🔥 Aspetta che le partite appaiano
+  console.log('⏳ Attesa selettore match-item...');
+  try {
+    await page.waitForSelector('li.match.match-item', { timeout: 30000 });
+    console.log('✅ Selettore trovato!');
+  } catch (e) {
+    console.log('⚠️ Selettore non trovato entro 30s');
+  }
+  
+  // === Trova tutte le partite ===
   const matchIds = await page.evaluate(() => {
     const ids = [];
     document.querySelectorAll('li.match.match-item').forEach(el => {
@@ -105,20 +127,38 @@ async function scrapeFormazioni() {
   
   console.log(`📋 Trovate ${matchIds.length} partite:`, matchIds);
   
+  // Se ancora 0, prova altri selettori
   if (matchIds.length === 0) {
-    console.log('🚨 Ancora 0 partite. Controllo HTML...');
+    console.log('🚨 0 partite. Provo selettori alternativi...');
+    const alternatives = await page.evaluate(() => {
+      const selectors = [
+        'li.match',
+        '.match-item',
+        'li[data-match-has]',
+        'li[data-match-id]',
+        '[data-match-has]',
+        '[data-match-id]',
+      ];
+      const result = {};
+      for (const sel of selectors) {
+        result[sel] = document.querySelectorAll(sel).length;
+      }
+      return result;
+    });
+    console.log('📊 Selettori alternativi:', JSON.stringify(alternatives, null, 2));
+    
+    // Dump HTML
     const html = await page.evaluate(() => document.body.innerHTML.substring(0, 5000));
     console.log('📄 HTML (primi 5000 char):', html);
+    
     await browser.close();
     process.exit(1);
   }
   
-  const formazioni = {};
+  // === Estrazione ===
+  console.log('🔍 Estrazione dati...');
   
-  // === STEP 4: Estrai i dati (senza click, se sono tutte visibili) ===
-  console.log('🔍 Estrazione dati da tutte le partite...');
-  
-  const datiEstratti = await page.evaluate(() => {
+  const formazioni = await page.evaluate(() => {
     const risultato = {};
     
     document.querySelectorAll('li.match.match-item').forEach(matchEl => {
@@ -165,8 +205,7 @@ async function scrapeFormazioni() {
     return risultato;
   });
   
-  for (const [matchId, dati] of Object.entries(datiEstratti)) {
-    formazioni[matchId] = dati;
+  for (const [matchId, dati] of Object.entries(formazioni)) {
     console.log(`  ${matchId}: casa=${dati.casa.titolari.length}, trasferta=${dati.trasferta.titolari.length}`);
   }
   
@@ -174,9 +213,9 @@ async function scrapeFormazioni() {
     acc + p.casa.titolari.length + p.trasferta.titolari.length, 0
   );
   
-  // === STEP 5: Se ancora 0 giocatori, dump HTML di una partita ===
+  // Se 0 giocatori, dump HTML di una partita
   if (totalGiocatori === 0 && matchIds.length > 0) {
-    console.log('\n🚨 0 giocatori trovati. Dump HTML della prima partita:');
+    console.log('\n🚨 0 giocatori. Dump HTML della prima partita:');
     const htmlPartita = await page.evaluate((id) => {
       const el = document.querySelector(`li.match.match-item[data-match-has="${id}"]`);
       return el ? el.outerHTML.substring(0, 5000) : 'elemento non trovato';
