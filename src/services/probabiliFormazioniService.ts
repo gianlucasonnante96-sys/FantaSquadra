@@ -4,10 +4,17 @@ import formazioniData from '../data/formazioni.json';
 
 // === TIPI ===
 
+interface GiocatoreFormazione {
+  nome: string;
+  perc: number;
+  role?: string;
+  starter?: boolean;
+}
+
 interface FormazionePartita {
   matchId: string;
-  casa: { sigla: string; titolari: string[] };
-  trasferta: { sigla: string; titolari: string[] };
+  casa: { sigla: string; nome?: string; giocatori: GiocatoreFormazione[] };
+  trasferta: { sigla: string; nome?: string; giocatori: GiocatoreFormazione[] };
 }
 
 interface FormazioniFile {
@@ -18,7 +25,7 @@ interface FormazioniFile {
 
 export interface ProbabileFormazione {
   team: string;
-  giocatori: string[];
+  giocatori: GiocatoreFormazione[];
 }
 
 const PROB_FORMAZIONI_KEY = 'fantaconsiglio_probabili_formazioni';
@@ -41,12 +48,30 @@ function safeFullName(player: Player): string {
   return `${name} ${surname}`.trim();
 }
 
-// === LETTURA DA formazioni.json (BUILD TIME) ===
+// === SIGLE SQUADRE ===
 
-/**
- * Legge le formazioni direttamente dal file JSON generato dallo scraper.
- * Questo file è aggiornato automaticamente da GitHub Actions ogni giorno.
- */
+const SIGLA_TO_NOME: Record<string, string> = {
+  'ATA': 'Atalanta', 'BOL': 'Bologna', 'CAG': 'Cagliari', 'COM': 'Como',
+  'FIO': 'Fiorentina', 'FRO': 'Frosinone', 'GEN': 'Genoa', 'INT': 'Inter',
+  'JUV': 'Juventus', 'LAZ': 'Lazio', 'LEC': 'Lecce', 'MIL': 'Milan',
+  'MON': 'Monza', 'NAP': 'Napoli', 'PAR': 'Parma', 'ROM': 'Roma',
+  'SAS': 'Sassuolo', 'TOR': 'Torino', 'UDI': 'Udinese', 'VEN': 'Venezia',
+};
+
+function normalizzaTeam(team: string | undefined | null): string {
+  const safe = safeLower(team);
+  if (!safe) return '';
+  
+  const upper = safe.toUpperCase();
+  if (SIGLA_TO_NOME[upper]) {
+    return SIGLA_TO_NOME[upper];
+  }
+  
+  return safe.charAt(0).toUpperCase() + safe.slice(1);
+}
+
+// === LETTURA DA formazioni.json ===
+
 export function loadFormazioniDaFile(): ProbabileFormazione[] {
   try {
     const dati = formazioniData as unknown as FormazioniFile;
@@ -60,19 +85,17 @@ export function loadFormazioniDaFile(): ProbabileFormazione[] {
     for (const partita of Object.values(dati.partite)) {
       if (!partita) continue;
       
-      // Squadra casa
-      if (partita.casa?.sigla && Array.isArray(partita.casa.titolari)) {
+      if (partita.casa?.sigla && Array.isArray(partita.casa.giocatori)) {
         formazioni.push({
           team: partita.casa.sigla,
-          giocatori: partita.casa.titolari,
+          giocatori: partita.casa.giocatori,
         });
       }
       
-      // Squadra trasferta
-      if (partita.trasferta?.sigla && Array.isArray(partita.trasferta.titolari)) {
+      if (partita.trasferta?.sigla && Array.isArray(partita.trasferta.giocatori)) {
         formazioni.push({
           team: partita.trasferta.sigla,
-          giocatori: partita.trasferta.titolari,
+          giocatori: partita.trasferta.giocatori,
         });
       }
     }
@@ -85,9 +108,6 @@ export function loadFormazioniDaFile(): ProbabileFormazione[] {
   }
 }
 
-/**
- * Restituisce la data di ultimo aggiornamento delle formazioni.
- */
 export function getDataAggiornamentoFormazioni(): string | null {
   try {
     const dati = formazioniData as unknown as FormazioniFile;
@@ -97,7 +117,7 @@ export function getDataAggiornamentoFormazioni(): string | null {
   }
 }
 
-// === LETTURA DA LOCALSTORAGE (RUNTIME) ===
+// === LOCALSTORAGE ===
 
 export function saveProbabiliFormazioni(formazioni: ProbabileFormazione[]): void {
   try {
@@ -120,57 +140,16 @@ export function loadProbabiliFormazioni(): ProbabileFormazione[] {
   }
 }
 
-// === MAPPA SIGLE → NOMI COMPLETI ===
-
-const SIGLA_TO_NOME: Record<string, string> = {
-  'ATA': 'Atalanta',
-  'BOL': 'Bologna',
-  'CAG': 'Cagliari',
-  'COM': 'Como',
-  'FIO': 'Fiorentina',
-  'FRO': 'Frosinone',
-  'GEN': 'Genoa',
-  'INT': 'Inter',
-  'JUV': 'Juventus',
-  'LAZ': 'Lazio',
-  'LEC': 'Lecce',
-  'MIL': 'Milan',
-  'MON': 'Monza',
-  'NAP': 'Napoli',
-  'PAR': 'Parma',
-  'ROM': 'Roma',
-  'SAS': 'Sassuolo',
-  'TOR': 'Torino',
-  'UDI': 'Udinese',
-  'VEN': 'Venezia',
-};
-
-/**
- * Normalizza il nome della squadra: se è una sigla (es. "VEN"), la converte
- * nel nome completo (es. "Venezia"). Altrimenti restituisce il nome così com'è.
- */
-function normalizzaTeam(team: string | undefined | null): string {
-  const safe = safeLower(team);
-  if (!safe) return '';
-  
-  const upper = safe.toUpperCase();
-  if (SIGLA_TO_NOME[upper]) {
-    return SIGLA_TO_NOME[upper];
-  }
-  
-  // Capitalizza la prima lettera
-  return safe.charAt(0).toUpperCase() + safe.slice(1);
-}
-
 // === APPLICAZIONE TITOLARITÀ ===
 
 /**
- * Aggiorna la titolarità dei giocatori in base alle probabili formazioni.
+ * 🔥 NUOVA LOGICA: usa la percentuale ESATTA dal sito Fantacalcio.it
  * 
- * Logica:
- * - Se il giocatore è tra i titolari probabili → titolarità += 15 (max 95)
- * - Se NON è tra i titolari e la sua squadra ha formazioni → titolarità -= 25 (min 10)
- * - Se non ci sono dati per la sua squadra → titolarità invariata
+ * - Titolare certo (starter=true, perc=100) → titolarità 95%
+ * - Titolare con perc<100 (ballottaggio) → titolarità = perc esatta
+ * - Panchina con perc alta (es. 60) → titolarità = perc esatta
+ * - Panchina con perc bassa (es. 5) → titolarità = perc esatta
+ * - NON in lista → titolarità = 10
  */
 export function updateTitolaritaFromProbabili(
   players: Player[],
@@ -181,23 +160,33 @@ export function updateTitolaritaFromProbabili(
     return players;
   }
   
-  // Crea una mappa: nome squadra → set di nomi giocatori titolari (normalizzati)
-  const mappaFormazioni = new Map<string, Set<string>>();
+  // Crea mappa: nome squadra → mappa di nomi giocatori → percentuale
+  const mappaFormazioni = new Map<string, Map<string, number>>();
+  
   for (const formazione of probabiliFormazioni) {
     if (!formazione || !formazione.team) continue;
-    const teamNorm = normalizzaTeam(formazione.team);
+    const teamNorm = normalizzaTeam(formazione.team).toLowerCase();
     const giocatori = Array.isArray(formazione.giocatori) ? formazione.giocatori : [];
     
-    const setGiocatori = new Set<string>();
+    const mappaGiocatori = new Map<string, number>();
     for (const g of giocatori) {
-      const gNorm = safeLower(g);
-      if (gNorm) setGiocatori.add(gNorm);
+      // Supporta sia il vecchio formato (stringa) che il nuovo (oggetto)
+      if (typeof g === 'string') {
+        mappaGiocatori.set(safeLower(g), 100);
+      } else if (g && typeof g === 'object' && 'nome' in g) {
+        const nomeNorm = safeLower(g.nome);
+        const perc = typeof g.perc === 'number' ? g.perc : 100;
+        if (nomeNorm) mappaGiocatori.set(nomeNorm, perc);
+      }
     }
     
-    mappaFormazioni.set(teamNorm.toLowerCase(), setGiocatori);
+    mappaFormazioni.set(teamNorm, mappaGiocatori);
   }
   
-  return players.map(player => {
+  let matchCount = 0;
+  let noMatchCount = 0;
+  
+  const risultato = players.map(player => {
     if (!player || !player.team) return player;
     
     const playerName = safeLower(player.name);
@@ -205,59 +194,68 @@ export function updateTitolaritaFromProbabili(
     const fullName = safeFullName(player);
     const teamNorm = normalizzaTeam(player.team).toLowerCase();
     
-    // Se il giocatore non ha nome, lascialo invariato
     if (!playerName && !playerSurname) return player;
     
-    // Cerca la formazione della sua squadra
     const formazioneSquadra = mappaFormazioni.get(teamNorm);
     if (!formazioneSquadra || formazioneSquadra.size === 0) {
-      // Nessun dato per questa squadra, lascia invariato
       return player;
     }
     
-    // Controlla se il giocatore è tra i titolari
-    let isTitolare = false;
-    for (const nomeTitolare of formazioneSquadra) {
+    // 🔥 Cerca il giocatore e prendi la sua percentuale ESATTA
+    let percentualeTrovata = 0;
+    let matchTrovato = false;
+    
+    for (const [nomeTitolare, perc] of formazioneSquadra) {
       if (!nomeTitolare) continue;
       
       // Match per cognome (più affidabile)
-      if (playerSurname && nomeTitolare.includes(playerSurname)) {
-        isTitolare = true;
+      if (playerSurname && playerSurname.length >= 4 && nomeTitolare.includes(playerSurname)) {
+        percentualeTrovata = perc;
+        matchTrovato = true;
         break;
       }
       
       // Match per nome completo
       if (fullName && nomeTitolare === fullName) {
-        isTitolare = true;
+        percentualeTrovata = perc;
+        matchTrovato = true;
         break;
       }
       
-      // Match per nome (solo se cognome non ha matchato)
-      if (playerName && playerName.length >= 4 && nomeTitolare.includes(playerName)) {
-        isTitolare = true;
+      // Match per cognome anche se corto (con controllo più stretto)
+      if (playerSurname && playerSurname.length >= 3 && nomeTitolare === playerSurname) {
+        percentualeTrovata = perc;
+        matchTrovato = true;
         break;
       }
     }
     
-    // Aggiorna la titolarità
-    const titolaritaBase = player.titolarita ?? 50;
-    const newTitolarita = isTitolare
-      ? Math.min(95, titolaritaBase + 15)
-      : Math.max(10, titolaritaBase - 25);
+    // 🔥 APPLICA LA PERCENTUALE ESATTA
+    let newTitolarita: number;
+    
+    if (matchTrovato) {
+      // Se perc è 100 (titolare certo), mettiamo 95 per lasciare margine
+      // Altrimenti usiamo la perc esatta (es. 75%, 55%, 5%)
+      newTitolarita = percentualeTrovata >= 100 ? 95 : percentualeTrovata;
+      matchCount++;
+    } else {
+      // Non è nella lista → titolarità bassa
+      newTitolarita = 10;
+      noMatchCount++;
+    }
     
     return {
       ...player,
       titolarita: newTitolarita,
     };
   });
+  
+  console.log(`📊 Titolarità aggiornate: ${matchCount} match, ${noMatchCount} non trovati`);
+  return risultato;
 }
 
 // === FUNZIONI PUBBLICHE ===
 
-/**
- * Applica le probabili formazioni salvate ai giocatori.
- * Fonte: prima localStorage, poi formazioni.json
- */
 export function applyProbabiliFormazioni(players: Player[]): Player[] {
   if (!Array.isArray(players)) return [];
   
@@ -275,10 +273,6 @@ export function applyProbabiliFormazioni(players: Player[]): Player[] {
   return updateTitolaritaFromProbabili(players, probabili);
 }
 
-/**
- * Inizializza il servizio: carica le formazioni dal file JSON 
- * e le salva in localStorage per uso futuro.
- */
 export async function initializeProbabiliFormazioni(): Promise<void> {
   try {
     const formazioni = loadFormazioniDaFile();
@@ -293,7 +287,7 @@ export async function initializeProbabiliFormazioni(): Promise<void> {
   }
 }
 
-// === DEPRECATED (mantenute per compatibilità) ===
+// === COMPATIBILITÀ ===
 
 export function importProbabiliFormazioni(jsonContent: string): ProbabileFormazione[] | null {
   try {
