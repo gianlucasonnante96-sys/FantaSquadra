@@ -1,7 +1,7 @@
-
 import { useState, useEffect } from 'react';
 import { AppStep, LeagueRules, Player } from './types';
-import { loadListone, ListoneStatus, getPlayers, getCurrentStatus } from './services/listoneService';
+import { loadListone, ListoneStatus } from './services/listoneService';
+import { initializeProbabiliFormazioni, applyProbabiliFormazioni } from './services/probabiliFormazioniService';
 import Setup from './components/Setup';
 import Roster from './components/Roster';
 import Dashboard from './components/Dashboard';
@@ -21,6 +21,7 @@ const defaultRules: LeagueRules = {
 const RULES_KEY = 'fantaconsiglio_rules';
 const ROSTER_KEY = 'fantaconsiglio_roster';
 const STEP_KEY = 'fantaconsiglio_step';
+const FORMAZIONI_INIT_KEY = 'fantaconsiglio_formazioni_init';
 
 export default function App() {
   const [step, setStep] = useState<AppStep>('setup');
@@ -28,6 +29,28 @@ export default function App() {
   const [roster, setRoster] = useState<Player[]>([]);
   const [availablePlayers, setAvailablePlayers] = useState<Player[]>([]);
   const [listoneStatus, setListoneStatus] = useState<ListoneStatus | null>(null);
+  const [formazioniInizializzate, setFormazioniInizializzate] = useState(false);
+
+  // 🔥 INIZIALIZZAZIONE FORMAZIONI (una volta sola all'avvio)
+  useEffect(() => {
+    const initFormazioni = async () => {
+      try {
+        console.log('🚀 Inizializzazione probabili formazioni...');
+        
+        // Chiama il servizio che legge formazioni.json e le salva in localStorage
+        await initializeProbabiliFormazioni();
+        
+        console.log('✅ Probabili formazioni inizializzate');
+        setFormazioniInizializzate(true);
+        localStorage.setItem(FORMAZIONI_INIT_KEY, 'true');
+      } catch (e) {
+        console.error('❌ Errore inizializzazione formazioni:', e);
+        setFormazioniInizializzate(false);
+      }
+    };
+
+    initFormazioni();
+  }, []);
 
   // Carica configurazione, rosa e listone all'avvio
   useEffect(() => {
@@ -45,7 +68,18 @@ export default function App() {
     try {
       const savedRoster = localStorage.getItem(ROSTER_KEY);
       if (savedRoster) {
-        setRoster(JSON.parse(savedRoster));
+        const parsedRoster = JSON.parse(savedRoster);
+        // 🔥 Applica le formazioni anche al roster già salvato
+        if (Array.isArray(parsedRoster) && parsedRoster.length > 0) {
+          try {
+            const rosterConFormazioni = applyProbabiliFormazioni(parsedRoster);
+            setRoster(rosterConFormazioni);
+            console.log('✅ Roster salvato aggiornato con formazioni');
+          } catch (e) {
+            console.warn('⚠️ Errore applicazione formazioni a roster salvato:', e);
+            setRoster(parsedRoster);
+          }
+        }
       }
     } catch (e) {
       console.error('Errore caricamento rosa:', e);
@@ -66,6 +100,20 @@ export default function App() {
     setAvailablePlayers(players);
     setListoneStatus(status);
   }, []);
+
+  // 🔥 Quando le formazioni sono inizializzate E c'è un roster, applicale
+  useEffect(() => {
+    if (!formazioniInizializzate) return;
+    if (!Array.isArray(roster) || roster.length === 0) return;
+    
+    try {
+      console.log('🔄 Applicazione formazioni al roster...');
+      const rosterAggiornato = applyProbabiliFormazioni(roster);
+      setRoster(rosterAggiornato);
+    } catch (e) {
+      console.error('Errore applicazione formazioni:', e);
+    }
+  }, [formazioniInizializzate]);
 
   // Salva configurazione quando cambia
   useEffect(() => {
