@@ -15,25 +15,12 @@ function sleep(ms) {
 }
 
 const BLOCKED_DOMAINS = [
-  'quantcast.com',
-  'cmp.quantcast',
-  'googletagmanager.com',
-  'googlesyndication.com',
-  'google-analytics.com',
-  'doubleclick.net',
-  'facebook.net',
-  'rubiconproject.com',
-  'criteo.com',
-  'taboola.com',
-  'outbrain.com',
-  'adskindiv',
-  'revive',
+  'quantcast.com', 'cmp.quantcast', 'googletagmanager.com',
+  'googlesyndication.com', 'google-analytics.com', 'doubleclick.net',
+  'facebook.net', 'rubiconproject.com', 'criteo.com', 'taboola.com',
+  'outbrain.com', 'adskindiv', 'revive',
 ];
 
-/**
- * 🔥 Legge il file formazioni.json esistente (se c'è).
- * Serve per il MERGE cumulativo.
- */
 function leggiFormazioniEsistenti() {
   try {
     if (!fs.existsSync(OUTPUT_PATH)) {
@@ -57,14 +44,6 @@ function leggiFormazioniEsistenti() {
   }
 }
 
-/**
- * 🔥 MERGE: combina le formazioni vecchie con quelle nuove.
- * 
- * Logica:
- * - Se una partita è già presente: aggiorna con i dati NUOVI (freschi)
- * - Se una partita è nuova: aggiungila
- * - Se una partita era presente ma non è più nel sito (giocata): MANTIENILA
- */
 function mergeFormazioni(esistenti, nuove) {
   const risultato = { ...esistenti.partite };
   let nuoveCount = 0;
@@ -72,11 +51,9 @@ function mergeFormazioni(esistenti, nuove) {
   
   for (const [key, nuovaPartita] of Object.entries(nuove)) {
     if (risultato[key]) {
-      // Già esisteva → aggiorna
       risultato[key] = nuovaPartita;
       aggiornateCount++;
     } else {
-      // Nuova → aggiungi
       risultato[key] = nuovaPartita;
       nuoveCount++;
     }
@@ -89,7 +66,6 @@ function mergeFormazioni(esistenti, nuove) {
 async function scrapeFormazioni() {
   console.log('🚀 Avvio browser headless...');
   
-  // 🔥 STEP 1: Leggi le formazioni esistenti (per il merge)
   const esistenti = leggiFormazioniEsistenti();
   
   const browser = await puppeteer.launch({
@@ -143,7 +119,6 @@ async function scrapeFormazioni() {
   console.log('⏳ Attesa rendering formazioni...');
   await sleep(8000);
   
-  // Rimuovi banner Quantcast residui
   await page.evaluate(() => {
     document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"]').forEach(el => el.remove());
     document.body.style.overflow = 'auto';
@@ -153,14 +128,14 @@ async function scrapeFormazioni() {
   console.log('⏳ Attesa selettore match...');
   try {
     await page.waitForSelector('li.match.match-item[data-match-id]', { timeout: 30000 });
-    console.log('✅ Selettore trovato!');
+    console.log('✅ Selettore match trovato!');
   } catch (e) {
     console.log('⚠️ Selettore non trovato entro 30s');
   }
   
-  // === Estrazione ===
   console.log('🔍 Estrazione dati...');
   
+  // 🔥 NUOVA LOGICA: usa la sezione `.card.team-card` con `ul.player-list`
   const matchesData = await page.evaluate(() => {
     const lista = [];
     const allMatches = Array.from(document.querySelectorAll('li.match.match-item[data-match-id]'));
@@ -177,46 +152,108 @@ async function scrapeFormazioni() {
       
       seenIds.add(matchId);
       
-      const homeEl = el.querySelector('.pitch .team.team-home');
-      const awayEl = el.querySelector('.pitch .team.team-away');
+      // 🔥 Cerca i DUE card.team-card (una per squadra) dentro questo match
+      const teamCards = el.querySelectorAll('.card.team-card');
       
-      function estraiGiocatori(teamEl) {
-        if (!teamEl) return [];
-        const nomi = [];
-        const links = teamEl.querySelectorAll('ul.team-lineup li.player a.player-name span');
-        links.forEach(el => {
-          const nome = el.textContent?.trim() || '';
-          if (nome && !nomi.includes(nome)) nomi.push(nome);
-        });
-        return nomi;
+      if (teamCards.length < 2) {
+        console.warn(`Match ${matchId}: trovate solo ${teamCards.length} team-card`);
+        continue;
       }
       
-      const casaTitolari = estraiGiocatori(homeEl);
-      const trasfertaTitolari = estraiGiocatori(awayEl);
+      // Funzione per estrarre i giocatori da una team-card
+      function estraiGiocatoriDaCard(cardEl) {
+        const giocatori = [];
+        
+        // Estrai titolari (ul.player-list.starters)
+        const starterItems = cardEl.querySelectorAll('ul.player-list.starters li.player-item');
+        starterItems.forEach(item => {
+          const nomeEl = item.querySelector('a.player-name span');
+          const percEl = item.querySelector('.progress-value');
+          const roleEl = item.querySelector('span.role');
+          
+          const nome = nomeEl ? nomeEl.textContent?.trim() : '';
+          const percText = percEl ? percEl.textContent?.trim().replace('%', '').trim() : '';
+          const perc = parseInt(percText) || 0;
+          const role = roleEl ? roleEl.textContent?.trim() : '';
+          
+          if (nome) {
+            giocatori.push({
+              nome: nome,
+              perc: perc,
+              role: role,
+              starter: true,
+            });
+          }
+        });
+        
+        // Estrai panchina (ul.player-list.reserves)
+        const reserveItems = cardEl.querySelectorAll('ul.player-list.reserves li.player-item');
+        reserveItems.forEach(item => {
+          const nomeEl = item.querySelector('a.player-name span');
+          const percEl = item.querySelector('.progress-value');
+          const roleEl = item.querySelector('span.role');
+          
+          const nome = nomeEl ? nomeEl.textContent?.trim() : '';
+          const percText = percEl ? percEl.textContent?.trim().replace('%', '').trim() : '';
+          const perc = parseInt(percText) || 0;
+          const role = roleEl ? roleEl.textContent?.trim() : '';
+          
+          if (nome) {
+            giocatori.push({
+              nome: nome,
+              perc: perc,
+              role: role,
+              starter: false,
+            });
+          }
+        });
+        
+        return giocatori;
+      }
       
+      // Estrai nome squadra da una card
+      function estraiNomeSquadra(cardEl) {
+        const headerEl = cardEl.querySelector('header');
+        if (!headerEl) return '';
+        const text = headerEl.textContent || '';
+        // Il primo testo è il nome squadra
+        return text.trim().split('\n')[0].trim();
+      }
+      
+      // Le prime due card dovrebbero essere casa e trasferta
+      const cardCasa = teamCards[0];
+      const cardTrasferta = teamCards[1];
+      
+      const nomeCasa = estraiNomeSquadra(cardCasa);
+      const nomeTrasferta = estraiNomeSquadra(cardTrasferta);
+      
+      // Estrai le sigle dall'hash
       let casaSigla = '';
       let trasfertaSigla = '';
-      
       if (matchHash && matchHash.includes('-')) {
         [casaSigla, trasfertaSigla] = matchHash.split('-');
       }
       
-      if (!casaSigla && homeEl) {
-        const teamLink = homeEl.querySelector('a.team-name, a.team-link');
-        if (teamLink) casaSigla = teamLink.textContent?.trim() || '';
+      // Se non c'è hash, genera dalle prime 3 lettere del nome
+      if (!casaSigla && nomeCasa) {
+        casaSigla = nomeCasa.substring(0, 3).toUpperCase();
       }
-      if (!trasfertaSigla && awayEl) {
-        const teamLink = awayEl.querySelector('a.team-name, a.team-link');
-        if (teamLink) trasfertaSigla = teamLink.textContent?.trim() || '';
+      if (!trasfertaSigla && nomeTrasferta) {
+        trasfertaSigla = nomeTrasferta.substring(0, 3).toUpperCase();
       }
+      
+      const casaGiocatori = estraiGiocatoriDaCard(cardCasa);
+      const trasfertaGiocatori = estraiGiocatoriDaCard(cardTrasferta);
       
       lista.push({
         matchId,
         matchHash,
         casaSigla,
         trasfertaSigla,
-        casaTitolari,
-        trasfertaTitolari,
+        nomeCasa,
+        nomeTrasferta,
+        casaGiocatori,
+        trasfertaGiocatori,
       });
     }
     
@@ -230,19 +267,29 @@ async function scrapeFormazioni() {
     const key = m.matchHash || `${m.casaSigla}-${m.trasfertaSigla}_${m.matchId}`;
     nuoveFormazioni[key] = {
       matchId: m.matchId,
-      casa: { sigla: m.casaSigla, titolari: m.casaTitolari },
-      trasferta: { sigla: m.trasfertaSigla, titolari: m.trasfertaTitolari },
+      casa: { sigla: m.casaSigla, nome: m.nomeCasa, giocatori: m.casaGiocatori },
+      trasferta: { sigla: m.trasfertaSigla, nome: m.nomeTrasferta, giocatori: m.trasfertaGiocatori },
     };
     
-    console.log(`  ${key}: casa=${m.casaTitolari.length}, trasferta=${m.trasfertaTitolari.length}`);
+    const casaTitolari = m.casaGiocatori.filter(g => g.starter).length;
+    const casaRiserve = m.casaGiocatori.filter(g => !g.starter).length;
+    const trasfTitolari = m.trasfertaGiocatori.filter(g => g.starter).length;
+    const trasfRiserve = m.trasfertaGiocatori.filter(g => !g.starter).length;
+    
+    console.log(`  ${key}: ${m.nomeCasa} (${casaTitolari} tit + ${casaRiserve} ris) vs ${m.nomeTrasferta} (${trasfTitolari} tit + ${trasfRiserve} ris)`);
+    
+    // Log esempio dettagliato del primo match
+    if (Object.keys(nuoveFormazioni).length === 1) {
+      console.log(`  📊 Esempio ${m.nomeCasa}:`, 
+        m.casaGiocatori.slice(0, 4).map(g => `${g.nome} (${g.role}, ${g.perc}%)`).join(', ')
+      );
+    }
   }
   
   await browser.close();
   
-  // 🔥 STEP 2: MERGE con i dati esistenti
   const partiteFinali = mergeFormazioni(esistenti, nuoveFormazioni);
   
-  // === SALVATAGGIO ===
   const output = {
     aggiornato: new Date().toISOString(),
     fonte: 'fantacalcio.it',
@@ -253,7 +300,7 @@ async function scrapeFormazioni() {
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2));
   
   const totalGiocatori = Object.values(partiteFinali).reduce((acc, p) => 
-    acc + (p.casa?.titolari?.length || 0) + (p.trasferta?.titolari?.length || 0), 0
+    acc + (p.casa?.giocatori?.length || 0) + (p.trasferta?.giocatori?.length || 0), 0
   );
   
   console.log(`\n✅ Fatto!`);
