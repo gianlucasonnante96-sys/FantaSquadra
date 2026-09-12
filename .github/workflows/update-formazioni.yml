@@ -2,9 +2,11 @@ name: Aggiorna Probabili Formazioni
 
 on:
   schedule:
-    # Ogni giorno alle 9:00 UTC (11:00 italiane)
-    - cron: '0 9 * * *'
-  workflow_dispatch: # Lanciabile a mano
+    # Gira 2 volte al giorno: mattina (9:00) e pomeriggio (17:00) ora italiana
+    # UTC = ora italiana - 2 (o -1 con ora legale)
+    - cron: '0 7 * * *'   # 09:00 ora italiana
+    - cron: '0 15 * * *'  # 17:00 ora italiana
+  workflow_dispatch: # Permette di lanciarlo a mano dal browser
 
 jobs:
   update:
@@ -21,13 +23,16 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Installa dipendenze
+        run: npm install
+
       - name: Installa Puppeteer
-        run: npm install puppeteer
+        run: npx puppeteer browsers install chrome
 
       - name: Esegui lo scraper
         run: node scripts/scraper.js
 
-      - name: Commit e push
+      - name: Commit e push se ci sono cambiamenti
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
