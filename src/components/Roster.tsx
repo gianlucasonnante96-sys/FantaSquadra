@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Player, Role } from '../types';
-import { ListoneStatus, importFromJSON, exportToJSON, parseExcelFile, saveToCache, clearCache } from '../services/listoneService';
+import { ListoneStatus } from '../services/listoneService';
 import { applyProbabiliFormazioni } from '../services/probabiliFormazioniService';
 import RosaRecognizer from './RosaRecognizer';
 
@@ -27,9 +27,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   const [localRoster, setLocalRoster] = useState<Player[]>(roster);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeRole, setActiveRole] = useState<Role | null>(null);
-  const [showUpload, setShowUpload] = useState(false);
-  const [importError, setImportError] = useState<string | null>(null);
-  const [isProcessing, setIsProcessing] = useState(false);
 
   const rosterByRole = useMemo(() => {
     const grouped: Record<Role, Player[]> = { P: [], D: [], C: [], A: [] };
@@ -86,26 +83,18 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
     setLocalRoster(prev => prev.filter(p => p.id !== playerId));
   };
 
-  // 🔥 FIX: applica le probabili formazioni PRIMA di salvare
   const handleSave = () => {
     console.log('🚀 handleSave: applicazione probabili formazioni...');
-    console.log('📋 Roster originale:', localRoster.length, 'giocatori');
     
-    // Applica le probabili formazioni al roster
     let rosterFinale = localRoster;
     try {
       rosterFinale = applyProbabiliFormazioni(localRoster);
       console.log('✅ Formazioni applicate');
-      console.log('📊 Meret titolarità dopo applicazione:', 
-        rosterFinale.find(p => p.surname === 'Meret')?.titolarita || 'non trovato'
-      );
     } catch (e) {
       console.error('❌ Errore applicazione formazioni:', e);
-      // In caso di errore, usa il roster originale
       rosterFinale = localRoster;
     }
     
-    // Salva il roster con le formazioni applicate
     onSave(rosterFinale);
     setLocalRoster(rosterFinale);
     onNext();
@@ -129,152 +118,30 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
           <p className="text-emerald-300">Aggiungi o rimuovi giocatori dalla tua rosa</p>
         </div>
 
-        {/* Listone Status & Import Section */}
-        <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
-          <button
-            onClick={() => setShowUpload(!showUpload)}
-            className="w-full flex items-center justify-between text-white"
-          >
+        {/* Listone Status (solo info, no upload) */}
+        {listoneStatus && (
+          <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">{listoneStatus?.error ? '⚠️' : '📋'}</span>
-              <div className="text-left">
-                <div className="font-medium">Listone Serie A</div>
+              <span className="text-2xl">{listoneStatus.error ? '⚠️' : '📋'}</span>
+              <div className="flex-1">
+                <div className="text-white font-medium">Listone Serie A 2026/27</div>
                 <div className="text-sm text-slate-400">
-                  {listoneStatus?.fileName
-                    ? `📄 ${listoneStatus.fileName} • ${listoneStatus.playerCount} giocatori`
-                    : listoneStatus?.error
-                      ? `${listoneStatus.playerCount} giocatori (hardcoded)`
-                      : `${listoneStatus?.playerCount || 0} giocatori caricati`
+                  {listoneStatus.error 
+                    ? listoneStatus.error
+                    : `${listoneStatus.playerCount} giocatori • ${listoneStatus.source}`
                   }
                 </div>
+                {listoneStatus.lastUpdated && (
+                  <div className="text-xs text-slate-500 mt-1">
+                    Aggiornato: {new Date(listoneStatus.lastUpdated).toLocaleString('it-IT')}
+                  </div>
+                )}
               </div>
             </div>
-            <span className="text-emerald-400">{showUpload ? '▲' : '▼'}</span>
-          </button>
+          </div>
+        )}
 
-          {showUpload && (
-            <div className="mt-4 space-y-4">
-              <div className="bg-slate-700/50 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className={`w-2 h-2 rounded-full ${listoneStatus?.error ? 'bg-amber-400' : 'bg-emerald-400'}`} />
-                    <span className="text-sm text-white font-medium">
-                      {listoneStatus?.fileName ? `File: ${listoneStatus.fileName}` : listoneStatus?.source}
-                    </span>
-                  </div>
-                  <span className="text-xs text-slate-400">{listoneStatus?.playerCount} giocatori</span>
-                </div>
-                {listoneStatus?.lastUpdated && (
-                  <p className="text-xs text-slate-400">Caricato il: {listoneStatus.lastUpdated}</p>
-                )}
-                {listoneStatus?.error && (
-                  <p className="text-xs text-amber-400 mt-1">{listoneStatus.error}</p>
-                )}
-              </div>
-
-              <div className="border-t border-slate-700 pt-4">
-                <p className="text-sm text-slate-300 mb-3">
-                  📥 Carica un nuovo listone (il file verrà salvato e utilizzato dall'IA):
-                </p>
-
-                <label className="block cursor-pointer">
-                  <div className="flex items-center justify-center gap-3 p-6 border-2 border-dashed border-emerald-500/50 rounded-xl hover:border-emerald-400 hover:bg-emerald-500/5 transition-all">
-                    <span className="text-3xl">📊</span>
-                    <div className="text-left">
-                      <div className="text-white font-medium">Carica file Excel o JSON</div>
-                      <div className="text-xs text-slate-400">Supporta .xlsx, .xls, .csv, .json</div>
-                    </div>
-                  </div>
-                  <input
-                    type="file"
-                    accept=".xlsx,.xls,.csv,.json"
-                    className="hidden"
-                    disabled={isProcessing}
-                    onChange={async (e) => {
-                      const file = e.target.files?.[0];
-                      if (!file) return;
-
-                      setIsProcessing(true);
-                      setImportError(null);
-
-                      try {
-                        const ext = file.name.split('.').pop()?.toLowerCase();
-
-                        if (ext === 'json') {
-                          const text = await file.text();
-                          const result = importFromJSON(text);
-                          if (result) {
-                            saveToCache(result.players, { ...result.status, fileName: file.name });
-                            onListoneChange();
-                          } else {
-                            setImportError('File JSON non valido. Controlla il formato.');
-                          }
-                        } else {
-                          const result = await parseExcelFile(file);
-                          saveToCache(result.players, { ...result.status, fileName: file.name });
-                          onListoneChange();
-                        }
-                      } catch (err) {
-                        setImportError(err instanceof Error ? err.message : 'Errore nel caricamento del file');
-                      } finally {
-                        setIsProcessing(false);
-                        e.target.value = '';
-                      }
-                    }}
-                  />
-                </label>
-
-                {isProcessing && (
-                  <div className="mt-3 flex items-center gap-2 text-sm text-emerald-400">
-                    <div className="w-4 h-4 border-2 border-emerald-400 border-t-transparent rounded-full animate-spin" />
-                    Elaborazione file in corso...
-                  </div>
-                )}
-
-                {importError && (
-                  <p className="mt-3 text-xs text-red-400 bg-red-500/10 p-2 rounded">{importError}</p>
-                )}
-              </div>
-
-              <div className="border-t border-slate-700 pt-4 flex flex-wrap gap-2">
-                <button
-                  onClick={() => {
-                    if (confirm('Sei sicuro di voler eliminare il listone caricato? Dovrai caricarne uno nuovo per continuare.')) {
-                      clearCache();
-                      onListoneChange();
-                    }
-                  }}
-                  className="px-4 py-2 bg-red-600/80 hover:bg-red-600 text-white rounded-lg text-sm transition-colors flex items-center gap-2"
-                >
-                  🗑️ Elimina listone
-                </button>
-                <button
-                  onClick={() => {
-                    const json = exportToJSON(availablePlayers);
-                    const blob = new Blob([json], { type: 'application/json' });
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'listone_fantacalcio.json';
-                    a.click();
-                    URL.revokeObjectURL(url);
-                  }}
-                  className="px-4 py-2 bg-slate-600 hover:bg-slate-500 text-white rounded-lg text-sm transition-colors flex items-center gap-2"
-                >
-                  📤 Esporta come JSON
-                </button>
-              </div>
-
-              <div className="bg-slate-700/30 rounded-lg p-3 text-xs text-slate-400">
-                <p className="font-medium text-slate-300 mb-1">💡 Formato file Excel supportato:</p>
-                <p>Il file deve contenere colonne per: <strong>Calciatore</strong> (nome), <strong>Squadra</strong>, <strong>Ruolo</strong> (P/D/C/A), <strong>Quotazione</strong>.</p>
-                <p className="mt-1">Il listone caricato rimane salvato nel browser e viene riutilizzato ad ogni accesso finché non lo elimini o ne carichi uno nuovo.</p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Rosa Recognizer Section */}
+        {/* Rosa Recognizer */}
         <RosaRecognizer
           listaGiocatori={availablePlayers}
           giocatoriGiaInRosa={localRoster}
