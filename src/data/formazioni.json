@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-12T14:33:53.191Z",
+  "aggiornato": "2026-09-12T15:14:45.778Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -628,67 +628,67 @@
         "giocatori": [
           {
             "nome": "Mandas",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Floriani Mussolini",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Sutalo J.",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Provstgaard",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Tavares N.",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Frattesi",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Belahyane",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Taylor K.",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
-            "nome": "Isaksen",
-            "perc": 55,
+            "nome": "Cancellieri",
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
-            "nome": "Pinamonti",
-            "perc": 65,
+            "nome": "Noslin",
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Zaccagni",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
@@ -735,7 +735,7 @@
             "starter": false
           },
           {
-            "nome": "Cancellieri",
+            "nome": "Isaksen",
             "perc": 55,
             "role": "",
             "starter": false
@@ -747,8 +747,8 @@
             "starter": false
           },
           {
-            "nome": "Noslin",
-            "perc": 60,
+            "nome": "Pinamonti",
+            "perc": 55,
             "role": "",
             "starter": false
           }
@@ -760,67 +760,67 @@
         "giocatori": [
           {
             "nome": "Maignan",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Gila",
-            "perc": 85,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "De Winter",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Pavlovic",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Chukwueze",
-            "perc": 55,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Modric",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Rabiot",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Estupinan",
-            "perc": 60,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Loftus-Cheek",
-            "perc": 70,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Cissè A.",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Ramos G.",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
@@ -2045,12 +2045,6 @@
           {
             "nome": "Gatti",
             "perc": 55,
-            "role": "",
-            "starter": false
-          },
-          {
-            "nome": "McKennie",
-            "perc": 15,
             "role": "",
             "starter": false
           },
