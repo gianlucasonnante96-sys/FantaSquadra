@@ -1,6 +1,4 @@
-
 // Calendario completo Serie A 2026/27
-// Ogni giornata contiene 10 partite (20 squadre)
 
 export interface Partita {
   casa: string;
@@ -10,6 +8,17 @@ export interface Partita {
 export interface Giornata {
   numero: number;
   partite: Partita[];
+}
+
+// 🔥 Normalizza il nome squadra per confronto robusto
+// "Udinese", "udinese", "Udinese ", "Udinese Calcio" → "udinese"
+function normalizzaNomeSquadra(nome: string | undefined | null): string {
+  if (typeof nome !== 'string' || !nome) return '';
+  return nome
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, ' ')       // rimuove spazi doppi
+    .replace(/[^a-z]/g, '');     // rimuove tutto tranne lettere
 }
 
 export const calendarioSerieA: Giornata[] = [
@@ -585,16 +594,23 @@ export const calendarioSerieA: Giornata[] = [
   },
 ];
 
-// Funzione per ottenere l'avversario di una squadra in una giornata
+// 🔥 FIX: funzione con normalizzazione per match robusto
 export function getAvversario(squadra: string, giornata: number): { avversario: string; inCasa: boolean } | null {
+  if (!squadra) return null;
+  
   const giornataData = calendarioSerieA.find(g => g.numero === giornata);
   if (!giornataData) return null;
 
+  const squadraNorm = normalizzaNomeSquadra(squadra);
+
   for (const partita of giornataData.partite) {
-    if (partita.casa === squadra) {
+    const casaNorm = normalizzaNomeSquadra(partita.casa);
+    const trasfNorm = normalizzaNomeSquadra(partita.trasferta);
+    
+    if (casaNorm === squadraNorm) {
       return { avversario: partita.trasferta, inCasa: true };
     }
-    if (partita.trasferta === squadra) {
+    if (trasfNorm === squadraNorm) {
       return { avversario: partita.casa, inCasa: false };
     }
   }
@@ -602,20 +618,22 @@ export function getAvversario(squadra: string, giornata: number): { avversario: 
   return null;
 }
 
-// Funzione per ottenere tutte le partite di una giornata
 export function getPartiteGiornata(giornata: number): Partita[] {
   const giornataData = calendarioSerieA.find(g => g.numero === giornata);
   return giornataData ? giornataData.partite : [];
 }
 
-// Funzione per verificare se una squadra gioca in casa in una giornata
 export function giocaInCasa(squadra: string, giornata: number): boolean | null {
+  if (!squadra) return null;
+  
   const giornataData = calendarioSerieA.find(g => g.numero === giornata);
   if (!giornataData) return null;
 
+  const squadraNorm = normalizzaNomeSquadra(squadra);
+
   for (const partita of giornataData.partite) {
-    if (partita.casa === squadra) return true;
-    if (partita.trasferta === squadra) return false;
+    if (normalizzaNomeSquadra(partita.casa) === squadraNorm) return true;
+    if (normalizzaNomeSquadra(partita.trasferta) === squadraNorm) return false;
   }
 
   return null;
