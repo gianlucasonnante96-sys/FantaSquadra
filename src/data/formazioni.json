@@ -1,39 +1,301 @@
 {
-  "aggiornato": "2026-09-12T13:59:18.137Z",
+  "aggiornato": "2026-09-12T14:33:53.191Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
       "matchId": "17994",
       "casa": {
         "sigla": "VEN",
-        "titolari": [
-          "Adams A.",
-          "Yeboah J.",
-          "Sagrado",
-          "Sohm",
-          "Busio",
-          "Perez K.",
-          "Hainaut",
-          "Haps",
-          "Moreno M.",
-          "Schingtienne",
-          "Stankovic F."
+        "nome": "Venezia",
+        "giocatori": [
+          {
+            "nome": "Stankovic F.",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Schingtienne",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Moreno M.",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Haps",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Hainaut",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Perez K.",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Busio",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Sohm",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Sagrado",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Yeboah J.",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Adams A.",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Montipò",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Grandi",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Mazzocchi",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Halhal",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gomes",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Correia T.",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Juan Jesus",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Helgason",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Panada",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Fanne",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Fernandez T.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Rrahmani Al.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lauberbach",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lisman",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "FIO",
-        "titolari": [
-          "Beto",
-          "Njie",
-          "Mastantuono",
-          "Atta",
-          "Fagioli",
-          "Ndour",
-          "Ranieri L.",
-          "Viery",
-          "Dragusin",
-          "Jimenez A.",
-          "De Gea"
+        "nome": "Fiorentina",
+        "giocatori": [
+          {
+            "nome": "De Gea",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Jimenez A.",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Dragusin",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Viery",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ranieri L.",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ndour",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Fagioli",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Atta",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mastantuono",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Njie",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Beto",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Christensen O.",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lezzerini",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Joao Mario",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Dodò",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pongracic",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Valdepenas",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Brescianini",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Oulai",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Goncalves P.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gnonto",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pellegrino M.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -41,34 +303,320 @@
       "matchId": "17987",
       "casa": {
         "sigla": "GEN",
-        "titolari": [
-          "Osmajic",
-          "Colombo",
-          "Ellertsson",
-          "Baldanzi",
-          "Sow",
-          "Frendrup",
-          "Ehizibue",
-          "Vasquez",
-          "Ostigard",
-          "Marcandalli",
-          "Bijlow"
+        "nome": "Genoa",
+        "giocatori": [
+          {
+            "nome": "Bijlow",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Marcandalli",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ostigard",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Vasquez",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ehizibue",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Frendrup",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Sow",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Baldanzi",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ellertsson",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Colombo",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Osmajic",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Stolz",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sommariva",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Otoa",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Mitaj",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Puczka",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sabelli",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Drameh",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Amorim",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Messias",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Traorè Hj.",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Meichtry",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "El Shaarawy",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Wiafe",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Vitinha O.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "FRO",
-        "titolari": [
-          "Raimondo",
-          "Kvernadze",
-          "Schmid",
-          "Ghedjemis",
-          "Masini",
-          "Calò",
-          "Bracaglia",
-          "Cittadini",
-          "Calvani",
-          "Oyono A.",
-          "Palmisani"
+        "nome": "Frosinone",
+        "giocatori": [
+          {
+            "nome": "Palmisani",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Oyono A.",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Calvani",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Cittadini",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Bracaglia",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Calò",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Masini",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ghedjemis",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Schmid",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kvernadze",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Raimondo",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Desplanches",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pisseri",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Monterisi",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Tchato",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Omar Fayed",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Terzic",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Amey",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Akpoguma",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Fini",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Cichella",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Hasa",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "El Azzouzi A.",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Zerbin",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Birligea",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bobcek",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -76,34 +624,296 @@
       "matchId": "17989",
       "casa": {
         "sigla": "LAZ",
-        "titolari": [
-          "Zaccagni",
-          "Pinamonti",
-          "Isaksen",
-          "Taylor K.",
-          "Belahyane",
-          "Frattesi",
-          "Tavares N.",
-          "Provstgaard",
-          "Sutalo J.",
-          "Floriani Mussolini",
-          "Mandas"
+        "nome": "Lazio",
+        "giocatori": [
+          {
+            "nome": "Mandas",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Floriani Mussolini",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Sutalo J.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Provstgaard",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Tavares N.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Frattesi",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Belahyane",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Taylor K.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Isaksen",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Pinamonti",
+            "perc": 65,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Zaccagni",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Motta",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Renzetti",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pedraza",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Leite",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lazzari",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Przyborek",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Dele-Bashiru",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Cancellieri",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gudmundsson A.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Noslin",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "MIL",
-        "titolari": [
-          "Ramos G.",
-          "Cissè A.",
-          "Loftus-Cheek",
-          "Estupinan",
-          "Rabiot",
-          "Modric",
-          "Chukwueze",
-          "Pavlovic",
-          "De Winter",
-          "Gila",
-          "Maignan"
+        "nome": "Milan",
+        "giocatori": [
+          {
+            "nome": "Maignan",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Gila",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "De Winter",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Pavlovic",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Chukwueze",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Modric",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Rabiot",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Estupinan",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Loftus-Cheek",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Cissè A.",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ramos G.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Terracciano",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Torriani",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Tomori",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gabbia",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Terracciano F.",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bartesaghi",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Diawara S.",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Musah",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Moreira",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Jashari",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Saelemaekers",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Hutchinson",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Comotto",
+            "perc": 10,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pulisic",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Camarda",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -111,34 +921,296 @@
       "matchId": "17985",
       "casa": {
         "sigla": "ATA",
-        "titolari": [
-          "Rowe",
-          "Scamacca",
-          "De Ketelaere",
-          "Ederson D.S.",
-          "Kessiè",
-          "Samardzic",
-          "Bernasconi",
-          "Scalvini",
-          "Kossounou",
-          "Bellanova",
-          "Carnesecchi"
+        "nome": "Atalanta",
+        "giocatori": [
+          {
+            "nome": "Carnesecchi",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Bellanova",
+            "perc": 75,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kossounou",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Scalvini",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Bernasconi",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Samardzic",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kessiè",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ederson D.S.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "De Ketelaere",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Scamacca",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Rowe",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Sportiello",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pompei",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kolasinac",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Zappacosta",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Obric",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kristensen T.",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pasalic",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Elmas",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Zalewski",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Raspadori",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Krstovic",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "CAG",
-        "titolari": [
-          "Mendy P.",
-          "Maldini",
-          "Fazzini",
-          "Romano",
-          "Winks",
-          "Adopo",
-          "Obert",
-          "Rodriguez Ju.",
-          "Mina",
-          "Zè Pedro",
-          "Caprile"
+        "nome": "Cagliari",
+        "giocatori": [
+          {
+            "nome": "Caprile",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Zè Pedro",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mina",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Rodriguez Ju.",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Obert",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Adopo",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Winks",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Romano",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Fazzini",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Maldini",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mendy P.",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Radunovic",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sherri",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Aurelio",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sugawara",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kofler",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Deiola",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Liteta",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ciervo",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gagliardini",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Fadera",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Massolin",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sulev",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sugamele",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kevin Carlos",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -146,34 +1218,314 @@
       "matchId": "17990",
       "casa": {
         "sigla": "LEC",
-        "titolari": [
-          "Monteiro J.",
-          "Stulic",
-          "Pierotti",
-          "Ilic",
-          "Ngom",
-          "Coulibaly L.",
-          "Gallo",
-          "Tiago Gabriel",
-          "Gaspar K.",
-          "Veiga D.",
-          "Falcone"
+        "nome": "Lecce",
+        "giocatori": [
+          {
+            "nome": "Falcone",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Veiga D.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Gaspar K.",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Tiago Gabriel",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Gallo",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Coulibaly L.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ngom",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ilic",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Pierotti",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Stulic",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Monteiro J.",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Penev",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bleve",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ndaba",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Dembelè A.",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Siebert",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Jean",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Maleh",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gorter",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kaba",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Fofana Sa.",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Laerke",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "N'Dri",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Fatah",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "MON",
-        "titolari": [
-          "Varela G.",
-          "Robinson J.",
-          "Colpani",
-          "Mangas",
-          "Folorunsho",
-          "Akinsanmiro",
-          "Birindelli",
-          "Carboni A.",
-          "Lucchesi",
-          "Kouadio",
-          "Thiam"
+        "nome": "Monza",
+        "giocatori": [
+          {
+            "nome": "Thiam",
+            "perc": 75,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kouadio",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Lucchesi",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Carboni A.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Birindelli",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Akinsanmiro",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Folorunsho",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mangas",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Colpani",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Robinson J.",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Varela G.",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Tornqvist",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Strajnar",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Antov",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Goglichidze",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bakoune",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Maye",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Forson O.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Foe Ondoa",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Colombo L.",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Tourè I.",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Mout",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ngonge",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Cutrone",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Mota",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Zeballos",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -181,34 +1533,260 @@
       "matchId": "17991",
       "casa": {
         "sigla": "NAP",
-        "titolari": [
-          "Neres",
-          "Hojlund",
-          "Politano",
-          "Vergara",
-          "Lobotka",
-          "Gilmour",
-          "Spinazzola",
-          "Marin R.",
-          "Rrahmani",
-          "Di Lorenzo",
-          "Milinkovic-Savic V."
+        "nome": "Napoli",
+        "giocatori": [
+          {
+            "nome": "Milinkovic-Savic V.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Di Lorenzo",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Rrahmani",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Marin R.",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Spinazzola",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Gilmour",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Lobotka",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Vergara",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Politano",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Hojlund",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Neres",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Contini",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Olivera",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Favasuli",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Beukema",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Badiashile",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "De Bruyne",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lang",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lucca",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "BOL",
-        "titolari": [
-          "Cambiaghi",
-          "Piccoli",
-          "Bernardeschi",
-          "Pobega",
-          "Ferguson",
-          "Odgaard",
-          "Miranda J.",
-          "Theate",
-          "Heggem",
-          "Holm",
-          "Skorupski"
+        "nome": "Bologna",
+        "giocatori": [
+          {
+            "nome": "Skorupski",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Holm",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Heggem",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Theate",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Miranda J.",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Odgaard",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ferguson",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Pobega",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Bernardeschi",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Piccoli",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Cambiaghi",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Pessina Mas.",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Alhassane",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Helland",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Vitik",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "De Silvestri",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Casale",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Moro N.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Amondarain",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Libra",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Mbangula",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Enem",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -216,34 +1794,290 @@
       "matchId": "17992",
       "casa": {
         "sigla": "SAS",
-        "titolari": [
-          "Laurientè",
-          "Bowie",
-          "Berardi",
-          "Adzic",
-          "Matic",
-          "Thorstvedt",
-          "Doig",
-          "Leysen F.",
-          "Idzes",
-          "Cinquegrano",
-          "Muric"
+        "nome": "Sassuolo",
+        "giocatori": [
+          {
+            "nome": "Muric",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Cinquegrano",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Idzes",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Leysen F.",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Doig",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Thorstvedt",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Matic",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Adzic",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Berardi",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Bowie",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Laurientè",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Turati",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Satalino",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Van Der Brempt",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Obrador",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Caleta-Car",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Odenthal",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Dominguez B.",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lipani",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ghion",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sulemana I.",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bakola",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Esposito Se.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pierini",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Skjellerup",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "JUV",
-        "titolari": [
-          "Kolo Muani",
-          "Gonzalez N.",
-          "Woltemade",
-          "Conceicao",
-          "Douglas Luiz",
-          "Koopmeiners",
-          "Celik",
-          "Lucumì",
-          "Bremer",
-          "Kalulu",
-          "Vicario"
+        "nome": "Juventus",
+        "giocatori": [
+          {
+            "nome": "Vicario",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kalulu",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Bremer",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Lucumì",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Celik",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Koopmeiners",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Douglas Luiz",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Conceicao",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Woltemade",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Gonzalez N.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kolo Muani",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Grabara",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pinsoglio",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kelly L.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Rugani",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gatti",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "McKennie",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sarr P.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Zhegrova",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Alajbegovic",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Milik",
+            "perc": 10,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -251,34 +2085,320 @@
       "matchId": "17986",
       "casa": {
         "sigla": "COM",
-        "titolari": [
-          "Kean",
-          "Baturina",
-          "Paz N.",
-          "Diao",
-          "Perrone",
-          "Da Cunha",
-          "Kaiki",
-          "Ramon",
-          "Chalobah T.",
-          "Smolcic I.",
-          "Butez"
+        "nome": "Como",
+        "giocatori": [
+          {
+            "nome": "Butez",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Smolcic I.",
+            "perc": 75,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Chalobah T.",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ramon",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kaiki",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Da Cunha",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Perrone",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Diao",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Paz N.",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Baturina",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kean",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Sanchez Ro.",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Vigorito",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Couto",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Valle",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kambwala",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kempf",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Dossena",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Goldaniga",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Milla",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Caqueret",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lahdo",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ricci S.",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Liberali",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Rodriguez Je.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Douvikas",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "PAR",
-        "titolari": [
-          "Tourè E.",
-          "Lontani",
-          "Valeri",
-          "Ordonez C.",
-          "Sierro",
-          "Keita M.",
-          "Britschgi",
-          "Diego Carlos",
-          "Troilo",
-          "Delprato",
-          "Corvi"
+        "nome": "Parma",
+        "giocatori": [
+          {
+            "nome": "Corvi",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Delprato",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Troilo",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Diego Carlos",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Britschgi",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Keita M.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Sierro",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ordonez C.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Valeri",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Lontani",
+            "perc": 85,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Tourè E.",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Daffara",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ghidotti",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Valenti",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ndiaye",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Drobnic",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Carboni F.",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Cremaschi",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Konate A.",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Almqvist",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Fabbian",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Romero D.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Elphege",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "De Martis",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Frigan",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -286,34 +2406,314 @@
       "matchId": "17993",
       "casa": {
         "sigla": "TOR",
-        "titolari": [
-          "Simeone",
-          "Vlasic",
-          "Adams C.",
-          "Cacciamani",
-          "Fitz-Jim",
-          "Mandragora",
-          "Fortini",
-          "Comert",
-          "Ismajli",
-          "Comuzzo",
-          "Perri"
+        "nome": "Torino",
+        "giocatori": [
+          {
+            "nome": "Perri",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Comuzzo",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ismajli",
+            "perc": 65,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Comert",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Fortini",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mandragora",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Fitz-Jim",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Cacciamani",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Adams C.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Vlasic",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Simeone",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mascardi",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Siviero",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Coco",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Belghali",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Patterson",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Biraghi",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Rodriguez R.",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ilkhan",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Aboukhlal",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Braganca",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Luongo",
+            "perc": 20,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Oristanio",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gineitis",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Zapata D.",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Kulenovic",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "ROM",
-        "titolari": [
-          "Malen",
-          "Mora",
-          "Soulè",
-          "Wesley",
-          "Pisilli",
-          "Cristante",
-          "Molina N.",
-          "Hermoso",
-          "N'Dicka",
-          "Mancini",
-          "Svilar"
+        "nome": "Roma",
+        "giocatori": [
+          {
+            "nome": "Svilar",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mancini",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "N'Dicka",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Hermoso",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Molina N.",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Cristante",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Pisilli",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Wesley",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Soulè",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mora",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Malen",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Gollini",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "De Marzi",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lulli",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Koulierakis",
+            "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Rensch",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Ghilardi",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Balerdi",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "De Roon",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pellegrini Lo.",
+            "perc": 10,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Konè M.",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Dybala",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Castro S.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Arena A.",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     },
@@ -321,34 +2721,272 @@
       "matchId": "17988",
       "casa": {
         "sigla": "INT",
-        "titolari": [
-          "Esposito F.P.",
-          "Martinez L.",
-          "Dimarco",
-          "Zielinski",
-          "Calhanoglu",
-          "Barella",
-          "Diouf",
-          "Bastoni",
-          "Stones",
-          "Akanji",
-          "Martinez Jo."
+        "nome": "Inter",
+        "giocatori": [
+          {
+            "nome": "Martinez Jo.",
+            "perc": 75,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Akanji",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Stones",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Bastoni",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Diouf",
+            "perc": 70,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Barella",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Calhanoglu",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Zielinski",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Dimarco",
+            "perc": 55,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Martinez L.",
+            "perc": 75,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Esposito F.P.",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Provedel",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Di Gennaro",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Pavard",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bisseck",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Carlos Augusto",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Jones C.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Luis Henrique",
+            "perc": 35,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Sucic P.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Stankovic A.",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Mkhitaryan",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bonny",
+            "perc": 40,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Thuram",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       },
       "trasferta": {
         "sigla": "UDI",
-        "titolari": [
-          "Davis K.",
-          "Ekkelenkamp",
-          "Unai Gomez",
-          "Kamara H.",
-          "Karlstrom",
-          "Miller L.",
-          "Vojvoda",
-          "Ebosse",
-          "Kabasele",
-          "Abankwah",
-          "Okoye"
+        "nome": "Udinese",
+        "giocatori": [
+          {
+            "nome": "Okoye",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Abankwah",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kabasele",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ebosse",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Vojvoda",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Miller L.",
+            "perc": 80,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Karlstrom",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Kamara H.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Unai Gomez",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ekkelenkamp",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Davis K.",
+            "perc": 90,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Mrozek",
+            "perc": 5,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Padelli",
+            "perc": 1,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bertola",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Jovanovic",
+            "perc": 50,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Chakvetadze",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Zarraga",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Lovric",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Gueye",
+            "perc": 55,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bayo V.",
+            "perc": 60,
+            "role": "",
+            "starter": false
+          }
         ]
       }
     }
