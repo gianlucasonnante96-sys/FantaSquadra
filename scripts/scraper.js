@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://www.fantacalcio.it/probabili-formazioni-serie-a';
-const DELAY_BETWEEN_MATCHES = 2500; // ms tra una partita e l'altra
+const DELAY_BETWEEN_MATCHES = 2000;
 
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
@@ -41,15 +41,59 @@ async function scrapeFormazioni() {
   
   console.log('📡 Navigazione pagina principale...');
   await page.goto(BASE_URL, {
-    waitUntil: 'networkidle2',
+    waitUntil: 'domcontentloaded',
     timeout: 90000
   });
   
-  console.log('📊 Titolo pagina:', await page.title());
-  console.log('⏳ Attesa rendering iniziale...');
+  console.log('✅ Titolo pagina:', await page.title());
+  
+  // === STEP 1: Gestione banner cookie Quantcast ===
+  console.log('🍪 Ricerca banner cookie...');
+  await sleep(3000); // Aspetta che il banner appaia
+  
+  const cookieHandled = await page.evaluate(() => {
+    // Prova diversi selettori per il pulsante "Accetta" del banner Quantcast
+    const selettori = [
+      // Quantcast CMP - pulsante "Consenti"
+      'button[title="Consenti"]',
+      'button[aria-label="Consenti"]',
+      'button[title="Accept"]',
+      'button[aria-label="Accept"]',
+      // Quantcast CMP - selettori generici
+      '.qc-cmp2-summary-buttons button:first-child',
+      '.qc-cmp2-buttons-container button:first-child',
+      '[class*="qc-cmp2"] button[class*="accept"]',
+      // Fallback generico
+      'button[class*="accept"]',
+      'button[class*="consent"]',
+    ];
+    
+    for (const sel of selettori) {
+      try {
+        const btn = document.querySelector(sel);
+        if (btn && btn.offsetParent !== null) { // visibile
+          btn.click();
+          return { clicked: true, selector: sel };
+        }
+      } catch (e) {
+        // Ignora e continua
+      }
+    }
+    return { clicked: false, selector: null };
+  });
+  
+  if (cookieHandled.clicked) {
+    console.log(`✅ Cookie accettati (selettore: ${cookieHandled.selector})`);
+    await sleep(3000); // Aspetta che il banner sparisca e la pagina ricarichi
+  } else {
+    console.log('⚠️ Nessun banner cookie trovato (forse già accettato)');
+  }
+  
+  // === STEP 2: Aspetta il caricamento delle formazioni ===
+  console.log('⏳ Attesa rendering formazioni...');
   await sleep(5000);
   
-  // === STEP 1: Trova tutte le partite ===
+  // === STEP 3: Trova tutte le partite ===
   const matchIds = await page.evaluate(() => {
     const ids = [];
     document.querySelectorAll('li.match.match-item').forEach(el => {
@@ -62,110 +106,77 @@ async function scrapeFormazioni() {
   console.log(`📋 Trovate ${matchIds.length} partite:`, matchIds);
   
   if (matchIds.length === 0) {
-    console.log('🚨 Nessuna partita trovata. Controllo HTML...');
-    const html = await page.evaluate(() => document.body.innerHTML.substring(0, 3000));
-    console.log('📄 HTML (primi 3000 char):', html);
+    console.log('🚨 Ancora 0 partite. Controllo HTML...');
+    const html = await page.evaluate(() => document.body.innerHTML.substring(0, 5000));
+    console.log('📄 HTML (primi 5000 char):', html);
     await browser.close();
     process.exit(1);
   }
   
   const formazioni = {};
   
-  // === STEP 2: Per ogni partita, clicca e estrai ===
-  for (const matchId of matchIds) {
-    console.log(`\n🔍 Elaboro ${matchId}...`);
+  // === STEP 4: Estrai i dati (senza click, se sono tutte visibili) ===
+  console.log('🔍 Estrazione dati da tutte le partite...');
+  
+  const datiEstratti = await page.evaluate(() => {
+    const risultato = {};
     
-    try {
-      // Ricarica la pagina principale per essere sicuro
-      if (!page.url().includes(BASE_URL)) {
-        await page.goto(BASE_URL, { waitUntil: 'networkidle2', timeout: 60000 });
-        await sleep(2000);
-      }
+    document.querySelectorAll('li.match.match-item').forEach(matchEl => {
+      const matchId = matchEl.getAttribute('data-match-has');
+      if (!matchId) return;
       
-      // Clicca sulla partita
-      const clicked = await page.evaluate((id) => {
-        const el = document.querySelector(`li.match.match-item[data-match-has="${id}"]`);
-        if (!el) return false;
-        
-        // Cerca un elemento cliccabile dentro (spesso è un input radio o un link)
-        const clickable = el.querySelector('input[type="radio"]') || 
-                         el.querySelector('a') || 
-                         el.querySelector('label') ||
-                         el;
-        clickable.click();
-        return true;
-      }, matchId);
+      const [casa, trasferta] = matchId.split('-');
       
-      if (!clicked) {
-        console.log(`  ⚠️ Impossibile cliccare ${matchId}`);
-        continue;
-      }
+      risultato[matchId] = {
+        casa: { sigla: casa, titolari: [] },
+        trasferta: { sigla: trasferta, titolari: [] }
+      };
       
-      console.log(`  👆 Cliccato, attendo rendering...`);
-      await sleep(DELAY_BETWEEN_MATCHES);
-      
-      // Estrai i giocatori della partita corrente
-      const datiPartita = await page.evaluate((id) => {
-        const matchEl = document.querySelector(`li.match.match-item[data-match-has="${id}"]`);
-        if (!matchEl) return null;
-        
-        const [casa, trasferta] = id.split('-');
-        const risultato = {
-          casa: { sigla: casa, titolari: [] },
-          trasferta: { sigla: trasferta, titolari: [] }
-        };
-        
-        function estraiGiocatori(teamEl) {
-          if (!teamEl) return [];
-          const nomi = [];
-          const selettori = [
-            'a.player-name span',
-            'a.player-name',
-            'span.player-name',
-            '.player-name span',
-            '.player-name',
-          ];
-          for (const sel of selettori) {
-            const elementi = teamEl.querySelectorAll(sel);
-            if (elementi.length > 0) {
-              elementi.forEach(el => {
-                const nome = el.textContent?.trim() || '';
-                if (nome && !nomi.includes(nome)) nomi.push(nome);
-              });
-              if (nomi.length > 0) break;
-            }
+      function estraiGiocatori(teamEl) {
+        if (!teamEl) return [];
+        const nomi = [];
+        const selettori = [
+          'a.player-name span',
+          'a.player-name',
+          'span.player-name',
+          '.player-name span',
+          '.player-name',
+        ];
+        for (const sel of selettori) {
+          const elementi = teamEl.querySelectorAll(sel);
+          if (elementi.length > 0) {
+            elementi.forEach(el => {
+              const nome = el.textContent?.trim() || '';
+              if (nome && !nomi.includes(nome)) nomi.push(nome);
+            });
+            if (nomi.length > 0) break;
           }
-          return nomi;
         }
-        
-        const homeEl = matchEl.querySelector('.team-home');
-        const awayEl = matchEl.querySelector('.team-away');
-        
-        risultato.casa.titolari = estraiGiocatori(homeEl);
-        risultato.trasferta.titolari = estraiGiocatori(awayEl);
-        
-        return risultato;
-      }, matchId);
-      
-      if (datiPartita) {
-        formazioni[matchId] = datiPartita;
-        console.log(`  ✅ ${matchId}: casa=${datiPartita.casa.titolari.length}, trasferta=${datiPartita.trasferta.titolari.length}`);
-      } else {
-        console.log(`  ⚠️ Nessun dato per ${matchId}`);
+        return nomi;
       }
       
-    } catch (e) {
-      console.log(`  ❌ Errore su ${matchId}:`, e.message);
-    }
+      const homeEl = matchEl.querySelector('.team-home');
+      const awayEl = matchEl.querySelector('.team-away');
+      
+      risultato[matchId].casa.titolari = estraiGiocatori(homeEl);
+      risultato[matchId].trasferta.titolari = estraiGiocatori(awayEl);
+    });
+    
+    return risultato;
+  });
+  
+  for (const [matchId, dati] of Object.entries(datiEstratti)) {
+    formazioni[matchId] = dati;
+    console.log(`  ${matchId}: casa=${dati.casa.titolari.length}, trasferta=${dati.trasferta.titolari.length}`);
   }
   
-  // === STEP 3: Se ancora 0 giocatori, dump dell'HTML di una partita ===
   const totalGiocatori = Object.values(formazioni).reduce((acc, p) => 
     acc + p.casa.titolari.length + p.trasferta.titolari.length, 0
   );
   
+  // === STEP 5: Se ancora 0 giocatori, dump HTML di una partita ===
   if (totalGiocatori === 0 && matchIds.length > 0) {
-    console.log('\n🚨 Ancora 0 giocatori. Dump HTML della prima partita:');
+    console.log('\n🚨 0 giocatori trovati. Dump HTML della prima partita:');
     const htmlPartita = await page.evaluate((id) => {
       const el = document.querySelector(`li.match.match-item[data-match-has="${id}"]`);
       return el ? el.outerHTML.substring(0, 5000) : 'elemento non trovato';
