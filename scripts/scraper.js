@@ -13,10 +13,8 @@ function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-// 🔥 Domini da bloccare (banner cookie + tracker + ads)
 const BLOCKED_DOMAINS = [
   'quantcast.com',
-  'qc-cmp2',
   'cmp.quantcast',
   'googletagmanager.com',
   'googlesyndication.com',
@@ -27,6 +25,8 @@ const BLOCKED_DOMAINS = [
   'criteo.com',
   'taboola.com',
   'outbrain.com',
+  'adskindiv',
+  'revive',
 ];
 
 async function scrapeFormazioni() {
@@ -52,21 +52,17 @@ async function scrapeFormazioni() {
   
   await page.evaluateOnNewDocument(() => {
     Object.defineProperty(navigator, 'webdriver', { get: () => false });
-    // 🔥 Override di window.__tcfapi e simili per far credere alla pagina che i cookie siano già accettati
     window.__tcfapi = function() {};
     window.__gpp = function() {};
     window.__cmp = function() {};
   });
   
-  // 🔥 BLOCCA richieste verso domini di banner/tracker
   console.log('🛡️ Attivo blocco domini (Quantcast + tracker)...');
   await page.setRequestInterception(true);
   
   page.on('request', (req) => {
     const url = req.url().toLowerCase();
-    const shouldBlock = BLOCKED_DOMAINS.some(domain => url.includes(domain));
-    
-    if (shouldBlock) {
+    if (BLOCKED_DOMAINS.some(d => url.includes(d))) {
       req.abort();
     } else {
       req.continue();
@@ -87,27 +83,14 @@ async function scrapeFormazioni() {
   console.log('⏳ Attesa rendering formazioni...');
   await sleep(8000);
   
-  // 🔥 Rimuovi fisicamente qualsiasi traccia del banner Quantcast
+  // 🔥 Rimuovi banner Quantcast residui
   await page.evaluate(() => {
-    // Rimuovi tutti gli elementi con classi Quantcast
-    document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"], [class*="qc-cmp2"], [id*="qc-cmp2"]').forEach(el => el.remove());
-    
-    // Rimuovi overlay e modal
-    document.querySelectorAll('[class*="overlay"], [class*="modal"]').forEach(el => {
-      const cls = (el.className || '').toString();
-      if (cls.toLowerCase().includes('qc-') || cls.toLowerCase().includes('cmp')) {
-        el.remove();
-      }
-    });
-    
-    // Sblocca lo scroll
+    document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"]').forEach(el => el.remove());
     document.body.style.overflow = 'auto';
     document.body.style.position = 'static';
-    document.documentElement.style.overflow = 'auto';
   });
   
-  // 🔥 Aspetta che le partite appaiano
-  console.log('⏳ Attesa selettore match-item...');
+  console.log('⏳ Attesa selettore match...');
   try {
     await page.waitForSelector('li.match.match-item', { timeout: 30000 });
     console.log('✅ Selettore trovato!');
@@ -115,63 +98,88 @@ async function scrapeFormazioni() {
     console.log('⚠️ Selettore non trovato entro 30s');
   }
   
-  // === Trova tutte le partite ===
-  const matchIds = await page.evaluate(() => {
-    const ids = [];
-    document.querySelectorAll('li.match.match-item').forEach(el => {
-      const id = el.getAttribute('data-match-has');
-      if (id) ids.push(id);
-    });
-    return ids;
-  });
-  
-  console.log(`📋 Trovate ${matchIds.length} partite:`, matchIds);
-  
-  // Se ancora 0, prova altri selettori
-  if (matchIds.length === 0) {
-    console.log('🚨 0 partite. Provo selettori alternativi...');
-    const alternatives = await page.evaluate(() => {
-      const selectors = [
-        'li.match',
-        '.match-item',
-        'li[data-match-has]',
-        'li[data-match-id]',
-        '[data-match-has]',
-        '[data-match-id]',
-      ];
-      const result = {};
-      for (const sel of selectors) {
-        result[sel] = document.querySelectorAll(sel).length;
+  // 🔥 NUOVO: usa `[data-match-id]` invece di `[data-match-has]`
+  const matchesData = await page.evaluate(() => {
+    const lista = [];
+    
+    // 🔥 IMPORTANTE: prendi SOLO il primo set di 10 (probabile duplicato mobile/desktop)
+    const allMatches = Array.from(document.querySelectorAll('li.match.match-item[data-match-id]'));
+    const seenIds = new Set();
+    
+    for (const el of allMatches) {
+      const matchId = el.getAttribute('data-match-id');
+      if (!matchId || seenIds.has(matchId)) continue;
+      
+      // 🔥 Verifica che sia visibile (non un duplicato nascosto)
+      const rect = el.getBoundingClientRect();
+      if (rect.width === 0 && rect.height === 0) continue;
+      
+      seenIds.add(matchId);
+      
+      // 🔥 Prova a estrarre le squadre dal DOM
+      // Cerca: input radio con data-match, link, span con nomi squadre, ecc.
+      let casaSigla = '';
+      let trasfertaSigla = '';
+      
+      // Prova 1: attributi data-squadra, data-team, ecc.
+      casaSigla = el.getAttribute('data-home-team') || el.getAttribute('data-casa') || '';
+      trasfertaSigla = el.getAttribute('data-away-team') || el.getAttribute('data-trasferta') || '';
+      
+      // Prova 2: cerca input radio con name che contiene sigle
+      if (!casaSigla) {
+        const radio = el.querySelector('input[type="radio"]');
+        if (radio) {
+          const name = radio.getAttribute('name') || '';
+          // es. "nav-match-17994" → non utile
+          // Cerca nel label associato
+          const label = radio.closest('label') || el.querySelector('label');
+          if (label) {
+            const labelText = label.textContent || '';
+            // Cerca pattern tipo "VEN-FIO" o "Venezia - Fiorentina"
+            const match = labelText.match(/([A-Z]{3})\s*[-–]\s*([A-Z]{3})/);
+            if (match) {
+              casaSigla = match[1];
+              trasfertaSigla = match[2];
+            }
+          }
+        }
       }
-      return result;
-    });
-    console.log('📊 Selettori alternativi:', JSON.stringify(alternatives, null, 2));
-    
-    // Dump HTML
-    const html = await page.evaluate(() => document.body.innerHTML.substring(0, 5000));
-    console.log('📄 HTML (primi 5000 char):', html);
-    
-    await browser.close();
-    process.exit(1);
-  }
-  
-  // === Estrazione ===
-  console.log('🔍 Estrazione dati...');
-  
-  const formazioni = await page.evaluate(() => {
-    const risultato = {};
-    
-    document.querySelectorAll('li.match.match-item').forEach(matchEl => {
-      const matchId = matchEl.getAttribute('data-match-has');
-      if (!matchId) return;
       
-      const [casa, trasferta] = matchId.split('-');
+      // Prova 3: cerca img alt che contiene "Campioncino XXX"
+      if (!casaSigla) {
+        const imgs = el.querySelectorAll('img[alt*="Campioncino"]');
+        if (imgs.length >= 2) {
+          // Le squadre sono deducibili dal nome file immagine o dall'alt
+          const firstImg = imgs[0];
+          const src = firstImg.getAttribute('src') || '';
+          // es. ".../venezia/adams-a/7484.png"
+          const teamMatch = src.match(/\/([a-z-]+)\/[a-z-]+\/\d+\.png/);
+          if (teamMatch) {
+            casaSigla = teamMatch[1];
+          }
+          const lastImg = imgs[imgs.length - 1];
+          const srcLast = lastImg.getAttribute('src') || '';
+          const teamMatchLast = srcLast.match(/\/([a-z-]+)\/[a-z-]+\/\d+\.png/);
+          if (teamMatchLast) {
+            trasfertaSigla = teamMatchLast[1];
+          }
+        }
+      }
       
-      risultato[matchId] = {
-        casa: { sigla: casa, titolari: [] },
-        trasferta: { sigla: trasferta, titolari: [] }
-      };
+      // Prova 4: cerca link squadra con href
+      if (!casaSigla) {
+        const links = el.querySelectorAll('a[href*="/squadre/"]');
+        if (links.length >= 2) {
+          const homeHref = links[0].getAttribute('href') || '';
+          const awayHref = links[1].getAttribute('href') || '';
+          const homeMatch = homeHref.match(/\/squadre\/([a-z-]+)/);
+          const awayMatch = awayHref.match(/\/squadre\/([a-z-]+)/);
+          if (homeMatch) casaSigla = homeMatch[1];
+          if (awayMatch) trasfertaSigla = awayMatch[1];
+        }
+      }
       
+      // Estrai i giocatori
       function estraiGiocatori(teamEl) {
         if (!teamEl) return [];
         const nomi = [];
@@ -195,33 +203,58 @@ async function scrapeFormazioni() {
         return nomi;
       }
       
-      const homeEl = matchEl.querySelector('.team-home');
-      const awayEl = matchEl.querySelector('.team-away');
+      const homeEl = el.querySelector('.team-home');
+      const awayEl = el.querySelector('.team-away');
       
-      risultato[matchId].casa.titolari = estraiGiocatori(homeEl);
-      risultato[matchId].trasferta.titolari = estraiGiocatori(awayEl);
-    });
+      lista.push({
+        matchId,
+        casaSigla,
+        trasfertaSigla,
+        casaTitolari: estraiGiocatori(homeEl),
+        trasfertaTitolari: estraiGiocatori(awayEl),
+      });
+    }
     
-    return risultato;
+    return lista;
   });
   
-  for (const [matchId, dati] of Object.entries(formazioni)) {
-    console.log(`  ${matchId}: casa=${dati.casa.titolari.length}, trasferta=${dati.trasferta.titolari.length}`);
+  console.log(`📋 Trovate ${matchesData.length} partite uniche`);
+  
+  if (matchesData.length === 0) {
+    console.log('🚨 Ancora 0 partite. Dump HTML...');
+    const html = await page.evaluate(() => document.body.innerHTML.substring(0, 8000));
+    console.log('📄 HTML:', html);
+    await browser.close();
+    process.exit(1);
+  }
+  
+  // === Mostra i dati trovati ===
+  const formazioni = {};
+  
+  for (const m of matchesData) {
+    const key = `${m.casaSigla || 'HOME'}-${m.trasfertaSigla || 'AWAY'}_${m.matchId}`;
+    formazioni[key] = {
+      matchId: m.matchId,
+      casa: { sigla: m.casaSigla, titolari: m.casaTitolari },
+      trasferta: { sigla: m.trasfertaSigla, titolari: m.trasfertaTitolari },
+    };
+    
+    console.log(`  Match ${m.matchId} (${m.casaSigla}-${m.trasfertaSigla}): casa=${m.casaTitolari.length}, trasferta=${m.trasfertaTitolari.length}`);
+    
+    // 🔥 Se 0 giocatori, dump dell'HTML del primo match per debug
+    if (m.casaTitolari.length === 0 && m.trasfertaTitolari.length === 0 && matchesData.indexOf(m) === 0) {
+      console.log('\n🚨 0 giocatori nel primo match. Dump HTML:');
+      const htmlMatch = await page.evaluate((id) => {
+        const el = document.querySelector(`li.match.match-item[data-match-id="${id}"]`);
+        return el ? el.outerHTML.substring(0, 5000) : 'non trovato';
+      }, m.matchId);
+      console.log(htmlMatch);
+    }
   }
   
   const totalGiocatori = Object.values(formazioni).reduce((acc, p) => 
     acc + p.casa.titolari.length + p.trasferta.titolari.length, 0
   );
-  
-  // Se 0 giocatori, dump HTML di una partita
-  if (totalGiocatori === 0 && matchIds.length > 0) {
-    console.log('\n🚨 0 giocatori. Dump HTML della prima partita:');
-    const htmlPartita = await page.evaluate((id) => {
-      const el = document.querySelector(`li.match.match-item[data-match-has="${id}"]`);
-      return el ? el.outerHTML.substring(0, 5000) : 'elemento non trovato';
-    }, matchIds[0]);
-    console.log(htmlPartita);
-  }
   
   await browser.close();
   
