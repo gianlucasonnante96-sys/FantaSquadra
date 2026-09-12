@@ -59,7 +59,7 @@ function mergeFormazioni(esistenti, nuove) {
 }
 
 // ============================================================
-// 🔥 NUOVA FUNZIONE: SCRAPING LISTONE QUOTAZIONI
+// SCRAPING LISTONE QUOTAZIONI
 // ============================================================
 
 async function scrapeListone(page) {
@@ -74,12 +74,10 @@ async function scrapeListone(page) {
     console.log('✅ Titolo pagina quotazioni:', await page.title());
     await sleep(5000);
     
-    // Rimuovi banner cookie
     await page.evaluate(() => {
       document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"]').forEach(el => el.remove());
     });
     
-    // 🔥 SCROLL per caricare tutti i giocatori (paginazione lazy)
     console.log('⏳ Scroll per caricare tutti i giocatori...');
     
     let previousCount = 0;
@@ -100,7 +98,6 @@ async function scrapeListone(page) {
       
       previousCount = currentCount;
       
-      // Scroll fino in fondo
       await page.evaluate(() => {
         window.scrollTo(0, document.body.scrollHeight);
       });
@@ -115,34 +112,87 @@ async function scrapeListone(page) {
     
     console.log(`✅ Scroll completato: ${totalGiocatori} giocatori visibili`);
     
-    // 🔥 ESTRAZIONE DATI
     console.log('🔍 Estrazione dati dal listone...');
     
     const listoneData = await page.evaluate(() => {
       const giocatori = [];
-      
       const rows = document.querySelectorAll('tr.player-row');
       
       rows.forEach(row => {
         try {
-          // Ruolo
+          // 🔥 RUOLO con 5 strategie
+          let role = '';
           const roleEl = row.querySelector('th.player-role');
-          const role = roleEl ? roleEl.textContent?.trim() || '' : '';
           
-          // Nome
+          if (roleEl) {
+            // Strategia 1: testo diretto
+            role = (roleEl.textContent || '').trim();
+            
+            // Strategia 2: data-role attribute
+            if (!role) {
+              role = (roleEl.getAttribute('data-role') || '').trim();
+            }
+            
+            // Strategia 3: classi tipo "player-role-A"
+            if (!role) {
+              const classes = (roleEl.className || '').split(/\s+/);
+              for (const cls of classes) {
+                const match = cls.match(/^player-role-([PDCA])$/i);
+                if (match) {
+                  role = match[1].toUpperCase();
+                  break;
+                }
+              }
+            }
+            
+            // Strategia 4: span interno
+            if (!role) {
+              const spanEl = roleEl.querySelector('span');
+              if (spanEl) {
+                role = (spanEl.textContent || '').trim();
+              }
+            }
+            
+            // Strategia 5: prima lettera valida dal testo del th
+            if (!role) {
+              const text = (roleEl.textContent || '').trim().toUpperCase();
+              for (const char of text) {
+                if (['P', 'D', 'C', 'A'].includes(char)) {
+                  role = char;
+                  break;
+                }
+              }
+            }
+          }
+          
+          // Fallback: cerca qualsiasi elemento con classe role
+          if (!role) {
+            const anyRoleEl = row.querySelector('[class*="role"]');
+            if (anyRoleEl) {
+              const text = (anyRoleEl.textContent || '').trim().toUpperCase();
+              for (const char of text) {
+                if (['P', 'D', 'C', 'A'].includes(char)) {
+                  role = char;
+                  break;
+                }
+              }
+            }
+          }
+          
+          // NOME
           const nameEl = row.querySelector('th.player-name a span');
           const nome = nameEl ? nameEl.textContent?.trim() || '' : '';
           
-          // Squadra
+          // SQUADRA
           const teamEl = row.querySelector('td.player-team');
           const squadra = teamEl ? teamEl.textContent?.trim() || '' : '';
           
-          // Quotazione iniziale
+          // QUOTAZIONE INIZIALE
           const qiEl = row.querySelector('td.player-classic-initial-price');
           const qiText = qiEl ? qiEl.textContent?.trim() || '0' : '0';
           const quotazioneIniziale = parseInt(qiText) || 0;
           
-          // Quotazione attuale
+          // QUOTAZIONE ATTUALE
           const qaEl = row.querySelector('td.player-classic-current-price');
           const qaText = qaEl ? qaEl.textContent?.trim() || '0' : '0';
           const quotazioneAttuale = parseInt(qaText) || 0;
@@ -172,15 +222,21 @@ async function scrapeListone(page) {
     
     console.log(`✅ Estratti ${listoneData.length} giocatori dal listone`);
     
-    // Log di esempio
+    // Statistiche ruoli
+    const ruoliCount = { P: 0, D: 0, C: 0, A: 0, '': 0 };
+    listoneData.forEach(g => {
+      if (ruoliCount[g.ruolo] !== undefined) ruoliCount[g.ruolo]++;
+      else ruoliCount['']++;
+    });
+    console.log(`📊 Ruoli estratti: P=${ruoliCount.P}, D=${ruoliCount.D}, C=${ruoliCount.C}, A=${ruoliCount.A}, vuoti=${ruoliCount['']}`);
+    
     if (listoneData.length > 0) {
       console.log('📊 Esempio primi 3 giocatori:');
       listoneData.slice(0, 3).forEach(g => {
-        console.log(`  - ${g.nome} (${g.squadra}, ${g.ruolo}): Qi=${g.quotazioneIniziale}, Qa=${g.quotazioneAttuale}, FVM=${g.fvm}`);
+        console.log(`  - ${g.nome} (${g.squadra}, ${g.ruolo || '?'}): Qi=${g.quotazioneIniziale}, Qa=${g.quotazioneAttuale}, FVM=${g.fvm}`);
       });
     }
     
-    // Salva in listone.json
     const output = {
       aggiornato: new Date().toISOString(),
       fonte: 'fantacalcio.it',
@@ -200,7 +256,7 @@ async function scrapeListone(page) {
 }
 
 // ============================================================
-// SCRAPING FORMAZIONI (esistente)
+// SCRAPING FORMAZIONI
 // ============================================================
 
 async function scrapeFormazioni(page) {
@@ -402,10 +458,7 @@ async function main() {
     }
   });
   
-  // 1. Scraping formazioni
   await scrapeFormazioni(page);
-  
-  // 2. Scraping listone
   await scrapeListone(page);
   
   await browser.close();
