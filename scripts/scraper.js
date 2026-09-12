@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://www.fantacalcio.it/probabili-formazioni-serie-a';
+const OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'formazioni.json');
 
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
@@ -29,8 +30,67 @@ const BLOCKED_DOMAINS = [
   'revive',
 ];
 
+/**
+ * 🔥 Legge il file formazioni.json esistente (se c'è).
+ * Serve per il MERGE cumulativo.
+ */
+function leggiFormazioniEsistenti() {
+  try {
+    if (!fs.existsSync(OUTPUT_PATH)) {
+      console.log('📂 Nessun formazioni.json esistente, parto da zero');
+      return { partite: {} };
+    }
+    
+    const content = fs.readFileSync(OUTPUT_PATH, 'utf-8');
+    const data = JSON.parse(content);
+    
+    if (!data || !data.partite) {
+      return { partite: {} };
+    }
+    
+    const numPartite = Object.keys(data.partite).length;
+    console.log(`📂 Caricate ${numPartite} partite esistenti da formazioni.json`);
+    return data;
+  } catch (e) {
+    console.warn('⚠️ Errore lettura formazioni.json, parto da zero:', e.message);
+    return { partite: {} };
+  }
+}
+
+/**
+ * 🔥 MERGE: combina le formazioni vecchie con quelle nuove.
+ * 
+ * Logica:
+ * - Se una partita è già presente: aggiorna con i dati NUOVI (freschi)
+ * - Se una partita è nuova: aggiungila
+ * - Se una partita era presente ma non è più nel sito (giocata): MANTIENILA
+ */
+function mergeFormazioni(esistenti, nuove) {
+  const risultato = { ...esistenti.partite };
+  let nuoveCount = 0;
+  let aggiornateCount = 0;
+  
+  for (const [key, nuovaPartita] of Object.entries(nuove)) {
+    if (risultato[key]) {
+      // Già esisteva → aggiorna
+      risultato[key] = nuovaPartita;
+      aggiornateCount++;
+    } else {
+      // Nuova → aggiungi
+      risultato[key] = nuovaPartita;
+      nuoveCount++;
+    }
+  }
+  
+  console.log(`🔀 Merge: ${nuoveCount} nuove, ${aggiornateCount} aggiornate, ${Object.keys(risultato).length} totali`);
+  return risultato;
+}
+
 async function scrapeFormazioni() {
   console.log('🚀 Avvio browser headless...');
+  
+  // 🔥 STEP 1: Leggi le formazioni esistenti (per il merge)
+  const esistenti = leggiFormazioniEsistenti();
   
   const browser = await puppeteer.launch({
     headless: 'new',
@@ -98,7 +158,7 @@ async function scrapeFormazioni() {
     console.log('⚠️ Selettore non trovato entro 30s');
   }
   
-  // === Estrazione con selettori CORRETTI ===
+  // === Estrazione ===
   console.log('🔍 Estrazione dati...');
   
   const matchesData = await page.evaluate(() => {
@@ -117,15 +177,12 @@ async function scrapeFormazioni() {
       
       seenIds.add(matchId);
       
-      // 🔥 FIX: usa `.pitch .team-home` e `.pitch .team-away` (specifici!)
       const homeEl = el.querySelector('.pitch .team.team-home');
       const awayEl = el.querySelector('.pitch .team.team-away');
       
-      // Estrai i giocatori
       function estraiGiocatori(teamEl) {
         if (!teamEl) return [];
         const nomi = [];
-        // 🔥 Selettore corretto basato sull'HTML dump
         const links = teamEl.querySelectorAll('ul.team-lineup li.player a.player-name span');
         links.forEach(el => {
           const nome = el.textContent?.trim() || '';
@@ -137,7 +194,6 @@ async function scrapeFormazioni() {
       const casaTitolari = estraiGiocatori(homeEl);
       const trasfertaTitolari = estraiGiocatori(awayEl);
       
-      // Estrai sigle squadre dall'hash (VEN-FIO) o dai nomi
       let casaSigla = '';
       let trasfertaSigla = '';
       
@@ -145,7 +201,6 @@ async function scrapeFormazioni() {
         [casaSigla, trasfertaSigla] = matchHash.split('-');
       }
       
-      // Se non c'è l'hash, estrai dai nomi
       if (!casaSigla && homeEl) {
         const teamLink = homeEl.querySelector('a.team-name, a.team-link');
         if (teamLink) casaSigla = teamLink.textContent?.trim() || '';
@@ -170,10 +225,10 @@ async function scrapeFormazioni() {
   
   console.log(`\n📋 Risultati estrazione:`);
   
-  const formazioni = {};
+  const nuoveFormazioni = {};
   for (const m of matchesData) {
     const key = m.matchHash || `${m.casaSigla}-${m.trasfertaSigla}_${m.matchId}`;
-    formazioni[key] = {
+    nuoveFormazioni[key] = {
       matchId: m.matchId,
       casa: { sigla: m.casaSigla, titolari: m.casaTitolari },
       trasferta: { sigla: m.trasfertaSigla, titolari: m.trasfertaTitolari },
@@ -182,24 +237,29 @@ async function scrapeFormazioni() {
     console.log(`  ${key}: casa=${m.casaTitolari.length}, trasferta=${m.trasfertaTitolari.length}`);
   }
   
-  const totalGiocatori = Object.values(formazioni).reduce((acc, p) => 
-    acc + p.casa.titolari.length + p.trasferta.titolari.length, 0
-  );
-  
   await browser.close();
+  
+  // 🔥 STEP 2: MERGE con i dati esistenti
+  const partiteFinali = mergeFormazioni(esistenti, nuoveFormazioni);
   
   // === SALVATAGGIO ===
   const output = {
     aggiornato: new Date().toISOString(),
     fonte: 'fantacalcio.it',
-    partite: formazioni
+    partite: partiteFinali
   };
   
-  const outputPath = path.join(__dirname, '..', 'src', 'data', 'formazioni.json');
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
+  fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2));
   
-  console.log(`\n✅ Fatto! ${Object.keys(formazioni).length} partite, ${totalGiocatori} titolari totali`);
+  const totalGiocatori = Object.values(partiteFinali).reduce((acc, p) => 
+    acc + (p.casa?.titolari?.length || 0) + (p.trasferta?.titolari?.length || 0), 0
+  );
+  
+  console.log(`\n✅ Fatto!`);
+  console.log(`   Partite totali nel file: ${Object.keys(partiteFinali).length}`);
+  console.log(`   Giocatori totali nel file: ${totalGiocatori}`);
+  console.log(`   Partite aggiornate in questo run: ${Object.keys(nuoveFormazioni).length}`);
 }
 
 scrapeFormazioni().catch(err => {
