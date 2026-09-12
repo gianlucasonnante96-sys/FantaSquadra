@@ -1,5 +1,116 @@
 {
-  "aggiornato": "2026-09-11T18:17:24.643Z",
+  "aggiornato": "2026-09-12T13:49:22.608Z",
   "fonte": "fantacalcio.it",
-  "partite": {}
+  "partite": {
+    "venezia-fiorentina_17994": {
+      "matchId": "17994",
+      "casa": {
+        "sigla": "venezia",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "fiorentina",
+        "titolari": []
+      }
+    },
+    "genoa-frosinone_17987": {
+      "matchId": "17987",
+      "casa": {
+        "sigla": "genoa",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "frosinone",
+        "titolari": []
+      }
+    },
+    "lazio-milan_17989": {
+      "matchId": "17989",
+      "casa": {
+        "sigla": "lazio",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "milan",
+        "titolari": []
+      }
+    },
+    "atalanta-cagliari_17985": {
+      "matchId": "17985",
+      "casa": {
+        "sigla": "atalanta",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "cagliari",
+        "titolari": []
+      }
+    },
+    "lecce-monza_17990": {
+      "matchId": "17990",
+      "casa": {
+        "sigla": "lecce",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "monza",
+        "titolari": []
+      }
+    },
+    "napoli-bologna_17991": {
+      "matchId": "17991",
+      "casa": {
+        "sigla": "napoli",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "bologna",
+        "titolari": []
+      }
+    },
+    "sassuolo-juventus_17992": {
+      "matchId": "17992",
+      "casa": {
+        "sigla": "sassuolo",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "juventus",
+        "titolari": []
+      }
+    },
+    "como-parma_17986": {
+      "matchId": "17986",
+      "casa": {
+        "sigla": "como",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "parma",
+        "titolari": []
+      }
+    },
+    "torino-roma_17993": {
+      "matchId": "17993",
+      "casa": {
+        "sigla": "torino",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "roma",
+        "titolari": []
+      }
+    },
+    "inter-udinese_17988": {
+      "matchId": "17988",
+      "casa": {
+        "sigla": "inter",
+        "titolari": []
+      },
+      "trasferta": {
+        "sigla": "udinese",
+        "titolari": []
+      }
+    }
+  }
 }
