@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Player, Role } from '../types';
 import { ListoneStatus, importFromJSON, exportToJSON, parseExcelFile, saveToCache, clearCache } from '../services/listoneService';
+import { applyProbabiliFormazioni } from '../services/probabiliFormazioniService';
 import RosaRecognizer from './RosaRecognizer';
 
 interface RosterProps {
@@ -30,7 +31,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   const [importError, setImportError] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // 🔒 SAFE: raggruppa per ruolo con controlli
   const rosterByRole = useMemo(() => {
     const grouped: Record<Role, Player[]> = { P: [], D: [], C: [], A: [] };
     if (!Array.isArray(localRoster)) return grouped;
@@ -44,7 +44,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
     return grouped;
   }, [localRoster]);
 
-  // 🔒 SAFE: ricerca con controlli su tutti i campi
   const searchResults = useMemo(() => {
     if (!searchTerm || searchTerm.length < 2) return [];
     if (!Array.isArray(availablePlayers)) return [];
@@ -87,8 +86,28 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
     setLocalRoster(prev => prev.filter(p => p.id !== playerId));
   };
 
+  // 🔥 FIX: applica le probabili formazioni PRIMA di salvare
   const handleSave = () => {
-    onSave(localRoster);
+    console.log('🚀 handleSave: applicazione probabili formazioni...');
+    console.log('📋 Roster originale:', localRoster.length, 'giocatori');
+    
+    // Applica le probabili formazioni al roster
+    let rosterFinale = localRoster;
+    try {
+      rosterFinale = applyProbabiliFormazioni(localRoster);
+      console.log('✅ Formazioni applicate');
+      console.log('📊 Meret titolarità dopo applicazione:', 
+        rosterFinale.find(p => p.surname === 'Meret')?.titolarita || 'non trovato'
+      );
+    } catch (e) {
+      console.error('❌ Errore applicazione formazioni:', e);
+      // In caso di errore, usa il roster originale
+      rosterFinale = localRoster;
+    }
+    
+    // Salva il roster con le formazioni applicate
+    onSave(rosterFinale);
+    setLocalRoster(rosterFinale);
     onNext();
   };
 
@@ -308,9 +327,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
               Usa la barra di ricerca qui sotto per aggiungere i giocatori del listone Serie A 2026/27.<br/>
               Puoi cercare per nome, cognome o squadra.
             </p>
-            <div className="flex flex-wrap gap-2 justify-center">
-              <span className="text-xs text-slate-500">Squadre: {['Atalanta', 'Bologna', 'Cagliari', 'Como', 'Fiorentina', 'Frosinone', 'Genoa', 'Inter', 'Juventus', 'Lazio', 'Lecce', 'Milan', 'Monza', 'Napoli', 'Parma', 'Roma', 'Sassuolo', 'Torino', 'Udinese', 'Venezia'].join(', ')}</span>
-            </div>
           </div>
         )}
 
