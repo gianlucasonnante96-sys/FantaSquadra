@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-13T07:14:12.777Z",
+  "aggiornato": "2026-09-13T15:15:23.532Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -1222,67 +1222,67 @@
         "giocatori": [
           {
             "nome": "Falcone",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Veiga D.",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
-            "nome": "Gaspar K.",
-            "perc": 80,
+            "nome": "Siebert",
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Tiago Gabriel",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Gallo",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Coulibaly L.",
-            "perc": 90,
-            "role": "",
-            "starter": true
-          },
-          {
-            "nome": "Ngom",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Ilic",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
-            "nome": "Pierotti",
-            "perc": 90,
+            "nome": "Maleh",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "N'Dri",
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Stulic",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Monteiro J.",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
@@ -1305,8 +1305,8 @@
             "starter": false
           },
           {
-            "nome": "Siebert",
-            "perc": 50,
+            "nome": "Gaspar K.",
+            "perc": 60,
             "role": "",
             "starter": false
           },
@@ -1317,14 +1317,14 @@
             "starter": false
           },
           {
-            "nome": "Maleh",
-            "perc": 60,
+            "nome": "Gorter",
+            "perc": 55,
             "role": "",
             "starter": false
           },
           {
-            "nome": "Gorter",
-            "perc": 55,
+            "nome": "Ngom",
+            "perc": 60,
             "role": "",
             "starter": false
           },
@@ -1335,14 +1335,14 @@
             "starter": false
           },
           {
-            "nome": "Fofana Sa.",
-            "perc": 30,
+            "nome": "Pierotti",
+            "perc": 60,
             "role": "",
             "starter": false
           },
           {
-            "nome": "N'Dri",
-            "perc": 55,
+            "nome": "Fofana Sa.",
+            "perc": 30,
             "role": "",
             "starter": false
           },
@@ -1360,67 +1360,67 @@
         "giocatori": [
           {
             "nome": "Thiam",
-            "perc": 75,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Kouadio",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Lucchesi",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Carboni A.",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Birindelli",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Akinsanmiro",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Folorunsho",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Mangas",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Colpani",
-            "perc": 55,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Robinson J.",
-            "perc": 85,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Varela G.",
-            "perc": 55,
+            "perc": 100,
             "role": "",
             "starter": true
           },
@@ -1486,7 +1486,7 @@
           },
           {
             "nome": "Cutrone",
-            "perc": 60,
+            "perc": 55,
             "role": "",
             "starter": false
           },
@@ -1513,67 +1513,67 @@
         "giocatori": [
           {
             "nome": "Milinkovic-Savic V.",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Di Lorenzo",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Rrahmani",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Marin R.",
-            "perc": 60,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Spinazzola",
-            "perc": 85,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Gilmour",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Lobotka",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
-            "nome": "Vergara",
-            "perc": 85,
+            "nome": "De Bruyne",
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Politano",
-            "perc": 70,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Hojlund",
-            "perc": 60,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
-            "nome": "Neres",
-            "perc": 55,
+            "nome": "Vergara",
+            "perc": 100,
             "role": "",
             "starter": true
           },
@@ -1608,13 +1608,13 @@
             "starter": false
           },
           {
-            "nome": "De Bruyne",
-            "perc": 60,
+            "nome": "Lang",
+            "perc": 55,
             "role": "",
             "starter": false
           },
           {
-            "nome": "Lang",
+            "nome": "Neres",
             "perc": 60,
             "role": "",
             "starter": false
@@ -1632,73 +1632,73 @@
         "nome": "Bologna",
         "giocatori": [
           {
-            "nome": "Skorupski",
-            "perc": 90,
+            "nome": "Pessina Mas.",
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Holm",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Heggem",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Theate",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Miranda J.",
-            "perc": 55,
-            "role": "",
-            "starter": true
-          },
-          {
-            "nome": "Odgaard",
-            "perc": 80,
-            "role": "",
-            "starter": true
-          },
-          {
-            "nome": "Ferguson",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Pobega",
-            "perc": 55,
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Ferguson",
+            "perc": 100,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Amondarain",
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Bernardeschi",
-            "perc": 90,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Piccoli",
-            "perc": 85,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
             "nome": "Cambiaghi",
-            "perc": 80,
+            "perc": 100,
             "role": "",
             "starter": true
           },
           {
-            "nome": "Pessina Mas.",
+            "nome": "Skorupski",
             "perc": 5,
             "role": "",
             "starter": false
@@ -1734,14 +1734,14 @@
             "starter": false
           },
           {
-            "nome": "Moro N.",
+            "nome": "Odgaard",
             "perc": 60,
             "role": "",
             "starter": false
           },
           {
-            "nome": "Amondarain",
-            "perc": 50,
+            "nome": "Moro N.",
+            "perc": 60,
             "role": "",
             "starter": false
           },
@@ -1977,14 +1977,14 @@
             "starter": true
           },
           {
-            "nome": "Woltemade",
-            "perc": 55,
+            "nome": "Gonzalez N.",
+            "perc": 90,
             "role": "",
             "starter": true
           },
           {
-            "nome": "Gonzalez N.",
-            "perc": 90,
+            "nome": "Alajbegovic",
+            "perc": 55,
             "role": "",
             "starter": true
           },
@@ -2037,7 +2037,7 @@
             "starter": false
           },
           {
-            "nome": "Alajbegovic",
+            "nome": "Woltemade",
             "perc": 60,
             "role": "",
             "starter": false
@@ -2346,6 +2346,12 @@
             "starter": false
           },
           {
+            "nome": "Diallo O.",
+            "perc": 25,
+            "role": "",
+            "starter": false
+          },
+          {
             "nome": "Romero D.",
             "perc": 60,
             "role": "",
@@ -2391,8 +2397,8 @@
             "starter": true
           },
           {
-            "nome": "Ismajli",
-            "perc": 65,
+            "nome": "Coco",
+            "perc": 70,
             "role": "",
             "starter": true
           },
@@ -2403,8 +2409,14 @@
             "starter": true
           },
           {
-            "nome": "Fortini",
-            "perc": 55,
+            "nome": "Belghali",
+            "perc": 60,
+            "role": "",
+            "starter": true
+          },
+          {
+            "nome": "Gineitis",
+            "perc": 80,
             "role": "",
             "starter": true
           },
@@ -2422,13 +2434,7 @@
           },
           {
             "nome": "Cacciamani",
-            "perc": 70,
-            "role": "",
-            "starter": true
-          },
-          {
-            "nome": "Adams C.",
-            "perc": 90,
+            "perc": 60,
             "role": "",
             "starter": true
           },
@@ -2457,20 +2463,20 @@
             "starter": false
           },
           {
-            "nome": "Coco",
+            "nome": "Ismajli",
             "perc": 50,
             "role": "",
             "starter": false
           },
           {
-            "nome": "Belghali",
+            "nome": "Fortini",
             "perc": 60,
             "role": "",
             "starter": false
           },
           {
             "nome": "Patterson",
-            "perc": 55,
+            "perc": 60,
             "role": "",
             "starter": false
           },
@@ -2517,20 +2523,14 @@
             "starter": false
           },
           {
-            "nome": "Gineitis",
+            "nome": "Zapata D.",
             "perc": 60,
             "role": "",
             "starter": false
           },
           {
-            "nome": "Zapata D.",
-            "perc": 30,
-            "role": "",
-            "starter": false
-          },
-          {
             "nome": "Kulenovic",
-            "perc": 50,
+            "perc": 40,
             "role": "",
             "starter": false
           }
@@ -2589,8 +2589,8 @@
             "starter": true
           },
           {
-            "nome": "Soulè",
-            "perc": 60,
+            "nome": "Dybala",
+            "perc": 55,
             "role": "",
             "starter": true
           },
@@ -2667,7 +2667,7 @@
             "starter": false
           },
           {
-            "nome": "Dybala",
+            "nome": "Soulè",
             "perc": 60,
             "role": "",
             "starter": false
@@ -2923,13 +2923,13 @@
           },
           {
             "nome": "Jovanovic",
-            "perc": 50,
+            "perc": 35,
             "role": "",
             "starter": false
           },
           {
             "nome": "Chakvetadze",
-            "perc": 25,
+            "perc": 50,
             "role": "",
             "starter": false
           },
