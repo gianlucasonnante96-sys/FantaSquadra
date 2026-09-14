@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-14T07:17:06.757Z",
+  "aggiornato": "2026-09-14T15:18:57.346Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -2292,12 +2292,6 @@
             "starter": false
           },
           {
-            "nome": "Ghidotti",
-            "perc": 1,
-            "role": "",
-            "starter": false
-          },
-          {
             "nome": "Valenti",
             "perc": 55,
             "role": "",
@@ -2330,6 +2324,12 @@
           {
             "nome": "Konate A.",
             "perc": 30,
+            "role": "",
+            "starter": false
+          },
+          {
+            "nome": "Bernabè",
+            "perc": 25,
             "role": "",
             "starter": false
           },
@@ -2511,12 +2511,6 @@
             "starter": false
           },
           {
-            "nome": "Luongo",
-            "perc": 20,
-            "role": "",
-            "starter": false
-          },
-          {
             "nome": "Oristanio",
             "perc": 40,
             "role": "",
@@ -2548,13 +2542,13 @@
           },
           {
             "nome": "Mancini",
-            "perc": 55,
+            "perc": 85,
             "role": "",
             "starter": true
           },
           {
-            "nome": "N'Dicka",
-            "perc": 80,
+            "nome": "Balerdi",
+            "perc": 85,
             "role": "",
             "starter": true
           },
@@ -2619,6 +2613,12 @@
             "starter": false
           },
           {
+            "nome": "N'Dicka",
+            "perc": 15,
+            "role": "",
+            "starter": false
+          },
+          {
             "nome": "Lulli",
             "perc": 60,
             "role": "",
@@ -2639,12 +2639,6 @@
           {
             "nome": "Ghilardi",
             "perc": 30,
-            "role": "",
-            "starter": false
-          },
-          {
-            "nome": "Balerdi",
-            "perc": 40,
             "role": "",
             "starter": false
           },
