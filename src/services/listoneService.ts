@@ -161,6 +161,8 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
     }
     
     let matchTrovati = 0;
+    let fmAccettate = 0;
+    let fmRifiutate = 0;
     
     const players: Player[] = dati.giocatori.map((g, index) => {
       const team = normalizzaTeam(g.squadra);
@@ -175,12 +177,17 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
       
       if (stats) {
         matchTrovati++;
-        // Usa i valori reali SOLO se sensati
-        if (stats.mediaVoto >= 4 && stats.mediaVoto <= 9) {
+        
+        // 🔥 FIX: accetta FM > 0 (non più >= 4)
+        if (stats.mediaVoto > 0 && stats.mediaVoto <= 10) {
           mediaVoto = stats.mediaVoto;
         }
-        if (stats.fantamedia >= 4 && stats.fantamedia <= 15) {
+        
+        if (stats.fantamedia > 0 && stats.fantamedia <= 20) {
           fantamedia = stats.fantamedia;
+          fmAccettate++;
+        } else if (stats.fantamedia === 0) {
+          fmRifiutate++;
         }
       }
       
@@ -197,8 +204,8 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
         surname,
         team,
         role,
-        fantamedia,       // 🔥 Vero se disponibile
-        mediaVoto,        // 🔥 Vero se disponibile
+        fantamedia,
+        mediaVoto,
         titolarita,
         forma: [6, 6, 6, 6, 6],
         inCasa: true,
@@ -211,6 +218,13 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
     
     console.log(`✅ Listone caricato: ${players.length} giocatori`);
     console.log(`🎯 Match statistiche: ${matchTrovati}/${players.length}`);
+    console.log(`📊 FM accettate: ${fmAccettate}, FM=0 (nessun dato): ${fmRifiutate}`);
+    
+    // 🔍 Log per debug di Okoye
+    const okoye = players.find(p => (p.surname || '').toLowerCase().includes('okoye'));
+    if (okoye) {
+      console.log(`🔍 Okoye: FM=${okoye.fantamedia}, MV=${okoye.mediaVoto}`);
+    }
     
     return {
       players,
