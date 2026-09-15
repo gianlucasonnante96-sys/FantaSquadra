@@ -104,7 +104,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-4 md:p-8 pt-20">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
+        {/* Header con bottone uniformato */}
         <div className="relative mb-6">
           <button 
             onClick={onBack} 
@@ -147,7 +147,8 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
         {/* Search */}
         <div className="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 p-4 mb-6 relative z-40">
           <div className="relative">
-            <input              type="text"
+            <input
+              type="text"
               placeholder="🔍 Cerca giocatore (nome, cognome, squadra)..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
