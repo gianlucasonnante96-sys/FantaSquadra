@@ -288,4 +288,30 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
                 <label className="text-slate-300 text-sm font-bold tracking-wide">Malus Rigore Sbagliato</label>
                 <div className="flex items-center gap-2 mt-3">
                   <input
-                    type
+                    type="number"
+                    step="0.5"
+                    value={localRules.rigoreSbagliato}
+                    onChange={(e) => updateRules({ rigoreSbagliato: parseFloat(e.target.value) || 0 })}
+                    className="w-20 px-2 py-1 bg-slate-900/80 border border-slate-700/50 rounded-lg text-white text-sm focus:outline-none focus:border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/20 transition-all"
+                  />
+                  <span className="text-slate-400 text-sm">punti</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* ============================================================
+              BOTTONE SALVA
+              ============================================================ */}
+          <button
+            onClick={handleSave}
+            className="w-full py-4 bg-gradient-to-r from-emerald-400 to-green-600 hover:from-emerald-300 hover:to-green-500 text-black font-black rounded-xl transition-all transform hover:scale-[1.02] shadow-lg shadow-emerald-500/50 tracking-wide uppercase text-sm"
+          >
+            Salva e Continua → Inserisci Rosa
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
