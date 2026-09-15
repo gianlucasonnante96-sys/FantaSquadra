@@ -78,11 +78,9 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   };
 
   const handleSave = () => {
-    console.log('🚀 handleSave: applicazione probabili formazioni...');
     let rosterFinale = localRoster;
     try {
       rosterFinale = applyProbabiliFormazioni(localRoster);
-      console.log('✅ Formazioni applicate');
     } catch (e) {
       console.error('❌ Errore applicazione formazioni:', e);
       rosterFinale = localRoster;
@@ -99,15 +97,21 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   const hasMinimumPlayers = localRoster.length >= 11;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8">
+    // 🔥 Aggiunto pt-16 per evitare sovrapposizione con la status bar
+    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8 pt-20">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <button onClick={onBack} className="absolute left-4 top-4 text-slate-400 hover:text-white transition-colors">
+        {/* Header con tasto Indietro NON nascosto */}
+        <div className="relative mb-6">
+          <button 
+            onClick={onBack} 
+            className="absolute left-0 top-0 text-slate-400 hover:text-white transition-colors text-sm bg-slate-800/80 backdrop-blur-sm px-3 py-2 rounded-lg border border-slate-700/50"
+          >
             ← Indietro
           </button>
-          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Gestione Rosa</h1>
-          <p className="text-emerald-300">Aggiungi o rimuovi giocatori dalla tua rosa</p>
+          <div className="text-center pt-1">
+            <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Gestione Rosa</h1>
+            <p className="text-emerald-300">Aggiungi o rimuovi giocatori dalla tua rosa</p>
+          </div>
         </div>
 
         {/* Listone Status */}
@@ -128,7 +132,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
           </div>
         )}
 
-        {/* Rosa Recognizer */}
         <RosaRecognizer
           listaGiocatori={availablePlayers}
           giocatoriGiaInRosa={localRoster}
@@ -238,7 +241,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                           >
                             <div className="flex-1 min-w-0">
                               <div className="text-white font-medium text-sm">{player.name} {player.surname}</div>
-                              {/* 🔥 AGGIUNTA MV */}
                               <div className="text-slate-400 text-xs">
                                 {player.team} • 
                                 <span className="text-emerald-400"> FM: {player.fantamedia ?? 0}</span> • 
