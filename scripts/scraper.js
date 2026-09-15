@@ -31,10 +31,7 @@ const BLOCKED_DOMAINS = [
 
 function leggiFormazioniEsistenti() {
   try {
-    if (!fs.existsSync(OUTPUT_PATH)) {
-      console.log('📂 Nessun formazioni.json esistente, parto da zero');
-      return { partite: {} };
-    }
+    if (!fs.existsSync(OUTPUT_PATH)) return { partite: {} };
     const content = fs.readFileSync(OUTPUT_PATH, 'utf-8');
     const data = JSON.parse(content);
     if (!data || !data.partite) return { partite: {} };
@@ -70,20 +67,15 @@ function mergeFormazioni(esistenti, nuove) {
 
 async function scrapeFormazioni(page) {
   console.log('\n🚀 Navigazione pagina formazioni...');
-  
   const esistenti = leggiFormazioniEsistenti();
   
   try {
-    await page.goto(BASE_URL, {
-      waitUntil: 'domcontentloaded',
-      timeout: 90000
-    });
+    await page.goto(BASE_URL, { waitUntil: 'domcontentloaded', timeout: 90000 });
   } catch (e) {
     console.log('⚠️ Errore goto formazioni:', e.message);
   }
   
   console.log('✅ Titolo pagina:', await page.title());
-  console.log('⏳ Attesa rendering formazioni...');
   await sleep(8000);
   
   await page.evaluate(() => {
@@ -109,7 +101,6 @@ async function scrapeFormazioni(page) {
     for (const el of allMatches) {
       const matchId = el.getAttribute('data-match-id');
       const matchHash = el.getAttribute('data-match-hash') || el.getAttribute('data-match-has') || '';
-      
       if (!matchId || seenIds.has(matchId)) continue;
       
       const rect = el.getBoundingClientRect();
@@ -127,22 +118,15 @@ async function scrapeFormazioni(page) {
         allItems.forEach(item => {
           const nomeEl = item.querySelector('a.player-name span');
           const percEl = item.querySelector('.progress-value');
-          const roleEl = item.querySelector('span.role');
           const listParent = item.closest('ul');
           
           const nome = nomeEl ? nomeEl.textContent?.trim() : '';
           const percText = percEl ? percEl.textContent?.trim().replace('%', '').trim() : '';
           const perc = parseInt(percText) || 0;
-          const role = roleEl ? roleEl.textContent?.trim() : '';
           const isStarter = listParent?.classList.contains('starters') || false;
           
           if (nome) {
-            giocatori.push({
-              nome,
-              perc,
-              role,
-              starter: isStarter,
-            });
+            giocatori.push({ nome, perc, starter: isStarter });
           }
         });
         
@@ -152,15 +136,11 @@ async function scrapeFormazioni(page) {
       function estraiNomeSquadra(cardEl) {
         const headerEl = cardEl.querySelector('header');
         if (!headerEl) return '';
-        const text = headerEl.textContent || '';
-        return text.trim().split('\n')[0].trim();
+        return (headerEl.textContent || '').trim().split('\n')[0].trim();
       }
       
       const cardCasa = teamCards[0];
       const cardTrasferta = teamCards[1];
-      
-      const nomeCasa = estraiNomeSquadra(cardCasa);
-      const nomeTrasferta = estraiNomeSquadra(cardTrasferta);
       
       let casaSigla = '';
       let trasfertaSigla = '';
@@ -168,18 +148,12 @@ async function scrapeFormazioni(page) {
         [casaSigla, trasfertaSigla] = matchHash.split('-');
       }
       
-      const casaGiocatori = estraiGiocatoriDaCard(cardCasa);
-      const trasfertaGiocatori = estraiGiocatoriDaCard(cardTrasferta);
-      
       lista.push({
-        matchId,
-        matchHash,
-        casaSigla,
-        trasfertaSigla,
-        nomeCasa,
-        nomeTrasferta,
-        casaGiocatori,
-        trasfertaGiocatori,
+        matchId, matchHash, casaSigla, trasfertaSigla,
+        nomeCasa: estraiNomeSquadra(cardCasa),
+        nomeTrasferta: estraiNomeSquadra(cardTrasferta),
+        casaGiocatori: estraiGiocatoriDaCard(cardCasa),
+        trasfertaGiocatori: estraiGiocatoriDaCard(cardTrasferta),
       });
     }
     
@@ -231,11 +205,7 @@ async function scrapeListone(page) {
   console.log('\n📋 Recupero listone quotazioni...');
   
   try {
-    await page.goto(QUOTAZIONI_URL, {
-      waitUntil: 'domcontentloaded',
-      timeout: 90000
-    });
-    
+    await page.goto(QUOTAZIONI_URL, { waitUntil: 'domcontentloaded', timeout: 90000 });
     console.log('✅ Titolo pagina quotazioni:', await page.title());
     await sleep(5000);
     
@@ -247,35 +217,18 @@ async function scrapeListone(page) {
     
     let previousCount = 0;
     let attempts = 0;
-    const maxAttempts = 30;
-    
-    while (attempts < maxAttempts) {
-      const currentCount = await page.evaluate(() => {
-        return document.querySelectorAll('tr.player-row').length;
-      });
-      
+    while (attempts < 30) {
+      const currentCount = await page.evaluate(() => document.querySelectorAll('tr.player-row').length);
       console.log(`  📊 Giocatori caricati: ${currentCount}`);
-      
       if (currentCount === previousCount && attempts > 3) {
         console.log('  ✅ Nessun nuovo giocatore, scroll completato');
         break;
       }
-      
       previousCount = currentCount;
-      
-      await page.evaluate(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-      
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await sleep(2000);
       attempts++;
     }
-    
-    const totalGiocatori = await page.evaluate(() => {
-      return document.querySelectorAll('tr.player-row').length;
-    });
-    
-    console.log(`✅ Scroll completato: ${totalGiocatori} giocatori visibili`);
     
     console.log('🔍 Estrazione dati dal listone...');
     
@@ -286,39 +239,10 @@ async function scrapeListone(page) {
       rows.forEach(row => {
         try {
           let role = '';
-          
           const roleAttr = row.getAttribute('data-filter-role-classic');
-          if (roleAttr) {
-            role = roleAttr.toUpperCase().trim();
-          }
+          if (roleAttr) role = roleAttr.toUpperCase().trim();
           
-          if (!role) {
-            const roleSpan = row.querySelector('span.role');
-            if (roleSpan) {
-              const dataValue = roleSpan.getAttribute('data-value');
-              if (dataValue) {
-                role = dataValue.toUpperCase().trim();
-              }
-            }
-          }
-          
-          if (!role) {
-            const roleTh = row.querySelector('th.player-role');
-            if (roleTh) {
-              const classes = (roleTh.className || '').split(/\s+/);
-              for (const cls of classes) {
-                const m = cls.match(/([PDCA])/);
-                if (m && 'PDCA'.includes(m[1].toUpperCase())) {
-                  role = m[1].toUpperCase();
-                  break;
-                }
-              }
-            }
-          }
-          
-          if (!['P', 'D', 'C', 'A'].includes(role)) {
-            role = '';
-          }
+          if (!['P', 'D', 'C', 'A'].includes(role)) role = '';
           
           const nameEl = row.querySelector('th.player-name a span');
           const nome = nameEl ? nameEl.textContent?.trim() || '' : '';
@@ -327,30 +251,18 @@ async function scrapeListone(page) {
           const squadra = teamEl ? teamEl.textContent?.trim() || '' : '';
           
           const qiEl = row.querySelector('td.player-classic-initial-price');
-          const qiText = qiEl ? qiEl.textContent?.trim() || '0' : '0';
-          const quotazioneIniziale = parseInt(qiText) || 0;
+          const quotazioneIniziale = parseInt(qiEl?.textContent?.trim() || '0') || 0;
           
           const qaEl = row.querySelector('td.player-classic-current-price');
-          const qaText = qaEl ? qaEl.textContent?.trim() || '0' : '0';
-          const quotazioneAttuale = parseInt(qaText) || 0;
+          const quotazioneAttuale = parseInt(qaEl?.textContent?.trim() || '0') || 0;
           
           const fvmEl = row.querySelector('td.player-classic-fvm');
-          const fvmText = fvmEl ? fvmEl.textContent?.trim() || '0' : '0';
-          const fvm = parseInt(fvmText) || 0;
+          const fvm = parseInt(fvmEl?.textContent?.trim() || '0') || 0;
           
           if (nome && squadra) {
-            giocatori.push({
-              nome,
-              squadra,
-              ruolo: role,
-              quotazioneIniziale,
-              quotazioneAttuale,
-              fvm,
-            });
+            giocatori.push({ nome, squadra, ruolo: role, quotazioneIniziale, quotazioneAttuale, fvm });
           }
-        } catch (e) {
-          // Ignora righe malformate
-        }
+        } catch (e) {}
       });
       
       return giocatori;
@@ -382,7 +294,6 @@ async function scrapeListone(page) {
     fs.writeFileSync(LISTONE_OUTPUT_PATH, JSON.stringify(output, null, 2));
     
     console.log(`✅ Listone salvato: ${listoneData.length} giocatori in listone.json`);
-    
     return listoneData;
   } catch (e) {
     console.error('❌ Errore scraping listone:', e.message);
@@ -391,18 +302,14 @@ async function scrapeListone(page) {
 }
 
 // ============================================================
-// SCRAPING STATISTICHE (per il calcolo della forma)
+// 🔥 SCRAPING STATISTICHE (FIXATO!)
 // ============================================================
 
 async function scrapeStatistiche(page) {
-  console.log('\n📊 Recupero statistiche (per calcolo forma)...');
+  console.log('\n📊 Recupero statistiche (MV + FM reali)...');
   
   try {
-    await page.goto(STATISTICHE_URL, {
-      waitUntil: 'domcontentloaded',
-      timeout: 90000
-    });
-    
+    await page.goto(STATISTICHE_URL, { waitUntil: 'domcontentloaded', timeout: 90000 });
     console.log('✅ Titolo pagina statistiche:', await page.title());
     await sleep(5000);
     
@@ -414,26 +321,15 @@ async function scrapeStatistiche(page) {
     
     let previousCount = 0;
     let attempts = 0;
-    const maxAttempts = 20;
-    
-    while (attempts < maxAttempts) {
-      const currentCount = await page.evaluate(() => {
-        return document.querySelectorAll('table tbody tr').length;
-      });
-      
+    while (attempts < 20) {
+      const currentCount = await page.evaluate(() => document.querySelectorAll('tr.player-row').length);
       console.log(`  📊 Righe statistiche caricate: ${currentCount}`);
-      
       if (currentCount === previousCount && attempts > 3) {
         console.log('  ✅ Nessun nuovo dato, scroll completato');
         break;
       }
-      
       previousCount = currentCount;
-      
-      await page.evaluate(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-      
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await sleep(2000);
       attempts++;
     }
@@ -442,54 +338,59 @@ async function scrapeStatistiche(page) {
     
     const statisticheData = await page.evaluate(() => {
       const mappa = {};
-      const rows = document.querySelectorAll('table tbody tr');
+      const rows = document.querySelectorAll('tr.player-row');
       
       rows.forEach(row => {
         try {
-          const cells = row.querySelectorAll('td');
-          if (cells.length < 8) return;
-          
-          let nome = '';
-          for (const cell of cells) {
-            const text = cell.textContent?.trim() || '';
-            if (text.length > 2 && text.includes(' ') && !text.match(/^\d/)) {
-              nome = text;
-              break;
-            }
-          }
-          
+          // NOME
+          const nameEl = row.querySelector('th.player-name a span');
+          const nome = nameEl ? nameEl.textContent?.trim() : '';
           if (!nome) return;
           
-          const voti = [];
+          // RUOLO (da attributo del tr)
+          const roleAttr = row.getAttribute('data-filter-role-classic') || '';
+          const role = roleAttr.toUpperCase().trim();
           
-          let mediaVoto = 6;
-          let fantamedia = 6;
-          cells.forEach(cell => {
-            const val = parseFloat(cell.textContent?.trim() || '');
-            if (!isNaN(val)) {
-              if (val >= 4 && val <= 7 && mediaVoto === 6) mediaVoto = val;
-              if (val >= 4 && val <= 9 && fantamedia === 6) fantamedia = val;
-            }
-          });
+          // SQUADRA
+          const teamEl = row.querySelector('td.player-team');
+          const squadra = teamEl ? teamEl.textContent?.trim() : '';
+          
+          // 🔥 MEDIA VOTO (dal td.player-grade-avg)
+          const mvEl = row.querySelector('td.player-grade-avg');
+          const mvText = mvEl ? mvEl.textContent?.trim() : '';
+          const mediaVoto = parseFloat(mvText) || 0;
+          
+          // 🔥 FANTAMEDIA VERA (dal td.player-fanta-grade-avg)
+          const fmEl = row.querySelector('td.player-fanta-grade-avg');
+          const fmText = fmEl ? fmEl.textContent?.trim() : '';
+          const fantamedia = parseFloat(fmText) || 0;
+          
+          // PARTITE GIOCATE
+          const pgEl = row.querySelector('td.player-match-played');
+          const partiteGiocate = parseInt(pgEl?.textContent?.trim() || '0') || 0;
           
           mappa[nome] = {
-            forma: voti.length === 5 ? voti : [6, 6, 6, 6, 6],
+            ruolo: role,
+            squadra,
             mediaVoto,
             fantamedia,
+            partiteGiocate,
           };
-        } catch (e) {
-          // Ignora righe malformate
-        }
+        } catch (e) {}
       });
       
       return mappa;
     });
     
-    console.log(`✅ Estratte statistiche per ${Object.keys(statisticheData).length} giocatori`);
+    const numGiocatori = Object.keys(statisticheData).length;
+    console.log(`✅ Estratte statistiche per ${numGiocatori} giocatori`);
     
-    if (Object.keys(statisticheData).length === 0) {
-      console.log('⚠️ Nessuna statistica trovata. La pagina potrebbe avere una struttura diversa.');
-      console.log('⚠️ Prossimo step: fare debug HTML e adattare i selettori.');
+    if (numGiocatori > 0) {
+      console.log('📊 Esempio primi 5 giocatori:');
+      Object.entries(statisticheData).slice(0, 5).forEach(([nome, stats]) => {
+        const s = stats as any;
+        console.log(`  - ${nome} (${s.ruolo}, ${s.squadra}): MV=${s.mediaVoto}, FM=${s.fantamedia}, PG=${s.partiteGiocate}`);
+      });
     }
     
     const output = {
@@ -501,8 +402,7 @@ async function scrapeStatistiche(page) {
     fs.mkdirSync(path.dirname(STATISTICHE_OUTPUT_PATH), { recursive: true });
     fs.writeFileSync(STATISTICHE_OUTPUT_PATH, JSON.stringify(output, null, 2));
     
-    console.log(`✅ Statistiche salvate: ${Object.keys(statisticheData).length} giocatori in statistiche.json`);
-    
+    console.log(`✅ Statistiche salvate: ${numGiocatori} giocatori in statistiche.json`);
     return statisticheData;
   } catch (e) {
     console.error('❌ Errore scraping statistiche:', e.message);
