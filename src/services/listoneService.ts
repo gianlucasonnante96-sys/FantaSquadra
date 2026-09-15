@@ -1,5 +1,6 @@
 import { Player, Role } from '../types';
 import listoneData from '../data/listone.json';
+import statisticheData from '../data/statistiche.json';
 
 // ============================================================
 // TIPI
@@ -18,6 +19,16 @@ interface ListoneFile {
   aggiornato: string;
   fonte: string;
   giocatori: GiocatoreListone[];
+}
+
+interface StatisticheFile {
+  aggiornato: string;
+  fonte: string;
+  statistiche: Record<string, {
+    forma: number[];
+    mediaVoto: number;
+    fantamedia: number;
+  }>;
 }
 
 export interface ListoneStatus {
@@ -42,7 +53,6 @@ function safeString(valore: unknown): string {
   }
 }
 
-// Mappa sigle squadre → nome completo
 const SIGLA_TO_NOME: Record<string, string> = {
   'ATA': 'Atalanta', 'BOL': 'Bologna', 'CAG': 'Cagliari', 'COM': 'Como',
   'FIO': 'Fiorentina', 'FRO': 'Frosinone', 'GEN': 'Genoa', 'INT': 'Inter',
@@ -62,7 +72,6 @@ function normalizzaRole(ruolo: string | undefined | null): Role {
   const r = safeString(ruolo).trim().toUpperCase();
   if (!r) return 'C';
   
-  // Prendi la prima lettera valida
   for (const char of r) {
     if (char === 'P') return 'P';
     if (char === 'D') return 'D';
@@ -70,7 +79,6 @@ function normalizzaRole(ruolo: string | undefined | null): Role {
     if (char === 'A') return 'A';
   }
   
-  // Fallback con parole chiave
   if (r.includes('POR')) return 'P';
   if (r.includes('DIF')) return 'D';
   if (r.includes('ATT')) return 'A';
@@ -84,7 +92,6 @@ function splitName(fullName: string): { name: string; surname: string } {
   const parts = safe.split(/\s+/);
   if (parts.length === 1) return { name: '', surname: parts[0] };
   
-  // Se il primo è corto (iniziale), è il nome
   if (parts[0].length <= 3 || parts[0].endsWith('.')) {
     return { 
       name: parts[0].replace('.', ''), 
@@ -98,7 +105,6 @@ function splitName(fullName: string): { name: string; surname: string } {
   };
 }
 
-// Stima titolarità dalla quotazione attuale
 function estimateTitolarita(qa: number): number {
   if (qa >= 20) return 90;
   if (qa >= 10) return 80;
@@ -108,7 +114,49 @@ function estimateTitolarita(qa: number): number {
 }
 
 // ============================================================
-// CARICAMENTO LISTONE DA FILE
+// RICERCA STATISTICHE
+// ============================================================
+
+function cercaStatistiche(nome: string): { forma: number[]; mediaVoto: number; fantamedia: number } | null {
+  try {
+    const dati = statisticheData as unknown as StatisticheFile;
+    if (!dati || !dati.statistiche) return null;
+    
+    const nomeNorm = nome.toLowerCase().trim();
+    if (!nomeNorm) return null;
+    
+    // 1. Match esatto
+    for (const [key, value] of Object.entries(dati.statistiche)) {
+      const keyNorm = key.toLowerCase().trim();
+      if (keyNorm === nomeNorm) return value;
+    }
+    
+    // 2. Match parziale (il nome nel listone è abbreviato)
+    for (const [key, value] of Object.entries(dati.statistiche)) {
+      const keyNorm = key.toLowerCase().trim();
+      if (keyNorm.includes(nomeNorm) || nomeNorm.includes(keyNorm)) {
+        return value;
+      }
+    }
+    
+    // 3. Match per cognome (ultima parola)
+    const parti = nomeNorm.split(' ');
+    const cognome = parti[parti.length - 1];
+    if (cognome.length >= 4) {
+      for (const [key, value] of Object.entries(dati.statistiche)) {
+        const keyNorm = key.toLowerCase().trim();
+        if (keyNorm.includes(cognome)) return value;
+      }
+    }
+    
+    return null;
+  } catch (e) {
+    return null;
+  }
+}
+
+// ============================================================
+// CARICAMENTO LISTONE
 // ============================================================
 
 export function loadListone(): { players: Player[]; status: ListoneStatus } {
@@ -134,10 +182,15 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
       const role = normalizzaRole(g.ruolo);
       const { name, surname } = splitName(g.nome);
       
-      // Titolarità stimata dalla quotazione
+      // Cerca statistiche per forma/media voto/fantamedia
+      const stats = cercaStatistiche(g.nome);
+      
+      const forma = stats?.forma || [6, 6, 6, 6, 6];
+      const mediaVoto = stats?.mediaVoto || 6;
+      const fantamedia = stats?.fantamedia || 0;
+      
       const titolarita = estimateTitolarita(g.quotazioneAttuale);
       
-      // ID univoco
       const id = `fanta_${name}_${surname}_${team}_${index}`
         .toLowerCase()
         .replace(/\s+/g, '_')
@@ -149,10 +202,10 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
         surname,
         team,
         role,
-        fantamedia: 0,       // 🔥 Non disponibile nel listone, gestito dal scoring
-        mediaVoto: 6,        // 🔥 Valore neutro
-        titolarita,          // Da quotazione
-        forma: [6, 6, 6, 6, 6],
+        fantamedia,
+        mediaVoto,
+        titolarita,
+        forma,
         inCasa: true,
         avversario: '',
         difficoltaAvversario: 3,
@@ -189,7 +242,7 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
 }
 
 // ============================================================
-// COMPATIBILITÀ (funzioni legacy)
+// COMPATIBILITÀ
 // ============================================================
 
 export function getPlayers(): Player[] {
@@ -203,21 +256,19 @@ export function getCurrentStatus(): ListoneStatus {
 }
 
 export function saveToCache(_players: Player[], _status: ListoneStatus): void {
-  // No-op: non usiamo più la cache locale
-  console.log('ℹ️ saveToCache disabilitato (listone letto da file)');
+  console.log('ℹ️ saveToCache disabilitato');
 }
 
 export function clearCache(): void {
-  // No-op: non usiamo più la cache locale
-  console.log('ℹ️ clearCache disabilitato (listone letto da file)');
+  console.log('ℹ️ clearCache disabilitato');
 }
 
 export function parseExcelFile(_file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
-  return Promise.reject(new Error('Upload manuale disabilitato. Il listone viene caricato automaticamente.'));
+  return Promise.reject(new Error('Upload manuale disabilitato.'));
 }
 
 export function importFromJSON(_jsonContent: string): { players: Player[]; status: ListoneStatus } | null {
-  console.warn('⚠️ importFromJSON disabilitato (listone letto da file)');
+  console.warn('⚠️ importFromJSON disabilitato');
   return null;
 }
 
@@ -226,7 +277,7 @@ export function exportToJSON(players: Player[]): string {
 }
 
 // ============================================================
-// AVVERSARI (per Dashboard)
+// AVVERSARI
 // ============================================================
 
 import { getAvversario } from './calendarService';
