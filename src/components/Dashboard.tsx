@@ -17,6 +17,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   const [showAllFormations, setShowAllFormations] = useState(false);
   const [giornata, setGiornata] = useState(1);
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
+  const [showGiornataGrid, setShowGiornataGrid] = useState(false);
 
   const rosterWithAvversari = useMemo(() => {
     if (!Array.isArray(roster)) return [];
@@ -105,6 +106,14 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   const centrocampisti = currentFormation.slots.filter(s => s.player.role === 'C');
   const attaccanti = currentFormation.slots.filter(s => s.player.role === 'A');
 
+  // 🔥 Righe da 10 caselle per la griglia giornate
+  const giornateRows = [
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+    [31, 32, 33, 34, 35, 36, 37, 38],
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 p-4 md:p-8">
       <div className="max-w-5xl mx-auto">
@@ -122,39 +131,65 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </button>
         </div>
 
-        {/* Giornata Selector */}
+        {/* 🔥 GIORNATA SELECTOR - Caselle numerate */}
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-white font-medium text-sm">
+              Giornata <span className="text-emerald-400 font-bold text-lg">{giornata}</span> di 38
+            </div>
+            <button
+              onClick={() => setShowGiornataGrid(!showGiornataGrid)}
+              className="text-emerald-400 hover:text-emerald-300 text-sm transition-colors"
+            >
+              {showGiornataGrid ? '▲ Chiudi' : '▼ Seleziona giornata'}
+            </button>
+          </div>
+
+          {showGiornataGrid && (
+            <div className="space-y-1.5 mt-3">
+              {giornateRows.map((row, idx) => (
+                <div key={idx} className="flex gap-1.5 justify-center flex-wrap">
+                  {row.map(num => (
+                    <button
+                      key={num}
+                      onClick={() => {
+                        setGiornata(num);
+                        setShowGiornataGrid(false);
+                      }}
+                      className={`w-8 h-8 md:w-10 md:h-10 rounded-lg text-xs md:text-sm font-medium transition-all ${
+                        num === giornata
+                          ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
+                          : 'bg-slate-700 text-slate-300 hover:bg-slate-600 hover:text-white'
+                      }`}
+                    >
+                      {num}
+                    </button>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Frecce rapide Prec/Succ */}
+          <div className="flex justify-center gap-4 mt-3">
             <button
               onClick={() => setGiornata(Math.max(1, giornata - 1))}
               disabled={giornata <= 1}
-              className="px-4 py-2 bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+              className="px-4 py-1.5 bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors text-sm"
             >
               ← Prec
             </button>
-            <div className="flex items-center gap-3">
-              <span className="text-slate-400 text-sm">Giornata</span>
-              <input
-                type="number"
-                min="1"
-                max="38"
-                value={giornata}
-                onChange={(e) => setGiornata(Math.max(1, Math.min(38, parseInt(e.target.value) || 1)))}
-                className="w-20 px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-center font-bold text-lg"
-              />
-              <span className="text-slate-400 text-sm">di 38</span>
-            </div>
             <button
               onClick={() => setGiornata(Math.min(38, giornata + 1))}
               disabled={giornata >= 38}
-              className="px-4 py-2 bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+              className="px-4 py-1.5 bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors text-sm"
             >
               Succ →
             </button>
           </div>
         </div>
 
-        {/* AI Explanation Banner */}
+        {/* AI Explanation */}
         <div className="bg-gradient-to-r from-emerald-600/30 to-green-600/30 backdrop-blur-sm rounded-xl border border-emerald-500/30 p-4 mb-6">
           <div className="flex items-start gap-3">
             <span className="text-2xl">💡</span>
@@ -183,7 +218,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           ))}
         </div>
 
-        {/* Score Header */}
+        {/* Score Header + Campo */}
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-emerald-500/20 overflow-hidden mb-6">
           <div className="bg-gradient-to-r from-emerald-600/40 to-green-600/40 px-6 py-4 flex items-center justify-between">
             <div>
@@ -198,7 +233,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             </div>
           </div>
 
-          {/* 🔥 CAMPO DA GIOCO VISIVO */}
+          {/* CAMPO VISIVO */}
           <div 
             className="relative p-6 md:p-10"
             style={{
@@ -206,7 +241,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               minHeight: '500px',
             }}
           >
-            {/* Linee del campo */}
             <div className="absolute inset-4 border-2 border-white/30 rounded-lg pointer-events-none"></div>
             <div className="absolute left-1/2 top-4 bottom-4 w-0.5 bg-white/30 pointer-events-none"></div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 border-2 border-white/30 rounded-full pointer-events-none"></div>
@@ -218,7 +252,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                   key={slot.player.id} 
                   slot={slot} 
                   getRoleColor={getRoleColor}
-                  getDifficultyColor={getDifficultyColor}
                   onClick={() => setSelectedPlayer(slot.player)}
                 />
               ))}
@@ -231,7 +264,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                   key={slot.player.id} 
                   slot={slot} 
                   getRoleColor={getRoleColor}
-                  getDifficultyColor={getDifficultyColor}
                   onClick={() => setSelectedPlayer(slot.player)}
                 />
               ))}
@@ -244,7 +276,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                   key={slot.player.id} 
                   slot={slot} 
                   getRoleColor={getRoleColor}
-                  getDifficultyColor={getDifficultyColor}
                   onClick={() => setSelectedPlayer(slot.player)}
                 />
               ))}
@@ -257,7 +288,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                   key={slot.player.id} 
                   slot={slot} 
                   getRoleColor={getRoleColor}
-                  getDifficultyColor={getDifficultyColor}
                   onClick={() => setSelectedPlayer(slot.player)}
                 />
               ))}
@@ -286,7 +316,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                     <div className="text-white text-sm font-medium truncate">
                       {slot.player.name} {slot.player.surname}
                     </div>
-                    {/* 🔥 FM/MV in panchina */}
                     <div className="text-slate-400 text-xs">
                       {slot.player.team} • 
                       <span className="text-emerald-400"> FM: {slot.player.fantamedia ?? 0}</span> • 
@@ -304,7 +333,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
         </div>
 
-        {/* All Formations Comparison */}
+        {/* All Formations */}
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden mb-6">
           <button
             onClick={() => setShowAllFormations(!showAllFormations)}
@@ -363,7 +392,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         </div>
       </div>
 
-      {/* 🔥 MODAL DETTAGLI GIOCATORE */}
+      {/* MODAL DETTAGLI */}
       {selectedPlayer && (
         <PlayerDetailModal 
           player={selectedPlayer} 
@@ -377,26 +406,24 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
 }
 
 // ============================================================
-// GIOCATORE IN CAMPO
+// GIOCATORE IN CAMPO (con FM)
 // ============================================================
 
 interface PlayerOnFieldProps {
   slot: { player: Player; expectedScore: number; position: string };
   getRoleColor: (role: string) => string;
-  getDifficultyColor: (d: number) => string;
   onClick: () => void;
 }
 
-function PlayerOnField({ slot, getRoleColor, getDifficultyColor, onClick }: PlayerOnFieldProps) {
+function PlayerOnField({ slot, getRoleColor, onClick }: PlayerOnFieldProps) {
   const { player, expectedScore } = slot;
-  const titolarita = player?.titolarita ?? 50;
 
   return (
     <button
       onClick={onClick}
       className="flex flex-col items-center gap-1 group cursor-pointer"
     >
-      {/* Cerchio con maglia */}
+      {/* Cerchio con iniziale */}
       <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${getRoleColor(player.role)} flex items-center justify-center shadow-lg border-2 border-white/50 group-hover:scale-110 transition-transform`}>
         <span className="text-white font-bold text-lg">{player.surname?.[0] || '?'}</span>
       </div>
@@ -404,6 +431,11 @@ function PlayerOnField({ slot, getRoleColor, getDifficultyColor, onClick }: Play
       {/* Nome */}
       <div className="bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] md:text-xs text-white font-medium max-w-[80px] md:max-w-[100px] truncate">
         {player.surname || player.name}
+      </div>
+
+      {/* 🔥 FM */}
+      <div className="bg-emerald-700/90 px-1.5 py-0.5 rounded text-[9px] md:text-[10px] text-emerald-100 font-medium">
+        FM: {player.fantamedia ?? 0}
       </div>
       
       {/* VP */}
@@ -415,7 +447,7 @@ function PlayerOnField({ slot, getRoleColor, getDifficultyColor, onClick }: Play
 }
 
 // ============================================================
-// MODAL DETTAGLI GIOCATORE
+// MODAL DETTAGLI
 // ============================================================
 
 interface PlayerDetailModalProps {
@@ -438,7 +470,6 @@ function PlayerDetailModal({ player, onClose, getRoleColor, getDifficultyColor }
         className="bg-slate-800 rounded-2xl border border-emerald-500/30 max-w-md w-full p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className={`w-3 h-14 rounded-full bg-gradient-to-b ${getRoleColor(player.role)}`} />
@@ -450,7 +481,6 @@ function PlayerDetailModal({ player, onClose, getRoleColor, getDifficultyColor }
           <button onClick={onClose} className="text-slate-400 hover:text-white text-2xl">×</button>
         </div>
 
-        {/* Stats Grid */}
         <div className="grid grid-cols-3 gap-2 mb-4">
           <div className="bg-slate-700/50 rounded-lg p-3 text-center">
             <div className="text-emerald-400 text-2xl font-bold">{player.fantamedia ?? 0}</div>
@@ -468,7 +498,6 @@ function PlayerDetailModal({ player, onClose, getRoleColor, getDifficultyColor }
           </div>
         </div>
 
-        {/* Match Info */}
         <div className="bg-slate-700/30 rounded-lg p-3 mb-4">
           <div className="text-slate-400 text-xs mb-1">Prossima partita</div>
           <div className="text-white font-medium">
@@ -479,7 +508,6 @@ function PlayerDetailModal({ player, onClose, getRoleColor, getDifficultyColor }
           </div>
         </div>
 
-        {/* Info extra */}
         <div className="text-slate-500 text-xs text-center">
           Clicca fuori per chiudere
         </div>
