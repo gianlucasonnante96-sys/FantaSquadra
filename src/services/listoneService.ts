@@ -21,14 +21,18 @@ interface ListoneFile {
   giocatori: GiocatoreListone[];
 }
 
+interface StatisticaGiocatore {
+  ruolo: string;
+  squadra: string;
+  mediaVoto: number;
+  fantamedia: number;
+  partiteGiocate: number;
+}
+
 interface StatisticheFile {
   aggiornato: string;
   fonte: string;
-  statistiche: Record<string, {
-    forma: number[];
-    mediaVoto: number;
-    fantamedia: number;
-  }>;
+  statistiche: Record<string, StatisticaGiocatore>;
 }
 
 export interface ListoneStatus {
@@ -46,11 +50,7 @@ export interface ListoneStatus {
 function safeString(valore: unknown): string {
   if (typeof valore === 'string') return valore;
   if (valore === null || valore === undefined) return '';
-  try {
-    return String(valore);
-  } catch {
-    return '';
-  }
+  try { return String(valore); } catch { return ''; }
 }
 
 const SIGLA_TO_NOME: Record<string, string> = {
@@ -71,14 +71,12 @@ function normalizzaTeam(team: string | undefined | null): string {
 function normalizzaRole(ruolo: string | undefined | null): Role {
   const r = safeString(ruolo).trim().toUpperCase();
   if (!r) return 'C';
-  
   for (const char of r) {
     if (char === 'P') return 'P';
     if (char === 'D') return 'D';
     if (char === 'C') return 'C';
     if (char === 'A') return 'A';
   }
-  
   if (r.includes('POR')) return 'P';
   if (r.includes('DIF')) return 'D';
   if (r.includes('ATT')) return 'A';
@@ -88,21 +86,12 @@ function normalizzaRole(ruolo: string | undefined | null): Role {
 function splitName(fullName: string): { name: string; surname: string } {
   const safe = safeString(fullName).trim();
   if (!safe) return { name: '', surname: '' };
-  
   const parts = safe.split(/\s+/);
   if (parts.length === 1) return { name: '', surname: parts[0] };
-  
   if (parts[0].length <= 3 || parts[0].endsWith('.')) {
-    return { 
-      name: parts[0].replace('.', ''), 
-      surname: parts.slice(1).join(' ') 
-    };
+    return { name: parts[0].replace('.', ''), surname: parts.slice(1).join(' ') };
   }
-  
-  return { 
-    name: parts[0], 
-    surname: parts.slice(1).join(' ') 
-  };
+  return { name: parts[0], surname: parts.slice(1).join(' ') };
 }
 
 function estimateTitolarita(qa: number): number {
@@ -113,39 +102,33 @@ function estimateTitolarita(qa: number): number {
   return 30;
 }
 
-// ============================================================
-// RICERCA STATISTICHE
-// ============================================================
-
-function cercaStatistiche(nome: string): { forma: number[]; mediaVoto: number; fantamedia: number } | null {
+// 🔥 Cerca statistiche per un giocatore (match intelligente)
+function cercaStatistiche(nomeListone: string): StatisticaGiocatore | null {
   try {
     const dati = statisticheData as unknown as StatisticheFile;
     if (!dati || !dati.statistiche) return null;
     
-    const nomeNorm = nome.toLowerCase().trim();
+    const nomeNorm = nomeListone.toLowerCase().trim();
     if (!nomeNorm) return null;
     
     // 1. Match esatto
     for (const [key, value] of Object.entries(dati.statistiche)) {
-      const keyNorm = key.toLowerCase().trim();
-      if (keyNorm === nomeNorm) return value;
+      if (key.toLowerCase().trim() === nomeNorm) return value;
     }
     
-    // 2. Match parziale (il nome nel listone è abbreviato)
-    for (const [key, value] of Object.entries(dati.statistiche)) {
-      const keyNorm = key.toLowerCase().trim();
-      if (keyNorm.includes(nomeNorm) || nomeNorm.includes(keyNorm)) {
-        return value;
-      }
-    }
+    // 2. Match per cognome (ultima parola di entrambi)
+    const partiListone = nomeNorm.split(/\s+/);
+    const cognomeListone = partiListone[partiListone.length - 1];
     
-    // 3. Match per cognome (ultima parola)
-    const parti = nomeNorm.split(' ');
-    const cognome = parti[parti.length - 1];
-    if (cognome.length >= 4) {
+    if (cognomeListone.length >= 4) {
       for (const [key, value] of Object.entries(dati.statistiche)) {
         const keyNorm = key.toLowerCase().trim();
-        if (keyNorm.includes(cognome)) return value;
+        const partiKey = keyNorm.split(/\s+/);
+        const cognomeKey = partiKey[partiKey.length - 1];
+        
+        if (cognomeListone === cognomeKey || keyNorm.includes(cognomeListone)) {
+          return value;
+        }
       }
     }
     
@@ -177,17 +160,29 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
       };
     }
     
+    let matchTrovati = 0;
+    
     const players: Player[] = dati.giocatori.map((g, index) => {
       const team = normalizzaTeam(g.squadra);
       const role = normalizzaRole(g.ruolo);
       const { name, surname } = splitName(g.nome);
       
-      // Cerca statistiche per forma/media voto/fantamedia
+      // 🔥 Cerca statistiche reali (MV + FM)
       const stats = cercaStatistiche(g.nome);
       
-      const forma = stats?.forma || [6, 6, 6, 6, 6];
-      const mediaVoto = stats?.mediaVoto || 6;
-      const fantamedia = stats?.fantamedia || 0;
+      let mediaVoto = 6;
+      let fantamedia = 0;
+      
+      if (stats) {
+        matchTrovati++;
+        // Usa i valori reali SOLO se sensati
+        if (stats.mediaVoto >= 4 && stats.mediaVoto <= 9) {
+          mediaVoto = stats.mediaVoto;
+        }
+        if (stats.fantamedia >= 4 && stats.fantamedia <= 15) {
+          fantamedia = stats.fantamedia;
+        }
+      }
       
       const titolarita = estimateTitolarita(g.quotazioneAttuale);
       
@@ -202,10 +197,10 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
         surname,
         team,
         role,
-        fantamedia,
-        mediaVoto,
+        fantamedia,       // 🔥 Vero se disponibile
+        mediaVoto,        // 🔥 Vero se disponibile
         titolarita,
-        forma,
+        forma: [6, 6, 6, 6, 6],
         inCasa: true,
         avversario: '',
         difficoltaAvversario: 3,
@@ -215,6 +210,7 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
     });
     
     console.log(`✅ Listone caricato: ${players.length} giocatori`);
+    console.log(`🎯 Match statistiche: ${matchTrovati}/${players.length}`);
     
     return {
       players,
@@ -255,20 +251,14 @@ export function getCurrentStatus(): ListoneStatus {
   return status;
 }
 
-export function saveToCache(_players: Player[], _status: ListoneStatus): void {
-  console.log('ℹ️ saveToCache disabilitato');
-}
-
-export function clearCache(): void {
-  console.log('ℹ️ clearCache disabilitato');
-}
+export function saveToCache(_players: Player[], _status: ListoneStatus): void {}
+export function clearCache(): void {}
 
 export function parseExcelFile(_file: File): Promise<{ players: Player[]; status: ListoneStatus }> {
   return Promise.reject(new Error('Upload manuale disabilitato.'));
 }
 
 export function importFromJSON(_jsonContent: string): { players: Player[]; status: ListoneStatus } | null {
-  console.warn('⚠️ importFromJSON disabilitato');
   return null;
 }
 
@@ -287,13 +277,10 @@ export function updateAvversari(players: Player[], giornata: number): Player[] {
   
   return players.map(player => {
     if (!player) return player;
-    
     try {
       const team = safeString(player.team);
       if (!team) return player;
-      
       const avversarioInfo = getAvversario(team, giornata);
-      
       if (avversarioInfo) {
         return {
           ...player,
@@ -302,9 +289,8 @@ export function updateAvversari(players: Player[], giornata: number): Player[] {
         };
       }
     } catch (e) {
-      console.warn('Errore getAvversario per', player?.team, e);
+      console.warn('Errore getAvversario:', e);
     }
-    
     return player;
   });
 }
