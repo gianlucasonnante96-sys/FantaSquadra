@@ -66,8 +66,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
 
   if (!currentFormation) {
     return (
-      <div className="min-h-screen stadium-bg p-4 md:p-8 flex items-center justify-center">
-        <div className="glass-card rounded-2xl p-6 max-w-md text-center">
+      <div className="min-h-screen bg-black p-4 md:p-8 flex items-center justify-center">
+        <div className="bg-slate-900/80 backdrop-blur-md rounded-2xl border border-red-500/30 p-6 max-w-md text-center">
           <div className="text-4xl mb-3">⚠️</div>
           <h2 className="text-white font-semibold text-lg mb-2">Impossibile calcolare la formazione</h2>
           <p className="text-slate-400 text-sm mb-4">Controlla che la tua rosa contenga almeno 11 giocatori validi.</p>
@@ -116,7 +116,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   ];
 
   return (
-    <div className="min-h-screen stadium-bg p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-4 md:p-8">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
@@ -125,7 +125,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </button>
           <div className="text-center">
             <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              FORMAZIONE <span className="text-emerald-400 glow-text-green">CONSIGLIATA</span>
+              FORMAZIONE <span className="text-emerald-400">CONSIGLIATA</span>
             </h1>
             <p className="text-emerald-400/70 text-xs tracking-widest uppercase mt-1">Serie A 2026/27</p>
           </div>
@@ -135,10 +135,10 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         </div>
 
         {/* Giornata Selector */}
-        <div className="glass-card rounded-2xl p-4 mb-6">
+        <div className="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 p-4 mb-6">
           <div className="flex items-center justify-between mb-3">
             <div className="text-white font-medium text-sm">
-              GIORNATA <span className="text-emerald-400 font-black text-lg glow-text-green">{giornata}</span> <span className="text-slate-500">/ 38</span>
+              GIORNATA <span className="text-emerald-400 font-black text-lg">{giornata}</span> <span className="text-slate-500">/ 38</span>
             </div>
             <button
               onClick={() => setShowGiornataGrid(!showGiornataGrid)}
@@ -161,7 +161,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                       }}
                       className={`w-8 h-8 md:w-10 md:h-10 rounded-lg text-xs md:text-sm font-bold transition-all ${
                         num === giornata
-                          ? 'bg-gradient-to-br from-emerald-400 to-green-600 text-black glow-green scale-110'
+                          ? 'bg-gradient-to-br from-emerald-400 to-green-600 text-black shadow-lg shadow-emerald-500/50 scale-110'
                           : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700/50'
                       }`}
                     >
@@ -192,8 +192,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         </div>
 
         {/* AI Banner */}
-        <div className="glass-card rounded-2xl p-4 mb-6 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-emerald-400 via-green-500 to-emerald-600"></div>
+        <div className="bg-gradient-to-r from-emerald-500/10 via-green-500/5 to-transparent backdrop-blur-md rounded-2xl border border-emerald-500/20 p-4 mb-6 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-emerald-400 to-green-600"></div>
           <div className="flex items-start gap-3 pl-2">
             <span className="text-2xl">💡</span>
             <div>
@@ -211,8 +211,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               onClick={() => setSelectedFormationIdx(i)}
               className={`px-4 py-2 rounded-xl font-bold whitespace-nowrap transition-all ${
                 selectedFormationIdx === i
-                  ? 'bg-gradient-to-r from-emerald-400 to-green-600 text-black glow-green'
-                  : 'glass-card text-slate-300 hover:text-white'
+                  ? 'bg-gradient-to-r from-emerald-400 to-green-600 text-black shadow-lg shadow-emerald-500/50'
+                  : 'bg-slate-900/60 backdrop-blur-md text-slate-300 hover:text-white border border-white/10'
               }`}
             >
               {f.modulo}
@@ -222,14 +222,14 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         </div>
 
         {/* Score Header + Campo */}
-        <div className="glass-card rounded-2xl overflow-hidden mb-6">
+        <div className="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden mb-6">
           <div className="bg-gradient-to-r from-emerald-500/20 via-green-500/10 to-transparent px-6 py-4 flex items-center justify-between border-b border-emerald-500/20">
             <div>
               <div className="text-emerald-400 font-black text-2xl tracking-tight">{currentFormation.modulo}</div>
               <div className="text-slate-400 text-xs uppercase tracking-widest">Expected Score</div>
             </div>
             <div className="text-right">
-              <div className="text-4xl font-black text-white glow-text-green">{currentFormation.totalScore.toFixed(1)}</div>
+              <div className="text-4xl font-black text-white">{currentFormation.totalScore.toFixed(1)}</div>
               {currentFormation.modificatoreBonus > 0 && (
                 <div className="text-emerald-300 text-xs">+{currentFormation.modificatoreBonus} mod. difesa</div>
               )}
@@ -237,7 +237,18 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
 
           {/* CAMPO */}
-          <div className="pitch-bg p-6 md:p-10 min-h-[520px]">
+          <div 
+            className="relative p-6 md:p-10"
+            style={{
+              background: 'linear-gradient(180deg, #0f1f15 0%, #163020 50%, #0f1f15 100%)',
+              minHeight: '520px',
+            }}
+          >
+            {/* Linee campo */}
+            <div className="absolute inset-4 border-2 border-white/20 rounded-lg pointer-events-none"></div>
+            <div className="absolute left-1/2 top-4 bottom-4 w-0.5 bg-white/20 pointer-events-none"></div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 border-2 border-white/20 rounded-full pointer-events-none"></div>
+
             {/* Portiere */}
             <div className="relative mb-10 flex justify-center">
               {portieri.map(slot => (
@@ -293,8 +304,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         </div>
 
         {/* Panchina */}
-        <div className="glass-card rounded-2xl overflow-hidden mb-6">
-          <div className="px-6 py-3 bg-slate-800/50 border-b border-slate-700/50">
+        <div className="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden mb-6">
+          <div className="px-6 py-3 bg-slate-800/50 border-b border-white/10">
             <h3 className="text-white font-bold flex items-center gap-2 text-sm tracking-wide uppercase">
               <span>🪑</span> Panchina
             </h3>
@@ -307,7 +318,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                   <button
                     key={slot.player.id}
                     onClick={() => setSelectedPlayer(slot.player)}
-                    className="flex items-center gap-3 p-3 bg-slate-800/40 hover:bg-slate-700/60 rounded-xl transition-all text-left border border-slate-700/30 hover:border-emerald-500/30"
+                    className="flex items-center gap-3 p-3 bg-slate-800/40 hover:bg-slate-700/60 rounded-xl transition-all text-left border border-white/5 hover:border-emerald-500/30"
                   >
                     <span className="text-slate-500 text-xs font-mono w-4">{i + 1}</span>
                     <div className={`w-1.5 h-10 rounded-full bg-gradient-to-b ${getRoleGradient(slot.player.role)}`} />
@@ -334,7 +345,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         </div>
 
         {/* Confronto Moduli */}
-        <div className="glass-card rounded-2xl overflow-hidden mb-6">
+        <div className="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden mb-6">
           <button
             onClick={() => setShowAllFormations(!showAllFormations)}
             className="w-full px-6 py-4 flex items-center justify-between text-white hover:bg-slate-800/30 transition-colors"
@@ -346,7 +357,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </button>
 
           {showAllFormations && (
-            <div className="p-4 border-t border-slate-700/50 animate-fadeIn">
+            <div className="p-4 border-t border-white/10 animate-fadeIn">
               <div className="space-y-2">
                 {formations.map((f, i) => (
                   <div
@@ -391,14 +402,13 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         </div>
       </div>
 
-      {/* MODAL DETTAGLI */}
+      {/* MODAL */}
       {selectedPlayer && (
         <PlayerDetailModal 
           player={selectedPlayer} 
           onClose={() => setSelectedPlayer(null)}
           getRoleGradient={getRoleGradient}
           getDifficultyColor={getDifficultyColor}
-          getVPColor={getVPColor}
         />
       )}
     </div>
@@ -426,24 +436,19 @@ function PlayerOnField({ slot, getRoleGradient, getVPColor, onClick }: PlayerOnF
       onClick={onClick}
       className="flex flex-col items-center gap-1 group cursor-pointer"
     >
-      {/* Cerchio con glow */}
       <div className={`relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${getRoleGradient(player.role)} flex items-center justify-center shadow-xl border-2 border-white/20 group-hover:scale-110 transition-transform ${isHighTit ? 'animate-pulse-green' : ''}`}>
         <span className="text-black font-black text-lg md:text-xl">{player.surname?.[0] || '?'}</span>
-        {/* Indicatore titolarità */}
         <div className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-black ${titolarita > 80 ? 'bg-emerald-400' : titolarita > 50 ? 'bg-yellow-400' : 'bg-red-500'}`}></div>
       </div>
       
-      {/* Nome */}
       <div className="bg-black/80 backdrop-blur-sm px-2 py-0.5 rounded-md text-[10px] md:text-xs text-white font-bold max-w-[80px] md:max-w-[100px] truncate border border-white/10">
         {player.surname || player.name}
       </div>
 
-      {/* FM */}
-      <div className="bg-slate-900/80 px-1.5 py-0.5 rounded text-[9px] md:text-[10px] text-emerald-400 font-bold border border-emerald-500/20">
+      <div className="bg-slate-900/90 px-1.5 py-0.5 rounded text-[9px] md:text-[10px] text-emerald-400 font-bold border border-emerald-500/30">
         FM {player.fantamedia ?? 0}
       </div>
       
-      {/* VP */}
       <div className={`bg-black/80 px-2 py-0.5 rounded text-[10px] md:text-xs font-black ${getVPColor(expectedScore)} border border-white/10`}>
         {expectedScore.toFixed(1)} VP
       </div>
@@ -460,7 +465,6 @@ interface PlayerDetailModalProps {
   onClose: () => void;
   getRoleGradient: (role: string) => string;
   getDifficultyColor: (d: number) => string;
-  getVPColor: (vp: number) => string;
 }
 
 function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColor }: PlayerDetailModalProps) {
@@ -473,7 +477,7 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
       onClick={onClose}
     >
       <div 
-        className="glass-card rounded-2xl max-w-md w-full p-6 shadow-2xl glow-green"
+        className="bg-slate-900/95 backdrop-blur-md rounded-2xl border border-emerald-500/30 max-w-md w-full p-6 shadow-2xl shadow-emerald-500/20"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between mb-4">
@@ -488,15 +492,15 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
         </div>
 
         <div className="grid grid-cols-3 gap-2 mb-4">
-          <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-emerald-500/20">
-            <div className="text-emerald-400 text-2xl font-black glow-text-green">{player.fantamedia ?? 0}</div>
+          <div className="bg-slate-800/60 rounded-xl p-3 text-center border border-emerald-500/20">
+            <div className="text-emerald-400 text-2xl font-black">{player.fantamedia ?? 0}</div>
             <div className="text-slate-500 text-[10px] uppercase tracking-wider font-bold mt-1">Fantamedia</div>
           </div>
-          <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-blue-500/20">
+          <div className="bg-slate-800/60 rounded-xl p-3 text-center border border-blue-500/20">
             <div className="text-blue-400 text-2xl font-black">{player.mediaVoto ?? 6}</div>
             <div className="text-slate-500 text-[10px] uppercase tracking-wider font-bold mt-1">Media Voto</div>
           </div>
-          <div className="bg-slate-900/60 rounded-xl p-3 text-center border border-yellow-500/20">
+          <div className="bg-slate-800/60 rounded-xl p-3 text-center border border-yellow-500/20">
             <div className={`text-2xl font-black ${titolarita > 80 ? 'text-emerald-400' : titolarita > 50 ? 'text-yellow-400' : 'text-red-400'}`}>
               {titolarita}%
             </div>
@@ -504,7 +508,7 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
           </div>
         </div>
 
-        <div className="bg-slate-900/40 rounded-xl p-4 border border-slate-700/50">
+        <div className="bg-slate-800/40 rounded-xl p-4 border border-white/5">
           <div className="text-slate-500 text-[10px] uppercase tracking-wider font-bold mb-2">Prossima partita</div>
           <div className="text-white font-bold text-lg">
             {player.inCasa ? '🏠 in casa' : '✈️ in trasferta'} vs {player.avversario || '?'}
