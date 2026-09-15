@@ -340,6 +340,17 @@ async function scrapeStatistiche(page) {
       const mappa = {};
       const rows = document.querySelectorAll('tr.player-row');
       
+      // 🔥 Funzione per convertire "7,38" in 7.38
+      function parseNumeroItaliano(testo) {
+        if (!testo) return 0;
+        const clean = testo
+          .replace(',', '.')           // virgola → punto
+          .replace(/[^\d.]/g, '')      // rimuovi tutto tranne cifre e punto
+          .trim();
+        const num = parseFloat(clean);
+        return isNaN(num) ? 0 : num;
+      }
+      
       rows.forEach(row => {
         try {
           const nameEl = row.querySelector('th.player-name a span');
@@ -354,14 +365,15 @@ async function scrapeStatistiche(page) {
           
           const mvEl = row.querySelector('td.player-grade-avg');
           const mvText = mvEl ? mvEl.textContent?.trim() : '';
-          const mediaVoto = parseFloat(mvText) || 0;
+          const mediaVoto = parseNumeroItaliano(mvText);
           
           const fmEl = row.querySelector('td.player-fanta-grade-avg');
           const fmText = fmEl ? fmEl.textContent?.trim() : '';
-          const fantamedia = parseFloat(fmText) || 0;
+          const fantamedia = parseNumeroItaliano(fmText);
           
           const pgEl = row.querySelector('td.player-match-played');
-          const partiteGiocate = parseInt(pgEl?.textContent?.trim() || '0') || 0;
+          const pgText = pgEl ? pgEl.textContent?.trim() : '';
+          const partiteGiocate = parseInt(pgText) || 0;
           
           mappa[nome] = {
             ruolo: role,
