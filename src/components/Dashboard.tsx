@@ -79,12 +79,13 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
     );
   }
 
+  // 🔥 CAMBIO COLORI RUOLI: D=verde, C=blu
   const getRoleGradient = (role: string) => {
     switch (role) {
-      case 'P': return 'from-yellow-400 via-amber-500 to-yellow-600';
-      case 'D': return 'from-blue-400 via-cyan-500 to-blue-600';
-      case 'C': return 'from-emerald-400 via-green-500 to-emerald-600';
-      case 'A': return 'from-red-400 via-rose-500 to-red-600';
+      case 'P': return 'from-yellow-400 via-amber-500 to-yellow-600';   // Giallo (portieri)
+      case 'D': return 'from-emerald-400 via-green-500 to-emerald-600'; // 🔥 VERDE (difensori)
+      case 'C': return 'from-blue-400 via-cyan-500 to-blue-600';        // 🔥 BLU (centrocampisti)
+      case 'A': return 'from-red-400 via-rose-500 to-red-600';          // Rosso (attaccanti)
       default: return 'from-slate-400 to-slate-600';
     }
   };
@@ -118,7 +119,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-4 md:p-8">
       <div className="max-w-5xl mx-auto">
-        {/* Header con bottoni uniformati */}
+        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <button 
             onClick={onBack} 
@@ -430,14 +431,16 @@ interface PlayerOnFieldProps {
 function PlayerOnField({ slot, getRoleGradient, getVPColor, onClick }: PlayerOnFieldProps) {
   const { player, expectedScore } = slot;
   const titolarita = player?.titolarita ?? 50;
-  const isHighTit = titolarita >= 80;
+
+  // 🔥 CAMBIO: pulsa solo se VP >= 7.5
+  const isHighVP = expectedScore >= 7.5;
 
   return (
     <button
       onClick={onClick}
       className="flex flex-col items-center gap-1 group cursor-pointer"
     >
-      <div className={`relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${getRoleGradient(player.role)} flex items-center justify-center shadow-xl border-2 border-white/20 group-hover:scale-110 transition-transform ${isHighTit ? 'animate-pulse-green' : ''}`}>
+      <div className={`relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${getRoleGradient(player.role)} flex items-center justify-center shadow-xl border-2 border-white/20 group-hover:scale-110 transition-transform ${isHighVP ? 'animate-pulse-green' : ''}`}>
         <span className="text-black font-black text-lg md:text-xl">{player.surname?.[0] || '?'}</span>
         <div className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-black ${titolarita > 80 ? 'bg-emerald-400' : titolarita > 50 ? 'bg-yellow-400' : 'bg-red-500'}`}></div>
       </div>
