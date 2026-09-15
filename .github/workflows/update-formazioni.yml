@@ -2,8 +2,8 @@ name: Aggiorna Probabili Formazioni
 
 on:
   schedule:
-    - cron: '0 7 * * *'
-    - cron: '0 15 * * *'
+    # Ogni 2 ore dalle 9:00 alle 23:00 ora italiana
+    - cron: '0 7-21/2 * * *'
   workflow_dispatch:
 
 jobs:
