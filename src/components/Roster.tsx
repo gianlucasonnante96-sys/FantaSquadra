@@ -31,12 +31,9 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
   const rosterByRole = useMemo(() => {
     const grouped: Record<Role, Player[]> = { P: [], D: [], C: [], A: [] };
     if (!Array.isArray(localRoster)) return grouped;
-    
     localRoster.forEach(p => {
       if (!p || !p.role) return;
-      if (grouped[p.role]) {
-        grouped[p.role].push(p);
-      }
+      if (grouped[p.role]) grouped[p.role].push(p);
     });
     return grouped;
   }, [localRoster]);
@@ -46,9 +43,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
     if (!Array.isArray(availablePlayers)) return [];
     
     const rosterIds = new Set(
-      (localRoster || [])
-        .filter((p) => p && p.id)
-        .map((p: Player) => p.id)
+      (localRoster || []).filter(p => p && p.id).map(p => p.id)
     );
     
     const searchLower = searchTerm.toLowerCase().trim();
@@ -58,8 +53,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
       .filter((p: Player) => {
         if (!p) return false;
         const haystack = `${p.name || ''} ${p.surname || ''} ${p.team || ''}`.toLowerCase();
-        const matchesSearch = haystack.includes(searchLower);
-        return matchesSearch && !rosterIds.has(p.id);
+        return haystack.includes(searchLower) && !rosterIds.has(p.id);
       })
       .slice(0, 10);
   }, [searchTerm, localRoster, availablePlayers]);
@@ -85,7 +79,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
 
   const handleSave = () => {
     console.log('🚀 handleSave: applicazione probabili formazioni...');
-    
     let rosterFinale = localRoster;
     try {
       rosterFinale = applyProbabiliFormazioni(localRoster);
@@ -94,7 +87,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
       console.error('❌ Errore applicazione formazioni:', e);
       rosterFinale = localRoster;
     }
-    
     onSave(rosterFinale);
     setLocalRoster(rosterFinale);
     onNext();
@@ -118,7 +110,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
           <p className="text-emerald-300">Aggiungi o rimuovi giocatori dalla tua rosa</p>
         </div>
 
-        {/* Listone Status (solo info, no upload) */}
+        {/* Listone Status */}
         {listoneStatus && (
           <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
             <div className="flex items-center gap-3">
@@ -131,11 +123,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                     : `${listoneStatus.playerCount} giocatori • ${listoneStatus.source}`
                   }
                 </div>
-                {listoneStatus.lastUpdated && (
-                  <div className="text-xs text-slate-500 mt-1">
-                    Aggiornato: {new Date(listoneStatus.lastUpdated).toLocaleString('it-IT')}
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -185,14 +172,13 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
           </div>
         </div>
 
-        {/* Empty roster message */}
+        {/* Empty roster */}
         {localRoster.length === 0 && (
           <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-6 mb-6 text-center">
             <div className="text-4xl mb-3">⚽</div>
             <h3 className="text-white font-semibold text-lg mb-2">La tua rosa è vuota</h3>
-            <p className="text-slate-400 text-sm mb-4">
-              Usa la barra di ricerca qui sotto per aggiungere i giocatori del listone Serie A 2026/27.<br/>
-              Puoi cercare per nome, cognome o squadra.
+            <p className="text-slate-400 text-sm">
+              Usa la barra di ricerca per aggiungere i giocatori del listone Serie A 2026/27.
             </p>
           </div>
         )}
@@ -242,7 +228,7 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                   </div>
                   <div className="p-2">
                     {players.length === 0 ? (
-                      <p className="text-slate-500 text-sm text-center py-4">Nessun giocatore. Usa la ricerca per aggiungerne.</p>
+                      <p className="text-slate-500 text-sm text-center py-4">Nessun giocatore.</p>
                     ) : (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {players.map(player => (
@@ -250,13 +236,19 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
                             key={player.id}
                             className="flex items-center justify-between p-3 bg-slate-700/40 rounded-lg hover:bg-slate-700/60 transition-colors"
                           >
-                            <div>
+                            <div className="flex-1 min-w-0">
                               <div className="text-white font-medium text-sm">{player.name} {player.surname}</div>
-                              <div className="text-slate-400 text-xs">{player.team} • FM: {player.fantamedia} • Tit: {player.titolarita}%</div>
+                              {/* 🔥 AGGIUNTA MV */}
+                              <div className="text-slate-400 text-xs">
+                                {player.team} • 
+                                <span className="text-emerald-400"> FM: {player.fantamedia ?? 0}</span> • 
+                                <span className="text-blue-400"> MV: {player.mediaVoto ?? 6}</span> • 
+                                Tit: {player.titolarita}%
+                              </div>
                             </div>
                             <button
                               onClick={() => removePlayer(player.id)}
-                              className="text-red-400 hover:text-red-300 p-1 transition-colors"
+                              className="text-red-400 hover:text-red-300 p-1 transition-colors ml-2"
                               title="Rimuovi"
                             >
                               ✕
@@ -276,16 +268,14 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
           <div className="flex items-center justify-between mb-2">
             <div className="text-slate-300">
               {isRosterComplete ? (
-                <span className="text-emerald-400 font-medium">✓ Rosa completa (25 giocatori)</span>
+                <span className="text-emerald-400 font-medium">✓ Rosa completa</span>
               ) : hasMinimumPlayers ? (
                 <span className="text-amber-400 font-medium">⚠ Rosa parziale - puoi procedere</span>
               ) : (
                 <span className="text-red-400 font-medium">✗ Aggiungi almeno 11 giocatori</span>
               )}
             </div>
-            <div className="text-sm text-slate-400">
-              {localRoster.length}/25 giocatori
-            </div>
+            <div className="text-sm text-slate-400">{localRoster.length}/25 giocatori</div>
           </div>
 
           <div className="flex gap-3 mb-3 text-xs">
@@ -303,12 +293,6 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
               style={{ width: `${Math.min((localRoster.length / 25) * 100, 100)}%` }}
             />
           </div>
-
-          {!isRosterComplete && hasMinimumPlayers && (
-            <p className="text-xs text-slate-500 mb-3">
-              💡 Puoi procedere con una rosa parziale. L'algoritmo selezionerà i migliori tra i giocatori disponibili.
-            </p>
-          )}
 
           <button
             onClick={handleSave}
