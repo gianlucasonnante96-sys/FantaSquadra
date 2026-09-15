@@ -66,7 +66,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
 
   if (!currentFormation) {
     return (
-      <div className="min-h-screen bg-black p-4 md:p-8 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-4 md:p-8 flex items-center justify-center">
         <div className="bg-slate-900/80 backdrop-blur-md rounded-2xl border border-red-500/30 p-6 max-w-md text-center">
           <div className="text-4xl mb-3">⚠️</div>
           <h2 className="text-white font-semibold text-lg mb-2">Impossibile calcolare la formazione</h2>
@@ -118,9 +118,12 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-4 md:p-8">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
+        {/* Header con bottoni uniformati */}
         <div className="flex items-center justify-between mb-6">
-          <button onClick={onBack} className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">
+          <button 
+            onClick={onBack} 
+            className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md px-3 py-2 rounded-lg border border-white/10"
+          >
             ← Modifica Rosa
           </button>
           <div className="text-center">
@@ -129,7 +132,10 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             </h1>
             <p className="text-emerald-400/70 text-xs tracking-widest uppercase mt-1">Serie A 2026/27</p>
           </div>
-          <button onClick={onReset} className="text-slate-400 hover:text-red-400 transition-colors text-sm font-medium">
+          <button 
+            onClick={onReset} 
+            className="text-slate-400 hover:text-red-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md px-3 py-2 rounded-lg border border-white/10"
+          >
             🔄 Reset
           </button>
         </div>
@@ -244,12 +250,10 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               minHeight: '520px',
             }}
           >
-            {/* Linee campo */}
             <div className="absolute inset-4 border-2 border-white/20 rounded-lg pointer-events-none"></div>
             <div className="absolute left-1/2 top-4 bottom-4 w-0.5 bg-white/20 pointer-events-none"></div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 border-2 border-white/20 rounded-full pointer-events-none"></div>
 
-            {/* Portiere */}
             <div className="relative mb-10 flex justify-center">
               {portieri.map(slot => (
                 <PlayerOnField 
@@ -262,7 +266,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               ))}
             </div>
 
-            {/* Difensori */}
             <div className="relative mb-10 flex justify-center gap-3 md:gap-8 flex-wrap">
               {difensori.map(slot => (
                 <PlayerOnField 
@@ -275,7 +278,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               ))}
             </div>
 
-            {/* Centrocampisti */}
             <div className="relative mb-10 flex justify-center gap-3 md:gap-8 flex-wrap">
               {centrocampisti.map(slot => (
                 <PlayerOnField 
@@ -288,7 +290,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               ))}
             </div>
 
-            {/* Attaccanti */}
             <div className="relative flex justify-center gap-3 md:gap-8 flex-wrap">
               {attaccanti.map(slot => (
                 <PlayerOnField 
