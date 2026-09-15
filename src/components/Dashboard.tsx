@@ -415,4 +415,75 @@ function PlayerOnField({ slot, getRoleColor, getDifficultyColor, onClick }: Play
 }
 
 // ============================================================
-//
+// MODAL DETTAGLI GIOCATORE
+// ============================================================
+
+interface PlayerDetailModalProps {
+  player: Player;
+  onClose: () => void;
+  getRoleColor: (role: string) => string;
+  getDifficultyColor: (d: number) => string;
+}
+
+function PlayerDetailModal({ player, onClose, getRoleColor, getDifficultyColor }: PlayerDetailModalProps) {
+  const titolarita = player?.titolarita ?? 50;
+  const difficulty = player.difficoltaAvversario ?? 3;
+
+  return (
+    <div 
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+      onClick={onClose}
+    >
+      <div 
+        className="bg-slate-800 rounded-2xl border border-emerald-500/30 max-w-md w-full p-6 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className={`w-3 h-14 rounded-full bg-gradient-to-b ${getRoleColor(player.role)}`} />
+            <div>
+              <div className="text-white font-bold text-lg">{player.name} {player.surname}</div>
+              <div className="text-slate-400 text-sm">{player.team} • {player.role}</div>
+            </div>
+          </div>
+          <button onClick={onClose} className="text-slate-400 hover:text-white text-2xl">×</button>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-3 gap-2 mb-4">
+          <div className="bg-slate-700/50 rounded-lg p-3 text-center">
+            <div className="text-emerald-400 text-2xl font-bold">{player.fantamedia ?? 0}</div>
+            <div className="text-slate-400 text-xs">Fantamedia</div>
+          </div>
+          <div className="bg-slate-700/50 rounded-lg p-3 text-center">
+            <div className="text-blue-400 text-2xl font-bold">{player.mediaVoto ?? 6}</div>
+            <div className="text-slate-400 text-xs">Media Voto</div>
+          </div>
+          <div className="bg-slate-700/50 rounded-lg p-3 text-center">
+            <div className={`text-2xl font-bold ${titolarita > 80 ? 'text-emerald-400' : titolarita > 50 ? 'text-yellow-400' : 'text-red-400'}`}>
+              {titolarita}%
+            </div>
+            <div className="text-slate-400 text-xs">Titolarità</div>
+          </div>
+        </div>
+
+        {/* Match Info */}
+        <div className="bg-slate-700/30 rounded-lg p-3 mb-4">
+          <div className="text-slate-400 text-xs mb-1">Prossima partita</div>
+          <div className="text-white font-medium">
+            {player.inCasa ? '🏠 in casa' : '✈️ in trasferta'} vs {player.avversario || '?'}
+          </div>
+          <div className={`text-sm ${getDifficultyColor(difficulty)}`}>
+            Difficoltà: {getDifficultyLabel(difficulty)}
+          </div>
+        </div>
+
+        {/* Info extra */}
+        <div className="text-slate-500 text-xs text-center">
+          Clicca fuori per chiudere
+        </div>
+      </div>
+    </div>
+  );
+}
