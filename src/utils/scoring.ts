@@ -32,9 +32,6 @@ const CONFIG = {
     bonusCasaFacile: 0.3,
   },
   
-  // 🔥 RIMOSSO cleanSheetBase e pesoCleanSheet: nel fantacalcio classico
-  // i difensori NON prendono bonus imbattibilità individuale.
-  // Il loro "bonus" è il modificatore difesa (calcolato separatamente).
   difensori: {
     golProbability: { 1: 0.15, 2: 0.12, 3: 0.08, 4: 0.04, 5: 0.02 } as Record<number, number>,
     pesoGol: 1.2,
@@ -264,24 +261,21 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   }
 
   // ===== DIFENSORI =====
-  // 🔥 RIMOSSO clean sheet individuale: nel fantacalcio classico i difensori
-  // NON prendono bonus imbattibilità. Il loro "bonus" è il modificatore difesa
-  // (calcolato separatamente in calculateModificatoreBonus()).
+  // Nel fantacalcio classico i difensori NON prendono bonus imbattibilità
+  // individuale. Il loro "bonus" è il modificatore difesa (calcolato a parte
+  // in calculateModificatoreBonus()).
   if (role === 'D') {
     const D = CONFIG.difensori;
     
-    // Bonus gol
     const golProb = D.golProbability[difficulty] ?? 0.08;
     votoPrevisto += golProb * D.pesoGol;
     
-    // Bonus assist
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
       const assistProb = D.assistProbability[difficulty] ?? 0.05;
       votoPrevisto += assistProb * assistValue * D.pesoAssist;
     }
     
-    // Malus avversario forte
     if (difficulty >= 4) {
       votoPrevisto -= D.malusAvversarioForte;
     }
@@ -341,7 +335,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
 }
 
 // ============================================================
-// MODIFICATORE DIFESA
+// 🔥 MODIFICATORE DIFESA — Basato sul VP (expectedScore)
 // ============================================================
 
 export function calculateModificatoreBonus(
@@ -356,31 +350,36 @@ export function calculateModificatoreBonus(
   const validDefenders = defenders.filter(d => d && d.player);
   if (validDefenders.length < 3) return 0;
 
+  // 🔥 Ordina per VP (expectedScore) invece di mediaVoto
   const sortedDefenders = [...validDefenders].sort(
-    (a, b) => (b.player.mediaVoto ?? 6) - (a.player.mediaVoto ?? 6)
+    (a, b) => (b.expectedScore ?? 6) - (a.expectedScore ?? 6)
   );
   const top3Defenders = sortedDefenders.slice(0, 3);
 
-  let totalVotes = top3Defenders.reduce((sum, d) => sum + (d.player.mediaVoto ?? 6), 0);
+  // 🔥 Somma i VP dei 3 migliori difensori
+  let totalVP = top3Defenders.reduce((sum, d) => sum + (d.expectedScore ?? 6), 0);
   let count = 3;
 
+  // 🔥 Aggiungi il VP del portiere
   if (goalkeeper && goalkeeper.player) {
-    totalVotes += goalkeeper.player.mediaVoto ?? 6;
+    totalVP += goalkeeper.expectedScore ?? 6;
     count = 4;
   }
 
-  const avgVote = totalVotes / count;
+  const avgVP = totalVP / count;
 
+  // Soglie standard
   if (rules.modificatoreDifesa === 'standard') {
-    if (avgVote >= 7.0) return 6;
-    if (avgVote >= 6.5) return 3;
-    if (avgVote >= 6.0) return 1;
+    if (avgVP >= 7.0) return 6;
+    if (avgVP >= 6.5) return 3;
+    if (avgVP >= 6.0) return 1;
     return 0;
   }
 
+  // Soglie personalizzate
   let bonus = 0;
   for (const threshold of rules.modificatoreCustom) {
-    if (avgVote >= threshold.threshold) {
+    if (avgVP >= threshold.threshold) {
       bonus = threshold.bonus;
     }
   }
