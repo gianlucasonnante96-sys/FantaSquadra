@@ -3,30 +3,24 @@ import { isProbabileTitolare, getLivelloTitolarita } from './titolarita';
 
 // ============================================================
 // CONFIGURAZIONE ALGORITMO
-// Modifica questi valori per "tunare" l'algoritmo senza toccare la logica
 // ============================================================
 
 const CONFIG = {
   // ===== PESI BASE =====
-  pesoFantamedia: 0.5,
-  pesoMediaVoto: 0.3,
+  pesoFantamedia: 0.6,
+  pesoMediaVoto: 0.4,
   
   // 🔥 PESI ALTERNATIVI quando fantamedia è inaffidabile (0 o < soglia)
   pesoFantamediaInaffidabile: 0,
-  pesoMediaVotoInaffidabile: 0.6,
+  pesoMediaVotoInaffidabile: 0.7,
   
   // 🔥 Soglie per considerare la fantamedia "inaffidabile"
-  fantamediaSogliaBassa: 4.0,  // sotto questo valore = dato sospetto
-  fantamediaSogliaZero: 0.1,   // sotto questo valore = dato mancante
+  fantamediaSogliaBassa: 4.0,
+  fantamediaSogliaZero: 0.1,
   
   // ===== TITOLARITÀ =====
   boostTitolarita: 0.15,
   malusTitolaritaBassa: 0.2,
-  
-  // ===== FORMA RECENTE =====
-  pesoFormaPositiva: 0.6,
-  pesoFormaNegativa: 0.4,
-  pesoTendenza: 0.3,
   
   // ===== CASA/TRASFERTA =====
   bonusCasa: 0.4,
@@ -108,18 +102,9 @@ function calcolaFattoreTitolaritaArricchito(player: Player): number {
 }
 
 // ============================================================
-// 🔥 GESTIONE FANTAMEDIA INAFFIDABILE
+// GESTIONE FANTAMEDIA INAFFIDABILE
 // ============================================================
 
-/**
- * Restituisce i pesi effettivi per fantamedia e media voto,
- * tenendo conto dell'affidabilità del dato fantamedia.
- * 
- * CASI:
- * 1. fantamedia = 0 (dato mancante dal listone) → ignora fantamedia, usa solo media voto
- * 2. fantamedia < 4 ma > 0 (dato sospetto) → riduce peso fantamedia
- * 3. fantamedia >= 4 (dato valido) → usa pesi normali
- */
 function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMediaVoto: number } {
   const fantamedia = player.fantamedia ?? 0;
   
@@ -133,7 +118,6 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
   
   // CASO 2: fantamedia bassa ma presente (sospetta)
   if (fantamedia < CONFIG.fantamediaSogliaBassa) {
-    // Usa un peso ridotto per fantamedia, ma non zero
     return {
       pesoFantamedia: CONFIG.pesoFantamedia * 0.3,
       pesoMediaVoto: CONFIG.pesoMediaVoto * 1.5,
@@ -154,15 +138,11 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
 export function calculateExpectedScore(player: Player, rules: LeagueRules): number {
   if (!player) return 6;
 
-  const forma = Array.isArray(player.forma) && player.forma.length >= 5
-    ? player.forma
-    : [6, 6, 6, 6, 6];
-
   const role = player.role;
   const difficulty = player.difficoltaAvversario ?? 3;
   const inCasa = player.inCasa ?? true;
 
-  // 🔥 USA PESI AFFIDABILI (gestisce fantamedia mancante)
+  // USA PESI AFFIDABILI (gestisce fantamedia mancante)
   const pesi = calcolaPesiAffidabili(player);
   
   let votoPrevisto = (player.fantamedia ?? 0) * pesi.pesoFantamedia;
@@ -181,20 +161,6 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     }
   }
 
-  // Forma recente
-  const formAvg = forma.reduce((a, b) => a + (b || 6), 0) / forma.length;
-  const formDeviation = formAvg - 6;
-
-  if (formDeviation > 0) {
-    votoPrevisto += formDeviation * CONFIG.pesoFormaPositiva;
-  } else {
-    votoPrevisto += formDeviation * CONFIG.pesoFormaNegativa;
-  }
-
-  // Tendenza recente (ultime 2 partite)
-  const recentForm = ((forma[3] || 6) + (forma[4] || 6)) / 2;
-  votoPrevisto += (recentForm - formAvg) * CONFIG.pesoTendenza;
-
   // Casa/Trasferta
   if (inCasa) {
     votoPrevisto += CONFIG.bonusCasa;
@@ -206,28 +172,24 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   votoPrevisto += CONFIG.difficolta[difficulty] || 0;
 
   // ==========================================================
-  // 🔥 BONUS SPECIFICI PER RUOLO
+  // BONUS SPECIFICI PER RUOLO
   // ==========================================================
 
   // ===== PORTIERI =====
   if (role === 'P') {
     const P = CONFIG.portieri;
     
-    // Clean sheet bonus
     const cleanSheetProb = P.cleanSheetBase[difficulty] ?? 0.4;
     if (rules.bonusImbattibilita !== 'off') {
       const bonusValue = rules.bonusImbattibilita === '1' ? 1 : 0.5;
       votoPrevisto += cleanSheetProb * bonusValue * P.pesoCleanSheet;
     }
     
-    // Malus gol subiti probabili
     const golSubitiProbabili = difficulty >= 4 ? 2 : difficulty === 3 ? 1 : 0.5;
     votoPrevisto -= golSubitiProbabili * P.malusGolSubiti;
     
-    // Bonus parate
     votoPrevisto += P.bonusParate[difficulty] ?? 0.2;
     
-    // Bonus porta inviolata in casa vs avversario facile
     if (inCasa && difficulty <= 2) {
       votoPrevisto += P.bonusCasaFacile;
     }
@@ -237,24 +199,20 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   if (role === 'D') {
     const D = CONFIG.difensori;
     
-    // Clean sheet
     const cleanSheetProb = D.cleanSheetBase[difficulty] ?? 0.35;
     if (rules.modificatoreDifesa !== 'off') {
       votoPrevisto += cleanSheetProb * D.pesoCleanSheet;
     }
     
-    // Bonus gol su palla inattiva
     const golProb = D.golProbability[difficulty] ?? 0.08;
     votoPrevisto += golProb * D.pesoGol;
     
-    // Bonus assist
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
       const assistProb = D.assistProbability[difficulty] ?? 0.05;
       votoPrevisto += assistProb * assistValue * D.pesoAssist;
     }
     
-    // Malus contro attacchi forti
     if (difficulty >= 4) {
       votoPrevisto -= D.malusAvversarioForte;
     }
@@ -264,23 +222,19 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   if (role === 'C') {
     const C = CONFIG.centrocampisti;
     
-    // Bonus gol
     const golProb = C.golProbability[difficulty] ?? 0.2;
     votoPrevisto += golProb * C.pesoGol;
     
-    // Bonus assist
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
       const assistProb = C.assistProbability[difficulty] ?? 0.3;
       votoPrevisto += assistProb * assistValue * C.pesoAssist;
     }
     
-    // Bonus casa (controllo del gioco)
     if (inCasa && difficulty <= 3) {
       votoPrevisto += C.bonusCasaControllo;
     }
     
-    // Malus trasferta vs big
     if (!inCasa && difficulty >= 4) {
       votoPrevisto -= C.malusTrasfertaDifficile;
     }
@@ -290,41 +244,28 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   if (role === 'A') {
     const A = CONFIG.attaccanti;
     
-    // Bonus gol
     const golProb = A.golProbability[difficulty] ?? 0.35;
     votoPrevisto += golProb * A.pesoGol;
     
-    // Bonus assist
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
       const assistProb = A.assistProbability[difficulty] ?? 0.28;
       votoPrevisto += assistProb * assistValue * A.pesoAssist;
     }
     
-    // Bonus rigore
     const rigoreProb = A.rigoreProbability[difficulty] ?? 0.12;
     votoPrevisto += rigoreProb * A.pesoRigore;
     
-    // Super bonus casa + avversario facile
     if (inCasa && difficulty <= 2) {
       votoPrevisto += A.bonusCasaFacile;
     }
     
-    // Super malus trasferta + avversario difficile
     if (!inCasa && difficulty >= 4) {
       votoPrevisto -= A.malusTrasfertaDifficile;
     }
   }
 
-  // ===== MOMENTUM (forma + avversario) =====
-  if (formDeviation > 0.3 && difficulty <= 2) {
-    votoPrevisto += 0.4;
-  }
-  if (formDeviation < -0.3 && difficulty >= 4) {
-    votoPrevisto -= 0.3;
-  }
-
-  // ===== SAFE =====
+  // SAFE
   if (!Number.isFinite(votoPrevisto)) return 6;
 
   const rounded = Math.round(votoPrevisto * 2) / 2;
