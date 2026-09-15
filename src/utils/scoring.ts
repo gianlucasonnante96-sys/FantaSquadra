@@ -32,9 +32,10 @@ const CONFIG = {
     bonusCasaFacile: 0.3,
   },
   
+  // 🔥 RIMOSSO cleanSheetBase e pesoCleanSheet: nel fantacalcio classico
+  // i difensori NON prendono bonus imbattibilità individuale.
+  // Il loro "bonus" è il modificatore difesa (calcolato separatamente).
   difensori: {
-    cleanSheetBase: { 1: 0.65, 2: 0.50, 3: 0.35, 4: 0.20, 5: 0.10 } as Record<number, number>,
-    pesoCleanSheet: 0.6,
     golProbability: { 1: 0.15, 2: 0.12, 3: 0.08, 4: 0.04, 5: 0.02 } as Record<number, number>,
     pesoGol: 1.2,
     assistProbability: { 1: 0.10, 2: 0.08, 3: 0.05, 4: 0.03, 5: 0.02 } as Record<number, number>,
@@ -67,67 +68,53 @@ const CONFIG = {
 };
 
 // ============================================================
-// 🆕 TEAM STRENGTH — Forza squadra (ricalibrata su classifica 2026/27 dopo 4 giornate)
+// TEAM STRENGTH
 // ============================================================
 
 const TEAM_STRENGTH: Record<string, number> = {
-  // 🔥 Top (zona scudetto/Champions)
   'Inter': 1.22,
   'Roma': 1.20,
-  'Como': 1.15,        // 📈 sorpresa!
+  'Como': 1.15,
   'Lazio': 1.15,
   'Milan': 1.10,
   'Napoli': 1.10,
-  
-  // 🟢 Europa League / buona classifica
   'Cagliari': 1.05,
   'Juventus': 1.05,
   'Atalanta': 1.05,
   'Frosinone': 0.95,
-  
-  // 🟡 Metà classifica
   'Sassuolo': 0.90,
   'Lecce': 0.85,
   'Torino': 0.85,
   'Udinese': 0.82,
-  'Fiorentina': 0.82,  // 📉 in crisi
-  'Bologna': 0.80,     // 📉 in crisi
-  
-  // 🔴 Zona retrocessione
+  'Fiorentina': 0.82,
+  'Bologna': 0.80,
   'Parma': 0.72,
   'Genoa': 0.72,
   'Monza': 0.70,
-  'Venezia': 0.65,     // ultimo
+  'Venezia': 0.65,
 };
 
 // ============================================================
-// 🆕 FIXTURE DIFFICULTY — Difficoltà avversario (ricalibrata)
+// FIXTURE DIFFICULTY
 // ============================================================
 
 const FIXTURE_DIFFICULTY: Record<string, number> = {
-  // 🔥 Difficoltà altissima
   'Inter': 5.0,
   'Roma': 4.9,
-  'Como': 4.5,         // 📈 sorpresa!
+  'Como': 4.5,
   'Lazio': 4.4,
   'Milan': 4.3,
   'Napoli': 4.2,
-  
-  // 🟢 Difficoltà alta
   'Juventus': 4.0,
   'Atalanta': 3.9,
   'Cagliari': 3.8,
   'Frosinone': 3.5,
   'Sassuolo': 3.3,
-  
-  // 🟡 Difficoltà media
   'Fiorentina': 3.0,
   'Torino': 2.9,
   'Bologna': 2.9,
   'Lecce': 2.8,
   'Udinese': 2.7,
-  
-  // 🔴 Difficoltà bassa
   'Parma': 2.4,
   'Genoa': 2.3,
   'Monza': 2.2,
@@ -250,66 +237,101 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
 
   if (role !== 'P') votoPrevisto += teamBonus;
 
-  // PORTIERI
+  // ==========================================================
+  // BONUS SPECIFICI PER RUOLO
+  // ==========================================================
+
+  // ===== PORTIERI =====
   if (role === 'P') {
     const P = CONFIG.portieri;
+    
     const cleanSheetProb = P.cleanSheetBase[difficulty] ?? 0.4;
     if (rules.bonusImbattibilita !== 'off') {
       const bonusValue = rules.bonusImbattibilita === '1' ? 1 : 0.5;
       votoPrevisto += cleanSheetProb * bonusValue * P.pesoCleanSheet;
     }
+    
     const golSubitiProbabili = difficulty >= 4 ? 2 : difficulty === 3 ? 1 : 0.5;
     votoPrevisto -= golSubitiProbabili * P.malusGolSubiti;
+    
     votoPrevisto += P.bonusParate[difficulty] ?? 0.2;
-    if (inCasa && difficulty <= 2) votoPrevisto += P.bonusCasaFacile;
+    
+    if (inCasa && difficulty <= 2) {
+      votoPrevisto += P.bonusCasaFacile;
+    }
+
     votoPrevisto += teamBonus * 0.5;
   }
 
-  // DIFENSORI
+  // ===== DIFENSORI =====
+  // 🔥 RIMOSSO clean sheet individuale: nel fantacalcio classico i difensori
+  // NON prendono bonus imbattibilità. Il loro "bonus" è il modificatore difesa
+  // (calcolato separatamente in calculateModificatoreBonus()).
   if (role === 'D') {
     const D = CONFIG.difensori;
-    const cleanSheetProb = D.cleanSheetBase[difficulty] ?? 0.35;
-    if (rules.modificatoreDifesa !== 'off') {
-      votoPrevisto += cleanSheetProb * D.pesoCleanSheet;
-    }
+    
+    // Bonus gol
     const golProb = D.golProbability[difficulty] ?? 0.08;
     votoPrevisto += golProb * D.pesoGol;
+    
+    // Bonus assist
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
       const assistProb = D.assistProbability[difficulty] ?? 0.05;
       votoPrevisto += assistProb * assistValue * D.pesoAssist;
     }
-    if (difficulty >= 4) votoPrevisto -= D.malusAvversarioForte;
+    
+    // Malus avversario forte
+    if (difficulty >= 4) {
+      votoPrevisto -= D.malusAvversarioForte;
+    }
   }
 
-  // CENTROCAMPISTI
+  // ===== CENTROCAMPISTI =====
   if (role === 'C') {
     const C = CONFIG.centrocampisti;
+    
     const golProb = C.golProbability[difficulty] ?? 0.2;
     votoPrevisto += golProb * C.pesoGol;
+    
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
       const assistProb = C.assistProbability[difficulty] ?? 0.3;
       votoPrevisto += assistProb * assistValue * C.pesoAssist;
     }
-    if (inCasa && difficulty <= 3) votoPrevisto += C.bonusCasaControllo;
-    if (!inCasa && difficulty >= 4) votoPrevisto -= C.malusTrasfertaDifficile;
+    
+    if (inCasa && difficulty <= 3) {
+      votoPrevisto += C.bonusCasaControllo;
+    }
+    
+    if (!inCasa && difficulty >= 4) {
+      votoPrevisto -= C.malusTrasfertaDifficile;
+    }
   }
 
-  // ATTACCANTI
+  // ===== ATTACCANTI =====
   if (role === 'A') {
     const A = CONFIG.attaccanti;
+    
     const golProb = A.golProbability[difficulty] ?? 0.35;
     votoPrevisto += golProb * A.pesoGol;
+    
     if (rules.assist !== 'off') {
       const assistValue = rules.assist === '1' ? 1 : 0.5;
       const assistProb = A.assistProbability[difficulty] ?? 0.28;
       votoPrevisto += assistProb * assistValue * A.pesoAssist;
     }
+    
     const rigoreProb = A.rigoreProbability[difficulty] ?? 0.12;
     votoPrevisto += rigoreProb * A.pesoRigore;
-    if (inCasa && difficulty <= 2) votoPrevisto += A.bonusCasaFacile;
-    if (!inCasa && difficulty >= 4) votoPrevisto -= A.malusTrasfertaDifficile;
+    
+    if (inCasa && difficulty <= 2) {
+      votoPrevisto += A.bonusCasaFacile;
+    }
+    
+    if (!inCasa && difficulty >= 4) {
+      votoPrevisto -= A.malusTrasfertaDifficile;
+    }
   }
 
   if (!Number.isFinite(votoPrevisto)) return 6;
