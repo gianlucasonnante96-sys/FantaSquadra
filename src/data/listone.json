@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-15T07:18:07.735Z",
+  "aggiornato": "2026-09-15T14:15:31.041Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -8,7 +8,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 34,
       "quotazioneAttuale": 37,
-      "fvm": 445
+      "fvm": 450
     },
     {
       "nome": "Martinez L.",
@@ -16,7 +16,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 35,
       "quotazioneAttuale": 34,
-      "fvm": 390
+      "fvm": 382
     },
     {
       "nome": "Paz N.",
@@ -24,7 +24,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 30,
       "quotazioneAttuale": 30,
-      "fvm": 250
+      "fvm": 257
     },
     {
       "nome": "Dimarco",
@@ -40,7 +40,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 29,
       "quotazioneAttuale": 30,
-      "fvm": 260
+      "fvm": 271
     },
     {
       "nome": "Hojlund",
@@ -48,7 +48,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 28,
       "quotazioneAttuale": 28,
-      "fvm": 285
+      "fvm": 284
     },
     {
       "nome": "Calhanoglu",
@@ -56,7 +56,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 27,
       "quotazioneAttuale": 27,
-      "fvm": 242
+      "fvm": 237
     },
     {
       "nome": "Ramos G.",
@@ -64,7 +64,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 27,
       "quotazioneAttuale": 26,
-      "fvm": 232
+      "fvm": 220
     },
     {
       "nome": "McTominay",
@@ -72,7 +72,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 28,
       "quotazioneAttuale": 26,
-      "fvm": 190
+      "fvm": 150
     },
     {
       "nome": "Orsolini",
@@ -80,7 +80,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 26,
       "quotazioneAttuale": 24,
-      "fvm": 152
+      "fvm": 146
     },
     {
       "nome": "Kean",
@@ -88,7 +88,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 25,
       "quotazioneAttuale": 24,
-      "fvm": 185
+      "fvm": 165
     },
     {
       "nome": "Kolo Muani",
@@ -96,7 +96,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 26,
       "quotazioneAttuale": 24,
-      "fvm": 143
+      "fvm": 120
     },
     {
       "nome": "Pulisic",
@@ -104,7 +104,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 25,
       "quotazioneAttuale": 24,
-      "fvm": 140
+      "fvm": 142
     },
     {
       "nome": "Rabiot",
@@ -112,7 +112,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 22,
       "quotazioneAttuale": 23,
-      "fvm": 142
+      "fvm": 135
     },
     {
       "nome": "Woltemade",
@@ -120,7 +120,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 23,
       "quotazioneAttuale": 22,
-      "fvm": 140
+      "fvm": 127
     },
     {
       "nome": "Douvikas",
@@ -128,7 +128,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 20,
       "quotazioneAttuale": 21,
-      "fvm": 180
+      "fvm": 165
     },
     {
       "nome": "Yildiz",
@@ -136,7 +136,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 23,
       "quotazioneAttuale": 21,
-      "fvm": 80
+      "fvm": 75
     },
     {
       "nome": "Scamacca",
@@ -144,7 +144,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 19,
       "quotazioneAttuale": 20,
-      "fvm": 100
+      "fvm": 104
     },
     {
       "nome": "Baturina",
@@ -160,7 +160,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 19,
       "quotazioneAttuale": 20,
-      "fvm": 100
+      "fvm": 91
     },
     {
       "nome": "Svilar",
@@ -168,7 +168,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 18,
       "quotazioneAttuale": 19,
-      "fvm": 83
+      "fvm": 90
     },
     {
       "nome": "Davis K.",
@@ -176,7 +176,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 19,
       "quotazioneAttuale": 19,
-      "fvm": 113
+      "fvm": 115
     },
     {
       "nome": "Da Cunha",
@@ -192,7 +192,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 17,
       "quotazioneAttuale": 18,
-      "fvm": 81
+      "fvm": 88
     },
     {
       "nome": "Esposito F.P.",
@@ -200,7 +200,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 18,
-      "fvm": 105
+      "fvm": 110
     },
     {
       "nome": "Leao",
@@ -216,7 +216,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 17,
       "quotazioneAttuale": 18,
-      "fvm": 95
+      "fvm": 87
     },
     {
       "nome": "Berardi",
@@ -224,7 +224,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 18,
       "quotazioneAttuale": 18,
-      "fvm": 108
+      "fvm": 106
     },
     {
       "nome": "Molina N.",
@@ -232,7 +232,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 18,
       "quotazioneAttuale": 18,
-      "fvm": 71
+      "fvm": 63
     },
     {
       "nome": "Krstovic",
@@ -240,7 +240,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 18,
       "quotazioneAttuale": 17,
-      "fvm": 96
+      "fvm": 90
     },
     {
       "nome": "De Bruyne",
@@ -256,7 +256,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 18,
       "quotazioneAttuale": 17,
-      "fvm": 75
+      "fvm": 73
     },
     {
       "nome": "Carnesecchi",
@@ -264,7 +264,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 16,
-      "fvm": 57
+      "fvm": 56
     },
     {
       "nome": "De Ketelaere",
@@ -272,7 +272,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 17,
       "quotazioneAttuale": 16,
-      "fvm": 92
+      "fvm": 86
     },
     {
       "nome": "Dovbyk",
@@ -280,7 +280,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 16,
-      "fvm": 50
+      "fvm": 40
     },
     {
       "nome": "Atta",
@@ -288,7 +288,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 17,
       "quotazioneAttuale": 16,
-      "fvm": 72
+      "fvm": 68
     },
     {
       "nome": "Martinez Jo.",
@@ -296,7 +296,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 17,
       "quotazioneAttuale": 16,
-      "fvm": 68
+      "fvm": 63
     },
     {
       "nome": "Bremer",
@@ -304,7 +304,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 16,
-      "fvm": 60
+      "fvm": 56
     },
     {
       "nome": "McKennie",
@@ -312,7 +312,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 17,
       "quotazioneAttuale": 16,
-      "fvm": 70
+      "fvm": 61
     },
     {
       "nome": "Zaccagni",
@@ -320,7 +320,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 16,
-      "fvm": 92
+      "fvm": 100
     },
     {
       "nome": "Pellegrino M.",
@@ -328,7 +328,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 16,
-      "fvm": 50
+      "fvm": 57
     },
     {
       "nome": "Dybala",
@@ -336,7 +336,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 16,
-      "fvm": 110
+      "fvm": 113
     },
     {
       "nome": "Laurientè",
@@ -344,7 +344,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 16,
-      "fvm": 80
+      "fvm": 81
     },
     {
       "nome": "Vicario",
@@ -352,7 +352,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 16,
-      "fvm": 69
+      "fvm": 62
     },
     {
       "nome": "Butez",
@@ -360,7 +360,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 15,
-      "fvm": 50
+      "fvm": 47
     },
     {
       "nome": "Akanji",
@@ -368,7 +368,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 15,
-      "fvm": 45
+      "fvm": 41
     },
     {
       "nome": "Mancini",
@@ -376,7 +376,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 15,
-      "fvm": 50
+      "fvm": 54
     },
     {
       "nome": "Soulè",
@@ -384,7 +384,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 15,
-      "fvm": 54
+      "fvm": 55
     },
     {
       "nome": "Diao",
@@ -408,7 +408,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 14,
-      "fvm": 52
+      "fvm": 51
     },
     {
       "nome": "Rrahmani",
@@ -416,7 +416,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 14,
-      "fvm": 50
+      "fvm": 51
     },
     {
       "nome": "Santos A.",
@@ -424,7 +424,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 14,
-      "fvm": 58
+      "fvm": 55
     },
     {
       "nome": "Castro S.",
@@ -432,7 +432,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 14,
-      "fvm": 70
+      "fvm": 60
     },
     {
       "nome": "Simeone",
@@ -440,7 +440,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 14,
-      "fvm": 74
+      "fvm": 63
     },
     {
       "nome": "Mastantuono",
@@ -456,7 +456,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 14,
-      "fvm": 47
+      "fvm": 52
     },
     {
       "nome": "Samardzic",
@@ -464,7 +464,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 13,
-      "fvm": 43
+      "fvm": 37
     },
     {
       "nome": "Raspadori",
@@ -472,7 +472,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 13,
-      "fvm": 67
+      "fvm": 50
     },
     {
       "nome": "Esposito Se.",
@@ -480,7 +480,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 13,
-      "fvm": 35
+      "fvm": 45
     },
     {
       "nome": "Gudmundsson A.",
@@ -488,7 +488,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 13,
-      "fvm": 44
+      "fvm": 41
     },
     {
       "nome": "Zielinski",
@@ -496,7 +496,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 13,
-      "fvm": 42
+      "fvm": 41
     },
     {
       "nome": "Kalulu",
@@ -504,7 +504,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 13,
-      "fvm": 47
+      "fvm": 42
     },
     {
       "nome": "Conceicao",
@@ -512,7 +512,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 13,
-      "fvm": 69
+      "fvm": 63
     },
     {
       "nome": "Taylor K.",
@@ -520,7 +520,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 13,
-      "fvm": 45
+      "fvm": 43
     },
     {
       "nome": "Pavlovic",
@@ -528,7 +528,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 13,
-      "fvm": 47
+      "fvm": 43
     },
     {
       "nome": "Nkunku",
@@ -544,7 +544,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 13,
-      "fvm": 40
+      "fvm": 35
     },
     {
       "nome": "Ekkelenkamp",
@@ -552,7 +552,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 13,
-      "fvm": 57
+      "fvm": 64
     },
     {
       "nome": "Moreira",
@@ -560,7 +560,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 13,
-      "fvm": 37
+      "fvm": 50
     },
     {
       "nome": "Gonzalez N.",
@@ -576,7 +576,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 12,
-      "fvm": 50
+      "fvm": 48
     },
     {
       "nome": "Ramon",
@@ -584,7 +584,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 12,
-      "fvm": 31
+      "fvm": 35
     },
     {
       "nome": "Bisseck",
@@ -600,7 +600,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 12,
-      "fvm": 22
+      "fvm": 19
     },
     {
       "nome": "Gila",
@@ -608,7 +608,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 12,
-      "fvm": 31
+      "fvm": 29
     },
     {
       "nome": "Modric",
@@ -616,7 +616,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 12,
-      "fvm": 45
+      "fvm": 44
     },
     {
       "nome": "Di Lorenzo",
@@ -632,7 +632,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 12,
-      "fvm": 41
+      "fvm": 37
     },
     {
       "nome": "Vlasic",
@@ -640,7 +640,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 12,
-      "fvm": 65
+      "fvm": 60
     },
     {
       "nome": "Adams A.",
@@ -648,7 +648,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 12,
-      "fvm": 33
+      "fvm": 36
     },
     {
       "nome": "Jones C.",
@@ -656,7 +656,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 12,
-      "fvm": 42
+      "fvm": 36
     },
     {
       "nome": "Caprile",
@@ -672,7 +672,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 11,
-      "fvm": 33
+      "fvm": 34
     },
     {
       "nome": "Rodriguez Je.",
@@ -680,7 +680,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 11,
-      "fvm": 26
+      "fvm": 24
     },
     {
       "nome": "Raimondo",
@@ -688,7 +688,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 11,
-      "fvm": 55
+      "fvm": 60
     },
     {
       "nome": "Baldanzi",
@@ -696,7 +696,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 11,
-      "fvm": 24
+      "fvm": 22
     },
     {
       "nome": "Frattesi",
@@ -704,7 +704,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 11,
-      "fvm": 120
+      "fvm": 117
     },
     {
       "nome": "Alajbegovic",
@@ -712,7 +712,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 11,
-      "fvm": 42
+      "fvm": 40
     },
     {
       "nome": "Mandas",
@@ -720,7 +720,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 11,
-      "fvm": 37
+      "fvm": 35
     },
     {
       "nome": "Hermoso",
@@ -728,7 +728,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 11,
-      "fvm": 35
+      "fvm": 34
     },
     {
       "nome": "Bowie",
@@ -736,7 +736,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 11,
-      "fvm": 32
+      "fvm": 34
     },
     {
       "nome": "Pinamonti",
@@ -744,7 +744,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 11,
-      "fvm": 52
+      "fvm": 51
     },
     {
       "nome": "Adams C.",
@@ -752,7 +752,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 11,
-      "fvm": 31
+      "fvm": 27
     },
     {
       "nome": "Kevin Carlos",
@@ -760,7 +760,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 11,
-      "fvm": 30
+      "fvm": 25
     },
     {
       "nome": "Romero D.",
@@ -768,7 +768,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 11,
-      "fvm": 32
+      "fvm": 35
     },
     {
       "nome": "Spence",
@@ -776,7 +776,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 11,
-      "fvm": 32
+      "fvm": 23
     },
     {
       "nome": "Kessiè",
@@ -784,7 +784,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 11,
-      "fvm": 44
+      "fvm": 38
     },
     {
       "nome": "Goncalves P.",
@@ -792,7 +792,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 11,
-      "fvm": 47
+      "fvm": 40
     },
     {
       "nome": "Scalvini",
@@ -800,7 +800,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 10,
-      "fvm": 26
+      "fvm": 25
     },
     {
       "nome": "Skorupski",
@@ -808,7 +808,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 10,
-      "fvm": 32
+      "fvm": 28
     },
     {
       "nome": "Bernardeschi",
@@ -824,7 +824,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 10,
-      "fvm": 39
+      "fvm": 37
     },
     {
       "nome": "De Gea",
@@ -832,7 +832,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 10,
-      "fvm": 25
+      "fvm": 24
     },
     {
       "nome": "Mandragora",
@@ -848,7 +848,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 10,
-      "fvm": 34
+      "fvm": 32
     },
     {
       "nome": "Colombo",
@@ -856,7 +856,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 10,
-      "fvm": 55
+      "fvm": 51
     },
     {
       "nome": "Diouf",
@@ -864,7 +864,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 10,
-      "fvm": 43
+      "fvm": 53
     },
     {
       "nome": "Cancellieri",
@@ -888,7 +888,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 10,
-      "fvm": 32
+      "fvm": 28
     },
     {
       "nome": "Meret",
@@ -896,7 +896,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 10,
-      "fvm": 49
+      "fvm": 45
     },
     {
       "nome": "Lobotka",
@@ -904,7 +904,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 10,
-      "fvm": 23
+      "fvm": 28
     },
     {
       "nome": "Zambo Anguissa",
@@ -912,7 +912,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 10,
-      "fvm": 35
+      "fvm": 30
     },
     {
       "nome": "Politano",
@@ -920,7 +920,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 10,
-      "fvm": 40
+      "fvm": 35
     },
     {
       "nome": "Lukaku",
@@ -944,7 +944,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 10,
-      "fvm": 33
+      "fvm": 32
     },
     {
       "nome": "Yeboah J.",
@@ -960,7 +960,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 10,
-      "fvm": 34
+      "fvm": 30
     },
     {
       "nome": "Chalobah T.",
@@ -968,7 +968,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 10,
-      "fvm": 32
+      "fvm": 28
     },
     {
       "nome": "Maldini",
@@ -976,7 +976,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 9,
-      "fvm": 25
+      "fvm": 28
     },
     {
       "nome": "Dodò",
@@ -984,7 +984,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 9,
-      "fvm": 20
+      "fvm": 16
     },
     {
       "nome": "Piccoli",
@@ -992,7 +992,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 9,
-      "fvm": 50
+      "fvm": 43
     },
     {
       "nome": "Calò",
@@ -1000,7 +1000,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 9,
-      "fvm": 27
+      "fvm": 30
     },
     {
       "nome": "Ghedjemis",
@@ -1008,7 +1008,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 9,
-      "fvm": 25
+      "fvm": 26
     },
     {
       "nome": "Kvernadze",
@@ -1016,7 +1016,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 9,
-      "fvm": 30
+      "fvm": 38
     },
     {
       "nome": "Vasquez",
@@ -1032,7 +1032,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 9,
-      "fvm": 20
+      "fvm": 25
     },
     {
       "nome": "Di Gregorio",
@@ -1048,7 +1048,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 9,
-      "fvm": 20
+      "fvm": 15
     },
     {
       "nome": "Isaksen",
@@ -1072,7 +1072,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 9,
-      "fvm": 20
+      "fvm": 23
     },
     {
       "nome": "Coulibaly L.",
@@ -1080,7 +1080,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 9,
-      "fvm": 17
+      "fvm": 16
     },
     {
       "nome": "Mangas",
@@ -1088,7 +1088,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 9,
-      "fvm": 15
+      "fvm": 25
     },
     {
       "nome": "Colpani",
@@ -1104,7 +1104,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 9,
-      "fvm": 20
+      "fvm": 17
     },
     {
       "nome": "Vergara",
@@ -1112,7 +1112,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 9,
-      "fvm": 34
+      "fvm": 32
     },
     {
       "nome": "Valeri",
@@ -1144,7 +1144,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 9,
-      "fvm": 25
+      "fvm": 24
     },
     {
       "nome": "Casadei",
@@ -1152,7 +1152,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 9,
-      "fvm": 23
+      "fvm": 20
     },
     {
       "nome": "Kamara H.",
@@ -1168,7 +1168,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 9,
-      "fvm": 32
+      "fvm": 31
     },
     {
       "nome": "Pellegrini Lo.",
@@ -1176,7 +1176,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 9,
-      "fvm": 20
+      "fvm": 18
     },
     {
       "nome": "Osmajic",
@@ -1184,7 +1184,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 9,
-      "fvm": 34
+      "fvm": 31
     },
     {
       "nome": "Bobcek",
@@ -1192,7 +1192,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 9,
-      "fvm": 15
+      "fvm": 13
     },
     {
       "nome": "Perri",
@@ -1200,7 +1200,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 9,
-      "fvm": 23
+      "fvm": 17
     },
     {
       "nome": "Zappacosta",
@@ -1208,7 +1208,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 16
+      "fvm": 14
     },
     {
       "nome": "Pasalic",
@@ -1224,7 +1224,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 17
+      "fvm": 16
     },
     {
       "nome": "Miranda J.",
@@ -1232,7 +1232,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 25
+      "fvm": 22
     },
     {
       "nome": "Ferguson",
@@ -1240,7 +1240,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 8,
-      "fvm": 23
+      "fvm": 22
     },
     {
       "nome": "Cambiaghi",
@@ -1248,7 +1248,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 25
+      "fvm": 22
     },
     {
       "nome": "Dallinga",
@@ -1288,7 +1288,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 8,
-      "fvm": 13
+      "fvm": 16
     },
     {
       "nome": "Dragusin",
@@ -1296,7 +1296,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 20
+      "fvm": 18
     },
     {
       "nome": "Jimenez A.",
@@ -1312,7 +1312,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 18
+      "fvm": 20
     },
     {
       "nome": "Ndour",
@@ -1320,7 +1320,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 18
+      "fvm": 17
     },
     {
       "nome": "Norton-Cuffy",
@@ -1352,7 +1352,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 8,
-      "fvm": 15
+      "fvm": 18
     },
     {
       "nome": "Cambiaso",
@@ -1360,7 +1360,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 8,
-      "fvm": 15
+      "fvm": 10
     },
     {
       "nome": "Locatelli",
@@ -1368,7 +1368,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 25
+      "fvm": 15
     },
     {
       "nome": "Zhegrova",
@@ -1376,7 +1376,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 8,
-      "fvm": 14
+      "fvm": 25
     },
     {
       "nome": "David",
@@ -1392,7 +1392,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 8,
-      "fvm": 16
+      "fvm": 15
     },
     {
       "nome": "Noslin",
@@ -1400,7 +1400,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 8,
-      "fvm": 8
+      "fvm": 15
     },
     {
       "nome": "Falcone",
@@ -1408,7 +1408,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 26
+      "fvm": 24
     },
     {
       "nome": "Geubbels",
@@ -1416,7 +1416,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 8,
-      "fvm": 21
+      "fvm": 18
     },
     {
       "nome": "Bartesaghi",
@@ -1424,7 +1424,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 15
+      "fvm": 12
     },
     {
       "nome": "Chukwueze",
@@ -1464,7 +1464,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 8,
-      "fvm": 19
+      "fvm": 30
     },
     {
       "nome": "Konè I.",
@@ -1488,7 +1488,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 8,
-      "fvm": 28
+      "fvm": 26
     },
     {
       "nome": "Vojvoda",
@@ -1512,7 +1512,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 23
+      "fvm": 26
     },
     {
       "nome": "Theate",
@@ -1528,7 +1528,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 8,
-      "fvm": 18
+      "fvm": 17
     },
     {
       "nome": "Diego Carlos",
@@ -1536,7 +1536,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 23
+      "fvm": 21
     },
     {
       "nome": "Sanchez Ro.",
@@ -1568,7 +1568,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 7,
-      "fvm": 30
+      "fvm": 28
     },
     {
       "nome": "Zalewski",
@@ -1576,7 +1576,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 7,
-      "fvm": 18
+      "fvm": 13
     },
     {
       "nome": "Pobega",
@@ -1592,7 +1592,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 7,
-      "fvm": 15
+      "fvm": 14
     },
     {
       "nome": "Mina",
@@ -1600,7 +1600,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 7,
-      "fvm": 20
+      "fvm": 15
     },
     {
       "nome": "Zè Pedro",
@@ -1608,7 +1608,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 7,
-      "fvm": 13
+      "fvm": 14
     },
     {
       "nome": "Winks",
@@ -1632,7 +1632,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 7,
-      "fvm": 14
+      "fvm": 16
     },
     {
       "nome": "Valle",
@@ -1640,7 +1640,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 7,
-      "fvm": 26
+      "fvm": 23
     },
     {
       "nome": "Bracaglia",
@@ -1720,7 +1720,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 7,
-      "fvm": 36
+      "fvm": 37
     },
     {
       "nome": "Suzuki",
@@ -1736,7 +1736,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 7,
-      "fvm": 31
+      "fvm": 30
     },
     {
       "nome": "Koulierakis",
@@ -1744,7 +1744,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 7,
-      "fvm": 15
+      "fvm": 10
     },
     {
       "nome": "Idzes",
@@ -1752,7 +1752,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 7,
-      "fvm": 19
+      "fvm": 17
     },
     {
       "nome": "Doig",
@@ -1768,7 +1768,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 7,
-      "fvm": 15
+      "fvm": 16
     },
     {
       "nome": "Coco",
@@ -1784,7 +1784,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 7,
-      "fvm": 13
+      "fvm": 12
     },
     {
       "nome": "Cacciamani",
@@ -1792,7 +1792,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 7,
-      "fvm": 28
+      "fvm": 26
     },
     {
       "nome": "Unai Gomez",
@@ -1824,7 +1824,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 7,
-      "fvm": 14
+      "fvm": 15
     },
     {
       "nome": "Fortini",
@@ -1848,7 +1848,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 7,
-      "fvm": 11
+      "fvm": 14
     },
     {
       "nome": "Hutchinson",
@@ -1856,7 +1856,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 7,
-      "fvm": 21
+      "fvm": 18
     },
     {
       "nome": "Monteiro J.",
@@ -1872,7 +1872,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 7,
-      "fvm": 25
+      "fvm": 23
     },
     {
       "nome": "Zeballos",
@@ -1880,7 +1880,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 7,
-      "fvm": 17
+      "fvm": 21
     },
     {
       "nome": "Mbangula",
@@ -1888,7 +1888,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 7,
-      "fvm": 22
+      "fvm": 20
     },
     {
       "nome": "Gnonto",
@@ -1896,7 +1896,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 7,
-      "fvm": 23
+      "fvm": 20
     },
     {
       "nome": "Braganca",
@@ -1912,7 +1912,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 7,
-      "fvm": 20
+      "fvm": 13
     },
     {
       "nome": "Kolasinac",
@@ -1920,7 +1920,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 6,
-      "fvm": 8
+      "fvm": 12
     },
     {
       "nome": "Ahanor",
@@ -1936,7 +1936,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 18
+      "fvm": 16
     },
     {
       "nome": "Heggem",
@@ -1944,7 +1944,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 15
+      "fvm": 14
     },
     {
       "nome": "Holm",
@@ -1960,7 +1960,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 19
+      "fvm": 15
     },
     {
       "nome": "Mutandwa",
@@ -1976,7 +1976,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 6,
-      "fvm": 13
+      "fvm": 12
     },
     {
       "nome": "Milla",
@@ -1984,7 +1984,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 6,
-      "fvm": 28
+      "fvm": 27
     },
     {
       "nome": "Caqueret",
@@ -2000,7 +2000,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 17
+      "fvm": 13
     },
     {
       "nome": "Viery",
@@ -2008,7 +2008,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 12
+      "fvm": 13
     },
     {
       "nome": "Oulai",
@@ -2016,7 +2016,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 18
+      "fvm": 16
     },
     {
       "nome": "Palmisani",
@@ -2024,7 +2024,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 6,
-      "fvm": 12
+      "fvm": 13
     },
     {
       "nome": "Calvani",
@@ -2040,7 +2040,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 13
+      "fvm": 12
     },
     {
       "nome": "Zerbin",
@@ -2088,7 +2088,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 27
+      "fvm": 23
     },
     {
       "nome": "Romagnoli",
@@ -2104,7 +2104,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 20
+      "fvm": 21
     },
     {
       "nome": "Rovella",
@@ -2168,7 +2168,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 6,
-      "fvm": 12
+      "fvm": 14
     },
     {
       "nome": "Pessina",
@@ -2184,7 +2184,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 6,
-      "fvm": 15
+      "fvm": 14
     },
     {
       "nome": "Daffara",
@@ -2192,7 +2192,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 6,
-      "fvm": 7
+      "fvm": 5
     },
     {
       "nome": "Circati",
@@ -2216,7 +2216,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 6,
-      "fvm": 15
+      "fvm": 14
     },
     {
       "nome": "Bakola",
@@ -2224,7 +2224,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 6,
-      "fvm": 14
+      "fvm": 18
     },
     {
       "nome": "Fitz-Jim",
@@ -2264,7 +2264,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 6,
-      "fvm": 20
+      "fvm": 14
     },
     {
       "nome": "Piotrowski",
@@ -2272,7 +2272,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 6,
-      "fvm": 14
+      "fvm": 13
     },
     {
       "nome": "Gueye",
@@ -2280,7 +2280,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 6,
-      "fvm": 7
+      "fvm": 10
     },
     {
       "nome": "Hainaut",
@@ -2296,7 +2296,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 19
+      "fvm": 16
     },
     {
       "nome": "Perez K.",
@@ -2312,7 +2312,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 6,
-      "fvm": 12
+      "fvm": 13
     },
     {
       "nome": "Obrador",
@@ -2320,7 +2320,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
-      "fvm": 13
+      "fvm": 11
     },
     {
       "nome": "Cissè A.",
@@ -2328,7 +2328,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 6,
-      "fvm": 40
+      "fvm": 38
     },
     {
       "nome": "Elmas",
@@ -2336,7 +2336,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 6,
-      "fvm": 22
+      "fvm": 21
     },
     {
       "nome": "Badiashile",
@@ -2344,7 +2344,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 6,
-      "fvm": 18
+      "fvm": 11
     },
     {
       "nome": "Sutalo J.",
@@ -2400,7 +2400,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 5,
-      "fvm": 8
+      "fvm": 4
     },
     {
       "nome": "Rodriguez Ju.",
@@ -2432,7 +2432,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 5,
-      "fvm": 13
+      "fvm": 11
     },
     {
       "nome": "Fini",
@@ -2440,7 +2440,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 5,
-      "fvm": 13
+      "fvm": 11
     },
     {
       "nome": "Masini",
@@ -2464,7 +2464,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 5,
-      "fvm": 10
+      "fvm": 12
     },
     {
       "nome": "Kelly L.",
@@ -2496,7 +2496,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 5,
-      "fvm": 25
+      "fvm": 24
     },
     {
       "nome": "Jashari",
@@ -2528,7 +2528,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 5,
-      "fvm": 5
+      "fvm": 10
     },
     {
       "nome": "Beukema",
@@ -2536,7 +2536,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 5,
-      "fvm": 12
+      "fvm": 10
     },
     {
       "nome": "Neres",
@@ -2544,7 +2544,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 5,
-      "fvm": 20
+      "fvm": 18
     },
     {
       "nome": "Nicolussi Caviglia",
@@ -2576,7 +2576,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 5,
-      "fvm": 10
+      "fvm": 8
     },
     {
       "nome": "Comert",
@@ -2600,7 +2600,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 5,
-      "fvm": 25
+      "fvm": 27
     },
     {
       "nome": "Abankwah",
@@ -2608,7 +2608,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 5,
-      "fvm": 10
+      "fvm": 13
     },
     {
       "nome": "Stankovic F.",
@@ -2616,7 +2616,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 5,
-      "fvm": 11
+      "fvm": 9
     },
     {
       "nome": "Bella-Kotchap",
@@ -2632,7 +2632,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 5,
-      "fvm": 12
+      "fvm": 8
     },
     {
       "nome": "Haps",
@@ -2648,7 +2648,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 5,
-      "fvm": 11
+      "fvm": 10
     },
     {
       "nome": "Lontani",
@@ -2664,7 +2664,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 5,
-      "fvm": 11
+      "fvm": 15
     },
     {
       "nome": "Tourè I.",
@@ -2680,7 +2680,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 5,
-      "fvm": 12
+      "fvm": 10
     },
     {
       "nome": "Rodriguez R.",
@@ -2712,7 +2712,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 4,
-      "fvm": 10
+      "fvm": 11
     },
     {
       "nome": "Moro N.",
@@ -2792,7 +2792,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 4,
-      "fvm": 8
+      "fvm": 11
     },
     {
       "nome": "Cichella",
@@ -2840,7 +2840,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 4,
-      "fvm": 11
+      "fvm": 9
     },
     {
       "nome": "Luis Henrique",
@@ -2864,7 +2864,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
-      "fvm": 15
+      "fvm": 13
     },
     {
       "nome": "Provstgaard",
@@ -2872,7 +2872,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 4,
-      "fvm": 13
+      "fvm": 12
     },
     {
       "nome": "Floriani Mussolini",
@@ -2880,7 +2880,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 4,
-      "fvm": 10
+      "fvm": 11
     },
     {
       "nome": "Dele-Bashiru",
@@ -2936,7 +2936,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 4,
-      "fvm": 12
+      "fvm": 10
     },
     {
       "nome": "Fofana Y.",
@@ -2960,7 +2960,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 4,
-      "fvm": 20
+      "fvm": 15
     },
     {
       "nome": "Thiam",
@@ -2968,7 +2968,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 4,
-      "fvm": 5
+      "fvm": 4
     },
     {
       "nome": "Delli Carri",
@@ -3008,7 +3008,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 4,
-      "fvm": 13
+      "fvm": 10
     },
     {
       "nome": "Folorunsho",
@@ -3016,7 +3016,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
-      "fvm": 17
+      "fvm": 15
     },
     {
       "nome": "Lang",
@@ -3024,7 +3024,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 4,
-      "fvm": 14
+      "fvm": 13
     },
     {
       "nome": "Troilo",
@@ -3048,7 +3048,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 4,
-      "fvm": 10
+      "fvm": 12
     },
     {
       "nome": "Frigan",
@@ -3088,7 +3088,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
-      "fvm": 10
+      "fvm": 9
     },
     {
       "nome": "Miller L.",
@@ -3136,7 +3136,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
-      "fvm": 8
+      "fvm": 5
     },
     {
       "nome": "Milik",
@@ -3152,7 +3152,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 4,
-      "fvm": 4
+      "fvm": 10
     },
     {
       "nome": "Fatah",
@@ -3176,7 +3176,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 4,
-      "fvm": 13
+      "fvm": 12
     },
     {
       "nome": "Massolin",
@@ -3280,7 +3280,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 3,
-      "fvm": 8
+      "fvm": 12
     },
     {
       "nome": "Hasa",
@@ -3296,7 +3296,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 3,
-      "fvm": 10
+      "fvm": 7
     },
     {
       "nome": "Havel",
@@ -3328,7 +3328,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 3,
-      "fvm": 12
+      "fvm": 10
     },
     {
       "nome": "Gorter",
@@ -3456,7 +3456,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 3,
-      "fvm": 10
+      "fvm": 16
     },
     {
       "nome": "Aboukhlal",
@@ -3512,7 +3512,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 3,
-      "fvm": 8
+      "fvm": 7
     },
     {
       "nome": "Lulli",
@@ -3536,7 +3536,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 3,
-      "fvm": 10
+      "fvm": 9
     },
     {
       "nome": "Fernandez T.",
@@ -3672,7 +3672,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 2,
       "quotazioneAttuale": 2,
-      "fvm": 8
+      "fvm": 13
     },
     {
       "nome": "Cremaschi",
@@ -3800,7 +3800,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 2,
-      "fvm": 8
+      "fvm": 6
     },
     {
       "nome": "Kambwala",
@@ -3808,7 +3808,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 2,
-      "fvm": 8
+      "fvm": 7
     },
     {
       "nome": "Drobnic",
@@ -3928,7 +3928,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
-      "fvm": 10
+      "fvm": 3
     },
     {
       "nome": "Vigorito",
@@ -4440,7 +4440,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
-      "fvm": 5
+      "fvm": 1
     },
     {
       "nome": "Paleari",
