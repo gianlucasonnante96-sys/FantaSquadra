@@ -302,7 +302,7 @@ async function scrapeListone(page) {
 }
 
 // ============================================================
-// 🔥 SCRAPING STATISTICHE (FIXATO!)
+// SCRAPING STATISTICHE (MV + FM reali)
 // ============================================================
 
 async function scrapeStatistiche(page) {
@@ -342,30 +342,24 @@ async function scrapeStatistiche(page) {
       
       rows.forEach(row => {
         try {
-          // NOME
           const nameEl = row.querySelector('th.player-name a span');
           const nome = nameEl ? nameEl.textContent?.trim() : '';
           if (!nome) return;
           
-          // RUOLO (da attributo del tr)
           const roleAttr = row.getAttribute('data-filter-role-classic') || '';
           const role = roleAttr.toUpperCase().trim();
           
-          // SQUADRA
           const teamEl = row.querySelector('td.player-team');
           const squadra = teamEl ? teamEl.textContent?.trim() : '';
           
-          // 🔥 MEDIA VOTO (dal td.player-grade-avg)
           const mvEl = row.querySelector('td.player-grade-avg');
           const mvText = mvEl ? mvEl.textContent?.trim() : '';
           const mediaVoto = parseFloat(mvText) || 0;
           
-          // 🔥 FANTAMEDIA VERA (dal td.player-fanta-grade-avg)
           const fmEl = row.querySelector('td.player-fanta-grade-avg');
           const fmText = fmEl ? fmEl.textContent?.trim() : '';
           const fantamedia = parseFloat(fmText) || 0;
           
-          // PARTITE GIOCATE
           const pgEl = row.querySelector('td.player-match-played');
           const partiteGiocate = parseInt(pgEl?.textContent?.trim() || '0') || 0;
           
@@ -388,8 +382,7 @@ async function scrapeStatistiche(page) {
     if (numGiocatori > 0) {
       console.log('📊 Esempio primi 5 giocatori:');
       Object.entries(statisticheData).slice(0, 5).forEach(([nome, stats]) => {
-        const s = stats as any;
-        console.log(`  - ${nome} (${s.ruolo}, ${s.squadra}): MV=${s.mediaVoto}, FM=${s.fantamedia}, PG=${s.partiteGiocate}`);
+        console.log(`  - ${nome} (${stats.ruolo}, ${stats.squadra}): MV=${stats.mediaVoto}, FM=${stats.fantamedia}, PG=${stats.partiteGiocate}`);
       });
     }
     
