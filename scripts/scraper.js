@@ -9,8 +9,10 @@ const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://www.fantacalcio.it/probabili-formazioni-serie-a';
 const QUOTAZIONI_URL = 'https://www.fantacalcio.it/quotazioni-fantacalcio';
+const STATISTICHE_URL = 'https://www.fantacalcio.it/statistiche-serie-a/2026-27/italia/';
 const OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'formazioni.json');
 const LISTONE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'listone.json');
+const STATISTICHE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'statistiche.json');
 
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
@@ -22,6 +24,10 @@ const BLOCKED_DOMAINS = [
   'facebook.net', 'rubiconproject.com', 'criteo.com', 'taboola.com',
   'outbrain.com', 'adskindiv', 'revive',
 ];
+
+// ============================================================
+// UTILITY
+// ============================================================
 
 function leggiFormazioniEsistenti() {
   try {
@@ -56,184 +62,6 @@ function mergeFormazioni(esistenti, nuove) {
   }
   console.log(`🔀 Merge: ${nuoveCount} nuove, ${aggiornateCount} aggiornate, ${Object.keys(risultato).length} totali`);
   return risultato;
-}
-
-// ============================================================
-// SCRAPING LISTONE QUOTAZIONI
-// ============================================================
-
-async function scrapeListone(page) {
-  console.log('\n📋 Recupero listone quotazioni...');
-  
-  try {
-    await page.goto(QUOTAZIONI_URL, {
-      waitUntil: 'domcontentloaded',
-      timeout: 90000
-    });
-    
-    console.log('✅ Titolo pagina quotazioni:', await page.title());
-    await sleep(5000);
-    
-    await page.evaluate(() => {
-      document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"]').forEach(el => el.remove());
-    });
-    
-    console.log('⏳ Scroll per caricare tutti i giocatori...');
-    
-    let previousCount = 0;
-    let attempts = 0;
-    const maxAttempts = 30;
-    
-    while (attempts < maxAttempts) {
-      const currentCount = await page.evaluate(() => {
-        return document.querySelectorAll('tr.player-row').length;
-      });
-      
-      console.log(`  📊 Giocatori caricati: ${currentCount}`);
-      
-      if (currentCount === previousCount && attempts > 3) {
-        console.log('  ✅ Nessun nuovo giocatore, scroll completato');
-        break;
-      }
-      
-      previousCount = currentCount;
-      
-      await page.evaluate(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-      
-      await sleep(2000);
-      attempts++;
-    }
-    
-    const totalGiocatori = await page.evaluate(() => {
-      return document.querySelectorAll('tr.player-row').length;
-    });
-    
-    console.log(`✅ Scroll completato: ${totalGiocatori} giocatori visibili`);
-    
-    console.log('🔍 Estrazione dati dal listone...');
-    
-    const listoneData = await page.evaluate(() => {
-      const giocatori = [];
-      const rows = document.querySelectorAll('tr.player-row');
-      
-      rows.forEach(row => {
-        try {
-          // 🔥 FIX RUOLO: leggi da data-filter-role-classic del <tr>
-          let role = '';
-          
-          // Strategia 1: attributo del <tr> (LA MIGLIORE!)
-          const roleAttr = row.getAttribute('data-filter-role-classic');
-          if (roleAttr) {
-            role = roleAttr.toUpperCase().trim();
-          }
-          
-          // Strategia 2: span.role data-value
-          if (!role) {
-            const roleSpan = row.querySelector('span.role');
-            if (roleSpan) {
-              const dataValue = roleSpan.getAttribute('data-value');
-              if (dataValue) {
-                role = dataValue.toUpperCase().trim();
-              }
-            }
-          }
-          
-          // Strategia 3: classi del <th class="player-role...">
-          if (!role) {
-            const roleTh = row.querySelector('th.player-role');
-            if (roleTh) {
-              const classes = (roleTh.className || '').split(/\s+/);
-              for (const cls of classes) {
-                const m = cls.match(/([PDCA])/);
-                if (m && 'PDCA'.includes(m[1].toUpperCase())) {
-                  role = m[1].toUpperCase();
-                  break;
-                }
-              }
-            }
-          }
-          
-          // Validazione: deve essere P/D/C/A
-          if (!['P', 'D', 'C', 'A'].includes(role)) {
-            role = '';
-          }
-          
-          // NOME
-          const nameEl = row.querySelector('th.player-name a span');
-          const nome = nameEl ? nameEl.textContent?.trim() || '' : '';
-          
-          // SQUADRA
-          const teamEl = row.querySelector('td.player-team');
-          const squadra = teamEl ? teamEl.textContent?.trim() || '' : '';
-          
-          // QUOTAZIONE INIZIALE
-          const qiEl = row.querySelector('td.player-classic-initial-price');
-          const qiText = qiEl ? qiEl.textContent?.trim() || '0' : '0';
-          const quotazioneIniziale = parseInt(qiText) || 0;
-          
-          // QUOTAZIONE ATTUALE
-          const qaEl = row.querySelector('td.player-classic-current-price');
-          const qaText = qaEl ? qaEl.textContent?.trim() || '0' : '0';
-          const quotazioneAttuale = parseInt(qaText) || 0;
-          
-          // FVM
-          const fvmEl = row.querySelector('td.player-classic-fvm');
-          const fvmText = fvmEl ? fvmEl.textContent?.trim() || '0' : '0';
-          const fvm = parseInt(fvmText) || 0;
-          
-          if (nome && squadra) {
-            giocatori.push({
-              nome,
-              squadra,
-              ruolo: role,
-              quotazioneIniziale,
-              quotazioneAttuale,
-              fvm,
-            });
-          }
-        } catch (e) {
-          // Ignora righe malformate
-        }
-      });
-      
-      return giocatori;
-    });
-    
-    console.log(`✅ Estratti ${listoneData.length} giocatori dal listone`);
-    
-    // Statistiche ruoli
-    const ruoliCount = { P: 0, D: 0, C: 0, A: 0, '': 0 };
-    listoneData.forEach(g => {
-      if (ruoliCount[g.ruolo] !== undefined) ruoliCount[g.ruolo]++;
-      else ruoliCount['']++;
-    });
-    console.log(`📊 Ruoli estratti: P=${ruoliCount.P}, D=${ruoliCount.D}, C=${ruoliCount.C}, A=${ruoliCount.A}, vuoti=${ruoliCount['']}`);
-    
-    if (listoneData.length > 0) {
-      console.log('📊 Esempio primi 5 giocatori:');
-      listoneData.slice(0, 5).forEach(g => {
-        console.log(`  - ${g.nome} (${g.squadra}, ${g.ruolo || '?'}): Qi=${g.quotazioneIniziale}, Qa=${g.quotazioneAttuale}, FVM=${g.fvm}`);
-      });
-    }
-    
-    const output = {
-      aggiornato: new Date().toISOString(),
-      fonte: 'fantacalcio.it',
-      giocatori: listoneData,
-    };
-    
-    fs.mkdirSync(path.dirname(LISTONE_OUTPUT_PATH), { recursive: true });
-    fs.writeFileSync(LISTONE_OUTPUT_PATH, JSON.stringify(output, null, 2));
-    
-    console.log(`✅ Listone salvato: ${listoneData.length} giocatori in listone.json`);
-    
-    return listoneData;
-  } catch (e) {
-    console.error('❌ Errore scraping listone:', e.message);
-    return [];
-  }
 }
 
 // ============================================================
@@ -396,6 +224,293 @@ async function scrapeFormazioni(page) {
 }
 
 // ============================================================
+// SCRAPING LISTONE QUOTAZIONI
+// ============================================================
+
+async function scrapeListone(page) {
+  console.log('\n📋 Recupero listone quotazioni...');
+  
+  try {
+    await page.goto(QUOTAZIONI_URL, {
+      waitUntil: 'domcontentloaded',
+      timeout: 90000
+    });
+    
+    console.log('✅ Titolo pagina quotazioni:', await page.title());
+    await sleep(5000);
+    
+    await page.evaluate(() => {
+      document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"]').forEach(el => el.remove());
+    });
+    
+    console.log('⏳ Scroll per caricare tutti i giocatori...');
+    
+    let previousCount = 0;
+    let attempts = 0;
+    const maxAttempts = 30;
+    
+    while (attempts < maxAttempts) {
+      const currentCount = await page.evaluate(() => {
+        return document.querySelectorAll('tr.player-row').length;
+      });
+      
+      console.log(`  📊 Giocatori caricati: ${currentCount}`);
+      
+      if (currentCount === previousCount && attempts > 3) {
+        console.log('  ✅ Nessun nuovo giocatore, scroll completato');
+        break;
+      }
+      
+      previousCount = currentCount;
+      
+      await page.evaluate(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+      
+      await sleep(2000);
+      attempts++;
+    }
+    
+    const totalGiocatori = await page.evaluate(() => {
+      return document.querySelectorAll('tr.player-row').length;
+    });
+    
+    console.log(`✅ Scroll completato: ${totalGiocatori} giocatori visibili`);
+    
+    console.log('🔍 Estrazione dati dal listone...');
+    
+    const listoneData = await page.evaluate(() => {
+      const giocatori = [];
+      const rows = document.querySelectorAll('tr.player-row');
+      
+      rows.forEach(row => {
+        try {
+          let role = '';
+          
+          const roleAttr = row.getAttribute('data-filter-role-classic');
+          if (roleAttr) {
+            role = roleAttr.toUpperCase().trim();
+          }
+          
+          if (!role) {
+            const roleSpan = row.querySelector('span.role');
+            if (roleSpan) {
+              const dataValue = roleSpan.getAttribute('data-value');
+              if (dataValue) {
+                role = dataValue.toUpperCase().trim();
+              }
+            }
+          }
+          
+          if (!role) {
+            const roleTh = row.querySelector('th.player-role');
+            if (roleTh) {
+              const classes = (roleTh.className || '').split(/\s+/);
+              for (const cls of classes) {
+                const m = cls.match(/([PDCA])/);
+                if (m && 'PDCA'.includes(m[1].toUpperCase())) {
+                  role = m[1].toUpperCase();
+                  break;
+                }
+              }
+            }
+          }
+          
+          if (!['P', 'D', 'C', 'A'].includes(role)) {
+            role = '';
+          }
+          
+          const nameEl = row.querySelector('th.player-name a span');
+          const nome = nameEl ? nameEl.textContent?.trim() || '' : '';
+          
+          const teamEl = row.querySelector('td.player-team');
+          const squadra = teamEl ? teamEl.textContent?.trim() || '' : '';
+          
+          const qiEl = row.querySelector('td.player-classic-initial-price');
+          const qiText = qiEl ? qiEl.textContent?.trim() || '0' : '0';
+          const quotazioneIniziale = parseInt(qiText) || 0;
+          
+          const qaEl = row.querySelector('td.player-classic-current-price');
+          const qaText = qaEl ? qaEl.textContent?.trim() || '0' : '0';
+          const quotazioneAttuale = parseInt(qaText) || 0;
+          
+          const fvmEl = row.querySelector('td.player-classic-fvm');
+          const fvmText = fvmEl ? fvmEl.textContent?.trim() || '0' : '0';
+          const fvm = parseInt(fvmText) || 0;
+          
+          if (nome && squadra) {
+            giocatori.push({
+              nome,
+              squadra,
+              ruolo: role,
+              quotazioneIniziale,
+              quotazioneAttuale,
+              fvm,
+            });
+          }
+        } catch (e) {
+          // Ignora righe malformate
+        }
+      });
+      
+      return giocatori;
+    });
+    
+    console.log(`✅ Estratti ${listoneData.length} giocatori dal listone`);
+    
+    const ruoliCount = { P: 0, D: 0, C: 0, A: 0, '': 0 };
+    listoneData.forEach(g => {
+      if (ruoliCount[g.ruolo] !== undefined) ruoliCount[g.ruolo]++;
+      else ruoliCount['']++;
+    });
+    console.log(`📊 Ruoli estratti: P=${ruoliCount.P}, D=${ruoliCount.D}, C=${ruoliCount.C}, A=${ruoliCount.A}, vuoti=${ruoliCount['']}`);
+    
+    if (listoneData.length > 0) {
+      console.log('📊 Esempio primi 5 giocatori:');
+      listoneData.slice(0, 5).forEach(g => {
+        console.log(`  - ${g.nome} (${g.squadra}, ${g.ruolo || '?'}): Qi=${g.quotazioneIniziale}, Qa=${g.quotazioneAttuale}, FVM=${g.fvm}`);
+      });
+    }
+    
+    const output = {
+      aggiornato: new Date().toISOString(),
+      fonte: 'fantacalcio.it',
+      giocatori: listoneData,
+    };
+    
+    fs.mkdirSync(path.dirname(LISTONE_OUTPUT_PATH), { recursive: true });
+    fs.writeFileSync(LISTONE_OUTPUT_PATH, JSON.stringify(output, null, 2));
+    
+    console.log(`✅ Listone salvato: ${listoneData.length} giocatori in listone.json`);
+    
+    return listoneData;
+  } catch (e) {
+    console.error('❌ Errore scraping listone:', e.message);
+    return [];
+  }
+}
+
+// ============================================================
+// SCRAPING STATISTICHE (per il calcolo della forma)
+// ============================================================
+
+async function scrapeStatistiche(page) {
+  console.log('\n📊 Recupero statistiche (per calcolo forma)...');
+  
+  try {
+    await page.goto(STATISTICHE_URL, {
+      waitUntil: 'domcontentloaded',
+      timeout: 90000
+    });
+    
+    console.log('✅ Titolo pagina statistiche:', await page.title());
+    await sleep(5000);
+    
+    await page.evaluate(() => {
+      document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"]').forEach(el => el.remove());
+    });
+    
+    console.log('⏳ Scroll per caricare tutti i giocatori...');
+    
+    let previousCount = 0;
+    let attempts = 0;
+    const maxAttempts = 20;
+    
+    while (attempts < maxAttempts) {
+      const currentCount = await page.evaluate(() => {
+        return document.querySelectorAll('table tbody tr').length;
+      });
+      
+      console.log(`  📊 Righe statistiche caricate: ${currentCount}`);
+      
+      if (currentCount === previousCount && attempts > 3) {
+        console.log('  ✅ Nessun nuovo dato, scroll completato');
+        break;
+      }
+      
+      previousCount = currentCount;
+      
+      await page.evaluate(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+      
+      await sleep(2000);
+      attempts++;
+    }
+    
+    console.log('🔍 Estrazione dati statistiche...');
+    
+    const statisticheData = await page.evaluate(() => {
+      const mappa = {};
+      const rows = document.querySelectorAll('table tbody tr');
+      
+      rows.forEach(row => {
+        try {
+          const cells = row.querySelectorAll('td');
+          if (cells.length < 8) return;
+          
+          let nome = '';
+          for (const cell of cells) {
+            const text = cell.textContent?.trim() || '';
+            if (text.length > 2 && text.includes(' ') && !text.match(/^\d/)) {
+              nome = text;
+              break;
+            }
+          }
+          
+          if (!nome) return;
+          
+          const voti = [];
+          
+          let mediaVoto = 6;
+          let fantamedia = 6;
+          cells.forEach(cell => {
+            const val = parseFloat(cell.textContent?.trim() || '');
+            if (!isNaN(val)) {
+              if (val >= 4 && val <= 7 && mediaVoto === 6) mediaVoto = val;
+              if (val >= 4 && val <= 9 && fantamedia === 6) fantamedia = val;
+            }
+          });
+          
+          mappa[nome] = {
+            forma: voti.length === 5 ? voti : [6, 6, 6, 6, 6],
+            mediaVoto,
+            fantamedia,
+          };
+        } catch (e) {
+          // Ignora righe malformate
+        }
+      });
+      
+      return mappa;
+    });
+    
+    console.log(`✅ Estratte statistiche per ${Object.keys(statisticheData).length} giocatori`);
+    
+    if (Object.keys(statisticheData).length === 0) {
+      console.log('⚠️ Nessuna statistica trovata. La pagina potrebbe avere una struttura diversa.');
+      console.log('⚠️ Prossimo step: fare debug HTML e adattare i selettori.');
+    }
+    
+    const output = {
+      aggiornato: new Date().toISOString(),
+      fonte: 'fantacalcio.it',
+      statistiche: statisticheData,
+    };
+    
+    fs.mkdirSync(path.dirname(STATISTICHE_OUTPUT_PATH), { recursive: true });
+    fs.writeFileSync(STATISTICHE_OUTPUT_PATH, JSON.stringify(output, null, 2));
+    
+    console.log(`✅ Statistiche salvate: ${Object.keys(statisticheData).length} giocatori in statistiche.json`);
+    
+    return statisticheData;
+  } catch (e) {
+    console.error('❌ Errore scraping statistiche:', e.message);
+    return {};
+  }
+}
+
+// ============================================================
 // MAIN
 // ============================================================
 
@@ -441,6 +556,7 @@ async function main() {
   
   await scrapeFormazioni(page);
   await scrapeListone(page);
+  await scrapeStatistiche(page);
   
   await browser.close();
   console.log('\n🎉 Tutti gli scraping completati!');
