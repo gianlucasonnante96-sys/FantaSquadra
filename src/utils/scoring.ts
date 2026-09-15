@@ -10,12 +10,10 @@ const CONFIG = {
   pesoFantamedia: 0.6,
   pesoMediaVoto: 0.4,
   
-  // 🔥 PESI ALTERNATIVI quando fantamedia è inaffidabile (0 o < soglia)
+  // Pesi alternativi quando FM è mancante/inaffidabile
   pesoFantamediaInaffidabile: 0,
   pesoMediaVotoInaffidabile: 0.7,
   
-  // 🔥 Soglie per considerare la fantamedia "inaffidabile"
-  fantamediaSogliaBassa: 4.0,
   fantamediaSogliaZero: 0.1,
   
   // ===== TITOLARITÀ =====
@@ -26,10 +24,14 @@ const CONFIG = {
   bonusCasa: 0.4,
   malusTrasferta: 0.3,
   
-  // ===== DIFFICOLTÀ AVVERSARIO =====
+  // ===== DIFFICOLTÀ AVVERSARIO (base) =====
   difficolta: {
     1: 1.5, 2: 0.8, 3: 0, 4: -0.8, 5: -1.5,
   } as Record<number, number>,
+  
+  // ===== TEAM STRENGTH =====
+  // Quanto la "forza della squadra" influenza il voto del singolo giocatore
+  pesoTeamStrength: 0.8,
   
   // ===== PORTIERI =====
   portieri: {
@@ -79,6 +81,99 @@ const CONFIG = {
 };
 
 // ============================================================
+// 🆕 TEAM STRENGTH — Forza della squadra (basata sulla classifica 2026/27)
+// ============================================================
+// Valori: 1.0 = squadra media, > 1.0 = squadra forte, < 1.0 = squadra debole
+
+const TEAM_STRENGTH: Record<string, number> = {
+  'Inter': 1.25,
+  'Napoli': 1.20,
+  'Atalanta': 1.15,
+  'Roma': 1.15,
+  'Juventus': 1.10,
+  'Milan': 1.10,
+  'Lazio': 1.05,
+  'Fiorentina': 1.00,
+  'Bologna': 0.95,
+  'Como': 0.95,
+  'Cagliari': 0.90,
+  'Torino': 0.90,
+  'Udinese': 0.85,
+  'Genoa': 0.85,
+  'Parma': 0.80,
+  'Sassuolo': 0.80,
+  'Lecce': 0.75,
+  'Frosinone': 0.75,
+  'Verona': 0.70,
+  'Monza': 0.70,
+};
+
+// Normalizza il nome squadra
+function normalizzaNomeSquadra(nome: string | undefined): string {
+  if (!nome) return '';
+  const n = nome.trim();
+  // Rimappa alcune sigle
+  const SIGLE: Record<string, string> = {
+    'ATA': 'Atalanta', 'BOL': 'Bologna', 'CAG': 'Cagliari', 'COM': 'Como',
+    'FIO': 'Fiorentina', 'FRO': 'Frosinone', 'GEN': 'Genoa', 'INT': 'Inter',
+    'JUV': 'Juventus', 'LAZ': 'Lazio', 'LEC': 'Lecce', 'MIL': 'Milan',
+    'MON': 'Monza', 'NAP': 'Napoli', 'PAR': 'Parma', 'ROM': 'Roma',
+    'SAS': 'Sassuolo', 'TOR': 'Torino', 'UDI': 'Udinese', 'VEN': 'Venezia',
+  };
+  const upper = n.toUpperCase();
+  if (SIGLE[upper]) return SIGLE[upper];
+  return n;
+}
+
+// Restituisce la forza della squadra (0.7 - 1.25)
+function getTeamStrength(team: string | undefined): number {
+  const nome = normalizzaNomeSquadra(team);
+  return TEAM_STRENGTH[nome] ?? 0.85; // default: squadra media-debole
+}
+
+// ============================================================
+// 🆕 FIXTURE DIFFICULTY — Difficoltà avversario più precisa
+// ============================================================
+// Valori: 1.0 = avversario debole, 5.0 = avversario fortissimo
+
+const FIXTURE_DIFFICULTY: Record<string, number> = {
+  'Inter': 5.0,
+  'Napoli': 4.8,
+  'Atalanta': 4.5,
+  'Roma': 4.5,
+  'Juventus': 4.3,
+  'Milan': 4.2,
+  'Lazio': 4.0,
+  'Fiorentina': 3.8,
+  'Bologna': 3.5,
+  'Como': 3.5,
+  'Cagliari': 3.2,
+  'Torino': 3.0,
+  'Udinese': 2.8,
+  'Genoa': 2.7,
+  'Parma': 2.5,
+  'Sassuolo': 2.4,
+  'Lecce': 2.2,
+  'Frosinone': 2.2,
+  'Verona': 2.0,
+  'Monza': 1.9,
+};
+
+// Restituisce la difficoltà avversario (1.0 - 5.0)
+function getFixtureDifficulty(avversario: string | undefined): number {
+  const nome = normalizzaNomeSquadra(avversario);
+  return FIXTURE_DIFFICULTY[nome] ?? 3.0;
+}
+
+// Converte la difficoltà 1-5 in bonus/malus (più fine)
+// 1.0 → +1.5, 3.0 → 0, 5.0 → -1.5
+function convertiDifficoltaInBonus(difficolta: number): number {
+  // Linear: (3 - diff) * 0.75
+  // diff 1: +1.5, diff 3: 0, diff 5: -1.5
+  return (3 - difficolta) * 0.75;
+}
+
+// ============================================================
 // FATTORE TITOLARITÀ
 // ============================================================
 
@@ -108,7 +203,6 @@ function calcolaFattoreTitolaritaArricchito(player: Player): number {
 function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMediaVoto: number } {
   const fantamedia = player.fantamedia ?? 0;
   
-  // CASO 1: fantamedia mancante (0 o quasi)
   if (fantamedia < CONFIG.fantamediaSogliaZero) {
     return {
       pesoFantamedia: CONFIG.pesoFantamediaInaffidabile,
@@ -116,15 +210,6 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
     };
   }
   
-  // CASO 2: fantamedia bassa ma presente (sospetta)
-  if (fantamedia < CONFIG.fantamediaSogliaBassa) {
-    return {
-      pesoFantamedia: CONFIG.pesoFantamedia * 0.3,
-      pesoMediaVoto: CONFIG.pesoMediaVoto * 1.5,
-    };
-  }
-  
-  // CASO 3: fantamedia valida
   return {
     pesoFantamedia: CONFIG.pesoFantamedia,
     pesoMediaVoto: CONFIG.pesoMediaVoto,
@@ -139,12 +224,19 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   if (!player) return 6;
 
   const role = player.role;
-  const difficulty = player.difficoltaAvversario ?? 3;
   const inCasa = player.inCasa ?? true;
 
-  // USA PESI AFFIDABILI (gestisce fantamedia mancante)
+  // 🔥 Calcola difficoltà precisa dell'avversario (1.0 - 5.0)
+  const fixtureDiff = getFixtureDifficulty(player.avversario);
+  // Converte in numero intero 1-5 per uso con tabelle
+  const difficulty = Math.max(1, Math.min(5, Math.round(fixtureDiff)));
+
+  // 🔥 Team strength
+  const teamStrength = getTeamStrength(player.team);
+  const teamBonus = (teamStrength - 1.0) * CONFIG.pesoTeamStrength;
+
+  // ===== BASE =====
   const pesi = calcolaPesiAffidabili(player);
-  
   let votoPrevisto = (player.fantamedia ?? 0) * pesi.pesoFantamedia;
   votoPrevisto += (player.mediaVoto ?? 6) * pesi.pesoMediaVoto;
 
@@ -168,8 +260,15 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     votoPrevisto -= CONFIG.malusTrasferta;
   }
 
-  // Difficoltà avversario (base)
-  votoPrevisto += CONFIG.difficolta[difficulty] || 0;
+  // 🔥 FIXTURE DIFFICULTY precisa (bonus/malus graduale)
+  const fixtureBonus = convertiDifficoltaInBonus(fixtureDiff);
+  votoPrevisto += fixtureBonus;
+
+  // 🔥 TEAM STRENGTH (bonus/malus per forza squadra)
+  // Applica solo a giocatori offensivi (D, C, A) — il portiere è penalizzato/bonificato diversamente
+  if (role !== 'P') {
+    votoPrevisto += teamBonus;
+  }
 
   // ==========================================================
   // BONUS SPECIFICI PER RUOLO
@@ -193,6 +292,10 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     if (inCasa && difficulty <= 2) {
       votoPrevisto += P.bonusCasaFacile;
     }
+
+    // 🔥 Il portiere di una squadra forte subisce meno gol
+    // teamBonus applicato in modo inverso (portiere squadra forte = buono)
+    votoPrevisto += teamBonus * 0.5;
   }
 
   // ===== DIFENSORI =====
