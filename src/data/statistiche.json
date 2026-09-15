@@ -1,5 +1,4171 @@
 {
-  "aggiornato": "2026-09-15T00:00:00.000Z",
+  "aggiornato": "2026-09-15T14:43:57.167Z",
   "fonte": "fantacalcio.it",
-  "statistiche": {}
+  "statistiche": {
+    "Malen": {
+      "ruolo": "A",
+      "squadra": "ROM",
+      "mediaVoto": 7.38,
+      "fantamedia": 11.75,
+      "partiteGiocate": 0
+    },
+    "Esposito Se.": {
+      "ruolo": "A",
+      "squadra": "SAS",
+      "mediaVoto": 7.5,
+      "fantamedia": 10.5,
+      "partiteGiocate": 0
+    },
+    "Kaiki": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 7,
+      "fantamedia": 10,
+      "partiteGiocate": 0
+    },
+    "Moreira": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.75,
+      "fantamedia": 9.75,
+      "partiteGiocate": 0
+    },
+    "Raimondo": {
+      "ruolo": "A",
+      "squadra": "FRO",
+      "mediaVoto": 6.62,
+      "fantamedia": 9.5,
+      "partiteGiocate": 0
+    },
+    "Gatti": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 7,
+      "fantamedia": 9.5,
+      "partiteGiocate": 0
+    },
+    "Zhegrova": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 6.5,
+      "fantamedia": 9.5,
+      "partiteGiocate": 0
+    },
+    "Odenthal": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 6.5,
+      "fantamedia": 9.5,
+      "partiteGiocate": 0
+    },
+    "Zeballos": {
+      "ruolo": "A",
+      "squadra": "MON",
+      "mediaVoto": 6.5,
+      "fantamedia": 9.5,
+      "partiteGiocate": 0
+    },
+    "Frattesi": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 7,
+      "fantamedia": 9.25,
+      "partiteGiocate": 0
+    },
+    "Carlos Augusto": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 7,
+      "fantamedia": 9,
+      "partiteGiocate": 0
+    },
+    "Thuram": {
+      "ruolo": "A",
+      "squadra": "INT",
+      "mediaVoto": 6.67,
+      "fantamedia": 9,
+      "partiteGiocate": 0
+    },
+    "Varela G.": {
+      "ruolo": "A",
+      "squadra": "MON",
+      "mediaVoto": 6.67,
+      "fantamedia": 8.67,
+      "partiteGiocate": 0
+    },
+    "Adams C.": {
+      "ruolo": "A",
+      "squadra": "TOR",
+      "mediaVoto": 6.67,
+      "fantamedia": 8.67,
+      "partiteGiocate": 0
+    },
+    "Kvernadze": {
+      "ruolo": "A",
+      "squadra": "FRO",
+      "mediaVoto": 6.88,
+      "fantamedia": 8.62,
+      "partiteGiocate": 0
+    },
+    "Calhanoglu": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6.67,
+      "fantamedia": 8.5,
+      "partiteGiocate": 0
+    },
+    "Diao": {
+      "ruolo": "A",
+      "squadra": "COM",
+      "mediaVoto": 6.62,
+      "fantamedia": 8.38,
+      "partiteGiocate": 0
+    },
+    "Mastantuono": {
+      "ruolo": "C",
+      "squadra": "FIO",
+      "mediaVoto": 6.12,
+      "fantamedia": 8.38,
+      "partiteGiocate": 0
+    },
+    "Pisilli": {
+      "ruolo": "C",
+      "squadra": "ROM",
+      "mediaVoto": 6.5,
+      "fantamedia": 8.33,
+      "partiteGiocate": 0
+    },
+    "Esposito F.P.": {
+      "ruolo": "A",
+      "squadra": "INT",
+      "mediaVoto": 6.5,
+      "fantamedia": 8.25,
+      "partiteGiocate": 0
+    },
+    "Soulè": {
+      "ruolo": "A",
+      "squadra": "ROM",
+      "mediaVoto": 6.5,
+      "fantamedia": 8.25,
+      "partiteGiocate": 0
+    },
+    "Adzic": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 6.5,
+      "fantamedia": 8.25,
+      "partiteGiocate": 0
+    },
+    "Robinson J.": {
+      "ruolo": "A",
+      "squadra": "MON",
+      "mediaVoto": 6.75,
+      "fantamedia": 8.25,
+      "partiteGiocate": 0
+    },
+    "Coulibaly L.": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 6.38,
+      "fantamedia": 8.12,
+      "partiteGiocate": 0
+    },
+    "Dybala": {
+      "ruolo": "A",
+      "squadra": "ROM",
+      "mediaVoto": 7.12,
+      "fantamedia": 8.12,
+      "partiteGiocate": 0
+    },
+    "Ekkelenkamp": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 6.38,
+      "fantamedia": 8.12,
+      "partiteGiocate": 0
+    },
+    "Martinez L.": {
+      "ruolo": "A",
+      "squadra": "INT",
+      "mediaVoto": 6.33,
+      "fantamedia": 8,
+      "partiteGiocate": 0
+    },
+    "Noslin": {
+      "ruolo": "A",
+      "squadra": "LAZ",
+      "mediaVoto": 6.5,
+      "fantamedia": 8,
+      "partiteGiocate": 0
+    },
+    "Favasuli": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 7,
+      "fantamedia": 8,
+      "partiteGiocate": 0
+    },
+    "Maldini": {
+      "ruolo": "A",
+      "squadra": "CAG",
+      "mediaVoto": 6.38,
+      "fantamedia": 7.88,
+      "partiteGiocate": 0
+    },
+    "Baturina": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 6.5,
+      "fantamedia": 7.88,
+      "partiteGiocate": 0
+    },
+    "Kamara H.": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 6.38,
+      "fantamedia": 7.88,
+      "partiteGiocate": 0
+    },
+    "Cissè A.": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.5,
+      "fantamedia": 7.88,
+      "partiteGiocate": 0
+    },
+    "Bisseck": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 6.83,
+      "fantamedia": 7.83,
+      "partiteGiocate": 0
+    },
+    "Hojlund": {
+      "ruolo": "A",
+      "squadra": "NAP",
+      "mediaVoto": 6.25,
+      "fantamedia": 7.75,
+      "partiteGiocate": 0
+    },
+    "Diouf": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6.67,
+      "fantamedia": 7.67,
+      "partiteGiocate": 0
+    },
+    "Koopmeiners": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 6.33,
+      "fantamedia": 7.67,
+      "partiteGiocate": 0
+    },
+    "Gonzalez N.": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 6.67,
+      "fantamedia": 7.67,
+      "partiteGiocate": 0
+    },
+    "Romano": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 6.88,
+      "fantamedia": 7.62,
+      "partiteGiocate": 0
+    },
+    "Douvikas": {
+      "ruolo": "A",
+      "squadra": "COM",
+      "mediaVoto": 6.12,
+      "fantamedia": 7.62,
+      "partiteGiocate": 0
+    },
+    "Paz N.": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 6.5,
+      "fantamedia": 7.5,
+      "partiteGiocate": 0
+    },
+    "Barella": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6.5,
+      "fantamedia": 7.5,
+      "partiteGiocate": 0
+    },
+    "Tiago Gabriel": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 6,
+      "fantamedia": 7.5,
+      "partiteGiocate": 0
+    },
+    "Rabiot": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.25,
+      "fantamedia": 7.5,
+      "partiteGiocate": 0
+    },
+    "Mangas": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 6.25,
+      "fantamedia": 7.5,
+      "partiteGiocate": 0
+    },
+    "Vergara": {
+      "ruolo": "C",
+      "squadra": "NAP",
+      "mediaVoto": 6.33,
+      "fantamedia": 7.5,
+      "partiteGiocate": 0
+    },
+    "De Bruyne": {
+      "ruolo": "C",
+      "squadra": "NAP",
+      "mediaVoto": 6.5,
+      "fantamedia": 7.5,
+      "partiteGiocate": 0
+    },
+    "Berardi": {
+      "ruolo": "A",
+      "squadra": "SAS",
+      "mediaVoto": 6.5,
+      "fantamedia": 7.5,
+      "partiteGiocate": 0
+    },
+    "Zielinski": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6.38,
+      "fantamedia": 7.38,
+      "partiteGiocate": 0
+    },
+    "Gorter": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 5.75,
+      "fantamedia": 7.25,
+      "partiteGiocate": 0
+    },
+    "Lobotka": {
+      "ruolo": "C",
+      "squadra": "NAP",
+      "mediaVoto": 6.5,
+      "fantamedia": 7.25,
+      "partiteGiocate": 0
+    },
+    "Sagrado": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 7.25,
+      "partiteGiocate": 0
+    },
+    "Bonny": {
+      "ruolo": "A",
+      "squadra": "INT",
+      "mediaVoto": 6.17,
+      "fantamedia": 7.17,
+      "partiteGiocate": 0
+    },
+    "Volpato": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 6.33,
+      "fantamedia": 7.17,
+      "partiteGiocate": 0
+    },
+    "Romero D.": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 6.17,
+      "fantamedia": 7.17,
+      "partiteGiocate": 0
+    },
+    "Bracaglia": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 6.38,
+      "fantamedia": 7.12,
+      "partiteGiocate": 0
+    },
+    "Pellegrino M.": {
+      "ruolo": "A",
+      "squadra": "FIO",
+      "mediaVoto": 5.75,
+      "fantamedia": 7.12,
+      "partiteGiocate": 0
+    },
+    "Hermoso": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6.62,
+      "fantamedia": 7.12,
+      "partiteGiocate": 0
+    },
+    "Hainaut": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 6.12,
+      "fantamedia": 7.12,
+      "partiteGiocate": 0
+    },
+    "Raspadori": {
+      "ruolo": "A",
+      "squadra": "ATA",
+      "mediaVoto": 6,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Mendy P.": {
+      "ruolo": "A",
+      "squadra": "CAG",
+      "mediaVoto": 6.25,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Ramon": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 6.25,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Tavares N.": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 6.67,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Chukwueze": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.5,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Pulisic": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.5,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Wesley": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6.67,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Bowie": {
+      "ruolo": "A",
+      "squadra": "SAS",
+      "mediaVoto": 6.25,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Davis K.": {
+      "ruolo": "A",
+      "squadra": "UDI",
+      "mediaVoto": 6.5,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Yeboah J.": {
+      "ruolo": "A",
+      "squadra": "VEN",
+      "mediaVoto": 6.25,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Mora": {
+      "ruolo": "C",
+      "squadra": "ROM",
+      "mediaVoto": 6.25,
+      "fantamedia": 7,
+      "partiteGiocate": 0
+    },
+    "Mandragora": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.88,
+      "partiteGiocate": 0
+    },
+    "Bremer": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.88,
+      "partiteGiocate": 0
+    },
+    "Doig": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.88,
+      "partiteGiocate": 0
+    },
+    "Lontani": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.88,
+      "partiteGiocate": 0
+    },
+    "Bakola": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.83,
+      "partiteGiocate": 0
+    },
+    "Gueye": {
+      "ruolo": "A",
+      "squadra": "UDI",
+      "mediaVoto": 5.83,
+      "fantamedia": 6.83,
+      "partiteGiocate": 0
+    },
+    "Osmajic": {
+      "ruolo": "A",
+      "squadra": "GEN",
+      "mediaVoto": 5.83,
+      "fantamedia": 6.83,
+      "partiteGiocate": 0
+    },
+    "Ederson D.S.": {
+      "ruolo": "C",
+      "squadra": "ATA",
+      "mediaVoto": 6,
+      "fantamedia": 6.75,
+      "partiteGiocate": 0
+    },
+    "Adopo": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.75,
+      "partiteGiocate": 0
+    },
+    "Calò": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.75,
+      "partiteGiocate": 0
+    },
+    "Cancellieri": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.75,
+      "partiteGiocate": 0
+    },
+    "Ramos G.": {
+      "ruolo": "A",
+      "squadra": "MIL",
+      "mediaVoto": 6,
+      "fantamedia": 6.75,
+      "partiteGiocate": 0
+    },
+    "Comuzzo": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6,
+      "fantamedia": 6.75,
+      "partiteGiocate": 0
+    },
+    "Abankwah": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.75,
+      "partiteGiocate": 0
+    },
+    "Balerdi": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6.75,
+      "fantamedia": 6.75,
+      "partiteGiocate": 0
+    },
+    "Dovbyk": {
+      "ruolo": "A",
+      "squadra": "BOL",
+      "mediaVoto": 5.83,
+      "fantamedia": 6.67,
+      "partiteGiocate": 0
+    },
+    "Valle": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 6.33,
+      "fantamedia": 6.67,
+      "partiteGiocate": 0
+    },
+    "Gudmundsson A.": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 5.83,
+      "fantamedia": 6.67,
+      "partiteGiocate": 0
+    },
+    "Doekhi": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 6.33,
+      "fantamedia": 6.67,
+      "partiteGiocate": 0
+    },
+    "Piotrowski": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 6,
+      "fantamedia": 6.67,
+      "partiteGiocate": 0
+    },
+    "Samardzic": {
+      "ruolo": "C",
+      "squadra": "ATA",
+      "mediaVoto": 5.88,
+      "fantamedia": 6.62,
+      "partiteGiocate": 0
+    },
+    "Krstovic": {
+      "ruolo": "A",
+      "squadra": "ATA",
+      "mediaVoto": 6,
+      "fantamedia": 6.62,
+      "partiteGiocate": 0
+    },
+    "Scamacca": {
+      "ruolo": "A",
+      "squadra": "ATA",
+      "mediaVoto": 5.88,
+      "fantamedia": 6.62,
+      "partiteGiocate": 0
+    },
+    "Masini": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.62,
+      "partiteGiocate": 0
+    },
+    "Matic": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.62,
+      "partiteGiocate": 0
+    },
+    "Karlstrom": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 6,
+      "fantamedia": 6.62,
+      "partiteGiocate": 0
+    },
+    "Busio": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.62,
+      "partiteGiocate": 0
+    },
+    "De Roon": {
+      "ruolo": "C",
+      "squadra": "ROM",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Milla": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Da Cunha": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Piccoli": {
+      "ruolo": "A",
+      "squadra": "BOL",
+      "mediaVoto": 5.75,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Oyono A.": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Dimarco": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Locatelli": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 6.33,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Conceicao": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Zaccagni": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Saelemaekers": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.17,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Colpani": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 5.75,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Mancini": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "N'Dicka": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Laurientè": {
+      "ruolo": "A",
+      "squadra": "SAS",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Ilic": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 6,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Palma": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Zaniolo": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.5,
+      "partiteGiocate": 0
+    },
+    "Bernardeschi": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.38,
+      "partiteGiocate": 0
+    },
+    "Rodriguez Ju.": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.38,
+      "partiteGiocate": 0
+    },
+    "Cristante": {
+      "ruolo": "C",
+      "squadra": "ROM",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.38,
+      "partiteGiocate": 0
+    },
+    "Cacciamani": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.38,
+      "partiteGiocate": 0
+    },
+    "Adams A.": {
+      "ruolo": "A",
+      "squadra": "VEN",
+      "mediaVoto": 5.62,
+      "fantamedia": 6.38,
+      "partiteGiocate": 0
+    },
+    "Leysen F.": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.38,
+      "partiteGiocate": 0
+    },
+    "Kean": {
+      "ruolo": "A",
+      "squadra": "COM",
+      "mediaVoto": 6,
+      "fantamedia": 6.33,
+      "partiteGiocate": 0
+    },
+    "Akinsanmiro": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 6,
+      "fantamedia": 6.33,
+      "partiteGiocate": 0
+    },
+    "Chalobah T.": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 6.33,
+      "fantamedia": 6.33,
+      "partiteGiocate": 0
+    },
+    "Ferguson": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Obert": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Winks": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Kempf": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Ghedjemis": {
+      "ruolo": "A",
+      "squadra": "FRO",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Rovella": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Taylor K.": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Dia": {
+      "ruolo": "A",
+      "squadra": "LAZ",
+      "mediaVoto": 6,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Gila": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Musah": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Rrahmani": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 6,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Politano": {
+      "ruolo": "C",
+      "squadra": "NAP",
+      "mediaVoto": 5.62,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Ghilardi": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Konè M.": {
+      "ruolo": "C",
+      "squadra": "ROM",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Castro S.": {
+      "ruolo": "A",
+      "squadra": "ROM",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Couto": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 6,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Cinquegrano": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 6,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Lulli": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Belghali": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 5.75,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Braganca": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.25,
+      "partiteGiocate": 0
+    },
+    "Zalewski": {
+      "ruolo": "C",
+      "squadra": "ATA",
+      "mediaVoto": 5.83,
+      "fantamedia": 6.17,
+      "partiteGiocate": 0
+    },
+    "Miranda J.": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 5.83,
+      "fantamedia": 6.17,
+      "partiteGiocate": 0
+    },
+    "Almqvist": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 6,
+      "fantamedia": 6.17,
+      "partiteGiocate": 0
+    },
+    "Comert": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 5.83,
+      "fantamedia": 6.17,
+      "partiteGiocate": 0
+    },
+    "Ismajli": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6.17,
+      "fantamedia": 6.17,
+      "partiteGiocate": 0
+    },
+    "Njie": {
+      "ruolo": "C",
+      "squadra": "FIO",
+      "mediaVoto": 6.33,
+      "fantamedia": 6.17,
+      "partiteGiocate": 0
+    },
+    "Solet": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 6.17,
+      "fantamedia": 6.17,
+      "partiteGiocate": 0
+    },
+    "Jones C.": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6.17,
+      "fantamedia": 6.17,
+      "partiteGiocate": 0
+    },
+    "Zè Pedro": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Perrone": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Calvani": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 6.38,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Messias": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Bastoni": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Veiga D.": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 5.88,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "De Winter": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Birindelli": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 5.88,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Di Lorenzo": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 6,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Thorstvedt": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Schmid": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Fortini": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.12,
+      "partiteGiocate": 0
+    },
+    "Zappacosta": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Sulemana I.": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Helland": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Zortea": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Alhassane": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Kofler": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Zappa": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Deiola": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 6.25,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Fazzini": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 5.88,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Felici": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Borrelli": {
+      "ruolo": "A",
+      "squadra": "CAG",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Fadera": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Liberali": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Hasa": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Fini": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Zerbin": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Vasquez": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 5.5,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Norton-Cuffy": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Luis Henrique": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Kalulu": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "McKennie": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Pedraza": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Marusic": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Belahyane": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 6.17,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Gabbia": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Bartesaghi": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Ricci S.": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Jashari": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Delli Carri": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Mota": {
+      "ruolo": "A",
+      "squadra": "MON",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Cutrone": {
+      "ruolo": "A",
+      "squadra": "MON",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Milinkovic-Savic V.": {
+      "ruolo": "P",
+      "squadra": "NAP",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Gilmour": {
+      "ruolo": "C",
+      "squadra": "NAP",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Santos A.": {
+      "ruolo": "A",
+      "squadra": "NAP",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Ndiaye": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Valenti": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Svilar": {
+      "ruolo": "P",
+      "squadra": "ROM",
+      "mediaVoto": 6.25,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Koulierakis": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Idzes": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 6.17,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Lipani": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 6.25,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Pedersen": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Fitz-Jim": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Bertola": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Unai Gomez": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 5.67,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Molina N.": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Obrador": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Bobcek": {
+      "ruolo": "A",
+      "squadra": "FRO",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Kessiè": {
+      "ruolo": "C",
+      "squadra": "ATA",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Gagliardini": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Hutchinson": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Juan Jesus": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Sugawara": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Patterson": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Fernandez T.": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "El Shaarawy": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Rodriguez R.": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Scalvini": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 5.88,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Holm": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 6,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Fagioli": {
+      "ruolo": "C",
+      "squadra": "FIO",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Cittadini": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 6,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Akanji": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Provstgaard": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 6,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Floriani Mussolini": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 6,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Maleh": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 5.88,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Pavlovic": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 6.12,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Modric": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 5.88,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Spinazzola": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 5.88,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Delprato": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 6,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Vojvoda": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 5.88,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Haps": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Sow": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.88,
+      "partiteGiocate": 0
+    },
+    "Gaetano": {
+      "ruolo": "C",
+      "squadra": "ATA",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Dominguez B.": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Caqueret": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 6,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Monterisi": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Stones": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Sucic P.": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Lucca": {
+      "ruolo": "A",
+      "squadra": "NAP",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Britschgi": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Ordonez C.": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Bernabè": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Correia T.": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Forson O.": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Fatah": {
+      "ruolo": "A",
+      "squadra": "LEC",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 0
+    },
+    "Bellanova": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 6,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Bernasconi": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Orsolini": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Caprile": {
+      "ruolo": "P",
+      "squadra": "CAG",
+      "mediaVoto": 6.25,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Cichella": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Frendrup": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Meichtry": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Baldanzi": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Pavard": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Celik": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 5.88,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Pierotti": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Valeri": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Coco": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Ilkhan": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Simeone": {
+      "ruolo": "A",
+      "squadra": "TOR",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Miller L.": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 5.88,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Zarraga": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Franjic": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Terzic": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Theate": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Diego Carlos": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Beto": {
+      "ruolo": "A",
+      "squadra": "FIO",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Woltemade": {
+      "ruolo": "A",
+      "squadra": "JUV",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Gnonto": {
+      "ruolo": "A",
+      "squadra": "FIO",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 0
+    },
+    "Pasalic": {
+      "ruolo": "C",
+      "squadra": "ATA",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Pobega": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Viery": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Jimenez A.": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Oulai": {
+      "ruolo": "C",
+      "squadra": "FIO",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Kelly L.": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Boga": {
+      "ruolo": "A",
+      "squadra": "JUV",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Gallo": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Lang": {
+      "ruolo": "A",
+      "squadra": "NAP",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 0
+    },
+    "Kolasinac": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "De Ketelaere": {
+      "ruolo": "A",
+      "squadra": "ATA",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Cambiaghi": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Ellertsson": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Vitinha O.": {
+      "ruolo": "A",
+      "squadra": "GEN",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Mandas": {
+      "ruolo": "P",
+      "squadra": "LAZ",
+      "mediaVoto": 6.38,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Isaksen": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Siebert": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "N'Dri": {
+      "ruolo": "A",
+      "squadra": "LEC",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Carboni A.": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Troilo": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Vlasic": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Ebosse": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Perez K.": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.62,
+      "partiteGiocate": 0
+    },
+    "Carnesecchi": {
+      "ruolo": "P",
+      "squadra": "ATA",
+      "mediaVoto": 6.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Kossounou": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Moro N.": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Rowe": {
+      "ruolo": "C",
+      "squadra": "ATA",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Smolcic I.": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Rodriguez Je.": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Ndour": {
+      "ruolo": "C",
+      "squadra": "FIO",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Atta": {
+      "ruolo": "C",
+      "squadra": "FIO",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Amorim": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Mkhitaryan": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Douglas Luiz": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Alajbegovic": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Yildiz": {
+      "ruolo": "A",
+      "squadra": "JUV",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Dele-Bashiru": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Ndaba": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Stulic": {
+      "ruolo": "A",
+      "squadra": "LEC",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Bakoune": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Folorunsho": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "McTominay": {
+      "ruolo": "C",
+      "squadra": "NAP",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Neres": {
+      "ruolo": "A",
+      "squadra": "NAP",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Cremaschi": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Keita M.": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 5.62,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Diallo O.": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Frigan": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Elphege": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Gineitis": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 5.38,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Aboukhlal": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Kulenovic": {
+      "ruolo": "A",
+      "squadra": "TOR",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Chakvetadze": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Basic": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Helgason": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Lauberbach": {
+      "ruolo": "A",
+      "squadra": "VEN",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Rrahmani Al.": {
+      "ruolo": "A",
+      "squadra": "VEN",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Kevin Carlos": {
+      "ruolo": "A",
+      "squadra": "CAG",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Elmas": {
+      "ruolo": "C",
+      "squadra": "ATA",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Sutalo J.": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Drobnic": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Monteiro J.": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Sarr P.": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Ehizibue": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Sierro": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 0
+    },
+    "Heggem": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.38,
+      "partiteGiocate": 0
+    },
+    "Odgaard": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.38,
+      "partiteGiocate": 0
+    },
+    "Ostigard": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.38,
+      "partiteGiocate": 0
+    },
+    "Kolo Muani": {
+      "ruolo": "A",
+      "squadra": "JUV",
+      "mediaVoto": 5.12,
+      "fantamedia": 5.38,
+      "partiteGiocate": 0
+    },
+    "Ngom": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.38,
+      "partiteGiocate": 0
+    },
+    "Kouadio": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.38,
+      "partiteGiocate": 0
+    },
+    "Marin R.": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.38,
+      "partiteGiocate": 0
+    },
+    "Tourè E.": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 5.38,
+      "fantamedia": 5.38,
+      "partiteGiocate": 0
+    },
+    "Lucumì": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.33,
+      "partiteGiocate": 0
+    },
+    "Brescianini": {
+      "ruolo": "C",
+      "squadra": "FIO",
+      "mediaVoto": 5.33,
+      "fantamedia": 5.33,
+      "partiteGiocate": 0
+    },
+    "Zambo Anguissa": {
+      "ruolo": "C",
+      "squadra": "NAP",
+      "mediaVoto": 5.33,
+      "fantamedia": 5.33,
+      "partiteGiocate": 0
+    },
+    "Bella-Kotchap": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 5.33,
+      "fantamedia": 5.33,
+      "partiteGiocate": 0
+    },
+    "Amondarain": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Ranieri L.": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 5.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Valdepenas": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 5.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Joao Mario": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 5.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Palmisani": {
+      "ruolo": "P",
+      "squadra": "FRO",
+      "mediaVoto": 6.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Geubbels": {
+      "ruolo": "A",
+      "squadra": "LEC",
+      "mediaVoto": 5.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Lucchesi": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Pinamonti": {
+      "ruolo": "A",
+      "squadra": "LAZ",
+      "mediaVoto": 5.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Kabasele": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 5.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Vicario": {
+      "ruolo": "P",
+      "squadra": "JUV",
+      "mediaVoto": 6.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 0
+    },
+    "Butez": {
+      "ruolo": "P",
+      "squadra": "COM",
+      "mediaVoto": 6.17,
+      "fantamedia": 5.17,
+      "partiteGiocate": 0
+    },
+    "Estupinan": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 5.33,
+      "fantamedia": 5.17,
+      "partiteGiocate": 0
+    },
+    "Dragusin": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 5,
+      "fantamedia": 5.12,
+      "partiteGiocate": 0
+    },
+    "Marcandalli": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 5.12,
+      "fantamedia": 5.12,
+      "partiteGiocate": 0
+    },
+    "Maignan": {
+      "ruolo": "P",
+      "squadra": "MIL",
+      "mediaVoto": 6.12,
+      "fantamedia": 5.12,
+      "partiteGiocate": 0
+    },
+    "Loftus-Cheek": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 5.25,
+      "fantamedia": 5.12,
+      "partiteGiocate": 0
+    },
+    "Pessina Mas.": {
+      "ruolo": "P",
+      "squadra": "BOL",
+      "mediaVoto": 6,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Pongracic": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Dodò": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Fabbian": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Otoa": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Sabelli": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Colombo": {
+      "ruolo": "A",
+      "squadra": "GEN",
+      "mediaVoto": 5.5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Cambiaso": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 5.5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "David": {
+      "ruolo": "A",
+      "squadra": "JUV",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Gaspar K.": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 5.33,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Colombo L.": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 5.5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Casadei": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Moreno M.": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 5.25,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Schingtienne": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 5.25,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Dagasso": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 5.5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Foe Ondoa": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Mout": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Badiashile": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Sanchez Ro.": {
+      "ruolo": "P",
+      "squadra": "COM",
+      "mediaVoto": 6,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Libra": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5,
+      "fantamedia": 5,
+      "partiteGiocate": 0
+    },
+    "Corvi": {
+      "ruolo": "P",
+      "squadra": "PAR",
+      "mediaVoto": 6.38,
+      "fantamedia": 4.88,
+      "partiteGiocate": 0
+    },
+    "Sohm": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 5.17,
+      "fantamedia": 4.83,
+      "partiteGiocate": 0
+    },
+    "Bayo V.": {
+      "ruolo": "A",
+      "squadra": "UDI",
+      "mediaVoto": 5,
+      "fantamedia": 4.75,
+      "partiteGiocate": 0
+    },
+    "Meret": {
+      "ruolo": "P",
+      "squadra": "NAP",
+      "mediaVoto": 6.33,
+      "fantamedia": 4.67,
+      "partiteGiocate": 0
+    },
+    "El Azzouzi O.": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5,
+      "fantamedia": 4.5,
+      "partiteGiocate": 0
+    },
+    "Olivera": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 4.5,
+      "fantamedia": 4.5,
+      "partiteGiocate": 0
+    },
+    "Martinez Jo.": {
+      "ruolo": "P",
+      "squadra": "INT",
+      "mediaVoto": 5.88,
+      "fantamedia": 4.38,
+      "partiteGiocate": 0
+    },
+    "Falcone": {
+      "ruolo": "P",
+      "squadra": "LEC",
+      "mediaVoto": 6.12,
+      "fantamedia": 4.25,
+      "partiteGiocate": 0
+    },
+    "Muric": {
+      "ruolo": "P",
+      "squadra": "SAS",
+      "mediaVoto": 6,
+      "fantamedia": 4.25,
+      "partiteGiocate": 0
+    },
+    "Skorupski": {
+      "ruolo": "P",
+      "squadra": "BOL",
+      "mediaVoto": 5.5,
+      "fantamedia": 4.17,
+      "partiteGiocate": 0
+    },
+    "Mascardi": {
+      "ruolo": "P",
+      "squadra": "TOR",
+      "mediaVoto": 6,
+      "fantamedia": 4,
+      "partiteGiocate": 0
+    },
+    "Okoye": {
+      "ruolo": "P",
+      "squadra": "UDI",
+      "mediaVoto": 6.25,
+      "fantamedia": 3.75,
+      "partiteGiocate": 0
+    },
+    "Halhal": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 5,
+      "fantamedia": 3.75,
+      "partiteGiocate": 0
+    },
+    "Perri": {
+      "ruolo": "P",
+      "squadra": "TOR",
+      "mediaVoto": 5.25,
+      "fantamedia": 3.75,
+      "partiteGiocate": 0
+    },
+    "Bijlow": {
+      "ruolo": "P",
+      "squadra": "GEN",
+      "mediaVoto": 5.62,
+      "fantamedia": 3.62,
+      "partiteGiocate": 0
+    },
+    "Stankovic F.": {
+      "ruolo": "P",
+      "squadra": "VEN",
+      "mediaVoto": 6,
+      "fantamedia": 3.25,
+      "partiteGiocate": 0
+    },
+    "Thiam": {
+      "ruolo": "P",
+      "squadra": "MON",
+      "mediaVoto": 5.17,
+      "fantamedia": 2.83,
+      "partiteGiocate": 0
+    },
+    "De Gea": {
+      "ruolo": "P",
+      "squadra": "FIO",
+      "mediaVoto": 5.5,
+      "fantamedia": 2.75,
+      "partiteGiocate": 0
+    },
+    "Pizzignacco": {
+      "ruolo": "P",
+      "squadra": "MON",
+      "mediaVoto": 4.5,
+      "fantamedia": 0.5,
+      "partiteGiocate": 0
+    },
+    "Rossi F.": {
+      "ruolo": "P",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Sportiello": {
+      "ruolo": "P",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Djimsiti": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Hien": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ahanor": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Sulemana K.": {
+      "ruolo": "A",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Happonen": {
+      "ruolo": "P",
+      "squadra": "BOL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Casale": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Vitik": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "De Silvestri": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Dallinga": {
+      "ruolo": "A",
+      "squadra": "BOL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ciocci": {
+      "ruolo": "P",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Sherri": {
+      "ruolo": "P",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Mina": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Raterink": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Idrissi R.": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Liteta": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Prati": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Albarracin": {
+      "ruolo": "A",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Mutandwa": {
+      "ruolo": "A",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Trepy": {
+      "ruolo": "A",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Tornqvist": {
+      "ruolo": "P",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Vigorito": {
+      "ruolo": "P",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Goldaniga": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Cuenca A.": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Van Der Brempt": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Lahdo": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Addai": {
+      "ruolo": "C",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Kuhn": {
+      "ruolo": "A",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Azon": {
+      "ruolo": "A",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Morata": {
+      "ruolo": "A",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Christensen O.": {
+      "ruolo": "P",
+      "squadra": "FIO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Lezzerini": {
+      "ruolo": "P",
+      "squadra": "FIO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Parisi": {
+      "ruolo": "D",
+      "squadra": "FIO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Desplanches": {
+      "ruolo": "P",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Lolic": {
+      "ruolo": "P",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Akpoguma": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Amey": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Gelli J.": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Oyono J.": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Corrado": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "El Azzouzi A.": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Kone B.": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Koutsoupias": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Gelli F.": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Sommariva": {
+      "ruolo": "P",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Stolz": {
+      "ruolo": "P",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Vogliacco": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Matturro": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Martin": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Mitaj": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Puczka": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Venturino": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Traorè Hj.": {
+      "ruolo": "C",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Havel": {
+      "ruolo": "A",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Di Gennaro": {
+      "ruolo": "P",
+      "squadra": "INT",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Provedel": {
+      "ruolo": "P",
+      "squadra": "INT",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Stankovic A.": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Di Gregorio": {
+      "ruolo": "P",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Perin": {
+      "ruolo": "P",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pinsoglio": {
+      "ruolo": "P",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Rugani": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Cabal": {
+      "ruolo": "D",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Thuram K.": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Miretti": {
+      "ruolo": "C",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ekhator": {
+      "ruolo": "A",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Motta": {
+      "ruolo": "P",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Renzetti": {
+      "ruolo": "P",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Romagnoli": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Patric": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Lazzari": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pellegrini Lu.": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Cataldi": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Przyborek": {
+      "ruolo": "C",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ratkov": {
+      "ruolo": "A",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Fruchtl": {
+      "ruolo": "P",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Samooja": {
+      "ruolo": "P",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Jean": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Perez M.": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Kaba": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Fofana Sa.": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Berisha M.": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Gandelman": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Terracciano": {
+      "ruolo": "P",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Torriani": {
+      "ruolo": "P",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Tomori": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Diawara S.": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Athekame": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Fofana Y.": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Leao": {
+      "ruolo": "A",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Nkunku": {
+      "ruolo": "A",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Camarda": {
+      "ruolo": "A",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Gimenez": {
+      "ruolo": "A",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Strajnar": {
+      "ruolo": "P",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Antov": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ciurria": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pessina": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Petagna": {
+      "ruolo": "A",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Contini": {
+      "ruolo": "P",
+      "squadra": "NAP",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Beukema": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Buongiorno": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Marianucci": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Gutierrez": {
+      "ruolo": "D",
+      "squadra": "NAP",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Mazzocchi": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Giovane": {
+      "ruolo": "A",
+      "squadra": "NAP",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Lukaku": {
+      "ruolo": "A",
+      "squadra": "NAP",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Daffara": {
+      "ruolo": "P",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Suzuki": {
+      "ruolo": "P",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Circati": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Carboni F.": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Nicolussi Caviglia": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Sorensen O.": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ondrejka": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "De Marzi": {
+      "ruolo": "P",
+      "squadra": "ROM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Gollini": {
+      "ruolo": "P",
+      "squadra": "ROM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ziolkowski": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Rensch": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Angelino": {
+      "ruolo": "D",
+      "squadra": "ROM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "El Aynaoui": {
+      "ruolo": "C",
+      "squadra": "ROM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Vaz": {
+      "ruolo": "A",
+      "squadra": "ROM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Russo A.": {
+      "ruolo": "P",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Turati": {
+      "ruolo": "P",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Walukiewicz": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Candè": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Missori": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pieragnolo": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Boloca": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Iannoni": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Konè I.": {
+      "ruolo": "C",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Moro L.": {
+      "ruolo": "A",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Paleari": {
+      "ruolo": "P",
+      "squadra": "TOR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Siviero": {
+      "ruolo": "P",
+      "squadra": "TOR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Biraghi": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Anjorin": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Oristanio": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Zapata D.": {
+      "ruolo": "A",
+      "squadra": "TOR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Padelli": {
+      "ruolo": "P",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Piana": {
+      "ruolo": "P",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Mlacic": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Kristensen T.": {
+      "ruolo": "D",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Zanoli": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Arizala": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Camara A.": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Buksa": {
+      "ruolo": "A",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Grandi": {
+      "ruolo": "P",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pozzi": {
+      "ruolo": "P",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Sverko": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Gomes": {
+      "ruolo": "D",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Bjarkason": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Duncan": {
+      "ruolo": "C",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Lisman": {
+      "ruolo": "A",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Adorante": {
+      "ruolo": "A",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Vismara": {
+      "ruolo": "P",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Satalino": {
+      "ruolo": "P",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pellegrini Lo.": {
+      "ruolo": "C",
+      "squadra": "ROM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Aurelio": {
+      "ruolo": "D",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Grillitsch": {
+      "ruolo": "C",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Penev": {
+      "ruolo": "P",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Spence": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pisseri": {
+      "ruolo": "P",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Radunovic": {
+      "ruolo": "P",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Milik": {
+      "ruolo": "A",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "De Martis": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Montipò": {
+      "ruolo": "P",
+      "squadra": "VEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Omar Fayed": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Bleve": {
+      "ruolo": "P",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Tourè I.": {
+      "ruolo": "C",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Laerke": {
+      "ruolo": "C",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Comotto": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Goglichidze": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Macchioni": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Terracciano F.": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ciervo": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Grabara": {
+      "ruolo": "P",
+      "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Maye": {
+      "ruolo": "D",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Tchato": {
+      "ruolo": "D",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Kambwala": {
+      "ruolo": "D",
+      "squadra": "COM",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Birligea": {
+      "ruolo": "A",
+      "squadra": "FRO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Mrozek": {
+      "ruolo": "P",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ngonge": {
+      "ruolo": "A",
+      "squadra": "MON",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Dembelè A.": {
+      "ruolo": "D",
+      "squadra": "LEC",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Massolin": {
+      "ruolo": "C",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Caleta-Car": {
+      "ruolo": "D",
+      "squadra": "SAS",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Jovanovic": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Ghidotti": {
+      "ruolo": "P",
+      "squadra": "PAR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Robinho Junior": {
+      "ruolo": "A",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Mbangula": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Drameh": {
+      "ruolo": "D",
+      "squadra": "GEN",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Goncalves P.": {
+      "ruolo": "C",
+      "squadra": "FIO",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Nzola": {
+      "ruolo": "A",
+      "squadra": "CAG",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pompei": {
+      "ruolo": "P",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Enem": {
+      "ruolo": "A",
+      "squadra": "BOL",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Leite": {
+      "ruolo": "D",
+      "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    }
+  }
 }
