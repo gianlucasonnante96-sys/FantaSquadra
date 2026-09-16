@@ -419,7 +419,7 @@ async function scrapeStatistiche(page) {
 }
 
 // ============================================================
-// SCRAPING CLASSIFICA (con selettori CSS precisi)
+// 🔥 SCRAPING CLASSIFICA (FIX DEFINITIVO!)
 // ============================================================
 
 async function scrapeClassifica(page) {
@@ -436,22 +436,55 @@ async function scrapeClassifica(page) {
 
     const classificaData = await page.evaluate(() => {
       const mappa = {};
-      const rows = document.querySelectorAll('table tbody tr');
+      
+      // 🔥 Cerca la tabella SPECIFICA della classifica
+      let rows = document.querySelectorAll('#classifica table tbody tr');
+      
+      if (rows.length === 0) {
+        rows = document.querySelectorAll('table.serie-a-table tbody tr');
+      }
+      
+      if (rows.length === 0) {
+        rows = document.querySelectorAll('table tbody tr');
+      }
+      
+      console.log(`📊 Righe trovate: ${rows.length}`);
       
       rows.forEach(row => {
         try {
-          // 🔥 Squadra dal link con classe "team-name"
-          const teamLink = row.querySelector('td.name a.team-name');
-          const squadra = teamLink ? teamLink.textContent?.trim() : '';
+          // Squadra: dal link con classe "team-name"
+          let squadra = '';
+          const teamLink = row.querySelector('a.team-name');
+          if (teamLink) {
+            squadra = teamLink.textContent?.trim() || '';
+          }
           
-          // 🔥 Colonne specifiche tramite classe CSS (robusto!)
+          if (!squadra) return;
+          
+          const cells = row.querySelectorAll('td');
+          if (cells.length < 9) return;
+          
+          // Struttura reale (dai test in Console):
+          // cells[0] = pos, [1] = name, [2] = points, [3] = played
+          // [4] = won, [5] = drawn, [6] = lost, [7] = gf, [8] = gs
+          
+          // 🔥 Prova prima le classi CSS (più robusto)
           const gEl = row.querySelector('td.played');
           const gfEl = row.querySelector('td.goal-scored');
           const gsEl = row.querySelector('td.goal-conceded');
           
-          const g = parseInt(gEl?.textContent?.trim() || '0') || 0;
-          const gf = parseInt(gfEl?.textContent?.trim() || '0') || 0;
-          const gs = parseInt(gsEl?.textContent?.trim() || '0') || 0;
+          let g, gf, gs;
+          
+          if (gfEl && gsEl && gEl) {
+            g = parseInt(gEl.textContent?.trim() || '0') || 0;
+            gf = parseInt(gfEl.textContent?.trim() || '0') || 0;
+            gs = parseInt(gsEl.textContent?.trim() || '0') || 0;
+          } else {
+            // 🔥 Fallback: usa gli indici
+            g = parseInt(cells[3]?.textContent?.trim() || '0') || 0;
+            gf = parseInt(cells[7]?.textContent?.trim() || '0') || 0;
+            gs = parseInt(cells[8]?.textContent?.trim() || '0') || 0;
+          }
           
           if (squadra && g > 0) {
             mappa[squadra] = { gf, gs, g };
@@ -470,8 +503,6 @@ async function scrapeClassifica(page) {
       Object.entries(classificaData).slice(0, 5).forEach(([nome, dati]) => {
         console.log(`  - ${nome}: GF=${dati.gf}, GS=${dati.gs}, G=${dati.g}`);
       });
-    } else {
-      console.log('⚠️ Nessuna squadra trovata. Possibile cambio struttura HTML.');
     }
     
     const output = {
