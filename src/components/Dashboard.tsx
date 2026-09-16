@@ -114,12 +114,12 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         {/* Header */}
         <div className="flex items-center justify-between mb-4 md:mb-6 gap-2">
           <button 
-            onClick={onBack} 
-            className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0"
-          >
-            <span className="md:hidden text-lg">←</span>
-            <span className="hidden md:inline">← Modifica Rosa</span>
-          </button>
+  onClick={onBack} 
+  className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0"
+>
+  <span className="md:hidden text-lg">🏠</span>
+  <span className="hidden md:inline">🏠 Home</span>
+</button>
           <div className="text-center flex-1 min-w-0">
             <h1 className="text-base md:text-3xl font-black text-white tracking-tight truncate">
               FORMAZIONE <span className="text-emerald-400">CONSIGLIATA</span>
