@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AppStep, LeagueRules, Player } from './types';
 import { loadListone, ListoneStatus } from './services/listoneService';
 import { initializeProbabiliFormazioni, applyProbabiliFormazioni } from './services/probabiliFormazioniService';
+import Home from './components/Home';
 import Setup from './components/Setup';
 import Roster from './components/Roster';
 import Dashboard from './components/Dashboard';
@@ -21,11 +22,6 @@ const RULES_KEY = 'fantaconsiglio_rules';
 const ROSTER_KEY = 'fantaconsiglio_roster';
 const STEP_KEY = 'fantaconsiglio_step';
 
-/**
- * 🔥 Ricollega il roster salvato con i dati freschi del listone.
- * Mantiene solo gli ID dei giocatori scelti, ma aggiorna i loro dati
- * (FM, MV, titolarità, forma, ecc.)
- */
 function ricollegaRosterAlListone(
   rosterSalvato: Player[],
   listoneFresco: Player[]
@@ -33,13 +29,11 @@ function ricollegaRosterAlListone(
   if (!Array.isArray(rosterSalvato) || rosterSalvato.length === 0) return [];
   if (!Array.isArray(listoneFresco) || listoneFresco.length === 0) return rosterSalvato;
   
-  // Crea mappa: id → player fresco
   const mappaListone = new Map<string, Player>();
   listoneFresco.forEach(p => {
     if (p && p.id) mappaListone.set(p.id, p);
   });
   
-  // Per ogni giocatore nel roster, cerca la versione fresca
   let aggiornati = 0;
   const rosterAggiornato = rosterSalvato.map(playerSalvato => {
     if (!playerSalvato || !playerSalvato.id) return playerSalvato;
@@ -47,7 +41,6 @@ function ricollegaRosterAlListone(
     const fresco = mappaListone.get(playerSalvato.id);
     if (fresco) {
       aggiornati++;
-      // Prendi i dati freschi MA mantieni la titolarità aggiornata dalle formazioni
       return {
         ...fresco,
         titolarita: playerSalvato.titolarita ?? fresco.titolarita,
@@ -62,14 +55,14 @@ function ricollegaRosterAlListone(
 }
 
 export default function App() {
-  const [step, setStep] = useState<AppStep>('setup');
+  const [step, setStep] = useState<AppStep>('home'); // 🔥 INIZIA DA HOME
   const [rules, setRules] = useState<LeagueRules>(defaultRules);
   const [roster, setRoster] = useState<Player[]>([]);
   const [availablePlayers, setAvailablePlayers] = useState<Player[]>([]);
   const [listoneStatus, setListoneStatus] = useState<ListoneStatus | null>(null);
   const [formazioniInizializzate, setFormazioniInizializzate] = useState(false);
 
-  // 🔥 Inizializzazione formazioni
+  // Inizializzazione formazioni
   useEffect(() => {
     const initFormazioni = async () => {
       try {
@@ -85,7 +78,7 @@ export default function App() {
     initFormazioni();
   }, []);
 
-  // 🔥 Caricamento iniziale: regole, roster, listone
+  // Caricamento iniziale
   useEffect(() => {
     // 1. Carica regole
     try {
@@ -108,10 +101,8 @@ export default function App() {
         if (Array.isArray(rosterParsato) && rosterParsato.length > 0) {
           console.log('📂 Roster salvato trovato:', rosterParsato.length, 'giocatori');
           
-          // 🔥 Ricollega al listone fresco (aggiorna FM, MV, ecc.)
           const rosterAggiornato = ricollegaRosterAlListone(rosterParsato, listoneFresco);
           
-          // 🔥 Applica anche le probabili formazioni
           let rosterFinale = rosterAggiornato;
           try {
             rosterFinale = applyProbabiliFormazioni(rosterAggiornato);
@@ -130,7 +121,7 @@ export default function App() {
     // 4. Carica step salvato
     try {
       const savedStep = localStorage.getItem(STEP_KEY) as AppStep | null;
-      if (savedStep && ['setup', 'roster', 'dashboard'].includes(savedStep)) {
+      if (savedStep && ['home', 'setup', 'roster', 'dashboard'].includes(savedStep)) {
         setStep(savedStep);
       }
     } catch (e) {
@@ -138,7 +129,7 @@ export default function App() {
     }
   }, []);
 
-  // 🔥 Quando le formazioni sono inizializzate, riapplica al roster
+  // Riapplica formazioni quando inizializzate
   useEffect(() => {
     if (!formazioniInizializzate) return;
     if (!Array.isArray(roster) || roster.length === 0) return;
@@ -151,21 +142,19 @@ export default function App() {
     }
   }, [formazioniInizializzate]);
 
-  // Salva regole
+  // Salvataggi
   useEffect(() => {
     try {
       localStorage.setItem(RULES_KEY, JSON.stringify(rules));
     } catch (e) {}
   }, [rules]);
 
-  // Salva roster
   useEffect(() => {
     try {
       localStorage.setItem(ROSTER_KEY, JSON.stringify(roster));
     } catch (e) {}
   }, [roster]);
 
-  // Salva step
   useEffect(() => {
     try {
       localStorage.setItem(STEP_KEY, step);
@@ -179,13 +168,13 @@ export default function App() {
   };
 
   const handleReset = () => {
-    setStep('setup');
+    setStep('home'); // 🔥 Reset → HOME
   };
 
   return (
     <div className="min-h-screen">
       {listoneStatus && (
-        <div className={`fixed top-0 left-0 right-0 z-50 px-4 py-2 text-xs text-center ${
+        <div className={`fixed top-0 left-0 right-0 z-50 px-4 py-2 text-[10px] md:text-xs text-center ${
           listoneStatus.error
             ? 'bg-amber-600/90 text-amber-100'
             : 'bg-emerald-700/90 text-emerald-100'
@@ -195,33 +184,47 @@ export default function App() {
             <span>
               {listoneStatus.playerCount} giocatori • {listoneStatus.source}
             </span>
-            {listoneStatus.lastUpdated && (
-              <span className="opacity-75">• {new Date(listoneStatus.lastUpdated).toLocaleString('it-IT')}</span>
-            )}
           </div>
         </div>
       )}
 
       <div className={listoneStatus ? 'pt-8' : ''}>
-        {step === 'setup' && (
-          <Setup rules={rules} onSave={setRules} onNext={() => setStep('roster')} />
+        {/* 🔥 NUOVO STEP HOME */}
+        {step === 'home' && (
+          <Home
+            roster={roster}
+            rules={rules}
+            listoneStatus={listoneStatus}
+            onNavigate={(target) => setStep(target)}
+          />
         )}
+
+        {step === 'setup' && (
+          <Setup
+            rules={rules}
+            onSave={setRules}
+            onNext={() => setStep('home')}  // 🔥 Setup → HOME (era 'roster')
+            onBack={() => setStep('home')}  // 🔥 NUOVO: tasto indietro
+          />
+        )}
+
         {step === 'roster' && (
           <Roster
             roster={roster}
             onSave={setRoster}
             onNext={() => setStep('dashboard')}
-            onBack={() => setStep('setup')}
+            onBack={() => setStep('home')}  // 🔥 Roster → HOME (era 'setup')
             availablePlayers={availablePlayers}
             listoneStatus={listoneStatus}
             onListoneChange={reloadListone}
           />
         )}
+
         {step === 'dashboard' && (
           <Dashboard
             roster={roster}
             rules={rules}
-            onBack={() => setStep('roster')}
+            onBack={() => setStep('home')}  // 🔥 Dashboard → HOME (era 'roster')
             onReset={handleReset}
           />
         )}
