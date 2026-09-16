@@ -1,4 +1,5 @@
 import { Player } from '../types';
+import * as XLSX from 'xlsx';
 
 // ============================================================
 // TIPI
@@ -28,12 +29,8 @@ function similarita(a: string, b: string): number {
   if (maxLen === 0) return 1;
 
   const matrix: number[][] = [];
-  for (let i = 0; i <= a.length; i++) {
-    matrix[i] = [i];
-  }
-  for (let j = 0; j <= b.length; j++) {
-    matrix[0][j] = j;
-  }
+  for (let i = 0; i <= a.length; i++) matrix[i] = [i];
+  for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
 
   for (let i = 1; i <= a.length; i++) {
     for (let j = 1; j <= b.length; j++) {
@@ -50,13 +47,10 @@ function similarita(a: string, b: string): number {
 }
 
 // ============================================================
-// MATCHING: Trova il giocatore nel listone
+// MATCHING
 // ============================================================
 
-function trovaGiocatore(
-  nomeEstratto: string,
-  listaGiocatori: Player[]
-): Player | null {
+function trovaGiocatore(nomeEstratto: string, listaGiocatori: Player[]): Player | null {
   const nomeNorm = normalizzaNome(nomeEstratto);
   if (!nomeNorm) return null;
 
@@ -67,23 +61,20 @@ function trovaGiocatore(
 
   // 1. Match esatto
   for (const g of listaGiocatori) {
-    const nomeCompleto = normalizzaNome(`${g.name} ${g.surname}`);
-    if (nomeCompleto === nomeNorm) return g;
+    if (normalizzaNome(`${g.name} ${g.surname}`) === nomeNorm) return g;
   }
 
   // 2. Match per cognome esatto
   for (const g of listaGiocatori) {
-    const cognomeGiocatore = normalizzaNome(g.surname);
-    if (cognomeGiocatore === cognomeEstratto) return g;
+    if (normalizzaNome(g.surname) === cognomeEstratto) return g;
   }
 
-  // 3. Match fuzzy (similarità > 0.8)
+  // 3. Match fuzzy
   let migliorMatch: Player | null = null;
   let migliorScore = 0.8;
 
   for (const g of listaGiocatori) {
-    const cognomeGiocatore = normalizzaNome(g.surname);
-    const score = similarita(cognomeGiocatore, cognomeEstratto);
+    const score = similarita(normalizzaNome(g.surname), cognomeEstratto);
     if (score > migliorScore) {
       migliorScore = score;
       migliorMatch = g;
@@ -94,26 +85,36 @@ function trovaGiocatore(
 }
 
 // ============================================================
-// RICONOSCIMENTO DA FILE (Excel/CSV)
+// RICONOSCIMENTO DA FILE (Excel, CSV, JSON)
 // ============================================================
 
 export async function riconosciGiocatoriDaFile(
   file: File,
   listaGiocatori: Player[]
 ): Promise<RiconoscimentoResult> {
-  if (file.type.startsWith('image/')) {
-    throw new Error('Per le immagini usa riconosciGiocatoriDaImmagine()');
-  }
-
-  const text = await file.text();
-  const lines = text.split('\n').filter(l => l.trim());
-
+  const fileName = file.name.toLowerCase();
   const riconosciuti: Player[] = [];
   const nonRiconosciuti: string[] = [];
   const idsAggiunti = new Set<string>();
 
-  for (const line of lines) {
-    const nome = line.split(/[,\t;]/)[0]?.trim();
+  let nomiGiocatori: string[] = [];
+
+  // 🔥 RILEVA IL TIPO DI FILE
+  if (fileName.endsWith('.xlsx') || fileName.endsWith('.xls')) {
+    // EXCEL
+    nomiGiocatori = await leggiNomiDaExcel(file);
+  } else if (fileName.endsWith('.json')) {
+    // JSON
+    nomiGiocatori = await leggiNomiDaJSON(file);
+  } else {
+    // CSV/TXT (testo)
+    nomiGiocatori = await leggiNomiDaTesto(file);
+  }
+
+  console.log(`📄 Estratti ${nomiGiocatori.length} nomi dal file`);
+
+  // 🔥 MATCH con il listone
+  for (const nome of nomiGiocatori) {
     if (!nome || nome.length < 3) continue;
 
     const giocatore = trovaGiocatore(nome, listaGiocatori);
@@ -121,15 +122,129 @@ export async function riconosciGiocatoriDaFile(
       riconosciuti.push(giocatore);
       idsAggiunti.add(giocatore.id);
     } else if (!giocatore) {
-      nonRiconosciuti.push(nome);
+      if (!nonRiconosciuti.includes(nome)) {
+        nonRiconosciuti.push(nome);
+      }
     }
   }
+
+  console.log(`✅ Riconosciuti: ${riconosciuti.length}, Non riconosciuti: ${nonRiconosciuti.length}`);
 
   return { riconosciuti, nonRiconosciuti };
 }
 
 // ============================================================
-// RICONOSCIMENTO DA IMMAGINE (con PaddleOCR)
+// LETTURA EXCEL
+// ============================================================
+
+async function leggiNomiDaExcel(file: File): Promise<string[]> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      try {
+        const data = new Uint8Array(e.target?.result as ArrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+
+        // Prendi il primo foglio
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+
+        // Converti in array di array
+        const rows = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1 });
+
+        const nomi: string[] = [];
+
+        for (const row of rows) {
+          if (!row || !Array.isArray(row)) continue;
+
+          // Prendi la prima cella non vuota della riga
+          for (const cell of row) {
+            const testo = String(cell || '').trim();
+            if (testo.length >= 3 && testo.length <= 40) {
+              // Evita header comuni
+              const lower = testo.toLowerCase();
+              if (!lower.includes('nome') && 
+                  !lower.includes('calciatore') && 
+                  !lower.includes('giocatore') &&
+                  !lower.includes('squadra') &&
+                  !lower.includes('ruolo')) {
+                nomi.push(testo);
+                break; // Solo il primo nome per riga
+              }
+            }
+          }
+        }
+
+        resolve(nomi);
+      } catch (err) {
+        reject(new Error('Errore lettura Excel: ' + (err instanceof Error ? err.message : 'sconosciuto')));
+      }
+    };
+
+    reader.onerror = () => reject(new Error('Errore lettura file'));
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+// ============================================================
+// LETTURA JSON
+// ============================================================
+
+async function leggiNomiDaJSON(file: File): Promise<string[]> {
+  const text = await file.text();
+  const data = JSON.parse(text);
+
+  if (!Array.isArray(data)) return [];
+
+  const nomi: string[] = [];
+
+  for (const item of data) {
+    if (typeof item === 'string') {
+      nomi.push(item);
+    } else if (item && typeof item === 'object') {
+      // Prova vari campi comuni
+      const nome = item.nome || item.name || item.calciatore || item.giocatore || '';
+      const cognome = item.cognome || item.surname || '';
+      const nomeCompleto = `${nome} ${cognome}`.trim();
+      if (nomeCompleto.length >= 3) {
+        nomi.push(nomeCompleto);
+      }
+    }
+  }
+
+  return nomi;
+}
+
+// ============================================================
+// LETTURA CSV/TXT
+// ============================================================
+
+async function leggiNomiDaTesto(file: File): Promise<string[]> {
+  const text = await file.text();
+  const lines = text.split('\n').filter(l => l.trim());
+
+  const nomi: string[] = [];
+
+  for (const line of lines) {
+    // Prendi la prima colonna
+    const nome = line.split(/[,\t;]/)[0]?.trim();
+    if (nome && nome.length >= 3 && nome.length <= 40) {
+      // Evita header
+      const lower = nome.toLowerCase();
+      if (!lower.includes('nome') && 
+          !lower.includes('calciatore') && 
+          !lower.includes('squadra')) {
+        nomi.push(nome);
+      }
+    }
+  }
+
+  return nomi;
+}
+
+// ============================================================
+// RICONOSCIMENTO DA IMMAGINE
 // ============================================================
 
 export async function riconosciGiocatoriDaImmagine(
