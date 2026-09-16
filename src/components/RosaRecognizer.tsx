@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Player } from '../types';
-import { riconosciGiocatoriDaImmagine, riconosciGiocatoriDaFile, RiconoscimentoResult } from '../services/rosaRecognizerService';
+import { riconosciGiocatoriDaImmagine, RiconoscimentoResult } from '../services/rosaRecognizerService';
 
 interface RosaRecognizerProps {
   listaGiocatori: Player[];
@@ -20,7 +20,6 @@ export default function RosaRecognizer({
   const [loadingMessage, setLoadingMessage] = useState<string>('');
   const ocrRef = useRef<any>(null);
 
-  // 🔥 Carica PaddleOCR dinamicamente
   const loadOCREngine = async () => {
     if (ocrRef.current) return ocrRef.current;
 
@@ -33,12 +32,11 @@ export default function RosaRecognizer({
       setLoadingMessage('Inizializzazione OCR (prima volta: ~15MB)...');
 
       const ocr = await PaddleOCR.create({
-        lang: 'it',
-        ocrVersion: 'PP-OCRv5',
+        lang: 'latin',           // 🔥 Usa 'latin' per l'italiano
+        ocrVersion: 'PP-OCRv4',  // 🔥 Usa la versione v4 che supporta il latino
         ortOptions: {
           backend: 'wasm',
-          // 🔥 NECESSARIO: percorso dei file WASM
-          wasmPaths: 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/',
+          wasmPaths: 'https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/',
         },
       });
 
@@ -65,7 +63,6 @@ export default function RosaRecognizer({
       let result: RiconoscimentoResult;
 
       if (file.type.startsWith('image/')) {
-        // 🔥 IMMAGINE: usa PaddleOCR
         const ocr = await loadOCREngine();
 
         setLoadingMessage('Riconoscimento testo in corso...');
@@ -83,8 +80,8 @@ export default function RosaRecognizer({
         result = await riconosciGiocatoriDaImmagine(file, listaGiocatori, testoEstratto);
 
       } else {
-        // FILE (Excel/CSV)
         setLoadingMessage('Lettura file...');
+        const { riconosciGiocatoriDaFile } = await import('../services/rosaRecognizerService');
         result = await riconosciGiocatoriDaFile(file, listaGiocatori);
       }
 
@@ -129,7 +126,6 @@ export default function RosaRecognizer({
         </div>
       </div>
 
-      {/* Upload Area */}
       <div className="border-2 border-dashed border-slate-600 rounded-xl p-4 md:p-6 text-center active:border-emerald-500/50 transition-colors">
         <input
           type="file"
@@ -160,14 +156,12 @@ export default function RosaRecognizer({
         </label>
       </div>
 
-      {/* Error Message */}
       {error && (
         <div className="mt-3 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-300 text-xs md:text-sm">
           ⚠️ {error}
         </div>
       )}
 
-      {/* Results */}
       {(riconosciuti.length > 0 || nonRiconosciuti.length > 0) && (
         <div className="mt-4 space-y-3 md:space-y-4">
           {riconosciuti.length > 0 && (
