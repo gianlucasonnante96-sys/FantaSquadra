@@ -43,4 +43,4 @@ export interface Formation {
   explanation: string;
 }
 
-export type AppStep = 'setup' | 'roster' | 'dashboard';
+export type AppStep = 'home' | 'setup' | 'roster' | 'dashboard';
