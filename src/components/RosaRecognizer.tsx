@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Player } from '../types';
-import { riconosciGiocatoriDaImmagine, RiconoscimentoResult } from '../services/rosaRecognizerService';
+import { riconosciGiocatoriDaImmagine, riconosciGiocatoriDaFile, RiconoscimentoResult } from '../services/rosaRecognizerService';
 
 interface RosaRecognizerProps {
   listaGiocatori: Player[];
@@ -25,24 +25,19 @@ export default function RosaRecognizer({
 
     try {
       setLoadingMessage('Caricamento motore OCR...');
-      console.log('📦 Caricamento @paddleocr/paddleocr-js...');
+      console.log('📦 Caricamento ppu-paddle-ocr...');
 
-      const { PaddleOCR } = await import('@paddleocr/paddleocr-js');
+      // 🔥 Importa dal subpath /web per il browser
+      const { PaddleOcrService } = await import('ppu-paddle-ocr/web');
 
-      setLoadingMessage('Inizializzazione OCR (prima volta: ~15MB)...');
+      setLoadingMessage('Inizializzazione OCR (prima volta: ~6MB)...');
 
-      const ocr = await PaddleOCR.create({
-        lang: 'latin',           // 🔥 Usa 'latin' per l'italiano
-        ocrVersion: 'PP-OCRv4',  // 🔥 Usa la versione v4 che supporta il latino
-        ortOptions: {
-          backend: 'wasm',
-          wasmPaths: 'https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/',
-        },
-      });
+      const service = new PaddleOcrService();
+      await service.initialize();
 
       console.log('✅ PaddleOCR inizializzato');
-      ocrRef.current = ocr;
-      return ocr;
+      ocrRef.current = service;
+      return service;
     } catch (e) {
       console.error('Errore caricamento PaddleOCR:', e);
       throw new Error('Impossibile caricare il motore OCR. Ricarica la pagina e riprova.');
@@ -68,12 +63,11 @@ export default function RosaRecognizer({
         setLoadingMessage('Riconoscimento testo in corso...');
         console.log('🖼️ Elaborazione immagine con PaddleOCR...');
 
-        const [ocrResult] = await ocr.predict(file);
+        // 🔥 ppu-paddle-ocr: converti File in ArrayBuffer
+        const imageBuffer = await file.arrayBuffer();
+        const ocrResult = await ocr.recognize(imageBuffer);
 
-        const testoEstratto = ocrResult.items
-          .map((item: any) => item.text)
-          .join('\n');
-
+        const testoEstratto = ocrResult.text || '';
         console.log('📝 Testo estratto:', testoEstratto);
 
         setLoadingMessage('Match giocatori...');
@@ -81,7 +75,6 @@ export default function RosaRecognizer({
 
       } else {
         setLoadingMessage('Lettura file...');
-        const { riconosciGiocatoriDaFile } = await import('../services/rosaRecognizerService');
         result = await riconosciGiocatoriDaFile(file, listaGiocatori);
       }
 
@@ -258,7 +251,7 @@ export default function RosaRecognizer({
           <li>Usa immagini <strong>nitide</strong> e ben illuminate</li>
           <li><strong>Ritaglia</strong> solo la parte con i nomi dei giocatori</li>
           <li>Preferisci sfondi <strong>chiari</strong> con testo scuro</li>
-          <li>PaddleOCR funziona <strong>direttamente nel browser</strong> (prima volta: scarica ~15MB)</li>
+          <li>PaddleOCR funziona <strong>direttamente nel browser</strong> (prima volta: scarica ~6MB)</li>
         </ul>
       </div>
     </div>
