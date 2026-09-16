@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-16T15:11:02.164Z",
+  "aggiornato": "2026-09-16T17:09:41.969Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -3276,7 +3276,7 @@
           },
           {
             "nome": "Alhassane",
-            "perc": 55,
+            "perc": 50,
             "starter": false
           },
           {
@@ -3295,6 +3295,11 @@
             "starter": false
           },
           {
+            "nome": "Zortea",
+            "perc": 50,
+            "starter": false
+          },
+          {
             "nome": "Casale",
             "perc": 25,
             "starter": false
@@ -3302,6 +3307,11 @@
           {
             "nome": "Amondarain",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "El Azzouzi O.",
+            "perc": 20,
             "starter": false
           },
           {
@@ -3726,12 +3736,12 @@
           },
           {
             "nome": "N'Dicka",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Hermoso",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -3746,7 +3756,7 @@
           },
           {
             "nome": "Konè M.",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
