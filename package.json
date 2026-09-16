@@ -14,7 +14,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@supabase/supabase-js": "^2.98.0",
     "canvas-confetti": "^1.9.3",
-    "client-side-ocr": "^0.1.0",
+    "@paddleocr/paddleocr-js": "^0.4.2",
     "date-fns": "^2.30.0",
     "framer-motion": "^11.16.1",
     "lucide-react": "^0.294.0",
