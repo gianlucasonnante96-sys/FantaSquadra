@@ -55,7 +55,7 @@ function ricollegaRosterAlListone(
 }
 
 export default function App() {
-  const [step, setStep] = useState<AppStep>('home'); // 🔥 INIZIA DA HOME
+  const [step, setStep] = useState<AppStep>('home');
   const [rules, setRules] = useState<LeagueRules>(defaultRules);
   const [roster, setRoster] = useState<Player[]>([]);
   const [availablePlayers, setAvailablePlayers] = useState<Player[]>([]);
@@ -80,7 +80,6 @@ export default function App() {
 
   // Caricamento iniziale
   useEffect(() => {
-    // 1. Carica regole
     try {
       const savedRules = localStorage.getItem(RULES_KEY);
       if (savedRules) setRules(JSON.parse(savedRules));
@@ -88,12 +87,10 @@ export default function App() {
       console.error('Errore caricamento regole:', e);
     }
 
-    // 2. Carica listone fresco
     const { players: listoneFresco, status } = loadListone();
     setAvailablePlayers(listoneFresco);
     setListoneStatus(status);
 
-    // 3. Carica roster salvato E ricollegalo al listone fresco
     try {
       const savedRoster = localStorage.getItem(ROSTER_KEY);
       if (savedRoster) {
@@ -118,7 +115,6 @@ export default function App() {
       console.error('Errore caricamento roster:', e);
     }
 
-    // 4. Carica step salvato
     try {
       const savedStep = localStorage.getItem(STEP_KEY) as AppStep | null;
       if (savedStep && ['home', 'setup', 'roster', 'dashboard'].includes(savedStep)) {
@@ -168,7 +164,7 @@ export default function App() {
   };
 
   const handleReset = () => {
-    setStep('home'); // 🔥 Reset → HOME
+    setStep('home');
   };
 
   return (
@@ -189,7 +185,6 @@ export default function App() {
       )}
 
       <div className={listoneStatus ? 'pt-8' : ''}>
-        {/* 🔥 NUOVO STEP HOME */}
         {step === 'home' && (
           <Home
             roster={roster}
@@ -203,8 +198,8 @@ export default function App() {
           <Setup
             rules={rules}
             onSave={setRules}
-            onNext={() => setStep('home')}  // 🔥 Setup → HOME (era 'roster')
-            onBack={() => setStep('home')}  // 🔥 NUOVO: tasto indietro
+            onNext={() => setStep('home')}
+            onBack={() => setStep('home')}
           />
         )}
 
@@ -213,7 +208,7 @@ export default function App() {
             roster={roster}
             onSave={setRoster}
             onNext={() => setStep('dashboard')}
-            onBack={() => setStep('home')}  // 🔥 Roster → HOME (era 'setup')
+            onBack={() => setStep('home')}
             availablePlayers={availablePlayers}
             listoneStatus={listoneStatus}
             onListoneChange={reloadListone}
@@ -224,7 +219,7 @@ export default function App() {
           <Dashboard
             roster={roster}
             rules={rules}
-            onBack={() => setStep('home')}  // 🔥 Dashboard → HOME (era 'roster')
+            onBack={() => setStep('home')}
             onReset={handleReset}
           />
         )}
