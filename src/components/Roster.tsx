@@ -299,4 +299,35 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
             <span className="text-yellow-400">P: {rosterByRole.P.length}/3</span>
             <span className="text-emerald-400">D: {rosterByRole.D.length}/8</span>
             <span className="text-blue-400">C: {rosterByRole.C.length}/8</span>
-            <span className="text-red-
+            <span className="text-red-400">A: {rosterByRole.A.length}/6</span>
+          </div>
+
+          <div className="w-full h-1.5 bg-slate-800 rounded-full mb-3 md:mb-4 overflow-hidden">
+            <div
+              className={`h-full rounded-full transition-all duration-500 ${
+                isRosterComplete ? 'bg-gradient-to-r from-emerald-400 to-green-600' : hasMinimumPlayers ? 'bg-amber-500' : 'bg-red-500'
+              }`}
+              style={{ width: `${Math.min((localRoster.length / 25) * 100, 100)}%` }}
+            />
+          </div>
+
+          <button
+            onClick={handleSave}
+            disabled={!hasMinimumPlayers}
+            className={`w-full py-4 min-h-[56px] font-black rounded-xl transition-all text-xs md:text-sm tracking-wide uppercase ${
+              hasMinimumPlayers
+                ? 'bg-gradient-to-r from-emerald-400 to-green-600 text-black active:scale-[0.98] md:hover:scale-[1.02] shadow-lg shadow-emerald-500/50'
+                : 'bg-slate-800 text-slate-600 cursor-not-allowed'
+            }`}
+          >
+            {isRosterComplete
+              ? 'CALCOLA FORMAZIONE →'
+              : hasMinimumPlayers
+                ? 'PROCEDI →'
+                : `AGGIUNGI ${11 - localRoster.length} GIOCATORI`}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
