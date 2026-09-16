@@ -108,11 +108,11 @@ export default function Roster({ roster, onSave, onNext, onBack, availablePlayer
         <div className="relative mb-4 md:mb-6">
           <button 
             onClick={onBack} 
-            className="absolute left-0 top-0 text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center"
-          >
-            <span className="md:hidden text-lg">←</span>
-            <span className="hidden md:inline">← Indietro</span>
-          </button>
+  className="absolute left-0 top-0 text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center"
+>
+  <span className="md:hidden text-lg">🏠</span>
+  <span className="hidden md:inline">🏠 Home</span>
+</button>
           <div className="text-center pt-1">
             <h1 className="text-xl md:text-3xl font-black text-white tracking-tight">
               GESTIONE <span className="text-emerald-400">ROSA</span>
