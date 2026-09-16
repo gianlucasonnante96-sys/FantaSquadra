@@ -18,11 +18,30 @@ const CONFIG = {
   bonusCasa: 0.4,
   malusTrasferta: 0.3,
   
-  difficolta: {
-    1: 1.5, 2: 0.8, 3: 0, 4: -0.8, 5: -1.5,
-  } as Record<number, number>,
+  // Peso del fixture bonus per ruolo
+  // I difensori hanno meno bonus/malus avversario (voto più stabile)
+  pesoFixturePerRuolo: {
+    'P': 0.6,  // Portieri: sentono molto l'avversario
+    'D': 0.4,  // 🔥 Difensori: meno sensibili
+    'C': 0.7,  // Centrocampisti
+    'A': 0.8,  // Attaccanti: molto sensibili
+  } as Record<string, number>,
   
-  pesoTeamStrength: 0.8,
+  // Peso del team strength per ruolo
+  pesoTeamStrengthPerRuolo: {
+    'P': 0.4,
+    'D': 0.5,  // 🔥 Difensori: peso ridotto
+    'C': 0.7,
+    'A': 0.8,
+  } as Record<string, number>,
+  
+  // Range voto previsto per ruolo (min, max)
+  rangeVotoPerRuolo: {
+    'P': [5.0, 8.0],
+    'D': [5.0, 7.5],  // 🔥 Difensori: max 7.5 (non 8)
+    'C': [5.0, 8.0],
+    'A': [5.0, 8.0],
+  } as Record<string, [number, number]>,
   
   portieri: {
     cleanSheetBase: { 1: 0.75, 2: 0.60, 3: 0.40, 4: 0.20, 5: 0.10 } as Record<number, number>,
@@ -37,7 +56,7 @@ const CONFIG = {
     pesoGol: 1.2,
     assistProbability: { 1: 0.10, 2: 0.08, 3: 0.05, 4: 0.03, 5: 0.02 } as Record<number, number>,
     pesoAssist: 0.5,
-    malusAvversarioForte: 0.3,
+    malusAvversarioForte: 0.2,  // 🔥 Ridotto (era 0.3)
   },
   
   centrocampisti: {
@@ -69,26 +88,11 @@ const CONFIG = {
 // ============================================================
 
 const TEAM_STRENGTH: Record<string, number> = {
-  'Inter': 1.22,
-  'Roma': 1.20,
-  'Como': 1.15,
-  'Lazio': 1.15,
-  'Milan': 1.10,
-  'Napoli': 1.10,
-  'Cagliari': 1.05,
-  'Juventus': 1.05,
-  'Atalanta': 1.05,
-  'Frosinone': 0.95,
-  'Sassuolo': 0.90,
-  'Lecce': 0.85,
-  'Torino': 0.85,
-  'Udinese': 0.82,
-  'Fiorentina': 0.82,
-  'Bologna': 0.80,
-  'Parma': 0.72,
-  'Genoa': 0.72,
-  'Monza': 0.70,
-  'Venezia': 0.65,
+  'Inter': 1.22, 'Roma': 1.20, 'Como': 1.15, 'Lazio': 1.15,
+  'Milan': 1.10, 'Napoli': 1.10, 'Cagliari': 1.05, 'Juventus': 1.05,
+  'Atalanta': 1.05, 'Frosinone': 0.95, 'Sassuolo': 0.90, 'Lecce': 0.85,
+  'Torino': 0.85, 'Udinese': 0.82, 'Fiorentina': 0.82, 'Bologna': 0.80,
+  'Parma': 0.72, 'Genoa': 0.72, 'Monza': 0.70, 'Venezia': 0.65,
 };
 
 // ============================================================
@@ -96,26 +100,11 @@ const TEAM_STRENGTH: Record<string, number> = {
 // ============================================================
 
 const FIXTURE_DIFFICULTY: Record<string, number> = {
-  'Inter': 5.0,
-  'Roma': 4.9,
-  'Como': 4.5,
-  'Lazio': 4.4,
-  'Milan': 4.3,
-  'Napoli': 4.2,
-  'Juventus': 4.0,
-  'Atalanta': 3.9,
-  'Cagliari': 3.8,
-  'Frosinone': 3.5,
-  'Sassuolo': 3.3,
-  'Fiorentina': 3.0,
-  'Torino': 2.9,
-  'Bologna': 2.9,
-  'Lecce': 2.8,
-  'Udinese': 2.7,
-  'Parma': 2.4,
-  'Genoa': 2.3,
-  'Monza': 2.2,
-  'Venezia': 1.9,
+  'Inter': 5.0, 'Roma': 4.9, 'Como': 4.5, 'Lazio': 4.4,
+  'Milan': 4.3, 'Napoli': 4.2, 'Juventus': 4.0, 'Atalanta': 3.9,
+  'Cagliari': 3.8, 'Frosinone': 3.5, 'Sassuolo': 3.3, 'Fiorentina': 3.0,
+  'Torino': 2.9, 'Bologna': 2.9, 'Lecce': 2.8, 'Udinese': 2.7,
+  'Parma': 2.4, 'Genoa': 2.3, 'Monza': 2.2, 'Venezia': 1.9,
 };
 
 // ============================================================
@@ -208,7 +197,13 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   const difficulty = Math.max(1, Math.min(5, Math.round(fixtureDiff)));
 
   const teamStrength = getTeamStrength(player.team);
-  const teamBonus = (teamStrength - 1.0) * CONFIG.pesoTeamStrength;
+  
+  // 🔥 Pesi per ruolo
+  const pesoFixture = CONFIG.pesoFixturePerRuolo[role] ?? 0.75;
+  const pesoTeamStrength = CONFIG.pesoTeamStrengthPerRuolo[role] ?? 0.8;
+  const rangeVoto = CONFIG.rangeVotoPerRuolo[role] ?? [CONFIG.minVoto, CONFIG.maxVoto];
+
+  const teamBonus = (teamStrength - 1.0) * pesoTeamStrength;
 
   // BASE
   const pesi = calcolaPesiAffidabili(player);
@@ -229,7 +224,8 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   if (inCasa) votoPrevisto += CONFIG.bonusCasa;
   else votoPrevisto -= CONFIG.malusTrasferta;
 
-  const fixtureBonus = convertiDifficoltaInBonus(fixtureDiff);
+  // 🔥 Fixture bonus PESATO per ruolo
+  const fixtureBonus = convertiDifficoltaInBonus(fixtureDiff) * (pesoFixture / 0.75);
   votoPrevisto += fixtureBonus;
 
   if (role !== 'P') votoPrevisto += teamBonus;
@@ -238,7 +234,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   // BONUS SPECIFICI PER RUOLO
   // ==========================================================
 
-  // ===== PORTIERI =====
+  // PORTIERI
   if (role === 'P') {
     const P = CONFIG.portieri;
     
@@ -260,10 +256,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     votoPrevisto += teamBonus * 0.5;
   }
 
-  // ===== DIFENSORI =====
-  // Nel fantacalcio classico i difensori NON prendono bonus imbattibilità
-  // individuale. Il loro "bonus" è il modificatore difesa (calcolato a parte
-  // in calculateModificatoreBonus()).
+  // DIFENSORI
   if (role === 'D') {
     const D = CONFIG.difensori;
     
@@ -281,7 +274,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     }
   }
 
-  // ===== CENTROCAMPISTI =====
+  // CENTROCAMPISTI
   if (role === 'C') {
     const C = CONFIG.centrocampisti;
     
@@ -303,7 +296,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     }
   }
 
-  // ===== ATTACCANTI =====
+  // ATTACCANTI
   if (role === 'A') {
     const A = CONFIG.attaccanti;
     
@@ -330,12 +323,13 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
 
   if (!Number.isFinite(votoPrevisto)) return 6;
 
+  // 🔥 Arrotonda e limita al range del ruolo
   const rounded = Math.round(votoPrevisto * 2) / 2;
-  return Math.max(CONFIG.minVoto, Math.min(CONFIG.maxVoto, rounded));
+  return Math.max(rangeVoto[0], Math.min(rangeVoto[1], rounded));
 }
 
 // ============================================================
-// 🔥 MODIFICATORE DIFESA — Basato sul VP (expectedScore)
+// MODIFICATORE DIFESA (basato sul VP)
 // ============================================================
 
 export function calculateModificatoreBonus(
@@ -350,17 +344,14 @@ export function calculateModificatoreBonus(
   const validDefenders = defenders.filter(d => d && d.player);
   if (validDefenders.length < 3) return 0;
 
-  // 🔥 Ordina per VP (expectedScore) invece di mediaVoto
   const sortedDefenders = [...validDefenders].sort(
     (a, b) => (b.expectedScore ?? 6) - (a.expectedScore ?? 6)
   );
   const top3Defenders = sortedDefenders.slice(0, 3);
 
-  // 🔥 Somma i VP dei 3 migliori difensori
   let totalVP = top3Defenders.reduce((sum, d) => sum + (d.expectedScore ?? 6), 0);
   let count = 3;
 
-  // 🔥 Aggiungi il VP del portiere
   if (goalkeeper && goalkeeper.player) {
     totalVP += goalkeeper.expectedScore ?? 6;
     count = 4;
@@ -368,7 +359,6 @@ export function calculateModificatoreBonus(
 
   const avgVP = totalVP / count;
 
-  // Soglie standard
   if (rules.modificatoreDifesa === 'standard') {
     if (avgVP >= 7.0) return 6;
     if (avgVP >= 6.5) return 3;
@@ -376,7 +366,6 @@ export function calculateModificatoreBonus(
     return 0;
   }
 
-  // Soglie personalizzate
   let bonus = 0;
   for (const threshold of rules.modificatoreCustom) {
     if (avgVP >= threshold.threshold) {
