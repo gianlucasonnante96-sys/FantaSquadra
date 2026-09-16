@@ -1,52 +1,44 @@
-
 import { Player } from '../types';
-import Tesseract from 'tesseract.js';
 
-// Servizio per riconoscere i giocatori dalla rosa caricata
+// ============================================================
+// TIPI
+// ============================================================
 
-interface RiconoscimentoResult {
-  giocatoreRiconosciuto: Player | null;
-  confidence: number;
-  nomeOriginale: string;
+export interface RiconoscimentoResult {
+  riconosciuti: Player[];
+  nonRiconosciuti: string[];
 }
 
-// Normalizza un nome per il confronto (rimuove accenti, caratteri speciali, ecc.)
+// ============================================================
+// UTILITY: Normalizzazione nomi
+// ============================================================
+
 function normalizzaNome(nome: string): string {
   return nome
     .toLowerCase()
+    .trim()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // Rimuove accenti
-    .replace(/[^a-z0-9\s]/g, '') // Rimuove caratteri speciali
-    .replace(/\s+/g, ' ') // Normalizza spazi
-    .trim();
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z\s]/g, '')
+    .replace(/\s+/g, ' ');
 }
 
-// Calcola la similarità tra due stringhe (Levenshtein distance normalizzata)
-function calcolaSimilarita(str1: string, str2: string): number {
-  const s1 = normalizzaNome(str1);
-  const s2 = normalizzaNome(str2);
-
-  if (s1 === s2) return 1;
-
-  const len1 = s1.length;
-  const len2 = s2.length;
-
-  if (len1 === 0 || len2 === 0) return 0;
-
-  // Matrice per Levenshtein distance
+function similarita(a: string, b: string): number {
+  const maxLen = Math.max(a.length, b.length);
+  if (maxLen === 0) return 1;
+  
+  // Distanza di Levenshtein semplificata
   const matrix: number[][] = [];
-
-  for (let i = 0; i <= len1; i++) {
+  for (let i = 0; i <= a.length; i++) {
     matrix[i] = [i];
   }
-
-  for (let j = 0; j <= len2; j++) {
+  for (let j = 0; j <= b.length; j++) {
     matrix[0][j] = j;
   }
-
-  for (let i = 1; i <= len1; i++) {
-    for (let j = 1; j <= len2; j++) {
-      const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
+  
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
       matrix[i][j] = Math.min(
         matrix[i - 1][j] + 1,
         matrix[i][j - 1] + 1,
@@ -54,204 +46,140 @@ function calcolaSimilarita(str1: string, str2: string): number {
       );
     }
   }
-
-  const distance = matrix[len1][len2];
-  const maxLength = Math.max(len1, len2);
-
-  return 1 - distance / maxLength;
+  
+  return 1 - matrix[a.length][b.length] / maxLen;
 }
 
-// Riconosce un giocatore dalla rosa basandosi su nome, squadra e ruolo
-function riconosciGiocatore(
-  nomeCercato: string,
-  squadraCercata: string | null,
-  ruoloCercato: string | null,
+// ============================================================
+// MATCHING: Trova il giocatore nel listone
+// ============================================================
+
+function trovaGiocatore(
+  nomeEstratto: string,
   listaGiocatori: Player[]
-): RiconoscimentoResult {
+): Player | null {
+  const nomeNorm = normalizzaNome(nomeEstratto);
+  if (!nomeNorm) return null;
+  
+  const parti = nomeNorm.split(' ').filter(p => p.length > 2);
+  if (parti.length === 0) return null;
+  
+  const cognomeEstratto = parti[parti.length - 1];
+  
+  // 1. Match esatto
+  for (const g of listaGiocatori) {
+    const nomeCompleto = normalizzaNome(`${g.name} ${g.surname}`);
+    if (nomeCompleto === nomeNorm) return g;
+  }
+  
+  // 2. Match per cognome esatto
+  for (const g of listaGiocatori) {
+    const cognomeGiocatore = normalizzaNome(g.surname);
+    if (cognomeGiocatore === cognomeEstratto) return g;
+  }
+  
+  // 3. Match fuzzy (similarità > 0.8)
   let migliorMatch: Player | null = null;
-  let migliorConfidence = 0;
-
-  for (const giocatore of listaGiocatori) {
-    // Calcola similarità del nome
-    const nomeCompleto = `${giocatore.name} ${giocatore.surname}`;
-    const similaritaNome = calcolaSimilarita(nomeCercato, nomeCompleto);
-
-    // Calcola similarità del cognome (spesso più affidabile)
-    const similaritaCognome = calcolaSimilarita(nomeCercato, giocatore.surname);
-
-    // Bonus se la squadra corrisponde
-    let bonusSquadra = 0;
-    if (squadraCercata) {
-      const similaritaSquadra = calcolaSimilarita(squadraCercata, giocatore.team);
-      if (similaritaSquadra > 0.7) {
-        bonusSquadra = 0.2;
-      }
-    }
-
-    // Bonus se il ruolo corrisponde
-    let bonusRuolo = 0;
-    if (ruoloCercato) {
-      const ruoloNormalizzato = ruoloCercato.toUpperCase().trim();
-      if (
-        (ruoloNormalizzato.includes('P') && giocatore.role === 'P') ||
-        (ruoloNormalizzato.includes('D') && giocatore.role === 'D') ||
-        (ruoloNormalizzato.includes('C') && giocatore.role === 'C') ||
-        (ruoloNormalizzato.includes('A') && giocatore.role === 'A')
-      ) {
-        bonusRuolo = 0.15;
-      }
-    }
-
-    // Calcola confidence finale
-    const confidence = Math.max(similaritaNome, similaritaCognome) + bonusSquadra + bonusRuolo;
-
-    if (confidence > migliorConfidence) {
-      migliorConfidence = confidence;
-      migliorMatch = giocatore;
+  let migliorScore = 0.8;
+  
+  for (const g of listaGiocatori) {
+    const cognomeGiocatore = normalizzaNome(g.surname);
+    const score = similarita(cognomeGiocatore, cognomeEstratto);
+    if (score > migliorScore) {
+      migliorScore = score;
+      migliorMatch = g;
     }
   }
-
-  return {
-    giocatoreRiconosciuto: migliorMatch,
-    confidence: migliorConfidence,
-    nomeOriginale: nomeCercato,
-  };
+  
+  return migliorMatch;
 }
 
-// Parsa un file Excel e riconosce i giocatori
-export async function riconosciGiocatoriDaExcel(
-  file: File,
-  listaGiocatori: Player[]
-): Promise<{ riconosciuti: Player[]; nonRiconosciuti: string[] }> {
-  const XLSX = await import('xlsx');
-  const data = await file.arrayBuffer();
-  const workbook = XLSX.read(data, { type: 'array' });
-  const firstSheetName = workbook.SheetNames[0];
-  const worksheet = workbook.Sheets[firstSheetName];
-  const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+// ============================================================
+// RICONOSCIMENTO DA FILE (Excel/CSV)
+// ============================================================
 
-  const riconosciuti: Player[] = [];
-  const nonRiconosciuti: string[] = [];
-  const idGiaAggiunti = new Set<string>();
-
-  // Trova l'header
-  let headerRowIndex = 0;
-  for (let i = 0; i < Math.min(10, jsonData.length); i++) {
-    const row = jsonData[i] as any[];
-    if (row && row.length > 0) {
-      const rowText = row.join(' ').toLowerCase();
-      if (rowText.includes('nome') || rowText.includes('giocatore') || rowText.includes('calciatore')) {
-        headerRowIndex = i;
-        break;
-      }
-    }
-  }
-
-  const headers = jsonData[headerRowIndex] as any[];
-  const nomeCol = headers.findIndex(h =>
-    h && (h.toString().toLowerCase().includes('nome') ||
-          h.toString().toLowerCase().includes('giocatore') ||
-          h.toString().toLowerCase().includes('calciatore'))
-  );
-  const squadraCol = headers.findIndex(h =>
-    h && (h.toString().toLowerCase().includes('squadra') ||
-          h.toString().toLowerCase().includes('team'))
-  );
-  const ruoloCol = headers.findIndex(h =>
-    h && (h.toString().toLowerCase().includes('ruolo') ||
-          h.toString().toLowerCase().includes('role'))
-  );
-
-  // Processa ogni riga
-  for (let i = headerRowIndex + 1; i < jsonData.length; i++) {
-    const row = jsonData[i] as any[];
-    if (!row || row.length === 0) continue;
-
-    const nome = nomeCol >= 0 ? row[nomeCol]?.toString() : row[0]?.toString();
-    const squadra = squadraCol >= 0 ? row[squadraCol]?.toString() : null;
-    const ruolo = ruoloCol >= 0 ? row[ruoloCol]?.toString() : null;
-
-    if (!nome || nome.trim() === '') continue;
-
-    const result = riconosciGiocatore(nome, squadra, ruolo, listaGiocatori);
-
-    if (result.giocatoreRiconosciuto && result.confidence > 0.6) {
-      if (!idGiaAggiunti.has(result.giocatoreRiconosciuto.id)) {
-        riconosciuti.push(result.giocatoreRiconosciuto);
-        idGiaAggiunti.add(result.giocatoreRiconosciuto.id);
-      }
-    } else {
-      nonRiconosciuti.push(nome);
-    }
-  }
-
-  return { riconosciuti, nonRiconosciuti };
-}
-
-// Riconosce i giocatori da un'immagine usando OCR
-export async function riconosciGiocatoriDaImmagine(
-  file: File,
-  listaGiocatori: Player[]
-): Promise<{ riconosciuti: Player[]; nonRiconosciuti: string[] }> {
-  const riconosciuti: Player[] = [];
-  const nonRiconosciuti: string[] = [];
-  const idGiaAggiunti = new Set<string>();
-
-  try {
-    // Esegui OCR sull'immagine
-    const result = await Tesseract.recognize(file, 'ita', {
-      logger: (m) => {
-        if (m.status === 'recognizing text') {
-          console.log(`OCR progress: ${Math.round(m.progress * 100)}%`);
-        }
-      },
-    });
-
-    const text = result.data.text;
-    const lines = text.split('\n').filter(line => line.trim().length > 0);
-
-    // Cerca pattern di nomi di giocatori
-    // Pattern comune: "Nome Cognome" o "Cognome Nome"
-    for (const line of lines) {
-      // Ignora righe troppo corte o con numeri
-      if (line.length < 3 || /^\d+$/.test(line.trim())) continue;
-
-      // Prova a estrarre il nome del giocatore
-      const nomeEstratto = line.trim();
-
-      // Cerca il giocatore nella lista
-      const result = riconosciGiocatore(nomeEstratto, null, null, listaGiocatori);
-
-      if (result.giocatoreRiconosciuto && result.confidence > 0.7) {
-        if (!idGiaAggiunti.has(result.giocatoreRiconosciuto.id)) {
-          riconosciuti.push(result.giocatoreRiconosciuto);
-          idGiaAggiunti.add(result.giocatoreRiconosciuto.id);
-        }
-      } else if (nomeEstratto.length > 3 && !/^\d/.test(nomeEstratto)) {
-        // Aggiungi ai non riconosciuti solo se sembra un nome
-        nonRiconosciuti.push(nomeEstratto);
-      }
-    }
-  } catch (error) {
-    console.error('Errore OCR:', error);
-    throw new Error('Errore nel riconoscimento dell\'immagine');
-  }
-
-  return { riconosciuti, nonRiconosciuti };
-}
-
-// Riconosce i giocatori da un file (Excel o immagine)
 export async function riconosciGiocatoriDaFile(
   file: File,
   listaGiocatori: Player[]
-): Promise<{ riconosciuti: Player[]; nonRiconosciuti: string[] }> {
-  const fileName = file.name.toLowerCase();
-
-  if (fileName.endsWith('.xlsx') || fileName.endsWith('.xls') || fileName.endsWith('.csv')) {
-    return riconosciGiocatoriDaExcel(file, listaGiocatori);
-  } else if (fileName.endsWith('.png') || fileName.endsWith('.jpg') || fileName.endsWith('.jpeg')) {
-    return riconosciGiocatoriDaImmagine(file, listaGiocatori);
-  } else {
-    throw new Error('Formato file non supportato. Usa Excel (.xlsx, .xls, .csv) o immagine (.png, .jpg, .jpeg)');
+): Promise<RiconoscimentoResult> {
+  // Se è un'immagine, deleghiamo al chiamante (che userà PaddleOCR)
+  if (file.type.startsWith('image/')) {
+    throw new Error('Per le immagini usa riconosciGiocatoriDaImmagine()');
   }
+  
+  // Altrimenti, prova a leggerlo come testo (CSV)
+  const text = await file.text();
+  const lines = text.split('\n').filter(l => l.trim());
+  
+  const riconosciuti: Player[] = [];
+  const nonRiconosciuti: string[] = [];
+  const idsAggiunti = new Set<string>();
+  
+  for (const line of lines) {
+    const nome = line.split(/[,\t;]/)[0]?.trim();
+    if (!nome || nome.length < 3) continue;
+    
+    const giocatore = trovaGiocatore(nome, listaGiocatori);
+    if (giocatore && !idsAggiunti.has(giocatore.id)) {
+      riconosciuti.push(giocatore);
+      idsAggiunti.add(giocatore.id);
+    } else if (!giocatore) {
+      nonRiconosciuti.push(nome);
+    }
+  }
+  
+  return { riconosciuti, nonRiconosciuti };
+}
+
+// ============================================================
+// RICONOSCIMENTO DA IMMAGINE (con PaddleOCR)
+// ============================================================
+
+export async function riconosciGiocatoriDaImmagine(
+  file: File,
+  listaGiocatori: Player[],
+  testoOCR: string
+): Promise<RiconoscimentoResult> {
+  console.log('📝 Testo OCR ricevuto:', testoOCR.substring(0, 200));
+  
+  if (!testoOCR || testoOCR.length < 3) {
+    return { riconosciuti: [], nonRiconosciuti: [] };
+  }
+  
+  // Dividi il testo in righe e pulisci
+  const righe = testoOCR
+    .split('\n')
+    .map(r => r.trim())
+    .filter(r => r.length >= 4 && r.length <= 40); // Nomi di giocatori tipici
+  
+  const riconosciuti: Player[] = [];
+  const nonRiconosciuti: string[] = [];
+  const idsAggiunti = new Set<string>();
+  
+  for (const riga of righe) {
+    // Pulisci la riga da numeri, simboli, ecc.
+    const nomePulito = riga
+      .replace(/\d+/g, '') // rimuovi numeri
+      .replace(/[^\w\s'.-]/g, '') // rimuovi simboli strani
+      .replace(/\s+/g, ' ')
+      .trim();
+    
+    if (!nomePulito || nomePulito.length < 4) continue;
+    
+    const giocatore = trovaGiocatore(nomePulito, listaGiocatori);
+    
+    if (giocatore && !idsAggiunti.has(giocatore.id)) {
+      riconosciuti.push(giocatore);
+      idsAggiunti.add(giocatore.id);
+    } else if (!giocatore) {
+      // Evita duplicati nella lista non riconosciuti
+      if (!nonRiconosciuti.includes(nomePulito)) {
+        nonRiconosciuti.push(nomePulito);
+      }
+    }
+  }
+  
+  console.log(`✅ Riconosciuti: ${riconosciuti.length}, Non riconosciuti: ${nonRiconosciuti.length}`);
+  
+  return { riconosciuti, nonRiconosciuti };
 }
