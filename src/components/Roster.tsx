@@ -16,8 +16,8 @@ interface RosterProps {
 
 const roleLabels: Record<Role, { label: string; color: string; icon: string }> = {
   'P': { label: 'Portieri', color: 'from-yellow-400 to-amber-600', icon: '🧤' },
-  'D': { label: 'Difensori', color: 'from-blue-400 to-cyan-600', icon: '🛡️' },
-  'C': { label: 'Centrocampisti', color: 'from-emerald-400 to-green-600', icon: '🎯' },
+  'D': { label: 'Difensori', color: 'from-emerald-400 to-green-600', icon: '🛡️' },
+  'C': { label: 'Centrocampisti', color: 'from-blue-400 to-cyan-600', icon: '🎯' },
   'A': { label: 'Attaccanti', color: 'from-red-400 to-rose-600', icon: '⚡' },
 };
 
