@@ -36,14 +36,14 @@ export default function Setup({ rules, onSave, onNext, onBack }: SetupProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-3 md:p-8 pt-16 md:pt-12">
       <div className="max-w-3xl mx-auto">
-        {/* Bottone Indietro */}
+        {/* 🔥 Bottone HOME */}
         <div className="relative mb-4 md:mb-6">
           <button 
             onClick={onBack} 
             className="absolute left-0 top-0 text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center"
           >
-            <span className="md:hidden text-lg">←</span>
-            <span className="hidden md:inline">← Indietro</span>
+            <span className="md:hidden text-lg">🏠</span>
+            <span className="hidden md:inline">🏠 Home</span>
           </button>
         </div>
 
