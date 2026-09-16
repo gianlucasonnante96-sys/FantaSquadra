@@ -6,9 +6,10 @@ interface SetupProps {
   rules: LeagueRules;
   onSave: (rules: LeagueRules) => void;
   onNext: () => void;
+  onBack: () => void;
 }
 
-export default function Setup({ rules, onSave, onNext }: SetupProps) {
+export default function Setup({ rules, onSave, onNext, onBack }: SetupProps) {
   const [localRules, setLocalRules] = useState<LeagueRules>(rules);
   const allModules = getAvailableModules();
 
@@ -33,14 +34,25 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-3 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black p-3 md:p-8 pt-16 md:pt-12">
       <div className="max-w-3xl mx-auto">
+        {/* Bottone Indietro */}
+        <div className="relative mb-4 md:mb-6">
+          <button 
+            onClick={onBack} 
+            className="absolute left-0 top-0 text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center"
+          >
+            <span className="md:hidden text-lg">←</span>
+            <span className="hidden md:inline">← Indietro</span>
+          </button>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-6 md:mb-8">
           <div className="inline-flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-            <span className="text-3xl md:text-5xl">⚽</span>
+            <span className="text-3xl md:text-5xl">⚙️</span>
             <h1 className="text-2xl md:text-5xl font-black text-white tracking-tight">
-              FANTA<span className="text-emerald-400">CONSIGLIO</span>
+              REGOLE <span className="text-emerald-400">LEGA</span>
             </h1>
           </div>
           <p className="text-emerald-400/70 text-[10px] md:text-sm tracking-widest uppercase">
@@ -49,9 +61,7 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
         </div>
 
         <div className="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 p-4 md:p-8 shadow-2xl">
-          {/* ============================================================
-              SEZIONE 1: MODIFICATORE DI DIFESA
-              ============================================================ */}
+          {/* SEZIONE 1: MODIFICATORE DI DIFESA */}
           <div className="mb-6 md:mb-8">
             <h3 className="text-base md:text-lg font-bold text-white mb-3 md:mb-4 flex items-center gap-2 md:gap-3">
               <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center text-black font-black text-xs md:text-sm shadow-lg shadow-emerald-500/50">
@@ -149,9 +159,7 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
             )}
           </div>
 
-          {/* ============================================================
-              SEZIONE 2: BONUS IMBATTIBILITÀ
-              ============================================================ */}
+          {/* SEZIONE 2: BONUS IMBATTIBILITÀ */}
           <div className="mb-6 md:mb-8">
             <h3 className="text-base md:text-lg font-bold text-white mb-3 md:mb-4 flex items-center gap-2 md:gap-3">
               <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center text-black font-black text-xs md:text-sm shadow-lg shadow-emerald-500/50">
@@ -193,9 +201,7 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
             </div>
           </div>
 
-          {/* ============================================================
-              SEZIONE 3: MODULI CONSENTITI
-              ============================================================ */}
+          {/* SEZIONE 3: MODULI CONSENTITI */}
           <div className="mb-6 md:mb-8">
             <h3 className="text-base md:text-lg font-bold text-white mb-3 md:mb-4 flex items-center gap-2 md:gap-3">
               <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center text-black font-black text-xs md:text-sm shadow-lg shadow-emerald-500/50">
@@ -220,9 +226,7 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
             </div>
           </div>
 
-          {/* ============================================================
-              SEZIONE 4: ALTRE REGOLE
-              ============================================================ */}
+          {/* SEZIONE 4: ALTRE REGOLE */}
           <div className="mb-6 md:mb-8">
             <h3 className="text-base md:text-lg font-bold text-white mb-3 md:mb-4 flex items-center gap-2 md:gap-3">
               <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center text-black font-black text-xs md:text-sm shadow-lg shadow-emerald-500/50">
@@ -232,7 +236,6 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
 
-              {/* Assist */}
               <div className="bg-slate-800/60 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/5">
                 <label className="text-slate-300 text-xs md:text-sm font-bold tracking-wide">Bonus Assist</label>
                 <div className="flex gap-2 mt-2 md:mt-3">
@@ -252,7 +255,6 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
                 </div>
               </div>
 
-              {/* Malus Gol Subito */}
               <div className="bg-slate-800/60 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/5">
                 <label className="text-slate-300 text-xs md:text-sm font-bold tracking-wide">Malus Gol Subito (Solo P)</label>
                 <div className="flex items-center gap-2 mt-2 md:mt-3">
@@ -267,7 +269,6 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
                 </div>
               </div>
 
-              {/* Rigore Parato */}
               <div className="bg-slate-800/60 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/5">
                 <label className="text-slate-300 text-xs md:text-sm font-bold tracking-wide">Bonus Rigore Parato</label>
                 <div className="flex items-center gap-2 mt-2 md:mt-3">
@@ -282,7 +283,6 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
                 </div>
               </div>
 
-              {/* Rigore Sbagliato */}
               <div className="bg-slate-800/60 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/5">
                 <label className="text-slate-300 text-xs md:text-sm font-bold tracking-wide">Malus Rigore Sbagliato</label>
                 <div className="flex items-center gap-2 mt-2 md:mt-3">
@@ -300,12 +300,11 @@ export default function Setup({ rules, onSave, onNext }: SetupProps) {
             </div>
           </div>
 
-          {/* Bottone SALVA */}
           <button
             onClick={handleSave}
             className="w-full py-4 min-h-[56px] bg-gradient-to-r from-emerald-400 to-green-600 hover:from-emerald-300 hover:to-green-500 text-black font-black rounded-xl transition-all transform active:scale-[0.98] md:hover:scale-[1.02] shadow-lg shadow-emerald-500/50 tracking-wide uppercase text-xs md:text-sm"
           >
-            Salva e Continua → Inserisci Rosa
+            Salva Regole →
           </button>
         </div>
       </div>
