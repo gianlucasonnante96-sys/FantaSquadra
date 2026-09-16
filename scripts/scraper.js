@@ -9,7 +9,9 @@ const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://www.fantacalcio.it/probabili-formazioni-serie-a';
 const QUOTAZIONI_URL = 'https://www.fantacalcio.it/quotazioni-fantacalcio';
-const STATISTICHE_URL = 'https://www.fantacalcio.it/statistiche-serie-a/2026-27/italia/';
+// 🔥 FIX: URL corretto per le statistiche Fantacalcio (non /italia/)
+const STATISTICHE_URL = 'https://www.fantacalcio.it/statistiche-serie-a/2026-27/fantacalcio';
+
 const OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'formazioni.json');
 const LISTONE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'listone.json');
 const STATISTICHE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'statistiche.json');
@@ -311,6 +313,7 @@ async function scrapeStatistiche(page) {
   try {
     await page.goto(STATISTICHE_URL, { waitUntil: 'domcontentloaded', timeout: 90000 });
     console.log('✅ Titolo pagina statistiche:', await page.title());
+    console.log('✅ URL statistiche:', page.url());
     await sleep(5000);
     
     await page.evaluate(() => {
@@ -340,12 +343,11 @@ async function scrapeStatistiche(page) {
       const mappa = {};
       const rows = document.querySelectorAll('tr.player-row');
       
-      // 🔥 Funzione per convertire "7,38" in 7.38
       function parseNumeroItaliano(testo) {
         if (!testo) return 0;
         const clean = testo
-          .replace(',', '.')           // virgola → punto
-          .replace(/[^\d.]/g, '')      // rimuovi tutto tranne cifre e punto
+          .replace(',', '.')
+          .replace(/[^\d.]/g, '')
           .trim();
         const num = parseFloat(clean);
         return isNaN(num) ? 0 : num;
