@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-16T19:10:14.269Z",
+  "aggiornato": "2026-09-16T21:11:14.256Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -4867,7 +4867,7 @@
           },
           {
             "nome": "Ostigard",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -4942,7 +4942,7 @@
           },
           {
             "nome": "Amorim",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
@@ -4952,7 +4952,7 @@
           },
           {
             "nome": "Traorè Hj.",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -4962,7 +4962,7 @@
           },
           {
             "nome": "El Shaarawy",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
