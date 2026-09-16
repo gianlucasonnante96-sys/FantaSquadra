@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Player } from '../types';
 import { riconosciGiocatoriDaFile } from '../services/rosaRecognizerService';
@@ -8,6 +7,112 @@ interface RosaRecognizerProps {
   giocatoriGiaInRosa: Player[];
   onAggiungiGiocatori: (giocatori: Player[]) => void;
 }
+
+// ============================================================
+// 🔥 PRE-PROCESSING IMMAGINE PER OCR
+// ============================================================
+
+/**
+ * Pre-processa un'immagine per migliorare il riconoscimento OCR:
+ * 1. Scala di grigi
+ * 2. Aumento contrasto
+ * 3. Inversione colori (se testo chiaro su fondo scuro)
+ * 4. Binarizzazione (bianco/nero puro)
+ */
+async function preprocessImage(file: File): Promise<File> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      img.onload = () => {
+        try {
+          // Crea canvas con le stesse dimensioni dell'immagine
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          if (!ctx) {
+            reject(new Error('Canvas non supportato'));
+            return;
+          }
+
+          // 🔥 SCALA 2x per migliorare la lettura di testi piccoli
+          const scale = 2;
+          canvas.width = img.width * scale;
+          canvas.height = img.height * scale;
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          // Leggi i pixel
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const data = imageData.data;
+
+          // 🔥 STEP 1: Scala di grigi + calcolo luminosità media
+          let luminositaTotale = 0;
+          for (let i = 0; i < data.length; i += 4) {
+            const r = data[i];
+            const g = data[i + 1];
+            const b = data[i + 2];
+            // Formula luminosità percettiva
+            const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+            data[i] = gray;
+            data[i + 1] = gray;
+            data[i + 2] = gray;
+            luminositaTotale += gray;
+          }
+
+          const luminositaMedia = luminositaTotale / (data.length / 4);
+
+          // 🔥 STEP 2: Inversione colori se fondo SCURO (luminosità < 128)
+          // Tesseract legge meglio testo SCURO su fondo CHIARO
+          const inverti = luminositaMedia < 128;
+          if (inverti) {
+            for (let i = 0; i < data.length; i += 4) {
+              data[i] = 255 - data[i];
+              data[i + 1] = 255 - data[i + 1];
+              data[i + 2] = 255 - data[i + 2];
+            }
+          }
+
+          // 🔥 STEP 3: Aumento contrasto + Binarizzazione
+          // Calcola soglia adattiva (media della luminosità)
+          const soglia = inverti ? 255 - luminositaMedia : luminositaMedia;
+          
+          for (let i = 0; i < data.length; i += 4) {
+            const gray = data[i];
+            // Contrasto aggressivo: sotto soglia → nero, sopra → bianco
+            const nuovoValore = gray < soglia - 20 ? 0 : 255;
+            data[i] = nuovoValore;
+            data[i + 1] = nuovoValore;
+            data[i + 2] = nuovoValore;
+          }
+
+          // Riscrivi i pixel modificati
+          ctx.putImageData(imageData, 0, 0);
+
+          // Converti canvas in File (PNG)
+          canvas.toBlob((blob) => {
+            if (!blob) {
+              reject(new Error('Errore conversione canvas'));
+              return;
+            }
+            const processedFile = new File([blob], file.name, { type: 'image/png' });
+            resolve(processedFile);
+          }, 'image/png');
+        } catch (err) {
+          reject(err);
+        }
+      };
+      img.onerror = () => reject(new Error('Errore caricamento immagine'));
+      img.src = e.target?.result as string;
+    };
+
+    reader.onerror = () => reject(new Error('Errore lettura file'));
+    reader.readAsDataURL(file);
+  });
+}
+
+// ============================================================
+// COMPONENTE
+// ============================================================
 
 export default function RosaRecognizer({
   listaGiocatori,
@@ -29,9 +134,27 @@ export default function RosaRecognizer({
     setNonRiconosciuti([]);
 
     try {
-      const result = await riconosciGiocatoriDaFile(file, listaGiocatori);
+      let fileDaElaborare = file;
+
+      // 🔥 Pre-processa SOLO se è un'immagine
+      if (file.type.startsWith('image/')) {
+        console.log('🖼️ Pre-processing immagine per OCR...');
+        try {
+          fileDaElaborare = await preprocessImage(file);
+          console.log('✅ Pre-processing completato');
+        } catch (preprocessError) {
+          console.warn('⚠️ Pre-processing fallito, uso immagine originale:', preprocessError);
+          fileDaElaborare = file;
+        }
+      }
+
+      const result = await riconosciGiocatoriDaFile(fileDaElaborare, listaGiocatori);
       setRiconosciuti(result.riconosciuti);
       setNonRiconosciuti(result.nonRiconosciuti);
+
+      if (result.riconosciuti.length === 0 && result.nonRiconosciuti.length === 0) {
+        setError('Nessun giocatore riconosciuto. Prova con un\'immagine più nitida o carica un file Excel.');
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Errore nel riconoscimento');
     } finally {
@@ -54,19 +177,19 @@ export default function RosaRecognizer({
   };
 
   return (
-    <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-emerald-500/20 p-4 mb-6">
-      <div className="flex items-center gap-3 mb-4">
-        <span className="text-2xl">🔍</span>
+    <div className="bg-slate-900/60 backdrop-blur-md rounded-xl md:rounded-2xl border border-white/10 p-3 md:p-4 mb-4 md:mb-6">
+      <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+        <span className="text-xl md:text-2xl">🔍</span>
         <div>
-          <h3 className="text-white font-semibold">Carica Rosa Completa</h3>
-          <p className="text-sm text-slate-400">
-            Carica un file Excel o una foto della tua squadra per aggiungere automaticamente i giocatori
+          <h3 className="text-white font-bold text-sm md:text-base">Carica Rosa Completa</h3>
+          <p className="text-xs md:text-sm text-slate-400">
+            Carica un file Excel o una foto della tua squadra
           </p>
         </div>
       </div>
 
       {/* Upload Area */}
-      <div className="border-2 border-dashed border-slate-600 rounded-lg p-6 text-center hover:border-emerald-500/50 transition-colors">
+      <div className="border-2 border-dashed border-slate-600 rounded-xl p-4 md:p-6 text-center active:border-emerald-500/50 transition-colors">
         <input
           type="file"
           accept=".xlsx,.xls,.csv,.png,.jpg,.jpeg"
@@ -81,14 +204,15 @@ export default function RosaRecognizer({
         >
           {isProcessing ? (
             <>
-              <div className="w-12 h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
-              <span className="text-slate-300">Riconoscimento in corso...</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+              <span className="text-slate-300 text-xs md:text-sm">Riconoscimento in corso...</span>
+              <span className="text-[10px] md:text-xs text-emerald-400">Pre-processing immagine</span>
             </>
           ) : (
             <>
-              <span className="text-4xl">📁</span>
-              <span className="text-slate-300">Clicca per caricare un file</span>
-              <span className="text-xs text-slate-500">
+              <span className="text-3xl md:text-4xl">📁</span>
+              <span className="text-slate-300 text-xs md:text-sm">Clicca per caricare un file</span>
+              <span className="text-[10px] md:text-xs text-slate-500">
                 Supporta Excel (.xlsx, .xls, .csv) o immagini (.png, .jpg, .jpeg)
               </span>
             </>
@@ -98,24 +222,24 @@ export default function RosaRecognizer({
 
       {/* Error Message */}
       {error && (
-        <div className="mt-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-300 text-sm">
+        <div className="mt-3 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-300 text-xs md:text-sm">
           ⚠️ {error}
         </div>
       )}
 
       {/* Results */}
       {(riconosciuti.length > 0 || nonRiconosciuti.length > 0) && (
-        <div className="mt-6 space-y-4">
+        <div className="mt-4 space-y-3 md:space-y-4">
           {/* Recognized Players */}
           {riconosciuti.length > 0 && (
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="text-white font-medium">
-                  ✅ Giocatori Riconosciuti ({riconosciuti.length})
+              <div className="flex items-center justify-between mb-2 md:mb-3">
+                <h4 className="text-white font-bold text-xs md:text-sm">
+                  ✅ Riconosciuti ({riconosciuti.length})
                 </h4>
                 <button
                   onClick={aggiungiTuttiRiconosciuti}
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-sm transition-colors"
+                  className="px-3 py-2 min-h-[36px] bg-gradient-to-r from-emerald-400 to-green-600 active:scale-95 text-black font-bold rounded-lg text-xs transition-all"
                 >
                   Aggiungi Tutti
                 </button>
@@ -126,45 +250,39 @@ export default function RosaRecognizer({
                   return (
                     <div
                       key={giocatore.id}
-                      className={`flex items-center justify-between p-3 rounded-lg ${
-                        giaInRosa ? 'bg-slate-700/30 opacity-50' : 'bg-slate-700/50'
+                      className={`flex items-center justify-between p-2 md:p-3 rounded-lg ${
+                        giaInRosa ? 'bg-slate-700/30 opacity-50' : 'bg-slate-800/50'
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <span className={`text-lg ${
-                          giocatore.role === 'P' ? 'text-yellow-400' :
-                          giocatore.role === 'D' ? 'text-blue-400' :
-                          giocatore.role === 'C' ? 'text-green-400' :
-                          'text-red-400'
-                        }`}>
+                      <div className="flex items-center gap-2 md:gap-3 min-w-0 flex-1">
+                        <span className="text-base md:text-lg flex-shrink-0">
                           {giocatore.role === 'P' ? '🧤' :
                            giocatore.role === 'D' ? '🛡️' :
-                           giocatore.role === 'C' ? '🎯' :
-                           '⚡'}
+                           giocatore.role === 'C' ? '🎯' : '⚡'}
                         </span>
-                        <div>
-                          <div className="text-white font-medium">
+                        <div className="min-w-0">
+                          <div className="text-white font-medium text-xs md:text-sm truncate">
                             {giocatore.name} {giocatore.surname}
                           </div>
-                          <div className="text-xs text-slate-400">
+                          <div className="text-[10px] md:text-xs text-slate-400">
                             {giocatore.team} • {giocatore.role}
                           </div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5 md:gap-2 flex-shrink-0 ml-2">
                         {giaInRosa ? (
-                          <span className="text-xs text-slate-500">Già in rosa</span>
+                          <span className="text-[10px] md:text-xs text-slate-500">Già in rosa</span>
                         ) : (
                           <button
                             onClick={() => onAggiungiGiocatori([giocatore])}
-                            className="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-xs transition-colors"
+                            className="px-2 md:px-3 py-1.5 min-h-[32px] bg-emerald-600 active:bg-emerald-500 text-white rounded text-[10px] md:text-xs font-bold transition-colors"
                           >
                             Aggiungi
                           </button>
                         )}
                         <button
                           onClick={() => rimuoviRiconosciuto(giocatore.id)}
-                          className="px-2 py-1 bg-red-600/50 hover:bg-red-600 text-white rounded text-xs transition-colors"
+                          className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center bg-red-600/30 active:bg-red-600 text-red-300 rounded transition-colors text-xs"
                         >
                           ✕
                         </button>
@@ -179,18 +297,18 @@ export default function RosaRecognizer({
           {/* Unrecognized Players */}
           {nonRiconosciuti.length > 0 && (
             <div>
-              <h4 className="text-white font-medium mb-3">
-                ❌ Giocatori Non Riconosciuti ({nonRiconosciuti.length})
+              <h4 className="text-white font-bold text-xs md:text-sm mb-2 md:mb-3">
+                ❌ Non Riconosciuti ({nonRiconosciuti.length})
               </h4>
               <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3">
-                <p className="text-xs text-amber-300 mb-2">
-                  Questi giocatori non sono stati trovati nel listone. Puoi aggiungerli manualmente usando la ricerca sopra.
+                <p className="text-[10px] md:text-xs text-amber-300 mb-2">
+                  Questi giocatori non sono stati trovati. Prova a cercarli manualmente.
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 md:gap-2">
                   {nonRiconosciuti.map((nome, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-amber-500/20 text-amber-300 rounded text-xs"
+                      className="px-2 py-1 bg-amber-500/20 text-amber-300 rounded text-[10px] md:text-xs"
                     >
                       {nome}
                     </span>
@@ -203,13 +321,13 @@ export default function RosaRecognizer({
       )}
 
       {/* Info Box */}
-      <div className="mt-4 p-3 bg-slate-700/30 rounded-lg text-xs text-slate-400">
-        <p className="font-medium text-slate-300 mb-1">💡 Come funziona:</p>
-        <ul className="space-y-1 list-disc list-inside">
-          <li>Il sistema riconosce i giocatori anche se scritti in modo diverso</li>
-          <li>Usa nome, squadra e ruolo per migliorare il riconoscimento</li>
-          <li>Per le immagini, usa l'OCR per estrarre il testo</li>
-          <li>Puoi modificare i giocatori riconosciuti prima di aggiungerli</li>
+      <div className="mt-3 md:mt-4 p-3 bg-slate-800/40 rounded-lg text-[10px] md:text-xs text-slate-400">
+        <p className="font-medium text-slate-300 mb-1">💡 Suggerimenti per foto:</p>
+        <ul className="space-y-0.5 list-disc list-inside">
+          <li>Usa immagini <strong>nitide</strong> e ben illuminate</li>
+          <li><strong>Ritaglia</strong> solo la parte con i nomi dei giocatori</li>
+          <li>Preferisci sfondi <strong>chiari</strong> con testo scuro</li>
+          <li>L'app applica automaticamente contrasto e binarizzazione</li>
         </ul>
       </div>
     </div>
