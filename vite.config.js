@@ -4,9 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  worker: {
-    format: 'es',
-  },
+  // 🔥 Necessario per onnxruntime-web (WASM multi-thread)
   server: {
     headers: {
       'Cross-Origin-Opener-Policy': 'same-origin',
@@ -18,5 +16,9 @@ export default defineConfig({
       'Cross-Origin-Opener-Policy': 'same-origin',
       'Cross-Origin-Embedder-Policy': 'credentialless',
     },
+  },
+  // 🔥 Necessario per far funzionare onnxruntime-web con Vite
+  optimizeDeps: {
+    exclude: ['onnxruntime-web'],
   },
 })
