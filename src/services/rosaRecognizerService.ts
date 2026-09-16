@@ -52,17 +52,19 @@ function similarita(a: string, b: string): number {
 
 function trovaGiocatore(nomeEstratto: string, listaGiocatori: Player[]): Player | null {
   const nomeNorm = normalizzaNome(nomeEstratto);
-  if (!nomeNorm) return null;
+  if (!nomeNorm || nomeNorm.length < 3) return null;
 
   const parti = nomeNorm.split(' ').filter(p => p.length > 2);
   if (parti.length === 0) return null;
 
   const cognomeEstratto = parti[parti.length - 1];
+  if (cognomeEstratto.length < 3) return null;
 
-  // 1. Match esatto nome completo
+  // 1. Match esatto nome completo (name + surname)
   for (const g of listaGiocatori) {
-    if (normalizzaNome(`${g.name} ${g.surname}`) === nomeNorm) return g;
-    if (normalizzaNome(`${g.surname} ${g.name}`) === nomeNorm) return g;
+    const comb1 = normalizzaNome(`${g.name} ${g.surname}`);
+    const comb2 = normalizzaNome(`${g.surname} ${g.name}`);
+    if (comb1 === nomeNorm || comb2 === nomeNorm) return g;
   }
 
   // 2. Match per cognome esatto
@@ -87,7 +89,7 @@ function trovaGiocatore(nomeEstratto: string, listaGiocatori: Player[]): Player 
 }
 
 // ============================================================
-// RICONOSCIMENTO DA FILE (Excel, CSV, JSON)
+// RICONOSCIMENTO DA FILE
 // ============================================================
 
 export async function riconosciGiocatoriDaFile(
@@ -102,7 +104,8 @@ export async function riconosciGiocatoriDaFile(
   let nomiGiocatori: string[] = [];
 
   if (fileName.endsWith('.xlsx') || fileName.endsWith('.xls')) {
-    nomiGiocatori = await leggiNomiDaExcel(file);
+    // 🔥 Passa la lista per matchare direttamente le celle
+    nomiGiocatori = await leggiNomiDaExcel(file, listaGiocatori);
   } else if (fileName.endsWith('.json')) {
     nomiGiocatori = await leggiNomiDaJSON(file);
   } else {
@@ -110,8 +113,9 @@ export async function riconosciGiocatoriDaFile(
   }
 
   console.log(`📄 Estratti ${nomiGiocatori.length} nomi dal file`);
-  console.log(`📋 Primi 5 nomi:`, nomiGiocatori.slice(0, 5));
+  console.log(`📋 Primi 10 nomi:`, nomiGiocatori.slice(0, 10));
 
+  // 🔥 A questo punto i nomi sono già matchati (per Excel), ma rifacciamo il match per sicurezza
   for (const nome of nomiGiocatori) {
     if (!nome || nome.length < 3) continue;
 
@@ -131,10 +135,10 @@ export async function riconosciGiocatoriDaFile(
 }
 
 // ============================================================
-// LETTURA EXCEL — VERSIONE ROBUSTA
+// 🔥 LETTURA EXCEL — APPROCCIO "MATCH DIRETTO"
 // ============================================================
 
-async function leggiNomiDaExcel(file: File): Promise<string[]> {
+async function leggiNomiDaExcel(file: File, listaGiocatori: Player[]): Promise<string[]> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 
@@ -143,54 +147,49 @@ async function leggiNomiDaExcel(file: File): Promise<string[]> {
         const data = new Uint8Array(e.target?.result as ArrayBuffer);
         const workbook = XLSX.read(data, { type: 'array' });
 
-        const nomi: string[] = [];
+        const nomiTrovati: string[] = [];
 
-        // 🔥 Itera su TUTTI i fogli del file (non solo il primo)
+        console.log(`📚 File Excel con ${workbook.SheetNames.length} fogli`);
+
+        // 🔥 Itera su TUTTI i fogli
         for (const sheetName of workbook.SheetNames) {
           const sheet = workbook.Sheets[sheetName];
           const rows = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1 });
 
-          if (!rows || rows.length < 2) continue;
+          if (!rows || rows.length === 0) continue;
 
-          // 🔥 STEP 1: Trova la colonna del "Calciatore" cercando l'header
-          const headerRowIndex = trovaHeaderRow(rows);
-          const nameColumnIndex = trovaColonnaNome(rows, headerRowIndex);
+          console.log(`📊 Foglio "${sheetName}": ${rows.length} righe`);
 
-          console.log(`📊 Foglio "${sheetName}": header row ${headerRowIndex}, colonna nome ${nameColumnIndex}`);
-
-          // 🔥 STEP 2: Estrai i nomi dalla colonna giusta
-          const startRow = headerRowIndex >= 0 ? headerRowIndex + 1 : 1;
-
-          for (let i = startRow; i < rows.length; i++) {
-            const row = rows[i];
+          // 🔥 MATCH DIRETTO: per ogni cella, prova a matchare con il listone
+          for (const row of rows) {
             if (!row || !Array.isArray(row)) continue;
 
-            // Se abbiamo identificato la colonna, usa quella
-            let valoreCella = nameColumnIndex >= 0 ? row[nameColumnIndex] : null;
+            for (const cell of row) {
+              if (cell === null || cell === undefined) continue;
 
-            // Se non abbiamo trovato la colonna, cerca la prima cella che "sembra un nome"
-            if (!valoreCella) {
-              for (const cell of row) {
-                const testo = String(cell || '').trim();
-                if (sembraNomeGiocatore(testo)) {
-                  valoreCella = testo;
-                  break;
+              const testo = String(cell).trim();
+
+              // Filtri base
+              if (!testo || testo.length < 3 || testo.length > 50) continue;
+              if (/^\d+$/.test(testo)) continue; // solo numeri
+              if (/^[^a-zA-ZÀ-ü]+$/.test(testo)) continue; // nessuna lettera
+
+              // 🔥 Prova a matchare direttamente con il listone
+              const giocatore = trovaGiocatore(testo, listaGiocatori);
+
+              if (giocatore) {
+                // Aggiungi il nome del giocatore trovato (nome completo dal listone)
+                const nomeCompleto = `${giocatore.name} ${giocatore.surname}`.trim();
+                if (nomeCompleto && !nomiTrovati.includes(nomeCompleto)) {
+                  nomiTrovati.push(nomeCompleto);
                 }
               }
-            }
-
-            if (!valoreCella) continue;
-
-            const nome = String(valoreCella).trim();
-            if (nome && nome.length >= 3 && nome.length <= 50 && !nonEUnNome(nome)) {
-              nomi.push(nome);
             }
           }
         }
 
-        // Rimuovi duplicati
-        const nomiUnici = Array.from(new Set(nomi));
-        resolve(nomiUnici);
+        console.log(`🎯 Match diretti trovati: ${nomiTrovati.length}`);
+        resolve(nomiTrovati);
       } catch (err) {
         console.error('Errore parsing Excel:', err);
         reject(new Error('Errore lettura Excel: ' + (err instanceof Error ? err.message : 'sconosciuto')));
@@ -200,82 +199,6 @@ async function leggiNomiDaExcel(file: File): Promise<string[]> {
     reader.onerror = () => reject(new Error('Errore lettura file'));
     reader.readAsArrayBuffer(file);
   });
-}
-
-/**
- * Trova la riga di intestazione cercando parole chiave come "Calciatore", "Nome", "Giocatore"
- */
-function trovaHeaderRow(rows: any[][]): number {
-  const keywords = ['calciatore', 'nome', 'giocatore', 'player', 'cognome', 'name'];
-
-  for (let i = 0; i < Math.min(15, rows.length); i++) {
-    const row = rows[i];
-    if (!row || !Array.isArray(row)) continue;
-
-    const rowText = row.map(c => String(c || '').toLowerCase()).join(' ');
-    
-    // Se la riga contiene almeno 2 keywords, è probabilmente l'header
-    const matches = keywords.filter(k => rowText.includes(k)).length;
-    if (matches >= 1) {
-      return i;
-    }
-  }
-
-  return -1;
-}
-
-/**
- * Trova l'indice della colonna che contiene i nomi dei calciatori
- */
-function trovaColonnaNome(rows: any[][], headerRowIndex: number): number {
-  if (headerRowIndex < 0) return -1;
-
-  const headerRow = rows[headerRowIndex];
-  if (!headerRow || !Array.isArray(headerRow)) return -1;
-
-  const nameKeywords = ['calciatore', 'nome', 'giocatore', 'player', 'cognome', 'name'];
-
-  for (let i = 0; i < headerRow.length; i++) {
-    const header = String(headerRow[i] || '').toLowerCase().trim();
-    if (nameKeywords.some(k => header.includes(k))) {
-      // 🔥 Escludi la colonna "nome squadra" o "nome allenatore"
-      if (header.includes('squadra') || header.includes('team') || 
-          header.includes('allenatore') || header.includes('ruolo')) {
-        continue;
-      }
-      return i;
-    }
-  }
-
-  return -1;
-}
-
-/**
- * Verifica se una stringa "sembra" il nome di un giocatore
- * (2+ parole, lettere, no numeri, no simboli strani)
- */
-function sembraNomeGiocatore(testo: string): boolean {
-  if (!testo || testo.length < 3 || testo.length > 50) return false;
-  if (/^\d+/.test(testo)) return false; // inizia con numero
-  if (!/^[A-ZÀ-Üa-zà-ü]/.test(testo)) return false; // inizia con lettera
-  
-  // Deve avere almeno 2 parole o una parola sola (cognome)
-  const parole = testo.split(/\s+/).filter(p => p.length > 1);
-  return parole.length >= 1 && parole.length <= 4;
-}
-
-/**
- * Verifica se una stringa è un'intestazione o un valore da scartare
- */
-function nonEUnNome(testo: string): boolean {
-  const lower = testo.toLowerCase().trim();
-  const blacklist = [
-    'calciatore', 'nome', 'giocatore', 'squadra', 'ruolo', 'quotazione',
-    'fantamedia', 'media', 'presenze', 'gol', 'assist', 'ammonizioni',
-    'espulsioni', 'rigori', 'portiere', 'difensore', 'centrocampista',
-    'attaccante', 'total', 'totale', 'pk', 'rig', 'rp', 'amm', 'esp'
-  ];
-  return blacklist.some(b => lower === b || lower.startsWith(b + ' '));
 }
 
 // ============================================================
@@ -312,7 +235,7 @@ async function leggiNomiDaTesto(file: File): Promise<string[]> {
 
   for (const line of lines) {
     const nome = line.split(/[,\t;]/)[0]?.trim();
-    if (nome && nome.length >= 3 && nome.length <= 50 && !nonEUnNome(nome)) {
+    if (nome && nome.length >= 3 && nome.length <= 50) {
       nomi.push(nome);
     }
   }
@@ -320,7 +243,7 @@ async function leggiNomiDaTesto(file: File): Promise<string[]> {
 }
 
 // ============================================================
-// RICONOSCIMENTO DA IMMAGINE
+// RICONOSCIMENTO DA IMMAGINE (PaddleOCR)
 // ============================================================
 
 export async function riconosciGiocatoriDaImmagine(
@@ -334,22 +257,33 @@ export async function riconosciGiocatoriDaImmagine(
     return { riconosciuti: [], nonRiconosciuti: [] };
   }
 
-  const righe = testoOCR.split('\n').map(r => r.trim()).filter(r => r.length >= 4 && r.length <= 50);
+  const righe = testoOCR
+    .split('\n')
+    .map(r => r.trim())
+    .filter(r => r.length >= 4 && r.length <= 50);
+
   const riconosciuti: Player[] = [];
   const nonRiconosciuti: string[] = [];
   const idsAggiunti = new Set<string>();
 
   for (const riga of righe) {
-    const nomePulito = riga.replace(/\d+/g, '').replace(/[^\w\s'.-]/g, '').replace(/\s+/g, ' ').trim();
+    const nomePulito = riga
+      .replace(/\d+/g, '')
+      .replace(/[^\w\s'.-]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
     if (!nomePulito || nomePulito.length < 4) continue;
-    if (nonEUnNome(nomePulito)) continue;
 
     const giocatore = trovaGiocatore(nomePulito, listaGiocatori);
+
     if (giocatore && !idsAggiunti.has(giocatore.id)) {
       riconosciuti.push(giocatore);
       idsAggiunti.add(giocatore.id);
     } else if (!giocatore) {
-      if (!nonRiconosciuti.includes(nomePulito)) nonRiconosciuti.push(nomePulito);
+      if (!nonRiconosciuti.includes(nomePulito)) {
+        nonRiconosciuti.push(nomePulito);
+      }
     }
   }
 
