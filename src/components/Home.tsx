@@ -1,14 +1,21 @@
 import { Player, LeagueRules } from '../types';
 
+interface ListoneStatus {
+  source: string;
+  lastUpdated: string | null;
+  playerCount: number;
+  isOnline: boolean;
+  error: string | null;
+}
+
 interface HomeProps {
   roster: Player[];
   rules: LeagueRules;
-  listoneStatus: any;
+  listoneStatus: ListoneStatus | null;
   onNavigate: (step: 'setup' | 'roster' | 'dashboard') => void;
 }
 
 export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeProps) {
-  // Calcola lo stato di completamento
   const isRosterComplete = roster.length >= 11;
   const hasRules = rules.moduliConsentiti.length > 0;
 
@@ -65,7 +72,6 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
                 Modificatore, bonus, moduli consentiti
               </p>
               
-              {/* Status */}
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${hasRules ? 'bg-emerald-400' : 'bg-yellow-400'}`}></div>
                 <span className={`text-[10px] md:text-xs font-bold ${hasRules ? 'text-emerald-400' : 'text-yellow-400'}`}>
@@ -91,7 +97,6 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
                 Aggiungi o modifica i giocatori della rosa
               </p>
               
-              {/* Status */}
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${isRosterComplete ? 'bg-emerald-400' : 'bg-yellow-400'}`}></div>
                 <span className={`text-[10px] md:text-xs font-bold ${isRosterComplete ? 'text-emerald-400' : 'text-yellow-400'}`}>
@@ -122,7 +127,6 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
                 Scopri la formazione ottimale per la giornata
               </p>
               
-              {/* Status */}
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${isRosterComplete ? 'bg-emerald-400' : 'bg-slate-600'}`}></div>
                 <span className={`text-[10px] md:text-xs font-bold ${isRosterComplete ? 'text-emerald-400' : 'text-slate-500'}`}>
