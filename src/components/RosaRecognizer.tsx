@@ -1,118 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Player } from '../types';
-import { riconosciGiocatoriDaFile } from '../services/rosaRecognizerService';
+import { riconosciGiocatoriDaFile, riconosciGiocatoriDaImmagine } from '../services/rosaRecognizerService';
 
 interface RosaRecognizerProps {
   listaGiocatori: Player[];
   giocatoriGiaInRosa: Player[];
   onAggiungiGiocatori: (giocatori: Player[]) => void;
 }
-
-// ============================================================
-// 🔥 PRE-PROCESSING IMMAGINE PER OCR
-// ============================================================
-
-/**
- * Pre-processa un'immagine per migliorare il riconoscimento OCR:
- * 1. Scala di grigi
- * 2. Aumento contrasto
- * 3. Inversione colori (se testo chiaro su fondo scuro)
- * 4. Binarizzazione (bianco/nero puro)
- */
-async function preprocessImage(file: File): Promise<File> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-      img.onload = () => {
-        try {
-          // Crea canvas con le stesse dimensioni dell'immagine
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          if (!ctx) {
-            reject(new Error('Canvas non supportato'));
-            return;
-          }
-
-          // 🔥 SCALA 2x per migliorare la lettura di testi piccoli
-          const scale = 2;
-          canvas.width = img.width * scale;
-          canvas.height = img.height * scale;
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-          // Leggi i pixel
-          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          const data = imageData.data;
-
-          // 🔥 STEP 1: Scala di grigi + calcolo luminosità media
-          let luminositaTotale = 0;
-          for (let i = 0; i < data.length; i += 4) {
-            const r = data[i];
-            const g = data[i + 1];
-            const b = data[i + 2];
-            // Formula luminosità percettiva
-            const gray = 0.299 * r + 0.587 * g + 0.114 * b;
-            data[i] = gray;
-            data[i + 1] = gray;
-            data[i + 2] = gray;
-            luminositaTotale += gray;
-          }
-
-          const luminositaMedia = luminositaTotale / (data.length / 4);
-
-          // 🔥 STEP 2: Inversione colori se fondo SCURO (luminosità < 128)
-          // Tesseract legge meglio testo SCURO su fondo CHIARO
-          const inverti = luminositaMedia < 128;
-          if (inverti) {
-            for (let i = 0; i < data.length; i += 4) {
-              data[i] = 255 - data[i];
-              data[i + 1] = 255 - data[i + 1];
-              data[i + 2] = 255 - data[i + 2];
-            }
-          }
-
-          // 🔥 STEP 3: Aumento contrasto + Binarizzazione
-          // Calcola soglia adattiva (media della luminosità)
-          const soglia = inverti ? 255 - luminositaMedia : luminositaMedia;
-          
-          for (let i = 0; i < data.length; i += 4) {
-            const gray = data[i];
-            // Contrasto aggressivo: sotto soglia → nero, sopra → bianco
-            const nuovoValore = gray < soglia - 20 ? 0 : 255;
-            data[i] = nuovoValore;
-            data[i + 1] = nuovoValore;
-            data[i + 2] = nuovoValore;
-          }
-
-          // Riscrivi i pixel modificati
-          ctx.putImageData(imageData, 0, 0);
-
-          // Converti canvas in File (PNG)
-          canvas.toBlob((blob) => {
-            if (!blob) {
-              reject(new Error('Errore conversione canvas'));
-              return;
-            }
-            const processedFile = new File([blob], file.name, { type: 'image/png' });
-            resolve(processedFile);
-          }, 'image/png');
-        } catch (err) {
-          reject(err);
-        }
-      };
-      img.onerror = () => reject(new Error('Errore caricamento immagine'));
-      img.src = e.target?.result as string;
-    };
-
-    reader.onerror = () => reject(new Error('Errore lettura file'));
-    reader.readAsDataURL(file);
-  });
-}
-
-// ============================================================
-// COMPONENTE
-// ============================================================
 
 export default function RosaRecognizer({
   listaGiocatori,
@@ -123,6 +17,27 @@ export default function RosaRecognizer({
   const [riconosciuti, setRiconosciuti] = useState<Player[]>([]);
   const [nonRiconosciuti, setNonRiconosciuti] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [loadingMessage, setLoadingMessage] = useState<string>('');
+  const ocrRef = useRef<any>(null);
+
+  // 🔥 Carica dinamicamente client-side-ocr (evita problemi di SSR)
+  const loadOCREngine = async () => {
+    if (ocrRef.current) return ocrRef.current;
+    
+    try {
+      setLoadingMessage('Caricamento motore OCR...');
+      const { createOCREngine } = await import('client-side-ocr');
+      
+      const ocr = createOCREngine();
+      await ocr.initialize();
+      
+      ocrRef.current = ocr;
+      return ocr;
+    } catch (e) {
+      console.error('Errore caricamento OCR:', e);
+      throw new Error('Impossibile caricare il motore OCR. Riprova.');
+    }
+  };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -132,23 +47,34 @@ export default function RosaRecognizer({
     setError(null);
     setRiconosciuti([]);
     setNonRiconosciuti([]);
+    setLoadingMessage('');
 
     try {
-      let fileDaElaborare = file;
+      let result;
 
-      // 🔥 Pre-processa SOLO se è un'immagine
       if (file.type.startsWith('image/')) {
-        console.log('🖼️ Pre-processing immagine per OCR...');
-        try {
-          fileDaElaborare = await preprocessImage(file);
-          console.log('✅ Pre-processing completato');
-        } catch (preprocessError) {
-          console.warn('⚠️ Pre-processing fallito, uso immagine originale:', preprocessError);
-          fileDaElaborare = file;
-        }
+        // 🔥 IMMAGINE: usa PaddleOCR
+        setLoadingMessage('Caricamento motore OCR...');
+        const ocr = await loadOCREngine();
+        
+        setLoadingMessage('Riconoscimento testo in corso...');
+        console.log('🖼️ Elaborazione immagine con PaddleOCR...');
+        
+        const ocrResult = await ocr.processImage(file);
+        const testoEstratto = ocrResult.text || '';
+        
+        console.log('📝 Testo estratto:', testoEstratto);
+        console.log('📊 Confidenza:', ocrResult.confidence);
+        
+        setLoadingMessage('Match giocatori...');
+        result = await riconosciGiocatoriDaImmagine(file, listaGiocatori, testoEstratto);
+        
+      } else {
+        // FILE (Excel/CSV)
+        setLoadingMessage('Lettura file...');
+        result = await riconosciGiocatoriDaFile(file, listaGiocatori);
       }
 
-      const result = await riconosciGiocatoriDaFile(fileDaElaborare, listaGiocatori);
       setRiconosciuti(result.riconosciuti);
       setNonRiconosciuti(result.nonRiconosciuti);
 
@@ -156,9 +82,11 @@ export default function RosaRecognizer({
         setError('Nessun giocatore riconosciuto. Prova con un\'immagine più nitida o carica un file Excel.');
       }
     } catch (err) {
+      console.error('Errore:', err);
       setError(err instanceof Error ? err.message : 'Errore nel riconoscimento');
     } finally {
       setIsProcessing(false);
+      setLoadingMessage('');
       e.target.value = '';
     }
   };
@@ -205,8 +133,7 @@ export default function RosaRecognizer({
           {isProcessing ? (
             <>
               <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
-              <span className="text-slate-300 text-xs md:text-sm">Riconoscimento in corso...</span>
-              <span className="text-[10px] md:text-xs text-emerald-400">Pre-processing immagine</span>
+              <span className="text-slate-300 text-xs md:text-sm">{loadingMessage || 'Riconoscimento in corso...'}</span>
             </>
           ) : (
             <>
@@ -230,7 +157,6 @@ export default function RosaRecognizer({
       {/* Results */}
       {(riconosciuti.length > 0 || nonRiconosciuti.length > 0) && (
         <div className="mt-4 space-y-3 md:space-y-4">
-          {/* Recognized Players */}
           {riconosciuti.length > 0 && (
             <div>
               <div className="flex items-center justify-between mb-2 md:mb-3">
@@ -294,7 +220,6 @@ export default function RosaRecognizer({
             </div>
           )}
 
-          {/* Unrecognized Players */}
           {nonRiconosciuti.length > 0 && (
             <div>
               <h4 className="text-white font-bold text-xs md:text-sm mb-2 md:mb-3">
@@ -320,14 +245,13 @@ export default function RosaRecognizer({
         </div>
       )}
 
-      {/* Info Box */}
       <div className="mt-3 md:mt-4 p-3 bg-slate-800/40 rounded-lg text-[10px] md:text-xs text-slate-400">
         <p className="font-medium text-slate-300 mb-1">💡 Suggerimenti per foto:</p>
         <ul className="space-y-0.5 list-disc list-inside">
           <li>Usa immagini <strong>nitide</strong> e ben illuminate</li>
           <li><strong>Ritaglia</strong> solo la parte con i nomi dei giocatori</li>
           <li>Preferisci sfondi <strong>chiari</strong> con testo scuro</li>
-          <li>L'app applica automaticamente contrasto e binarizzazione</li>
+          <li>PaddleOCR funziona <strong>direttamente nel browser</strong> (prima volta: scarica ~15MB)</li>
         </ul>
       </div>
     </div>
