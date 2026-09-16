@@ -1,5 +1,101 @@
 {
-  "aggiornato": "2026-09-16T00:00:00.000Z",
+  "aggiornato": "2026-09-16T10:12:08.374Z",
   "fonte": "fantacalcio.it",
-  "squadre": {}
+  "squadre": {
+    "Roma": {
+      "gf": 0,
+      "gs": 12,
+      "g": 12
+    },
+    "Inter": {
+      "gf": 0,
+      "gs": 13,
+      "g": 12
+    },
+    "Como": {
+      "gf": 0,
+      "gs": 9,
+      "g": 10
+    },
+    "Lazio": {
+      "gf": 0,
+      "gs": 6,
+      "g": 10
+    },
+    "Cagliari": {
+      "gf": 1,
+      "gs": 4,
+      "g": 9
+    },
+    "Milan": {
+      "gf": 0,
+      "gs": 7,
+      "g": 8
+    },
+    "Frosinone": {
+      "gf": 1,
+      "gs": 7,
+      "g": 7
+    },
+    "Juventus": {
+      "gf": 1,
+      "gs": 6,
+      "g": 7
+    },
+    "Sassuolo": {
+      "gf": 1,
+      "gs": 8,
+      "g": 7
+    },
+    "Napoli": {
+      "gf": 2,
+      "gs": 6,
+      "g": 6
+    },
+    "Atalanta": {
+      "gf": 2,
+      "gs": 5,
+      "g": 6
+    },
+    "Lecce": {
+      "gf": 2,
+      "gs": 5,
+      "g": 6
+    },
+    "Udinese": {
+      "gf": 2,
+      "gs": 8,
+      "g": 4
+    },
+    "Torino": {
+      "gf": 3,
+      "gs": 4,
+      "g": 3
+    },
+    "Fiorentina": {
+      "gf": 3,
+      "gs": 5,
+      "g": 3
+    },
+    "Bologna": {
+      "gf": 3,
+      "gs": 2,
+      "g": 1
+    },
+    "Parma": {
+      "gf": 3,
+      "gs": 2,
+      "g": 1
+    },
+    "Monza": {
+      "gf": 3,
+      "gs": 6,
+      "g": 1
+    },
+    "Genoa": {
+      "gf": 3,
+      "gs": 2,
+      "g": 1
+    }
+  }
 }
