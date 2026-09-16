@@ -419,7 +419,7 @@ async function scrapeStatistiche(page) {
 }
 
 // ============================================================
-// 🔥 NUOVA FUNZIONE: SCRAPING CLASSIFICA
+// SCRAPING CLASSIFICA (con selettori CSS precisi)
 // ============================================================
 
 async function scrapeClassifica(page) {
@@ -440,16 +440,21 @@ async function scrapeClassifica(page) {
       
       rows.forEach(row => {
         try {
-          const cells = row.querySelectorAll('td');
-          if (cells.length >= 10) {
-            const squadra = cells[1]?.textContent?.trim();
-            const g = parseInt(cells[2]?.textContent?.trim()) || 0;
-            const gf = parseInt(cells[6]?.textContent?.trim()) || 0;
-            const gs = parseInt(cells[7]?.textContent?.trim()) || 0;
-            
-            if (squadra && g > 0) {
-              mappa[squadra] = { gf, gs, g };
-            }
+          // 🔥 Squadra dal link con classe "team-name"
+          const teamLink = row.querySelector('td.name a.team-name');
+          const squadra = teamLink ? teamLink.textContent?.trim() : '';
+          
+          // 🔥 Colonne specifiche tramite classe CSS (robusto!)
+          const gEl = row.querySelector('td.played');
+          const gfEl = row.querySelector('td.goal-scored');
+          const gsEl = row.querySelector('td.goal-conceded');
+          
+          const g = parseInt(gEl?.textContent?.trim() || '0') || 0;
+          const gf = parseInt(gfEl?.textContent?.trim() || '0') || 0;
+          const gs = parseInt(gsEl?.textContent?.trim() || '0') || 0;
+          
+          if (squadra && g > 0) {
+            mappa[squadra] = { gf, gs, g };
           }
         } catch (e) {}
       });
