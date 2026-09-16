@@ -1,15 +1,24 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // 🔥 NECESSARIO per PaddleOCR: supporto Web Worker ES modules
+  worker: {
+    format: 'es',
+  },
+  // 🔥 NECESSARIO per PaddleOCR: CORS headers per WASM multi-thread
   server: {
-    host: "0.0.0.0",
-    port: 3000,
-    strictPort: true,
-    hmr: {
-      port: 3000,
+    headers: {
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Embedder-Policy': 'credentialless',
     },
   },
-});
+  preview: {
+    headers: {
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Embedder-Policy': 'credentialless',
+    },
+  },
+})
