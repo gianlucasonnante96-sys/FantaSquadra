@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Player } from '../types';
-import { riconosciGiocatoriDaImmagine, RiconoscimentoResult } from '../services/rosaRecognizerService';
+import { riconosciGiocatoriDaImmagine, riconosciGiocatoriDaFile, RiconoscimentoResult } from '../services/rosaRecognizerService';
 
 interface RosaRecognizerProps {
   listaGiocatori: Player[];
@@ -23,30 +23,31 @@ export default function RosaRecognizer({
   // 🔥 Carica PaddleOCR dinamicamente
   const loadOCREngine = async () => {
     if (ocrRef.current) return ocrRef.current;
-    
+
     try {
       setLoadingMessage('Caricamento motore OCR...');
       console.log('📦 Caricamento @paddleocr/paddleocr-js...');
-      
-      // Import dinamico per evitare problemi di SSR
+
       const { PaddleOCR } = await import('@paddleocr/paddleocr-js');
-      
+
       setLoadingMessage('Inizializzazione OCR (prima volta: ~15MB)...');
-      
+
       const ocr = await PaddleOCR.create({
-        lang: 'it',              // Italiano (o 'en' se preferisci)
-        ocrVersion: 'PP-OCRv5',  // Modello moderno
+        lang: 'it',
+        ocrVersion: 'PP-OCRv5',
         ortOptions: {
-          backend: 'wasm',       // WASM (funziona ovunque)
+          backend: 'wasm',
+          // 🔥 NECESSARIO: percorso dei file WASM
+          wasmPaths: 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/',
         },
       });
-      
+
       console.log('✅ PaddleOCR inizializzato');
       ocrRef.current = ocr;
       return ocr;
     } catch (e) {
       console.error('Errore caricamento PaddleOCR:', e);
-      throw new Error('Impossibile caricare il motore OCR. Riprova.');
+      throw new Error('Impossibile caricare il motore OCR. Ricarica la pagina e riprova.');
     }
   };
 
@@ -66,30 +67,24 @@ export default function RosaRecognizer({
       if (file.type.startsWith('image/')) {
         // 🔥 IMMAGINE: usa PaddleOCR
         const ocr = await loadOCREngine();
-        
+
         setLoadingMessage('Riconoscimento testo in corso...');
         console.log('🖼️ Elaborazione immagine con PaddleOCR...');
-        
-        // Elabora l'immagine
+
         const [ocrResult] = await ocr.predict(file);
-        
-        // Estrai il testo da tutti gli elementi riconosciuti
+
         const testoEstratto = ocrResult.items
           .map((item: any) => item.text)
           .join('\n');
-        
+
         console.log('📝 Testo estratto:', testoEstratto);
-        console.log('📊 Confidenza media:', 
-          ocrResult.items.reduce((sum: number, i: any) => sum + (i.score || 0), 0) / ocrResult.items.length
-        );
-        
+
         setLoadingMessage('Match giocatori...');
         result = await riconosciGiocatoriDaImmagine(file, listaGiocatori, testoEstratto);
-        
+
       } else {
         // FILE (Excel/CSV)
         setLoadingMessage('Lettura file...');
-        const { riconosciGiocatoriDaFile } = await import('../services/rosaRecognizerService');
         result = await riconosciGiocatoriDaFile(file, listaGiocatori);
       }
 
