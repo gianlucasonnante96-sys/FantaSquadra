@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-16T07:11:52.239Z",
+  "aggiornato": "2026-09-16T09:10:52.051Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -3216,7 +3216,7 @@
         "giocatori": [
           {
             "nome": "Skorupski",
-            "perc": 55,
+            "perc": 80,
             "starter": true
           },
           {
@@ -3236,7 +3236,7 @@
           },
           {
             "nome": "Miranda J.",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
@@ -3251,12 +3251,12 @@
           },
           {
             "nome": "Odgaard",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
             "nome": "Bernardeschi",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -3271,7 +3271,7 @@
           },
           {
             "nome": "Pessina Mas.",
-            "perc": 45,
+            "perc": 5,
             "starter": false
           },
           {
@@ -3505,8 +3505,8 @@
             "starter": true
           },
           {
-            "nome": "Unai Gomez",
-            "perc": 80,
+            "nome": "Zaniolo",
+            "perc": 55,
             "starter": true
           },
           {
@@ -3555,13 +3555,18 @@
             "starter": false
           },
           {
+            "nome": "Unai Gomez",
+            "perc": 60,
+            "starter": false
+          },
+          {
             "nome": "Gueye",
             "perc": 60,
             "starter": false
           },
           {
             "nome": "Bayo V.",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           }
         ]
