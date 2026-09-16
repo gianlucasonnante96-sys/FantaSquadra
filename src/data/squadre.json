@@ -1,105 +1,105 @@
 {
-  "aggiornato": "2026-09-16T10:23:33.490Z",
+  "aggiornato": "2026-09-16T10:40:56.184Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 12,
+      "gs": 1,
       "g": 4
     },
     "Inter": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 13,
+      "gs": 6,
       "g": 4
     },
     "Como": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 9,
+      "gs": 4,
       "g": 4
     },
     "Lazio": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 6,
+      "gs": 3,
       "g": 4
     },
     "Cagliari": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 4,
+      "gs": 2,
       "g": 4
     },
     "Milan": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 7,
+      "gs": 4,
       "g": 4
     },
     "Frosinone": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 7,
+      "gs": 4,
       "g": 4
     },
     "Juventus": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 6,
+      "gs": 4,
       "g": 4
     },
     "Sassuolo": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 8,
+      "gs": 7,
       "g": 4
     },
     "Napoli": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 6,
+      "gs": 5,
       "g": 4
     },
     "Atalanta": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 5,
+      "gs": 5,
       "g": 4
     },
     "Lecce": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 5,
+      "gs": 7,
       "g": 4
     },
     "Udinese": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 8,
+      "gs": 10,
       "g": 4
     },
     "Torino": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 4,
+      "gs": 7,
       "g": 4
     },
     "Fiorentina": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 5,
+      "gs": 11,
       "g": 4
     },
     "Bologna": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 2,
+      "gs": 5,
       "g": 4
     },
     "Parma": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 2,
+      "gs": 6,
       "g": 4
     },
     "Monza": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 6,
+      "gs": 11,
       "g": 4
     },
     "Genoa": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 2,
+      "gs": 8,
       "g": 4
     },
     "Venezia": {
-      "gf": 0,
-      "gs": 0,
+      "gf": 4,
+      "gs": 11,
       "g": 4
     }
   }
