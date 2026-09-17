@@ -1,106 +1,246 @@
 {
-  "aggiornato": "2026-09-17T15:12:02.692Z",
+  "aggiornato": "2026-09-17T15:33:54.467Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
-      "gf": 12,
-      "gs": 1,
-      "g": 4
+      "punti": 12,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "W",
+        "W",
+        "W"
+      ]
     },
     "Inter": {
-      "gf": 13,
-      "gs": 6,
-      "g": 4
+      "punti": 12,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "W",
+        "W",
+        "W"
+      ]
     },
     "Como": {
-      "gf": 9,
-      "gs": 4,
-      "g": 4
+      "punti": 10,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "D",
+        "W",
+        "W",
+        "W"
+      ]
     },
     "Lazio": {
-      "gf": 6,
-      "gs": 3,
-      "g": 4
+      "punti": 10,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "W",
+        "W",
+        "D"
+      ]
     },
     "Cagliari": {
-      "gf": 4,
-      "gs": 2,
-      "g": 4
+      "punti": 9,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "L",
+        "W",
+        "W"
+      ]
     },
     "Milan": {
-      "gf": 7,
-      "gs": 4,
-      "g": 4
+      "punti": 8,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "W",
+        "D",
+        "D"
+      ]
     },
     "Frosinone": {
-      "gf": 7,
-      "gs": 4,
-      "g": 4
+      "punti": 7,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "W",
+        "W",
+        "D"
+      ]
     },
     "Juventus": {
-      "gf": 6,
-      "gs": 4,
-      "g": 4
+      "punti": 7,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "W",
+        "D",
+        "L"
+      ]
     },
     "Sassuolo": {
-      "gf": 8,
-      "gs": 7,
-      "g": 4
+      "punti": 7,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "W",
+        "D",
+        "W"
+      ]
     },
     "Napoli": {
-      "gf": 6,
-      "gs": 5,
-      "g": 4
+      "punti": 6,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "L",
+        "L",
+        "W"
+      ]
     },
     "Atalanta": {
-      "gf": 5,
-      "gs": 5,
-      "g": 4
+      "punti": 6,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "W",
+        "L",
+        "L"
+      ]
     },
     "Lecce": {
-      "gf": 5,
-      "gs": 7,
-      "g": 4
+      "punti": 6,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "W",
+        "L",
+        "L",
+        "W"
+      ]
     },
     "Udinese": {
-      "gf": 8,
-      "gs": 10,
-      "g": 4
+      "punti": 4,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "D",
+        "W",
+        "L",
+        "L"
+      ]
     },
     "Torino": {
-      "gf": 4,
-      "gs": 7,
-      "g": 4
+      "punti": 3,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "L",
+        "W",
+        "L"
+      ]
     },
     "Fiorentina": {
-      "gf": 5,
-      "gs": 11,
-      "g": 4
+      "punti": 3,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "L",
+        "L",
+        "W"
+      ]
     },
     "Bologna": {
-      "gf": 2,
-      "gs": 5,
-      "g": 4
+      "punti": 1,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "L",
+        "D",
+        "L"
+      ]
     },
     "Parma": {
-      "gf": 2,
-      "gs": 6,
-      "g": 4
+      "punti": 1,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "L",
+        "D",
+        "L"
+      ]
     },
     "Monza": {
-      "gf": 6,
-      "gs": 11,
-      "g": 4
+      "punti": 1,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "L",
+        "D",
+        "L"
+      ]
     },
     "Genoa": {
-      "gf": 2,
-      "gs": 8,
-      "g": 4
+      "punti": 1,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "L",
+        "L",
+        "D"
+      ]
     },
     "Venezia": {
-      "gf": 4,
-      "gs": 11,
-      "g": 4
+      "punti": 0,
+      "g": 4,
+      "gf": 0,
+      "gs": 0,
+      "forma": [
+        "L",
+        "L",
+        "L",
+        "L"
+      ]
     }
   }
 }
