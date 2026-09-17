@@ -3,7 +3,7 @@ import { isProbabileTitolare, getLivelloTitolarita } from './titolarita';
 import squadreData from '../data/squadre.json';
 
 // ============================================================
-// CONFIGURAZIONE ALGORITMO
+// CONFIGURAZIONE
 // ============================================================
 
 const CONFIG = {
@@ -19,36 +19,23 @@ const CONFIG = {
   bonusCasa: 0.4,
   malusTrasferta: 0.3,
   
+  // 🔥 Peso momentum (forma recente)
+  pesoMomentum: 0.6,
+  
   pesoFixturePerRuolo: {
-    'P': 0.6,
-    'D': 0.4,
-    'C': 0.7,
-    'A': 0.8,
+    'P': 0.6, 'D': 0.4, 'C': 0.7, 'A': 0.8,
   } as Record<string, number>,
   
   pesoTeamStrengthPerRuolo: {
-    'P': 0.4,
-    'D': 0.5,
-    'C': 0.7,
-    'A': 0.8,
+    'P': 0.4, 'D': 0.5, 'C': 0.7, 'A': 0.8,
   } as Record<string, number>,
   
   rangeVotoPerRuolo: {
-    'P': [5.0, 8.0],
-    'D': [5.0, 7.5],
-    'C': [5.0, 8.0],
-    'A': [5.0, 8.0],
+    'P': [5.0, 8.0], 'D': [5.0, 7.5], 'C': [5.0, 8.0], 'A': [5.0, 8.0],
   } as Record<string, [number, number]>,
   
-  // 🔥 Bonus gol fatti/subiti (basato sulla classifica)
-  pesoGolFattiPerRuolo: {
-    'C': 0.3,
-    'A': 0.3,
-  } as Record<string, number>,
-  
-  pesoGolSubitiPerRuolo: {
-    'D': 0.4,
-  } as Record<string, number>,
+  pesoGolFattiPerRuolo: { 'C': 0.3, 'A': 0.3 } as Record<string, number>,
+  pesoGolSubitiPerRuolo: { 'D': 0.4 } as Record<string, number>,
   
   portieri: {
     cleanSheetBase: { 1: 0.75, 2: 0.60, 3: 0.40, 4: 0.20, 5: 0.10 } as Record<number, number>,
@@ -91,30 +78,6 @@ const CONFIG = {
 };
 
 // ============================================================
-// TEAM STRENGTH
-// ============================================================
-
-const TEAM_STRENGTH: Record<string, number> = {
-  'Inter': 1.22, 'Roma': 1.20, 'Como': 1.15, 'Lazio': 1.15,
-  'Milan': 1.10, 'Napoli': 1.10, 'Cagliari': 1.05, 'Juventus': 1.05,
-  'Atalanta': 1.05, 'Frosinone': 0.95, 'Sassuolo': 0.90, 'Lecce': 0.85,
-  'Torino': 0.85, 'Udinese': 0.82, 'Fiorentina': 0.82, 'Bologna': 0.80,
-  'Parma': 0.72, 'Genoa': 0.72, 'Monza': 0.70, 'Venezia': 0.65,
-};
-
-// ============================================================
-// FIXTURE DIFFICULTY
-// ============================================================
-
-const FIXTURE_DIFFICULTY: Record<string, number> = {
-  'Inter': 5.0, 'Roma': 4.9, 'Como': 4.5, 'Lazio': 4.4,
-  'Milan': 4.3, 'Napoli': 4.2, 'Juventus': 4.0, 'Atalanta': 3.9,
-  'Cagliari': 3.8, 'Frosinone': 3.5, 'Sassuolo': 3.3, 'Fiorentina': 3.0,
-  'Torino': 2.9, 'Bologna': 2.9, 'Lecce': 2.8, 'Udinese': 2.7,
-  'Parma': 2.4, 'Genoa': 2.3, 'Monza': 2.2, 'Venezia': 1.9,
-};
-
-// ============================================================
 // UTILITY
 // ============================================================
 
@@ -133,22 +96,19 @@ function normalizzaNomeSquadra(nome: string | undefined): string {
   return n;
 }
 
-function getTeamStrength(team: string | undefined): number {
-  const nome = normalizzaNomeSquadra(team);
-  return TEAM_STRENGTH[nome] ?? 0.85;
+// ============================================================
+// 🔥 STATISTICHE SQUADRA (dinamiche)
+// ============================================================
+
+interface StatsSquadra {
+  punti: number;
+  g: number;
+  gf: number;
+  gs: number;
+  forma: string[];
 }
 
-function getFixtureDifficulty(avversario: string | undefined): number {
-  const nome = normalizzaNomeSquadra(avversario);
-  return FIXTURE_DIFFICULTY[nome] ?? 3.0;
-}
-
-function convertiDifficoltaInBonus(difficolta: number): number {
-  return (3 - difficolta) * 0.75;
-}
-
-// 🔥 Statistiche squadra (GF/GS/G)
-function getStatisticheSquadra(team: string | undefined): { gf: number; gs: number; g: number } | null {
+function getStatsSquadra(team: string | undefined): StatsSquadra | null {
   if (!team) return null;
   try {
     const dati = squadreData as any;
@@ -159,13 +119,80 @@ function getStatisticheSquadra(team: string | undefined): { gf: number; gs: numb
     for (const [key, value] of Object.entries(dati.squadre)) {
       const keyNorm = normalizzaNomeSquadra(key);
       if (keyNorm.toLowerCase() === nome.toLowerCase()) {
-        return value as { gf: number; gs: number; g: number };
+        return value as StatsSquadra;
       }
     }
     return null;
   } catch (e) {
     return null;
   }
+}
+
+// ============================================================
+// 🔥 TEAM STRENGTH DINAMICO
+// Calcolato da: punti, gol fatti, gol subiti
+// ============================================================
+
+function calcolaTeamStrength(team: string | undefined): number {
+  const stats = getStatsSquadra(team);
+  
+  if (!stats || stats.g === 0) {
+    // Fallback: valore medio-basso per squadre senza dati
+    return 0.85;
+  }
+  
+  const puntiMax = stats.g * 3;
+  const puntiRatio = Math.min(1, stats.punti / puntiMax); // 0-1
+  const gfRatio = Math.min(3, stats.gf / stats.g) / 3;   // 0-1
+  const gsRatio = Math.min(3, stats.gs / stats.g) / 3;   // 0-1
+  
+  // Formula: 55% punti + 25% attacco + 20% difesa
+  const strength = 0.5 
+                 + (puntiRatio * 0.35)   // punti contano molto
+                 + (gfRatio * 0.15)      // attacco contribuisce
+                 - (gsRatio * 0.10);     // difesa debole penalizza
+  
+  // Clamp tra 0.65 (squadra debolissima) e 1.25 (squadra top)
+  return Math.max(0.65, Math.min(1.25, strength));
+}
+
+// ============================================================
+// 🔥 FIXTURE DIFFICULTY DINAMICA
+// Basata sulla forza dell'avversario
+// ============================================================
+
+function calcolaFixtureDifficulty(avversario: string | undefined): number {
+  const strength = calcolaTeamStrength(avversario);
+  
+  // Trasforma 0.65-1.25 in 1.0-5.0
+  const normalized = (strength - 0.65) / (1.25 - 0.65); // 0-1
+  return 1 + normalized * 4;
+}
+
+function convertiDifficoltaInBonus(difficolta: number): number {
+  return (3 - difficolta) * 0.75;
+}
+
+// ============================================================
+// 🔥 MOMENTUM (basato sulla forma recente)
+// ============================================================
+
+function calcolaMomentum(team: string | undefined): number {
+  const stats = getStatsSquadra(team);
+  
+  if (!stats || !Array.isArray(stats.forma) || stats.forma.length === 0) {
+    return 0; // nessun dato → nessun bonus/malus
+  }
+  
+  const puntiForma: Record<string, number> = { 'W': 3, 'D': 1, 'L': 0 };
+  const formScore = stats.forma.reduce((sum, r) => sum + (puntiForma[r] || 0), 0);
+  const maxFormScore = stats.forma.length * 3;
+  const formRatio = maxFormScore > 0 ? formScore / maxFormScore : 0.5;
+  
+  // formRatio: 1.0 = tutte vittorie, 0.0 = tutte sconfitte
+  // Bonus: (formRatio - 0.5) * 2 * pesoMomentum
+  // Con pesoMomentum 0.6: range da -0.6 a +0.6
+  return (formRatio - 0.5) * 2 * CONFIG.pesoMomentum;
 }
 
 // ============================================================
@@ -190,10 +217,6 @@ function calcolaFattoreTitolaritaArricchito(player: Player): number {
     return baseTitolarita;
   }
 }
-
-// ============================================================
-// GESTIONE FANTAMEDIA INAFFIDABILE
-// ============================================================
 
 function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMediaVoto: number } {
   const fantamedia = player.fantamedia ?? 0;
@@ -221,10 +244,11 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   const role = player.role;
   const inCasa = player.inCasa ?? true;
 
-  const fixtureDiff = getFixtureDifficulty(player.avversario);
+  // 🔥 DINAMICI
+  const teamStrength = calcolaTeamStrength(player.team);
+  const fixtureDiff = calcolaFixtureDifficulty(player.avversario);
   const difficulty = Math.max(1, Math.min(5, Math.round(fixtureDiff)));
-
-  const teamStrength = getTeamStrength(player.team);
+  const momentum = calcolaMomentum(player.team);
   
   const pesoFixture = CONFIG.pesoFixturePerRuolo[role] ?? 0.75;
   const pesoTeamStrength = CONFIG.pesoTeamStrengthPerRuolo[role] ?? 0.8;
@@ -250,30 +274,31 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   if (inCasa) votoPrevisto += CONFIG.bonusCasa;
   else votoPrevisto -= CONFIG.malusTrasferta;
 
-  // Fixture bonus pesato per ruolo
+  // Fixture bonus dinamico
   const fixtureBonus = convertiDifficoltaInBonus(fixtureDiff) * (pesoFixture / 0.75);
   votoPrevisto += fixtureBonus;
 
   if (role !== 'P') votoPrevisto += teamBonus;
 
+  // 🔥 MOMENTUM (forma recente)
+  votoPrevisto += momentum;
+
   // ==========================================================
-  // 🔥 BONUS GOL FATTI / SUBITI (basato su squadre.json)
+  // 🔥 BONUS GOL FATTI / SUBITI (dinamici)
   // ==========================================================
   
-  const statsSquadra = getStatisticheSquadra(player.team);
+  const statsSquadra = getStatsSquadra(player.team);
   
   if (statsSquadra && statsSquadra.g > 0) {
     const mediaGolFatti = statsSquadra.gf / statsSquadra.g;
     const mediaGolSubiti = statsSquadra.gs / statsSquadra.g;
     
-    // CENTROCAMPISTI e ATTACCANTI: bonus in base ai gol FATTI
     const pesoGolFatti = CONFIG.pesoGolFattiPerRuolo[role];
     if (pesoGolFatti !== undefined) {
       const bonusGol = (mediaGolFatti - 1.5) * pesoGolFatti;
       votoPrevisto += bonusGol;
     }
     
-    // DIFENSORI: bonus in base ai gol SUBITI
     const pesoGolSubiti = CONFIG.pesoGolSubitiPerRuolo[role];
     if (pesoGolSubiti !== undefined) {
       const bonusGolSubiti = (1.5 - mediaGolSubiti) * pesoGolSubiti;
@@ -379,7 +404,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
 }
 
 // ============================================================
-// 🔥 MODIFICATORE DIFESA (basato sul VP)
+// MODIFICATORE DIFESA (basato su VP)
 // ============================================================
 
 export function calculateModificatoreBonus(
