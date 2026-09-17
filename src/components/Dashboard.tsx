@@ -22,18 +22,21 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   // 🔥 REF per auto-scroll alla giornata corrente
   const giornataRef = useRef<HTMLButtonElement | null>(null);
 
-  // 🔥 AUTO-SCROLL quando si apre il selettore
+  // 🔥 AUTO-SCROLL quando si apre il selettore (con delay per DOM)
   useEffect(() => {
-    if (showGiornataScroll && giornataRef.current) {
-      // Aspetta il rendering del DOM
-      requestAnimationFrame(() => {
-        giornataRef.current?.scrollIntoView({
+    if (!showGiornataScroll) return;
+    
+    const timer = setTimeout(() => {
+      if (giornataRef.current) {
+        giornataRef.current.scrollIntoView({
           behavior: 'smooth',
           block: 'nearest',
           inline: 'center',
         });
-      });
-    }
+      }
+    }, 200);
+    
+    return () => clearTimeout(timer);
   }, [showGiornataScroll]);
 
   const rosterWithAvversari = useMemo(() => {
@@ -171,7 +174,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               {Array.from({ length: 38 }, (_, i) => i + 1).map(num => (
                 <button
                   key={num}
-                  // 🔥 REF solo al bottone della giornata corrente
                   ref={num === giornata ? giornataRef : null}
                   onClick={() => {
                     setGiornata(num);
@@ -467,7 +469,7 @@ function PlayerOnField({ slot, getRoleGradient, getVPColor, onClick }: PlayerOnF
 }
 
 // ============================================================
-// 🔥 MODAL DETTAGLI CON FATTORI VP
+// MODAL DETTAGLI CON FATTORI VP
 // ============================================================
 
 interface PlayerDetailModalProps {
@@ -508,7 +510,6 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
   const strengthInfo = getStrengthLabel(teamStrength);
   const momentumInfo = getMomentumLabel(momentum);
 
-  // Converti forma in stringa visuale
   const formEmoji = (r: string) => {
     if (r === 'W') return '🟢';
     if (r === 'D') return '🟡';
@@ -525,10 +526,8 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
         className="bg-slate-900/95 backdrop-blur-md rounded-t-2xl md:rounded-2xl border-t md:border border-emerald-500/30 w-full md:max-w-md p-5 md:p-6 shadow-2xl shadow-emerald-500/20 pb-8 md:pb-6 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Drag handle mobile */}
         <div className="w-12 h-1 bg-slate-600 rounded-full mx-auto mb-4 md:hidden"></div>
 
-        {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className={`w-1.5 h-14 rounded-full bg-gradient-to-b ${getRoleGradient(player.role)}`} />
@@ -563,7 +562,7 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
           </div>
         </div>
 
-        {/* 🔥 FATTORI DEL VOTO PREVISTO */}
+        {/* FATTORI DEL VOTO PREVISTO */}
         <div className="mb-4">
           <h4 className="text-emerald-400 font-bold text-xs md:text-sm uppercase tracking-wider mb-2 flex items-center gap-2">
             🔮 Fattori del Voto Previsto
@@ -634,7 +633,7 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
               </div>
             </div>
 
-            {/* Gol fatti/subiti (se disponibili) */}
+            {/* Gol fatti/subiti */}
             {statsSquadra && statsSquadra.g > 0 && (
               <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
