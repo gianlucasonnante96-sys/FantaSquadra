@@ -19,8 +19,8 @@ const CONFIG = {
   bonusCasa: 0.4,
   malusTrasferta: 0.3,
   
-  // 🔥 Peso momentum (forma recente)
-  pesoMomentum: 0.6,
+  // 🔥 Peso momentum RIDOTTO (era 0.6)
+  pesoMomentum: 0.3,
   
   pesoFixturePerRuolo: {
     'P': 0.6, 'D': 0.4, 'C': 0.7, 'A': 0.8,
@@ -97,7 +97,7 @@ function normalizzaNomeSquadra(nome: string | undefined): string {
 }
 
 // ============================================================
-// 🔥 STATISTICHE SQUADRA (dinamiche)
+// STATISTICHE SQUADRA
 // ============================================================
 
 interface StatsSquadra {
@@ -129,44 +129,46 @@ function getStatsSquadra(team: string | undefined): StatsSquadra | null {
 }
 
 // ============================================================
-// 🔥 TEAM STRENGTH DINAMICO
-// Calcolato da: punti, gol fatti, gol subiti
+// TEAM STRENGTH DINAMICO (formula più aggressiva)
 // ============================================================
 
 function calcolaTeamStrength(team: string | undefined): number {
   const stats = getStatsSquadra(team);
   
   if (!stats || stats.g === 0) {
-    // Fallback: valore medio-basso per squadre senza dati
     return 0.85;
   }
   
   const puntiMax = stats.g * 3;
-  const puntiRatio = Math.min(1, stats.punti / puntiMax); // 0-1
-  const gfRatio = Math.min(3, stats.gf / stats.g) / 3;   // 0-1
-  const gsRatio = Math.min(3, stats.gs / stats.g) / 3;   // 0-1
+  const puntiRatio = Math.min(1, stats.punti / puntiMax);
+  const gfRatio = Math.min(3, stats.gf / stats.g) / 3;
+  const gsRatio = Math.min(3, stats.gs / stats.g) / 3;
   
-  // Formula: 55% punti + 25% attacco + 20% difesa
-  const strength = 0.5 
-                 + (puntiRatio * 0.35)   // punti contano molto
-                 + (gfRatio * 0.15)      // attacco contribuisce
-                 - (gsRatio * 0.10);     // difesa debole penalizza
+  // 🔥 Formula più aggressiva
+  const strength = 0.55 
+                 + (puntiRatio * 0.50)
+                 + (gfRatio * 0.20)
+                 - (gsRatio * 0.15);
   
-  // Clamp tra 0.65 (squadra debolissima) e 1.25 (squadra top)
-  return Math.max(0.65, Math.min(1.25, strength));
+  // 🔥 Range più ampio
+  return Math.max(0.60, Math.min(1.30, strength));
 }
 
 // ============================================================
-// 🔥 FIXTURE DIFFICULTY DINAMICA
-// Basata sulla forza dell'avversario
+// FIXTURE DIFFICULTY DINAMICA (amplificata)
 // ============================================================
 
 function calcolaFixtureDifficulty(avversario: string | undefined): number {
   const strength = calcolaTeamStrength(avversario);
   
-  // Trasforma 0.65-1.25 in 1.0-5.0
-  const normalized = (strength - 0.65) / (1.25 - 0.65); // 0-1
-  return 1 + normalized * 4;
+  // 🔥 Range 0.60-1.30 → 0-1
+  const normalized = (strength - 0.60) / (1.30 - 0.60);
+  
+  // 🔥 Curva esponenziale per amplificare gli estremi
+  const amplified = Math.pow(normalized, 0.7);
+  
+  // 🔥 Trasforma in 1.0-5.0
+  return 1 + amplified * 4;
 }
 
 function convertiDifficoltaInBonus(difficolta: number): number {
@@ -174,14 +176,14 @@ function convertiDifficoltaInBonus(difficolta: number): number {
 }
 
 // ============================================================
-// 🔥 MOMENTUM (basato sulla forma recente)
+// MOMENTUM (forma recente)
 // ============================================================
 
 function calcolaMomentum(team: string | undefined): number {
   const stats = getStatsSquadra(team);
   
   if (!stats || !Array.isArray(stats.forma) || stats.forma.length === 0) {
-    return 0; // nessun dato → nessun bonus/malus
+    return 0;
   }
   
   const puntiForma: Record<string, number> = { 'W': 3, 'D': 1, 'L': 0 };
@@ -189,9 +191,7 @@ function calcolaMomentum(team: string | undefined): number {
   const maxFormScore = stats.forma.length * 3;
   const formRatio = maxFormScore > 0 ? formScore / maxFormScore : 0.5;
   
-  // formRatio: 1.0 = tutte vittorie, 0.0 = tutte sconfitte
-  // Bonus: (formRatio - 0.5) * 2 * pesoMomentum
-  // Con pesoMomentum 0.6: range da -0.6 a +0.6
+  // 🔥 Con pesoMomentum 0.3: range da -0.3 a +0.3
   return (formRatio - 0.5) * 2 * CONFIG.pesoMomentum;
 }
 
@@ -244,7 +244,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   const role = player.role;
   const inCasa = player.inCasa ?? true;
 
-  // 🔥 DINAMICI
+  // 🔥 VALORI DINAMICI
   const teamStrength = calcolaTeamStrength(player.team);
   const fixtureDiff = calcolaFixtureDifficulty(player.avversario);
   const difficulty = Math.max(1, Math.min(5, Math.round(fixtureDiff)));
@@ -284,7 +284,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   votoPrevisto += momentum;
 
   // ==========================================================
-  // 🔥 BONUS GOL FATTI / SUBITI (dinamici)
+  // BONUS GOL FATTI / SUBITI
   // ==========================================================
   
   const statsSquadra = getStatsSquadra(player.team);
