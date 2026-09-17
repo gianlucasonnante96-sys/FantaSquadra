@@ -28,10 +28,6 @@ const BLOCKED_DOMAINS = [
   'outbrain.com', 'adskindiv', 'revive',
 ];
 
-// ============================================================
-// UTILITY
-// ============================================================
-
 function leggiFormazioniEsistenti() {
   try {
     if (!fs.existsSync(OUTPUT_PATH)) return { partite: {} };
@@ -368,13 +364,6 @@ async function scrapeStatistiche(page) {
     const numGiocatori = Object.keys(statisticheData).length;
     console.log(`✅ Estratte statistiche per ${numGiocatori} giocatori`);
     
-    if (numGiocatori > 0) {
-      console.log('📊 Esempio primi 5 giocatori:');
-      Object.entries(statisticheData).slice(0, 5).forEach(([nome, stats]) => {
-        console.log(`  - ${nome} (${stats.ruolo}, ${stats.squadra}): MV=${stats.mediaVoto}, FM=${stats.fantamedia}, PG=${stats.partiteGiocate}`);
-      });
-    }
-    
     const output = {
       aggiornato: new Date().toISOString(),
       fonte: 'fantacalcio.it',
@@ -393,7 +382,7 @@ async function scrapeStatistiche(page) {
 }
 
 // ============================================================
-// 🔥 SCRAPING CLASSIFICA (con PUNTI + FORMA)
+// 🔥 SCRAPING CLASSIFICA (FIX DEFINITIVO — classi corrette)
 // ============================================================
 
 async function scrapeClassifica(page) {
@@ -411,7 +400,6 @@ async function scrapeClassifica(page) {
     const classificaData = await page.evaluate(() => {
       const mappa = {};
       
-      // Prova selettori specifici in ordine di preferenza
       let rows = document.querySelectorAll('#classifica table tbody tr');
       if (rows.length === 0) rows = document.querySelectorAll('table.serie-a-table tbody tr');
       if (rows.length === 0) rows = document.querySelectorAll('table tbody tr');
@@ -420,23 +408,28 @@ async function scrapeClassifica(page) {
       
       rows.forEach(row => {
         try {
-          // 🔥 Squadra dal link "team-name"
+          // 🔥 Squadra dal link "team-name" o dall'attributo data-name
+          let squadra = '';
           const teamLink = row.querySelector('a.team-name');
-          const squadra = teamLink ? teamLink.textContent?.trim() : '';
+          if (teamLink) {
+            squadra = teamLink.textContent?.trim() || '';
+          } else {
+            squadra = row.getAttribute('data-name') || '';
+          }
           if (!squadra) return;
           
-          // 🔥 Leggi le colonne con le classi CSS
+          // 🔥 CLASSI CORRETTE (senza trattino!)
           const puntiEl = row.querySelector('td.points');
           const playedEl = row.querySelector('td.played');
-          const gfEl = row.querySelector('td.goal-scored');
-          const gsEl = row.querySelector('td.goal-conceded');
+          const gfEl = row.querySelector('td.goalscored');      // ✅ goalscored
+          const gsEl = row.querySelector('td.goalsconceded');   // ✅ goalsconceded
           
           const punti = parseInt(puntiEl?.textContent?.trim() || '0') || 0;
           const g = parseInt(playedEl?.textContent?.trim() || '0') || 0;
           const gf = parseInt(gfEl?.textContent?.trim() || '0') || 0;
           const gs = parseInt(gsEl?.textContent?.trim() || '0') || 0;
           
-          // 🔥 FORMA: leggi i dot dal td.form ul.dot-stripe
+          // 🔥 FORMA: leggi i dot
           const forma = [];
           const formDots = row.querySelectorAll('td.form ul.dot-stripe li');
           formDots.forEach(li => {
@@ -447,13 +440,7 @@ async function scrapeClassifica(page) {
           });
           
           if (g > 0) {
-            mappa[squadra] = {
-              punti,
-              g,
-              gf,
-              gs,
-              forma, // es. ["W", "W", "D", "L", "W"] (ultimi 5 match)
-            };
+            mappa[squadra] = { punti, g, gf, gs, forma };
           }
         } catch (e) {}
       });
@@ -468,7 +455,7 @@ async function scrapeClassifica(page) {
       console.log('📊 Esempio primi 5:');
       Object.entries(classificaData).slice(0, 5).forEach(([nome, dati]) => {
         const formaStr = (dati.forma || []).join('-') || 'nessuna';
-        console.log(`  - ${nome}: ${dati.punti}pt, GF=${dati.gf}, GS=${dati.gs}, Forma=${formaStr}`);
+        console.log(`  - ${nome}: ${dati.punti}pt, G=${dati.g}, GF=${dati.gf}, GS=${dati.gs}, Forma=${formaStr}`);
       });
     }
     
