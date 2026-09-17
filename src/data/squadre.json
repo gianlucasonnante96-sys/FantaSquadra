@@ -1,11 +1,11 @@
 {
-  "aggiornato": "2026-09-17T16:03:48.300Z",
+  "aggiornato": "2026-09-17T16:37:21.700Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
       "punti": 12,
       "g": 4,
-      "gf": 0,
+      "gf": 12,
       "gs": 1,
       "forma": [
         "W",
@@ -17,7 +17,7 @@
     "Inter": {
       "punti": 12,
       "g": 4,
-      "gf": 0,
+      "gf": 13,
       "gs": 6,
       "forma": [
         "W",
@@ -29,7 +29,7 @@
     "Como": {
       "punti": 10,
       "g": 4,
-      "gf": 0,
+      "gf": 9,
       "gs": 4,
       "forma": [
         "D",
@@ -41,7 +41,7 @@
     "Lazio": {
       "punti": 10,
       "g": 4,
-      "gf": 0,
+      "gf": 6,
       "gs": 3,
       "forma": [
         "W",
@@ -53,7 +53,7 @@
     "Cagliari": {
       "punti": 9,
       "g": 4,
-      "gf": 0,
+      "gf": 4,
       "gs": 2,
       "forma": [
         "W",
@@ -65,7 +65,7 @@
     "Milan": {
       "punti": 8,
       "g": 4,
-      "gf": 0,
+      "gf": 7,
       "gs": 4,
       "forma": [
         "W",
@@ -77,7 +77,7 @@
     "Frosinone": {
       "punti": 7,
       "g": 4,
-      "gf": 0,
+      "gf": 7,
       "gs": 4,
       "forma": [
         "L",
@@ -89,7 +89,7 @@
     "Juventus": {
       "punti": 7,
       "g": 4,
-      "gf": 0,
+      "gf": 6,
       "gs": 4,
       "forma": [
         "W",
@@ -101,7 +101,7 @@
     "Sassuolo": {
       "punti": 7,
       "g": 4,
-      "gf": 0,
+      "gf": 8,
       "gs": 7,
       "forma": [
         "L",
@@ -113,7 +113,7 @@
     "Napoli": {
       "punti": 6,
       "g": 4,
-      "gf": 0,
+      "gf": 6,
       "gs": 5,
       "forma": [
         "W",
@@ -125,7 +125,7 @@
     "Atalanta": {
       "punti": 6,
       "g": 4,
-      "gf": 0,
+      "gf": 5,
       "gs": 5,
       "forma": [
         "W",
@@ -137,7 +137,7 @@
     "Lecce": {
       "punti": 6,
       "g": 4,
-      "gf": 0,
+      "gf": 5,
       "gs": 7,
       "forma": [
         "W",
@@ -149,7 +149,7 @@
     "Udinese": {
       "punti": 4,
       "g": 4,
-      "gf": 0,
+      "gf": 8,
       "gs": 10,
       "forma": [
         "D",
@@ -161,7 +161,7 @@
     "Torino": {
       "punti": 3,
       "g": 4,
-      "gf": 0,
+      "gf": 4,
       "gs": 7,
       "forma": [
         "L",
@@ -173,7 +173,7 @@
     "Fiorentina": {
       "punti": 3,
       "g": 4,
-      "gf": 0,
+      "gf": 5,
       "gs": 11,
       "forma": [
         "L",
@@ -185,7 +185,7 @@
     "Bologna": {
       "punti": 1,
       "g": 4,
-      "gf": 0,
+      "gf": 2,
       "gs": 5,
       "forma": [
         "L",
@@ -197,7 +197,7 @@
     "Parma": {
       "punti": 1,
       "g": 4,
-      "gf": 0,
+      "gf": 2,
       "gs": 6,
       "forma": [
         "L",
@@ -209,7 +209,7 @@
     "Monza": {
       "punti": 1,
       "g": 4,
-      "gf": 0,
+      "gf": 6,
       "gs": 11,
       "forma": [
         "L",
@@ -221,7 +221,7 @@
     "Genoa": {
       "punti": 1,
       "g": 4,
-      "gf": 0,
+      "gf": 2,
       "gs": 8,
       "forma": [
         "L",
@@ -233,7 +233,7 @@
     "Venezia": {
       "punti": 0,
       "g": 4,
-      "gf": 0,
+      "gf": 4,
       "gs": 11,
       "forma": [
         "L",
