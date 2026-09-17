@@ -382,7 +382,7 @@ async function scrapeStatistiche(page) {
 }
 
 // ============================================================
-// 🔥 SCRAPING CLASSIFICA (FIX DEFINITIVO — classi corrette)
+// SCRAPING CLASSIFICA (con DEBUG + fallback)
 // ============================================================
 
 async function scrapeClassifica(page) {
@@ -406,9 +406,20 @@ async function scrapeClassifica(page) {
       
       console.log(`📊 Righe trovate: ${rows.length}`);
       
+      // 🔥 DEBUG: log della prima riga
+      if (rows.length > 0) {
+        const firstRow = rows[0];
+        const firstCells = firstRow.querySelectorAll('td');
+        console.log(`🔍 DEBUG — prima riga: ${firstCells.length} celle`);
+        firstCells.forEach((cell, i) => {
+          const cls = (cell.className || '').substring(0, 40);
+          const txt = (cell.textContent || '').trim().substring(0, 15);
+          console.log(`  cells[${i}]: class="${cls}" text="${txt}"`);
+        });
+      }
+      
       rows.forEach(row => {
         try {
-          // 🔥 Squadra dal link "team-name" o dall'attributo data-name
           let squadra = '';
           const teamLink = row.querySelector('a.team-name');
           if (teamLink) {
@@ -418,18 +429,35 @@ async function scrapeClassifica(page) {
           }
           if (!squadra) return;
           
-          // 🔥 CLASSI CORRETTE (senza trattino!)
-          const puntiEl = row.querySelector('td.points');
-          const playedEl = row.querySelector('td.played');
-          const gfEl = row.querySelector('td.goalscored');      // ✅ goalscored
-          const gsEl = row.querySelector('td.goalsconceded');   // ✅ goalsconceded
+          const cells = row.querySelectorAll('td');
           
-          const punti = parseInt(puntiEl?.textContent?.trim() || '0') || 0;
-          const g = parseInt(playedEl?.textContent?.trim() || '0') || 0;
-          const gf = parseInt(gfEl?.textContent?.trim() || '0') || 0;
-          const gs = parseInt(gsEl?.textContent?.trim() || '0') || 0;
+          // Punti: prova classe, poi indice 2
+          const punti = parseInt(row.querySelector('td.points')?.textContent?.trim() || '') || 
+                        parseInt(cells[2]?.textContent?.trim() || '') || 0;
           
-          // 🔥 FORMA: leggi i dot
+          // Giocate: prova classe, poi indice 3
+          const g = parseInt(row.querySelector('td.played')?.textContent?.trim() || '') || 
+                    parseInt(cells[3]?.textContent?.trim() || '') || 0;
+          
+          // 🔥 GF con fallback
+          let gf = 0;
+          const gfByClass = row.querySelector('td.goalscored');
+          if (gfByClass && gfByClass.textContent?.trim()) {
+            gf = parseInt(gfByClass.textContent.trim()) || 0;
+          } else if (cells[7] && cells[7].textContent?.trim()) {
+            gf = parseInt(cells[7].textContent.trim()) || 0;
+          }
+          
+          // 🔥 GS con fallback
+          let gs = 0;
+          const gsByClass = row.querySelector('td.goalsconceded');
+          if (gsByClass && gsByClass.textContent?.trim()) {
+            gs = parseInt(gsByClass.textContent.trim()) || 0;
+          } else if (cells[8] && cells[8].textContent?.trim()) {
+            gs = parseInt(cells[8].textContent.trim()) || 0;
+          }
+          
+          // 🔥 FORMA
           const forma = [];
           const formDots = row.querySelectorAll('td.form ul.dot-stripe li');
           formDots.forEach(li => {
