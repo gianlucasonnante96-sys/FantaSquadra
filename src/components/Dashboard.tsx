@@ -1,9 +1,10 @@
-import { useMemo, useState, useRef, useEffect } from 'react';
+import { useMemo, useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { Player, LeagueRules } from '../types';
 import { optimizeFormation } from '../utils/optimizer';
 import { getDifficultyLabel, getTeamStrength, getMomentum, getFixtureDifficulty, getFormaSquadra, getStatisticheSquadra } from '../utils/scoring';
 import { getAvversario } from '../services/calendarService';
 import { calculateDifficulty } from '../services/apiService';
+import { determinaGiornataCorrente } from '../utils/giornataCorrente';
 
 interface DashboardProps {
   roster: Player[];
@@ -12,32 +13,86 @@ interface DashboardProps {
   onReset: () => void;
 }
 
+const GIORNATA_KEY = 'fantaconsiglio_giornata';
+
+// 🔥 Determina la giornata iniziale: prima da formazioni.json, poi da localStorage
+function determinaGiornataIniziale(): number {
+  // 1. Prova da formazioni.json (più preciso)
+  try {
+    const daFormazioni = determinaGiornataCorrente();
+    if (daFormazioni && daFormazioni >= 1 && daFormazioni <= 38) {
+      console.log(`📅 Giornata iniziale da formazioni.json: ${daFormazioni}`);
+      return daFormazioni;
+    }
+  } catch (e) {
+    console.warn('Errore determinazione da formazioni.json:', e);
+  }
+  
+  // 2. Fallback: localStorage
+  try {
+    const salvata = localStorage.getItem(GIORNATA_KEY);
+    if (salvata) {
+      const num = parseInt(salvata);
+      if (!isNaN(num) && num >= 1 && num <= 38) {
+        console.log(`📅 Giornata da localStorage: ${num}`);
+        return num;
+      }
+    }
+  } catch (e) {}
+  
+  // 3. Fallback finale: giornata 1
+  console.log(`📅 Giornata default: 1`);
+  return 1;
+}
+
 export default function Dashboard({ roster, rules, onBack, onReset }: DashboardProps) {
   const [selectedFormationIdx, setSelectedFormationIdx] = useState(0);
   const [showAllFormations, setShowAllFormations] = useState(false);
-  const [giornata, setGiornata] = useState(1);
+  const [giornata, setGiornata] = useState<number>(() => determinaGiornataIniziale());
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
   const [showGiornataScroll, setShowGiornataScroll] = useState(false);
   
-  // 🔥 REF per auto-scroll alla giornata corrente
+  // 🔥 REF al bottone della giornata corrente
   const giornataRef = useRef<HTMLButtonElement | null>(null);
+  // 🔥 REF al container scrollabile
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // 🔥 AUTO-SCROLL quando si apre il selettore (con delay per DOM)
-  useEffect(() => {
+  // 🔥 AUTO-SCROLL alla giornata corrente (versione robusta con scrollTo)
+  useLayoutEffect(() => {
     if (!showGiornataScroll) return;
     
     const timer = setTimeout(() => {
-      if (giornataRef.current) {
-        giornataRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center',
-        });
+      const container = scrollContainerRef.current;
+      const button = giornataRef.current;
+      
+      if (!container || !button) {
+        console.warn('⚠️ Auto-scroll: container o bottone non trovato');
+        return;
       }
-    }, 200);
+      
+      // Calcola posizione target: centro del container
+      const containerWidth = container.clientWidth;
+      const buttonLeft = button.offsetLeft;
+      const buttonWidth = button.clientWidth;
+      const targetScroll = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
+      
+      console.log(`📜 Auto-scroll: buttonLeft=${buttonLeft}, containerWidth=${containerWidth}, target=${targetScroll}`);
+      
+      container.scrollTo({
+        left: Math.max(0, targetScroll),
+        behavior: 'smooth',
+      });
+    }, 300);
     
     return () => clearTimeout(timer);
-  }, [showGiornataScroll]);
+  }, [showGiornataScroll, giornata]);
+
+  // 🔥 Salva giornata in localStorage quando cambia
+  useEffect(() => {
+    try {
+      localStorage.setItem(GIORNATA_KEY, String(giornata));
+    } catch (e) {}
+  }, [giornata]);
 
   const rosterWithAvversari = useMemo(() => {
     if (!Array.isArray(roster)) return [];
@@ -170,7 +225,10 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
 
           {showGiornataScroll && (
-            <div className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide animate-fadeIn">
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide animate-fadeIn"
+            >
               {Array.from({ length: 38 }, (_, i) => i + 1).map(num => (
                 <button
                   key={num}
@@ -179,7 +237,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                     setGiornata(num);
                     setShowGiornataScroll(false);
                   }}
-                  className={`flex-shrink-0 w-12 h-12 md:w-10 md:h-10 snap-center rounded-lg text-sm font-bold transition-all flex items-center justify-center ${
+                  className={`flex-shrink-0 w-12 h-12 md:w-10 md:h-10 rounded-lg text-sm font-bold transition-all flex items-center justify-center ${
                     num === giornata
                       ? 'bg-gradient-to-br from-emerald-400 to-green-600 text-black shadow-lg shadow-emerald-500/50 scale-110'
                       : 'bg-slate-800/80 text-slate-300 active:bg-slate-700 border border-slate-700/50'
@@ -483,14 +541,12 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
   const titolarita = player?.titolarita ?? 50;
   const difficulty = player.difficoltaAvversario ?? 3;
   
-  // 🔥 Calcola i fattori dinamici
   const teamStrength = getTeamStrength(player.team);
   const momentum = getMomentum(player.team);
   const fixtureDiff = getFixtureDifficulty(player.avversario);
   const formaSquadra = getFormaSquadra(player.team);
   const statsSquadra = getStatisticheSquadra(player.team);
 
-  // Etichette e colori
   const getStrengthLabel = (s: number) => {
     if (s >= 1.15) return { label: 'Molto Forte', color: 'text-emerald-400' };
     if (s >= 1.05) return { label: 'Forte', color: 'text-emerald-400' };
@@ -544,7 +600,6 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
           </button>
         </div>
 
-        {/* Stats principali */}
         <div className="grid grid-cols-3 gap-2 mb-4">
           <div className="bg-slate-800/60 rounded-xl p-2.5 md:p-3 text-center border border-emerald-500/20">
             <div className="text-emerald-400 text-xl md:text-2xl font-black">{player.fantamedia ?? 0}</div>
@@ -562,14 +617,12 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
           </div>
         </div>
 
-        {/* FATTORI DEL VOTO PREVISTO */}
         <div className="mb-4">
           <h4 className="text-emerald-400 font-bold text-xs md:text-sm uppercase tracking-wider mb-2 flex items-center gap-2">
             🔮 Fattori del Voto Previsto
           </h4>
           
           <div className="space-y-2">
-            {/* Team Strength */}
             <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="text-xl">⚡</span>
@@ -588,7 +641,6 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
               </div>
             </div>
 
-            {/* Momentum */}
             <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="text-xl">{momentumInfo.emoji}</span>
@@ -612,7 +664,6 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
               </div>
             </div>
 
-            {/* Fixture Difficulty */}
             <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="text-xl">⚔️</span>
@@ -633,7 +684,6 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
               </div>
             </div>
 
-            {/* Gol fatti/subiti */}
             {statsSquadra && statsSquadra.g > 0 && (
               <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
