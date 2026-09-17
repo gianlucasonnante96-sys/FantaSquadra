@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-17T07:12:54.588Z",
+  "aggiornato": "2026-09-17T09:11:30.494Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -248,7 +248,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 17,
-      "fvm": 103
+      "fvm": 97
     },
     {
       "nome": "Zaniolo",
@@ -448,7 +448,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 14,
-      "fvm": 39
+      "fvm": 70
     },
     {
       "nome": "Beto",
@@ -4757,6 +4757,14 @@
     {
       "nome": "Libra",
       "squadra": "BOL",
+      "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
+      "nome": "Lovric",
+      "squadra": "UDI",
       "ruolo": "C",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,

@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-17T07:13:08.128Z",
+  "aggiornato": "2026-09-17T09:11:44.841Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Malen": {
@@ -4163,6 +4163,13 @@
     "Leite": {
       "ruolo": "D",
       "squadra": "LAZ",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Lovric": {
+      "ruolo": "C",
+      "squadra": "UDI",
       "mediaVoto": 0,
       "fantamedia": 0,
       "partiteGiocate": 0
