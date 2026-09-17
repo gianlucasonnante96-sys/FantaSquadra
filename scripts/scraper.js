@@ -273,20 +273,6 @@ async function scrapeListone(page) {
     
     console.log(`✅ Estratti ${listoneData.length} giocatori dal listone`);
     
-    const ruoliCount = { P: 0, D: 0, C: 0, A: 0, '': 0 };
-    listoneData.forEach(g => {
-      if (ruoliCount[g.ruolo] !== undefined) ruoliCount[g.ruolo]++;
-      else ruoliCount['']++;
-    });
-    console.log(`📊 Ruoli estratti: P=${ruoliCount.P}, D=${ruoliCount.D}, C=${ruoliCount.C}, A=${ruoliCount.A}, vuoti=${ruoliCount['']}`);
-    
-    if (listoneData.length > 0) {
-      console.log('📊 Esempio primi 5 giocatori:');
-      listoneData.slice(0, 5).forEach(g => {
-        console.log(`  - ${g.nome} (${g.squadra}, ${g.ruolo || '?'}): Qi=${g.quotazioneIniziale}, Qa=${g.quotazioneAttuale}, FVM=${g.fvm}`);
-      });
-    }
-    
     const output = {
       aggiornato: new Date().toISOString(),
       fonte: 'fantacalcio.it',
@@ -305,7 +291,7 @@ async function scrapeListone(page) {
 }
 
 // ============================================================
-// SCRAPING STATISTICHE (MV + FM reali)
+// SCRAPING STATISTICHE
 // ============================================================
 
 async function scrapeStatistiche(page) {
@@ -346,10 +332,7 @@ async function scrapeStatistiche(page) {
       
       function parseNumeroItaliano(testo) {
         if (!testo) return 0;
-        const clean = testo
-          .replace(',', '.')
-          .replace(/[^\d.]/g, '')
-          .trim();
+        const clean = testo.replace(',', '.').replace(/[^\d.]/g, '').trim();
         const num = parseFloat(clean);
         return isNaN(num) ? 0 : num;
       }
@@ -367,24 +350,15 @@ async function scrapeStatistiche(page) {
           const squadra = teamEl ? teamEl.textContent?.trim() : '';
           
           const mvEl = row.querySelector('td.player-grade-avg');
-          const mvText = mvEl ? mvEl.textContent?.trim() : '';
-          const mediaVoto = parseNumeroItaliano(mvText);
+          const mediaVoto = parseNumeroItaliano(mvEl?.textContent?.trim());
           
           const fmEl = row.querySelector('td.player-fanta-grade-avg');
-          const fmText = fmEl ? fmEl.textContent?.trim() : '';
-          const fantamedia = parseNumeroItaliano(fmText);
+          const fantamedia = parseNumeroItaliano(fmEl?.textContent?.trim());
           
           const pgEl = row.querySelector('td.player-match-played');
-          const pgText = pgEl ? pgEl.textContent?.trim() : '';
-          const partiteGiocate = parseInt(pgText) || 0;
+          const partiteGiocate = parseInt(pgEl?.textContent?.trim() || '0') || 0;
           
-          mappa[nome] = {
-            ruolo: role,
-            squadra,
-            mediaVoto,
-            fantamedia,
-            partiteGiocate,
-          };
+          mappa[nome] = { ruolo: role, squadra, mediaVoto, fantamedia, partiteGiocate };
         } catch (e) {}
       });
       
@@ -419,11 +393,11 @@ async function scrapeStatistiche(page) {
 }
 
 // ============================================================
-// 🔥 SCRAPING CLASSIFICA (FIX DEFINITIVO!)
+// 🔥 SCRAPING CLASSIFICA (con PUNTI + FORMA)
 // ============================================================
 
 async function scrapeClassifica(page) {
-  console.log('\n📊 Recupero classifica (gol fatti/subiti)...');
+  console.log('\n📊 Recupero classifica (punti, gol, forma)...');
   
   try {
     await page.goto(CLASSIFICA_URL, { waitUntil: 'domcontentloaded', timeout: 90000 });
@@ -437,57 +411,49 @@ async function scrapeClassifica(page) {
     const classificaData = await page.evaluate(() => {
       const mappa = {};
       
-      // 🔥 Cerca la tabella SPECIFICA della classifica
+      // Prova selettori specifici in ordine di preferenza
       let rows = document.querySelectorAll('#classifica table tbody tr');
-      
-      if (rows.length === 0) {
-        rows = document.querySelectorAll('table.serie-a-table tbody tr');
-      }
-      
-      if (rows.length === 0) {
-        rows = document.querySelectorAll('table tbody tr');
-      }
+      if (rows.length === 0) rows = document.querySelectorAll('table.serie-a-table tbody tr');
+      if (rows.length === 0) rows = document.querySelectorAll('table tbody tr');
       
       console.log(`📊 Righe trovate: ${rows.length}`);
       
       rows.forEach(row => {
         try {
-          // Squadra: dal link con classe "team-name"
-          let squadra = '';
+          // 🔥 Squadra dal link "team-name"
           const teamLink = row.querySelector('a.team-name');
-          if (teamLink) {
-            squadra = teamLink.textContent?.trim() || '';
-          }
-          
+          const squadra = teamLink ? teamLink.textContent?.trim() : '';
           if (!squadra) return;
           
-          const cells = row.querySelectorAll('td');
-          if (cells.length < 9) return;
-          
-          // Struttura reale (dai test in Console):
-          // cells[0] = pos, [1] = name, [2] = points, [3] = played
-          // [4] = won, [5] = drawn, [6] = lost, [7] = gf, [8] = gs
-          
-          // 🔥 Prova prima le classi CSS (più robusto)
-          const gEl = row.querySelector('td.played');
+          // 🔥 Leggi le colonne con le classi CSS
+          const puntiEl = row.querySelector('td.points');
+          const playedEl = row.querySelector('td.played');
           const gfEl = row.querySelector('td.goal-scored');
           const gsEl = row.querySelector('td.goal-conceded');
           
-          let g, gf, gs;
+          const punti = parseInt(puntiEl?.textContent?.trim() || '0') || 0;
+          const g = parseInt(playedEl?.textContent?.trim() || '0') || 0;
+          const gf = parseInt(gfEl?.textContent?.trim() || '0') || 0;
+          const gs = parseInt(gsEl?.textContent?.trim() || '0') || 0;
           
-          if (gfEl && gsEl && gEl) {
-            g = parseInt(gEl.textContent?.trim() || '0') || 0;
-            gf = parseInt(gfEl.textContent?.trim() || '0') || 0;
-            gs = parseInt(gsEl.textContent?.trim() || '0') || 0;
-          } else {
-            // 🔥 Fallback: usa gli indici
-            g = parseInt(cells[3]?.textContent?.trim() || '0') || 0;
-            gf = parseInt(cells[7]?.textContent?.trim() || '0') || 0;
-            gs = parseInt(cells[8]?.textContent?.trim() || '0') || 0;
-          }
+          // 🔥 FORMA: leggi i dot dal td.form ul.dot-stripe
+          const forma = [];
+          const formDots = row.querySelectorAll('td.form ul.dot-stripe li');
+          formDots.forEach(li => {
+            const cls = li.className || '';
+            if (cls.includes('status-w')) forma.push('W');
+            else if (cls.includes('status-d')) forma.push('D');
+            else if (cls.includes('status-l')) forma.push('L');
+          });
           
-          if (squadra && g > 0) {
-            mappa[squadra] = { gf, gs, g };
+          if (g > 0) {
+            mappa[squadra] = {
+              punti,
+              g,
+              gf,
+              gs,
+              forma, // es. ["W", "W", "D", "L", "W"] (ultimi 5 match)
+            };
           }
         } catch (e) {}
       });
@@ -501,7 +467,8 @@ async function scrapeClassifica(page) {
     if (numSquadre > 0) {
       console.log('📊 Esempio primi 5:');
       Object.entries(classificaData).slice(0, 5).forEach(([nome, dati]) => {
-        console.log(`  - ${nome}: GF=${dati.gf}, GS=${dati.gs}, G=${dati.g}`);
+        const formaStr = (dati.forma || []).join('-') || 'nessuna';
+        console.log(`  - ${nome}: ${dati.punti}pt, GF=${dati.gf}, GS=${dati.gs}, Forma=${formaStr}`);
       });
     }
     
