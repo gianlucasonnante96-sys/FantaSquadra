@@ -107,22 +107,52 @@ interface StatsSquadra {
   forma: string[];
 }
 
+// 🔥 DEBUG: log una volta sola della struttura del file
+let debugStampaFatta = false;
+
 function getStatsSquadra(team: string | undefined): StatsSquadra | null {
   if (!team) return null;
   try {
     const dati = squadreData as any;
-    if (!dati || !dati.squadre) return null;
+    if (!dati || !dati.squadre) {
+      if (!debugStampaFatta) {
+        console.warn('⚠️ squadre.json vuoto o malformato');
+        debugStampaFatta = true;
+      }
+      return null;
+    }
+    
+    // 🔥 DEBUG: stampa struttura una volta sola
+    if (!debugStampaFatta) {
+      const keys = Object.keys(dati.squadre);
+      console.log('📊 squadre.json — squadre totali:', keys.length);
+      if (keys.length > 0) {
+        const primoNome = keys[0];
+        const primoDato = dati.squadre[primoNome];
+        console.log('📊 Esempio:', primoNome, '=', JSON.stringify(primoDato));
+      }
+      debugStampaFatta = true;
+    }
     
     const nome = normalizzaNomeSquadra(team);
     
     for (const [key, value] of Object.entries(dati.squadre)) {
       const keyNorm = normalizzaNomeSquadra(key);
       if (keyNorm.toLowerCase() === nome.toLowerCase()) {
-        return value as StatsSquadra;
+        // 🔥 Normalizza la struttura per supportare sia il vecchio che il nuovo formato
+        const v = value as any;
+        return {
+          punti: v.punti ?? 0,
+          g: v.g ?? v.partite ?? 0,
+          gf: v.gf ?? v.goalsFor ?? 0,
+          gs: v.gs ?? v.goalsAgainst ?? 0,
+          forma: Array.isArray(v.forma) ? v.forma : [],
+        };
       }
     }
     return null;
   } catch (e) {
+    console.error('Errore getStatsSquadra:', e);
     return null;
   }
 }
