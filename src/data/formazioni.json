@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-17T19:10:00.968Z",
+  "aggiornato": "2026-09-17T21:11:12.315Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -4010,8 +4010,8 @@
             "starter": true
           },
           {
-            "nome": "Haps",
-            "perc": 90,
+            "nome": "Juan Jesus",
+            "perc": 80,
             "starter": true
           },
           {
@@ -4035,7 +4035,7 @@
             "starter": true
           },
           {
-            "nome": "Sagrado",
+            "nome": "Haps",
             "perc": 55,
             "starter": true
           },
@@ -4071,12 +4071,12 @@
           },
           {
             "nome": "Correia T.",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Juan Jesus",
-            "perc": 50,
+            "nome": "Sagrado",
+            "perc": 55,
             "starter": false
           },
           {
@@ -4552,11 +4552,6 @@
           {
             "nome": "Omar Fayed",
             "perc": 20,
-            "starter": false
-          },
-          {
-            "nome": "Terzic",
-            "perc": 40,
             "starter": false
           },
           {
@@ -5056,7 +5051,7 @@
           },
           {
             "nome": "Gonzalez N.",
-            "perc": 75,
+            "perc": 65,
             "starter": true
           },
           {
