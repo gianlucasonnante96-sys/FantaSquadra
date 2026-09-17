@@ -16,22 +16,32 @@ const CONFIG = {
   boostTitolarita: 0.15,
   malusTitolaritaBassa: 0.2,
   
-  bonusCasa: 0.4,
-  malusTrasferta: 0.3,
+  bonusCasa: 0.3,
+  malusTrasferta: 0.25,
   
-  pesoMomentum: 0.3,
+  pesoMomentum: 0.2,
   
+  // 🔥 Pesi FIXTURE ridotti
   pesoFixturePerRuolo: {
-    'P': 0.6, 'D': 0.4, 'C': 0.7, 'A': 0.8,
+    'P': 0.5, 'D': 0.35, 'C': 0.5, 'A': 0.6,
   } as Record<string, number>,
   
+  // 🔥 Pesi TEAM STRENGTH ridotti
   pesoTeamStrengthPerRuolo: {
-    'P': 0.4, 'D': 0.5, 'C': 0.7, 'A': 0.8,
+    'P': 0.3, 'D': 0.3, 'C': 0.4, 'A': 0.5,
   } as Record<string, number>,
   
+  // 🔥 RANGE ridotti (max 7.0 per P/D, 7.5 per C/A)
   rangeVotoPerRuolo: {
-    'P': [5.0, 8.0], 'D': [5.0, 7.5], 'C': [5.0, 8.0], 'A': [5.0, 8.0],
+    'P': [5.0, 7.0],
+    'D': [5.0, 7.0],
+    'C': [5.0, 7.5],
+    'A': [5.0, 7.5],
   } as Record<string, [number, number]>,
+  
+  // 🔥 COMPRESSIONE dei valori alti
+  sogliaCompressione: 6.5,
+  fattoreCompressione: 0.5,
   
   pesoGolFattiPerRuolo: { 'C': 0.3, 'A': 0.3 } as Record<string, number>,
   pesoGolSubitiPerRuolo: { 'D': 0.4 } as Record<string, number>,
@@ -46,29 +56,29 @@ const CONFIG = {
   
   difensori: {
     golProbability: { 1: 0.15, 2: 0.12, 3: 0.08, 4: 0.04, 5: 0.02 } as Record<number, number>,
-    pesoGol: 1.2,
+    pesoGol: 0.6,
     assistProbability: { 1: 0.10, 2: 0.08, 3: 0.05, 4: 0.03, 5: 0.02 } as Record<number, number>,
-    pesoAssist: 0.5,
+    pesoAssist: 0.4,
     malusAvversarioForte: 0.2,
   },
   
   centrocampisti: {
     golProbability: { 1: 0.50, 2: 0.35, 3: 0.20, 4: 0.10, 5: 0.05 } as Record<number, number>,
-    pesoGol: 1.3,
+    pesoGol: 0.7,
     assistProbability: { 1: 0.60, 2: 0.45, 3: 0.30, 4: 0.15, 5: 0.08 } as Record<number, number>,
-    pesoAssist: 0.7,
+    pesoAssist: 0.5,
     bonusCasaControllo: 0.2,
     malusTrasfertaDifficile: 0.3,
   },
   
   attaccanti: {
     golProbability: { 1: 0.75, 2: 0.55, 3: 0.35, 4: 0.18, 5: 0.08 } as Record<number, number>,
-    pesoGol: 1.6,
+    pesoGol: 0.8,
     assistProbability: { 1: 0.50, 2: 0.40, 3: 0.28, 4: 0.15, 5: 0.08 } as Record<number, number>,
-    pesoAssist: 0.7,
+    pesoAssist: 0.5,
     rigoreProbability: { 1: 0.15, 2: 0.15, 3: 0.12, 4: 0.08, 5: 0.05 } as Record<number, number>,
-    pesoRigore: 0.6,
-    bonusCasaFacile: 0.5,
+    pesoRigore: 0.5,
+    bonusCasaFacile: 0.4,
     malusTrasfertaDifficile: 0.4,
   },
   
@@ -107,7 +117,6 @@ interface StatsSquadra {
   forma: string[];
 }
 
-// 🔥 DEBUG: log una volta sola della struttura del file
 let debugStampaFatta = false;
 
 function getStatsSquadra(team: string | undefined): StatsSquadra | null {
@@ -122,7 +131,6 @@ function getStatsSquadra(team: string | undefined): StatsSquadra | null {
       return null;
     }
     
-    // 🔥 DEBUG: stampa struttura una volta sola
     if (!debugStampaFatta) {
       const keys = Object.keys(dati.squadre);
       console.log('📊 squadre.json — squadre totali:', keys.length);
@@ -139,7 +147,6 @@ function getStatsSquadra(team: string | undefined): StatsSquadra | null {
     for (const [key, value] of Object.entries(dati.squadre)) {
       const keyNorm = normalizzaNomeSquadra(key);
       if (keyNorm.toLowerCase() === nome.toLowerCase()) {
-        // 🔥 Normalizza la struttura per supportare sia il vecchio che il nuovo formato
         const v = value as any;
         return {
           punti: v.punti ?? 0,
@@ -158,7 +165,7 @@ function getStatsSquadra(team: string | undefined): StatsSquadra | null {
 }
 
 // ============================================================
-// 🔥 ESPORTATE: Team Strength, Fixture, Momentum
+// ESPORTATE: Team Strength, Fixture, Momentum
 // ============================================================
 
 export function getTeamStrength(team: string | undefined): number {
@@ -258,6 +265,33 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
 }
 
 // ============================================================
+// 🔥 COMPRESSIONE DEI VALORI ALTI
+// ============================================================
+
+/**
+ * Comprime i valori alti verso il cap, per rendere 7.5+ casi rari.
+ * 
+ * Formula: se votoPrevisto > soglia (6.5), comprimi:
+ *   votoFinale = soglia + (votoPrevisto - soglia) * fattore
+ * 
+ * Esempi (soglia 6.5, fattore 0.5):
+ *   6.5 → 6.5
+ *   7.0 → 6.75
+ *   7.5 → 7.0
+ *   8.0 → 7.25
+ *   8.5 → 7.5
+ *   9.0 → 7.75
+ *   9.5 → 8.0
+ *   10.0 → 8.25 (poi limitato a 8.0)
+ */
+function comprimiValoriAlti(voto: number): number {
+  if (voto <= CONFIG.sogliaCompressione) return voto;
+  
+  return CONFIG.sogliaCompressione + 
+         (voto - CONFIG.sogliaCompressione) * CONFIG.fattoreCompressione;
+}
+
+// ============================================================
 // CALCOLO VOTO PREVISTO
 // ============================================================
 
@@ -272,8 +306,8 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   const difficulty = Math.max(1, Math.min(5, Math.round(fixtureDiff)));
   const momentum = getMomentum(player.team);
   
-  const pesoFixture = CONFIG.pesoFixturePerRuolo[role] ?? 0.75;
-  const pesoTeamStrength = CONFIG.pesoTeamStrengthPerRuolo[role] ?? 0.8;
+  const pesoFixture = CONFIG.pesoFixturePerRuolo[role] ?? 0.5;
+  const pesoTeamStrength = CONFIG.pesoTeamStrengthPerRuolo[role] ?? 0.4;
   const rangeVoto = CONFIG.rangeVotoPerRuolo[role] ?? [CONFIG.minVoto, CONFIG.maxVoto];
   const teamBonus = (teamStrength - 1.0) * pesoTeamStrength;
 
@@ -409,6 +443,9 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   }
 
   if (!Number.isFinite(votoPrevisto)) return 6;
+
+  // 🔥 COMPRESSIONE dei valori alti (6.5+)
+  votoPrevisto = comprimiValoriAlti(votoPrevisto);
 
   const rounded = Math.round(votoPrevisto * 2) / 2;
   return Math.max(rangeVoto[0], Math.min(rangeVoto[1], rounded));
