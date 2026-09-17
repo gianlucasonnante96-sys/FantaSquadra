@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
 import { Player, LeagueRules } from '../types';
 import { optimizeFormation } from '../utils/optimizer';
-import { getDifficultyLabel } from '../utils/scoring';
+import { getDifficultyLabel, getTeamStrength, getMomentum, getFixtureDifficulty, getFormaSquadra, getStatisticheSquadra } from '../utils/scoring';
 import { getAvversario } from '../services/calendarService';
 import { calculateDifficulty } from '../services/apiService';
 
@@ -18,6 +18,23 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   const [giornata, setGiornata] = useState(1);
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
   const [showGiornataScroll, setShowGiornataScroll] = useState(false);
+  
+  // 🔥 REF per auto-scroll alla giornata corrente
+  const giornataRef = useRef<HTMLButtonElement | null>(null);
+
+  // 🔥 AUTO-SCROLL quando si apre il selettore
+  useEffect(() => {
+    if (showGiornataScroll && giornataRef.current) {
+      // Aspetta il rendering del DOM
+      requestAnimationFrame(() => {
+        giornataRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center',
+        });
+      });
+    }
+  }, [showGiornataScroll]);
 
   const rosterWithAvversari = useMemo(() => {
     if (!Array.isArray(roster)) return [];
@@ -114,12 +131,12 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         {/* Header */}
         <div className="flex items-center justify-between mb-4 md:mb-6 gap-2">
           <button 
-  onClick={onBack} 
-  className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0"
->
-  <span className="md:hidden text-lg">🏠</span>
-  <span className="hidden md:inline">🏠 Home</span>
-</button>
+            onClick={onBack} 
+            className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0"
+          >
+            <span className="md:hidden text-lg">🏠</span>
+            <span className="hidden md:inline">🏠 Home</span>
+          </button>
           <div className="text-center flex-1 min-w-0">
             <h1 className="text-base md:text-3xl font-black text-white tracking-tight truncate">
               FORMAZIONE <span className="text-emerald-400">CONSIGLIATA</span>
@@ -154,6 +171,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
               {Array.from({ length: 38 }, (_, i) => i + 1).map(num => (
                 <button
                   key={num}
+                  // 🔥 REF solo al bottone della giornata corrente
+                  ref={num === giornata ? giornataRef : null}
                   onClick={() => {
                     setGiornata(num);
                     setShowGiornataScroll(false);
@@ -388,12 +407,12 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
 
         <div className="text-center py-3 md:py-4">
           <p className="text-slate-600 text-[10px] md:text-xs">
-            🤖 Algoritmo: Fantamedia • Media Voto • Titolarità • Avversario • Team Strength • Gol Fatti/Subiti
+            🤖 Algoritmo: Fantamedia • Media Voto • Titolarità • Avversario • Team Strength • Forma • Gol Fatti/Subiti
           </p>
         </div>
       </div>
 
-      {/* MODAL */}
+      {/* MODAL DETTAGLI CON FATTORI VP */}
       {selectedPlayer && (
         <PlayerDetailModal 
           player={selectedPlayer} 
@@ -448,7 +467,7 @@ function PlayerOnField({ slot, getRoleGradient, getVPColor, onClick }: PlayerOnF
 }
 
 // ============================================================
-// MODAL
+// 🔥 MODAL DETTAGLI CON FATTORI VP
 // ============================================================
 
 interface PlayerDetailModalProps {
@@ -461,6 +480,41 @@ interface PlayerDetailModalProps {
 function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColor }: PlayerDetailModalProps) {
   const titolarita = player?.titolarita ?? 50;
   const difficulty = player.difficoltaAvversario ?? 3;
+  
+  // 🔥 Calcola i fattori dinamici
+  const teamStrength = getTeamStrength(player.team);
+  const momentum = getMomentum(player.team);
+  const fixtureDiff = getFixtureDifficulty(player.avversario);
+  const formaSquadra = getFormaSquadra(player.team);
+  const statsSquadra = getStatisticheSquadra(player.team);
+
+  // Etichette e colori
+  const getStrengthLabel = (s: number) => {
+    if (s >= 1.15) return { label: 'Molto Forte', color: 'text-emerald-400' };
+    if (s >= 1.05) return { label: 'Forte', color: 'text-emerald-400' };
+    if (s >= 0.95) return { label: 'Media', color: 'text-yellow-400' };
+    if (s >= 0.85) return { label: 'Debole', color: 'text-orange-400' };
+    return { label: 'Molto Debole', color: 'text-red-400' };
+  };
+
+  const getMomentumLabel = (m: number) => {
+    if (m >= 0.2) return { label: 'In Forma', color: 'text-emerald-400', emoji: '🔥' };
+    if (m >= 0.05) return { label: 'Buona', color: 'text-emerald-300', emoji: '📈' };
+    if (m > -0.05) return { label: 'Neutra', color: 'text-slate-400', emoji: '➖' };
+    if (m > -0.2) return { label: 'In Calo', color: 'text-orange-400', emoji: '📉' };
+    return { label: 'In Crisi', color: 'text-red-400', emoji: '❄️' };
+  };
+
+  const strengthInfo = getStrengthLabel(teamStrength);
+  const momentumInfo = getMomentumLabel(momentum);
+
+  // Converti forma in stringa visuale
+  const formEmoji = (r: string) => {
+    if (r === 'W') return '🟢';
+    if (r === 'D') return '🟡';
+    if (r === 'L') return '🔴';
+    return '⚪';
+  };
 
   return (
     <div 
@@ -468,12 +522,13 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
       onClick={onClose}
     >
       <div 
-        className="bg-slate-900/95 backdrop-blur-md rounded-t-2xl md:rounded-2xl border-t md:border border-emerald-500/30 w-full md:max-w-md p-5 md:p-6 shadow-2xl shadow-emerald-500/20 pb-8 md:pb-6"
+        className="bg-slate-900/95 backdrop-blur-md rounded-t-2xl md:rounded-2xl border-t md:border border-emerald-500/30 w-full md:max-w-md p-5 md:p-6 shadow-2xl shadow-emerald-500/20 pb-8 md:pb-6 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Drag handle mobile */}
         <div className="w-12 h-1 bg-slate-600 rounded-full mx-auto mb-4 md:hidden"></div>
 
+        {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className={`w-1.5 h-14 rounded-full bg-gradient-to-b ${getRoleGradient(player.role)}`} />
@@ -490,6 +545,7 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
           </button>
         </div>
 
+        {/* Stats principali */}
         <div className="grid grid-cols-3 gap-2 mb-4">
           <div className="bg-slate-800/60 rounded-xl p-2.5 md:p-3 text-center border border-emerald-500/20">
             <div className="text-emerald-400 text-xl md:text-2xl font-black">{player.fantamedia ?? 0}</div>
@@ -507,13 +563,109 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
           </div>
         </div>
 
-        <div className="bg-slate-800/40 rounded-xl p-3 md:p-4 border border-white/5 mb-4">
-          <div className="text-slate-500 text-[9px] md:text-[10px] uppercase tracking-wider font-bold mb-2">Prossima partita</div>
-          <div className="text-white font-bold text-base md:text-lg">
-            {player.inCasa ? '🏠 in casa' : '✈️ in trasferta'} vs {player.avversario || '?'}
-          </div>
-          <div className={`text-xs md:text-sm font-medium mt-1 ${getDifficultyColor(difficulty)}`}>
-            Difficoltà: {getDifficultyLabel(difficulty)}
+        {/* 🔥 FATTORI DEL VOTO PREVISTO */}
+        <div className="mb-4">
+          <h4 className="text-emerald-400 font-bold text-xs md:text-sm uppercase tracking-wider mb-2 flex items-center gap-2">
+            🔮 Fattori del Voto Previsto
+          </h4>
+          
+          <div className="space-y-2">
+            {/* Team Strength */}
+            <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="text-xl">⚡</span>
+                <div>
+                  <div className="text-white text-xs md:text-sm font-semibold">Forza Squadra</div>
+                  <div className="text-slate-500 text-[10px] md:text-xs">{player.team}</div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className={`text-sm md:text-base font-black ${strengthInfo.color}`}>
+                  {teamStrength.toFixed(2)}
+                </div>
+                <div className={`text-[10px] md:text-xs font-bold ${strengthInfo.color}`}>
+                  {strengthInfo.label}
+                </div>
+              </div>
+            </div>
+
+            {/* Momentum */}
+            <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="text-xl">{momentumInfo.emoji}</span>
+                <div>
+                  <div className="text-white text-xs md:text-sm font-semibold">Forma Recente</div>
+                  <div className="text-slate-500 text-[10px] md:text-xs flex items-center gap-0.5">
+                    {formaSquadra.length > 0 
+                      ? formaSquadra.map((r, i) => <span key={i}>{formEmoji(r)}</span>)
+                      : 'Nessun dato'
+                    }
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className={`text-sm md:text-base font-black ${momentumInfo.color}`}>
+                  {momentum >= 0 ? '+' : ''}{momentum.toFixed(2)}
+                </div>
+                <div className={`text-[10px] md:text-xs font-bold ${momentumInfo.color}`}>
+                  {momentumInfo.label}
+                </div>
+              </div>
+            </div>
+
+            {/* Fixture Difficulty */}
+            <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="text-xl">⚔️</span>
+                <div>
+                  <div className="text-white text-xs md:text-sm font-semibold">Difficoltà Partita</div>
+                  <div className="text-slate-500 text-[10px] md:text-xs">
+                    vs {player.avversario || '?'} ({player.inCasa ? 'Casa' : 'Trasferta'})
+                  </div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className={`text-sm md:text-base font-black ${getDifficultyColor(difficulty)}`}>
+                  {fixtureDiff.toFixed(1)}
+                </div>
+                <div className={`text-[10px] md:text-xs font-bold ${getDifficultyColor(difficulty)}`}>
+                  {getDifficultyLabel(difficulty)}
+                </div>
+              </div>
+            </div>
+
+            {/* Gol fatti/subiti (se disponibili) */}
+            {statsSquadra && statsSquadra.g > 0 && (
+              <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">🎯</span>
+                  <div>
+                    <div className="text-white text-xs md:text-sm font-semibold">
+                      {player.role === 'D' ? 'Gol Subiti' : 'Gol Fatti'}
+                    </div>
+                    <div className="text-slate-500 text-[10px] md:text-xs">
+                      {player.role === 'D' 
+                        ? `${statsSquadra.gs} in ${statsSquadra.g} partite`
+                        : `${statsSquadra.gf} in ${statsSquadra.g} partite`
+                      }
+                    </div>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className={`text-sm md:text-base font-black ${
+                    (player.role === 'D' ? statsSquadra.gs / statsSquadra.g < 1.5 : statsSquadra.gf / statsSquadra.g > 1.5)
+                      ? 'text-emerald-400'
+                      : 'text-slate-400'
+                  }`}>
+                    {player.role === 'D' 
+                      ? (statsSquadra.gs / statsSquadra.g).toFixed(2)
+                      : (statsSquadra.gf / statsSquadra.g).toFixed(2)
+                    }
+                  </div>
+                  <div className="text-[10px] md:text-xs text-slate-500">media/gara</div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
