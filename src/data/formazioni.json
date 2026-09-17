@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-17T13:12:27.486Z",
+  "aggiornato": "2026-09-17T15:11:28.037Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -3246,7 +3246,7 @@
           },
           {
             "nome": "Pobega",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -3261,7 +3261,7 @@
           },
           {
             "nome": "Bernardeschi",
-            "perc": 80,
+            "perc": 60,
             "starter": true
           },
           {
@@ -3277,6 +3277,11 @@
           {
             "nome": "Pessina Mas.",
             "perc": 5,
+            "starter": false
+          },
+          {
+            "nome": "Happonen",
+            "perc": 1,
             "starter": false
           },
           {
@@ -3296,12 +3301,12 @@
           },
           {
             "nome": "De Silvestri",
-            "perc": 20,
+            "perc": 15,
             "starter": false
           },
           {
             "nome": "Zortea",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -3311,16 +3316,21 @@
           },
           {
             "nome": "Amondarain",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "El Azzouzi O.",
-            "perc": 20,
+            "perc": 30,
             "starter": false
           },
           {
             "nome": "Moro N.",
+            "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Orsolini",
             "perc": 60,
             "starter": false
           },
@@ -3336,7 +3346,7 @@
           },
           {
             "nome": "Enem",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           }
         ]
@@ -3751,12 +3761,12 @@
           },
           {
             "nome": "N'Dicka",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
             "nome": "Hermoso",
-            "perc": 65,
+            "perc": 85,
             "starter": true
           },
           {
@@ -3771,7 +3781,7 @@
           },
           {
             "nome": "Konè M.",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -5291,7 +5301,7 @@
           },
           {
             "nome": "Ramos G.",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -5366,7 +5376,7 @@
           },
           {
             "nome": "Camarda",
-            "perc": 30,
+            "perc": 40,
             "starter": false
           }
         ]
