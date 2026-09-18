@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T17:09:54.105Z",
+  "aggiornato": "2026-09-18T19:10:29.715Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -2956,57 +2956,57 @@
         "giocatori": [
           {
             "nome": "Tornqvist",
-            "perc": 95,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Kouadio",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Lucchesi",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Carboni A.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Birindelli",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Akinsanmiro",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Folorunsho",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mangas",
-            "perc": 70,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Cutrone",
-            "perc": 55,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Robinson J.",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Varela G.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -3087,57 +3087,57 @@
         "giocatori": [
           {
             "nome": "Muric",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Cinquegrano",
-            "perc": 85,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Caleta-Car",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Leysen F.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Doig",
-            "perc": 85,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Thorstvedt",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Matic",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Adzic",
-            "perc": 60,
+            "nome": "Bakola",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Berardi",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Esposito Se.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Laurientè",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -3171,6 +3171,11 @@
             "starter": false
           },
           {
+            "nome": "Adzic",
+            "perc": 60,
+            "starter": false
+          },
+          {
             "nome": "Dominguez B.",
             "perc": 40,
             "starter": false
@@ -3186,22 +3191,12 @@
             "starter": false
           },
           {
-            "nome": "Bakola",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Bowie",
             "perc": 60,
             "starter": false
           },
           {
             "nome": "Pierini",
-            "perc": 15,
-            "starter": false
-          },
-          {
-            "nome": "Skjellerup",
             "perc": 15,
             "starter": false
           }
