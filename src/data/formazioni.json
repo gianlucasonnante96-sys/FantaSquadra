@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T13:10:20.620Z",
+  "aggiornato": "2026-09-18T15:10:44.954Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -3132,7 +3132,7 @@
           },
           {
             "nome": "Esposito Se.",
-            "perc": 55,
+            "perc": 90,
             "starter": true
           },
           {
@@ -3240,7 +3240,7 @@
             "starter": true
           },
           {
-            "nome": "Pobega",
+            "nome": "Moro N.",
             "perc": 55,
             "starter": true
           },
@@ -3251,7 +3251,7 @@
           },
           {
             "nome": "Miranda J.",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -3320,7 +3320,7 @@
             "starter": false
           },
           {
-            "nome": "Moro N.",
+            "nome": "Pobega",
             "perc": 60,
             "starter": false
           },
@@ -3362,7 +3362,7 @@
           },
           {
             "nome": "Coco",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -3372,7 +3372,7 @@
           },
           {
             "nome": "Belghali",
-            "perc": 80,
+            "perc": 55,
             "starter": true
           },
           {
@@ -3392,7 +3392,7 @@
           },
           {
             "nome": "Cacciamani",
-            "perc": 60,
+            "perc": 70,
             "starter": true
           },
           {
@@ -3751,17 +3751,17 @@
           },
           {
             "nome": "N'Dicka",
-            "perc": 85,
+            "perc": 55,
             "starter": true
           },
           {
             "nome": "Hermoso",
-            "perc": 85,
+            "perc": 90,
             "starter": true
           },
           {
             "nome": "Molina N.",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -3771,7 +3771,7 @@
           },
           {
             "nome": "Konè M.",
-            "perc": 85,
+            "perc": 60,
             "starter": true
           },
           {
@@ -3781,7 +3781,7 @@
           },
           {
             "nome": "Soulè",
-            "perc": 55,
+            "perc": 60,
             "starter": true
           },
           {
@@ -3887,7 +3887,7 @@
           },
           {
             "nome": "Diouf",
-            "perc": 90,
+            "perc": 60,
             "starter": true
           },
           {
@@ -3902,7 +3902,7 @@
           },
           {
             "nome": "Jones C.",
-            "perc": 60,
+            "perc": 80,
             "starter": true
           },
           {
@@ -3912,7 +3912,7 @@
           },
           {
             "nome": "Thuram",
-            "perc": 55,
+            "perc": 60,
             "starter": true
           },
           {
@@ -3932,7 +3932,7 @@
           },
           {
             "nome": "Pavard",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
@@ -3947,7 +3947,7 @@
           },
           {
             "nome": "Luis Henrique",
-            "perc": 35,
+            "perc": 50,
             "starter": false
           },
           {
@@ -4157,7 +4157,7 @@
           },
           {
             "nome": "Noslin",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -4271,7 +4271,7 @@
           },
           {
             "nome": "Atta",
-            "perc": 65,
+            "perc": 85,
             "starter": true
           },
           {
@@ -4392,7 +4392,7 @@
           },
           {
             "nome": "Politano",
-            "perc": 90,
+            "perc": 65,
             "starter": true
           },
           {
@@ -4412,7 +4412,7 @@
           },
           {
             "nome": "Spinazzola",
-            "perc": 30,
+            "perc": 20,
             "starter": false
           },
           {
@@ -4432,7 +4432,7 @@
           },
           {
             "nome": "Zambo Anguissa",
-            "perc": 25,
+            "perc": 20,
             "starter": false
           },
           {
@@ -4696,13 +4696,13 @@
             "starter": false
           },
           {
-            "nome": "Lahdo",
-            "perc": 15,
+            "nome": "Ricci S.",
+            "perc": 50,
             "starter": false
           },
           {
-            "nome": "Ricci S.",
-            "perc": 50,
+            "nome": "Addai",
+            "perc": 25,
             "starter": false
           },
           {
@@ -5112,7 +5112,7 @@
           },
           {
             "nome": "Bellanova",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -5136,8 +5136,8 @@
             "starter": true
           },
           {
-            "nome": "Gaetano",
-            "perc": 60,
+            "nome": "Kessiè",
+            "perc": 55,
             "starter": true
           },
           {
@@ -5187,7 +5187,7 @@
           },
           {
             "nome": "Bernasconi",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
@@ -5196,13 +5196,13 @@
             "starter": false
           },
           {
-            "nome": "Kessiè",
-            "perc": 60,
+            "nome": "Elmas",
+            "perc": 50,
             "starter": false
           },
           {
-            "nome": "Elmas",
-            "perc": 40,
+            "nome": "Gaetano",
+            "perc": 60,
             "starter": false
           },
           {
@@ -5211,13 +5211,13 @@
             "starter": false
           },
           {
-            "nome": "Krstovic",
-            "perc": 60,
+            "nome": "Raspadori",
+            "perc": 55,
             "starter": false
           },
           {
-            "nome": "Raspadori",
-            "perc": 55,
+            "nome": "Krstovic",
+            "perc": 60,
             "starter": false
           }
         ]

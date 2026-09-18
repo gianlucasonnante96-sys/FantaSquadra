@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T13:10:58.319Z",
+  "aggiornato": "2026-09-18T15:11:23.157Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Sulemana K.": {
@@ -16,9 +16,9 @@
     },
     "Dovbyk": {
       "squadra": "Bologna",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "L'attaccante non al meglio per noie muscolari al flessore, assente domenica scorsa a Napoli. Da valutare in settimana verso il match di sabato contro il Torino nella 5a giornata di campionato."
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "L'attaccante non al meglio per noie muscolari al flessore, assente contro Napoli e Torino. Recuperabile dall'inizio di ottobre."
     },
     "Idrissi R.": {
       "squadra": "Cagliari",
