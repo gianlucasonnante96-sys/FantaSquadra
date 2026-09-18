@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T09:10:38.801Z",
+  "aggiornato": "2026-09-18T11:10:20.517Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -2991,17 +2991,17 @@
           },
           {
             "nome": "Mangas",
-            "perc": 60,
+            "perc": 70,
             "starter": true
           },
           {
-            "nome": "Colpani",
-            "perc": 60,
+            "nome": "Cutrone",
+            "perc": 55,
             "starter": true
           },
           {
             "nome": "Robinson J.",
-            "perc": 80,
+            "perc": 60,
             "starter": true
           },
           {
@@ -3060,13 +3060,13 @@
             "starter": false
           },
           {
-            "nome": "Cutrone",
+            "nome": "Colpani",
             "perc": 60,
             "starter": false
           },
           {
             "nome": "Mota",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -3132,7 +3132,7 @@
           },
           {
             "nome": "Esposito Se.",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -3220,8 +3220,8 @@
             "starter": true
           },
           {
-            "nome": "Holm",
-            "perc": 60,
+            "nome": "Helland",
+            "perc": 70,
             "starter": true
           },
           {
@@ -3235,8 +3235,8 @@
             "starter": true
           },
           {
-            "nome": "Miranda J.",
-            "perc": 80,
+            "nome": "Holm",
+            "perc": 60,
             "starter": true
           },
           {
@@ -3250,8 +3250,8 @@
             "starter": true
           },
           {
-            "nome": "Odgaard",
-            "perc": 55,
+            "nome": "Miranda J.",
+            "perc": 80,
             "starter": true
           },
           {
@@ -3260,13 +3260,13 @@
             "starter": true
           },
           {
-            "nome": "Piccoli",
-            "perc": 90,
+            "nome": "Cambiaghi",
+            "perc": 80,
             "starter": true
           },
           {
-            "nome": "Cambiaghi",
-            "perc": 80,
+            "nome": "Piccoli",
+            "perc": 90,
             "starter": true
           },
           {
@@ -3285,8 +3285,8 @@
             "starter": false
           },
           {
-            "nome": "Helland",
-            "perc": 35,
+            "nome": "Zortea",
+            "perc": 60,
             "starter": false
           },
           {
@@ -3300,18 +3300,18 @@
             "starter": false
           },
           {
-            "nome": "Zortea",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Casale",
             "perc": 30,
             "starter": false
           },
           {
-            "nome": "Amondarain",
+            "nome": "Odgaard",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Amondarain",
+            "perc": 40,
             "starter": false
           },
           {
@@ -3376,6 +3376,11 @@
             "starter": true
           },
           {
+            "nome": "Gineitis",
+            "perc": 55,
+            "starter": true
+          },
+          {
             "nome": "Mandragora",
             "perc": 90,
             "starter": true
@@ -3388,11 +3393,6 @@
           {
             "nome": "Cacciamani",
             "perc": 60,
-            "starter": true
-          },
-          {
-            "nome": "Casadei",
-            "perc": 55,
             "starter": true
           },
           {
@@ -3442,7 +3442,7 @@
           },
           {
             "nome": "Ilkhan",
-            "perc": 35,
+            "perc": 40,
             "starter": false
           },
           {
@@ -3452,12 +3452,12 @@
           },
           {
             "nome": "Braganca",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Gineitis",
-            "perc": 60,
+            "nome": "Casadei",
+            "perc": 25,
             "starter": false
           },
           {
@@ -3617,7 +3617,7 @@
           },
           {
             "nome": "Deiola",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -3652,7 +3652,7 @@
           },
           {
             "nome": "Maldini",
-            "perc": 60,
+            "perc": 65,
             "starter": true
           },
           {
@@ -3682,7 +3682,7 @@
           },
           {
             "nome": "Mina",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -3723,11 +3723,6 @@
           {
             "nome": "Sugamele",
             "perc": 30,
-            "starter": false
-          },
-          {
-            "nome": "Nzola",
-            "perc": 20,
             "starter": false
           },
           {
@@ -4020,13 +4015,13 @@
             "starter": true
           },
           {
-            "nome": "Helgason",
-            "perc": 75,
+            "nome": "Sohm",
+            "perc": 90,
             "starter": true
           },
           {
-            "nome": "Sohm",
-            "perc": 90,
+            "nome": "Helgason",
+            "perc": 75,
             "starter": true
           },
           {
@@ -4162,7 +4157,7 @@
           },
           {
             "nome": "Cancellieri",
-            "perc": 55,
+            "perc": 60,
             "starter": true
           },
           {

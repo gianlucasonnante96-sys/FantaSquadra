@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T09:11:19.379Z",
+  "aggiornato": "2026-09-18T11:11:01.038Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Sulemana K.": {
@@ -134,11 +134,11 @@
       "rientro": "01/10",
       "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Ipotesi rientro da inizio ottobre."
     },
-    "Gandelman": {
+    "Berisha M.": {
       "squadra": "Lecce",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il centrocampista fuori causa domenica scorsa contro il Monza per noie fisiche. Da valutare in vista della prossima giornata di campionato, domenica sera a Milano contro i rossoneri."
+      "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte al match di domenica scorsa in casa contro il Monza. Da valutare in settimana verso la sfida contro il Milan in trasferta nella 5a giornata di campionato."
     },
     "Geubbels": {
       "squadra": "Lecce",
@@ -146,11 +146,11 @@
       "rientro": "01/10",
       "descrizione": "l'attaccante KO contro la Roma il 31 agosto vittima di una distorsione alla caviglia, rientro previsto da inizio ottobre."
     },
-    "Berisha M.": {
+    "Gandelman": {
       "squadra": "Lecce",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte al match di domenica scorsa in casa contro il Monza. Da valutare in settimana verso la sfida contro il Milan in trasferta nella 5a giornata di campionato."
+      "descrizione": "Il centrocampista fuori causa domenica scorsa contro il Monza per noie fisiche. Da valutare in vista della prossima giornata di campionato, domenica sera a Milano contro i rossoneri."
     },
     "Ciurria": {
       "squadra": "Monza",
@@ -212,17 +212,17 @@
       "rientro": "15/07",
       "descrizione": "il centrocampista alle prese dalla seconda metà di luglio con una lesione di medio grado alla coscia destra, ma a fine agosto ha deciso, assieme allo staff medico ducale, di operarsi. Lungo stop e ipotesi di ritorno in campo da novembre."
     },
+    "Idzes": {
+      "squadra": "Sassuolo",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il difensorr ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
+    },
     "Volpato": {
       "squadra": "Sassuolo",
       "stato": "out",
       "rientro": "01/10",
       "descrizione": "l'esterno offensivo dei neroverdi KO il 6 settembre a Bologna vittima di una lesione di grado moderato al flessore della gamba destra. Recuperabile dall'inizio di ottobre."
-    },
-    "Walukiewicz": {
-      "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "30/09",
-      "descrizione": "Il difensore alle prese con un forte trauma contusivo alla gamba destra, da valutare il rientro dalla fine di settembre."
     },
     "Konè I.": {
       "squadra": "Sassuolo",
@@ -242,11 +242,11 @@
       "rientro": "01/01",
       "descrizione": "il difensore a gennaio vittima della rottura legamento crociato anteriore ginocchio destro, punta a tornare convocabile dalla fine di settembre."
     },
-    "Idzes": {
+    "Walukiewicz": {
       "squadra": "Sassuolo",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il difensorr ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
+      "stato": "dubbio",
+      "rientro": "30/09",
+      "descrizione": "Il difensore alle prese con un forte trauma contusivo alla gamba destra, da valutare il rientro dalla fine di settembre."
     },
     "Pieragnolo": {
       "squadra": "Sassuolo",
@@ -304,21 +304,21 @@
     },
     "Busio": {
       "squadra": "Venezia",
-      "stato": "out-lungo",
-      "rientro": "01/11",
-      "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rischia un lungo stop e ipotizziamo un rientro dall'inizio di novembre."
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre."
     },
     "Dagasso": {
       "squadra": "Venezia",
-      "stato": "dubbio",
-      "rientro": "01/09",
-      "descrizione": "Il centrocampista non convocato dalla gara dell'11 settembre contro la Fiorentina per un problema fisico. Da valutare ora in vista della 5a giornata di campionato."
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il centrocampista non convocato dalla gara dell'11 settembre contro la Fiorentina per un problema fisico. Recuperabile dalla prima metà di ottobre."
     },
     "Adorante": {
       "squadra": "Venezia",
       "stato": "out",
       "rientro": "30/07",
-      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro da ottobre."
+      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro da metà ottobre."
     }
   }
 }
