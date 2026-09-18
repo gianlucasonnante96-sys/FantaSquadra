@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-17T21:11:39.481Z",
+  "aggiornato": "2026-09-18T07:11:56.159Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Malen": {
@@ -1545,6 +1545,13 @@
     "Rodriguez R.": {
       "ruolo": "D",
       "squadra": "TOR",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 0
+    },
+    "Esteban": {
+      "ruolo": "A",
+      "squadra": "LEC",
       "mediaVoto": 6,
       "fantamedia": 6,
       "partiteGiocate": 0

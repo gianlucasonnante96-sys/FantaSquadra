@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-17T21:11:25.985Z",
+  "aggiornato": "2026-09-18T07:11:42.376Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -4766,6 +4766,14 @@
       "nome": "Lovric",
       "squadra": "UDI",
       "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
+      "nome": "Esteban",
+      "squadra": "LEC",
+      "ruolo": "A",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
       "fvm": 1
