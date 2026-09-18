@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Setup from './components/Setup';
 import Roster from './components/Roster';
 import Dashboard from './components/Dashboard';
+import Infortunati from './components/Infortunati';
 
 const defaultRules: LeagueRules = {
   modificatoreDifesa: 'standard',
@@ -62,7 +63,6 @@ export default function App() {
   const [listoneStatus, setListoneStatus] = useState<ListoneStatus | null>(null);
   const [formazioniInizializzate, setFormazioniInizializzate] = useState(false);
 
-  // Inizializzazione formazioni
   useEffect(() => {
     const initFormazioni = async () => {
       try {
@@ -78,7 +78,6 @@ export default function App() {
     initFormazioni();
   }, []);
 
-  // Caricamento iniziale
   useEffect(() => {
     try {
       const savedRules = localStorage.getItem(RULES_KEY);
@@ -117,7 +116,7 @@ export default function App() {
 
     try {
       const savedStep = localStorage.getItem(STEP_KEY) as AppStep | null;
-      if (savedStep && ['home', 'setup', 'roster', 'dashboard'].includes(savedStep)) {
+      if (savedStep && ['home', 'setup', 'roster', 'dashboard', 'infortunati'].includes(savedStep)) {
         setStep(savedStep);
       }
     } catch (e) {
@@ -125,7 +124,6 @@ export default function App() {
     }
   }, []);
 
-  // Riapplica formazioni quando inizializzate
   useEffect(() => {
     if (!formazioniInizializzate) return;
     if (!Array.isArray(roster) || roster.length === 0) return;
@@ -138,23 +136,16 @@ export default function App() {
     }
   }, [formazioniInizializzate]);
 
-  // Salvataggi
   useEffect(() => {
-    try {
-      localStorage.setItem(RULES_KEY, JSON.stringify(rules));
-    } catch (e) {}
+    try { localStorage.setItem(RULES_KEY, JSON.stringify(rules)); } catch (e) {}
   }, [rules]);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(ROSTER_KEY, JSON.stringify(roster));
-    } catch (e) {}
+    try { localStorage.setItem(ROSTER_KEY, JSON.stringify(roster)); } catch (e) {}
   }, [roster]);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(STEP_KEY, step);
-    } catch (e) {}
+    try { localStorage.setItem(STEP_KEY, step); } catch (e) {}
   }, [step]);
 
   const reloadListone = () => {
@@ -177,9 +168,7 @@ export default function App() {
         }`}>
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <span>{listoneStatus.error ? '⚠️' : '✅'}</span>
-            <span>
-              {listoneStatus.playerCount} giocatori • {listoneStatus.source}
-            </span>
+            <span>{listoneStatus.playerCount} giocatori • {listoneStatus.source}</span>
           </div>
         </div>
       )}
@@ -221,6 +210,12 @@ export default function App() {
             rules={rules}
             onBack={() => setStep('home')}
             onReset={handleReset}
+          />
+        )}
+
+        {step === 'infortunati' && (
+          <Infortunati
+            onBack={() => setStep('home')}
           />
         )}
       </div>
