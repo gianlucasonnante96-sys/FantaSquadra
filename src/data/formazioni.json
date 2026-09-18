@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T11:10:20.517Z",
+  "aggiornato": "2026-09-18T13:10:20.620Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -3561,7 +3561,7 @@
           },
           {
             "nome": "Zanoli",
-            "perc": 25,
+            "perc": 15,
             "starter": false
           },
           {
@@ -4071,22 +4071,17 @@
           },
           {
             "nome": "Mazzocchi",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Panada",
-            "perc": 20,
-            "starter": false
-          },
-          {
-            "nome": "Basic",
-            "perc": 30,
+            "perc": 35,
             "starter": false
           },
           {
             "nome": "Fanne",
-            "perc": 15,
+            "perc": 25,
             "starter": false
           },
           {
@@ -4376,13 +4371,13 @@
             "starter": true
           },
           {
-            "nome": "Spinazzola",
+            "nome": "Olivera",
             "perc": 80,
             "starter": true
           },
           {
             "nome": "Gilmour",
-            "perc": 60,
+            "perc": 85,
             "starter": true
           },
           {
@@ -4416,8 +4411,8 @@
             "starter": false
           },
           {
-            "nome": "Olivera",
-            "perc": 40,
+            "nome": "Spinazzola",
+            "perc": 30,
             "starter": false
           },
           {
@@ -4427,7 +4422,7 @@
           },
           {
             "nome": "Beukema",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -4437,7 +4432,7 @@
           },
           {
             "nome": "Zambo Anguissa",
-            "perc": 50,
+            "perc": 25,
             "starter": false
           },
           {
@@ -4887,7 +4882,7 @@
           },
           {
             "nome": "Otoa",
-            "perc": 90,
+            "perc": 55,
             "starter": true
           },
           {
@@ -4937,12 +4932,12 @@
           },
           {
             "nome": "Mitaj",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Puczka",
-            "perc": 25,
+            "perc": 50,
             "starter": false
           },
           {
@@ -4957,7 +4952,7 @@
           },
           {
             "nome": "Amorim",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
@@ -4967,7 +4962,7 @@
           },
           {
             "nome": "Traorè Hj.",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
