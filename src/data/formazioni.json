@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T19:10:29.715Z",
+  "aggiornato": "2026-09-18T21:09:58.215Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -3152,7 +3152,7 @@
           },
           {
             "nome": "Van Der Brempt",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
@@ -3198,6 +3198,11 @@
           {
             "nome": "Pierini",
             "perc": 15,
+            "starter": false
+          },
+          {
+            "nome": "Skjellerup",
+            "perc": 55,
             "starter": false
           }
         ]

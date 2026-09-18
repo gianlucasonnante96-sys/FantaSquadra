@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T19:11:03.747Z",
+  "aggiornato": "2026-09-18T21:10:32.015Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
@@ -100,14 +100,15 @@
     },
     "Sassuolo": {
       "punti": 7,
-      "g": 4,
-      "gf": 8,
-      "gs": 7,
+      "g": 5,
+      "gf": 9,
+      "gs": 9,
       "forma": [
         "L",
         "W",
         "D",
-        "W"
+        "W",
+        "L"
       ]
     },
     "Napoli": {
@@ -158,6 +159,19 @@
         "L"
       ]
     },
+    "Monza": {
+      "punti": 4,
+      "g": 5,
+      "gf": 8,
+      "gs": 12,
+      "forma": [
+        "L",
+        "L",
+        "D",
+        "L",
+        "W"
+      ]
+    },
     "Torino": {
       "punti": 3,
       "g": 4,
@@ -199,18 +213,6 @@
       "g": 4,
       "gf": 2,
       "gs": 6,
-      "forma": [
-        "L",
-        "L",
-        "D",
-        "L"
-      ]
-    },
-    "Monza": {
-      "punti": 1,
-      "g": 4,
-      "gf": 6,
-      "gs": 11,
       "forma": [
         "L",
         "L",
