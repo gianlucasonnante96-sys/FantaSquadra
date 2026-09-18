@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-18T15:10:44.954Z",
+  "aggiornato": "2026-09-18T17:09:54.105Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -3652,7 +3652,7 @@
           },
           {
             "nome": "Maldini",
-            "perc": 65,
+            "perc": 70,
             "starter": true
           },
           {
@@ -4025,8 +4025,8 @@
             "starter": true
           },
           {
-            "nome": "Haps",
-            "perc": 55,
+            "nome": "Correia T.",
+            "perc": 60,
             "starter": true
           },
           {
@@ -4057,11 +4057,6 @@
           {
             "nome": "Gomes",
             "perc": 25,
-            "starter": false
-          },
-          {
-            "nome": "Correia T.",
-            "perc": 60,
             "starter": false
           },
           {
@@ -4408,11 +4403,6 @@
           {
             "nome": "Contini",
             "perc": 5,
-            "starter": false
-          },
-          {
-            "nome": "Spinazzola",
-            "perc": 20,
             "starter": false
           },
           {
@@ -5061,7 +5051,7 @@
           },
           {
             "nome": "Cambiaso",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
