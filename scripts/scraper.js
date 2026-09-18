@@ -11,11 +11,13 @@ const BASE_URL = 'https://www.fantacalcio.it/probabili-formazioni-serie-a';
 const QUOTAZIONI_URL = 'https://www.fantacalcio.it/quotazioni-fantacalcio';
 const STATISTICHE_URL = 'https://www.fantacalcio.it/statistiche-serie-a/2026-27/fantacalcio';
 const CLASSIFICA_URL = 'https://www.fantacalcio.it/serie-a/classifica';
+const INFORTUNATI_URL = 'https://www.fantacalcio.it/infortunati-serie-a';
 
 const OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'formazioni.json');
 const LISTONE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'listone.json');
 const STATISTICHE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'statistiche.json');
 const SQUADRE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'squadre.json');
+const INFORTUNI_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'infortuni.json');
 
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
@@ -197,7 +199,7 @@ async function scrapeFormazioni(page) {
 }
 
 // ============================================================
-// SCRAPING LISTONE QUOTAZIONI
+// SCRAPING LISTONE
 // ============================================================
 
 async function scrapeListone(page) {
@@ -382,7 +384,7 @@ async function scrapeStatistiche(page) {
 }
 
 // ============================================================
-// SCRAPING CLASSIFICA (con DEBUG + fallback)
+// SCRAPING CLASSIFICA
 // ============================================================
 
 async function scrapeClassifica(page) {
@@ -404,20 +406,6 @@ async function scrapeClassifica(page) {
       if (rows.length === 0) rows = document.querySelectorAll('table.serie-a-table tbody tr');
       if (rows.length === 0) rows = document.querySelectorAll('table tbody tr');
       
-      console.log(`📊 Righe trovate: ${rows.length}`);
-      
-      // 🔥 DEBUG: log della prima riga
-      if (rows.length > 0) {
-        const firstRow = rows[0];
-        const firstCells = firstRow.querySelectorAll('td');
-        console.log(`🔍 DEBUG — prima riga: ${firstCells.length} celle`);
-        firstCells.forEach((cell, i) => {
-          const cls = (cell.className || '').substring(0, 40);
-          const txt = (cell.textContent || '').trim().substring(0, 15);
-          console.log(`  cells[${i}]: class="${cls}" text="${txt}"`);
-        });
-      }
-      
       rows.forEach(row => {
         try {
           let squadra = '';
@@ -431,15 +419,12 @@ async function scrapeClassifica(page) {
           
           const cells = row.querySelectorAll('td');
           
-          // Punti: prova classe, poi indice 2
           const punti = parseInt(row.querySelector('td.points')?.textContent?.trim() || '') || 
                         parseInt(cells[2]?.textContent?.trim() || '') || 0;
           
-          // Giocate: prova classe, poi indice 3
           const g = parseInt(row.querySelector('td.played')?.textContent?.trim() || '') || 
                     parseInt(cells[3]?.textContent?.trim() || '') || 0;
           
-          // 🔥 GF con fallback
           let gf = 0;
           const gfByClass = row.querySelector('td.goalscored');
           if (gfByClass && gfByClass.textContent?.trim()) {
@@ -448,7 +433,6 @@ async function scrapeClassifica(page) {
             gf = parseInt(cells[7].textContent.trim()) || 0;
           }
           
-          // 🔥 GS con fallback
           let gs = 0;
           const gsByClass = row.querySelector('td.goalsconceded');
           if (gsByClass && gsByClass.textContent?.trim()) {
@@ -457,7 +441,6 @@ async function scrapeClassifica(page) {
             gs = parseInt(cells[8].textContent.trim()) || 0;
           }
           
-          // 🔥 FORMA
           const forma = [];
           const formDots = row.querySelectorAll('td.form ul.dot-stripe li');
           formDots.forEach(li => {
@@ -501,6 +484,168 @@ async function scrapeClassifica(page) {
     return classificaData;
   } catch (e) {
     console.error('❌ Errore scraping classifica:', e.message);
+    return {};
+  }
+}
+
+// ============================================================
+// 🔥 SCRAPING INFORTUNATI
+// ============================================================
+
+/**
+ * Estrae la data di rientro dalla descrizione testuale.
+ * Pattern riconosciuti:
+ * - "inizio <mese>" → 01/<mese>
+ * - "metà <mese>" / "metà di <mese>" → 15/<mese>
+ * - "fine <mese>" / "fine di <mese>" → 30/<mese>
+ * - "da <mese>" / "a <mese>" → 01/<mese>
+ * - "in settimana" / "da valutare" → "In settimana"
+ * - "lungo stop" / "lungodegenza" → "Lungo stop"
+ */
+function estraiDataRientro(descrizione) {
+  const desc = (descrizione || '').toLowerCase();
+  
+  const mesi = {
+    'gennaio': '01', 'febbraio': '02', 'marzo': '03', 'aprile': '04',
+    'maggio': '05', 'giugno': '06', 'luglio': '07', 'agosto': '08',
+    'settembre': '09', 'ottobre': '10', 'novembre': '11', 'dicembre': '12'
+  };
+  
+  // Prova i pattern con prefisso (ordine di priorità)
+  for (const [meseNome, meseNum] of Object.entries(mesi)) {
+    const patterns = [
+      { regex: new RegExp(`inizio\\s+(?:di\\s+)?${meseNome}`, 'i'), giorno: '01' },
+      { regex: new RegExp(`metà\\s+(?:di\\s+)?${meseNome}`, 'i'), giorno: '15' },
+      { regex: new RegExp(`fine\\s+(?:di\\s+)?${meseNome}`, 'i'), giorno: '30' },
+      { regex: new RegExp(`da\\s+${meseNome}`, 'i'), giorno: '01' },
+      { regex: new RegExp(`a\\s+${meseNome}`, 'i'), giorno: '01' },
+    ];
+    
+    for (const { regex, giorno } of patterns) {
+      if (regex.test(desc)) {
+        return `${giorno}/${meseNum}`;
+      }
+    }
+  }
+  
+  // Fallback: cerca solo il nome del mese
+  for (const [meseNome, meseNum] of Object.entries(mesi)) {
+    if (desc.includes(meseNome)) {
+      return `01/${meseNum}`;
+    }
+  }
+  
+  // Pattern speciali
+  if (desc.includes('in settimana') || desc.includes('da valutare') || desc.includes('in dubbio')) {
+    return 'In settimana';
+  }
+  if (desc.includes('lungo stop') || desc.includes('lungodegenza') || desc.includes('lunga assenza')) {
+    return 'Lungo stop';
+  }
+  
+  return 'N/D';
+}
+
+/**
+ * Determina lo stato del giocatore dalla descrizione.
+ */
+function estraiStato(descrizione) {
+  const desc = (descrizione || '').toLowerCase();
+  
+  if (desc.includes('da valutare') || desc.includes('in settimana') || desc.includes('in dubbio') || desc.includes('ballottaggio')) {
+    return 'dubbio';
+  }
+  if (desc.includes('lungo stop') || desc.includes('lungodegenza') || desc.includes('stagione finita') || desc.includes('operato')) {
+    return 'out-lungo';
+  }
+  return 'out';
+}
+
+async function scrapeInfortunati(page) {
+  console.log('\n🏥 Recupero lista infortunati...');
+  
+  try {
+    await page.goto(INFORTUNATI_URL, { waitUntil: 'domcontentloaded', timeout: 90000 });
+    console.log('✅ Titolo pagina infortunati:', await page.title());
+    await sleep(5000);
+    
+    await page.evaluate(() => {
+      document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"]').forEach(el => el.remove());
+    });
+
+    const infortunatiData = await page.evaluate(() => {
+      const mappa = {};
+      
+      // 🔥 Ogni squadra è in un .card.team-card
+      const teamCards = document.querySelectorAll('.card.team-card');
+      
+      console.log(`📊 Trovati ${teamCards.length} blocchi squadra`);
+      
+      teamCards.forEach(card => {
+        try {
+          // Nome squadra
+          const teamNameEl = card.querySelector('.team-name');
+          const squadra = teamNameEl ? teamNameEl.textContent?.trim() : '';
+          if (!squadra) return;
+          
+          // Lista infortunati (ul.unstyled > li)
+          const items = card.querySelectorAll('ul.unstyled li');
+          
+          items.forEach(item => {
+            const nomeEl = item.querySelector('strong.item-name');
+            const descEl = item.querySelector('.item-description p');
+            
+            const nome = nomeEl ? nomeEl.textContent?.trim() : '';
+            const descrizione = descEl ? descEl.textContent?.trim() : '';
+            
+            if (nome) {
+              mappa[nome] = {
+                squadra,
+                descrizione,
+              };
+            }
+          });
+        } catch (e) {}
+      });
+      
+      return mappa;
+    });
+    
+    const numInfortunati = Object.keys(infortunatiData).length;
+    console.log(`✅ Estratti ${numInfortunati} infortunati`);
+    
+    // 🔥 Arricchisci con stato + data rientro
+    const risultato = {};
+    Object.entries(infortunatiData).forEach(([nome, dati]) => {
+      risultato[nome] = {
+        squadra: dati.squadra,
+        stato: estraiStato(dati.descrizione),
+        rientro: estraiDataRientro(dati.descrizione),
+        descrizione: dati.descrizione,
+      };
+    });
+    
+    if (numInfortunati > 0) {
+      console.log('📊 Esempio primi 5:');
+      Object.entries(risultato).slice(0, 5).forEach(([nome, dati]) => {
+        console.log(`  - ${nome} (${dati.squadra}): stato=${dati.stato}, rientro=${dati.rientro}`);
+      });
+    }
+    
+    const output = {
+      aggiornato: new Date().toISOString(),
+      fonte: 'fantacalcio.it',
+      infortunati: risultato,
+    };
+    
+    fs.mkdirSync(path.dirname(INFORTUNI_OUTPUT_PATH), { recursive: true });
+    fs.writeFileSync(INFORTUNI_OUTPUT_PATH, JSON.stringify(output, null, 2));
+    
+    console.log(`✅ Infortunati salvati: ${numInfortunati} in infortuni.json`);
+    
+    return risultato;
+  } catch (e) {
+    console.error('❌ Errore scraping infortunati:', e.message);
     return {};
   }
 }
@@ -553,6 +698,7 @@ async function main() {
   await scrapeListone(page);
   await scrapeStatistiche(page);
   await scrapeClassifica(page);
+  await scrapeInfortunati(page);
   
   await browser.close();
   console.log('\n🎉 Tutti gli scraping completati!');
