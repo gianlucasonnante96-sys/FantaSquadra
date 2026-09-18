@@ -5,6 +5,7 @@ import { getDifficultyLabel, getTeamStrength, getMomentum, getFixtureDifficulty,
 import { getAvversario } from '../services/calendarService';
 import { calculateDifficulty } from '../services/apiService';
 import { determinaGiornataCorrente } from '../utils/giornataCorrente';
+import { cercaInfortunio, Infortunio } from '../utils/infortuni';
 
 interface DashboardProps {
   roster: Player[];
@@ -15,33 +16,20 @@ interface DashboardProps {
 
 const GIORNATA_KEY = 'fantaconsiglio_giornata';
 
-// 🔥 Determina la giornata iniziale: prima da formazioni.json, poi da localStorage
 function determinaGiornataIniziale(): number {
-  // 1. Prova da formazioni.json (più preciso)
   try {
     const daFormazioni = determinaGiornataCorrente();
     if (daFormazioni && daFormazioni >= 1 && daFormazioni <= 38) {
-      console.log(`📅 Giornata iniziale da formazioni.json: ${daFormazioni}`);
       return daFormazioni;
     }
-  } catch (e) {
-    console.warn('Errore determinazione da formazioni.json:', e);
-  }
-  
-  // 2. Fallback: localStorage
+  } catch (e) {}
   try {
     const salvata = localStorage.getItem(GIORNATA_KEY);
     if (salvata) {
       const num = parseInt(salvata);
-      if (!isNaN(num) && num >= 1 && num <= 38) {
-        console.log(`📅 Giornata da localStorage: ${num}`);
-        return num;
-      }
+      if (!isNaN(num) && num >= 1 && num <= 38) return num;
     }
   } catch (e) {}
-  
-  // 3. Fallback finale: giornata 1
-  console.log(`📅 Giornata default: 1`);
   return 1;
 }
 
@@ -52,46 +40,23 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
   const [showGiornataScroll, setShowGiornataScroll] = useState(false);
   
-  // 🔥 REF al bottone della giornata corrente
   const giornataRef = useRef<HTMLButtonElement | null>(null);
-  // 🔥 REF al container scrollabile
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // 🔥 AUTO-SCROLL alla giornata corrente (versione robusta con scrollTo)
   useLayoutEffect(() => {
     if (!showGiornataScroll) return;
-    
     const timer = setTimeout(() => {
       const container = scrollContainerRef.current;
       const button = giornataRef.current;
-      
-      if (!container || !button) {
-        console.warn('⚠️ Auto-scroll: container o bottone non trovato');
-        return;
-      }
-      
-      // Calcola posizione target: centro del container
-      const containerWidth = container.clientWidth;
-      const buttonLeft = button.offsetLeft;
-      const buttonWidth = button.clientWidth;
-      const targetScroll = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
-      
-      console.log(`📜 Auto-scroll: buttonLeft=${buttonLeft}, containerWidth=${containerWidth}, target=${targetScroll}`);
-      
-      container.scrollTo({
-        left: Math.max(0, targetScroll),
-        behavior: 'smooth',
-      });
+      if (!container || !button) return;
+      const targetScroll = button.offsetLeft - (container.clientWidth / 2) + (button.clientWidth / 2);
+      container.scrollTo({ left: Math.max(0, targetScroll), behavior: 'smooth' });
     }, 300);
-    
     return () => clearTimeout(timer);
   }, [showGiornataScroll, giornata]);
 
-  // 🔥 Salva giornata in localStorage quando cambia
   useEffect(() => {
-    try {
-      localStorage.setItem(GIORNATA_KEY, String(giornata));
-    } catch (e) {}
+    try { localStorage.setItem(GIORNATA_KEY, String(giornata)); } catch (e) {}
   }, [giornata]);
 
   const rosterWithAvversari = useMemo(() => {
@@ -105,19 +70,12 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           const avversarioInfo = getAvversario(team, giornata);
           if (avversarioInfo) {
             const difficolta = calculateDifficulty(avversarioInfo.avversario, avversarioInfo.inCasa);
-            return {
-              ...player,
-              avversario: avversarioInfo.avversario,
-              inCasa: avversarioInfo.inCasa,
-              difficoltaAvversario: difficolta,
-            };
+            return { ...player, avversario: avversarioInfo.avversario, inCasa: avversarioInfo.inCasa, difficoltaAvversario: difficolta };
           }
         } catch (e) {}
         return player;
       });
-    } catch (e) {
-      return roster;
-    }
+    } catch (e) { return roster; }
   }, [giornata, roster]);
 
   const filteredRoster = useMemo(() => {
@@ -128,13 +86,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   const { formations, best } = useMemo(() => {
     try {
       const result = optimizeFormation(filteredRoster, rules);
-      return {
-        formations: Array.isArray(result?.formations) ? result.formations : [],
-        best: result?.best || null,
-      };
-    } catch (e) {
-      return { formations: [], best: null };
-    }
+      return { formations: Array.isArray(result?.formations) ? result.formations : [], best: result?.best || null };
+    } catch (e) { return { formations: [], best: null }; }
   }, [filteredRoster, rules]);
 
   const currentFormation = formations[selectedFormationIdx] || best;
@@ -146,7 +99,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           <div className="text-4xl mb-3">⚠️</div>
           <h2 className="text-white font-semibold text-lg mb-2">Impossibile calcolare la formazione</h2>
           <p className="text-slate-400 text-sm mb-4">Controlla che la tua rosa contenga almeno 11 giocatori validi.</p>
-          <button onClick={onBack} className="px-4 py-3 min-h-[48px] bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-black font-semibold rounded-lg transition-colors">
+          <button onClick={onBack} className="px-4 py-3 min-h-[48px] bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-lg transition-colors">
             ← Torna alla rosa
           </button>
         </div>
@@ -186,12 +139,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black px-3 md:px-4 pb-4 md:pb-8 pt-16 md:pt-8">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
         <div className="flex items-center justify-between mb-4 md:mb-6 gap-2">
-          <button 
-            onClick={onBack} 
-            className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0"
-          >
+          <button onClick={onBack} className="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0">
             <span className="md:hidden text-lg">🏠</span>
             <span className="hidden md:inline">🏠 Home</span>
           </button>
@@ -201,10 +150,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             </h1>
             <p className="text-emerald-400/70 text-[10px] md:text-xs tracking-widest uppercase mt-0.5 md:mt-1">Serie A 2026/27</p>
           </div>
-          <button 
-            onClick={onReset} 
-            className="text-slate-400 hover:text-red-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0"
-          >
+          <button onClick={onReset} className="text-slate-400 hover:text-red-400 transition-colors text-sm font-medium bg-slate-900/80 backdrop-blur-md w-10 h-10 md:w-auto md:h-auto md:px-3 md:py-2 rounded-lg border border-white/10 flex items-center justify-center flex-shrink-0">
             <span className="md:hidden text-lg">🔄</span>
             <span className="hidden md:inline">🔄 Reset</span>
           </button>
@@ -216,27 +162,18 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             <div className="text-white font-medium text-xs md:text-sm">
               GIORNATA <span className="text-emerald-400 font-black text-base md:text-lg">{giornata}</span> <span className="text-slate-500">/ 38</span>
             </div>
-            <button
-              onClick={() => setShowGiornataScroll(!showGiornataScroll)}
-              className="text-emerald-400 hover:text-emerald-300 text-xs md:text-sm transition-colors font-medium min-h-[32px]"
-            >
+            <button onClick={() => setShowGiornataScroll(!showGiornataScroll)} className="text-emerald-400 hover:text-emerald-300 text-xs md:text-sm transition-colors font-medium min-h-[32px]">
               {showGiornataScroll ? '▲ Chiudi' : '▼ Cambia'}
             </button>
           </div>
 
           {showGiornataScroll && (
-            <div 
-              ref={scrollContainerRef}
-              className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide animate-fadeIn"
-            >
+            <div ref={scrollContainerRef} className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide animate-fadeIn">
               {Array.from({ length: 38 }, (_, i) => i + 1).map(num => (
                 <button
                   key={num}
                   ref={num === giornata ? giornataRef : null}
-                  onClick={() => {
-                    setGiornata(num);
-                    setShowGiornataScroll(false);
-                  }}
+                  onClick={() => { setGiornata(num); setShowGiornataScroll(false); }}
                   className={`flex-shrink-0 w-12 h-12 md:w-10 md:h-10 rounded-lg text-sm font-bold transition-all flex items-center justify-center ${
                     num === giornata
                       ? 'bg-gradient-to-br from-emerald-400 to-green-600 text-black shadow-lg shadow-emerald-500/50 scale-110'
@@ -250,24 +187,15 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           )}
 
           <div className="flex justify-center gap-3 md:gap-4 mt-2 md:mt-3">
-            <button
-              onClick={() => setGiornata(Math.max(1, giornata - 1))}
-              disabled={giornata <= 1}
-              className="px-4 py-2 min-h-[40px] bg-slate-800/80 active:bg-slate-700 disabled:opacity-30 text-white rounded-lg transition-colors text-xs md:text-sm border border-slate-700/50"
-            >
+            <button onClick={() => setGiornata(Math.max(1, giornata - 1))} disabled={giornata <= 1} className="px-4 py-2 min-h-[40px] bg-slate-800/80 active:bg-slate-700 disabled:opacity-30 text-white rounded-lg transition-colors text-xs md:text-sm border border-slate-700/50">
               ← Prec
             </button>
-            <button
-              onClick={() => setGiornata(Math.min(38, giornata + 1))}
-              disabled={giornata >= 38}
-              className="px-4 py-2 min-h-[40px] bg-slate-800/80 active:bg-slate-700 disabled:opacity-30 text-white rounded-lg transition-colors text-xs md:text-sm border border-slate-700/50"
-            >
+            <button onClick={() => setGiornata(Math.min(38, giornata + 1))} disabled={giornata >= 38} className="px-4 py-2 min-h-[40px] bg-slate-800/80 active:bg-slate-700 disabled:opacity-30 text-white rounded-lg transition-colors text-xs md:text-sm border border-slate-700/50">
               Succ →
             </button>
           </div>
         </div>
 
-        {/* AI Banner */}
         <div className="bg-gradient-to-r from-emerald-500/10 via-green-500/5 to-transparent backdrop-blur-md rounded-xl md:rounded-2xl border border-emerald-500/20 p-3 md:p-4 mb-4 md:mb-6 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-emerald-400 to-green-600"></div>
           <div className="flex items-start gap-2 md:gap-3 pl-2">
@@ -279,7 +207,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
         </div>
 
-        {/* Formation Selector */}
         <div className="flex gap-2 mb-4 md:mb-6 overflow-x-auto pb-2 scrollbar-hide">
           {formations.map((f, i) => (
             <button
@@ -297,7 +224,6 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           ))}
         </div>
 
-        {/* Score Header + Campo */}
         <div className="bg-slate-900/60 backdrop-blur-md rounded-xl md:rounded-2xl border border-white/10 overflow-hidden mb-4 md:mb-6">
           <div className="bg-gradient-to-r from-emerald-500/20 via-green-500/10 to-transparent px-3 md:px-6 py-3 md:py-4 flex items-center justify-between border-b border-emerald-500/20">
             <div>
@@ -312,63 +238,32 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             </div>
           </div>
 
-          {/* CAMPO */}
-          <div 
-            className="relative p-3 md:p-10"
-            style={{
-              background: 'linear-gradient(180deg, #0f1f15 0%, #163020 50%, #0f1f15 100%)',
-              minHeight: '420px',
-            }}
-          >
+          <div className="relative p-3 md:p-10" style={{ background: 'linear-gradient(180deg, #0f1f15 0%, #163020 50%, #0f1f15 100%)', minHeight: '420px' }}>
             <div className="absolute inset-2 md:inset-4 border-2 border-white/20 rounded-lg pointer-events-none"></div>
             <div className="absolute left-1/2 top-2 md:top-4 bottom-2 md:bottom-4 w-0.5 bg-white/20 pointer-events-none"></div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-24 md:h-24 border-2 border-white/20 rounded-full pointer-events-none"></div>
 
             <div className="relative mb-6 md:mb-10 flex justify-center">
               {portieri.map(slot => (
-                <PlayerOnField 
-                  key={slot.player.id} 
-                  slot={slot} 
-                  getRoleGradient={getRoleGradient}
-                  getVPColor={getVPColor}
-                  onClick={() => setSelectedPlayer(slot.player)}
-                />
+                <PlayerOnField key={slot.player.id} slot={slot} getRoleGradient={getRoleGradient} getVPColor={getVPColor} onClick={() => setSelectedPlayer(slot.player)} />
               ))}
             </div>
 
             <div className="relative mb-6 md:mb-10 flex justify-center gap-2 md:gap-8 flex-wrap">
               {difensori.map(slot => (
-                <PlayerOnField 
-                  key={slot.player.id} 
-                  slot={slot} 
-                  getRoleGradient={getRoleGradient}
-                  getVPColor={getVPColor}
-                  onClick={() => setSelectedPlayer(slot.player)}
-                />
+                <PlayerOnField key={slot.player.id} slot={slot} getRoleGradient={getRoleGradient} getVPColor={getVPColor} onClick={() => setSelectedPlayer(slot.player)} />
               ))}
             </div>
 
             <div className="relative mb-6 md:mb-10 flex justify-center gap-2 md:gap-8 flex-wrap">
               {centrocampisti.map(slot => (
-                <PlayerOnField 
-                  key={slot.player.id} 
-                  slot={slot} 
-                  getRoleGradient={getRoleGradient}
-                  getVPColor={getVPColor}
-                  onClick={() => setSelectedPlayer(slot.player)}
-                />
+                <PlayerOnField key={slot.player.id} slot={slot} getRoleGradient={getRoleGradient} getVPColor={getVPColor} onClick={() => setSelectedPlayer(slot.player)} />
               ))}
             </div>
 
             <div className="relative flex justify-center gap-2 md:gap-8 flex-wrap">
               {attaccanti.map(slot => (
-                <PlayerOnField 
-                  key={slot.player.id} 
-                  slot={slot} 
-                  getRoleGradient={getRoleGradient}
-                  getVPColor={getVPColor}
-                  onClick={() => setSelectedPlayer(slot.player)}
-                />
+                <PlayerOnField key={slot.player.id} slot={slot} getRoleGradient={getRoleGradient} getVPColor={getVPColor} onClick={() => setSelectedPlayer(slot.player)} />
               ))}
             </div>
           </div>
@@ -385,22 +280,32 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1.5 md:gap-2">
               {currentFormation.bench.map((slot, i) => {
                 const vp = slot.expectedScore;
+                const infortunio = cercaInfortunio(slot.player);
                 return (
                   <button
                     key={slot.player.id}
                     onClick={() => setSelectedPlayer(slot.player)}
-                    className="flex items-center gap-2 md:gap-3 p-2.5 md:p-3 min-h-[56px] bg-slate-800/40 active:bg-slate-700/60 rounded-lg md:rounded-xl transition-all text-left border border-white/5"
+                    className={`flex items-center gap-2 md:gap-3 p-2.5 md:p-3 min-h-[56px] rounded-lg md:rounded-xl transition-all text-left border ${
+                      infortunio
+                        ? 'bg-red-500/5 border-red-500/30'
+                        : 'bg-slate-800/40 active:bg-slate-700/60 border-white/5'
+                    }`}
                   >
                     <span className="text-slate-500 text-[10px] md:text-xs font-mono w-4">{i + 1}</span>
                     <div className={`w-1.5 h-8 md:h-10 rounded-full bg-gradient-to-b ${getRoleGradient(slot.player.role)} flex-shrink-0`} />
                     <div className="flex-1 min-w-0">
-                      <div className="text-white text-xs md:text-sm font-semibold truncate">
-                        {slot.player.name} {slot.player.surname}
+                      <div className="text-white text-xs md:text-sm font-semibold truncate flex items-center gap-1">
+                        {infortunio && <span>🏥</span>}
+                        <span className="truncate">{slot.player.name} {slot.player.surname}</span>
                       </div>
                       <div className="text-slate-400 text-[9px] md:text-[10px] flex flex-wrap gap-x-1.5">
                         <span>{slot.player.team}</span>
                         <span className="text-emerald-400">FM:{slot.player.fantamedia ?? 0}</span>
-                        <span className="text-blue-400">MV:{slot.player.mediaVoto ?? 6}</span>
+                        {infortunio && (
+                          <span className={infortunio.stato === 'dubbio' ? 'text-yellow-400' : 'text-red-400'}>
+                            {infortunio.rientro}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className="text-right flex-shrink-0">
@@ -414,12 +319,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
           </div>
         </div>
 
-        {/* Confronto Moduli */}
         <div className="bg-slate-900/60 backdrop-blur-md rounded-xl md:rounded-2xl border border-white/10 overflow-hidden mb-4 md:mb-6">
-          <button
-            onClick={() => setShowAllFormations(!showAllFormations)}
-            className="w-full px-3 md:px-6 py-3 md:py-4 min-h-[56px] flex items-center justify-between text-white active:bg-slate-800/30 transition-colors"
-          >
+          <button onClick={() => setShowAllFormations(!showAllFormations)} className="w-full px-3 md:px-6 py-3 md:py-4 min-h-[56px] flex items-center justify-between text-white active:bg-slate-800/30 transition-colors">
             <h3 className="font-bold flex items-center gap-2 text-xs md:text-sm tracking-wide uppercase">
               <span>📊</span> Confronto Moduli
             </h3>
@@ -430,14 +331,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
             <div className="p-3 md:p-4 border-t border-white/10 animate-fadeIn">
               <div className="space-y-2">
                 {formations.map((f, i) => (
-                  <div
-                    key={f.modulo}
-                    className={`p-3 md:p-4 rounded-xl border-2 transition-all ${
-                      i === selectedFormationIdx
-                        ? 'border-emerald-500/60 bg-emerald-500/5'
-                        : 'border-slate-700/30 bg-slate-800/30'
-                    }`}
-                  >
+                  <div key={f.modulo} className={`p-3 md:p-4 rounded-xl border-2 transition-all ${i === selectedFormationIdx ? 'border-emerald-500/60 bg-emerald-500/5' : 'border-slate-700/30 bg-slate-800/30'}`}>
                     <div className="flex items-center justify-between mb-1.5 md:mb-2">
                       <div>
                         <span className="text-white font-bold text-sm md:text-base">{f.modulo}</span>
@@ -453,10 +347,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                       </div>
                     </div>
                     <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full transition-all"
-                        style={{ width: `${(f.totalScore / formations[0].totalScore) * 100}%` }}
-                      />
+                      <div className="h-full bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full transition-all" style={{ width: `${(f.totalScore / formations[0].totalScore) * 100}%` }} />
                     </div>
                   </div>
                 ))}
@@ -472,14 +363,8 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
         </div>
       </div>
 
-      {/* MODAL DETTAGLI CON FATTORI VP */}
       {selectedPlayer && (
-        <PlayerDetailModal 
-          player={selectedPlayer} 
-          onClose={() => setSelectedPlayer(null)}
-          getRoleGradient={getRoleGradient}
-          getDifficultyColor={getDifficultyColor}
-        />
+        <PlayerDetailModal player={selectedPlayer} onClose={() => setSelectedPlayer(null)} getRoleGradient={getRoleGradient} getDifficultyColor={getDifficultyColor} />
       )}
     </div>
   );
@@ -500,15 +385,18 @@ function PlayerOnField({ slot, getRoleGradient, getVPColor, onClick }: PlayerOnF
   const { player, expectedScore } = slot;
   const titolarita = player?.titolarita ?? 50;
   const isHighVP = expectedScore >= 7.5;
+  const infortunio = cercaInfortunio(player);
 
   return (
-    <button
-      onClick={onClick}
-      className="flex flex-col items-center gap-0.5 md:gap-1 active:scale-95 transition-transform"
-    >
-      <div className={`relative w-11 h-11 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${getRoleGradient(player.role)} flex items-center justify-center shadow-xl border-2 border-white/20 ${isHighVP ? 'animate-pulse-green' : ''}`}>
+    <button onClick={onClick} className="flex flex-col items-center gap-0.5 md:gap-1 active:scale-95 transition-transform">
+      <div className={`relative w-11 h-11 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${getRoleGradient(player.role)} flex items-center justify-center shadow-xl border-2 ${infortunio ? 'border-red-500' : 'border-white/20'} ${isHighVP ? 'animate-pulse-green' : ''}`}>
         <span className="text-black font-black text-base md:text-xl">{player.surname?.[0] || '?'}</span>
         <div className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 md:w-4 md:h-4 rounded-full border-2 border-black ${titolarita > 80 ? 'bg-emerald-400' : titolarita > 50 ? 'bg-yellow-400' : 'bg-red-500'}`}></div>
+        {infortunio && (
+          <div className="absolute -top-1 -left-1 w-5 h-5 md:w-6 md:h-6 rounded-full bg-red-500 flex items-center justify-center text-[10px] md:text-xs border-2 border-black">
+            🏥
+          </div>
+        )}
       </div>
       
       <div className="bg-black/80 backdrop-blur-sm px-1.5 md:px-2 py-0.5 rounded text-[8px] md:text-xs text-white font-bold max-w-[60px] md:max-w-[100px] truncate border border-white/10">
@@ -527,7 +415,7 @@ function PlayerOnField({ slot, getRoleGradient, getVPColor, onClick }: PlayerOnF
 }
 
 // ============================================================
-// MODAL DETTAGLI CON FATTORI VP
+// MODAL DETTAGLI
 // ============================================================
 
 interface PlayerDetailModalProps {
@@ -546,6 +434,7 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
   const fixtureDiff = getFixtureDifficulty(player.avversario);
   const formaSquadra = getFormaSquadra(player.team);
   const statsSquadra = getStatisticheSquadra(player.team);
+  const infortunio = cercaInfortunio(player);
 
   const getStrengthLabel = (s: number) => {
     if (s >= 1.15) return { label: 'Molto Forte', color: 'text-emerald-400' };
@@ -573,15 +462,15 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
     return '⚪';
   };
 
+  const getInfortunioColor = (stato: string) => {
+    if (stato === 'dubbio') return { bg: 'bg-yellow-500/10', border: 'border-yellow-500/30', text: 'text-yellow-400', label: '⚠️ In Dubbio' };
+    if (stato === 'out-lungo') return { bg: 'bg-red-500/10', border: 'border-red-500/30', text: 'text-red-400', label: '🏥 Out Lungo' };
+    return { bg: 'bg-red-500/10', border: 'border-red-500/30', text: 'text-red-400', label: '🏥 Infortunato' };
+  };
+
   return (
-    <div 
-      className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-end md:items-center justify-center z-50 animate-fadeIn"
-      onClick={onClose}
-    >
-      <div 
-        className="bg-slate-900/95 backdrop-blur-md rounded-t-2xl md:rounded-2xl border-t md:border border-emerald-500/30 w-full md:max-w-md p-5 md:p-6 shadow-2xl shadow-emerald-500/20 pb-8 md:pb-6 max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-end md:items-center justify-center z-50 animate-fadeIn" onClick={onClose}>
+      <div className="bg-slate-900/95 backdrop-blur-md rounded-t-2xl md:rounded-2xl border-t md:border border-emerald-500/30 w-full md:max-w-md p-5 md:p-6 shadow-2xl shadow-emerald-500/20 pb-8 md:pb-6 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         <div className="w-12 h-1 bg-slate-600 rounded-full mx-auto mb-4 md:hidden"></div>
 
         <div className="flex items-start justify-between mb-4">
@@ -592,13 +481,28 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
               <div className="text-emerald-400 text-xs md:text-sm font-medium">{player.team} • {player.role}</div>
             </div>
           </div>
-          <button 
-            onClick={onClose} 
-            className="text-slate-400 hover:text-white text-2xl transition-colors w-8 h-8 flex items-center justify-center"
-          >
-            ×
-          </button>
+          <button onClick={onClose} className="text-slate-400 hover:text-white text-2xl transition-colors w-8 h-8 flex items-center justify-center">×</button>
         </div>
+
+        {/* 🔥 BANNER INFORTUNIO */}
+        {infortunio && (
+          <div className={`mb-4 ${getInfortunioColor(infortunio.stato).bg} border ${getInfortunioColor(infortunio.stato).border} rounded-xl p-3`}>
+            <div className="flex items-start gap-2">
+              <span className="text-xl">{infortunio.stato === 'dubbio' ? '⚠️' : '🏥'}</span>
+              <div className="flex-1 min-w-0">
+                <div className={`font-bold text-xs md:text-sm ${getInfortunioColor(infortunio.stato).text}`}>
+                  {getInfortunioColor(infortunio.stato).label}
+                </div>
+                <div className="text-slate-300 text-[10px] md:text-xs mt-1">
+                  Rientro: <span className="font-bold">{infortunio.rientro}</span>
+                </div>
+                <div className="text-slate-500 text-[9px] md:text-[10px] mt-1 italic line-clamp-3">
+                  {infortunio.descrizione}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="grid grid-cols-3 gap-2 mb-4">
           <div className="bg-slate-800/60 rounded-xl p-2.5 md:p-3 text-center border border-emerald-500/20">
@@ -618,9 +522,7 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
         </div>
 
         <div className="mb-4">
-          <h4 className="text-emerald-400 font-bold text-xs md:text-sm uppercase tracking-wider mb-2 flex items-center gap-2">
-            🔮 Fattori del Voto Previsto
-          </h4>
+          <h4 className="text-emerald-400 font-bold text-xs md:text-sm uppercase tracking-wider mb-2 flex items-center gap-2">🔮 Fattori del Voto Previsto</h4>
           
           <div className="space-y-2">
             <div className="bg-slate-800/60 rounded-xl p-3 border border-white/5 flex items-center justify-between">
@@ -632,12 +534,8 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
                 </div>
               </div>
               <div className="text-right">
-                <div className={`text-sm md:text-base font-black ${strengthInfo.color}`}>
-                  {teamStrength.toFixed(2)}
-                </div>
-                <div className={`text-[10px] md:text-xs font-bold ${strengthInfo.color}`}>
-                  {strengthInfo.label}
-                </div>
+                <div className={`text-sm md:text-base font-black ${strengthInfo.color}`}>{teamStrength.toFixed(2)}</div>
+                <div className={`text-[10px] md:text-xs font-bold ${strengthInfo.color}`}>{strengthInfo.label}</div>
               </div>
             </div>
 
@@ -647,20 +545,13 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
                 <div>
                   <div className="text-white text-xs md:text-sm font-semibold">Forma Recente</div>
                   <div className="text-slate-500 text-[10px] md:text-xs flex items-center gap-0.5">
-                    {formaSquadra.length > 0 
-                      ? formaSquadra.map((r, i) => <span key={i}>{formEmoji(r)}</span>)
-                      : 'Nessun dato'
-                    }
+                    {formaSquadra.length > 0 ? formaSquadra.map((r, i) => <span key={i}>{formEmoji(r)}</span>) : 'Nessun dato'}
                   </div>
                 </div>
               </div>
               <div className="text-right">
-                <div className={`text-sm md:text-base font-black ${momentumInfo.color}`}>
-                  {momentum >= 0 ? '+' : ''}{momentum.toFixed(2)}
-                </div>
-                <div className={`text-[10px] md:text-xs font-bold ${momentumInfo.color}`}>
-                  {momentumInfo.label}
-                </div>
+                <div className={`text-sm md:text-base font-black ${momentumInfo.color}`}>{momentum >= 0 ? '+' : ''}{momentum.toFixed(2)}</div>
+                <div className={`text-[10px] md:text-xs font-bold ${momentumInfo.color}`}>{momentumInfo.label}</div>
               </div>
             </div>
 
@@ -669,18 +560,12 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
                 <span className="text-xl">⚔️</span>
                 <div>
                   <div className="text-white text-xs md:text-sm font-semibold">Difficoltà Partita</div>
-                  <div className="text-slate-500 text-[10px] md:text-xs">
-                    vs {player.avversario || '?'} ({player.inCasa ? 'Casa' : 'Trasferta'})
-                  </div>
+                  <div className="text-slate-500 text-[10px] md:text-xs">vs {player.avversario || '?'} ({player.inCasa ? 'Casa' : 'Trasferta'})</div>
                 </div>
               </div>
               <div className="text-right">
-                <div className={`text-sm md:text-base font-black ${getDifficultyColor(difficulty)}`}>
-                  {fixtureDiff.toFixed(1)}
-                </div>
-                <div className={`text-[10px] md:text-xs font-bold ${getDifficultyColor(difficulty)}`}>
-                  {getDifficultyLabel(difficulty)}
-                </div>
+                <div className={`text-sm md:text-base font-black ${getDifficultyColor(difficulty)}`}>{fixtureDiff.toFixed(1)}</div>
+                <div className={`text-[10px] md:text-xs font-bold ${getDifficultyColor(difficulty)}`}>{getDifficultyLabel(difficulty)}</div>
               </div>
             </div>
 
@@ -689,27 +574,15 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
                 <div className="flex items-center gap-3">
                   <span className="text-xl">🎯</span>
                   <div>
-                    <div className="text-white text-xs md:text-sm font-semibold">
-                      {player.role === 'D' ? 'Gol Subiti' : 'Gol Fatti'}
-                    </div>
+                    <div className="text-white text-xs md:text-sm font-semibold">{player.role === 'D' ? 'Gol Subiti' : 'Gol Fatti'}</div>
                     <div className="text-slate-500 text-[10px] md:text-xs">
-                      {player.role === 'D' 
-                        ? `${statsSquadra.gs} in ${statsSquadra.g} partite`
-                        : `${statsSquadra.gf} in ${statsSquadra.g} partite`
-                      }
+                      {player.role === 'D' ? `${statsSquadra.gs} in ${statsSquadra.g} partite` : `${statsSquadra.gf} in ${statsSquadra.g} partite`}
                     </div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className={`text-sm md:text-base font-black ${
-                    (player.role === 'D' ? statsSquadra.gs / statsSquadra.g < 1.5 : statsSquadra.gf / statsSquadra.g > 1.5)
-                      ? 'text-emerald-400'
-                      : 'text-slate-400'
-                  }`}>
-                    {player.role === 'D' 
-                      ? (statsSquadra.gs / statsSquadra.g).toFixed(2)
-                      : (statsSquadra.gf / statsSquadra.g).toFixed(2)
-                    }
+                  <div className={`text-sm md:text-base font-black ${(player.role === 'D' ? statsSquadra.gs / statsSquadra.g < 1.5 : statsSquadra.gf / statsSquadra.g > 1.5) ? 'text-emerald-400' : 'text-slate-400'}`}>
+                    {player.role === 'D' ? (statsSquadra.gs / statsSquadra.g).toFixed(2) : (statsSquadra.gf / statsSquadra.g).toFixed(2)}
                   </div>
                   <div className="text-[10px] md:text-xs text-slate-500">media/gara</div>
                 </div>
@@ -718,10 +591,7 @@ function PlayerDetailModal({ player, onClose, getRoleGradient, getDifficultyColo
           </div>
         </div>
 
-        <button
-          onClick={onClose}
-          className="w-full py-3 min-h-[48px] bg-slate-800 active:bg-slate-700 md:hover:bg-slate-700 text-white font-semibold rounded-xl transition-colors text-sm"
-        >
+        <button onClick={onClose} className="w-full py-3 min-h-[48px] bg-slate-800 active:bg-slate-700 md:hover:bg-slate-700 text-white font-semibold rounded-xl transition-colors text-sm">
           Chiudi
         </button>
       </div>
