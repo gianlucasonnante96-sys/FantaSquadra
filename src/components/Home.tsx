@@ -1,4 +1,5 @@
 import { Player, LeagueRules } from '../types';
+import { getTuttiInfortunati, getDataAggiornamentoInfortuni, Infortunio } from '../utils/infortuni';
 
 interface ListoneStatus {
   source: string;
@@ -18,6 +19,23 @@ interface HomeProps {
 export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeProps) {
   const isRosterComplete = roster.length >= 11;
   const hasRules = rules.moduliConsentiti.length > 0;
+  
+  // 🔥 Infortunati
+  const infortunati = getTuttiInfortunati();
+  const dataAggiornamento = getDataAggiornamentoInfortuni();
+  
+  // Ordina per stato (out prima, poi out-lungo, poi dubbio)
+  const ordinaInfortunati = (a: { nome: string; infortunio: Infortunio }, b: { nome: string; infortunio: Infortunio }) => {
+    const ordine: Record<string, number> = { 'out': 1, 'out-lungo': 2, 'dubbio': 3 };
+    return (ordine[a.infortunio.stato] || 99) - (ordine[b.infortunio.stato] || 99);
+  };
+  const infortunatiOrdinati = [...infortunati].sort(ordinaInfortunati);
+  
+  const getStatoColor = (stato: string) => {
+    if (stato === 'dubbio') return { text: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/30', emoji: '⚠️' };
+    if (stato === 'out-lungo') return { text: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/30', emoji: '🚑' };
+    return { text: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/30', emoji: '🏥' };
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black px-3 md:px-4 pb-6 md:pb-8 pt-16 md:pt-12">
@@ -43,10 +61,7 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
               <div className="flex-1 min-w-0">
                 <div className="text-white font-bold text-xs md:text-sm">Listone Serie A 2026/27</div>
                 <div className="text-slate-400 text-[10px] md:text-xs truncate">
-                  {listoneStatus.error 
-                    ? listoneStatus.error
-                    : `${listoneStatus.playerCount} giocatori caricati`
-                  }
+                  {listoneStatus.error ? listoneStatus.error : `${listoneStatus.playerCount} giocatori caricati`}
                 </div>
               </div>
             </div>
@@ -55,23 +70,15 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
 
         {/* Pannelli di navigazione */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
-
-          {/* PANNELLO 1: Regole Lega */}
           <button
             onClick={() => onNavigate('setup')}
             className="group bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 p-5 md:p-6 active:bg-slate-800/60 md:hover:bg-slate-800/60 active:scale-[0.98] md:hover:scale-[1.02] transition-all text-left relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform"></div>
-            
             <div className="relative">
               <div className="text-4xl md:text-5xl mb-3 md:mb-4">⚙️</div>
-              <h2 className="text-white font-black text-lg md:text-xl mb-1 md:mb-2 tracking-tight">
-                Regole Lega
-              </h2>
-              <p className="text-slate-400 text-xs md:text-sm mb-3 md:mb-4">
-                Modificatore, bonus, moduli consentiti
-              </p>
-              
+              <h2 className="text-white font-black text-lg md:text-xl mb-1 md:mb-2 tracking-tight">Regole Lega</h2>
+              <p className="text-slate-400 text-xs md:text-sm mb-3 md:mb-4">Modificatore, bonus, moduli consentiti</p>
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${hasRules ? 'bg-emerald-400' : 'bg-yellow-400'}`}></div>
                 <span className={`text-[10px] md:text-xs font-bold ${hasRules ? 'text-emerald-400' : 'text-yellow-400'}`}>
@@ -81,22 +88,15 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
             </div>
           </button>
 
-          {/* PANNELLO 2: La Mia Squadra */}
           <button
             onClick={() => onNavigate('roster')}
             className="group bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10 p-5 md:p-6 active:bg-slate-800/60 md:hover:bg-slate-800/60 active:scale-[0.98] md:hover:scale-[1.02] transition-all text-left relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-400/10 to-transparent rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform"></div>
-            
             <div className="relative">
               <div className="text-4xl md:text-5xl mb-3 md:mb-4">👥</div>
-              <h2 className="text-white font-black text-lg md:text-xl mb-1 md:mb-2 tracking-tight">
-                La Mia Squadra
-              </h2>
-              <p className="text-slate-400 text-xs md:text-sm mb-3 md:mb-4">
-                Aggiungi o modifica i giocatori della rosa
-              </p>
-              
+              <h2 className="text-white font-black text-lg md:text-xl mb-1 md:mb-2 tracking-tight">La Mia Squadra</h2>
+              <p className="text-slate-400 text-xs md:text-sm mb-3 md:mb-4">Aggiungi o modifica i giocatori della rosa</p>
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${isRosterComplete ? 'bg-emerald-400' : 'bg-yellow-400'}`}></div>
                 <span className={`text-[10px] md:text-xs font-bold ${isRosterComplete ? 'text-emerald-400' : 'text-yellow-400'}`}>
@@ -106,7 +106,6 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
             </div>
           </button>
 
-          {/* PANNELLO 3: Formazione Consigliata */}
           <button
             onClick={() => onNavigate('dashboard')}
             disabled={!isRosterComplete}
@@ -117,16 +116,10 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
             }`}
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-400/20 to-transparent rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform"></div>
-            
             <div className="relative">
               <div className="text-4xl md:text-5xl mb-3 md:mb-4">🏆</div>
-              <h2 className="text-white font-black text-lg md:text-xl mb-1 md:mb-2 tracking-tight">
-                Formazione Consigliata
-              </h2>
-              <p className="text-slate-400 text-xs md:text-sm mb-3 md:mb-4">
-                Scopri la formazione ottimale per la giornata
-              </p>
-              
+              <h2 className="text-white font-black text-lg md:text-xl mb-1 md:mb-2 tracking-tight">Formazione Consigliata</h2>
+              <p className="text-slate-400 text-xs md:text-sm mb-3 md:mb-4">Scopri la formazione ottimale per la giornata</p>
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${isRosterComplete ? 'bg-emerald-400' : 'bg-slate-600'}`}></div>
                 <span className={`text-[10px] md:text-xs font-bold ${isRosterComplete ? 'text-emerald-400' : 'text-slate-500'}`}>
@@ -135,8 +128,51 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
               </div>
             </div>
           </button>
-
         </div>
+
+        {/* 🔥 SEZIONE INFORTUNATI */}
+        {infortunatiOrdinati.length > 0 && (
+          <div className="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-red-500/20 overflow-hidden mb-6 md:mb-8">
+            <div className="px-4 md:px-6 py-3 md:py-4 bg-gradient-to-r from-red-500/20 via-red-500/10 to-transparent border-b border-red-500/20 flex items-center justify-between">
+              <h3 className="text-white font-bold flex items-center gap-2 text-sm md:text-base tracking-wide uppercase">
+                <span className="text-xl md:text-2xl">🏥</span> Infortunati Serie A
+              </h3>
+              <span className="text-red-400 font-black text-lg md:text-2xl">{infortunatiOrdinati.length}</span>
+            </div>
+            
+            {dataAggiornamento && (
+              <div className="px-4 md:px-6 py-2 bg-slate-800/40 border-b border-white/5">
+                <p className="text-slate-500 text-[10px] md:text-xs">
+                  Aggiornato: {new Date(dataAggiornamento).toLocaleString('it-IT', { 
+                    day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' 
+                  })}
+                </p>
+              </div>
+            )}
+            
+            <div className="max-h-[400px] overflow-y-auto">
+              <div className="p-2 md:p-3 space-y-1.5">
+                {infortunatiOrdinati.map(({ nome, infortunio }) => {
+                  const colori = getStatoColor(infortunio.stato);
+                  return (
+                    <div
+                      key={nome}
+                      className={`flex items-center gap-2 md:gap-3 p-2.5 md:p-3 rounded-lg ${colori.bg} border ${colori.border}`}
+                    >
+                      <span className="text-base md:text-lg flex-shrink-0">{colori.emoji}</span>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-white text-xs md:text-sm font-semibold truncate">{nome}</div>
+                        <div className="text-slate-400 text-[10px] md:text-xs truncate">
+                          {infortunio.squadra} • Rientro: <span className={`font-bold ${colori.text}`}>{infortunio.rientro}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Info Banner */}
         <div className="bg-gradient-to-r from-emerald-500/10 via-green-500/5 to-transparent backdrop-blur-md rounded-xl md:rounded-2xl border border-emerald-500/20 p-4 md:p-6 relative overflow-hidden">
@@ -144,9 +180,7 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
           <div className="flex items-start gap-3 pl-2">
             <span className="text-2xl md:text-3xl">💡</span>
             <div>
-              <h3 className="text-emerald-400 font-bold mb-1 md:mb-2 text-sm md:text-base tracking-wide uppercase">
-                Come funziona
-              </h3>
+              <h3 className="text-emerald-400 font-bold mb-1 md:mb-2 text-sm md:text-base tracking-wide uppercase">Come funziona</h3>
               <ol className="text-slate-300 text-xs md:text-sm leading-relaxed space-y-1">
                 <li>1️⃣ Configura le regole della tua lega</li>
                 <li>2️⃣ Aggiungi i giocatori della tua rosa</li>
@@ -156,7 +190,6 @@ export default function Home({ roster, rules, listoneStatus, onNavigate }: HomeP
           </div>
         </div>
 
-        {/* Footer */}
         <div className="text-center mt-6 md:mt-8">
           <p className="text-slate-600 text-[10px] md:text-xs">
             🤖 Dati aggiornati automaticamente da Fantacalcio.it ogni 2 ore
