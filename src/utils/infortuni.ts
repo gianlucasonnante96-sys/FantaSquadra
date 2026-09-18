@@ -36,10 +36,6 @@ function normalizza(nome: string): string {
 
 /**
  * Cerca un infortunio per un giocatore.
- * Match su:
- * 1. Nome completo
- * 2. Cognome (ultima parola)
- * 3. Prima parola (spesso il cognome per i portieri)
  */
 export function cercaInfortunio(player: Player | undefined | null): Infortunio | null {
   if (!player) return null;
@@ -62,11 +58,10 @@ export function cercaInfortunio(player: Player | undefined | null): Infortunio |
       }
     }
     
-    // 2. Match per cognome (con lunghezza minima per evitare falsi positivi)
+    // 2. Match per cognome
     if (playerSurname.length >= 4) {
       for (const [chiave, inf] of Object.entries(dati.infortunati)) {
         const chiaveNorm = normalizza(chiave);
-        // "sulemana k" inizia con "sulemana"
         if (chiaveNorm.startsWith(playerSurname + ' ') || chiaveNorm === playerSurname) {
           return inf;
         }
@@ -89,26 +84,17 @@ export function cercaInfortunio(player: Player | undefined | null): Infortunio |
   }
 }
 
-/**
- * Verifica se un giocatore è infortunato (out o out-lungo).
- */
 export function isInfortunato(player: Player | undefined | null): boolean {
   const inf = cercaInfortunio(player);
   if (!inf) return false;
   return inf.stato === 'out' || inf.stato === 'out-lungo';
 }
 
-/**
- * Verifica se un giocatore è in dubbio (da valutare).
- */
 export function isInDubbio(player: Player | undefined | null): boolean {
   const inf = cercaInfortunio(player);
   return inf?.stato === 'dubbio';
 }
 
-/**
- * Restituisce la data di aggiornamento del file infortuni.
- */
 export function getDataAggiornamentoInfortuni(): string | null {
   try {
     const dati = infortuniData as unknown as InfortuniFile;
@@ -120,7 +106,6 @@ export function getDataAggiornamentoInfortuni(): string | null {
 
 /**
  * Restituisce la lista completa degli infortunati.
- * Utile per la sezione dedicata nella Home.
  */
 export function getTuttiInfortunati(): Array<{ nome: string; infortunio: Infortunio }> {
   try {
@@ -131,6 +116,49 @@ export function getTuttiInfortunati(): Array<{ nome: string; infortunio: Infortu
       nome,
       infortunio: inf,
     }));
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * 🔥 NUOVO: Raggruppa gli infortunati per squadra in ordine alfabetico.
+ */
+export interface SquadraInfortunati {
+  squadra: string;
+  giocatori: Array<{ nome: string; infortunio: Infortunio }>;
+}
+
+export function getInfortunatiPerSquadra(): SquadraInfortunati[] {
+  try {
+    const infortunati = getTuttiInfortunati();
+    if (infortunati.length === 0) return [];
+    
+    // Raggruppa per squadra
+    const mappa = new Map<string, Array<{ nome: string; infortunio: Infortunio }>>();
+    
+    for (const item of infortunati) {
+      const squadra = item.infortunio.squadra || 'Sconosciuta';
+      if (!mappa.has(squadra)) mappa.set(squadra, []);
+      mappa.get(squadra)!.push(item);
+    }
+    
+    // Ordina le squadre alfabeticamente
+    const squadre = Array.from(mappa.entries())
+      .map(([squadra, giocatori]) => {
+        // Ordina anche i giocatori dentro ogni squadra per stato (out, out-lungo, dubbio)
+        const ordineStato: Record<string, number> = { 'out': 1, 'out-lungo': 2, 'dubbio': 3 };
+        const giocatoriOrdinati = giocatori.sort((a, b) => {
+          const ordA = ordineStato[a.infortunio.stato] || 99;
+          const ordB = ordineStato[b.infortunio.stato] || 99;
+          if (ordA !== ordB) return ordA - ordB;
+          return a.nome.localeCompare(b.nome, 'it');
+        });
+        return { squadra, giocatori: giocatoriOrdinati };
+      })
+      .sort((a, b) => a.squadra.localeCompare(b.squadra, 'it'));
+    
+    return squadre;
   } catch {
     return [];
   }
