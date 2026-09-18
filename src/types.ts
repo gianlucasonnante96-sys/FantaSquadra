@@ -8,12 +8,12 @@ export interface Player {
   role: Role;
   fantamedia: number;
   mediaVoto: number;
-  titolarita: number; // percentage 0-100
-  forma: number[]; // last 5 match ratings
+  titolarita: number;
+  forma: number[];
   inCasa: boolean;
   avversario: string;
-  difficoltaAvversario: number; // 1-5
-  cleanSheetOdds: number; // 0-1 for goalkeepers
+  difficoltaAvversario: number;
+  cleanSheetOdds: number;
   isStarter: boolean;
 }
 
@@ -43,4 +43,4 @@ export interface Formation {
   explanation: string;
 }
 
-export type AppStep = 'home' | 'setup' | 'roster' | 'dashboard';
+export type AppStep = 'home' | 'setup' | 'roster' | 'dashboard' | 'infortunati';
