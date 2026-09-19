@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-19T15:10:30.922Z",
+  "aggiornato": "2026-09-19T17:09:37.628Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -3726,57 +3726,57 @@
         "giocatori": [
           {
             "nome": "Svilar",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mancini",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "N'Dicka",
-            "perc": 55,
+            "nome": "Balerdi",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Hermoso",
-            "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Molina N.",
-            "perc": 55,
-            "starter": true
-          },
-          {
-            "nome": "Cristante",
-            "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Konè M.",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Wesley",
-            "perc": 90,
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Cristante",
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Konè M.",
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Molina N.",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Soulè",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Dybala",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Malen",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -3790,7 +3790,7 @@
             "starter": false
           },
           {
-            "nome": "Balerdi",
+            "nome": "N'Dicka",
             "perc": 50,
             "starter": false
           },
@@ -3847,57 +3847,57 @@
         "giocatori": [
           {
             "nome": "Martinez Jo.",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Bisseck",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Akanji",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Bastoni",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Diouf",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Barella",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Zielinski",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Jones C.",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Dimarco",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Thuram",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Martinez L.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -3918,11 +3918,6 @@
           {
             "nome": "Carlos Augusto",
             "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Spence",
-            "perc": 15,
             "starter": false
           },
           {
@@ -5000,13 +4995,8 @@
             "starter": true
           },
           {
-            "nome": "Grabara",
-            "perc": 5,
-            "starter": false
-          },
-          {
             "nome": "Pinsoglio",
-            "perc": 1,
+            "perc": 5,
             "starter": false
           },
           {
@@ -5371,11 +5361,6 @@
             "starter": false
           },
           {
-            "nome": "Penev",
-            "perc": 1,
-            "starter": false
-          },
-          {
             "nome": "Ndaba",
             "perc": 40,
             "starter": false
@@ -5417,6 +5402,11 @@
           },
           {
             "nome": "Fofana Sa.",
+            "perc": 30,
+            "starter": false
+          },
+          {
+            "nome": "Esteban",
             "perc": 30,
             "starter": false
           },

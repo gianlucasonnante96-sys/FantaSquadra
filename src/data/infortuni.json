@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-19T15:11:09.205Z",
+  "aggiornato": "2026-09-19T17:10:15.569Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -104,6 +104,12 @@
       "rientro": "01/01",
       "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da gennaio."
     },
+    "Grabara": {
+      "squadra": "Juventus",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il portiere fermo per una lesione al crociato anteriore del ginocchio destro. Out domenica contro l'Atalanta, tempi di recupero da valutare."
+    },
     "Thuram K.": {
       "squadra": "Juventus",
       "stato": "out-lungo",
@@ -122,17 +128,17 @@
       "rientro": "30/11",
       "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro, stop di circa tre mesi. Ipotesi di rientro in campo da fine novembre."
     },
-    "Rovella": {
-      "squadra": "Lazio",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio che lo terrà ai box fino alla prima metà di ottobre."
-    },
     "Marusic": {
       "squadra": "Lazio",
       "stato": "out",
       "rientro": "01/10",
       "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Ipotesi rientro da inizio ottobre."
+    },
+    "Rovella": {
+      "squadra": "Lazio",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio che lo terrà ai box fino alla prima metà di ottobre."
     },
     "Dele-Bashiru": {
       "squadra": "Lazio",
