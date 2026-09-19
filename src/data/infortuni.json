@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-19T13:11:28.563Z",
+  "aggiornato": "2026-09-19T15:11:09.205Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -208,9 +208,9 @@
     },
     "Marianucci": {
       "squadra": "Napoli",
-      "stato": "dubbio",
-      "rientro": "01/08",
-      "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Tempi di recupero da valutare, ma rischia uno stop di almeno due mesi."
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla metà di ottobre."
     },
     "McTominay": {
       "squadra": "Napoli",
