@@ -1,12 +1,12 @@
 {
-  "aggiornato": "2026-09-19T11:10:16.031Z",
+  "aggiornato": "2026-09-19T13:11:28.563Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
-    "Sulemana K.": {
+    "Kossounou": {
       "squadra": "Atalanta",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro, recuperabile da inizio ottobre."
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il difensore frenato sabato mattina da un risentimento muscolare ai flessori della coscia sinistra, assente domenica dunque contro la Juventus. Da valutare durante la sosta in vista della 6a giornata di campionato."
     },
     "Hien": {
       "squadra": "Atalanta",
@@ -14,23 +14,29 @@
       "rientro": "30/06",
       "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla metà di ottobre."
     },
+    "Sulemana K.": {
+      "squadra": "Atalanta",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro, recuperabile da inizio ottobre."
+    },
     "Dovbyk": {
       "squadra": "Bologna",
       "stato": "out",
       "rientro": "01/10",
       "descrizione": "L'attaccante non al meglio per noie muscolari al flessore, assente contro Napoli e Torino. Recuperabile dall'inizio di ottobre."
     },
-    "Idrissi R.": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
-    },
     "Felici": {
       "squadra": "Cagliari",
       "stato": "out-lungo",
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
+    },
+    "Idrissi R.": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
     },
     "Trepy": {
       "squadra": "Cagliari",
@@ -44,17 +50,17 @@
       "rientro": "01/11",
       "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da novembre."
     },
-    "Terzic": {
-      "squadra": "Frosinone",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "Il terzino dei ciociari ai box per una lesione di basso grado del bicipite femorale della coscia sinistra, recuperabile dall'inizio di ottobre."
-    },
     "Grillitsch": {
       "squadra": "Frosinone",
       "stato": "out",
       "rientro": "N/D",
       "descrizione": "il centrocampista non convocato per Genova a causa di una sindrome retto-adduttoria. Salterà anche la sfida contro il Como in programma domenica e dovrebbe tornare arruolabile dalla 6a giornata di A."
+    },
+    "Terzic": {
+      "squadra": "Frosinone",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "Il terzino dei ciociari ai box per una lesione di basso grado del bicipite femorale della coscia sinistra, recuperabile dall'inizio di ottobre."
     },
     "Havel": {
       "squadra": "Genoa",
@@ -116,29 +122,35 @@
       "rientro": "30/11",
       "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro, stop di circa tre mesi. Ipotesi di rientro in campo da fine novembre."
     },
-    "Marusic": {
-      "squadra": "Lazio",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Ipotesi rientro da inizio ottobre."
-    },
     "Rovella": {
       "squadra": "Lazio",
       "stato": "out",
       "rientro": "15/10",
       "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio che lo terrà ai box fino alla prima metà di ottobre."
     },
+    "Marusic": {
+      "squadra": "Lazio",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Ipotesi rientro da inizio ottobre."
+    },
+    "Dele-Bashiru": {
+      "squadra": "Lazio",
+      "stato": "out",
+      "rientro": "01/08",
+      "descrizione": "il centrocampista in recupero da un guaio muscolare alla gamba lamentato il 24 agosto a Bologna. Si confida di riaverlo a disposizione dalla 6a giornata di campionato."
+    },
     "Berisha M.": {
       "squadra": "Lecce",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte al match di domenica scorsa in casa contro il Monza. Da valutare in settimana verso la sfida contro il Milan in trasferta nella 5a giornata di campionato."
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte alle sfide contro Monza e Milan. Recuperabile da inizio ottobre."
     },
     "Gandelman": {
       "squadra": "Lecce",
       "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il centrocampista fuori causa domenica scorsa contro il Monza per noie fisiche. Da valutare in vista della prossima giornata di campionato, domenica sera a Milano contro i rossoneri."
+      "rientro": "15/09",
+      "descrizione": "Il centrocampista fuori causa da metà settembre contro il Monza per noie fisiche e out anche domenica a Milano. Da valutare in vista della prossima giornata di campionato, dopo la sosta."
     },
     "Geubbels": {
       "squadra": "Lecce",
@@ -164,11 +176,11 @@
       "rientro": "In settimana",
       "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, di certo assente nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Meret": {
+    "Buongiorno": {
       "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "Il portiere uscito claudicante dal match di mercoledì in Champions League per una lesione di basso grado all'adduttore lungo. Recuperabile dall'inizio di ottobre."
+      "stato": "out-lungo",
+      "rientro": "15/07",
+      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da metà novembre."
     },
     "Giovane": {
       "squadra": "Napoli",
@@ -182,11 +194,17 @@
       "rientro": "15/10",
       "descrizione": "Il brasiliano costretto al cambio il 9 settembre in Champions League vittima di una lesione muscolare di medio grado al bicipite femorale sinistro. Proverà a tornare arruolabile dalla seconda metà di ottobre."
     },
-    "Buongiorno": {
+    "Spinazzola": {
       "squadra": "Napoli",
-      "stato": "out-lungo",
-      "rientro": "15/07",
-      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da metà novembre."
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il difensore azzurro da venerdì non si allena per una lieve contrattura al bicipite femorale della coscia destra, che lo esclude per domenica a Firenze. Da valutare nella sosta in vista della 6a giornata di campionato."
+    },
+    "Meret": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "Il portiere uscito claudicante dal match di mercoledì in Champions League per una lesione di basso grado all'adduttore lungo. Recuperabile dall'inizio di ottobre."
     },
     "Marianucci": {
       "squadra": "Napoli",
@@ -194,17 +212,17 @@
       "rientro": "01/08",
       "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Tempi di recupero da valutare, ma rischia uno stop di almeno due mesi."
     },
-    "Spinazzola": {
-      "squadra": "Napoli",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il difensore azzurro venerdì non si è allenato per una lieve contrattura al bicipite femorale della coscia destra, che mette a forte rischio la sua convocazione per domenica a Firenze. Da valutare."
-    },
     "McTominay": {
       "squadra": "Napoli",
       "stato": "out",
       "rientro": "15/10",
       "descrizione": "Il centrocampista l'1 settembre a causa di una lieve aritmia benigna ha deciso di sottoporsi a un intervento di correzione tramite ablazione. Si confida di rivederlo in campo da metà ottobre."
+    },
+    "Bernabè": {
+      "squadra": "Parma",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "niente da fare per il centrocampista, ancora condizionato da noie fisiche e non fa parte dei convocati per domenica contro il Genoa. Da valutare nella sosta in vista della 6a giornata di campionato."
     },
     "Nicolussi Caviglia": {
       "squadra": "Parma",
@@ -260,6 +278,18 @@
       "rientro": "15/09",
       "descrizione": "L'attaccante frenato a metà settembre da una lesione distrattiva di basso grado all'adduttore, forfait contro Roma e Bologna. Punta a recuperare nella sosta per essere poi arruolabile dalla prima metà di ottobre."
     },
+    "Arizala": {
+      "squadra": "Udinese",
+      "stato": "dubbio",
+      "rientro": "15/10",
+      "descrizione": "il difensore fermo dal 6 settembre vittima di una lesione muscolare al bicipite femorale. Condizioni da valutare, ma dovrebbe tornare convocabile dalla prima metà di ottobre."
+    },
+    "Piotrowski": {
+      "squadra": "Udinese",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "Il centrocampista ha ravvisato il 7 settembre contro la Lazio una lieve aritmia cardiaca benigna e si sottoporrà nei prossimi giorni ad un intervento di ablazione cardiaca. Osservato un periodo di riposo, potrà tornare alla regolare attività agonistica (ipotizziamo da fine ottobre)."
+    },
     "Solet": {
       "squadra": "Udinese",
       "stato": "out",
@@ -271,18 +301,6 @@
       "stato": "out",
       "rientro": "30/09",
       "descrizione": "il difensore nel primo turno di A contro il Como costretto al cambio per un lieve problema muscolare all'adduttore della coscia destra che lo terrà ai box fino alla fine di settembre."
-    },
-    "Piotrowski": {
-      "squadra": "Udinese",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "Il centrocampista ha ravvisato il 7 settembre contro la Lazio una lieve aritmia cardiaca benigna e si sottoporrà nei prossimi giorni ad un intervento di ablazione cardiaca. Osservato un periodo di riposo, potrà tornare alla regolare attività agonistica (ipotizziamo da fine ottobre)."
-    },
-    "Arizala": {
-      "squadra": "Udinese",
-      "stato": "dubbio",
-      "rientro": "15/10",
-      "descrizione": "il difensore fermo dal 6 settembre vittima di una lesione muscolare al bicipite femorale. Condizioni da valutare, ma dovrebbe tornare convocabile dalla prima metà di ottobre."
     },
     "Busio": {
       "squadra": "Venezia",
