@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-19T19:09:22.568Z",
+  "aggiornato": "2026-09-19T21:10:27.926Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
@@ -28,6 +28,19 @@
         "D"
       ]
     },
+    "Lazio": {
+      "punti": 13,
+      "g": 5,
+      "gf": 8,
+      "gs": 3,
+      "forma": [
+        "W",
+        "W",
+        "W",
+        "D",
+        "W"
+      ]
+    },
     "Cagliari": {
       "punti": 12,
       "g": 5,
@@ -51,18 +64,6 @@
         "W",
         "W",
         "W"
-      ]
-    },
-    "Lazio": {
-      "punti": 10,
-      "g": 4,
-      "gf": 6,
-      "gs": 3,
-      "forma": [
-        "W",
-        "W",
-        "W",
-        "D"
       ]
     },
     "Milan": {
@@ -240,10 +241,11 @@
     },
     "Venezia": {
       "punti": 0,
-      "g": 4,
+      "g": 5,
       "gf": 4,
-      "gs": 11,
+      "gs": 13,
       "forma": [
+        "L",
         "L",
         "L",
         "L",
