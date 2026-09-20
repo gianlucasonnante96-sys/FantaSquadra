@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-20T11:10:22.059Z",
+  "aggiornato": "2026-09-20T13:10:06.899Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
@@ -102,6 +102,19 @@
         "L"
       ]
     },
+    "Napoli": {
+      "punti": 7,
+      "g": 5,
+      "gf": 7,
+      "gs": 6,
+      "forma": [
+        "W",
+        "L",
+        "L",
+        "W",
+        "D"
+      ]
+    },
     "Sassuolo": {
       "punti": 7,
       "g": 5,
@@ -113,18 +126,6 @@
         "D",
         "W",
         "L"
-      ]
-    },
-    "Napoli": {
-      "punti": 6,
-      "g": 4,
-      "gf": 6,
-      "gs": 5,
-      "forma": [
-        "W",
-        "L",
-        "L",
-        "W"
       ]
     },
     "Atalanta": {
@@ -191,15 +192,16 @@
       ]
     },
     "Fiorentina": {
-      "punti": 3,
-      "g": 4,
-      "gf": 5,
-      "gs": 11,
+      "punti": 4,
+      "g": 5,
+      "gf": 6,
+      "gs": 12,
       "forma": [
         "L",
         "L",
         "L",
-        "W"
+        "W",
+        "D"
       ]
     },
     "Bologna": {
