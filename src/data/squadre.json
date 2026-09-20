@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-20T13:10:06.899Z",
+  "aggiornato": "2026-09-20T15:10:40.525Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
@@ -54,16 +54,30 @@
         "W"
       ]
     },
-    "Como": {
+    "Frosinone": {
       "punti": 10,
-      "g": 4,
+      "g": 5,
       "gf": 9,
       "gs": 4,
+      "forma": [
+        "L",
+        "W",
+        "W",
+        "D",
+        "W"
+      ]
+    },
+    "Como": {
+      "punti": 10,
+      "g": 5,
+      "gf": 9,
+      "gs": 6,
       "forma": [
         "D",
         "W",
         "W",
-        "W"
+        "W",
+        "L"
       ]
     },
     "Milan": {
@@ -75,18 +89,6 @@
         "W",
         "W",
         "D",
-        "D"
-      ]
-    },
-    "Frosinone": {
-      "punti": 7,
-      "g": 4,
-      "gf": 7,
-      "gs": 4,
-      "forma": [
-        "L",
-        "W",
-        "W",
         "D"
       ]
     },
@@ -178,6 +180,19 @@
         "D"
       ]
     },
+    "Parma": {
+      "punti": 4,
+      "g": 5,
+      "gf": 4,
+      "gs": 7,
+      "forma": [
+        "L",
+        "L",
+        "D",
+        "L",
+        "W"
+      ]
+    },
     "Monza": {
       "punti": 4,
       "g": 5,
@@ -217,28 +232,17 @@
         "D"
       ]
     },
-    "Parma": {
+    "Genoa": {
       "punti": 1,
-      "g": 4,
-      "gf": 2,
-      "gs": 6,
+      "g": 5,
+      "gf": 3,
+      "gs": 10,
       "forma": [
+        "L",
         "L",
         "L",
         "D",
         "L"
-      ]
-    },
-    "Genoa": {
-      "punti": 1,
-      "g": 4,
-      "gf": 2,
-      "gs": 8,
-      "forma": [
-        "L",
-        "L",
-        "L",
-        "D"
       ]
     },
     "Venezia": {
