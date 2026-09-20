@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-20T19:10:07.512Z",
+  "aggiornato": "2026-09-20T21:10:21.762Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
@@ -54,6 +54,19 @@
         "W"
       ]
     },
+    "Milan": {
+      "punti": 11,
+      "g": 5,
+      "gf": 10,
+      "gs": 4,
+      "forma": [
+        "W",
+        "W",
+        "D",
+        "D",
+        "W"
+      ]
+    },
     "Frosinone": {
       "punti": 10,
       "g": 5,
@@ -93,18 +106,6 @@
         "L"
       ]
     },
-    "Milan": {
-      "punti": 8,
-      "g": 4,
-      "gf": 7,
-      "gs": 4,
-      "forma": [
-        "W",
-        "W",
-        "D",
-        "D"
-      ]
-    },
     "Napoli": {
       "punti": 7,
       "g": 5,
@@ -131,18 +132,6 @@
         "L"
       ]
     },
-    "Lecce": {
-      "punti": 6,
-      "g": 4,
-      "gf": 5,
-      "gs": 7,
-      "forma": [
-        "W",
-        "L",
-        "L",
-        "W"
-      ]
-    },
     "Atalanta": {
       "punti": 6,
       "g": 5,
@@ -153,6 +142,19 @@
         "W",
         "L",
         "L",
+        "L"
+      ]
+    },
+    "Lecce": {
+      "punti": 6,
+      "g": 5,
+      "gf": 5,
+      "gs": 10,
+      "forma": [
+        "W",
+        "L",
+        "L",
+        "W",
         "L"
       ]
     },
