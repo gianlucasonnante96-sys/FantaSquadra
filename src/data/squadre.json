@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-20T17:10:00.913Z",
+  "aggiornato": "2026-09-20T19:10:07.512Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Roma": {
@@ -67,6 +67,19 @@
         "W"
       ]
     },
+    "Juventus": {
+      "punti": 10,
+      "g": 5,
+      "gf": 8,
+      "gs": 4,
+      "forma": [
+        "W",
+        "W",
+        "D",
+        "L",
+        "W"
+      ]
+    },
     "Como": {
       "punti": 10,
       "g": 5,
@@ -90,18 +103,6 @@
         "W",
         "D",
         "D"
-      ]
-    },
-    "Juventus": {
-      "punti": 7,
-      "g": 4,
-      "gf": 6,
-      "gs": 4,
-      "forma": [
-        "W",
-        "W",
-        "D",
-        "L"
       ]
     },
     "Napoli": {
@@ -130,18 +131,6 @@
         "L"
       ]
     },
-    "Atalanta": {
-      "punti": 6,
-      "g": 4,
-      "gf": 5,
-      "gs": 5,
-      "forma": [
-        "W",
-        "W",
-        "L",
-        "L"
-      ]
-    },
     "Lecce": {
       "punti": 6,
       "g": 4,
@@ -152,6 +141,19 @@
         "L",
         "L",
         "W"
+      ]
+    },
+    "Atalanta": {
+      "punti": 6,
+      "g": 5,
+      "gf": 5,
+      "gs": 7,
+      "forma": [
+        "W",
+        "W",
+        "L",
+        "L",
+        "L"
       ]
     },
     "Udinese": {

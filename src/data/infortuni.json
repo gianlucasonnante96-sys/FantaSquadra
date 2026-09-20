@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-20T17:10:06.230Z",
+  "aggiornato": "2026-09-20T19:10:13.062Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -26,17 +26,17 @@
       "rientro": "01/10",
       "descrizione": "L'attaccante non al meglio per noie muscolari al flessore, assente contro Napoli e Torino. Recuperabile dall'inizio di ottobre."
     },
-    "Felici": {
-      "squadra": "Cagliari",
-      "stato": "out-lungo",
-      "rientro": "01/03",
-      "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
-    },
     "Idrissi R.": {
       "squadra": "Cagliari",
       "stato": "out",
       "rientro": "30/10",
       "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
+    },
+    "Felici": {
+      "squadra": "Cagliari",
+      "stato": "out-lungo",
+      "rientro": "01/03",
+      "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
     },
     "Trepy": {
       "squadra": "Cagliari",
@@ -145,6 +145,12 @@
       "stato": "out",
       "rientro": "01/08",
       "descrizione": "il centrocampista in recupero da un guaio muscolare alla gamba lamentato il 24 agosto a Bologna. Si confida di riaverlo a disposizione dalla 6a giornata di campionato."
+    },
+    "Tiago Gabriel": {
+      "squadra": "Lecce",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Non disponibile con il Milan a causa di un forte torcicollo"
     },
     "Berisha M.": {
       "squadra": "Lecce",
@@ -290,11 +296,11 @@
       "rientro": "15/10",
       "descrizione": "il difensore fermo dal 6 settembre vittima di una lesione muscolare al bicipite femorale. Condizioni da valutare, ma dovrebbe tornare convocabile dalla prima metà di ottobre."
     },
-    "Piotrowski": {
+    "Palma": {
       "squadra": "Udinese",
       "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "Il centrocampista ha ravvisato il 7 settembre contro la Lazio una lieve aritmia cardiaca benigna e si sottoporrà nei prossimi giorni ad un intervento di ablazione cardiaca. Osservato un periodo di riposo, potrà tornare alla regolare attività agonistica (ipotizziamo da fine ottobre)."
+      "rientro": "30/09",
+      "descrizione": "il difensore nel primo turno di A contro il Como costretto al cambio per un lieve problema muscolare all'adduttore della coscia destra che lo terrà ai box fino alla fine di settembre."
     },
     "Solet": {
       "squadra": "Udinese",
@@ -302,11 +308,17 @@
       "rientro": "30/09",
       "descrizione": "il difensore il 7 settembre contro la Lazio costretto al cambio per una lesione al muscolo pettineo della gamba sinistra, è recuperabile dalla fine di settembre."
     },
-    "Palma": {
+    "Piotrowski": {
       "squadra": "Udinese",
       "stato": "out",
-      "rientro": "30/09",
-      "descrizione": "il difensore nel primo turno di A contro il Como costretto al cambio per un lieve problema muscolare all'adduttore della coscia destra che lo terrà ai box fino alla fine di settembre."
+      "rientro": "30/10",
+      "descrizione": "Il centrocampista ha ravvisato il 7 settembre contro la Lazio una lieve aritmia cardiaca benigna e si sottoporrà nei prossimi giorni ad un intervento di ablazione cardiaca. Osservato un periodo di riposo, potrà tornare alla regolare attività agonistica (ipotizziamo da fine ottobre)."
+    },
+    "Basic": {
+      "squadra": "Venezia",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il centrocampista out contro Frosinone e Fiorentina per noie fisiche, rimane da valutare quotidianamente in vista di sabato sera in casa contro la Lazio nella 5a giornata di campionato."
     },
     "Busio": {
       "squadra": "Venezia",
@@ -343,12 +355,6 @@
       "stato": "out-lungo",
       "rientro": "30/08",
       "descrizione": "il difensore costretto al cambio a Milano contro i rossoneri a fine agosto per un guaio alla spalla che ha richiesto l'intervento chirurgico. Lungo stop e rientro dalla metà di dicembre."
-    },
-    "Basic": {
-      "squadra": "Venezia",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il centrocampista out contro Frosinone e Fiorentina per noie fisiche, rimane da valutare quotidianamente in vista di sabato sera in casa contro la Lazio nella 5a giornata di campionato."
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-20T17:09:27.951Z",
+  "aggiornato": "2026-09-20T19:09:34.810Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5166,57 +5166,57 @@
         "giocatori": [
           {
             "nome": "Maignan",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Gila",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "De Winter",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Pavlovic",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Chukwueze",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Modric",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Rabiot",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Estupinan",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Pulisic",
-            "perc": 65,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Saelemaekers",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ramos G.",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
@@ -5302,57 +5302,57 @@
         "giocatori": [
           {
             "nome": "Falcone",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Veiga D.",
-            "perc": 90,
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Gaspar K.",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Siebert",
-            "perc": 55,
-            "starter": true
-          },
-          {
-            "nome": "Tiago Gabriel",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Gallo",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Coulibaly L.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ilic",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Maleh",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "N'Dri",
-            "perc": 55,
+            "nome": "Pierotti",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Stulic",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Monteiro J.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -5368,11 +5368,6 @@
           {
             "nome": "Dembelè A.",
             "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "Gaspar K.",
-            "perc": 60,
             "starter": false
           },
           {
@@ -5396,13 +5391,13 @@
             "starter": false
           },
           {
-            "nome": "Pierotti",
-            "perc": 60,
+            "nome": "Fofana Sa.",
+            "perc": 30,
             "starter": false
           },
           {
-            "nome": "Fofana Sa.",
-            "perc": 30,
+            "nome": "N'Dri",
+            "perc": 55,
             "starter": false
           },
           {
