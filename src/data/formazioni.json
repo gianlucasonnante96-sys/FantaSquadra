@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-20T09:10:29.444Z",
+  "aggiornato": "2026-09-20T11:09:48.773Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -4196,57 +4196,57 @@
         "giocatori": [
           {
             "nome": "De Gea",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Jimenez A.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Dragusin",
-            "perc": 65,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ranieri L.",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Viery",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ndour",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Fagioli",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Atta",
-            "perc": 85,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mastantuono",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Njie",
-            "perc": 75,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Beto",
-            "perc": 60,
+            "nome": "Pellegrino M.",
+            "perc": 100,
             "starter": true
           },
           {
@@ -4295,13 +4295,13 @@
             "starter": false
           },
           {
-            "nome": "Gnonto",
-            "perc": 55,
+            "nome": "Beto",
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Pellegrino M.",
-            "perc": 60,
+            "nome": "Gnonto",
+            "perc": 55,
             "starter": false
           }
         ]
@@ -4312,57 +4312,57 @@
         "giocatori": [
           {
             "nome": "Milinkovic-Savic V.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Di Lorenzo",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Rrahmani",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Marin R.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Olivera",
-            "perc": 85,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Gilmour",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Lobotka",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "De Bruyne",
-            "perc": 95,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Politano",
-            "perc": 65,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Hojlund",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Lang",
-            "perc": 55,
+            "perc": 100,
             "starter": true
           },
           {
