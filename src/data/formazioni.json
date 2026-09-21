@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-21T19:10:24.826Z",
+  "aggiornato": "2026-09-21T21:10:26.457Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -6872,7 +6872,7 @@
           },
           {
             "nome": "Piccoli",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -6936,18 +6936,18 @@
             "starter": false
           },
           {
-            "nome": "Libra",
-            "perc": 20,
-            "starter": false
-          },
-          {
             "nome": "Mbangula",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
             "nome": "Enem",
             "perc": 30,
+            "starter": false
+          },
+          {
+            "nome": "Dovbyk",
+            "perc": 60,
             "starter": false
           }
         ]
