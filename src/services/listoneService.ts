@@ -102,36 +102,47 @@ function estimateTitolarita(qa: number): number {
   return 30;
 }
 
-// 🔥 Cerca statistiche per un giocatore (match intelligente)
+// 🔑 Normalizzazione riutilizzabile per ID stabili
+function normalizzaChiaveId(valore: string): string {
+  return safeString(valore)
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '_')
+    .replace(/[^a-z0-9_]/g, '');
+}
+
+// 🔍 Cerca statistiche per un giocatore (match intelligente)
 function cercaStatistiche(nomeListone: string): StatisticaGiocatore | null {
   try {
     const dati = statisticheData as unknown as StatisticheFile;
     if (!dati || !dati.statistiche) return null;
-    
+
     const nomeNorm = nomeListone.toLowerCase().trim();
     if (!nomeNorm) return null;
-    
+
     // 1. Match esatto
     for (const [key, value] of Object.entries(dati.statistiche)) {
       if (key.toLowerCase().trim() === nomeNorm) return value;
     }
-    
+
     // 2. Match per cognome (ultima parola di entrambi)
     const partiListone = nomeNorm.split(/\s+/);
     const cognomeListone = partiListone[partiListone.length - 1];
-    
+
     if (cognomeListone.length >= 4) {
       for (const [key, value] of Object.entries(dati.statistiche)) {
         const keyNorm = key.toLowerCase().trim();
         const partiKey = keyNorm.split(/\s+/);
         const cognomeKey = partiKey[partiKey.length - 1];
-        
+
         if (cognomeListone === cognomeKey || keyNorm.includes(cognomeListone)) {
           return value;
         }
       }
     }
-    
+
     return null;
   } catch (e) {
     return null;
@@ -145,7 +156,7 @@ function cercaStatistiche(nomeListone: string): StatisticaGiocatore | null {
 export function loadListone(): { players: Player[]; status: ListoneStatus } {
   try {
     const dati = listoneData as unknown as ListoneFile;
-    
+
     if (!dati || !Array.isArray(dati.giocatori) || dati.giocatori.length === 0) {
       console.warn('⚠️ listone.json vuoto o malformato');
       return {
@@ -159,30 +170,29 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
         }
       };
     }
-    
+
     let matchTrovati = 0;
     let fmAccettate = 0;
     let fmRifiutate = 0;
-    
-    const players: Player[] = dati.giocatori.map((g, index) => {
+
+    const players: Player[] = dati.giocatori.map((g) => {
       const team = normalizzaTeam(g.squadra);
       const role = normalizzaRole(g.ruolo);
       const { name, surname } = splitName(g.nome);
-      
-      // 🔥 Cerca statistiche reali (MV + FM)
+
+      // 🔍 Cerca statistiche reali (MV + FM)
       const stats = cercaStatistiche(g.nome);
-      
+
       let mediaVoto = 6;
       let fantamedia = 0;
-      
+
       if (stats) {
         matchTrovati++;
-        
-        // 🔥 FIX: accetta FM > 0 (non più >= 4)
+
         if (stats.mediaVoto > 0 && stats.mediaVoto <= 10) {
           mediaVoto = stats.mediaVoto;
         }
-        
+
         if (stats.fantamedia > 0 && stats.fantamedia <= 20) {
           fantamedia = stats.fantamedia;
           fmAccettate++;
@@ -190,14 +200,12 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
           fmRifiutate++;
         }
       }
-      
+
       const titolarita = estimateTitolarita(g.quotazioneAttuale);
-      
-      const id = `fanta_${name}_${surname}_${team}_${index}`
-        .toLowerCase()
-        .replace(/\s+/g, '_')
-        .replace(/[^a-z0-9_]/g, '');
-      
+
+      // 🔑 ID STABILE: basato solo su nome + cognome + squadra (niente index)
+      const id = `fanta_${normalizzaChiaveId(name)}_${normalizzaChiaveId(surname)}_${normalizzaChiaveId(team)}`;
+
       return {
         id,
         name,
@@ -215,17 +223,16 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
         isStarter: g.quotazioneAttuale > 3,
       };
     });
-    
+
     console.log(`✅ Listone caricato: ${players.length} giocatori`);
     console.log(`🎯 Match statistiche: ${matchTrovati}/${players.length}`);
     console.log(`📊 FM accettate: ${fmAccettate}, FM=0 (nessun dato): ${fmRifiutate}`);
-    
-    // 🔍 Log per debug di Okoye
+
     const okoye = players.find(p => (p.surname || '').toLowerCase().includes('okoye'));
     if (okoye) {
       console.log(`🔍 Okoye: FM=${okoye.fantamedia}, MV=${okoye.mediaVoto}`);
     }
-    
+
     return {
       players,
       status: {
@@ -288,7 +295,7 @@ import { getAvversario } from './calendarService';
 
 export function updateAvversari(players: Player[], giornata: number): Player[] {
   if (!Array.isArray(players)) return [];
-  
+
   return players.map(player => {
     if (!player) return player;
     try {
