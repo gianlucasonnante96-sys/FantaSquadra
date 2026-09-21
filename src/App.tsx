@@ -23,35 +23,75 @@ const RULES_KEY = 'fantaconsiglio_rules';
 const ROSTER_KEY = 'fantaconsiglio_roster';
 const STEP_KEY = 'fantaconsiglio_step';
 
+// 🔑 Normalizza una stringa per usarla come chiave (minuscolo, no accenti, no spazi)
+function normalizzaChiave(valore: string): string {
+  return (valore || '')
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '_')
+    .replace(/[^a-z0-9_]/g, '');
+}
+
+// 🔑 Chiave univoca "nome_cognome_squadra" per fallback
+function chiaveNomeGiocatore(p: Player): string {
+  return `${normalizzaChiave(p.name)}_${normalizzaChiave(p.surname)}_${normalizzaChiave(p.team)}`;
+}
+
 function ricollegaRosterAlListone(
   rosterSalvato: Player[],
   listoneFresco: Player[]
 ): Player[] {
   if (!Array.isArray(rosterSalvato) || rosterSalvato.length === 0) return [];
   if (!Array.isArray(listoneFresco) || listoneFresco.length === 0) return rosterSalvato;
-  
-  const mappaListone = new Map<string, Player>();
+
+  // Mappa 1: per ID stabile (nuovo metodo)
+  const mappaPerId = new Map<string, Player>();
+  // Mappa 2: per "nome_cognome_squadra" (fallback per rose con ID vecchi)
+  const mappaPerNome = new Map<string, Player>();
+
   listoneFresco.forEach(p => {
-    if (p && p.id) mappaListone.set(p.id, p);
+    if (!p) return;
+    if (p.id) mappaPerId.set(p.id, p);
+    const k = chiaveNomeGiocatore(p);
+    if (k && k !== '__') mappaPerNome.set(k, p);
   });
-  
+
   let aggiornati = 0;
+  let aggiornatiPerNome = 0;
+
   const rosterAggiornato = rosterSalvato.map(playerSalvato => {
-    if (!playerSalvato || !playerSalvato.id) return playerSalvato;
-    
-    const fresco = mappaListone.get(playerSalvato.id);
+    if (!playerSalvato) return playerSalvato;
+
+    // Tentativo 1: match per ID
+    let fresco = playerSalvato.id ? mappaPerId.get(playerSalvato.id) : undefined;
+
+    // Tentativo 2: match per nome+cognome+squadra
+    if (!fresco) {
+      const k = chiaveNomeGiocatore(playerSalvato);
+      if (k && k !== '__') {
+        fresco = mappaPerNome.get(k);
+        if (fresco) aggiornatiPerNome++;
+      }
+    }
+
     if (fresco) {
       aggiornati++;
       return {
         ...fresco,
+        // mantieni la titolarità eventualmente personalizzata
         titolarita: playerSalvato.titolarita ?? fresco.titolarita,
       };
     }
-    
+
     return playerSalvato;
   });
-  
-  console.log(`🔄 Roster ricollegato: ${aggiornati}/${rosterSalvato.length} giocatori aggiornati dal listone`);
+
+  console.log(
+    `🔄 Roster ricollegato: ${aggiornati}/${rosterSalvato.length} aggiornati ` +
+    `(${aggiornatiPerNome} via nome)`
+  );
   return rosterAggiornato;
 }
 
@@ -96,9 +136,9 @@ export default function App() {
         const rosterParsato = JSON.parse(savedRoster);
         if (Array.isArray(rosterParsato) && rosterParsato.length > 0) {
           console.log('📂 Roster salvato trovato:', rosterParsato.length, 'giocatori');
-          
+
           const rosterAggiornato = ricollegaRosterAlListone(rosterParsato, listoneFresco);
-          
+
           let rosterFinale = rosterAggiornato;
           try {
             rosterFinale = applyProbabiliFormazioni(rosterAggiornato);
@@ -106,7 +146,7 @@ export default function App() {
           } catch (e) {
             console.warn('⚠️ Errore applicazione formazioni:', e);
           }
-          
+
           setRoster(rosterFinale);
         }
       }
@@ -127,7 +167,7 @@ export default function App() {
   useEffect(() => {
     if (!formazioniInizializzate) return;
     if (!Array.isArray(roster) || roster.length === 0) return;
-    
+
     try {
       const rosterAggiornato = applyProbabiliFormazioni(roster);
       setRoster(rosterAggiornato);
