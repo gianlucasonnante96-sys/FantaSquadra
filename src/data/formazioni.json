@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-22T07:10:54.480Z",
+  "aggiornato": "2026-09-22T09:10:46.972Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5956,7 +5956,7 @@
           },
           {
             "nome": "Olivera",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -5971,7 +5971,7 @@
           },
           {
             "nome": "De Bruyne",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -6007,6 +6007,11 @@
           {
             "nome": "Beukema",
             "perc": 40,
+            "starter": false
+          },
+          {
+            "nome": "Spinazzola",
+            "perc": 50,
             "starter": false
           },
           {
