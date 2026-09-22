@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-22T19:09:58.207Z",
+  "aggiornato": "2026-09-22T21:09:56.119Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -7862,7 +7862,7 @@
           },
           {
             "nome": "Abankwah",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -7871,8 +7871,8 @@
             "starter": true
           },
           {
-            "nome": "Ebosse",
-            "perc": 70,
+            "nome": "Solet",
+            "perc": 75,
             "starter": true
           },
           {
@@ -7921,8 +7921,8 @@
             "starter": false
           },
           {
-            "nome": "Solet",
-            "perc": 50,
+            "nome": "Ebosse",
+            "perc": 40,
             "starter": false
           },
           {
