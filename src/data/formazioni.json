@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-22T09:10:46.972Z",
+  "aggiornato": "2026-09-22T11:10:22.268Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -7862,7 +7862,7 @@
           },
           {
             "nome": "Abankwah",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -7932,12 +7932,17 @@
           },
           {
             "nome": "Palma",
-            "perc": 35,
+            "perc": 40,
             "starter": false
           },
           {
             "nome": "Zanoli",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Arizala",
+            "perc": 25,
             "starter": false
           },
           {
