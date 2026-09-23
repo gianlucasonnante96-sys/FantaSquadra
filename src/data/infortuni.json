@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-23T13:13:12.401Z",
+  "aggiornato": "2026-09-23T17:11:17.460Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -32,17 +32,17 @@
       "rientro": "30/10",
       "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
     },
-    "Trepy": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "15/09",
-      "descrizione": "Il calciatore ricoverato il 16 agosto dopo che avrebbe rischiato di annegare in piscina. Dimesso poi il 28 agosto, ora condizioni monitorate da parte dello staff medico rossoblù. Da metà settembre ha avuto l'ok per riprendere l'attività agonistica, potrebbe ora tornare convocabile dalla metà di ottobre."
-    },
     "Felici": {
       "squadra": "Cagliari",
       "stato": "out-lungo",
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
+    },
+    "Trepy": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "15/09",
+      "descrizione": "Il calciatore ricoverato il 16 agosto dopo che avrebbe rischiato di annegare in piscina. Dimesso poi il 28 agosto, ora condizioni monitorate da parte dello staff medico rossoblù. Da metà settembre ha avuto l'ok per riprendere l'attività agonistica, potrebbe ora tornare convocabile dalla metà di ottobre."
     },
     "Parisi": {
       "squadra": "Fiorentina",
@@ -62,17 +62,17 @@
       "rientro": "In settimana",
       "descrizione": "Il terzino dei ciociari ai box per una lesione di basso grado del bicipite femorale della coscia sinistra, da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Napoli."
     },
-    "Havel": {
-      "squadra": "Genoa",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "L'attaccante ha deciso di operarsi alla caviglia e dovrebbe tornare arruolabile dalla metà di ottobre."
-    },
     "Venturino": {
       "squadra": "Genoa",
       "stato": "out-lungo",
       "rientro": "30/10",
       "descrizione": "il calciatore operato al tendine rotuleo e ora in fase di recupero. Di certo assente nel prossimo turno di campionato, ipotesi di rientro da fine ottobre."
+    },
+    "Havel": {
+      "squadra": "Genoa",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "L'attaccante ha deciso di operarsi alla caviglia e dovrebbe tornare arruolabile dalla metà di ottobre."
     },
     "Boga": {
       "squadra": "Juventus",
@@ -122,17 +122,17 @@
       "rientro": "15/10",
       "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio che lo terrà ai box fino alla metà di ottobre."
     },
-    "Gandelman": {
-      "squadra": "Lecce",
-      "stato": "dubbio",
-      "rientro": "15/09",
-      "descrizione": "Il centrocampista fuori causa da metà settembre per noie fisiche, da valutare convocazione per la prossima giornata di campionato contro il Bologna."
-    },
     "Berisha M.": {
       "squadra": "Lecce",
       "stato": "dubbio",
       "rientro": "01/10",
       "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte alle sfide contro Monza e Milan. Recuperabile da inizio ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Bologna."
+    },
+    "Gandelman": {
+      "squadra": "Lecce",
+      "stato": "dubbio",
+      "rientro": "15/09",
+      "descrizione": "Il centrocampista fuori causa da metà settembre per noie fisiche, da valutare convocazione per la prossima giornata di campionato contro il Bologna."
     },
     "Ciurria": {
       "squadra": "Monza",
@@ -182,17 +182,17 @@
       "rientro": "15/10",
       "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla seconda metà di ottobre."
     },
-    "Bernabè": {
-      "squadra": "Parma",
-      "stato": "dubbio",
-      "rientro": "01/09",
-      "descrizione": "niente da fare per il centrocampista, ancora condizionato da noie fisiche ed escluso il 20 settembre dai convocati contro il Genoa. Da valutare nella sosta in vista della 6a giornata di campionato, a rischio la sua presenza a San Siro contro l'Inter."
-    },
     "Nicolussi Caviglia": {
       "squadra": "Parma",
       "stato": "out-lungo",
       "rientro": "15/07",
       "descrizione": "il centrocampista alle prese dalla seconda metà di luglio con una lesione di medio grado alla coscia destra, ma a fine agosto ha deciso, assieme allo staff medico ducale, di operarsi. Lungo stop e ipotesi di ritorno in campo da dicembre."
+    },
+    "Bernabè": {
+      "squadra": "Parma",
+      "stato": "dubbio",
+      "rientro": "01/09",
+      "descrizione": "niente da fare per il centrocampista, ancora condizionato da noie fisiche ed escluso il 20 settembre dai convocati contro il Genoa. Da valutare nella sosta in vista della 6a giornata di campionato, a rischio la sua presenza a San Siro contro l'Inter."
     },
     "Idzes": {
       "squadra": "Sassuolo",
@@ -248,6 +248,12 @@
       "rientro": "30/10",
       "descrizione": "Il centrocampista ha ravvisato il 7 settembre contro la Lazio una lieve aritmia cardiaca benigna e si sottoporrà nei prossimi giorni ad un intervento di ablazione cardiaca. Osservato un periodo di riposo, potrà tornare alla regolare attività agonistica (ipotizziamo da fine ottobre)."
     },
+    "Busio": {
+      "squadra": "Venezia",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre."
+    },
     "Dagasso": {
       "squadra": "Venezia",
       "stato": "dubbio",
@@ -283,12 +289,6 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il centrocampista out contro Lazio, Frosinone e Fiorentina per noie fisiche, rimane da valutare quotidianamente in vista della 6a giornata di campionato contro l'Atalanta."
-    },
-    "Busio": {
-      "squadra": "Venezia",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre."
     }
   }
 }
