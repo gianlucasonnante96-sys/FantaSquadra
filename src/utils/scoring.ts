@@ -2,6 +2,7 @@ import { Player, LeagueRules, FormationSlot } from '../types';
 import { getLivelloTitolarita } from './titolarita';
 import { cercaInfortunio } from './infortuni';
 import squadreData from '../data/squadre.json';
+import risultatiData from '../data/risultati.json';
 
 // ============================================================
 // CONFIGURAZIONE
@@ -20,12 +21,10 @@ const CONFIG = {
 
   pesoMomentum: 0.2,
 
-  // 🔧 Pesi fixture RIDOTTI (l'avversario conta meno)
   pesoFixturePerRuolo: {
     'P': 0.5, 'D': 0.25, 'C': 0.30, 'A': 0.40,
   } as Record<string, number>,
 
-  // 🔧 Pesi team strength AUMENTATI per C e A (squadra forte aiuta)
   pesoTeamStrengthPerRuolo: {
     'P': 0.3, 'D': 0.4, 'C': 0.6, 'A': 0.7,
   } as Record<string, number>,
@@ -45,13 +44,17 @@ const CONFIG = {
 
   mediaGolCampionato: 1.4,
 
-  // 🆕 Quality bonus: premia i campioni in base alla FM
   qualityBonus: {
-    fm7_5: 0.6,      // FM >= 7.5
-    fm7_0: 0.4,      // FM >= 7.0
-    fm6_5: 0.2,      // FM >= 6.5
-    fmBassa: -0.3,   // FM < 5.8
+    fm7_5: 0.6,
+    fm7_0: 0.4,
+    fm6_5: 0.2,
+    fmBassa: -0.3,
   },
+
+  // 🆕 Strength of Schedule
+  sosPeso: 0.5,          // quanto pesa lo schedule nella strength
+  sosMinPartite: 3,      // sotto questo numero, ignora SoS
+  strengthRange: [0.55, 1.40] as [number, number],  // range più ampio
 
   portieri: {
     pesoCleanSheet: 1.5,
@@ -123,19 +126,11 @@ interface StatsSquadra {
   forma: string[];
 }
 
-let debugStampaFatta = false;
-
 function getStatsSquadra(team: string | undefined): StatsSquadra | null {
   if (!team) return null;
   try {
     const dati = squadreData as any;
-    if (!dati || !dati.squadre) {
-      if (!debugStampaFatta) {
-        console.warn('⚠️ squadre.json vuoto o malformato');
-        debugStampaFatta = true;
-      }
-      return null;
-    }
+    if (!dati || !dati.squadre) return null;
 
     const nome = normalizzaNomeSquadra(team);
 
@@ -154,8 +149,138 @@ function getStatsSquadra(team: string | undefined): StatsSquadra | null {
     }
     return null;
   } catch (e) {
-    console.error('Errore getStatsSquadra:', e);
     return null;
+  }
+}
+
+// ============================================================
+// 🆕 STRENGTH OF SCHEDULE
+// ============================================================
+
+interface PartitaGiocata {
+  casa: string;
+  trasferta: string;
+  golCasa: number;
+  golTrasferta: number;
+}
+
+function getTutteLePartiteGiocate(): PartitaGiocata[] {
+  try {
+    const dati = risultatiData as any;
+    if (!dati || !dati.giornate) return [];
+
+    const partite: PartitaGiocata[] = [];
+    for (const giornata of Object.values(dati.giornate)) {
+      if (Array.isArray(giornata)) {
+        for (const p of giornata) {
+          if (p && p.casa && p.trasferta && typeof p.golCasa === 'number') {
+            partite.push(p);
+          }
+        }
+      }
+    }
+    return partite;
+  } catch {
+    return [];
+  }
+}
+
+function calcolaStrengthBase(team: string): number {
+  const stats = getStatsSquadra(team);
+  if (!stats || stats.g === 0) return 0.85;
+
+  const puntiMax = stats.g * 3;
+  const puntiRatio = Math.min(1, stats.punti / puntiMax);
+  const gfRatio = Math.min(3, stats.gf / stats.g) / 3;
+  const gsRatio = Math.min(3, stats.gs / stats.g) / 3;
+
+  // 🆕 Peso difesa aumentato a 0.25 (era 0.15)
+  const strength = 0.55
+                 + (puntiRatio * 0.50)
+                 + (gfRatio * 0.20)
+                 - (gsRatio * 0.25);
+
+  const [min, max] = CONFIG.strengthRange;
+  return Math.max(min, Math.min(max, strength));
+}
+
+// Cache della strength (calcolata una sola volta)
+let strengthCache: Map<string, number> | null = null;
+
+function getStrengthCache(): Map<string, number> {
+  if (strengthCache) return strengthCache;
+
+  const mappa = new Map<string, number>();
+
+  try {
+    const dati = squadreData as any;
+    if (!dati || !dati.squadre) {
+      strengthCache = mappa;
+      return mappa;
+    }
+
+    // 1) Strength base per ogni squadra
+    const base = new Map<string, number>();
+    for (const nome of Object.keys(dati.squadre)) {
+      base.set(nome, calcolaStrengthBase(nome));
+    }
+
+    // 2) Media campionato
+    const valori = Array.from(base.values());
+    const mediaCampionato = valori.reduce((a, b) => a + b, 0) / (valori.length || 1);
+
+    // 3) Partite giocate
+    const partiteGiocate = getTutteLePartiteGiocate();
+
+    // 4) Per ogni squadra: media della forza degli avversari incontrati
+    for (const [nome, sBase] of base.entries()) {
+      const avversariIncontrati: number[] = [];
+
+      for (const p of partiteGiocate) {
+        const casaNorm = normalizzaNomeSquadra(p.casa);
+        const trasfNorm = normalizzaNomeSquadra(p.trasferta);
+        const teamNorm = normalizzaNomeSquadra(nome);
+
+        if (casaNorm.toLowerCase() === teamNorm.toLowerCase()) {
+          const sAvv = base.get(p.trasferta) ?? 0.85;
+          avversariIncontrati.push(sAvv);
+        } else if (trasfNorm.toLowerCase() === teamNorm.toLowerCase()) {
+          const sAvv = base.get(p.casa) ?? 0.85;
+          avversariIncontrati.push(sAvv);
+        }
+      }
+
+      // Se ha giocato meno di N partite, non applicare SoS
+      if (avversariIncontrati.length < CONFIG.sosMinPartite) {
+        mappa.set(nome, sBase);
+        continue;
+      }
+
+      const mediaAvversari = avversariIncontrati.reduce((a, b) => a + b, 0) / avversariIncontrati.length;
+      const diffSoS = mediaAvversari - mediaCampionato;
+
+      // Aggiusto: se ha giocato contro avversari forti, la strength sale
+      const fattoreSoS = 1 + diffSoS * CONFIG.sosPeso;
+      const strengthFinale = sBase * fattoreSoS;
+
+      const [min, max] = CONFIG.strengthRange;
+      mappa.set(nome, Math.max(min, Math.min(max, strengthFinale)));
+    }
+
+    console.log(`📊 Strength of Schedule calcolata per ${mappa.size} squadre`);
+    const conSoS = Array.from(base.entries()).filter(([nome]) => {
+      const base_ = base.get(nome)!;
+      const sos = mappa.get(nome)!;
+      return Math.abs(base_ - sos) > 0.01;
+    }).length;
+    console.log(`📊 Squadre con SoS applicata: ${conSoS}/${base.size}`);
+
+    strengthCache = mappa;
+    return mappa;
+  } catch (e) {
+    console.error('Errore SoS:', e);
+    strengthCache = mappa;
+    return mappa;
   }
 }
 
@@ -164,29 +289,23 @@ function getStatsSquadra(team: string | undefined): StatsSquadra | null {
 // ============================================================
 
 export function getTeamStrength(team: string | undefined): number {
-  const stats = getStatsSquadra(team);
+  if (!team) return 0.85;
+  const cache = getStrengthCache();
 
-  if (!stats || stats.g === 0) {
-    return 0.85;
+  const nome = normalizzaNomeSquadra(team);
+  for (const [key, value] of cache.entries()) {
+    if (normalizzaNomeSquadra(key).toLowerCase() === nome.toLowerCase()) {
+      return value;
+    }
   }
-
-  const puntiMax = stats.g * 3;
-  const puntiRatio = Math.min(1, stats.punti / puntiMax);
-  const gfRatio = Math.min(3, stats.gf / stats.g) / 3;
-  const gsRatio = Math.min(3, stats.gs / stats.g) / 3;
-
-  const strength = 0.55
-                 + (puntiRatio * 0.50)
-                 + (gfRatio * 0.20)
-                 - (gsRatio * 0.15);
-
-  return Math.max(0.60, Math.min(1.30, strength));
+  return 0.85;
 }
 
 export function getFixtureDifficulty(avversario: string | undefined): number {
   const strength = getTeamStrength(avversario);
 
-  const normalized = (strength - 0.60) / (1.30 - 0.60);
+  const [min, max] = CONFIG.strengthRange;
+  const normalized = (strength - min) / (max - min);
   const amplified = Math.pow(normalized, 0.7);
 
   return 1 + amplified * 4;
@@ -287,7 +406,7 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
 }
 
 // ============================================================
-// 🆕 QUALITY BONUS — premia i campioni, penalizza i mediocri
+// QUALITY BONUS
 // ============================================================
 
 function calcolaQualityBonus(player: Player): number {
@@ -313,7 +432,7 @@ function comprimiValoriAlti(voto: number): number {
 }
 
 // ============================================================
-// CALCOLO VP PER PORTIERI (formula dedicata)
+// CALCOLO VP PER PORTIERI
 // ============================================================
 
 function calcolaVPPortiere(player: Player, rules: LeagueRules): number {
@@ -351,7 +470,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   const role = player.role;
   const inCasa = player.inCasa ?? true;
 
-  // PORTIERI: formula dedicata, esce subito
+  // PORTIERI
   if (role === 'P') {
     let vp = calcolaVPPortiere(player, rules);
 
@@ -371,10 +490,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     return Math.max(rangePortieri[0], Math.min(rangePortieri[1], rounded));
   }
 
-  // ============================================================
-  // ALTRI RUOLI (D / C / A)
-  // ============================================================
-
+  // ALTRI RUOLI
   const teamStrength = getTeamStrength(player.team);
   const fixtureDiff = getFixtureDifficulty(player.avversario);
   const difficulty = Math.max(1, Math.min(5, Math.round(fixtureDiff)));
@@ -409,7 +525,6 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   votoPrevisto += teamBonus;
   votoPrevisto += momentum;
 
-  // 🆕 Quality bonus: premia i campioni
   votoPrevisto += calcolaQualityBonus(player);
 
   const statsSquadra = getStatsSquadra(player.team);
