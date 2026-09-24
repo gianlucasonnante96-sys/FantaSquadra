@@ -554,12 +554,6 @@ async function scrapeRisultati(page) {
 
         const partite = await page.evaluate(() => {
           const risultati = [];
-
-          // Selettori verificati dal DevTools:
-          // li.match → contenitore
-          // label[itemprop="homeTeam"] → nome squadra casa
-          // label[itemprop="awayTeam"] → nome squadra trasferta
-          // a.match-score → risultato "4 - 1"
           const listaPartite = document.querySelectorAll('li.match');
 
           for (const partita of listaPartite) {
@@ -572,16 +566,17 @@ async function scrapeRisultati(page) {
 
               const casa = homeEl.textContent?.trim() || '';
               const trasferta = awayEl.textContent?.trim() || '';
-              const scoreText = scoreEl.textContent?.trim() || '';
 
-              // Formato "4 - 1" oppure "4-1"
+              // 🔧 FILTRO: scarta le partite "fantasma" con nomi brevi (sigle tipo "Gen", "Int", "Fio")
+              if (casa.length < 4 || trasferta.length < 4) continue;
+
+              const scoreText = scoreEl.textContent?.trim() || '';
               const match = scoreText.match(/(\d+)\s*[-–]\s*(\d+)/);
               if (!match) continue;
 
               const golCasa = parseInt(match[1]);
               const golTrasferta = parseInt(match[2]);
 
-              if (!casa || !trasferta) continue;
               if (isNaN(golCasa) || isNaN(golTrasferta)) continue;
 
               risultati.push({
@@ -593,17 +588,37 @@ async function scrapeRisultati(page) {
             } catch (e) {}
           }
 
-          return risultati;
+          // Deduplica per chiave casa-trasferta
+          const visti = new Set();
+          const unici = [];
+          for (const r of risultati) {
+            const key = `${r.casa}-${r.trasferta}`;
+            if (!visti.has(key)) {
+              visti.add(key);
+              unici.push(r);
+            }
+          }
+
+          return unici;
         });
 
         if (partite.length > 0) {
-          giornate[numero] = partite;
-          console.log(`  ✅ Giornata ${numero}: ${partite.length} partite`);
-          partite.slice(0, 2).forEach(p => {
-            console.log(`     ${p.casa} ${p.golCasa}-${p.golTrasferta} ${p.trasferta}`);
-          });
+          // 🔧 FILTRO: verifica se la giornata è stata effettivamente giocata
+          // Se la maggior parte delle partite è 0-0, la giornata non è ancora stata giocata
+          const partiteConGol = partite.filter(p => p.golCasa > 0 || p.golTrasferta > 0);
+          const giornataGiocata = partiteConGol.length >= Math.ceil(partite.length / 2);
+
+          if (giornataGiocata) {
+            giornate[numero] = partite;
+            console.log(`  ✅ Giornata ${numero}: ${partite.length} partite (${partiteConGol.length} con gol)`);
+            partite.slice(0, 2).forEach(p => {
+              console.log(`     ${p.casa} ${p.golCasa}-${p.golTrasferta} ${p.trasferta}`);
+            });
+          } else {
+            console.log(`  ⏭️ Giornata ${numero}: non ancora giocata (${partiteConGol.length}/${partite.length} con gol)`);
+          }
         } else {
-          console.log(`  ⏭️ Giornata ${numero}: nessun risultato`);
+          console.log(`  ⏭️ Giornata ${numero}: nessuna partita trovata`);
         }
       } catch (e) {
         console.log(`  ⚠️ Errore giornata ${numero}: ${e.message}`);
