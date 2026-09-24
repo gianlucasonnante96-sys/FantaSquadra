@@ -12,12 +12,14 @@ const QUOTAZIONI_URL = 'https://www.fantacalcio.it/quotazioni-fantacalcio';
 const STATISTICHE_URL = 'https://www.fantacalcio.it/statistiche-serie-a';
 const CLASSIFICA_URL = 'https://www.fantacalcio.it/serie-a/classifica';
 const INFORTUNATI_URL = 'https://www.fantacalcio.it/infortunati-serie-a';
+const CALENDARIO_BASE_URL = 'https://www.fantacalcio.it/serie-a/calendario';
 
 const OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'formazioni.json');
 const LISTONE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'listone.json');
 const STATISTICHE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'statistiche.json');
 const SQUADRE_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'squadre.json');
 const INFORTUNI_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'infortuni.json');
+const RISULTATI_OUTPUT_PATH = path.join(__dirname, '..', 'src', 'data', 'risultati.json');
 
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
@@ -335,20 +337,6 @@ async function scrapeStatistiche(page) {
         return isNaN(num) ? 0 : num;
       }
 
-      // 🔎 DIAGNOSTICA: log struttura prima riga
-      if (rows.length > 0) {
-        const primaRiga = rows[0];
-        const celleInfo = Array.from(primaRiga.querySelectorAll('td')).map(td => ({
-          classi: td.className,
-          colKey: td.getAttribute('data-col-key') || null,
-          testo: td.textContent?.trim().slice(0, 10),
-        }));
-        console.log('🔎 Struttura prima riga (diagnostica):');
-        console.log(JSON.stringify(celleInfo, null, 2));
-      } else {
-        console.log('🔎 NESSUNA RIGA trovata con selettore "tr.player-row"');
-      }
-
       rows.forEach(row => {
         try {
           const nameEl = row.querySelector('th.player-name a span');
@@ -367,17 +355,15 @@ async function scrapeStatistiche(page) {
           const fmEl = row.querySelector('td.player-fanta-grade-avg');
           const fantamedia = parseNumeroItaliano(fmEl?.textContent?.trim());
 
-          // PARTITE GIOCATE: 5 strategie in cascata
+          // PARTITE GIOCATE
           let partiteGiocate = 0;
 
-          // Strategia 1: data-col-key="pg" (visto nello screenshot DevTools)
           const pgByDataKey = row.querySelector('td[data-col-key="pg"]');
           if (pgByDataKey && pgByDataKey.textContent) {
             const num = parseInt(pgByDataKey.textContent.trim()) || 0;
             if (num > 0) partiteGiocate = num;
           }
 
-          // Strategia 2: classi CSS note
           if (partiteGiocate === 0) {
             const pgSelectors = [
               'td.player-match-played',
@@ -398,21 +384,6 @@ async function scrapeStatistiche(page) {
             }
           }
 
-          // Strategia 3: header "pg" con indice colonna
-          if (partiteGiocate === 0) {
-            const cells = Array.from(row.querySelectorAll('td'));
-            for (const cell of cells) {
-              if (cell.getAttribute('data-col-key') === 'pg') {
-                const num = parseInt(cell.textContent?.trim() || '0') || 0;
-                if (num > 0) {
-                  partiteGiocate = num;
-                  break;
-                }
-              }
-            }
-          }
-
-          // Strategia 4: fallback — ultima td con numero intero piccolo (1-99)
           if (partiteGiocate === 0 && (mediaVoto > 0 || fantamedia > 0)) {
             const cells = Array.from(row.querySelectorAll('td'));
             for (const cell of cells) {
@@ -438,12 +409,7 @@ async function scrapeStatistiche(page) {
     console.log(`✅ Estratte statistiche per ${numGiocatori} giocatori`);
 
     const conPresenze = Object.values(statisticheData).filter(s => s.partiteGiocate > 0).length;
-    const senzaPresenze = numGiocatori - conPresenze;
-    console.log(`📊 Con presenze > 0: ${conPresenze}, senza: ${senzaPresenze}`);
-
-    if (conPresenze === 0) {
-      console.warn('⚠️ ATTENZIONE: nessuna presenza letta! Guarda il log "Struttura prima riga" sopra.');
-    }
+    console.log(`📊 Con presenze > 0: ${conPresenze}, senza: ${numGiocatori - conPresenze}`);
 
     const output = {
       aggiornato: new Date().toISOString(),
@@ -563,6 +529,115 @@ async function scrapeClassifica(page) {
     return classificaData;
   } catch (e) {
     console.error('❌ Errore scraping classifica:', e.message);
+    return {};
+  }
+}
+
+// ============================================================
+// 🆕 SCRAPING RISULTATI (per Strength of Schedule)
+// ============================================================
+
+async function scrapeRisultati(page) {
+  console.log('\n⚽ Recupero risultati partite (per Strength of Schedule)...');
+
+  const giornate = {};
+
+  try {
+    // Giornata corrente: leggila dal calendario (quella attiva)
+    // Per ora proviamo tutte le 38 giornate, poi filtreremo solo quelle con risultati
+    for (let numero = 1; numero <= 38; numero++) {
+      const url = `${CALENDARIO_BASE_URL}/${numero}`;
+      try {
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+        await sleep(2000);
+
+        await page.evaluate(() => {
+          document.querySelectorAll('[class*="qc-cmp"], [id*="qc-cmp"]').forEach(el => el.remove());
+        });
+
+        const partite = await page.evaluate(() => {
+          const risultati = [];
+
+          // Strategia 1: cerca card/match generiche
+          const possibiliContenitori = document.querySelectorAll(
+            '.card.match, .match-card, .match, .partita, [class*="match"]'
+          );
+
+          for (const container of possibiliContenitori) {
+            try {
+              // Cerca i nomi delle squadre
+              const nomiSquadre = container.querySelectorAll(
+                '.team-name, [class*="team-name"], [class*="team"] span'
+              );
+
+              if (nomiSquadre.length < 2) continue;
+
+              const casa = nomiSquadre[0].textContent?.trim() || '';
+              const trasferta = nomiSquadre[1].textContent?.trim() || '';
+
+              if (!casa || !trasferta) continue;
+
+              // Cerca il risultato (es. "2 - 1") o "vs" se non giocata
+              const tuttoTesto = container.textContent || '';
+              const matchRisultato = tuttoTesto.match(/(\d+)\s*[-–]\s*(\d+)/);
+
+              if (matchRisultato) {
+                const golCasa = parseInt(matchRisultato[1]);
+                const golTrasferta = parseInt(matchRisultato[2]);
+
+                risultati.push({
+                  casa,
+                  trasferta,
+                  golCasa,
+                  golTrasferta,
+                });
+              }
+            } catch (e) {}
+          }
+
+          // Deduplica per evitare doppi (match-card + match interna)
+          const visti = new Set();
+          const unici = [];
+          for (const r of risultati) {
+            const key = `${r.casa}-${r.trasferta}`;
+            if (!visti.has(key)) {
+              visti.add(key);
+              unici.push(r);
+            }
+          }
+
+          return unici;
+        });
+
+        if (partite.length > 0) {
+          giornate[numero] = partite;
+          console.log(`  ✅ Giornata ${numero}: ${partite.length} partite`);
+        } else {
+          console.log(`  ⏭️ Giornata ${numero}: nessun risultato (non ancora giocata)`);
+        }
+      } catch (e) {
+        console.log(`  ⚠️ Errore giornata ${numero}: ${e.message}`);
+      }
+    }
+
+    const numGiornateGiocate = Object.keys(giornate).length;
+    const numPartiteTotali = Object.values(giornate).reduce((acc, g) => acc + g.length, 0);
+
+    console.log(`✅ Risultati estratti: ${numGiornateGiocate} giornate, ${numPartiteTotali} partite totali`);
+
+    const output = {
+      aggiornato: new Date().toISOString(),
+      fonte: 'fantacalcio.it',
+      giornate,
+    };
+
+    fs.mkdirSync(path.dirname(RISULTATI_OUTPUT_PATH), { recursive: true });
+    fs.writeFileSync(RISULTATI_OUTPUT_PATH, JSON.stringify(output, null, 2));
+
+    console.log(`✅ Risultati salvati in risultati.json`);
+    return giornate;
+  } catch (e) {
+    console.error('❌ Errore scraping risultati:', e.message);
     return {};
   }
 }
@@ -758,6 +833,7 @@ async function main() {
   await scrapeStatistiche(page);
   await scrapeClassifica(page);
   await scrapeInfortunati(page);
+  await scrapeRisultati(page);
   
   await browser.close();
   console.log('\n🎉 Tutti gli scraping completati!');
