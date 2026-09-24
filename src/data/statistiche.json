@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-24T11:10:58.440Z",
+  "aggiornato": "2026-09-24T13:12:34.058Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Malen": {
@@ -4176,6 +4176,13 @@
     },
     "Lovric": {
       "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Alaba": {
+      "ruolo": "D",
       "squadra": "UDI",
       "mediaVoto": 0,
       "fantamedia": 0,

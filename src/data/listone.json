@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-24T11:10:44.121Z",
+  "aggiornato": "2026-09-24T13:12:20.209Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -1065,6 +1065,14 @@
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 10,
       "fvm": 36
+    },
+    {
+      "nome": "Alaba",
+      "squadra": "UDI",
+      "ruolo": "D",
+      "quotazioneIniziale": 10,
+      "quotazioneAttuale": 10,
+      "fvm": 25
     },
     {
       "nome": "Skorupski",
