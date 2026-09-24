@@ -170,6 +170,7 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
     let matchTrovati = 0;
     let fmAccettate = 0;
     let fmRifiutate = 0;
+    let pgFallback = 0;
 
     const players: Player[] = dati.giocatori.map((g) => {
       const team = normalizzaTeam(g.squadra);
@@ -196,9 +197,13 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
           fmRifiutate++;
         }
 
-        // 🆕 partite giocate: serve per pesare l'affidabilità della FM
-        if (typeof stats.partiteGiocate === 'number' && stats.partiteGiocate >= 0) {
+        // partite giocate con fallback
+        if (typeof stats.partiteGiocate === 'number' && stats.partiteGiocate > 0) {
           partiteGiocate = stats.partiteGiocate;
+        } else if (stats.mediaVoto > 0 || stats.fantamedia > 0) {
+          // FALLBACK: ha giocato ma lo scraper non ha letto le presenze
+          partiteGiocate = 5;
+          pgFallback++;
         }
       }
 
@@ -228,6 +233,9 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
     console.log(`✅ Listone caricato: ${players.length} giocatori`);
     console.log(`🎯 Match statistiche: ${matchTrovati}/${players.length}`);
     console.log(`📊 FM accettate: ${fmAccettate}, FM=0 (nessun dato): ${fmRifiutate}`);
+    if (pgFallback > 0) {
+      console.log(`⚠️ Partite giocate stimate (fallback): ${pgFallback} giocatori`);
+    }
 
     const okoye = players.find(p => (p.surname || '').toLowerCase().includes('okoye'));
     if (okoye) {
