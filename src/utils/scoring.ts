@@ -51,10 +51,9 @@ const CONFIG = {
     fmBassa: -0.3,
   },
 
-  // 🆕 Strength of Schedule
-  sosPeso: 0.5,          // quanto pesa lo schedule nella strength
-  sosMinPartite: 3,      // sotto questo numero, ignora SoS
-  strengthRange: [0.55, 1.40] as [number, number],  // range più ampio
+  sosPeso: 0.5,
+  sosMinPartite: 3,
+  strengthRange: [0.55, 1.40] as [number, number],
 
   portieri: {
     pesoCleanSheet: 1.5,
@@ -154,7 +153,7 @@ function getStatsSquadra(team: string | undefined): StatsSquadra | null {
 }
 
 // ============================================================
-// 🆕 STRENGTH OF SCHEDULE
+// STRENGTH OF SCHEDULE
 // ============================================================
 
 interface PartitaGiocata {
@@ -194,7 +193,6 @@ function calcolaStrengthBase(team: string): number {
   const gfRatio = Math.min(3, stats.gf / stats.g) / 3;
   const gsRatio = Math.min(3, stats.gs / stats.g) / 3;
 
-  // 🆕 Peso difesa aumentato a 0.25 (era 0.15)
   const strength = 0.55
                  + (puntiRatio * 0.50)
                  + (gfRatio * 0.20)
@@ -204,7 +202,6 @@ function calcolaStrengthBase(team: string): number {
   return Math.max(min, Math.min(max, strength));
 }
 
-// Cache della strength (calcolata una sola volta)
 let strengthCache: Map<string, number> | null = null;
 
 function getStrengthCache(): Map<string, number> {
@@ -232,9 +229,12 @@ function getStrengthCache(): Map<string, number> {
     // 3) Partite giocate
     const partiteGiocate = getTutteLePartiteGiocate();
 
+    console.log(`📊 Strength of Schedule: ${partiteGiocate.length} partite giocate da analizzare`);
+
     // 4) Per ogni squadra: media della forza degli avversari incontrati
     for (const [nome, sBase] of base.entries()) {
       const avversariIncontrati: number[] = [];
+      const nomiAvversari: string[] = [];
 
       for (const p of partiteGiocate) {
         const casaNorm = normalizzaNomeSquadra(p.casa);
@@ -244,34 +244,39 @@ function getStrengthCache(): Map<string, number> {
         if (casaNorm.toLowerCase() === teamNorm.toLowerCase()) {
           const sAvv = base.get(p.trasferta) ?? 0.85;
           avversariIncontrati.push(sAvv);
+          nomiAvversari.push(p.trasferta);
         } else if (trasfNorm.toLowerCase() === teamNorm.toLowerCase()) {
           const sAvv = base.get(p.casa) ?? 0.85;
           avversariIncontrati.push(sAvv);
+          nomiAvversari.push(p.casa);
         }
       }
 
-      // Se ha giocato meno di N partite, non applicare SoS
       if (avversariIncontrati.length < CONFIG.sosMinPartite) {
         mappa.set(nome, sBase);
+        console.log(`   ${nome}: base=${sBase.toFixed(3)}, SoS=n/a (solo ${avversariIncontrati.length} partite)`);
         continue;
       }
 
       const mediaAvversari = avversariIncontrati.reduce((a, b) => a + b, 0) / avversariIncontrati.length;
       const diffSoS = mediaAvversari - mediaCampionato;
-
-      // Aggiusto: se ha giocato contro avversari forti, la strength sale
       const fattoreSoS = 1 + diffSoS * CONFIG.sosPeso;
       const strengthFinale = sBase * fattoreSoS;
 
       const [min, max] = CONFIG.strengthRange;
-      mappa.set(nome, Math.max(min, Math.min(max, strengthFinale)));
+      const finale = Math.max(min, Math.min(max, strengthFinale));
+      mappa.set(nome, finale);
+
+      const delta = finale - sBase;
+      const segno = delta >= 0 ? '+' : '';
+      console.log(`   ${nome}: base=${sBase.toFixed(3)} → ${finale.toFixed(3)} (${segno}${delta.toFixed(3)}) avv: ${nomiAvversari.join(', ')}`);
     }
 
-    console.log(`📊 Strength of Schedule calcolata per ${mappa.size} squadre`);
+    console.log(`📊 Strength of Schedule: ${mappa.size}/${base.size} squadre processate`);
     const conSoS = Array.from(base.entries()).filter(([nome]) => {
-      const base_ = base.get(nome)!;
-      const sos = mappa.get(nome)!;
-      return Math.abs(base_ - sos) > 0.01;
+      const b = base.get(nome)!;
+      const s = mappa.get(nome)!;
+      return Math.abs(b - s) > 0.01;
     }).length;
     console.log(`📊 Squadre con SoS applicata: ${conSoS}/${base.size}`);
 
@@ -340,7 +345,7 @@ function convertiDifficoltaInBonus(difficolta: number): number {
 }
 
 // ============================================================
-// STIMA GOL SUBITI ATTESI (modello Poisson)
+// STIMA GOL SUBITI ATTESI (Poisson)
 // ============================================================
 
 function stimaGolSubitiAttesi(
@@ -373,7 +378,7 @@ function probCleanSheet(lambdaGolSubiti: number): number {
 }
 
 // ============================================================
-// FATTORE TITOLARITÀ (probabilistico)
+// TITOLARITÀ
 // ============================================================
 
 function calcolaFattoreTitolaritaArricchito(player: Player): number {
@@ -383,7 +388,7 @@ function calcolaFattoreTitolaritaArricchito(player: Player): number {
 }
 
 // ============================================================
-// PESI AFFIDABILI (FM pesata su partite giocate)
+// PESI AFFIDABILI
 // ============================================================
 
 function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMediaVoto: number } {
@@ -391,14 +396,10 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
   const partite = player.partiteGiocate ?? 0;
 
   if (fantamedia < CONFIG.fantamediaSogliaZero) {
-    return {
-      pesoFantamedia: 0,
-      pesoMediaVoto: 1,
-    };
+    return { pesoFantamedia: 0, pesoMediaVoto: 1 };
   }
 
   const affidabilitaFM = Math.min(1, partite / 10);
-
   const pesoFM = CONFIG.pesoFantamedia * affidabilitaFM;
   const pesoMV = 1 - pesoFM;
 
@@ -432,7 +433,7 @@ function comprimiValoriAlti(voto: number): number {
 }
 
 // ============================================================
-// CALCOLO VP PER PORTIERI
+// VP PORTIERI
 // ============================================================
 
 function calcolaVPPortiere(player: Player, rules: LeagueRules): number {
