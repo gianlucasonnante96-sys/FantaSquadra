@@ -12,9 +12,8 @@ const CONFIG = {
   pesoMediaVoto: 0.4,
   fantamediaSogliaZero: 0.1,
 
-  // 🆕 Titolarità probabilistica
-  malusSubentrante: 1.5,        // VP in meno se subentra dalla panchina
-  minProbTitolare: 0.05,        // nessun giocatore ha 0% di giocare
+  malusSubentrante: 1.5,
+  minProbTitolare: 0.05,
 
   bonusCasa: 0.3,
   malusTrasferta: 0.25,
@@ -29,6 +28,7 @@ const CONFIG = {
     'P': 0.3, 'D': 0.3, 'C': 0.4, 'A': 0.5,
   } as Record<string, number>,
 
+  // Range portieri INVARIATO
   rangeVotoPerRuolo: {
     'P': [5.0, 7.5],
     'D': [5.0, 7.5],
@@ -36,21 +36,20 @@ const CONFIG = {
     'A': [5.0, 8.0],
   } as Record<string, [number, number]>,
 
-  // 🔧 Compressione meno aggressiva
-  sogliaCompressione: 7.0,      // era 6.5
-  fattoreCompressione: 0.7,     // era 0.5
+  sogliaCompressione: 7.0,
+  fattoreCompressione: 0.7,
 
   pesoGolFattiPerRuolo: { 'C': 0.3, 'A': 0.3 } as Record<string, number>,
   pesoGolSubitiPerRuolo: { 'D': 0.4 } as Record<string, number>,
 
-  // 🆕 Media gol fatti per squadra in Serie A (per modello Poisson)
   mediaGolCampionato: 1.4,
 
+  // 🆕 Portieri: configurazione semplificata
   portieri: {
-    pesoCleanSheet: 1.8,        // 🆕 aumentato: il CS conta di più ora che è realistico
-    pesoMalusGolSubito: 0.9,    // 🆕 malus per gol attesi subiti
-    bonusParate: { 1: 0.0, 2: 0.1, 3: 0.2, 4: 0.5, 5: 0.7 } as Record<number, number>,
-    bonusCasaFacile: 0.2,
+    pesoCleanSheet: 1.5,         // bonus CS proporzionale a P(CS)
+    pesoMalusGolSubito: 0.3,     // malus gol leggero (gol già dentro MV storica)
+    bonusCasa: 0.2,              // piccolo bonus casa
+    malusTrasferta: 0.2,         // piccolo malus trasferta
   },
 
   difensori: {
@@ -214,19 +213,9 @@ function convertiDifficoltaInBonus(difficolta: number): number {
 }
 
 // ============================================================
-// 🆕 STIMA GOL SUBITI ATTESI (modello Poisson)
+// STIMA GOL SUBITI ATTESI (modello Poisson)
 // ============================================================
 
-/**
- * Stima i gol attesi che una squadra subirà contro un certo avversario.
- *
- * Formula: λ = (gs_squadra / partite) × (gf_avversario / partite) / mediaCampionato
- * Poi aggiusta per casa/trasferta.
- *
- * Da λ si ricava:
- *  - P(clean sheet) = e^(-λ)
- *  - gol attesi subiti = λ
- */
 function stimaGolSubitiAttesi(
   team: string | undefined,
   avversario: string | undefined,
@@ -246,11 +235,9 @@ function stimaGolSubitiAttesi(
 
   let lambda = (gsPerPartita * gfPerPartitaAvv) / CONFIG.mediaGolCampionato;
 
-  // Fattore casa/trasferta (in casa si subisce meno)
   if (inCasa) lambda *= 0.85;
   else lambda *= 1.15;
 
-  // Clamp di sicurezza
   return Math.max(0.2, Math.min(3.5, lambda));
 }
 
@@ -276,7 +263,6 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
   const fantamedia = player.fantamedia ?? 0;
   const partite = player.partiteGiocate ?? 0;
 
-  // Se la FM è assente, peso 0 alla FM
   if (fantamedia < CONFIG.fantamediaSogliaZero) {
     return {
       pesoFantamedia: 0,
@@ -284,7 +270,6 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
     };
   }
 
-  // Affidabilità cresce fino a 10 partite
   const affidabilitaFM = Math.min(1, partite / 10);
 
   const pesoFM = CONFIG.pesoFantamedia * affidabilitaFM;
@@ -294,7 +279,7 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
 }
 
 // ============================================================
-// COMPRESSIONE VALORI ALTI (meno aggressiva)
+// COMPRESSIONE VALORI ALTI
 // ============================================================
 
 function comprimiValoriAlti(voto: number): number {
@@ -302,6 +287,40 @@ function comprimiValoriAlti(voto: number): number {
 
   return CONFIG.sogliaCompressione +
          (voto - CONFIG.sogliaCompressione) * CONFIG.fattoreCompressione;
+}
+
+// ============================================================
+// 🆕 CALCOLO VP PER PORTIERI (formula dedicata e semplificata)
+// ============================================================
+
+function calcolaVPPortiere(player: Player, rules: LeagueRules): number {
+  const P = CONFIG.portieri;
+  const inCasa = player.inCasa ?? true;
+
+  // 1) Base: MV/FM pesati (i portieri non hanno molti bonus gol, quindi FM/MV è già informativa)
+  const pesi = calcolaPesiAffidabili(player);
+  let vp = (player.fantamedia ?? 0) * pesi.pesoFantamedia;
+  vp += (player.mediaVoto ?? 6) * pesi.pesoMediaVoto;
+
+  // 2) Bonus/malus casa/trasferta (leggero, il CS lo cattura già)
+  if (inCasa) vp += P.bonusCasa;
+  else vp -= P.malusTrasferta;
+
+  // 3) Stima gol subiti attesi (modello Poisson)
+  const lambdaGolSubiti = stimaGolSubitiAttesi(player.team, player.avversario, inCasa);
+  const pCS = probCleanSheet(lambdaGolSubiti);
+
+  // 4) Bonus imbattibilità pesato per P(clean sheet)
+  if (rules.bonusImbattibilita !== 'off') {
+    const bonusValue = rules.bonusImbattibilita === '1' ? 1 : 0.5;
+    vp += pCS * bonusValue * P.pesoCleanSheet;
+  }
+
+  // 5) Malus gol subiti (leggero)
+  const malusGol = rules.golSubito ?? -1;
+  vp += lambdaGolSubiti * malusGol * P.pesoMalusGolSubito;
+
+  return vp;
 }
 
 // ============================================================
@@ -313,6 +332,32 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
 
   const role = player.role;
   const inCasa = player.inCasa ?? true;
+
+  // 🆕 PORTIERI: formula dedicata, esce subito
+  if (role === 'P') {
+    let vp = calcolaVPPortiere(player, rules);
+
+    // Infortuni
+    const infortunio = cercaInfortunio(player);
+    if (infortunio) {
+      if (infortunio.stato === 'out' || infortunio.stato === 'out-lungo') {
+        vp = 3.5;
+      } else if (infortunio.stato === 'dubbio') {
+        vp *= 0.85;
+      }
+    }
+
+    // Compressione valori alti
+    vp = comprimiValoriAlti(vp);
+
+    const rangePortieri = CONFIG.rangeVotoPerRuolo['P'];
+    const rounded = Math.round(vp * 2) / 2;
+    return Math.max(rangePortieri[0], Math.min(rangePortieri[1], rounded));
+  }
+
+  // ============================================================
+  // ALTRI RUOLI (D / C / A)
+  // ============================================================
 
   const teamStrength = getTeamStrength(player.team);
   const fixtureDiff = getFixtureDifficulty(player.avversario);
@@ -345,8 +390,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   const fixtureBonus = convertiDifficoltaInBonus(fixtureDiff) * (pesoFixture / 0.75);
   votoPrevisto += fixtureBonus;
 
-  if (role !== 'P') votoPrevisto += teamBonus;
-
+  votoPrevisto += teamBonus;
   votoPrevisto += momentum;
 
   const statsSquadra = getStatsSquadra(player.team);
@@ -368,36 +412,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     }
   }
 
-  // ============================================================
-  // PORTIERI — modello Poisson
-  // ============================================================
-  if (role === 'P') {
-    const P = CONFIG.portieri;
-
-    // 1) Stima gol attesi subiti con Poisson
-    const lambdaGolSubiti = stimaGolSubitiAttesi(player.team, player.avversario, inCasa);
-    const pCS = probCleanSheet(lambdaGolSubiti);
-
-    // 2) Bonus imbattibilità pesato per probabilità reale di clean sheet
-    if (rules.bonusImbattibilita !== 'off') {
-      const bonusValue = rules.bonusImbattibilita === '1' ? 1 : 0.5;
-      votoPrevisto += pCS * bonusValue * P.pesoCleanSheet;
-    }
-
-    // 3) Malus gol subiti basato sul valore atteso (non più tabella fissa)
-    const malusGol = rules.golSubito ?? -1;
-    votoPrevisto += lambdaGolSubiti * malusGol * P.pesoMalusGolSubito;
-
-    // 4) Bonus parate in base alla difficoltà dell'avversario (più tiri = più parate)
-    votoPrevisto += P.bonusParate[difficulty] ?? 0.2;
-
-    // 5) Piccolo bonus per portieri di squadre forti
-    votoPrevisto += teamBonus * 0.5;
-  }
-
-  // ============================================================
   // DIFENSORI
-  // ============================================================
   if (role === 'D') {
     const D = CONFIG.difensori;
 
@@ -415,9 +430,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     }
   }
 
-  // ============================================================
   // CENTROCAMPISTI
-  // ============================================================
   if (role === 'C') {
     const C = CONFIG.centrocampisti;
 
@@ -439,9 +452,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     }
   }
 
-  // ============================================================
   // ATTACCANTI
-  // ============================================================
   if (role === 'A') {
     const A = CONFIG.attaccanti;
 
@@ -468,7 +479,7 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
 
   if (!Number.isFinite(votoPrevisto)) return 6;
 
-  // 🆕 Titolarità probabilistica: media tra "se titolare" e "se subentra"
+  // Titolarità probabilistica
   const probTitolare = calcolaFattoreTitolaritaArricchito(player);
   if (probTitolare < 0.95) {
     const vpSeTitolare = votoPrevisto;
@@ -476,11 +487,11 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     votoPrevisto = probTitolare * vpSeTitolare + (1 - probTitolare) * vpSeSubentra;
   }
 
-  // 🆕 Infortuni: crollo se out, penalità se dubbio
+  // Infortuni
   const infortunio = cercaInfortunio(player);
   if (infortunio) {
     if (infortunio.stato === 'out' || infortunio.stato === 'out-lungo') {
-      votoPrevisto = 3.5;   // praticamente non gioca
+      votoPrevisto = 3.5;
     } else if (infortunio.stato === 'dubbio') {
       votoPrevisto *= 0.85;
     }
