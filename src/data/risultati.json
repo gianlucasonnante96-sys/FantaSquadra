@@ -1,5 +1,316 @@
 {
-  "aggiornato": null,
+  "aggiornato": "2026-09-24T16:13:17.301Z",
   "fonte": "fantacalcio.it",
-  "giornate": {}
+  "giornate": {
+    "1": [
+      {
+        "casa": "Inter",
+        "trasferta": "Monza",
+        "golCasa": 4,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Udinese",
+        "trasferta": "Como",
+        "golCasa": 1,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Genoa",
+        "trasferta": "Napoli",
+        "golCasa": 0,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Parma",
+        "trasferta": "Cagliari",
+        "golCasa": 0,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Frosinone",
+        "trasferta": "Juventus",
+        "golCasa": 0,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Venezia",
+        "trasferta": "Lecce",
+        "golCasa": 0,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Atalanta",
+        "trasferta": "Sassuolo",
+        "golCasa": 2,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Torino",
+        "trasferta": "Milan",
+        "golCasa": 1,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Bologna",
+        "trasferta": "Lazio",
+        "golCasa": 0,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Roma",
+        "trasferta": "Fiorentina",
+        "golCasa": 4,
+        "golTrasferta": 0
+      }
+    ],
+    "2": [
+      {
+        "casa": "Milan",
+        "trasferta": "Venezia",
+        "golCasa": 2,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Fiorentina",
+        "trasferta": "Frosinone",
+        "golCasa": 0,
+        "golTrasferta": 3
+      },
+      {
+        "casa": "Monza",
+        "trasferta": "Udinese",
+        "golCasa": 2,
+        "golTrasferta": 3
+      },
+      {
+        "casa": "Sassuolo",
+        "trasferta": "Torino",
+        "golCasa": 2,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Juventus",
+        "trasferta": "Parma",
+        "golCasa": 2,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Napoli",
+        "trasferta": "Como",
+        "golCasa": 1,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Cagliari",
+        "trasferta": "Inter",
+        "golCasa": 0,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Lazio",
+        "trasferta": "Genoa",
+        "golCasa": 1,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Lecce",
+        "trasferta": "Roma",
+        "golCasa": 0,
+        "golTrasferta": 4
+      },
+      {
+        "casa": "Atalanta",
+        "trasferta": "Bologna",
+        "golCasa": 1,
+        "golTrasferta": 0
+      }
+    ],
+    "3": [
+      {
+        "casa": "Genoa",
+        "trasferta": "Como",
+        "golCasa": 1,
+        "golTrasferta": 4
+      },
+      {
+        "casa": "Fiorentina",
+        "trasferta": "Torino",
+        "golCasa": 1,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Inter",
+        "trasferta": "Napoli",
+        "golCasa": 3,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Roma",
+        "trasferta": "Atalanta",
+        "golCasa": 2,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Frosinone",
+        "trasferta": "Venezia",
+        "golCasa": 3,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Parma",
+        "trasferta": "Monza",
+        "golCasa": 1,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Bologna",
+        "trasferta": "Sassuolo",
+        "golCasa": 2,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Juventus",
+        "trasferta": "Milan",
+        "golCasa": 1,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Cagliari",
+        "trasferta": "Lecce",
+        "golCasa": 1,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Udinese",
+        "trasferta": "Lazio",
+        "golCasa": 1,
+        "golTrasferta": 2
+      }
+    ],
+    "4": [
+      {
+        "casa": "Venezia",
+        "trasferta": "Fiorentina",
+        "golCasa": 2,
+        "golTrasferta": 4
+      },
+      {
+        "casa": "Genoa",
+        "trasferta": "Frosinone",
+        "golCasa": 1,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Lazio",
+        "trasferta": "Milan",
+        "golCasa": 2,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Atalanta",
+        "trasferta": "Cagliari",
+        "golCasa": 1,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Lecce",
+        "trasferta": "Monza",
+        "golCasa": 3,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Napoli",
+        "trasferta": "Bologna",
+        "golCasa": 1,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Sassuolo",
+        "trasferta": "Juventus",
+        "golCasa": 3,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Como",
+        "trasferta": "Parma",
+        "golCasa": 2,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Torino",
+        "trasferta": "Roma",
+        "golCasa": 0,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Inter",
+        "trasferta": "Udinese",
+        "golCasa": 5,
+        "golTrasferta": 3
+      }
+    ],
+    "5": [
+      {
+        "casa": "Monza",
+        "trasferta": "Sassuolo",
+        "golCasa": 2,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Bologna",
+        "trasferta": "Torino",
+        "golCasa": 1,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Udinese",
+        "trasferta": "Cagliari",
+        "golCasa": 0,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Roma",
+        "trasferta": "Inter",
+        "golCasa": 2,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Venezia",
+        "trasferta": "Lazio",
+        "golCasa": 0,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Fiorentina",
+        "trasferta": "Napoli",
+        "golCasa": 1,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Frosinone",
+        "trasferta": "Como",
+        "golCasa": 2,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Parma",
+        "trasferta": "Genoa",
+        "golCasa": 2,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Juventus",
+        "trasferta": "Atalanta",
+        "golCasa": 2,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Milan",
+        "trasferta": "Lecce",
+        "golCasa": 3,
+        "golTrasferta": 0
+      }
+    ]
+  }
 }
