@@ -8,6 +8,7 @@ export interface Player {
   role: Role;
   fantamedia: number;
   mediaVoto: number;
+  partiteGiocate: number;   // 🆕 per pesare l'affidabilità della FM
   titolarita: number;
   forma: number[];
   inCasa: boolean;
@@ -32,6 +33,7 @@ export interface FormationSlot {
   player: Player;
   expectedScore: number;
   position: string;
+  locked?: boolean;   // 🆕 già pronto per quando faremo il blocco giocatore
 }
 
 export interface Formation {
