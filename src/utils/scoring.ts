@@ -20,15 +20,16 @@ const CONFIG = {
 
   pesoMomentum: 0.2,
 
+  // 🔧 Pesi fixture RIDOTTI (l'avversario conta meno)
   pesoFixturePerRuolo: {
-    'P': 0.5, 'D': 0.35, 'C': 0.5, 'A': 0.6,
+    'P': 0.5, 'D': 0.25, 'C': 0.30, 'A': 0.40,
   } as Record<string, number>,
 
+  // 🔧 Pesi team strength AUMENTATI per C e A (squadra forte aiuta)
   pesoTeamStrengthPerRuolo: {
-    'P': 0.3, 'D': 0.3, 'C': 0.4, 'A': 0.5,
+    'P': 0.3, 'D': 0.4, 'C': 0.6, 'A': 0.7,
   } as Record<string, number>,
 
-  // Range portieri INVARIATO
   rangeVotoPerRuolo: {
     'P': [5.0, 7.5],
     'D': [5.0, 7.5],
@@ -44,12 +45,19 @@ const CONFIG = {
 
   mediaGolCampionato: 1.4,
 
-  // 🆕 Portieri: configurazione semplificata
+  // 🆕 Quality bonus: premia i campioni in base alla FM
+  qualityBonus: {
+    fm7_5: 0.6,      // FM >= 7.5
+    fm7_0: 0.4,      // FM >= 7.0
+    fm6_5: 0.2,      // FM >= 6.5
+    fmBassa: -0.3,   // FM < 5.8
+  },
+
   portieri: {
-    pesoCleanSheet: 1.5,         // bonus CS proporzionale a P(CS)
-    pesoMalusGolSubito: 0.3,     // malus gol leggero (gol già dentro MV storica)
-    bonusCasa: 0.2,              // piccolo bonus casa
-    malusTrasferta: 0.2,         // piccolo malus trasferta
+    pesoCleanSheet: 1.5,
+    pesoMalusGolSubito: 0.3,
+    bonusCasa: 0.2,
+    malusTrasferta: 0.2,
   },
 
   difensori: {
@@ -279,6 +287,21 @@ function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMe
 }
 
 // ============================================================
+// 🆕 QUALITY BONUS — premia i campioni, penalizza i mediocri
+// ============================================================
+
+function calcolaQualityBonus(player: Player): number {
+  const fm = player.fantamedia ?? 0;
+  const qb = CONFIG.qualityBonus;
+
+  if (fm >= 7.5) return qb.fm7_5;
+  if (fm >= 7.0) return qb.fm7_0;
+  if (fm >= 6.5) return qb.fm6_5;
+  if (fm > 0 && fm < 5.8) return qb.fmBassa;
+  return 0;
+}
+
+// ============================================================
 // COMPRESSIONE VALORI ALTI
 // ============================================================
 
@@ -290,33 +313,28 @@ function comprimiValoriAlti(voto: number): number {
 }
 
 // ============================================================
-// 🆕 CALCOLO VP PER PORTIERI (formula dedicata e semplificata)
+// CALCOLO VP PER PORTIERI (formula dedicata)
 // ============================================================
 
 function calcolaVPPortiere(player: Player, rules: LeagueRules): number {
   const P = CONFIG.portieri;
   const inCasa = player.inCasa ?? true;
 
-  // 1) Base: MV/FM pesati (i portieri non hanno molti bonus gol, quindi FM/MV è già informativa)
   const pesi = calcolaPesiAffidabili(player);
   let vp = (player.fantamedia ?? 0) * pesi.pesoFantamedia;
   vp += (player.mediaVoto ?? 6) * pesi.pesoMediaVoto;
 
-  // 2) Bonus/malus casa/trasferta (leggero, il CS lo cattura già)
   if (inCasa) vp += P.bonusCasa;
   else vp -= P.malusTrasferta;
 
-  // 3) Stima gol subiti attesi (modello Poisson)
   const lambdaGolSubiti = stimaGolSubitiAttesi(player.team, player.avversario, inCasa);
   const pCS = probCleanSheet(lambdaGolSubiti);
 
-  // 4) Bonus imbattibilità pesato per P(clean sheet)
   if (rules.bonusImbattibilita !== 'off') {
     const bonusValue = rules.bonusImbattibilita === '1' ? 1 : 0.5;
     vp += pCS * bonusValue * P.pesoCleanSheet;
   }
 
-  // 5) Malus gol subiti (leggero)
   const malusGol = rules.golSubito ?? -1;
   vp += lambdaGolSubiti * malusGol * P.pesoMalusGolSubito;
 
@@ -333,11 +351,10 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
   const role = player.role;
   const inCasa = player.inCasa ?? true;
 
-  // 🆕 PORTIERI: formula dedicata, esce subito
+  // PORTIERI: formula dedicata, esce subito
   if (role === 'P') {
     let vp = calcolaVPPortiere(player, rules);
 
-    // Infortuni
     const infortunio = cercaInfortunio(player);
     if (infortunio) {
       if (infortunio.stato === 'out' || infortunio.stato === 'out-lungo') {
@@ -347,7 +364,6 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
       }
     }
 
-    // Compressione valori alti
     vp = comprimiValoriAlti(vp);
 
     const rangePortieri = CONFIG.rangeVotoPerRuolo['P'];
@@ -392,6 +408,9 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
 
   votoPrevisto += teamBonus;
   votoPrevisto += momentum;
+
+  // 🆕 Quality bonus: premia i campioni
+  votoPrevisto += calcolaQualityBonus(player);
 
   const statsSquadra = getStatsSquadra(player.team);
 
@@ -479,7 +498,6 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
 
   if (!Number.isFinite(votoPrevisto)) return 6;
 
-  // Titolarità probabilistica
   const probTitolare = calcolaFattoreTitolaritaArricchito(player);
   if (probTitolare < 0.95) {
     const vpSeTitolare = votoPrevisto;
@@ -487,7 +505,6 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     votoPrevisto = probTitolare * vpSeTitolare + (1 - probTitolare) * vpSeSubentra;
   }
 
-  // Infortuni
   const infortunio = cercaInfortunio(player);
   if (infortunio) {
     if (infortunio.stato === 'out' || infortunio.stato === 'out-lungo') {
@@ -497,7 +514,6 @@ export function calculateExpectedScore(player: Player, rules: LeagueRules): numb
     }
   }
 
-  // Compressione valori alti
   votoPrevisto = comprimiValoriAlti(votoPrevisto);
 
   const rounded = Math.round(votoPrevisto * 2) / 2;
