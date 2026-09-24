@@ -102,7 +102,6 @@ function estimateTitolarita(qa: number): number {
   return 30;
 }
 
-// 🔑 Normalizzazione riutilizzabile per ID stabili
 function normalizzaChiaveId(valore: string): string {
   return safeString(valore)
     .toLowerCase()
@@ -113,7 +112,6 @@ function normalizzaChiaveId(valore: string): string {
     .replace(/[^a-z0-9_]/g, '');
 }
 
-// 🔍 Cerca statistiche per un giocatore (match intelligente)
 function cercaStatistiche(nomeListone: string): StatisticaGiocatore | null {
   try {
     const dati = statisticheData as unknown as StatisticheFile;
@@ -122,12 +120,10 @@ function cercaStatistiche(nomeListone: string): StatisticaGiocatore | null {
     const nomeNorm = nomeListone.toLowerCase().trim();
     if (!nomeNorm) return null;
 
-    // 1. Match esatto
     for (const [key, value] of Object.entries(dati.statistiche)) {
       if (key.toLowerCase().trim() === nomeNorm) return value;
     }
 
-    // 2. Match per cognome (ultima parola di entrambi)
     const partiListone = nomeNorm.split(/\s+/);
     const cognomeListone = partiListone[partiListone.length - 1];
 
@@ -180,11 +176,11 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
       const role = normalizzaRole(g.ruolo);
       const { name, surname } = splitName(g.nome);
 
-      // 🔍 Cerca statistiche reali (MV + FM)
       const stats = cercaStatistiche(g.nome);
 
       let mediaVoto = 6;
       let fantamedia = 0;
+      let partiteGiocate = 0;
 
       if (stats) {
         matchTrovati++;
@@ -199,11 +195,15 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
         } else if (stats.fantamedia === 0) {
           fmRifiutate++;
         }
+
+        // 🆕 partite giocate: serve per pesare l'affidabilità della FM
+        if (typeof stats.partiteGiocate === 'number' && stats.partiteGiocate >= 0) {
+          partiteGiocate = stats.partiteGiocate;
+        }
       }
 
       const titolarita = estimateTitolarita(g.quotazioneAttuale);
 
-      // 🔑 ID STABILE: basato solo su nome + cognome + squadra (niente index)
       const id = `fanta_${normalizzaChiaveId(name)}_${normalizzaChiaveId(surname)}_${normalizzaChiaveId(team)}`;
 
       return {
@@ -214,6 +214,7 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
         role,
         fantamedia,
         mediaVoto,
+        partiteGiocate,
         titolarita,
         forma: [6, 6, 6, 6, 6],
         inCasa: true,
@@ -230,7 +231,7 @@ export function loadListone(): { players: Player[]; status: ListoneStatus } {
 
     const okoye = players.find(p => (p.surname || '').toLowerCase().includes('okoye'));
     if (okoye) {
-      console.log(`🔍 Okoye: FM=${okoye.fantamedia}, MV=${okoye.mediaVoto}`);
+      console.log(`🔍 Okoye: FM=${okoye.fantamedia}, MV=${okoye.mediaVoto}, PG=${okoye.partiteGiocate}`);
     }
 
     return {
