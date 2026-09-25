@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { AppStep, LeagueRules, Player } from './types';
 import { loadListone, ListoneStatus } from './services/listoneService';
 import { initializeProbabiliFormazioni, applyProbabiliFormazioni } from './services/probabiliFormazioniService';
+import { onAuthChange, logoutUtente } from './services/authService';
 import Home from './components/Home';
 import Setup from './components/Setup';
 import Roster from './components/Roster';
 import Dashboard from './components/Dashboard';
 import Infortunati from './components/Infortunati';
+import LoginBox from './components/LoginBox';
 
 const defaultRules: LeagueRules = {
   modificatoreDifesa: 'standard',
@@ -23,7 +25,6 @@ const RULES_KEY = 'fantaconsiglio_rules';
 const ROSTER_KEY = 'fantaconsiglio_roster';
 const STEP_KEY = 'fantaconsiglio_step';
 
-// 🔑 Normalizza una stringa per usarla come chiave (minuscolo, no accenti, no spazi)
 function normalizzaChiave(valore: string): string {
   return (valore || '')
     .toLowerCase()
@@ -34,7 +35,6 @@ function normalizzaChiave(valore: string): string {
     .replace(/[^a-z0-9_]/g, '');
 }
 
-// 🔑 Chiave univoca "nome_cognome_squadra" per fallback
 function chiaveNomeGiocatore(p: Player): string {
   return `${normalizzaChiave(p.name)}_${normalizzaChiave(p.surname)}_${normalizzaChiave(p.team)}`;
 }
@@ -46,9 +46,7 @@ function ricollegaRosterAlListone(
   if (!Array.isArray(rosterSalvato) || rosterSalvato.length === 0) return [];
   if (!Array.isArray(listoneFresco) || listoneFresco.length === 0) return rosterSalvato;
 
-  // Mappa 1: per ID stabile (nuovo metodo)
   const mappaPerId = new Map<string, Player>();
-  // Mappa 2: per "nome_cognome_squadra" (fallback per rose con ID vecchi)
   const mappaPerNome = new Map<string, Player>();
 
   listoneFresco.forEach(p => {
@@ -64,10 +62,8 @@ function ricollegaRosterAlListone(
   const rosterAggiornato = rosterSalvato.map(playerSalvato => {
     if (!playerSalvato) return playerSalvato;
 
-    // Tentativo 1: match per ID
     let fresco = playerSalvato.id ? mappaPerId.get(playerSalvato.id) : undefined;
 
-    // Tentativo 2: match per nome+cognome+squadra
     if (!fresco) {
       const k = chiaveNomeGiocatore(playerSalvato);
       if (k && k !== '__') {
@@ -80,7 +76,6 @@ function ricollegaRosterAlListone(
       aggiornati++;
       return {
         ...fresco,
-        // mantieni la titolarità eventualmente personalizzata
         titolarita: playerSalvato.titolarita ?? fresco.titolarita,
       };
     }
@@ -102,6 +97,20 @@ export default function App() {
   const [availablePlayers, setAvailablePlayers] = useState<Player[]>([]);
   const [listoneStatus, setListoneStatus] = useState<ListoneStatus | null>(null);
   const [formazioniInizializzate, setFormazioniInizializzate] = useState(false);
+
+  // 🆕 Login / utente
+  const [user, setUser] = useState<any>(null);
+  const [showLogin, setShowLogin] = useState(false);
+
+  // 🆕 Ascolta i cambiamenti di sessione Supabase
+  useEffect(() => {
+    const unsubscribe = onAuthChange((u) => {
+      setUser(u);
+      if (u) console.log('👤 Utente loggato:', u.email);
+      else console.log('👤 Nessun utente loggato');
+    });
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     const initFormazioni = async () => {
@@ -198,18 +207,78 @@ export default function App() {
     setStep('home');
   };
 
+  const handleLogout = async () => {
+    if (confirm('Vuoi davvero uscire?')) {
+      await logoutUtente();
+      setUser(null);
+    }
+  };
+
   return (
     <div className="min-h-screen">
+      {/* 🆕 LoginBox modale */}
+      {showLogin && <LoginBox onClose={() => setShowLogin(false)} />}
+
+      {/* 🆕 Banner listone + user badge */}
       {listoneStatus && (
-        <div className={`fixed top-0 left-0 right-0 z-50 px-4 py-2 text-[10px] md:text-xs text-center ${
+        <div className={`fixed top-0 left-0 right-0 z-40 px-4 py-2 text-[10px] md:text-xs ${
           listoneStatus.error
             ? 'bg-amber-600/90 text-amber-100'
             : 'bg-emerald-700/90 text-emerald-100'
         }`}>
-          <div className="flex items-center justify-center gap-2 flex-wrap">
-            <span>{listoneStatus.error ? '⚠️' : '✅'}</span>
-            <span>{listoneStatus.playerCount} giocatori • {listoneStatus.source}</span>
+          <div className="flex items-center justify-between gap-2 flex-wrap max-w-6xl mx-auto">
+            <div className="flex items-center gap-2">
+              <span>{listoneStatus.error ? '⚠️' : '✅'}</span>
+              <span>{listoneStatus.playerCount} giocatori • {listoneStatus.source}</span>
+            </div>
+
+            {/* 🆕 User badge */}
+            <div className="flex items-center gap-2">
+              {user ? (
+                <>
+                  <span className="hidden md:inline opacity-80">👤 {user.email}</span>
+                  <span className="md:hidden">👤</span>
+                  <button
+                    onClick={handleLogout}
+                    className="bg-black/30 hover:bg-black/50 px-2 py-0.5 rounded text-[10px] md:text-xs transition-colors"
+                  >
+                    Esci
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => setShowLogin(true)}
+                  className="bg-black/30 hover:bg-black/50 px-2 py-0.5 rounded text-[10px] md:text-xs transition-colors font-bold"
+                >
+                  🔐 Accedi
+                </button>
+              )}
+            </div>
           </div>
+        </div>
+      )}
+
+      {/* 🆕 Fallback: se non c'è listoneStatus, mostra solo user badge in alto a destra */}
+      {!listoneStatus && (
+        <div className="fixed top-2 right-2 z-40">
+          {user ? (
+            <div className="flex items-center gap-2 bg-slate-900/90 backdrop-blur rounded-lg px-3 py-1.5 border border-white/10">
+              <span className="text-xs text-emerald-400">👤 {user.email}</span>
+              <button
+                onClick={handleLogout}
+                className="text-xs text-slate-400 hover:text-red-400"
+              >
+                Esci
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setShowLogin(true)}
+              className="bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold px-3 py-1.5 rounded-lg"
+            >
+              🔐 Accedi
+            </button>
+          )}
         </div>
       )}
 
@@ -241,6 +310,8 @@ export default function App() {
             availablePlayers={availablePlayers}
             listoneStatus={listoneStatus}
             onListoneChange={reloadListone}
+            user={user}
+            onLoginRequest={() => setShowLogin(true)}
           />
         )}
 
@@ -250,6 +321,8 @@ export default function App() {
             rules={rules}
             onBack={() => setStep('home')}
             onReset={handleReset}
+            user={user}
+            onLoginRequest={() => setShowLogin(true)}
           />
         )}
 
