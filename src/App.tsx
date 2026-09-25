@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AppStep, LeagueRules, Player } from './types';
 import { loadListone, ListoneStatus } from './services/listoneService';
 import { initializeProbabiliFormazioni, applyProbabiliFormazioni } from './services/probabiliFormazioniService';
 import { onAuthChange, logoutUtente } from './services/authService';
+import { salvaRosa, caricaRosa } from './services/formationService';
 import Home from './components/Home';
 import Setup from './components/Setup';
 import Roster from './components/Roster';
@@ -98,11 +99,11 @@ export default function App() {
   const [listoneStatus, setListoneStatus] = useState<ListoneStatus | null>(null);
   const [formazioniInizializzate, setFormazioniInizializzate] = useState(false);
 
-  // 🆕 Login / utente
   const [user, setUser] = useState<any>(null);
   const [showLogin, setShowLogin] = useState(false);
 
-  // 🆕 Ascolta i cambiamenti di sessione Supabase
+  const skipNextSaveRef = useRef(false);
+
   useEffect(() => {
     const unsubscribe = onAuthChange((u) => {
       setUser(u);
@@ -145,7 +146,6 @@ export default function App() {
         const rosterParsato = JSON.parse(savedRoster);
         if (Array.isArray(rosterParsato) && rosterParsato.length > 0) {
           console.log('📂 Roster salvato trovato:', rosterParsato.length, 'giocatori');
-
           const rosterAggiornato = ricollegaRosterAlListone(rosterParsato, listoneFresco);
 
           let rosterFinale = rosterAggiornato;
@@ -155,7 +155,6 @@ export default function App() {
           } catch (e) {
             console.warn('⚠️ Errore applicazione formazioni:', e);
           }
-
           setRoster(rosterFinale);
         }
       }
@@ -172,6 +171,74 @@ export default function App() {
       console.error('Errore caricamento step:', e);
     }
   }, []);
+
+  // Sync rosa dal cloud al login
+  useEffect(() => {
+    const syncRosa = async () => {
+      if (!user) return;
+
+      try {
+        const rosaCloud = await caricaRosa();
+
+        if (rosaCloud && Array.isArray(rosaCloud) && rosaCloud.length > 0) {
+          console.log('☁️ Rosa caricata dal cloud:', rosaCloud.length, 'giocatori');
+
+          const { players: listoneFresco } = loadListone();
+          const rosterAggiornato = ricollegaRosterAlListone(rosaCloud, listoneFresco);
+
+          let rosterFinale = rosterAggiornato;
+          try {
+            rosterFinale = applyProbabiliFormazioni(rosterAggiornato);
+          } catch (e) {
+            console.warn('⚠️ Errore applicazione formazioni:', e);
+          }
+
+          skipNextSaveRef.current = true;
+          setRoster(rosterFinale);
+        } else {
+          console.log('☁️ Cloud vuoto per questo utente');
+          try {
+            const rosaLocaleStr = localStorage.getItem(ROSTER_KEY);
+            if (rosaLocaleStr) {
+              const rosaLocale = JSON.parse(rosaLocaleStr);
+              if (Array.isArray(rosaLocale) && rosaLocale.length > 0) {
+                await salvaRosa(rosaLocale);
+                console.log('☁️ Rosa locale associata all\'account:', rosaLocale.length, 'giocatori');
+              }
+            }
+          } catch (e) {
+            console.warn('⚠️ Errore associazione rosa locale:', e);
+          }
+        }
+      } catch (e) {
+        console.error('Errore sync rosa cloud:', e);
+      }
+    };
+
+    syncRosa();
+  }, [user?.id]);
+
+  // Salvataggio automatico della rosa nel cloud (debounce 2s)
+  useEffect(() => {
+    if (!user) return;
+    if (!Array.isArray(roster) || roster.length === 0) return;
+
+    if (skipNextSaveRef.current) {
+      skipNextSaveRef.current = false;
+      return;
+    }
+
+    const timer = setTimeout(async () => {
+      try {
+        await salvaRosa(roster);
+        console.log('☁️ Rosa salvata nel cloud:', roster.length, 'giocatori');
+      } catch (e) {
+        console.error('❌ Errore salvataggio rosa nel cloud:', e);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [roster, user?.id]);
 
   useEffect(() => {
     if (!formazioniInizializzate) return;
@@ -216,10 +283,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen">
-      {/* 🆕 LoginBox modale */}
       {showLogin && <LoginBox onClose={() => setShowLogin(false)} />}
 
-      {/* 🆕 Banner listone + user badge */}
       {listoneStatus && (
         <div className={`fixed top-0 left-0 right-0 z-40 px-4 py-2 text-[10px] md:text-xs ${
           listoneStatus.error
@@ -232,7 +297,6 @@ export default function App() {
               <span>{listoneStatus.playerCount} giocatori • {listoneStatus.source}</span>
             </div>
 
-            {/* 🆕 User badge */}
             <div className="flex items-center gap-2">
               {user ? (
                 <>
@@ -258,7 +322,6 @@ export default function App() {
         </div>
       )}
 
-      {/* 🆕 Fallback: se non c'è listoneStatus, mostra solo user badge in alto a destra */}
       {!listoneStatus && (
         <div className="fixed top-2 right-2 z-40">
           {user ? (
@@ -310,8 +373,6 @@ export default function App() {
             availablePlayers={availablePlayers}
             listoneStatus={listoneStatus}
             onListoneChange={reloadListone}
-            user={user}
-            onLoginRequest={() => setShowLogin(true)}
           />
         )}
 
@@ -321,8 +382,6 @@ export default function App() {
             rules={rules}
             onBack={() => setStep('home')}
             onReset={handleReset}
-            user={user}
-            onLoginRequest={() => setShowLogin(true)}
           />
         )}
 
