@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-25T15:11:50.784Z",
+  "aggiornato": "2026-09-25T17:09:56.795Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -7922,17 +7922,22 @@
           },
           {
             "nome": "Bertola",
-            "perc": 30,
+            "perc": 25,
             "starter": false
           },
           {
             "nome": "Palma",
-            "perc": 40,
+            "perc": 30,
             "starter": false
           },
           {
             "nome": "Zanoli",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Alaba",
+            "perc": 35,
             "starter": false
           },
           {
