@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-27T17:10:26.602Z",
+  "aggiornato": "2026-09-27T19:09:46.052Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -56,17 +56,23 @@
       "rientro": "01/11",
       "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da novembre."
     },
+    "Grillitsch": {
+      "squadra": "Frosinone",
+      "stato": "out",
+      "rientro": "01/11",
+      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile da inizio novembre."
+    },
     "Terzic": {
       "squadra": "Frosinone",
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il terzino dei ciociari ai box per una lesione di basso grado del bicipite femorale della coscia sinistra, da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Napoli."
     },
-    "Grillitsch": {
-      "squadra": "Frosinone",
+    "Havel": {
+      "squadra": "Genoa",
       "stato": "out",
-      "rientro": "01/11",
-      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile da inizio novembre."
+      "rientro": "15/10",
+      "descrizione": "L'attaccante ha deciso di operarsi alla caviglia e dovrebbe tornare arruolabile dalla metà di ottobre."
     },
     "Venturino": {
       "squadra": "Genoa",
@@ -74,11 +80,11 @@
       "rientro": "30/10",
       "descrizione": "il calciatore operato al tendine rotuleo e ora in fase di recupero. Di certo assente nel prossimo turno di campionato, ipotesi di rientro da fine ottobre."
     },
-    "Havel": {
-      "squadra": "Genoa",
+    "Boga": {
+      "squadra": "Juventus",
       "stato": "out",
       "rientro": "15/10",
-      "descrizione": "L'attaccante ha deciso di operarsi alla caviglia e dovrebbe tornare arruolabile dalla metà di ottobre."
+      "descrizione": "l'ala offensiva dei bianconeri fermo dopo il match contro il Milan (6 settembre) per una lesione di medio grado del bicipite femorale, ipotizziamo un possibile rientro dalla metà di ottobre."
     },
     "Locatelli": {
       "squadra": "Juventus",
@@ -92,23 +98,17 @@
       "rientro": "01/04",
       "descrizione": "Il portiere out dal 20 settembre per una lesione al crociato anteriore del ginocchio destro. Operazione chirurgica e lungo stop, rientro da aprile."
     },
-    "Ekhator": {
-      "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "l'attaccante vittima di una lesione di medio grado del muscolo semitendinoso, ipotizziamo un possibile rientro dalla fine di ottobre."
-    },
     "Thuram K.": {
       "squadra": "Juventus",
       "stato": "out-lungo",
       "rientro": "01/01",
       "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
     },
-    "Boga": {
+    "Ekhator": {
       "squadra": "Juventus",
       "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "l'ala offensiva dei bianconeri fermo dopo il match contro il Milan (6 settembre) per una lesione di medio grado del bicipite femorale, ipotizziamo un possibile rientro dalla metà di ottobre."
+      "rientro": "30/10",
+      "descrizione": "l'attaccante vittima di una lesione di medio grado del muscolo semitendinoso, ipotizziamo un possibile rientro dalla fine di ottobre."
     },
     "Yildiz": {
       "squadra": "Juventus",
@@ -121,6 +121,12 @@
       "stato": "dubbio",
       "rientro": "01/08",
       "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Proverà a recuperare a pieno durante la sosta, da valutare nei prossimi allenamenti le possibilità di convocazione già contro il Monza nel prossimo turno."
+    },
+    "Cataldi": {
+      "squadra": "Lazio",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Nuovo stop muscolare per il regista dei biancocelesti, vittima di un problema al quadricipite. Tempi di recupero da valutare, di certo out nel prossimo turno di campionato contro il Monza."
     },
     "Rovella": {
       "squadra": "Lazio",
@@ -152,11 +158,11 @@
       "rientro": "In settimana",
       "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, di certo assente nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Buongiorno": {
+    "Marianucci": {
       "squadra": "Napoli",
-      "stato": "out-lungo",
-      "rientro": "15/07",
-      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla seconda metà di ottobre."
     },
     "Giovane": {
       "squadra": "Napoli",
@@ -176,11 +182,11 @@
       "rientro": "01/09",
       "descrizione": "il centrocampista subentrato a gara in corso il 20 settembre a Firenze, ma ha lamentato una lesione miofasciale di basso grado dell'adduttore lungo e rimane da valutare nei prossimi allenamenti in vista della gara contro il Frosinone alla ripresa del campionato."
     },
-    "Marianucci": {
+    "Buongiorno": {
       "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla seconda metà di ottobre."
+      "stato": "out-lungo",
+      "rientro": "15/07",
+      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
     "Nicolussi Caviglia": {
       "squadra": "Parma",

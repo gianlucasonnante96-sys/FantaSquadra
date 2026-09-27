@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-27T17:09:46.941Z",
+  "aggiornato": "2026-09-27T19:09:06.024Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -6525,18 +6525,13 @@
             "starter": false
           },
           {
-            "nome": "Cataldi",
-            "perc": 55,
-            "starter": false
-          },
-          {
             "nome": "Dele-Bashiru",
-            "perc": 25,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Cancellieri",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -6966,7 +6961,7 @@
         "giocatori": [
           {
             "nome": "Muric",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
