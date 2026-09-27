@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-27T19:09:06.024Z",
+  "aggiornato": "2026-09-27T21:10:32.410Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5486,7 +5486,7 @@
           },
           {
             "nome": "Mitaj",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -5517,11 +5517,6 @@
           {
             "nome": "Traorè Hj.",
             "perc": 40,
-            "starter": false
-          },
-          {
-            "nome": "Meichtry",
-            "perc": 55,
             "starter": false
           },
           {
@@ -5961,7 +5956,7 @@
           },
           {
             "nome": "Gilmour",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
@@ -5971,7 +5966,7 @@
           },
           {
             "nome": "De Bruyne",
-            "perc": 85,
+            "perc": 90,
             "starter": true
           },
           {
@@ -7971,13 +7966,8 @@
             "starter": false
           },
           {
-            "nome": "Gueye",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Bayo V.",
-            "perc": 40,
+            "perc": 60,
             "starter": false
           }
         ]

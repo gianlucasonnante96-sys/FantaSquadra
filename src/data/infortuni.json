@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-27T19:09:46.052Z",
+  "aggiornato": "2026-09-27T21:11:12.510Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -32,12 +32,6 @@
       "rientro": "01/09",
       "descrizione": "Lo svedese KO in Nazionale il 26 settembre vittima di un problema muscolare alla coscia. Da valutare, ma non ci sarà alla ripresa del campionato."
     },
-    "Idrissi R.": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
-    },
     "Trepy": {
       "squadra": "Cagliari",
       "stato": "out",
@@ -49,6 +43,12 @@
       "stato": "out-lungo",
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
+    },
+    "Idrissi R.": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
     },
     "Parisi": {
       "squadra": "Fiorentina",
@@ -80,11 +80,11 @@
       "rientro": "30/10",
       "descrizione": "il calciatore operato al tendine rotuleo e ora in fase di recupero. Di certo assente nel prossimo turno di campionato, ipotesi di rientro da fine ottobre."
     },
-    "Boga": {
-      "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "l'ala offensiva dei bianconeri fermo dopo il match contro il Milan (6 settembre) per una lesione di medio grado del bicipite femorale, ipotizziamo un possibile rientro dalla metà di ottobre."
+    "Meichtry": {
+      "squadra": "Genoa",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il calciatore ai box per noie fisiche che restano da valutare, di certo out nel prossimo turno di campionato."
     },
     "Locatelli": {
       "squadra": "Juventus",
@@ -98,17 +98,23 @@
       "rientro": "01/04",
       "descrizione": "Il portiere out dal 20 settembre per una lesione al crociato anteriore del ginocchio destro. Operazione chirurgica e lungo stop, rientro da aprile."
     },
+    "Ekhator": {
+      "squadra": "Juventus",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "l'attaccante vittima di una lesione di medio grado del muscolo semitendinoso, ipotizziamo un possibile rientro dalla fine di ottobre."
+    },
     "Thuram K.": {
       "squadra": "Juventus",
       "stato": "out-lungo",
       "rientro": "01/01",
       "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
     },
-    "Ekhator": {
+    "Boga": {
       "squadra": "Juventus",
       "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "l'attaccante vittima di una lesione di medio grado del muscolo semitendinoso, ipotizziamo un possibile rientro dalla fine di ottobre."
+      "rientro": "15/10",
+      "descrizione": "l'ala offensiva dei bianconeri fermo dopo il match contro il Milan (6 settembre) per una lesione di medio grado del bicipite femorale, ipotizziamo un possibile rientro dalla metà di ottobre."
     },
     "Yildiz": {
       "squadra": "Juventus",
@@ -158,12 +164,6 @@
       "rientro": "In settimana",
       "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, di certo assente nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Marianucci": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla seconda metà di ottobre."
-    },
     "Giovane": {
       "squadra": "Napoli",
       "stato": "dubbio",
@@ -187,6 +187,12 @@
       "stato": "out-lungo",
       "rientro": "15/07",
       "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
+    },
+    "Marianucci": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla seconda metà di ottobre."
     },
     "Nicolussi Caviglia": {
       "squadra": "Parma",
@@ -242,11 +248,29 @@
       "rientro": "15/09",
       "descrizione": "L'attaccante frenato a metà settembre da una lesione distrattiva di basso grado all'adduttore, forfait contro Roma e Bologna. Punta a recuperare nella sosta, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro l'Udinese."
     },
+    "Gueye": {
+      "squadra": "Udinese",
+      "stato": "dubbio",
+      "rientro": "30/09",
+      "descrizione": "L'attaccante vittima di un problema alla caviglia a fine settembre, condizioni da valutare. Assente nel prossimo turno di campionato."
+    },
     "Piotrowski": {
       "squadra": "Udinese",
       "stato": "out",
       "rientro": "30/10",
       "descrizione": "Il centrocampista ha ravvisato il 7 settembre contro la Lazio una lieve aritmia cardiaca benigna e si sottoporrà nei prossimi giorni ad un intervento di ablazione cardiaca. Osservato un periodo di riposo, potrà tornare alla regolare attività agonistica (ipotizziamo da fine ottobre)."
+    },
+    "Dagasso": {
+      "squadra": "Venezia",
+      "stato": "dubbio",
+      "rientro": "15/10",
+      "descrizione": "Il centrocampista non convocato dalla gara dell'11 settembre contro la Fiorentina per un problema fisico. Recuperabile dalla prima metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno a Bergamo."
+    },
+    "Adorante": {
+      "squadra": "Venezia",
+      "stato": "out",
+      "rientro": "30/07",
+      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro da metà ottobre."
     },
     "Bella-Kotchap": {
       "squadra": "Venezia",
@@ -277,18 +301,6 @@
       "stato": "out",
       "rientro": "15/10",
       "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre."
-    },
-    "Dagasso": {
-      "squadra": "Venezia",
-      "stato": "dubbio",
-      "rientro": "15/10",
-      "descrizione": "Il centrocampista non convocato dalla gara dell'11 settembre contro la Fiorentina per un problema fisico. Recuperabile dalla prima metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno a Bergamo."
-    },
-    "Adorante": {
-      "squadra": "Venezia",
-      "stato": "out",
-      "rientro": "30/07",
-      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro da metà ottobre."
     }
   }
 }
