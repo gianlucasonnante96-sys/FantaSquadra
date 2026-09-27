@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-27T07:10:44.089Z",
+  "aggiornato": "2026-09-27T09:10:17.912Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5862,7 +5862,7 @@
           },
           {
             "nome": "Drobnic",
-            "perc": 50,
+            "perc": 35,
             "starter": false
           },
           {
@@ -5901,6 +5901,11 @@
             "starter": false
           },
           {
+            "nome": "Bernabè",
+            "perc": 50,
+            "starter": false
+          },
+          {
             "nome": "Diallo O.",
             "perc": 20,
             "starter": false
@@ -5919,11 +5924,6 @@
             "nome": "Frigan",
             "perc": 50,
             "starter": false
-          },
-          {
-            "nome": "De Martis",
-            "perc": 10,
-            "starter": false
           }
         ]
       }
@@ -5935,7 +5935,7 @@
         "nome": "Napoli",
         "giocatori": [
           {
-            "nome": "Milinkovic-Savic V.",
+            "nome": "Meret",
             "perc": 70,
             "starter": true
           },
@@ -5990,7 +5990,7 @@
             "starter": true
           },
           {
-            "nome": "Meret",
+            "nome": "Milinkovic-Savic V.",
             "perc": 5,
             "starter": false
           },
@@ -6506,7 +6506,7 @@
           },
           {
             "nome": "Pedraza",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -6541,7 +6541,7 @@
           },
           {
             "nome": "Gudmundsson A.",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
@@ -6800,6 +6800,11 @@
             "starter": false
           },
           {
+            "nome": "Gandelman",
+            "perc": 30,
+            "starter": false
+          },
+          {
             "nome": "N'Dri",
             "perc": 60,
             "starter": false
@@ -6847,7 +6852,7 @@
           },
           {
             "nome": "Zortea",
-            "perc": 80,
+            "perc": 90,
             "starter": true
           },
           {
@@ -6896,11 +6901,6 @@
             "starter": false
           },
           {
-            "nome": "Holm",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Vitik",
             "perc": 30,
             "starter": false
@@ -6922,7 +6922,7 @@
           },
           {
             "nome": "Amondarain",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -6938,6 +6938,11 @@
           {
             "nome": "Mbangula",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Libra",
+            "perc": 20,
             "starter": false
           },
           {
@@ -7892,7 +7897,7 @@
           },
           {
             "nome": "Zaniolo",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
