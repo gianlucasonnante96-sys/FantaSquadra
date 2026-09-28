@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28T13:12:50.677Z",
+  "aggiornato": "2026-09-28T15:14:15.066Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Malen": {
@@ -4184,6 +4184,13 @@
     "Alaba": {
       "ruolo": "D",
       "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Neto": {
+      "ruolo": "P",
+      "squadra": "JUV",
       "mediaVoto": 0,
       "fantamedia": 0,
       "partiteGiocate": 0

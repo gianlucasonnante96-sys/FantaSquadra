@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28T13:12:22.315Z",
+  "aggiornato": "2026-09-28T15:13:46.546Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -7411,8 +7411,13 @@
             "starter": true
           },
           {
-            "nome": "Pinsoglio",
+            "nome": "Neto",
             "perc": 5,
+            "starter": false
+          },
+          {
+            "nome": "Pinsoglio",
+            "perc": 1,
             "starter": false
           },
           {

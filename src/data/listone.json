@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28T13:12:36.051Z",
+  "aggiornato": "2026-09-28T15:14:00.372Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -4782,6 +4782,14 @@
       "nome": "Lovric",
       "squadra": "UDI",
       "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
+      "nome": "Neto",
+      "squadra": "JUV",
+      "ruolo": "P",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
       "fvm": 1
