@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28T15:13:46.546Z",
+  "aggiornato": "2026-09-28T17:11:34.094Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -6510,6 +6510,11 @@
             "starter": false
           },
           {
+            "nome": "Marusic",
+            "perc": 20,
+            "starter": false
+          },
+          {
             "nome": "Leite",
             "perc": 30,
             "starter": false
@@ -6527,11 +6532,6 @@
           {
             "nome": "Cancellieri",
             "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Gudmundsson A.",
-            "perc": 50,
             "starter": false
           },
           {
@@ -7250,11 +7250,6 @@
             "starter": true
           },
           {
-            "nome": "Deiola",
-            "perc": 70,
-            "starter": true
-          },
-          {
             "nome": "Winks",
             "perc": 90,
             "starter": true
@@ -7262,6 +7257,11 @@
           {
             "nome": "Romano",
             "perc": 90,
+            "starter": true
+          },
+          {
+            "nome": "Fazzini",
+            "perc": 75,
             "starter": true
           },
           {
@@ -7305,13 +7305,8 @@
             "starter": false
           },
           {
-            "nome": "Fazzini",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Ciervo",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
