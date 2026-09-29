@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-29T17:10:30.695Z",
+  "aggiornato": "2026-09-29T19:11:34.653Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -7561,7 +7561,7 @@
           },
           {
             "nome": "Elmas",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -7576,7 +7576,7 @@
           },
           {
             "nome": "Raspadori",
-            "perc": 55,
+            "perc": 50,
             "starter": false
           }
         ]
