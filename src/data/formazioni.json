@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-29T13:14:32.168Z",
+  "aggiornato": "2026-09-29T15:13:56.910Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -6091,7 +6091,7 @@
             "starter": true
           },
           {
-            "nome": "Raimondo",
+            "nome": "Bobcek",
             "perc": 70,
             "starter": true
           },
@@ -6157,12 +6157,12 @@
           },
           {
             "nome": "Birligea",
-            "perc": 40,
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Bobcek",
-            "perc": 55,
+            "nome": "Raimondo",
+            "perc": 50,
             "starter": false
           }
         ]
@@ -7152,7 +7152,7 @@
           },
           {
             "nome": "Gabbia",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -7172,7 +7172,7 @@
           },
           {
             "nome": "Saelemaekers",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
@@ -7187,7 +7187,7 @@
           },
           {
             "nome": "Jashari",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -7202,7 +7202,7 @@
           },
           {
             "nome": "Cissè A.",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -7886,7 +7886,7 @@
             "starter": true
           },
           {
-            "nome": "Zaniolo",
+            "nome": "Unai Gomez",
             "perc": 70,
             "starter": true
           },
@@ -7958,11 +7958,6 @@
           {
             "nome": "Lovric",
             "perc": 30,
-            "starter": false
-          },
-          {
-            "nome": "Unai Gomez",
-            "perc": 60,
             "starter": false
           },
           {
