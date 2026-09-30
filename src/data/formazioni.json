@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-30T15:15:14.372Z",
+  "aggiornato": "2026-09-30T17:11:44.077Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5976,7 +5976,7 @@
           },
           {
             "nome": "Hojlund",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -7556,7 +7556,7 @@
           },
           {
             "nome": "Pasalic",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -7566,17 +7566,12 @@
           },
           {
             "nome": "Zalewski",
-            "perc": 35,
+            "perc": 40,
             "starter": false
           },
           {
             "nome": "Krstovic",
             "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Raspadori",
-            "perc": 50,
             "starter": false
           }
         ]

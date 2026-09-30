@@ -1,24 +1,30 @@
 {
-  "aggiornato": "2026-09-30T15:15:53.227Z",
+  "aggiornato": "2026-09-30T17:12:23.470Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
-    "Sulemana K.": {
-      "squadra": "Atalanta",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro. Recuperabile da inizio ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Venezia."
-    },
     "Kossounou": {
       "squadra": "Atalanta",
       "stato": "out-lungo",
       "rientro": "30/11",
       "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, ipotizziamo un rientro dalla fine di novembre."
     },
+    "Raspadori": {
+      "squadra": "Atalanta",
+      "stato": "out",
+      "rientro": "30/09",
+      "descrizione": "L'attaccante frenato a fine settembre in Nazionale azzurra da una distrazione di basso grado al bicipite femorale, rientro tra i convocati con la Dea in campionato dalla seconda metà di ottobre."
+    },
     "Hien": {
       "squadra": "Atalanta",
       "stato": "out-lungo",
       "rientro": "30/06",
       "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla fine di ottobre."
+    },
+    "Sulemana K.": {
+      "squadra": "Atalanta",
+      "stato": "dubbio",
+      "rientro": "01/10",
+      "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro. Recuperabile da inizio ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Venezia."
     },
     "Holm": {
       "squadra": "Bologna",
@@ -78,7 +84,7 @@
       "squadra": "Genoa",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il calciatore ai box per noie fisiche che restano da valutare, di certo out nel prossimo turno di campionato."
+      "descrizione": "Il calciatore ai box per una distrazione della muscolatura di un'anca, il cui grado rimane da valutare con ulteriori accertamenti medici. Di certo out nel prossimo turno di campionato contro la Fiorentina."
     },
     "Venturino": {
       "squadra": "Genoa",
@@ -137,14 +143,14 @@
     "Gudmundsson A.": {
       "squadra": "Lazio",
       "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla sinistra dopo una caduta fortuita in partita. Condizioni da monitorare, si confida di riaverlo a disposizione dalla fine di ottobre."
+      "rientro": "15/10",
+      "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla destra dopo una caduta fortuita in partita. Condizioni da monitorare, si confida di riaverlo a disposizione dalla seconda metà di ottobre."
     },
     "Cataldi": {
       "squadra": "Lazio",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Nuovo stop muscolare per il regista dei biancocelesti, vittima di un problema al quadricipite. Tempi di recupero da valutare, di certo out nel prossimo turno di campionato contro il Monza."
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Nuovo stop muscolare per il regista dei biancocelesti, vittima di un problema al quadricipite. Out nel prossimo turno di campionato contro il Monza, tentativo di rientro dalla seconda metà di ottobre."
     },
     "Berisha M.": {
       "squadra": "Lecce",
