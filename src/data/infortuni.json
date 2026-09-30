@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-30T19:13:24.964Z",
+  "aggiornato": "2026-09-30T21:11:38.107Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -8,11 +8,11 @@
       "rientro": "30/11",
       "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, ipotizziamo un rientro dalla fine di novembre."
     },
-    "Raspadori": {
+    "Sulemana K.": {
       "squadra": "Atalanta",
-      "stato": "out",
-      "rientro": "30/09",
-      "descrizione": "L'attaccante frenato a fine settembre in Nazionale azzurra da una distrazione di basso grado al bicipite femorale, rientro tra i convocati con la Dea in campionato dalla seconda metà di ottobre."
+      "stato": "dubbio",
+      "rientro": "01/10",
+      "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro. Recuperabile da inizio ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Venezia."
     },
     "Hien": {
       "squadra": "Atalanta",
@@ -20,11 +20,11 @@
       "rientro": "30/06",
       "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla fine di ottobre."
     },
-    "Sulemana K.": {
+    "Raspadori": {
       "squadra": "Atalanta",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro. Recuperabile da inizio ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Venezia."
+      "stato": "out",
+      "rientro": "30/09",
+      "descrizione": "L'attaccante frenato a fine settembre in Nazionale azzurra da una distrazione di basso grado al bicipite femorale, rientro tra i convocati con la Dea in campionato dalla seconda metà di ottobre."
     },
     "Holm": {
       "squadra": "Bologna",
@@ -230,11 +230,11 @@
       "rientro": "01/06",
       "descrizione": "il centrocampista canadese vittima a giugno nella gara dei Mondiali di una rottura di tibia e perone. Operato, punta a tornare in campo da dicembre."
     },
-    "Candè": {
+    "Walukiewicz": {
       "squadra": "Sassuolo",
-      "stato": "out",
-      "rientro": "01/01",
-      "descrizione": "il difensore a gennaio vittima della rottura legamento crociato anteriore ginocchio destro, punta a tornare convocabile dalla metà di ottobre."
+      "stato": "dubbio",
+      "rientro": "15/10",
+      "descrizione": "Il difensore alle prese con un forte trauma contusivo alla gamba destra, da valutare il rientro dalla metà di ottobre."
     },
     "Pieragnolo": {
       "squadra": "Sassuolo",
@@ -248,11 +248,11 @@
       "rientro": "15/10",
       "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da metà ottobre."
     },
-    "Walukiewicz": {
+    "Candè": {
       "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "15/10",
-      "descrizione": "Il difensore alle prese con un forte trauma contusivo alla gamba destra, da valutare il rientro dalla metà di ottobre."
+      "stato": "out",
+      "rientro": "01/01",
+      "descrizione": "il difensore a gennaio vittima della rottura legamento crociato anteriore ginocchio destro, punta a tornare convocabile dalla metà di ottobre."
     },
     "Adams C.": {
       "squadra": "Torino",

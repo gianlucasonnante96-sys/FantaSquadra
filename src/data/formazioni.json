@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-30T19:12:46.146Z",
+  "aggiornato": "2026-09-30T21:10:59.717Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5816,6 +5816,11 @@
             "starter": true
           },
           {
+            "nome": "Bernabè",
+            "perc": 75,
+            "starter": true
+          },
+          {
             "nome": "Sierro",
             "perc": 90,
             "starter": true
@@ -5832,17 +5837,12 @@
           },
           {
             "nome": "Tourè E.",
-            "perc": 80,
-            "starter": true
-          },
-          {
-            "nome": "Lontani",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
             "nome": "Romero D.",
-            "perc": 85,
+            "perc": 70,
             "starter": true
           },
           {
@@ -5896,17 +5896,17 @@
             "starter": false
           },
           {
-            "nome": "Bernabè",
-            "perc": 50,
-            "starter": false
-          },
-          {
             "nome": "Diallo O.",
             "perc": 20,
             "starter": false
           },
           {
             "nome": "Almqvist",
+            "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Lontani",
             "perc": 60,
             "starter": false
           },
