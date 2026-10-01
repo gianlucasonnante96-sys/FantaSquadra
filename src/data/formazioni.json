@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-01T13:15:17.172Z",
+  "aggiornato": "2026-10-01T15:12:29.468Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5671,7 +5671,7 @@
           },
           {
             "nome": "Bisseck",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -5695,13 +5695,13 @@
             "starter": true
           },
           {
-            "nome": "Zielinski",
-            "perc": 75,
+            "nome": "Calhanoglu",
+            "perc": 70,
             "starter": true
           },
           {
-            "nome": "Jones C.",
-            "perc": 70,
+            "nome": "Zielinski",
+            "perc": 75,
             "starter": true
           },
           {
@@ -5741,7 +5741,7 @@
           },
           {
             "nome": "Stones",
-            "perc": 20,
+            "perc": 15,
             "starter": false
           },
           {
@@ -5751,12 +5751,12 @@
           },
           {
             "nome": "Luis Henrique",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
-            "nome": "Calhanoglu",
-            "perc": 50,
+            "nome": "Jones C.",
+            "perc": 60,
             "starter": false
           },
           {
@@ -5766,7 +5766,7 @@
           },
           {
             "nome": "Sucic P.",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -5817,7 +5817,7 @@
           },
           {
             "nome": "Bernabè",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
@@ -5857,7 +5857,7 @@
           },
           {
             "nome": "Drobnic",
-            "perc": 35,
+            "perc": 25,
             "starter": false
           },
           {
@@ -5872,7 +5872,7 @@
           },
           {
             "nome": "Valenti",
-            "perc": 20,
+            "perc": 40,
             "starter": false
           },
           {
@@ -5892,7 +5892,7 @@
           },
           {
             "nome": "Ordonez C.",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -5902,7 +5902,7 @@
           },
           {
             "nome": "Almqvist",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -6022,6 +6022,11 @@
           {
             "nome": "Neres",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Giovane",
+            "perc": 25,
             "starter": false
           },
           {
