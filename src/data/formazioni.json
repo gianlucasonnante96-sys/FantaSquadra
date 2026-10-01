@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-01T09:13:17.763Z",
+  "aggiornato": "2026-10-01T11:12:07.805Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -6012,11 +6012,6 @@
           {
             "nome": "Badiashile",
             "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "McTominay",
-            "perc": 15,
             "starter": false
           },
           {
