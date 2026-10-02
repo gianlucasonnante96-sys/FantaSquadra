@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-02T13:13:09.022Z",
+  "aggiornato": "2026-10-02T15:12:48.085Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -6336,13 +6336,13 @@
             "starter": true
           },
           {
-            "nome": "Konè M.",
-            "perc": 90,
+            "nome": "De Roon",
+            "perc": 85,
             "starter": true
           },
           {
-            "nome": "Cristante",
-            "perc": 75,
+            "nome": "Konè M.",
+            "perc": 90,
             "starter": true
           },
           {
@@ -6398,11 +6398,6 @@
           {
             "nome": "Ghilardi",
             "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "De Roon",
-            "perc": 40,
             "starter": false
           },
           {
