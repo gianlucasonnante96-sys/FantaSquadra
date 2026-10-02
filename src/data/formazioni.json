@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-02T17:12:15.512Z",
+  "aggiornato": "2026-10-02T19:12:33.231Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5466,7 +5466,7 @@
           },
           {
             "nome": "Colombo",
-            "perc": 75,
+            "perc": 70,
             "starter": true
           },
           {
@@ -5995,18 +5995,13 @@
             "starter": false
           },
           {
-            "nome": "Favasuli",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Beukema",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Spinazzola",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -7522,11 +7517,6 @@
           {
             "nome": "Sportiello",
             "perc": 5,
-            "starter": false
-          },
-          {
-            "nome": "Pompei",
-            "perc": 1,
             "starter": false
           },
           {

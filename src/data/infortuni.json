@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-02T17:12:55.840Z",
+  "aggiornato": "2026-10-02T19:13:12.842Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -8,11 +8,11 @@
       "rientro": "30/11",
       "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, ipotizziamo un rientro dalla fine di novembre."
     },
-    "Raspadori": {
+    "Pompei": {
       "squadra": "Atalanta",
-      "stato": "out",
-      "rientro": "30/09",
-      "descrizione": "L'attaccante frenato a fine settembre in Nazionale azzurra da una distrazione di basso grado al bicipite femorale, rientro tra i convocati con la Dea in campionato dalla seconda metà di ottobre."
+      "stato": "dubbio",
+      "rientro": "01/10",
+      "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
     "Sulemana K.": {
       "squadra": "Atalanta",
@@ -26,11 +26,11 @@
       "rientro": "30/06",
       "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla fine di ottobre."
     },
-    "Holm": {
-      "squadra": "Bologna",
-      "stato": "out-lungo",
-      "rientro": "30/02",
-      "descrizione": "Lo svedese KO in Nazionale il 26 settembre vittima di un problema al tendine della coscia destra. Ha deciso di operarsi e affronterà un lungo stop. Ipotesi di rientro in campo da fine febbraio."
+    "Raspadori": {
+      "squadra": "Atalanta",
+      "stato": "out",
+      "rientro": "30/09",
+      "descrizione": "L'attaccante frenato a fine settembre in Nazionale azzurra da una distrazione di basso grado al bicipite femorale, rientro tra i convocati con la Dea in campionato dalla seconda metà di ottobre."
     },
     "Odgaard": {
       "squadra": "Bologna",
@@ -38,11 +38,11 @@
       "rientro": "15/10",
       "descrizione": "Il calciatore frenato dopo il match col Toro da una lesione ai flessori della coscia destra, recuperabile dalla seconda metà di ottobre."
     },
-    "Idrissi R.": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
+    "Holm": {
+      "squadra": "Bologna",
+      "stato": "out-lungo",
+      "rientro": "30/02",
+      "descrizione": "Lo svedese KO in Nazionale il 26 settembre vittima di un problema al tendine della coscia destra. Ha deciso di operarsi e affronterà un lungo stop. Ipotesi di rientro in campo da fine febbraio."
     },
     "Deiola": {
       "squadra": "Cagliari",
@@ -61,6 +61,12 @@
       "stato": "out",
       "rientro": "15/09",
       "descrizione": "Il calciatore ricoverato il 16 agosto dopo che avrebbe rischiato di annegare in piscina. Dimesso poi il 28 agosto, ora condizioni monitorate da parte dello staff medico rossoblù. Da metà settembre ha avuto l'ok per riprendere l'attività agonistica, potrebbe ora tornare convocabile dalla metà di ottobre."
+    },
+    "Idrissi R.": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
     },
     "Parisi": {
       "squadra": "Fiorentina",
@@ -176,17 +182,23 @@
       "rientro": "In settimana",
       "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, di certo assente nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
+    "Favasuli": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "Il cursore di fascia degli azzurri ai box da inizio ottobre per una lesione muscolare di secondo grado del retto femorale della coscia destra. Recuperabile dalla metà di novembre."
+    },
     "Santos A.": {
       "squadra": "Napoli",
       "stato": "out",
       "rientro": "15/10",
       "descrizione": "Il brasiliano costretto al cambio il 9 settembre in Champions League vittima di una lesione muscolare di medio grado al bicipite femorale sinistro. Proverà a tornare arruolabile dalla seconda metà di ottobre."
     },
-    "McTominay": {
+    "Zambo Anguissa": {
       "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il centrocampista l'1 settembre a causa di una lieve aritmia benigna ha deciso di sottoporsi a un intervento di correzione tramite ablazione. Si confida di rivederlo in campo dalla seconda metà ottobre."
+      "stato": "dubbio",
+      "rientro": "01/09",
+      "descrizione": "il centrocampista subentrato a gara in corso il 20 settembre a Firenze, ma ha lamentato una lesione miofasciale di basso grado dell'adduttore lungo e rimane da valutare nei prossimi allenamenti in vista della gara contro il Frosinone alla ripresa del campionato."
     },
     "Buongiorno": {
       "squadra": "Napoli",
@@ -200,11 +212,11 @@
       "rientro": "15/10",
       "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla seconda metà di ottobre."
     },
-    "Zambo Anguissa": {
+    "McTominay": {
       "squadra": "Napoli",
-      "stato": "dubbio",
-      "rientro": "01/09",
-      "descrizione": "il centrocampista subentrato a gara in corso il 20 settembre a Firenze, ma ha lamentato una lesione miofasciale di basso grado dell'adduttore lungo e rimane da valutare nei prossimi allenamenti in vista della gara contro il Frosinone alla ripresa del campionato."
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il centrocampista l'1 settembre a causa di una lieve aritmia benigna ha deciso di sottoporsi a un intervento di correzione tramite ablazione. Si confida di rivederlo in campo dalla seconda metà ottobre."
     },
     "Nicolussi Caviglia": {
       "squadra": "Parma",
@@ -218,11 +230,11 @@
       "rientro": "In settimana",
       "descrizione": "Il mediano giallorosso condizionato da un'infiammazione al ginocchio e va verso il forfait contro il Como nel prossimo turno di campionato. Da valutare."
     },
-    "Boloca": {
+    "Volpato": {
       "squadra": "Sassuolo",
       "stato": "dubbio",
       "rientro": "15/10",
-      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da metà ottobre."
+      "descrizione": "l'esterno offensivo dei neroverdi KO il 6 settembre a Bologna vittima di una lesione di grado moderato al flessore della gamba destra. Recuperabile dalla prima metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Milan."
     },
     "Konè I.": {
       "squadra": "Sassuolo",
@@ -230,11 +242,23 @@
       "rientro": "01/06",
       "descrizione": "il centrocampista canadese vittima a giugno nella gara dei Mondiali di una rottura di tibia e perone. Operato, punta a tornare in campo da dicembre."
     },
+    "Walukiewicz": {
+      "squadra": "Sassuolo",
+      "stato": "dubbio",
+      "rientro": "15/10",
+      "descrizione": "Il difensore alle prese con un forte trauma contusivo alla gamba destra, da valutare il rientro dalla metà di ottobre."
+    },
     "Candè": {
       "squadra": "Sassuolo",
       "stato": "out",
       "rientro": "01/01",
       "descrizione": "il difensore a gennaio vittima della rottura legamento crociato anteriore ginocchio destro, punta a tornare convocabile dalla metà di ottobre."
+    },
+    "Pieragnolo": {
+      "squadra": "Sassuolo",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "il difensore sta proseguendo la fase di recupero dalla lesione legamento crociato anteriore gamba destra e ipotizziamo possa tornare convocabile da fine ottobre."
     },
     "Idzes": {
       "squadra": "Sassuolo",
@@ -242,23 +266,11 @@
       "rientro": "15/10",
       "descrizione": "Il difensore ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
     },
-    "Volpato": {
+    "Boloca": {
       "squadra": "Sassuolo",
       "stato": "dubbio",
       "rientro": "15/10",
-      "descrizione": "l'esterno offensivo dei neroverdi KO il 6 settembre a Bologna vittima di una lesione di grado moderato al flessore della gamba destra. Recuperabile dalla prima metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Milan."
-    },
-    "Walukiewicz": {
-      "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "15/10",
-      "descrizione": "Il difensore alle prese con un forte trauma contusivo alla gamba destra, da valutare il rientro dalla metà di ottobre."
-    },
-    "Pieragnolo": {
-      "squadra": "Sassuolo",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "il difensore sta proseguendo la fase di recupero dalla lesione legamento crociato anteriore gamba destra e ipotizziamo possa tornare convocabile da fine ottobre."
+      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da metà ottobre."
     },
     "Adams C.": {
       "squadra": "Torino",
