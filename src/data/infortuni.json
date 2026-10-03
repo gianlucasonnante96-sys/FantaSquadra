@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-03T07:16:08.728Z",
+  "aggiornato": "2026-10-03T09:12:51.016Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -44,6 +44,12 @@
       "rientro": "30/02",
       "descrizione": "Lo svedese KO in Nazionale il 26 settembre vittima di un problema al tendine della coscia destra. Ha deciso di operarsi e affronterà un lungo stop. Ipotesi di rientro in campo da fine febbraio."
     },
+    "Idrissi R.": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
+    },
     "Deiola": {
       "squadra": "Cagliari",
       "stato": "out-lungo",
@@ -61,12 +67,6 @@
       "stato": "out",
       "rientro": "15/09",
       "descrizione": "Il calciatore ricoverato il 16 agosto dopo che avrebbe rischiato di annegare in piscina. Dimesso poi il 28 agosto, ora condizioni monitorate da parte dello staff medico rossoblù. Da metà settembre ha avuto l'ok per riprendere l'attività agonistica, potrebbe ora tornare convocabile dalla metà di ottobre."
-    },
-    "Idrissi R.": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di ottobre."
     },
     "Parisi": {
       "squadra": "Fiorentina",
@@ -97,6 +97,12 @@
       "stato": "out",
       "rientro": "15/10",
       "descrizione": "L'attaccante ha deciso di operarsi alla caviglia e dovrebbe tornare arruolabile dalla metà di ottobre."
+    },
+    "Colombo": {
+      "squadra": "Genoa",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "L'attaccante non al meglio per un problema alla caviglia rimediato venerdì scorso in amichevole e ora a forte rischio la sua presenza nel prossimo turno di campionato contro la Fiorentina."
     },
     "Meichtry": {
       "squadra": "Genoa",
@@ -164,12 +170,6 @@
       "rientro": "01/10",
       "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte alle sfide contro Monza e Milan. Recuperabile da inizio ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Bologna."
     },
-    "Ciurria": {
-      "squadra": "Monza",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il centrocampista non al meglio per noie fisiche, forfait anche nel prossimo turno contro la Lazio. Da valutare."
-    },
     "Pessina": {
       "squadra": "Monza",
       "stato": "out",
@@ -181,6 +181,18 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, di certo assente nel prossimo turno di campionato. Tempi di recupero da valutare."
+    },
+    "Ciurria": {
+      "squadra": "Monza",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il centrocampista non al meglio per noie fisiche, forfait anche nel prossimo turno contro la Lazio. Da valutare."
+    },
+    "Marianucci": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla seconda metà di ottobre."
     },
     "Favasuli": {
       "squadra": "Napoli",
@@ -206,12 +218,6 @@
       "rientro": "15/07",
       "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
-    "Marianucci": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il difensore KO in amichevole l'8 agosto vittima di una lesione di alto grado del collaterale mediale del ginocchio sinistro. Stop di circa due mesi, rientro dalla seconda metà di ottobre."
-    },
     "McTominay": {
       "squadra": "Napoli",
       "stato": "out",
@@ -236,6 +242,12 @@
       "rientro": "15/10",
       "descrizione": "l'esterno offensivo dei neroverdi KO il 6 settembre a Bologna vittima di una lesione di grado moderato al flessore della gamba destra. Recuperabile dalla prima metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Milan."
     },
+    "Candè": {
+      "squadra": "Sassuolo",
+      "stato": "out",
+      "rientro": "01/01",
+      "descrizione": "il difensore a gennaio vittima della rottura legamento crociato anteriore ginocchio destro, punta a tornare convocabile dalla metà di ottobre."
+    },
     "Konè I.": {
       "squadra": "Sassuolo",
       "stato": "out-lungo",
@@ -247,12 +259,6 @@
       "stato": "dubbio",
       "rientro": "15/10",
       "descrizione": "Il difensore alle prese con un forte trauma contusivo alla gamba destra, da valutare il rientro dalla metà di ottobre."
-    },
-    "Candè": {
-      "squadra": "Sassuolo",
-      "stato": "out",
-      "rientro": "01/01",
-      "descrizione": "il difensore a gennaio vittima della rottura legamento crociato anteriore ginocchio destro, punta a tornare convocabile dalla metà di ottobre."
     },
     "Pieragnolo": {
       "squadra": "Sassuolo",

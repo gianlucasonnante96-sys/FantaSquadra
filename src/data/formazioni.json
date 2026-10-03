@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-03T07:15:28.157Z",
+  "aggiornato": "2026-10-03T09:12:12.489Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5465,7 +5465,7 @@
             "starter": true
           },
           {
-            "nome": "Colombo",
+            "nome": "Vitinha O.",
             "perc": 70,
             "starter": true
           },
@@ -5486,7 +5486,7 @@
           },
           {
             "nome": "Mitaj",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -5511,12 +5511,12 @@
           },
           {
             "nome": "Amorim",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
             "nome": "Traorè Hj.",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -5531,11 +5531,6 @@
           },
           {
             "nome": "Messias",
-            "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Vitinha O.",
             "perc": 60,
             "starter": false
           }
@@ -5666,7 +5661,7 @@
         "giocatori": [
           {
             "nome": "Martinez Jo.",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -6516,7 +6511,7 @@
           },
           {
             "nome": "Dele-Bashiru",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -6685,13 +6680,13 @@
             "starter": true
           },
           {
-            "nome": "Gaspar K.",
-            "perc": 70,
+            "nome": "Tiago Gabriel",
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Siebert",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -6750,13 +6745,13 @@
             "starter": false
           },
           {
-            "nome": "Jean",
-            "perc": 20,
+            "nome": "Gaspar K.",
+            "perc": 50,
             "starter": false
           },
           {
-            "nome": "Tiago Gabriel",
-            "perc": 50,
+            "nome": "Jean",
+            "perc": 20,
             "starter": false
           },
           {
@@ -6796,7 +6791,7 @@
           },
           {
             "nome": "Geubbels",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -7711,7 +7706,7 @@
           },
           {
             "nome": "Belghali",
-            "perc": 70,
+            "perc": 85,
             "starter": true
           },
           {
@@ -7776,7 +7771,7 @@
           },
           {
             "nome": "Fortini",
-            "perc": 60,
+            "perc": 25,
             "starter": false
           },
           {
