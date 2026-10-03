@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-03T12:50:08.342Z",
+  "aggiornato": "2026-10-03T17:00:19.099Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -4782,6 +4782,14 @@
       "nome": "Lovric",
       "squadra": "UDI",
       "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
+      "nome": "Obric",
+      "squadra": "ATA",
+      "ruolo": "D",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
       "fvm": 1

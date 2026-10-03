@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-03T12:50:23.144Z",
+  "aggiornato": "2026-10-03T17:00:33.604Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Malen": {
@@ -4177,6 +4177,13 @@
     "Lovric": {
       "ruolo": "C",
       "squadra": "UDI",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Obric": {
+      "ruolo": "D",
+      "squadra": "ATA",
       "mediaVoto": 0,
       "fantamedia": 0,
       "partiteGiocate": 0
