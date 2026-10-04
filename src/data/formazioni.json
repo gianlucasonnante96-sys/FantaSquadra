@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-04T18:32:06.027Z",
+  "aggiornato": "2026-10-04T22:12:41.822Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -7321,12 +7321,7 @@
           },
           {
             "nome": "Nzola",
-            "perc": 30,
-            "starter": false
-          },
-          {
-            "nome": "Kevin Carlos",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           }
         ]
