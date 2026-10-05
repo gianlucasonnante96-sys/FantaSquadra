@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-05T15:34:27.275Z",
+  "aggiornato": "2026-10-05T23:03:59.806Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5991,7 +5991,7 @@
           },
           {
             "nome": "Beukema",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -6000,8 +6000,13 @@
             "starter": false
           },
           {
+            "nome": "Marianucci",
+            "perc": 30,
+            "starter": false
+          },
+          {
             "nome": "Vergara",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
@@ -6117,7 +6122,7 @@
           },
           {
             "nome": "Fini",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -6127,7 +6132,7 @@
           },
           {
             "nome": "Hasa",
-            "perc": 35,
+            "perc": 50,
             "starter": false
           },
           {
@@ -6137,11 +6142,6 @@
           },
           {
             "nome": "Zerbin",
-            "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Birligea",
             "perc": 60,
             "starter": false
           },
@@ -7156,11 +7156,6 @@
             "starter": false
           },
           {
-            "nome": "Saelemaekers",
-            "perc": 50,
-            "starter": false
-          },
-          {
             "nome": "Musah",
             "perc": 60,
             "starter": false
@@ -7556,8 +7551,8 @@
             "starter": true
           },
           {
-            "nome": "Schingtienne",
-            "perc": 90,
+            "nome": "Moreno M.",
+            "perc": 80,
             "starter": true
           },
           {
@@ -7566,8 +7561,8 @@
             "starter": true
           },
           {
-            "nome": "Moreno M.",
-            "perc": 70,
+            "nome": "Halhal",
+            "perc": 80,
             "starter": true
           },
           {
@@ -7616,11 +7611,6 @@
             "starter": false
           },
           {
-            "nome": "Halhal",
-            "perc": 50,
-            "starter": false
-          },
-          {
             "nome": "Gomes",
             "perc": 25,
             "starter": false
@@ -7657,12 +7647,12 @@
           },
           {
             "nome": "Lauberbach",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Lisman",
-            "perc": 15,
+            "perc": 25,
             "starter": false
           }
         ]
