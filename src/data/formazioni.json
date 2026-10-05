@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-04T22:12:41.822Z",
+  "aggiornato": "2026-10-05T15:34:27.275Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5945,8 +5945,8 @@
             "starter": true
           },
           {
-            "nome": "Olivera",
-            "perc": 70,
+            "nome": "Spinazzola",
+            "perc": 75,
             "starter": true
           },
           {
@@ -5995,13 +5995,8 @@
             "starter": false
           },
           {
-            "nome": "Spinazzola",
-            "perc": 55,
-            "starter": false
-          },
-          {
             "nome": "Badiashile",
-            "perc": 35,
+            "perc": 40,
             "starter": false
           },
           {
@@ -6016,7 +6011,7 @@
           },
           {
             "nome": "Giovane",
-            "perc": 25,
+            "perc": 50,
             "starter": false
           },
           {
@@ -6491,12 +6486,12 @@
           },
           {
             "nome": "Doekhi",
-            "perc": 50,
+            "perc": 35,
             "starter": false
           },
           {
             "nome": "Marusic",
-            "perc": 20,
+            "perc": 50,
             "starter": false
           },
           {
@@ -6512,6 +6507,11 @@
           {
             "nome": "Dele-Bashiru",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Rovella",
+            "perc": 20,
             "starter": false
           },
           {
@@ -7101,8 +7101,8 @@
             "starter": true
           },
           {
-            "nome": "Estupinan",
-            "perc": 70,
+            "nome": "Moreira",
+            "perc": 85,
             "starter": true
           },
           {
@@ -7111,8 +7111,8 @@
             "starter": true
           },
           {
-            "nome": "Moreira",
-            "perc": 80,
+            "nome": "Cissè A.",
+            "perc": 70,
             "starter": true
           },
           {
@@ -7147,7 +7147,7 @@
           },
           {
             "nome": "Bartesaghi",
-            "perc": 40,
+            "perc": 60,
             "starter": false
           },
           {
@@ -7182,11 +7182,6 @@
           },
           {
             "nome": "Loftus-Cheek",
-            "perc": 55,
-            "starter": false
-          },
-          {
-            "nome": "Cissè A.",
             "perc": 60,
             "starter": false
           },
@@ -7867,7 +7862,7 @@
           },
           {
             "nome": "Davis K.",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
@@ -7882,7 +7877,7 @@
           },
           {
             "nome": "Ebosse",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -7902,7 +7897,7 @@
           },
           {
             "nome": "Alaba",
-            "perc": 35,
+            "perc": 50,
             "starter": false
           },
           {
@@ -7917,7 +7912,7 @@
           },
           {
             "nome": "Zarraga",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
