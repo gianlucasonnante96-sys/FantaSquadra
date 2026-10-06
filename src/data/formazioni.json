@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-06T13:56:26.238Z",
+  "aggiornato": "2026-10-06T19:59:21.867Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5735,11 +5735,6 @@
             "starter": false
           },
           {
-            "nome": "Stones",
-            "perc": 15,
-            "starter": false
-          },
-          {
             "nome": "Carlos Augusto",
             "perc": 60,
             "starter": false
@@ -5926,7 +5921,7 @@
         "giocatori": [
           {
             "nome": "Meret",
-            "perc": 60,
+            "perc": 75,
             "starter": true
           },
           {
@@ -5951,7 +5946,7 @@
           },
           {
             "nome": "Gilmour",
-            "perc": 85,
+            "perc": 90,
             "starter": true
           },
           {
@@ -5981,7 +5976,7 @@
           },
           {
             "nome": "Milinkovic-Savic V.",
-            "perc": 40,
+            "perc": 5,
             "starter": false
           },
           {
@@ -5996,17 +5991,12 @@
           },
           {
             "nome": "Badiashile",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Marianucci",
             "perc": 30,
-            "starter": false
-          },
-          {
-            "nome": "Vergara",
-            "perc": 50,
             "starter": false
           },
           {
@@ -6016,7 +6006,7 @@
           },
           {
             "nome": "Giovane",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -7552,17 +7542,17 @@
           },
           {
             "nome": "Moreno M.",
-            "perc": 80,
+            "perc": 60,
+            "starter": true
+          },
+          {
+            "nome": "Bella-Kotchap",
+            "perc": 75,
             "starter": true
           },
           {
             "nome": "Juan Jesus",
             "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Halhal",
-            "perc": 80,
             "starter": true
           },
           {
@@ -7608,6 +7598,11 @@
           {
             "nome": "Grandi",
             "perc": 1,
+            "starter": false
+          },
+          {
+            "nome": "Halhal",
+            "perc": 50,
             "starter": false
           },
           {

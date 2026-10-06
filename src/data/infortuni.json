@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-06T13:57:06.044Z",
+  "aggiornato": "2026-10-06T20:00:02.478Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -122,6 +122,12 @@
       "rientro": "In settimana",
       "descrizione": "Il calciatore ai box per una distrazione della muscolatura di un'anca, il cui grado rimane da valutare con ulteriori accertamenti medici. Di certo out nel prossimo turno di campionato contro la Fiorentina."
     },
+    "Stones": {
+      "squadra": "Inter",
+      "stato": "dubbio",
+      "rientro": "15/10",
+      "descrizione": "il difensore alle prese con un risentimento ai flessori della coscia sinistra, recuperabile dalla prima metà di ottobre. Tuttavia, da valutare la sua convocazione contro il Parma nella 6a di A."
+    },
     "Thuram K.": {
       "squadra": "Juventus",
       "stato": "out-lungo",
@@ -206,11 +212,11 @@
       "rientro": "In settimana",
       "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, di certo assente nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Buongiorno": {
+    "Olivera": {
       "squadra": "Napoli",
-      "stato": "out-lungo",
-      "rientro": "15/07",
-      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "L'uruguaiano a inizio ottobre in Nazionale ha rimediato un problema muscolare alla gamba destra e salterà l'impegno di campionato contro il Frosinone. Ipotesi rientro da fine ottobre."
     },
     "Favasuli": {
       "squadra": "Napoli",
@@ -230,11 +236,17 @@
       "rientro": "15/10",
       "descrizione": "Il centrocampista l'1 settembre a causa di una lieve aritmia benigna ha deciso di sottoporsi a un intervento di correzione tramite ablazione. Si confida di rivederlo in campo dalla seconda metà ottobre."
     },
-    "Olivera": {
+    "Buongiorno": {
+      "squadra": "Napoli",
+      "stato": "out-lungo",
+      "rientro": "15/07",
+      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
+    },
+    "Vergara": {
       "squadra": "Napoli",
       "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "L'uruguaiano a inizio ottobre in Nazionale ha rimediato un problema muscolare alla gamba destra e salterà l'impegno di campionato contro il Frosinone. Ipotesi rientro da fine ottobre."
+      "rientro": "01/11",
+      "descrizione": "Il centrocampista sostituito il 5 ottobre con la Nazionale italiana a causa di una lesione distrattiva al polpaccio destro. Recuperabile da inizio novembre."
     },
     "Zambo Anguissa": {
       "squadra": "Napoli",
@@ -260,11 +272,11 @@
       "rientro": "01/06",
       "descrizione": "il centrocampista canadese vittima a giugno nella gara dei Mondiali di una rottura di tibia e perone. Operato, punta a tornare in campo da dicembre."
     },
-    "Idzes": {
+    "Boloca": {
       "squadra": "Sassuolo",
-      "stato": "out",
+      "stato": "dubbio",
       "rientro": "15/10",
-      "descrizione": "Il difensore ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
+      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da metà ottobre."
     },
     "Volpato": {
       "squadra": "Sassuolo",
@@ -278,11 +290,11 @@
       "rientro": "15/10",
       "descrizione": "Il difensore alle prese con un forte trauma contusivo alla gamba destra, da valutare il rientro dalla metà di ottobre."
     },
-    "Pieragnolo": {
+    "Idzes": {
       "squadra": "Sassuolo",
       "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "il difensore sta proseguendo la fase di recupero dalla lesione legamento crociato anteriore gamba destra e ipotizziamo possa tornare convocabile da fine ottobre."
+      "rientro": "15/10",
+      "descrizione": "Il difensore ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
     },
     "Candè": {
       "squadra": "Sassuolo",
@@ -290,11 +302,11 @@
       "rientro": "01/01",
       "descrizione": "il difensore a gennaio vittima della rottura legamento crociato anteriore ginocchio destro, punta a tornare convocabile dalla metà di ottobre."
     },
-    "Boloca": {
+    "Pieragnolo": {
       "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "15/10",
-      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da metà ottobre."
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "il difensore sta proseguendo la fase di recupero dalla lesione legamento crociato anteriore gamba destra e ipotizziamo possa tornare convocabile da fine ottobre."
     },
     "Adams C.": {
       "squadra": "Torino",
@@ -325,18 +337,6 @@
       "stato": "out",
       "rientro": "15/10",
       "descrizione": "Il calciatore alle prese con una lesione muscolare al bicipite femorale destro, rientro previsto dalla seconda metà di ottobre."
-    },
-    "Adorante": {
-      "squadra": "Venezia",
-      "stato": "out",
-      "rientro": "30/07",
-      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro da metà ottobre."
-    },
-    "Bella-Kotchap": {
-      "squadra": "Venezia",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "il difensore costretto al cambio a Frosinone il 6 settembre per un risentimento muscolare mio-fasciale all'adduttore della gamba destra. Recuperabile dall'inizio di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro l'Atalanta."
     },
     "Schingtienne": {
       "squadra": "Venezia",
@@ -373,6 +373,12 @@
       "stato": "dubbio",
       "rientro": "15/10",
       "descrizione": "Il centrocampista non convocato dalla gara dell'11 settembre contro la Fiorentina per un problema fisico. Recuperabile dalla prima metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno a Bergamo."
+    },
+    "Adorante": {
+      "squadra": "Venezia",
+      "stato": "out",
+      "rientro": "30/07",
+      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro da metà ottobre."
     }
   }
 }
