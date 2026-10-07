@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-07T14:13:40.588Z",
+  "aggiornato": "2026-10-07T20:25:19.951Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5577,7 +5577,7 @@
           },
           {
             "nome": "Mastantuono",
-            "perc": 90,
+            "perc": 65,
             "starter": true
           },
           {
@@ -5656,7 +5656,7 @@
         "giocatori": [
           {
             "nome": "Martinez Jo.",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -5711,7 +5711,7 @@
           },
           {
             "nome": "Provedel",
-            "perc": 5,
+            "perc": 30,
             "starter": false
           },
           {
@@ -7326,18 +7326,13 @@
             "starter": true
           },
           {
-            "nome": "Lucumì",
-            "perc": 55,
+            "nome": "Kelly L.",
+            "perc": 60,
             "starter": true
           },
           {
-            "nome": "Celik",
-            "perc": 80,
-            "starter": true
-          },
-          {
-            "nome": "McKennie",
-            "perc": 90,
+            "nome": "Cambiaso",
+            "perc": 70,
             "starter": true
           },
           {
@@ -7346,12 +7341,17 @@
             "starter": true
           },
           {
-            "nome": "Conceicao",
-            "perc": 60,
+            "nome": "Sarr P.",
+            "perc": 80,
             "starter": true
           },
           {
-            "nome": "Gonzalez N.",
+            "nome": "Zhegrova",
+            "perc": 55,
+            "starter": true
+          },
+          {
+            "nome": "McKennie",
             "perc": 90,
             "starter": true
           },
@@ -7362,7 +7362,7 @@
           },
           {
             "nome": "Kolo Muani",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -7376,8 +7376,8 @@
             "starter": false
           },
           {
-            "nome": "Cambiaso",
-            "perc": 50,
+            "nome": "Celik",
+            "perc": 60,
             "starter": false
           },
           {
@@ -7386,8 +7386,8 @@
             "starter": false
           },
           {
-            "nome": "Kelly L.",
-            "perc": 50,
+            "nome": "Lucumì",
+            "perc": 55,
             "starter": false
           },
           {
@@ -7401,18 +7401,18 @@
             "starter": false
           },
           {
-            "nome": "Sarr P.",
+            "nome": "Gonzalez N.",
+            "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Conceicao",
             "perc": 60,
             "starter": false
           },
           {
             "nome": "Koopmeiners",
-            "perc": 55,
-            "starter": false
-          },
-          {
-            "nome": "Zhegrova",
-            "perc": 60,
+            "perc": 40,
             "starter": false
           },
           {
