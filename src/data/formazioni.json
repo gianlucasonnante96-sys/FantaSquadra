@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-06T19:59:21.867Z",
+  "aggiornato": "2026-10-07T00:22:24.338Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5450,8 +5450,8 @@
             "starter": true
           },
           {
-            "nome": "Sow",
-            "perc": 90,
+            "nome": "Amorim",
+            "perc": 85,
             "starter": true
           },
           {
@@ -5501,7 +5501,7 @@
           },
           {
             "nome": "Drameh",
-            "perc": 30,
+            "perc": 50,
             "starter": false
           },
           {
@@ -5510,13 +5510,8 @@
             "starter": false
           },
           {
-            "nome": "Amorim",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Traorè Hj.",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -5852,7 +5847,7 @@
           },
           {
             "nome": "Ndiaye",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -5891,11 +5886,6 @@
             "starter": false
           },
           {
-            "nome": "Almqvist",
-            "perc": 55,
-            "starter": false
-          },
-          {
             "nome": "Sierro",
             "perc": 60,
             "starter": false
@@ -5906,8 +5896,13 @@
             "starter": false
           },
           {
+            "nome": "De Martis",
+            "perc": 15,
+            "starter": false
+          },
+          {
             "nome": "Frigan",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           }
         ]
