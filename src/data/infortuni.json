@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-07T00:23:05.448Z",
+  "aggiornato": "2026-10-07T14:14:20.077Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -185,8 +185,8 @@
     "Berisha M.": {
       "squadra": "Lecce",
       "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte alle sfide contro Monza e Milan. Recuperabile da inizio ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Bologna."
+      "rientro": "15/10",
+      "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte alle sfide contro Monza e Milan. Recuperabile da metà ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Bologna."
     },
     "Estupinan": {
       "squadra": "Milan",
@@ -235,12 +235,6 @@
       "stato": "out",
       "rientro": "15/10",
       "descrizione": "Il brasiliano costretto al cambio il 9 settembre in Champions League vittima di una lesione muscolare di medio grado al bicipite femorale sinistro. Proverà a tornare arruolabile dalla seconda metà di ottobre."
-    },
-    "McTominay": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il centrocampista l'1 settembre a causa di una lieve aritmia benigna ha deciso di sottoporsi a un intervento di correzione tramite ablazione. Si confida di rivederlo in campo dalla seconda metà ottobre."
     },
     "Buongiorno": {
       "squadra": "Napoli",
@@ -319,12 +313,6 @@
       "stato": "out",
       "rientro": "01/01",
       "descrizione": "il difensore a gennaio vittima della rottura legamento crociato anteriore ginocchio destro, punta a tornare convocabile dalla metà di ottobre."
-    },
-    "Adams C.": {
-      "squadra": "Torino",
-      "stato": "dubbio",
-      "rientro": "15/09",
-      "descrizione": "L'attaccante frenato a metà settembre da una lesione distrattiva di basso grado all'adduttore, forfait contro Roma e Bologna. Punta a recuperare nella sosta, ma da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro l'Udinese."
     },
     "Fortini": {
       "squadra": "Torino",

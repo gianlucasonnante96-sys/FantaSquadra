@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-07T00:22:24.338Z",
+  "aggiornato": "2026-10-07T14:13:40.588Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5676,7 +5676,7 @@
           },
           {
             "nome": "Diouf",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -5721,12 +5721,12 @@
           },
           {
             "nome": "Pavard",
-            "perc": 40,
+            "perc": 30,
             "starter": false
           },
           {
             "nome": "Spence",
-            "perc": 30,
+            "perc": 40,
             "starter": false
           },
           {
@@ -5797,12 +5797,17 @@
           },
           {
             "nome": "Britschgi",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
             "nome": "Bernabè",
             "perc": 80,
+            "starter": true
+          },
+          {
+            "nome": "Sierro",
+            "perc": 85,
             "starter": true
           },
           {
@@ -5817,11 +5822,6 @@
           },
           {
             "nome": "Tourè E.",
-            "perc": 80,
-            "starter": true
-          },
-          {
-            "nome": "Lontani",
             "perc": 60,
             "starter": true
           },
@@ -5886,7 +5886,7 @@
             "starter": false
           },
           {
-            "nome": "Sierro",
+            "nome": "Lontani",
             "perc": 60,
             "starter": false
           },
@@ -5931,7 +5931,7 @@
           },
           {
             "nome": "Marin R.",
-            "perc": 80,
+            "perc": 60,
             "starter": true
           },
           {
@@ -5981,17 +5981,22 @@
           },
           {
             "nome": "Beukema",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
             "nome": "Badiashile",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Marianucci",
             "perc": 30,
+            "starter": false
+          },
+          {
+            "nome": "McTominay",
+            "perc": 50,
             "starter": false
           },
           {
@@ -7782,6 +7787,11 @@
           {
             "nome": "Kulenovic",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Adams C.",
+            "perc": 25,
             "starter": false
           }
         ]
