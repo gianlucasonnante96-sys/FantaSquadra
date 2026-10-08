@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-07T20:25:19.951Z",
+  "aggiornato": "2026-10-08T00:43:27.389Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -6797,7 +6797,7 @@
         "giocatori": [
           {
             "nome": "Skorupski",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -6852,7 +6852,7 @@
           },
           {
             "nome": "Pessina Mas.",
-            "perc": 5,
+            "perc": 30,
             "starter": false
           },
           {
