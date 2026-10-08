@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-08T14:23:37.864Z",
+  "aggiornato": "2026-10-08T20:30:56.863Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -3561,6 +3561,14 @@
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 3,
       "fvm": 9
+    },
+    {
+      "nome": "Darmian",
+      "squadra": "BOL",
+      "ruolo": "D",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 3,
+      "fvm": 7
     },
     {
       "nome": "Casale",

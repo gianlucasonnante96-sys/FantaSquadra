@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-08T14:23:24.211Z",
+  "aggiornato": "2026-10-08T20:30:43.513Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -5986,7 +5986,7 @@
           },
           {
             "nome": "McTominay",
-            "perc": 25,
+            "perc": 15,
             "starter": false
           },
           {
@@ -6124,11 +6124,6 @@
             "nome": "Zerbin",
             "perc": 60,
             "starter": false
-          },
-          {
-            "nome": "Raimondo",
-            "perc": 15,
-            "starter": false
           }
         ]
       }
@@ -6176,12 +6171,12 @@
           },
           {
             "nome": "Diao",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
             "nome": "Paz N.",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -6191,7 +6186,7 @@
           },
           {
             "nome": "Douvikas",
-            "perc": 80,
+            "perc": 90,
             "starter": true
           },
           {
@@ -6297,7 +6292,7 @@
           },
           {
             "nome": "Molina N.",
-            "perc": 80,
+            "perc": 65,
             "starter": true
           },
           {
@@ -7731,7 +7726,7 @@
           },
           {
             "nome": "Rodriguez R.",
-            "perc": 40,
+            "perc": 30,
             "starter": false
           },
           {
@@ -7751,7 +7746,7 @@
           },
           {
             "nome": "Aboukhlal",
-            "perc": 30,
+            "perc": 25,
             "starter": false
           },
           {
@@ -7776,7 +7771,7 @@
           },
           {
             "nome": "Adams C.",
-            "perc": 25,
+            "perc": 35,
             "starter": false
           }
         ]

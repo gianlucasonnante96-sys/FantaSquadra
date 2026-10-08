@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-08T14:23:52.732Z",
+  "aggiornato": "2026-10-08T20:31:11.804Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Malen": {
@@ -4198,6 +4198,13 @@
     "Neto": {
       "ruolo": "P",
       "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Darmian": {
+      "ruolo": "D",
+      "squadra": "BOL",
       "mediaVoto": 0,
       "fantamedia": 0,
       "partiteGiocate": 0
