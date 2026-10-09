@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-09T14:09:29.191Z",
+  "aggiornato": "2026-10-09T20:00:40.866Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -74,17 +74,17 @@
       "rientro": "In settimana",
       "descrizione": "L'attaccante non al meglio per un problema muscolare alla coscia sinistra, va verso il forfait nel prossimo turno di campionato contro la Juve. Da valutare."
     },
-    "Atta": {
-      "squadra": "Fiorentina",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il centrocampista non al meglio per un sovraccarico funzionale dell'addome, assente sabato a Genova. Da valutare in vista della 7a giornata di A."
-    },
     "Parisi": {
       "squadra": "Fiorentina",
       "stato": "out",
       "rientro": "01/12",
       "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da dicembre."
+    },
+    "Atta": {
+      "squadra": "Fiorentina",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il centrocampista non al meglio per un sovraccarico funzionale dell'addome, assente sabato a Genova. Da valutare in vista della 7a giornata di A."
     },
     "Grillitsch": {
       "squadra": "Frosinone",
@@ -98,23 +98,11 @@
       "rientro": "30/10",
       "descrizione": "L'attaccante sta recuperando da una lesione muscolare al quadricipite sinistro, tentativo di rientro dalla fine di ottobre."
     },
-    "Terzic": {
-      "squadra": "Frosinone",
+    "Amorim": {
+      "squadra": "Genoa",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il terzino dei ciociari ai box per una lesione di basso grado del bicipite femorale della coscia sinistra, da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Napoli."
-    },
-    "Raimondo": {
-      "squadra": "Frosinone",
-      "stato": "out",
-      "rientro": "N/D",
-      "descrizione": "L'attaccante condizionato da una tendinopatia al tendine d'Achille destro, verso il forfait sabato contro il Napoli alla ripresa del campionato."
-    },
-    "Venturino": {
-      "squadra": "Genoa",
-      "stato": "out-lungo",
-      "rientro": "30/10",
-      "descrizione": "il calciatore operato al tendine rotuleo e ora in fase di recupero. Di certo assente nel prossimo turno di campionato, ipotesi di rientro da fine ottobre."
+      "descrizione": "Il centrocampista non ha recuperato da un problema fisico e non è stato convocato per la gara contro la Fiorentina. Da valutare in vista della 7a giornata di campionato."
     },
     "Sow": {
       "squadra": "Genoa",
@@ -122,11 +110,11 @@
       "rientro": "01/11",
       "descrizione": "Il centrocampista svizzero il 6 ottobre in Nazionale vittima di una distrazione muscolare al bicipite femorale della coscia sinistra, rientro in campo da inizio novembre."
     },
-    "Colombo": {
+    "Havel": {
       "squadra": "Genoa",
       "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "L'attaccante non al meglio per un problema alla caviglia rimediato venerdì scorso in amichevole e darà forfait nel prossimo turno di campionato contro la Fiorentina. Ipotesi di rientro da fine ottobre."
+      "rientro": "15/10",
+      "descrizione": "L'attaccante ha deciso di operarsi alla caviglia e dovrebbe tornare arruolabile dalla metà di ottobre."
     },
     "Meichtry": {
       "squadra": "Genoa",
@@ -134,11 +122,17 @@
       "rientro": "In settimana",
       "descrizione": "Il calciatore ai box per una distrazione della muscolatura di un'anca, il cui grado rimane da valutare con ulteriori accertamenti medici. Di certo out nel prossimo turno di campionato contro la Fiorentina."
     },
-    "Havel": {
+    "Venturino": {
+      "squadra": "Genoa",
+      "stato": "out-lungo",
+      "rientro": "30/10",
+      "descrizione": "il calciatore operato al tendine rotuleo e ora in fase di recupero. Di certo assente nel prossimo turno di campionato, ipotesi di rientro da fine ottobre."
+    },
+    "Colombo": {
       "squadra": "Genoa",
       "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "L'attaccante ha deciso di operarsi alla caviglia e dovrebbe tornare arruolabile dalla metà di ottobre."
+      "rientro": "30/10",
+      "descrizione": "L'attaccante non al meglio per un problema alla caviglia rimediato venerdì scorso in amichevole e darà forfait nel prossimo turno di campionato contro la Fiorentina. Ipotesi di rientro da fine ottobre."
     },
     "Jones C.": {
       "squadra": "Inter",
@@ -236,17 +230,11 @@
       "rientro": "In settimana",
       "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, di certo assente nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Santos A.": {
+    "Buongiorno": {
       "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il brasiliano costretto al cambio il 9 settembre in Champions League vittima di una lesione muscolare di medio grado al bicipite femorale sinistro. Proverà a tornare arruolabile dalla seconda metà di ottobre."
-    },
-    "Olivera": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "L'uruguaiano a inizio ottobre in Nazionale ha rimediato un problema muscolare alla gamba destra e salterà l'impegno di campionato contro il Frosinone. Recuperabile dalla metà di ottobre."
+      "stato": "out-lungo",
+      "rientro": "15/07",
+      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
     "Zambo Anguissa": {
       "squadra": "Napoli",
@@ -254,17 +242,23 @@
       "rientro": "01/09",
       "descrizione": "il centrocampista subentrato a gara in corso il 20 settembre a Firenze, ma ha lamentato una lesione miofasciale di basso grado dell'adduttore lungo e rimane da valutare nei prossimi allenamenti in vista della gara contro il Frosinone alla ripresa del campionato."
     },
+    "Olivera": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "L'uruguaiano a inizio ottobre in Nazionale ha rimediato un problema muscolare alla gamba destra e salterà l'impegno di campionato contro il Frosinone. Recuperabile dalla metà di ottobre."
+    },
+    "Santos A.": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il brasiliano costretto al cambio il 9 settembre in Champions League vittima di una lesione muscolare di medio grado al bicipite femorale sinistro. Proverà a tornare arruolabile dalla seconda metà di ottobre."
+    },
     "Favasuli": {
       "squadra": "Napoli",
       "stato": "out",
       "rientro": "01/10",
       "descrizione": "Il cursore di fascia degli azzurri ai box da inizio ottobre per una lesione muscolare di secondo grado del retto femorale della coscia destra. Recuperabile dalla metà di novembre."
-    },
-    "Buongiorno": {
-      "squadra": "Napoli",
-      "stato": "out-lungo",
-      "rientro": "15/07",
-      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
     "Vergara": {
       "squadra": "Napoli",
@@ -276,7 +270,7 @@
       "squadra": "Parma",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il difensore colpito duro in allenamento nei giorni scorsi, a rischio forfait per sabato contro l'Inter. Condizioni da valutare nella rifinitura prematch."
+      "descrizione": "Il difensore colpito duro in allenamento nei giorni scorsi, forfait per sabato contro l'Inter. Condizioni da valutare in vista della 7a giornata di campionato."
     },
     "Nicolussi Caviglia": {
       "squadra": "Parma",
@@ -347,8 +341,8 @@
     "Piotrowski": {
       "squadra": "Udinese",
       "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "Il centrocampista ha ravvisato il 7 settembre contro la Lazio una lieve aritmia cardiaca benigna e si sottoporrà nei prossimi giorni ad un intervento di ablazione cardiaca. Osservato un periodo di riposo, potrà tornare alla regolare attività agonistica (ipotizziamo da fine ottobre)."
+      "rientro": "15/10",
+      "descrizione": "Il centrocampista ha ravvisato il 7 settembre contro la Lazio una lieve aritmia cardiaca benigna e si sottoporrà nei prossimi giorni ad un intervento di ablazione cardiaca. Osservato un periodo di riposo, potrà tornare alla regolare attività agonistica (ipotizziamo dalla seconda metà di ottobre)."
     },
     "Zaniolo": {
       "squadra": "Udinese",
@@ -361,12 +355,6 @@
       "stato": "out-lungo",
       "rientro": "30/01",
       "descrizione": "L'attaccante vittima di un problema alla caviglia a fine settembre. Ha deciso di operarsi, lungo stop di circa tre mesi e possibile ritorno in campo da fine gennaio."
-    },
-    "Sverko": {
-      "squadra": "Venezia",
-      "stato": "out-lungo",
-      "rientro": "30/10",
-      "descrizione": "il difensore operato in estate per il perdurare di un problema all'anca e recuperabile da fine ottobre."
     },
     "Franjic": {
       "squadra": "Venezia",
@@ -403,6 +391,12 @@
       "stato": "out",
       "rientro": "N/D",
       "descrizione": "Il difensore non al meglio per noie fisiche e a rischio forfait nel prossimo turno di campionato contro l'Atalanta."
+    },
+    "Sverko": {
+      "squadra": "Venezia",
+      "stato": "out-lungo",
+      "rientro": "30/10",
+      "descrizione": "il difensore operato in estate per il perdurare di un problema all'anca e recuperabile da fine ottobre."
     }
   }
 }
