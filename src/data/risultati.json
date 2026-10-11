@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-11T13:49:30.182Z",
+  "aggiornato": "2026-10-11T19:23:36.193Z",
   "fonte": "fantacalcio.it",
   "giornate": {
     "1": [
@@ -340,25 +340,25 @@
       {
         "casa": "Lazio",
         "trasferta": "Monza",
-        "golCasa": 2,
-        "golTrasferta": 0
+        "golCasa": 3,
+        "golTrasferta": 1
       },
       {
         "casa": "Lecce",
         "trasferta": "Bologna",
-        "golCasa": 0,
-        "golTrasferta": 1
+        "golCasa": 1,
+        "golTrasferta": 2
       },
       {
         "casa": "Sassuolo",
         "trasferta": "Milan",
-        "golCasa": 0,
-        "golTrasferta": 0
+        "golCasa": 1,
+        "golTrasferta": 1
       },
       {
         "casa": "Cagliari",
         "trasferta": "Juventus",
-        "golCasa": 0,
+        "golCasa": 1,
         "golTrasferta": 0
       },
       {
