@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-10T19:08:31.763Z",
+  "aggiornato": "2026-10-11T00:06:30.875Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -4795,6 +4795,14 @@
       "fvm": 1
     },
     {
+      "nome": "Wiafe",
+      "squadra": "GEN",
+      "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
       "nome": "Obric",
       "squadra": "ATA",
       "ruolo": "D",
@@ -4805,6 +4813,14 @@
     {
       "nome": "Neto",
       "squadra": "JUV",
+      "ruolo": "P",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
+      "nome": "Vasquez D.",
+      "squadra": "ROM",
       "ruolo": "P",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,

@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-10T19:08:17.956Z",
+  "aggiornato": "2026-10-11T00:06:17.017Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -6323,6 +6323,11 @@
           {
             "nome": "De Marzi",
             "perc": 5,
+            "starter": false
+          },
+          {
+            "nome": "Vasquez D.",
+            "perc": 1,
             "starter": false
           },
           {
