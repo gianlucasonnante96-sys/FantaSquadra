@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-11T00:06:51.440Z",
+  "aggiornato": "2026-10-11T13:47:31.058Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -16,15 +16,15 @@
       ]
     },
     "Roma": {
-      "punti": 13,
-      "g": 5,
+      "punti": 14,
+      "g": 6,
       "gf": 14,
       "gs": 3,
       "forma": [
         "W",
         "W",
         "W",
-        "W",
+        "D",
         "D"
       ]
     },
@@ -67,6 +67,19 @@
         "W"
       ]
     },
+    "Como": {
+      "punti": 11,
+      "g": 6,
+      "gf": 9,
+      "gs": 6,
+      "forma": [
+        "W",
+        "W",
+        "W",
+        "L",
+        "D"
+      ]
+    },
     "Juventus": {
       "punti": 10,
       "g": 5,
@@ -78,19 +91,6 @@
         "D",
         "L",
         "W"
-      ]
-    },
-    "Como": {
-      "punti": 10,
-      "g": 5,
-      "gf": 9,
-      "gs": 6,
-      "forma": [
-        "D",
-        "W",
-        "W",
-        "W",
-        "L"
       ]
     },
     "Napoli": {
