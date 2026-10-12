@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-12T16:31:15.311Z",
+  "aggiornato": "2026-10-12T23:31:14.369Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -119,6 +119,19 @@
         "L"
       ]
     },
+    "Atalanta": {
+      "punti": 9,
+      "g": 6,
+      "gf": 8,
+      "gs": 8,
+      "forma": [
+        "W",
+        "L",
+        "L",
+        "L",
+        "W"
+      ]
+    },
     "Sassuolo": {
       "punti": 8,
       "g": 6,
@@ -132,17 +145,17 @@
         "D"
       ]
     },
-    "Atalanta": {
-      "punti": 6,
-      "g": 5,
-      "gf": 5,
-      "gs": 7,
+    "Torino": {
+      "punti": 7,
+      "g": 6,
+      "gf": 7,
+      "gs": 9,
       "forma": [
-        "W",
+        "L",
         "W",
         "L",
-        "L",
-        "L"
+        "D",
+        "W"
       ]
     },
     "Lecce": {
@@ -173,28 +186,15 @@
     },
     "Udinese": {
       "punti": 4,
-      "g": 5,
-      "gf": 8,
-      "gs": 11,
+      "g": 6,
+      "gf": 9,
+      "gs": 13,
       "forma": [
-        "D",
         "W",
+        "L",
         "L",
         "L",
         "L"
-      ]
-    },
-    "Torino": {
-      "punti": 4,
-      "g": 5,
-      "gf": 5,
-      "gs": 8,
-      "forma": [
-        "L",
-        "L",
-        "W",
-        "L",
-        "D"
       ]
     },
     "Monza": {
@@ -251,9 +251,9 @@
     },
     "Venezia": {
       "punti": 0,
-      "g": 5,
-      "gf": 4,
-      "gs": 13,
+      "g": 6,
+      "gf": 5,
+      "gs": 16,
       "forma": [
         "L",
         "L",

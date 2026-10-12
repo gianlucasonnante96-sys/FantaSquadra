@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-12T16:30:41.436Z",
+  "aggiornato": "2026-10-12T23:30:40.582Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -7646,57 +7646,57 @@
         "giocatori": [
           {
             "nome": "Perri",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Comuzzo",
-            "perc": 85,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Coco",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Comert",
-            "perc": 60,
+            "nome": "Rodriguez R.",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Belghali",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mandragora",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Fitz-Jim",
-            "perc": 90,
+            "nome": "Braganca",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Cacciamani",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Casadei",
-            "perc": 55,
+            "nome": "Oristanio",
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Vlasic",
-            "perc": 55,
+            "nome": "Adams C.",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Simeone",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -7707,6 +7707,11 @@
           {
             "nome": "Siviero",
             "perc": 1,
+            "starter": false
+          },
+          {
+            "nome": "Comert",
+            "perc": 60,
             "starter": false
           },
           {
@@ -7725,8 +7730,8 @@
             "starter": false
           },
           {
-            "nome": "Rodriguez R.",
-            "perc": 30,
+            "nome": "Fitz-Jim",
+            "perc": 55,
             "starter": false
           },
           {
@@ -7735,8 +7740,8 @@
             "starter": false
           },
           {
-            "nome": "Braganca",
-            "perc": 60,
+            "nome": "Vlasic",
+            "perc": 55,
             "starter": false
           },
           {
@@ -7745,13 +7750,13 @@
             "starter": false
           },
           {
-            "nome": "Aboukhlal",
-            "perc": 25,
+            "nome": "Casadei",
+            "perc": 55,
             "starter": false
           },
           {
-            "nome": "Oristanio",
-            "perc": 60,
+            "nome": "Aboukhlal",
+            "perc": 25,
             "starter": false
           },
           {
@@ -7763,11 +7768,6 @@
             "nome": "Kulenovic",
             "perc": 55,
             "starter": false
-          },
-          {
-            "nome": "Adams C.",
-            "perc": 60,
-            "starter": false
           }
         ]
       },
@@ -7777,57 +7777,57 @@
         "giocatori": [
           {
             "nome": "Okoye",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Abankwah",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Solet",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Alaba",
-            "perc": 55,
+            "nome": "Ebosse",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Vojvoda",
-            "perc": 60,
-            "starter": true
-          },
-          {
-            "nome": "Miller L.",
-            "perc": 75,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Karlstrom",
-            "perc": 90,
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Zarraga",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Kamara H.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Unai Gomez",
-            "perc": 55,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ekkelenkamp",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Davis K.",
-            "perc": 80,
+            "nome": "Chakvetadze",
+            "perc": 100,
             "starter": true
           },
           {
@@ -7841,7 +7841,7 @@
             "starter": false
           },
           {
-            "nome": "Ebosse",
+            "nome": "Alaba",
             "perc": 50,
             "starter": false
           },
@@ -7861,23 +7861,13 @@
             "starter": false
           },
           {
-            "nome": "Zanoli",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Arizala",
             "perc": 30,
             "starter": false
           },
           {
-            "nome": "Chakvetadze",
-            "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Zarraga",
-            "perc": 35,
+            "nome": "Miller L.",
+            "perc": 55,
             "starter": false
           },
           {
@@ -7891,8 +7881,8 @@
             "starter": false
           },
           {
-            "nome": "Bayo V.",
-            "perc": 60,
+            "nome": "Davis K.",
+            "perc": 55,
             "starter": false
           }
         ]
