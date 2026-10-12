@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-12T00:15:13.841Z",
+  "aggiornato": "2026-10-12T16:31:09.696Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Odenthal": {
@@ -702,13 +702,6 @@
       "fantamedia": 6.6,
       "partiteGiocate": 5
     },
-    "Berardi": {
-      "ruolo": "A",
-      "squadra": "SAS",
-      "mediaVoto": 6,
-      "fantamedia": 6.6,
-      "partiteGiocate": 5
-    },
     "Fatah": {
       "ruolo": "A",
       "squadra": "LEC",
@@ -825,6 +818,13 @@
       "ruolo": "C",
       "squadra": "SAS",
       "mediaVoto": 6.3,
+      "fantamedia": 6.5,
+      "partiteGiocate": 5
+    },
+    "Berardi": {
+      "ruolo": "A",
+      "squadra": "SAS",
+      "mediaVoto": 6,
       "fantamedia": 6.5,
       "partiteGiocate": 5
     },
