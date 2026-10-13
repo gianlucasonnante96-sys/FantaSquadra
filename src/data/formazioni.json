@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-13T14:48:56.863Z",
+  "aggiornato": "2026-10-13T20:31:03.424Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -8792,12 +8792,12 @@
           },
           {
             "nome": "Ehizibue",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
-            "nome": "Marcandalli",
-            "perc": 80,
+            "nome": "Otoa",
+            "perc": 55,
             "starter": true
           },
           {
@@ -8852,7 +8852,12 @@
           },
           {
             "nome": "Mitaj",
-            "perc": 55,
+            "perc": 40,
+            "starter": false
+          },
+          {
+            "nome": "Marcandalli",
+            "perc": 50,
             "starter": false
           },
           {
@@ -8873,6 +8878,11 @@
           {
             "nome": "Baldanzi",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Amorim",
+            "perc": 20,
             "starter": false
           },
           {
@@ -9181,12 +9191,12 @@
           },
           {
             "nome": "Oulai",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Mastantuono",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
