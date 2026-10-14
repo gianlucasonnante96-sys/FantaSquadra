@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-14T17:48:12.233Z",
+  "aggiornato": "2026-10-14T22:03:28.709Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -8696,22 +8696,22 @@
           },
           {
             "nome": "Molina N.",
-            "perc": 80,
-            "starter": true
-          },
-          {
-            "nome": "De Roon",
-            "perc": 80,
-            "starter": true
-          },
-          {
-            "nome": "Konè M.",
             "perc": 60,
             "starter": true
           },
           {
-            "nome": "Wesley",
+            "nome": "De Roon",
+            "perc": 85,
+            "starter": true
+          },
+          {
+            "nome": "Pisilli",
             "perc": 80,
+            "starter": true
+          },
+          {
+            "nome": "Wesley",
+            "perc": 70,
             "starter": true
           },
           {
@@ -8720,8 +8720,8 @@
             "starter": true
           },
           {
-            "nome": "Dybala",
-            "perc": 60,
+            "nome": "Mora",
+            "perc": 55,
             "starter": true
           },
           {
@@ -8741,12 +8741,12 @@
           },
           {
             "nome": "Balerdi",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Koulierakis",
-            "perc": 30,
+            "perc": 50,
             "starter": false
           },
           {
@@ -8756,7 +8756,7 @@
           },
           {
             "nome": "Rensch",
-            "perc": 50,
+            "perc": 60,
             "starter": false
           },
           {
@@ -8765,18 +8765,13 @@
             "starter": false
           },
           {
-            "nome": "Pisilli",
-            "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Mora",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Pellegrini Lo.",
-            "perc": 55,
+            "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Dybala",
+            "perc": 50,
             "starter": false
           }
         ]
@@ -8961,7 +8956,7 @@
           },
           {
             "nome": "Davis K.",
-            "perc": 80,
+            "perc": 75,
             "starter": true
           },
           {
@@ -8981,7 +8976,7 @@
           },
           {
             "nome": "Kabasele",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
@@ -8996,7 +8991,7 @@
           },
           {
             "nome": "Arizala",
-            "perc": 40,
+            "perc": 55,
             "starter": false
           },
           {
@@ -9112,12 +9107,12 @@
           },
           {
             "nome": "Gandelman",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
             "nome": "Gorter",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
@@ -9138,6 +9133,11 @@
           {
             "nome": "N'Dri",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Stulic",
+            "perc": 50,
             "starter": false
           },
           {
@@ -9557,7 +9557,7 @@
           },
           {
             "nome": "Kessiè",
-            "perc": 90,
+            "perc": 55,
             "starter": true
           },
           {
@@ -9577,7 +9577,7 @@
           },
           {
             "nome": "Krstovic",
-            "perc": 70,
+            "perc": 75,
             "starter": true
           },
           {

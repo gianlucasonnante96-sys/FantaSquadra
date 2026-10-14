@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-14T17:48:52.329Z",
+  "aggiornato": "2026-10-14T22:04:07.755Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -20,17 +20,17 @@
       "rientro": "01/10",
       "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Kossounou": {
-      "squadra": "Atalanta",
-      "stato": "out-lungo",
-      "rientro": "15/11",
-      "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla seconda metà di novembre."
-    },
     "Sulemana K.": {
       "squadra": "Atalanta",
       "stato": "dubbio",
       "rientro": "15/10",
       "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro. Recuperabile dalla seconda metà di ottobre, da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Milan."
+    },
+    "Kossounou": {
+      "squadra": "Atalanta",
+      "stato": "out-lungo",
+      "rientro": "15/11",
+      "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla seconda metà di novembre."
     },
     "Holm": {
       "squadra": "Bologna",
@@ -188,12 +188,6 @@
       "rientro": "30/10",
       "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte alle sfide contro Monza e Milan, out anche domenica contro il Bologna. Recuperabile da fine ottobre."
     },
-    "Stulic": {
-      "squadra": "Lecce",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "lavoro a parte nei giorni scorsi per l'attaccante a causa del riacutizzarsi di un fastidio muscolare alla gamba. Assente già domenica scorsa contro il Bologna, condizioni da valutare in vista della sfida di domenica a Udine nella 7a giornata di A."
-    },
     "Ilic": {
       "squadra": "Lecce",
       "stato": "out",
@@ -272,6 +266,12 @@
       "rientro": "30/10",
       "descrizione": "L'ala offensiva dei ducali KO dal 6 ottobre per una lesione muscolare al polpaccio sinistro, recuperabile dalla fine di ottobre."
     },
+    "Konè M.": {
+      "squadra": "Roma",
+      "stato": "dubbio",
+      "rientro": "01/10",
+      "descrizione": "Il centrocampista frenato da un fastidio muscolare alla gamba il 14 ottobre in Champions League contro il Real Madrid. Condizioni da valutare, ma va verso il forfait sabato sera in campionato contro il Genoa."
+    },
     "Svilar": {
       "squadra": "Roma",
       "stato": "out",
@@ -283,6 +283,12 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il mediano giallorosso in ripresa da un'infiammazione al ginocchio e, dopo il forfait di domenica scorsa a Como, sta forzando il rientro per esserci domenica contro il Genoa nella 7a giornata di A. Da valutare nella rifinitura di venerdì a Trigoria."
+    },
+    "Idzes": {
+      "squadra": "Sassuolo",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il difensore ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
     },
     "Pieragnolo": {
       "squadra": "Sassuolo",
@@ -307,12 +313,6 @@
       "stato": "out-lungo",
       "rientro": "01/04",
       "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
-    },
-    "Idzes": {
-      "squadra": "Sassuolo",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il difensore ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
     },
     "Ilkhan": {
       "squadra": "Torino",
@@ -350,11 +350,11 @@
       "rientro": "01/10",
       "descrizione": "il difensore costretto al cambio il 12 ottobre contro il Toro per un problema muscolare al flessore della coscia sinistra che andrà valutato. Viaggia verso il forfait per domenica contro il Lecce in casa."
     },
-    "Correia T.": {
+    "Busio": {
       "squadra": "Venezia",
       "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un fastidio muscolare alla coscia che andrà valutato, ma sarà out sabato contro il Napoli."
+      "rientro": "15/10",
+      "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre."
     },
     "Adorante": {
       "squadra": "Venezia",
@@ -362,11 +362,11 @@
       "rientro": "30/07",
       "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dalla seconda metà di ottobre."
     },
-    "Busio": {
+    "Correia T.": {
       "squadra": "Venezia",
       "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre."
+      "rientro": "01/10",
+      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un fastidio muscolare alla coscia che andrà valutato, ma sarà out sabato contro il Napoli."
     },
     "Franjic": {
       "squadra": "Venezia",
