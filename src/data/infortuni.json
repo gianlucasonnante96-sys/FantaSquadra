@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-14T00:10:12.739Z",
+  "aggiornato": "2026-10-14T12:40:15.534Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -286,9 +286,9 @@
     },
     "Leysen F.": {
       "squadra": "Sassuolo",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di un problema al ginocchio che andrà valutato per stabilire i tempi di recupero. Di certo out venerdì contro il Frosinone in campionato."
+      "stato": "out-lungo",
+      "rientro": "01/04",
+      "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
     },
     "Konè I.": {
       "squadra": "Sassuolo",
