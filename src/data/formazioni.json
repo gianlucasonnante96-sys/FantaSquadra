@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-14T12:39:36.598Z",
+  "aggiornato": "2026-10-14T17:48:12.233Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -8302,7 +8302,7 @@
           },
           {
             "nome": "Di Lorenzo",
-            "perc": 75,
+            "perc": 70,
             "starter": true
           },
           {
@@ -8317,7 +8317,7 @@
           },
           {
             "nome": "Spinazzola",
-            "perc": 85,
+            "perc": 90,
             "starter": true
           },
           {
@@ -8337,7 +8337,7 @@
           },
           {
             "nome": "Politano",
-            "perc": 85,
+            "perc": 90,
             "starter": true
           },
           {
@@ -8377,7 +8377,7 @@
           },
           {
             "nome": "Olivera",
-            "perc": 55,
+            "perc": 50,
             "starter": false
           },
           {
@@ -8387,7 +8387,7 @@
           },
           {
             "nome": "Zambo Anguissa",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -8402,7 +8402,7 @@
           },
           {
             "nome": "Santos A.",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -9267,27 +9267,27 @@
         "giocatori": [
           {
             "nome": "Butez",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Couto",
-            "perc": 55,
+            "perc": 90,
             "starter": true
           },
           {
             "nome": "Ramon",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
             "nome": "Chalobah T.",
-            "perc": 80,
+            "perc": 55,
             "starter": true
           },
           {
             "nome": "Valle",
-            "perc": 60,
+            "perc": 80,
             "starter": true
           },
           {
@@ -9301,13 +9301,13 @@
             "starter": true
           },
           {
-            "nome": "Diao",
-            "perc": 60,
+            "nome": "Rodriguez Je.",
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Paz N.",
-            "perc": 80,
+            "perc": 75,
             "starter": true
           },
           {
@@ -9317,12 +9317,12 @@
           },
           {
             "nome": "Douvikas",
-            "perc": 85,
+            "perc": 90,
             "starter": true
           },
           {
             "nome": "Sanchez Ro.",
-            "perc": 30,
+            "perc": 5,
             "starter": false
           },
           {
@@ -9332,12 +9332,12 @@
           },
           {
             "nome": "Smolcic I.",
-            "perc": 50,
+            "perc": 35,
             "starter": false
           },
           {
             "nome": "Kempf",
-            "perc": 35,
+            "perc": 55,
             "starter": false
           },
           {
@@ -9362,7 +9362,7 @@
           },
           {
             "nome": "Caqueret",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -9372,7 +9372,7 @@
           },
           {
             "nome": "Ricci S.",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
@@ -9388,11 +9388,6 @@
           {
             "nome": "Liberali",
             "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "Rodriguez Je.",
-            "perc": 60,
             "starter": false
           }
         ]
