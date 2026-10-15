@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-15T12:28:45.712Z",
+  "aggiornato": "2026-10-15T17:37:48.787Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -8,17 +8,11 @@
       "rientro": "30/10",
       "descrizione": "il difensore costretto al cambio il 12 ottobre contro il Venezia in campionato per una distrazione di basso grado dei muscoli flessori della gamba sinistra, recuperabile dalla fine di ottobre."
     },
-    "Kossounou": {
+    "Hien": {
       "squadra": "Atalanta",
       "stato": "out-lungo",
-      "rientro": "15/11",
-      "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla seconda metà di novembre."
-    },
-    "Sulemana K.": {
-      "squadra": "Atalanta",
-      "stato": "dubbio",
-      "rientro": "15/10",
-      "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro. Recuperabile dalla seconda metà di ottobre, da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Milan."
+      "rientro": "30/06",
+      "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla metà di novembre."
     },
     "Pompei": {
       "squadra": "Atalanta",
@@ -26,11 +20,17 @@
       "rientro": "01/10",
       "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Hien": {
+    "Sulemana K.": {
+      "squadra": "Atalanta",
+      "stato": "dubbio",
+      "rientro": "15/10",
+      "descrizione": "L'attaccante KO in amichevole l'8 agosto vittima di una lesione del collaterale mediale di secondo grado del ginocchio sinistro. Recuperabile dalla seconda metà di ottobre, da valutare nei prossimi allenamenti le possibilità di convocazione già nel prossimo turno contro il Milan."
+    },
+    "Kossounou": {
       "squadra": "Atalanta",
       "stato": "out-lungo",
-      "rientro": "30/06",
-      "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla metà di novembre."
+      "rientro": "15/11",
+      "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla seconda metà di novembre."
     },
     "Holm": {
       "squadra": "Bologna",
@@ -128,23 +128,17 @@
       "rientro": "01/11",
       "descrizione": "Il centrocampista svizzero il 6 ottobre in Nazionale vittima di una distrazione muscolare al bicipite femorale della coscia sinistra, rientro in campo da inizio novembre."
     },
-    "Martinez L.": {
-      "squadra": "Inter",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "L'argentino sottoposto giovedì mattina a controlli medici che hanno evidenziato un risentimento muscolare ai flessori della coscia sinistra. Forfait nel prossimo turno a Bologna, proverà a in extremis a recuperare per il derby di campionato in programma a fine ottobre."
-    },
     "Jones C.": {
       "squadra": "Inter",
       "stato": "out",
       "rientro": "30/10",
       "descrizione": "Il centrocampista fermato da un risentimento miofasciale agli adduttori della coscia destra, tentativo rientro tra i convocati dalla fine di ottobre."
     },
-    "Locatelli": {
-      "squadra": "Juventus",
-      "stato": "out-lungo",
-      "rientro": "01/02",
-      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
+    "Martinez L.": {
+      "squadra": "Inter",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "L'argentino sottoposto giovedì mattina a controlli medici che hanno evidenziato un risentimento muscolare ai flessori della coscia sinistra. Forfait nel prossimo turno a Bologna, proverà a in extremis a recuperare per il derby di campionato in programma a fine ottobre."
     },
     "Thuram K.": {
       "squadra": "Juventus",
@@ -175,6 +169,12 @@
       "stato": "out-lungo",
       "rientro": "01/04",
       "descrizione": "Il portiere out dal 20 settembre per una lesione al crociato anteriore del ginocchio destro. Operazione chirurgica e lungo stop, rientro da aprile."
+    },
+    "Locatelli": {
+      "squadra": "Juventus",
+      "stato": "out-lungo",
+      "rientro": "01/02",
+      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
     },
     "Gudmundsson A.": {
       "squadra": "Lazio",
@@ -256,9 +256,9 @@
     },
     "Neres": {
       "squadra": "Napoli",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "L'ala offensiva azzurra out sabato a Venezia per un fastidio muscolare alla gamba. Da valutare in vista della 8a giornata di campionato."
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "L'ala offensiva azzurra ai box per una lesione di basso grado al muscolo semimembranoso della coscia destra, tentativo di rientro tra i convocati dalla prima metà di novembre."
     },
     "Favasuli": {
       "squadra": "Napoli",
