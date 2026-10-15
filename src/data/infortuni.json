@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-15T17:37:48.787Z",
+  "aggiornato": "2026-10-15T21:57:34.492Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -19,6 +19,12 @@
       "stato": "dubbio",
       "rientro": "01/10",
       "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Tempi di recupero da valutare."
+    },
+    "Raspadori": {
+      "squadra": "Atalanta",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "Nuovo stop muscolare per l'attaccante, frenato il 15 ottobre in Conference League da un fastidio alla gamba che andrà valutato nelle prossime ore. Forfait in campionato domenica a Milano contro i rossoneri."
     },
     "Sulemana K.": {
       "squadra": "Atalanta",
@@ -92,12 +98,6 @@
       "rientro": "01/11",
       "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile da inizio novembre."
     },
-    "Birligea": {
-      "squadra": "Frosinone",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "L'attaccante sta recuperando da una lesione muscolare al quadricipite sinistro, tentativo di rientro dalla fine di ottobre."
-    },
     "Venturino": {
       "squadra": "Genoa",
       "stato": "out-lungo",
@@ -145,12 +145,6 @@
       "stato": "out-lungo",
       "rientro": "01/01",
       "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
-    },
-    "Boga": {
-      "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "l'ala offensiva dei bianconeri fermo dopo il match contro il Milan (6 settembre) per una lesione di medio grado del bicipite femorale, ipotizziamo un possibile rientro dalla metà di novembre."
     },
     "Ekhator": {
       "squadra": "Juventus",
