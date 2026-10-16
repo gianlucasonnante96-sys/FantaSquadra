@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-16T17:11:28.203Z",
+  "aggiornato": "2026-10-16T21:55:55.736Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -54,6 +54,19 @@
         "D"
       ]
     },
+    "Frosinone": {
+      "punti": 13,
+      "g": 7,
+      "gf": 13,
+      "gs": 9,
+      "forma": [
+        "W",
+        "D",
+        "W",
+        "L",
+        "W"
+      ]
+    },
     "Milan": {
       "punti": 12,
       "g": 6,
@@ -106,19 +119,6 @@
         "W"
       ]
     },
-    "Frosinone": {
-      "punti": 10,
-      "g": 6,
-      "gf": 9,
-      "gs": 7,
-      "forma": [
-        "W",
-        "W",
-        "D",
-        "W",
-        "L"
-      ]
-    },
     "Atalanta": {
       "punti": 9,
       "g": 6,
@@ -134,15 +134,15 @@
     },
     "Sassuolo": {
       "punti": 8,
-      "g": 6,
-      "gf": 10,
-      "gs": 10,
+      "g": 7,
+      "gf": 12,
+      "gs": 14,
       "forma": [
-        "W",
         "D",
         "W",
         "L",
-        "D"
+        "D",
+        "L"
       ]
     },
     "Torino": {
