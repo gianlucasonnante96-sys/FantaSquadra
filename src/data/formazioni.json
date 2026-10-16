@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-16T12:06:49.336Z",
+  "aggiornato": "2026-10-16T17:10:55.001Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -8246,12 +8246,7 @@
           },
           {
             "nome": "Mazzocchi",
-            "perc": 20,
-            "starter": false
-          },
-          {
-            "nome": "Bella-Kotchap",
-            "perc": 20,
+            "perc": 35,
             "starter": false
           },
           {
@@ -8561,13 +8556,13 @@
             "starter": true
           },
           {
-            "nome": "Pavard",
+            "nome": "Bisseck",
             "perc": 80,
             "starter": true
           },
           {
             "nome": "Akanji",
-            "perc": 55,
+            "perc": 80,
             "starter": true
           },
           {
@@ -8597,7 +8592,7 @@
           },
           {
             "nome": "Dimarco",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
@@ -8631,11 +8626,6 @@
             "starter": false
           },
           {
-            "nome": "Bisseck",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Diouf",
             "perc": 60,
             "starter": false
@@ -8657,7 +8647,7 @@
           },
           {
             "nome": "Mkhitaryan",
-            "perc": 35,
+            "perc": 55,
             "starter": false
           },
           {
@@ -9165,13 +9155,13 @@
             "starter": true
           },
           {
-            "nome": "Ranieri L.",
-            "perc": 80,
+            "nome": "Viery",
+            "perc": 55,
             "starter": true
           },
           {
             "nome": "Valdepenas",
-            "perc": 60,
+            "perc": 80,
             "starter": true
           },
           {
@@ -9216,7 +9206,7 @@
           },
           {
             "nome": "Joao Mario",
-            "perc": 40,
+            "perc": 35,
             "starter": false
           },
           {
@@ -9225,23 +9215,23 @@
             "starter": false
           },
           {
-            "nome": "Viery",
-            "perc": 60,
+            "nome": "Ranieri L.",
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Pongracic",
-            "perc": 30,
-            "starter": false
-          },
-          {
-            "nome": "Brescianini",
             "perc": 35,
             "starter": false
           },
           {
-            "nome": "Goncalves P.",
+            "nome": "Brescianini",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Goncalves P.",
+            "perc": 60,
             "starter": false
           },
           {
@@ -9746,7 +9736,7 @@
             "starter": true
           },
           {
-            "nome": "Doekhi",
+            "nome": "Sutalo J.",
             "perc": 55,
             "starter": true
           },
@@ -9782,7 +9772,7 @@
           },
           {
             "nome": "Noslin",
-            "perc": 55,
+            "perc": 60,
             "starter": true
           },
           {
@@ -9806,7 +9796,7 @@
             "starter": false
           },
           {
-            "nome": "Sutalo J.",
+            "nome": "Doekhi",
             "perc": 55,
             "starter": false
           },
@@ -9818,6 +9808,11 @@
           {
             "nome": "Lazzari",
             "perc": 30,
+            "starter": false
+          },
+          {
+            "nome": "Pellegrini Lu.",
+            "perc": 15,
             "starter": false
           },
           {
