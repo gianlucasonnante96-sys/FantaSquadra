@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-15T21:57:34.492Z",
+  "aggiornato": "2026-10-16T12:07:27.890Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -19,6 +19,12 @@
       "stato": "dubbio",
       "rientro": "01/10",
       "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Tempi di recupero da valutare."
+    },
+    "Kessiè": {
+      "squadra": "Atalanta",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "L'ivoriano condizionato da una distrazione di basso grado al polpaccio della gamba destra, tentativo rientro dalla seconda metà di ottobre."
     },
     "Raspadori": {
       "squadra": "Atalanta",
@@ -278,11 +284,17 @@
       "rientro": "15/07",
       "descrizione": "il centrocampista alle prese dalla seconda metà di luglio con una lesione di medio grado alla coscia destra, ma a fine agosto ha deciso, assieme allo staff medico ducale, di operarsi. Lungo stop e ipotesi di ritorno in campo da dicembre."
     },
+    "Dybala": {
+      "squadra": "Roma",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "L'argentino sostituito dopo un tempo il 14 ottobre in Champions League per un affaticamento sul gemello del polpaccio. Nulla di grave, ma non ci sarà sabato contro il Genoa. Proverà a recuperare però per l'8a giornata di A."
+    },
     "Cristante": {
       "squadra": "Roma",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il mediano giallorosso in ripresa da un'infiammazione al ginocchio e, dopo il forfait di domenica scorsa a Como, sta forzando il rientro per esserci domenica contro il Genoa nella 7a giornata di A. Da valutare nella rifinitura di venerdì a Trigoria."
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Il mediano giallorosso in ripresa da un'infiammazione al ginocchio e, dopo il forfait di domenica scorsa a Como, non ci sarà neppure sabato contro il Genoa. Ottimismo tuttavia per rivederlo in campo contro il Napoli nell'8a giornata di A."
     },
     "Svilar": {
       "squadra": "Roma",
@@ -292,9 +304,9 @@
     },
     "Konè M.": {
       "squadra": "Roma",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "Il centrocampista frenato da un fastidio muscolare alla gamba il 14 ottobre in Champions League contro il Real Madrid. Condizioni da valutare, ma va verso il forfait sabato sera in campionato contro il Genoa."
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "Il centrocampista frenato il 14 ottobre in Champions League contro il Real Madrid da una lesione di primo grado al bicipite femorale destro, tentativo di rientro tra i convocati in campionato dalla prima metà di novembre."
     },
     "Idzes": {
       "squadra": "Sassuolo",
@@ -378,7 +390,7 @@
       "squadra": "Venezia",
       "stato": "out",
       "rientro": "01/10",
-      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un fastidio muscolare alla coscia che andrà valutato, ma sarà out sabato contro il Napoli."
+      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un risentimento muscolare al flessore della gamba sinistra, sarà out sabato contro il Napoli."
     },
     "Franjic": {
       "squadra": "Venezia",
