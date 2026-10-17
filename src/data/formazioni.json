@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-16T21:55:21.459Z",
+  "aggiornato": "2026-10-17T11:23:35.857Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -9625,7 +9625,7 @@
             "starter": true
           },
           {
-            "nome": "Celik",
+            "nome": "McKennie",
             "perc": 60,
             "starter": true
           },
@@ -9640,12 +9640,12 @@
             "starter": true
           },
           {
-            "nome": "Zhegrova",
-            "perc": 55,
+            "nome": "Celik",
+            "perc": 60,
             "starter": true
           },
           {
-            "nome": "McKennie",
+            "nome": "Woltemade",
             "perc": 60,
             "starter": true
           },
@@ -9695,6 +9695,16 @@
             "starter": false
           },
           {
+            "nome": "Koopmeiners",
+            "perc": 50,
+            "starter": false
+          },
+          {
+            "nome": "Zhegrova",
+            "perc": 60,
+            "starter": false
+          },
+          {
             "nome": "Conceicao",
             "perc": 55,
             "starter": false
@@ -9705,18 +9715,8 @@
             "starter": false
           },
           {
-            "nome": "Koopmeiners",
-            "perc": 50,
-            "starter": false
-          },
-          {
             "nome": "Boga",
             "perc": 15,
-            "starter": false
-          },
-          {
-            "nome": "Woltemade",
-            "perc": 60,
             "starter": false
           }
         ]
