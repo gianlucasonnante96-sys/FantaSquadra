@@ -1,17 +1,17 @@
 {
-  "aggiornato": "2026-10-17T16:09:46.220Z",
+  "aggiornato": "2026-10-17T19:02:37.901Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
-      "punti": 16,
-      "g": 6,
-      "gf": 18,
-      "gs": 8,
+      "punti": 19,
+      "g": 7,
+      "gf": 21,
+      "gs": 9,
       "forma": [
         "W",
         "W",
-        "W",
         "D",
+        "W",
         "W"
       ]
     },
@@ -173,15 +173,15 @@
     },
     "Bologna": {
       "punti": 5,
-      "g": 6,
-      "gf": 5,
-      "gs": 7,
+      "g": 7,
+      "gf": 6,
+      "gs": 10,
       "forma": [
-        "L",
         "D",
         "L",
         "D",
-        "W"
+        "W",
+        "L"
       ]
     },
     "Udinese": {

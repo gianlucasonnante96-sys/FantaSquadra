@@ -1,14 +1,7 @@
 {
-  "aggiornato": "2026-10-17T16:09:40.815Z",
+  "aggiornato": "2026-10-17T19:02:32.302Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
-    "Enem": {
-      "ruolo": "A",
-      "squadra": "BOL",
-      "mediaVoto": 7,
-      "fantamedia": 10,
-      "partiteGiocate": 1
-    },
     "Raimondo": {
       "ruolo": "A",
       "squadra": "FRO",
@@ -37,26 +30,19 @@
       "fantamedia": 9.42,
       "partiteGiocate": 6
     },
+    "Thuram": {
+      "ruolo": "A",
+      "squadra": "INT",
+      "mediaVoto": 6.75,
+      "fantamedia": 9,
+      "partiteGiocate": 6
+    },
     "Varela G.": {
       "ruolo": "A",
       "squadra": "MON",
       "mediaVoto": 6.7,
       "fantamedia": 9,
       "partiteGiocate": 5
-    },
-    "Thuram": {
-      "ruolo": "A",
-      "squadra": "INT",
-      "mediaVoto": 6.7,
-      "fantamedia": 8.9,
-      "partiteGiocate": 5
-    },
-    "Calhanoglu": {
-      "ruolo": "C",
-      "squadra": "INT",
-      "mediaVoto": 6.75,
-      "fantamedia": 8.88,
-      "partiteGiocate": 4
     },
     "Noslin": {
       "ruolo": "A",
@@ -86,6 +72,13 @@
       "fantamedia": 8.58,
       "partiteGiocate": 6
     },
+    "Carlos Augusto": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 6.9,
+      "fantamedia": 8.4,
+      "partiteGiocate": 5
+    },
     "Rabiot": {
       "ruolo": "C",
       "squadra": "MIL",
@@ -107,6 +100,13 @@
       "fantamedia": 8.33,
       "partiteGiocate": 3
     },
+    "Calhanoglu": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6.6,
+      "fantamedia": 8.3,
+      "partiteGiocate": 5
+    },
     "Osmajic": {
       "ruolo": "A",
       "squadra": "GEN",
@@ -120,13 +120,6 @@
       "mediaVoto": 6.5,
       "fantamedia": 8.25,
       "partiteGiocate": 4
-    },
-    "Esposito F.P.": {
-      "ruolo": "A",
-      "squadra": "INT",
-      "mediaVoto": 6.8,
-      "fantamedia": 8.2,
-      "partiteGiocate": 5
     },
     "Adzic": {
       "ruolo": "C",
@@ -156,6 +149,13 @@
       "fantamedia": 8.08,
       "partiteGiocate": 6
     },
+    "Bonny": {
+      "ruolo": "A",
+      "squadra": "INT",
+      "mediaVoto": 6.5,
+      "fantamedia": 8,
+      "partiteGiocate": 4
+    },
     "Adams C.": {
       "ruolo": "A",
       "squadra": "TOR",
@@ -163,12 +163,12 @@
       "fantamedia": 8,
       "partiteGiocate": 4
     },
-    "Carlos Augusto": {
-      "ruolo": "D",
-      "squadra": "INT",
-      "mediaVoto": 6.75,
+    "Enem": {
+      "ruolo": "A",
+      "squadra": "BOL",
+      "mediaVoto": 6.25,
       "fantamedia": 7.75,
-      "partiteGiocate": 4
+      "partiteGiocate": 2
     },
     "Calò": {
       "ruolo": "C",
@@ -176,6 +176,13 @@
       "mediaVoto": 6.57,
       "fantamedia": 7.71,
       "partiteGiocate": 7
+    },
+    "Esposito F.P.": {
+      "ruolo": "A",
+      "squadra": "INT",
+      "mediaVoto": 6.58,
+      "fantamedia": 7.67,
+      "partiteGiocate": 6
     },
     "Pulisic": {
       "ruolo": "C",
@@ -317,12 +324,12 @@
       "fantamedia": 7.33,
       "partiteGiocate": 6
     },
-    "Bonny": {
-      "ruolo": "A",
+    "Zielinski": {
+      "ruolo": "C",
       "squadra": "INT",
-      "mediaVoto": 6.33,
+      "mediaVoto": 6.5,
       "fantamedia": 7.33,
-      "partiteGiocate": 3
+      "partiteGiocate": 6
     },
     "Bremer": {
       "ruolo": "D",
@@ -344,13 +351,6 @@
       "mediaVoto": 6.5,
       "fantamedia": 7.33,
       "partiteGiocate": 6
-    },
-    "Zielinski": {
-      "ruolo": "C",
-      "squadra": "INT",
-      "mediaVoto": 6.5,
-      "fantamedia": 7.3,
-      "partiteGiocate": 5
     },
     "Koopmeiners": {
       "ruolo": "C",
@@ -422,6 +422,13 @@
       "fantamedia": 7.08,
       "partiteGiocate": 6
     },
+    "Barella": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6.33,
+      "fantamedia": 7.08,
+      "partiteGiocate": 6
+    },
     "Mangas": {
       "ruolo": "D",
       "squadra": "MON",
@@ -443,13 +450,6 @@
       "fantamedia": 7.07,
       "partiteGiocate": 7
     },
-    "Bernardeschi": {
-      "ruolo": "C",
-      "squadra": "BOL",
-      "mediaVoto": 6.4,
-      "fantamedia": 7,
-      "partiteGiocate": 5
-    },
     "Orsolini": {
       "ruolo": "C",
       "squadra": "BOL",
@@ -463,20 +463,6 @@
       "mediaVoto": 6.17,
       "fantamedia": 7,
       "partiteGiocate": 6
-    },
-    "Diouf": {
-      "ruolo": "C",
-      "squadra": "INT",
-      "mediaVoto": 6.4,
-      "fantamedia": 7,
-      "partiteGiocate": 5
-    },
-    "Barella": {
-      "ruolo": "C",
-      "squadra": "INT",
-      "mediaVoto": 6.3,
-      "fantamedia": 7,
-      "partiteGiocate": 5
     },
     "Zaccagni": {
       "ruolo": "C",
@@ -506,12 +492,12 @@
       "fantamedia": 7,
       "partiteGiocate": 4
     },
-    "Sucic P.": {
+    "Diouf": {
       "ruolo": "C",
       "squadra": "INT",
-      "mediaVoto": 6.3,
-      "fantamedia": 6.9,
-      "partiteGiocate": 5
+      "mediaVoto": 6.42,
+      "fantamedia": 6.92,
+      "partiteGiocate": 6
     },
     "Paz N.": {
       "ruolo": "C",
@@ -548,13 +534,6 @@
       "fantamedia": 6.83,
       "partiteGiocate": 3
     },
-    "Bisseck": {
-      "ruolo": "D",
-      "squadra": "INT",
-      "mediaVoto": 6.2,
-      "fantamedia": 6.8,
-      "partiteGiocate": 5
-    },
     "Wesley": {
       "ruolo": "D",
       "squadra": "ROM",
@@ -575,6 +554,20 @@
       "mediaVoto": 6,
       "fantamedia": 6.75,
       "partiteGiocate": 4
+    },
+    "Pobega": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 6.33,
+      "fantamedia": 6.75,
+      "partiteGiocate": 6
+    },
+    "Bernardeschi": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 6.33,
+      "fantamedia": 6.75,
+      "partiteGiocate": 6
     },
     "Mina": {
       "ruolo": "D",
@@ -618,19 +611,26 @@
       "fantamedia": 6.7,
       "partiteGiocate": 5
     },
-    "Dovbyk": {
-      "ruolo": "A",
-      "squadra": "BOL",
-      "mediaVoto": 5.83,
-      "fantamedia": 6.67,
-      "partiteGiocate": 3
-    },
     "Gudmundsson A.": {
       "ruolo": "C",
       "squadra": "LAZ",
       "mediaVoto": 5.83,
       "fantamedia": 6.67,
       "partiteGiocate": 3
+    },
+    "Bisseck": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 6.17,
+      "fantamedia": 6.67,
+      "partiteGiocate": 6
+    },
+    "Sucic P.": {
+      "ruolo": "C",
+      "squadra": "INT",
+      "mediaVoto": 6.17,
+      "fantamedia": 6.67,
+      "partiteGiocate": 6
     },
     "Ramos G.": {
       "ruolo": "A",
@@ -737,19 +737,19 @@
       "fantamedia": 6.5,
       "partiteGiocate": 6
     },
-    "Casale": {
+    "Miranda J.": {
       "ruolo": "D",
       "squadra": "BOL",
-      "mediaVoto": 6.5,
+      "mediaVoto": 6.25,
       "fantamedia": 6.5,
-      "partiteGiocate": 1
+      "partiteGiocate": 6
     },
     "Mkhitaryan": {
       "ruolo": "C",
       "squadra": "INT",
-      "mediaVoto": 6.25,
+      "mediaVoto": 6.33,
       "fantamedia": 6.5,
-      "partiteGiocate": 2
+      "partiteGiocate": 3
     },
     "Pedraza": {
       "ruolo": "D",
@@ -905,12 +905,12 @@
       "fantamedia": 6.42,
       "partiteGiocate": 6
     },
-    "Miranda J.": {
-      "ruolo": "D",
+    "Dovbyk": {
+      "ruolo": "A",
       "squadra": "BOL",
-      "mediaVoto": 6.2,
-      "fantamedia": 6.4,
-      "partiteGiocate": 5
+      "mediaVoto": 5.75,
+      "fantamedia": 6.38,
+      "partiteGiocate": 4
     },
     "Doekhi": {
       "ruolo": "D",
@@ -933,33 +933,12 @@
       "fantamedia": 6.33,
       "partiteGiocate": 3
     },
-    "Cambiaghi": {
-      "ruolo": "C",
-      "squadra": "BOL",
-      "mediaVoto": 6.08,
-      "fantamedia": 6.33,
-      "partiteGiocate": 6
-    },
     "Milla": {
       "ruolo": "C",
       "squadra": "COM",
       "mediaVoto": 6.33,
       "fantamedia": 6.33,
       "partiteGiocate": 3
-    },
-    "Piccoli": {
-      "ruolo": "A",
-      "squadra": "BOL",
-      "mediaVoto": 5.83,
-      "fantamedia": 6.33,
-      "partiteGiocate": 6
-    },
-    "Dimarco": {
-      "ruolo": "D",
-      "squadra": "INT",
-      "mediaVoto": 6.17,
-      "fantamedia": 6.33,
-      "partiteGiocate": 6
     },
     "Locatelli": {
       "ruolo": "C",
@@ -988,6 +967,27 @@
       "mediaVoto": 6.1,
       "fantamedia": 6.3,
       "partiteGiocate": 5
+    },
+    "Cambiaghi": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 6.07,
+      "fantamedia": 6.29,
+      "partiteGiocate": 7
+    },
+    "Piccoli": {
+      "ruolo": "A",
+      "squadra": "BOL",
+      "mediaVoto": 5.86,
+      "fantamedia": 6.29,
+      "partiteGiocate": 7
+    },
+    "Dimarco": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 6.14,
+      "fantamedia": 6.29,
+      "partiteGiocate": 7
     },
     "Laurientè": {
       "ruolo": "A",
@@ -1101,13 +1101,6 @@
       "fantamedia": 6.21,
       "partiteGiocate": 7
     },
-    "Pobega": {
-      "ruolo": "C",
-      "squadra": "BOL",
-      "mediaVoto": 6.2,
-      "fantamedia": 6.2,
-      "partiteGiocate": 5
-    },
     "Alajbegovic": {
       "ruolo": "C",
       "squadra": "JUV",
@@ -1121,13 +1114,6 @@
       "mediaVoto": 6.2,
       "fantamedia": 6.2,
       "partiteGiocate": 5
-    },
-    "Ferguson": {
-      "ruolo": "C",
-      "squadra": "BOL",
-      "mediaVoto": 6.17,
-      "fantamedia": 6.17,
-      "partiteGiocate": 6
     },
     "Zè Pedro": {
       "ruolo": "D",
@@ -1177,13 +1163,6 @@
       "mediaVoto": 6.07,
       "fantamedia": 6.14,
       "partiteGiocate": 7
-    },
-    "Helland": {
-      "ruolo": "D",
-      "squadra": "BOL",
-      "mediaVoto": 6.12,
-      "fantamedia": 6.12,
-      "partiteGiocate": 4
     },
     "Santos A.": {
       "ruolo": "A",
@@ -1276,6 +1255,13 @@
       "fantamedia": 6.08,
       "partiteGiocate": 6
     },
+    "Ferguson": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 6.07,
+      "fantamedia": 6.07,
+      "partiteGiocate": 7
+    },
     "Di Lorenzo": {
       "ruolo": "D",
       "squadra": "NAP",
@@ -1290,17 +1276,24 @@
       "fantamedia": 6,
       "partiteGiocate": 1
     },
+    "Casale": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 2
+    },
+    "Helland": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 6,
+      "fantamedia": 6,
+      "partiteGiocate": 5
+    },
     "Holm": {
       "ruolo": "D",
       "squadra": "BOL",
       "mediaVoto": 6.12,
-      "fantamedia": 6,
-      "partiteGiocate": 4
-    },
-    "Zortea": {
-      "ruolo": "D",
-      "squadra": "BOL",
-      "mediaVoto": 6,
       "fantamedia": 6,
       "partiteGiocate": 4
     },
@@ -1394,13 +1387,6 @@
       "mediaVoto": 6.5,
       "fantamedia": 6,
       "partiteGiocate": 1
-    },
-    "Luis Henrique": {
-      "ruolo": "C",
-      "squadra": "INT",
-      "mediaVoto": 6,
-      "fantamedia": 6,
-      "partiteGiocate": 4
     },
     "Stankovic A.": {
       "ruolo": "C",
@@ -1715,7 +1701,7 @@
       "squadra": "BOL",
       "mediaVoto": 6,
       "fantamedia": 6,
-      "partiteGiocate": 1
+      "partiteGiocate": 2
     },
     "Yeboah J.": {
       "ruolo": "A",
@@ -1738,12 +1724,26 @@
       "fantamedia": 5.92,
       "partiteGiocate": 6
     },
+    "Bastoni": {
+      "ruolo": "D",
+      "squadra": "INT",
+      "mediaVoto": 6,
+      "fantamedia": 5.92,
+      "partiteGiocate": 6
+    },
     "Tourè E.": {
       "ruolo": "A",
       "squadra": "PAR",
       "mediaVoto": 5.75,
       "fantamedia": 5.92,
       "partiteGiocate": 6
+    },
+    "Zortea": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 5.9,
+      "fantamedia": 5.9,
+      "partiteGiocate": 5
     },
     "Dominguez B.": {
       "ruolo": "C",
@@ -1756,13 +1756,6 @@
       "ruolo": "D",
       "squadra": "FRO",
       "mediaVoto": 5.9,
-      "fantamedia": 5.9,
-      "partiteGiocate": 5
-    },
-    "Bastoni": {
-      "ruolo": "D",
-      "squadra": "INT",
-      "mediaVoto": 6,
       "fantamedia": 5.9,
       "partiteGiocate": 5
     },
@@ -1815,13 +1808,6 @@
       "fantamedia": 5.83,
       "partiteGiocate": 6
     },
-    "Moro N.": {
-      "ruolo": "C",
-      "squadra": "BOL",
-      "mediaVoto": 5.83,
-      "fantamedia": 5.83,
-      "partiteGiocate": 3
-    },
     "Deiola": {
       "ruolo": "C",
       "squadra": "CAG",
@@ -1839,6 +1825,13 @@
     "Frendrup": {
       "ruolo": "C",
       "squadra": "GEN",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 6
+    },
+    "Akanji": {
+      "ruolo": "D",
+      "squadra": "INT",
       "mediaVoto": 5.83,
       "fantamedia": 5.83,
       "partiteGiocate": 6
@@ -1920,13 +1913,6 @@
       "fantamedia": 5.83,
       "partiteGiocate": 3
     },
-    "Theate": {
-      "ruolo": "D",
-      "squadra": "BOL",
-      "mediaVoto": 5.83,
-      "fantamedia": 5.83,
-      "partiteGiocate": 3
-    },
     "Sarr P.": {
       "ruolo": "C",
       "squadra": "JUV",
@@ -1955,8 +1941,8 @@
       "fantamedia": 5.8,
       "partiteGiocate": 5
     },
-    "Akanji": {
-      "ruolo": "D",
+    "Luis Henrique": {
+      "ruolo": "C",
       "squadra": "INT",
       "mediaVoto": 5.8,
       "fantamedia": 5.8,
@@ -2024,6 +2010,13 @@
       "mediaVoto": 5.75,
       "fantamedia": 5.75,
       "partiteGiocate": 2
+    },
+    "Moro N.": {
+      "ruolo": "C",
+      "squadra": "BOL",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.75,
+      "partiteGiocate": 4
     },
     "Cichella": {
       "ruolo": "C",
@@ -2150,6 +2143,13 @@
       "mediaVoto": 5.75,
       "fantamedia": 5.75,
       "partiteGiocate": 2
+    },
+    "Theate": {
+      "ruolo": "D",
+      "squadra": "BOL",
+      "mediaVoto": 5.88,
+      "fantamedia": 5.75,
+      "partiteGiocate": 4
     },
     "Patterson": {
       "ruolo": "D",
@@ -2946,8 +2946,8 @@
       "ruolo": "P",
       "squadra": "INT",
       "mediaVoto": 6,
-      "fantamedia": 4.67,
-      "partiteGiocate": 6
+      "fantamedia": 4.71,
+      "partiteGiocate": 7
     },
     "Halhal": {
       "ruolo": "D",
@@ -2984,13 +2984,6 @@
       "fantamedia": 4.5,
       "partiteGiocate": 4
     },
-    "Skorupski": {
-      "ruolo": "P",
-      "squadra": "BOL",
-      "mediaVoto": 5.62,
-      "fantamedia": 4.38,
-      "partiteGiocate": 4
-    },
     "Corvi": {
       "ruolo": "P",
       "squadra": "PAR",
@@ -3004,6 +2997,13 @@
       "mediaVoto": 6.25,
       "fantamedia": 4.25,
       "partiteGiocate": 2
+    },
+    "Skorupski": {
+      "ruolo": "P",
+      "squadra": "BOL",
+      "mediaVoto": 5.7,
+      "fantamedia": 4.1,
+      "partiteGiocate": 5
     },
     "Bijlow": {
       "ruolo": "P",
