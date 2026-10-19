@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-18T22:47:56.680Z",
+  "aggiornato": "2026-10-19T14:21:47.678Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -9950,8 +9950,13 @@
             "starter": false
           },
           {
+            "nome": "Ciurria",
+            "perc": 25,
+            "starter": false
+          },
+          {
             "nome": "Forson O.",
-            "perc": 15,
+            "perc": 25,
             "starter": false
           },
           {
@@ -10212,6 +10217,11 @@
           {
             "nome": "Lontani",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "De Martis",
+            "perc": 10,
             "starter": false
           },
           {

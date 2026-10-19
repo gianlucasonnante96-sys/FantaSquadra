@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-18T22:48:36.110Z",
+  "aggiornato": "2026-10-19T14:22:28.410Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -230,12 +230,6 @@
       "rientro": "01/02",
       "descrizione": "Il belga fermo da inizio ottobre per un problema alla caviglia destra e operata il 13 ottobre. Stop lungo e lo rivedremo in campo nel 2027 inoltrato (ipotesi da febbraio)."
     },
-    "Ciurria": {
-      "squadra": "Monza",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il centrocampista non al meglio per noie fisiche, forfait anche nel prossimo turno. Da valutare."
-    },
     "Pessina": {
       "squadra": "Monza",
       "stato": "out",
@@ -314,17 +308,17 @@
       "rientro": "01/10",
       "descrizione": "L'argentino sostituito dopo un tempo il 14 ottobre in Champions League per un affaticamento sul gemello del polpaccio. Nulla di grave, ma non ci sarà sabato contro il Genoa. Proverà a recuperare però per l'8a giornata di A."
     },
-    "Cristante": {
-      "squadra": "Roma",
-      "stato": "out",
-      "rientro": "N/D",
-      "descrizione": "Il mediano giallorosso in ripresa da un'infiammazione al ginocchio e, dopo il forfait di domenica scorsa a Como, non ci sarà neppure sabato contro il Genoa. Ottimismo tuttavia per rivederlo in campo contro il Napoli nell'8a giornata di A."
-    },
     "Svilar": {
       "squadra": "Roma",
       "stato": "out",
       "rientro": "15/11",
       "descrizione": "Il portiere condizionato da una frattura a un dito del piede e fuori dal match contro il Como. Ipotesi di rientro a disposizione dalla metà di novembre."
+    },
+    "Cristante": {
+      "squadra": "Roma",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Il mediano giallorosso in ripresa da un'infiammazione al ginocchio e, dopo il forfait di domenica scorsa a Como, non ci sarà neppure sabato contro il Genoa. Ottimismo tuttavia per rivederlo in campo contro il Napoli nell'8a giornata di A."
     },
     "Konè M.": {
       "squadra": "Roma",
