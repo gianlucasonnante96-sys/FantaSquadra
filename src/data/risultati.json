@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-19T14:24:29.740Z",
+  "aggiornato": "2026-10-19T20:25:20.149Z",
   "fonte": "fantacalcio.it",
   "giornate": {
     "1": [
@@ -426,14 +426,14 @@
       {
         "casa": "Monza",
         "trasferta": "Cagliari",
-        "golCasa": 0,
+        "golCasa": 4,
         "golTrasferta": 0
       },
       {
         "casa": "Parma",
         "trasferta": "Torino",
         "golCasa": 0,
-        "golTrasferta": 0
+        "golTrasferta": 3
       }
     ]
   }

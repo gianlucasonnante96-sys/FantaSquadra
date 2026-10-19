@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-19T14:22:23.152Z",
+  "aggiornato": "2026-10-19T20:23:20.182Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -67,19 +67,6 @@
         "W"
       ]
     },
-    "Cagliari": {
-      "punti": 13,
-      "g": 6,
-      "gf": 6,
-      "gs": 3,
-      "forma": [
-        "L",
-        "W",
-        "W",
-        "W",
-        "D"
-      ]
-    },
     "Frosinone": {
       "punti": 13,
       "g": 7,
@@ -91,6 +78,19 @@
         "W",
         "L",
         "W"
+      ]
+    },
+    "Cagliari": {
+      "punti": 13,
+      "g": 7,
+      "gf": 6,
+      "gs": 7,
+      "forma": [
+        "W",
+        "W",
+        "W",
+        "D",
+        "L"
       ]
     },
     "Juventus": {
@@ -171,6 +171,19 @@
         "W"
       ]
     },
+    "Monza": {
+      "punti": 7,
+      "g": 7,
+      "gf": 13,
+      "gs": 15,
+      "forma": [
+        "D",
+        "L",
+        "W",
+        "L",
+        "W"
+      ]
+    },
     "Bologna": {
       "punti": 5,
       "g": 7,
@@ -180,19 +193,6 @@
         "D",
         "L",
         "D",
-        "W",
-        "L"
-      ]
-    },
-    "Monza": {
-      "punti": 4,
-      "g": 6,
-      "gf": 9,
-      "gs": 15,
-      "forma": [
-        "L",
-        "D",
-        "L",
         "W",
         "L"
       ]
