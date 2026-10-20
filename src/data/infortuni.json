@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-20T17:47:54.307Z",
+  "aggiornato": "2026-10-20T22:08:35.473Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -62,6 +62,12 @@
       "rientro": "15/11",
       "descrizione": "l'attaccante indisponibile a causa di un guaio muscolare al bicipite femorale della coscia destra. Recuperabile dalla metà di novembre."
     },
+    "Trepy": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "15/09",
+      "descrizione": "Il calciatore ricoverato il 16 agosto dopo che avrebbe rischiato di annegare in piscina. Dimesso poi il 28 agosto, ora condizioni monitorate da parte dello staff medico rossoblù. Da metà settembre ha avuto l'ok per riprendere l'attività agonistica, potrebbe ora tornare convocabile dalla fine di ottobre."
+    },
     "Idrissi R.": {
       "squadra": "Cagliari",
       "stato": "out",
@@ -73,12 +79,6 @@
       "stato": "out-lungo",
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
-    },
-    "Trepy": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "15/09",
-      "descrizione": "Il calciatore ricoverato il 16 agosto dopo che avrebbe rischiato di annegare in piscina. Dimesso poi il 28 agosto, ora condizioni monitorate da parte dello staff medico rossoblù. Da metà settembre ha avuto l'ok per riprendere l'attività agonistica, potrebbe ora tornare convocabile dalla fine di ottobre."
     },
     "Rodriguez Je.": {
       "squadra": "Como",
@@ -206,17 +206,17 @@
       "rientro": "15/10",
       "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Recuperabile dalla seconda metà di ottobre, ma da valutare la convocazione già sabato contro il Parma all'Olimpico."
     },
-    "Gudmundsson A.": {
-      "squadra": "Lazio",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla destra dopo una caduta fortuita in partita. Condizioni da monitorare, si confida di riaverlo a disposizione dalla fine metà di ottobre/inizio di novembre."
-    },
     "Rovella": {
       "squadra": "Lazio",
       "stato": "dubbio",
       "rientro": "15/10",
       "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio, ai box fino alla seconda metà di ottobre. Da valutare convocazione per sabato contro il Parma."
+    },
+    "Gudmundsson A.": {
+      "squadra": "Lazio",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla destra dopo una caduta fortuita in partita. Condizioni da monitorare, si confida di riaverlo a disposizione dalla fine metà di ottobre/inizio di novembre."
     },
     "Coulibaly L.": {
       "squadra": "Lecce",
@@ -278,6 +278,12 @@
       "rientro": "15/11",
       "descrizione": "L'ala offensiva azzurra ai box per una lesione di basso grado al muscolo semimembranoso della coscia destra, tentativo di rientro tra i convocati dalla prima metà di novembre."
     },
+    "Vergara": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "Il centrocampista sostituito il 5 ottobre con la Nazionale italiana a causa di una lesione distrattiva al polpaccio destro. Recuperabile da fine ottobre."
+    },
     "Santos A.": {
       "squadra": "Napoli",
       "stato": "out",
@@ -290,29 +296,23 @@
       "rientro": "15/07",
       "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
-    "Vergara": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/11",
-      "descrizione": "Il centrocampista sostituito il 5 ottobre con la Nazionale italiana a causa di una lesione distrattiva al polpaccio destro. Recuperabile da inizio novembre."
-    },
     "Nicolussi Caviglia": {
       "squadra": "Parma",
       "stato": "out-lungo",
       "rientro": "15/07",
       "descrizione": "il centrocampista alle prese dalla seconda metà di luglio con una lesione di medio grado alla coscia destra, ma a fine agosto ha deciso, assieme allo staff medico ducale, di operarsi. Lungo stop e ipotesi di ritorno in campo da dicembre."
     },
-    "Elphege": {
-      "squadra": "Parma",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "l'attaccante operato per una appendicite acuta l'11 ottobre, condizioni ora da valutare per stabilire i tempi di rientro in campo. Di certo assente sabato contro la Lazio."
-    },
     "Almqvist": {
       "squadra": "Parma",
       "stato": "out",
       "rientro": "30/10",
       "descrizione": "L'ala offensiva dei ducali KO dal 6 ottobre per una lesione muscolare al polpaccio sinistro, recuperabile dalla fine di ottobre."
+    },
+    "Elphege": {
+      "squadra": "Parma",
+      "stato": "dubbio",
+      "rientro": "01/10",
+      "descrizione": "l'attaccante operato per una appendicite acuta l'11 ottobre, condizioni ora da valutare per stabilire i tempi di rientro in campo. Di certo assente sabato contro la Lazio."
     },
     "Svilar": {
       "squadra": "Roma",
@@ -332,17 +332,11 @@
       "rientro": "01/11",
       "descrizione": "L'argentino sostituito dopo un tempo il 14 ottobre in Champions League per una lesione al gemello del polpaccio destro. Recuperabile da inizio novembre."
     },
-    "Idzes": {
-      "squadra": "Sassuolo",
+    "Pellegrini Lo.": {
+      "squadra": "Roma",
       "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il difensore ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
-    },
-    "Boloca": {
-      "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "30/10",
-      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da fine ottobre."
+      "rientro": "01/10",
+      "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha lamentato un fastidio muscolare alla gamba che andrà valutato. Viaggia verso il forfait per sabato contro il Napoli."
     },
     "Konè I.": {
       "squadra": "Sassuolo",
@@ -355,6 +349,18 @@
       "stato": "out-lungo",
       "rientro": "01/04",
       "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
+    },
+    "Boloca": {
+      "squadra": "Sassuolo",
+      "stato": "dubbio",
+      "rientro": "30/10",
+      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da fine ottobre."
+    },
+    "Idzes": {
+      "squadra": "Sassuolo",
+      "stato": "out",
+      "rientro": "15/10",
+      "descrizione": "Il difensore ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla seconda metà di ottobre."
     },
     "Ilkhan": {
       "squadra": "Torino",
@@ -392,6 +398,12 @@
       "rientro": "15/11",
       "descrizione": "il difensore sostituito nell'intervallo della sfida contro il Lecce (18 ottobre) per un risentimento muscolare al polpaccio destro. Recuperabile dalla metà di novembre."
     },
+    "Correia T.": {
+      "squadra": "Venezia",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un risentimento muscolare al flessore della gamba sinistra, sarà out domenica contro il Genoa."
+    },
     "Adorante": {
       "squadra": "Venezia",
       "stato": "out",
@@ -403,12 +415,6 @@
       "stato": "dubbio",
       "rientro": "15/10",
       "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già domenica a Genova."
-    },
-    "Correia T.": {
-      "squadra": "Venezia",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un risentimento muscolare al flessore della gamba sinistra, sarà out domenica contro il Genoa."
     },
     "Franjic": {
       "squadra": "Venezia",

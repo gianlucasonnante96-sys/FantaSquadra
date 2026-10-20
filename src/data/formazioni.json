@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-20T17:47:14.752Z",
+  "aggiornato": "2026-10-20T22:07:53.648Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -11191,7 +11191,7 @@
           },
           {
             "nome": "McTominay",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -11287,12 +11287,12 @@
           },
           {
             "nome": "N'Dicka",
-            "perc": 55,
+            "perc": 65,
             "starter": true
           },
           {
             "nome": "Hermoso",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -11302,12 +11302,12 @@
           },
           {
             "nome": "De Roon",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
             "nome": "Pisilli",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -11363,11 +11363,6 @@
           {
             "nome": "Ghilardi",
             "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "Pellegrini Lo.",
-            "perc": 60,
             "starter": false
           },
           {
