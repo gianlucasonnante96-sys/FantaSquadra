@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-20T12:33:34.763Z",
+  "aggiornato": "2026-10-20T17:47:54.307Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -29,8 +29,8 @@
     "Kolasinac": {
       "squadra": "Atalanta",
       "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "il difensore KO il 18 ottobre a Milano vittima di un risentimento muscolare alla gamba che andrà valutato. Forfait nel prossimo turno di campionato."
+      "rientro": "15/11",
+      "descrizione": "il difensore KO il 18 ottobre a Milano vittima di una distrazione muscolare al retto femorale della coscia sinistra, recuperabile dalla metà di novembre."
     },
     "Sulemana K.": {
       "squadra": "Atalanta",
@@ -80,6 +80,12 @@
       "rientro": "15/09",
       "descrizione": "Il calciatore ricoverato il 16 agosto dopo che avrebbe rischiato di annegare in piscina. Dimesso poi il 28 agosto, ora condizioni monitorate da parte dello staff medico rossoblù. Da metà settembre ha avuto l'ok per riprendere l'attività agonistica, potrebbe ora tornare convocabile dalla fine di ottobre."
     },
+    "Rodriguez Je.": {
+      "squadra": "Como",
+      "stato": "dubbio",
+      "rientro": "01/10",
+      "descrizione": "Il calciatore si è infortunato in allenamento il 20 ottobre, rimane da valutare per stabilire i tempi di recupero. Di certo out sabato contro il Sassuolo."
+    },
     "Diao": {
       "squadra": "Como",
       "stato": "out",
@@ -88,9 +94,9 @@
     },
     "Chalobah T.": {
       "squadra": "Como",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "il difensore il 18 ottobre a Firenze costretto al cambio per un guaio muscolare alla gamba che rimane da valutare. Di certo out sabato in campionato contro il Sassuolo."
+      "stato": "out",
+      "rientro": "01/11",
+      "descrizione": "il difensore il 18 ottobre a Firenze costretto al cambio per un guaio muscolare alla gamba, rientro da inizio novembre."
     },
     "Parisi": {
       "squadra": "Fiorentina",
@@ -146,17 +152,17 @@
       "rientro": "30/10",
       "descrizione": "Il centrocampista fermato da un risentimento miofasciale agli adduttori della coscia destra, tentativo rientro tra i convocati dalla fine di ottobre."
     },
-    "Martinez L.": {
-      "squadra": "Inter",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "L'argentino sottoposto il 15 ottobre a controlli medici che hanno evidenziato un risentimento muscolare ai flessori della coscia sinistra. Recuperabile dalla metà di novembre."
-    },
     "Pavard": {
       "squadra": "Inter",
       "stato": "out",
       "rientro": "01/11",
       "descrizione": "il difensore out per un risentimento agli adduttori della coscia destra, recuperabile dall'inizio di novembre."
+    },
+    "Martinez L.": {
+      "squadra": "Inter",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "L'argentino sottoposto il 15 ottobre a controlli medici che hanno evidenziato un risentimento muscolare ai flessori della coscia sinistra. Recuperabile dalla metà di novembre."
     },
     "Locatelli": {
       "squadra": "Juventus",
@@ -214,9 +220,9 @@
     },
     "Coulibaly L.": {
       "squadra": "Lecce",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "il centrocampista costretto al cambio il 18 ottobre a Udine per un problema muscolare alla coscia destra, che rimane da valutare. Di certo assente domenica contro la Juventus."
+      "stato": "out",
+      "rientro": "01/11",
+      "descrizione": "il centrocampista costretto al cambio il 18 ottobre a Udine per una lesione muscolare al bicipite femorale della coscia destra, recuperabile dall'inizio di novembre."
     },
     "Berisha M.": {
       "squadra": "Lecce",
@@ -386,17 +392,17 @@
       "rientro": "15/11",
       "descrizione": "il difensore sostituito nell'intervallo della sfida contro il Lecce (18 ottobre) per un risentimento muscolare al polpaccio destro. Recuperabile dalla metà di novembre."
     },
-    "Busio": {
-      "squadra": "Venezia",
-      "stato": "dubbio",
-      "rientro": "15/10",
-      "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già domenica a Genova."
-    },
     "Adorante": {
       "squadra": "Venezia",
       "stato": "out",
       "rientro": "30/07",
       "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dalla fine di ottobre."
+    },
+    "Busio": {
+      "squadra": "Venezia",
+      "stato": "dubbio",
+      "rientro": "15/10",
+      "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già domenica a Genova."
     },
     "Correia T.": {
       "squadra": "Venezia",

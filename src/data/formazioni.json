@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-20T12:32:55.860Z",
+  "aggiornato": "2026-10-20T17:47:14.752Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -11001,7 +11001,7 @@
           },
           {
             "nome": "Ricci S.",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -11010,13 +11010,8 @@
             "starter": false
           },
           {
-            "nome": "Rodriguez Je.",
-            "perc": 55,
-            "starter": false
-          },
-          {
             "nome": "Addai",
-            "perc": 40,
+            "perc": 60,
             "starter": false
           },
           {
