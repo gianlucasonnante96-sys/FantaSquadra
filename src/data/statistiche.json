@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-19T20:23:14.443Z",
+  "aggiornato": "2026-10-20T00:07:48.519Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Varela G.": {
@@ -65,19 +65,19 @@
       "fantamedia": 8.4,
       "partiteGiocate": 5
     },
+    "Adams C.": {
+      "ruolo": "A",
+      "squadra": "TOR",
+      "mediaVoto": 6.6,
+      "fantamedia": 8.4,
+      "partiteGiocate": 5
+    },
     "Robinson J.": {
       "ruolo": "A",
       "squadra": "MON",
       "mediaVoto": 6.88,
       "fantamedia": 8.38,
       "partiteGiocate": 4
-    },
-    "Kulenovic": {
-      "ruolo": "A",
-      "squadra": "TOR",
-      "mediaVoto": 6.33,
-      "fantamedia": 8.33,
-      "partiteGiocate": 3
     },
     "Odenthal": {
       "ruolo": "D",
@@ -142,13 +142,6 @@
       "fantamedia": 8,
       "partiteGiocate": 4
     },
-    "Adams C.": {
-      "ruolo": "A",
-      "squadra": "TOR",
-      "mediaVoto": 6.5,
-      "fantamedia": 8,
-      "partiteGiocate": 4
-    },
     "Krstovic": {
       "ruolo": "A",
       "squadra": "ATA",
@@ -169,6 +162,13 @@
       "mediaVoto": 6.5,
       "fantamedia": 7.79,
       "partiteGiocate": 7
+    },
+    "Kulenovic": {
+      "ruolo": "A",
+      "squadra": "TOR",
+      "mediaVoto": 6.25,
+      "fantamedia": 7.75,
+      "partiteGiocate": 4
     },
     "Enem": {
       "ruolo": "A",
@@ -211,13 +211,6 @@
       "mediaVoto": 6.25,
       "fantamedia": 7.62,
       "partiteGiocate": 4
-    },
-    "Romero D.": {
-      "ruolo": "A",
-      "squadra": "PAR",
-      "mediaVoto": 6.4,
-      "fantamedia": 7.6,
-      "partiteGiocate": 5
     },
     "Tavares N.": {
       "ruolo": "D",
@@ -328,6 +321,13 @@
       "ruolo": "C",
       "squadra": "ROM",
       "mediaVoto": 6.5,
+      "fantamedia": 7.33,
+      "partiteGiocate": 6
+    },
+    "Romero D.": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 6.33,
       "fantamedia": 7.33,
       "partiteGiocate": 6
     },
@@ -485,13 +485,6 @@
       "fantamedia": 7,
       "partiteGiocate": 5
     },
-    "Braganca": {
-      "ruolo": "C",
-      "squadra": "TOR",
-      "mediaVoto": 6.38,
-      "fantamedia": 7,
-      "partiteGiocate": 4
-    },
     "Bremer": {
       "ruolo": "D",
       "squadra": "JUV",
@@ -513,6 +506,13 @@
       "fantamedia": 6.9,
       "partiteGiocate": 5
     },
+    "Braganca": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 6.4,
+      "fantamedia": 6.9,
+      "partiteGiocate": 5
+    },
     "Pinamonti": {
       "ruolo": "A",
       "squadra": "LAZ",
@@ -524,6 +524,13 @@
       "ruolo": "A",
       "squadra": "CAG",
       "mediaVoto": 6.29,
+      "fantamedia": 6.86,
+      "partiteGiocate": 7
+    },
+    "Simeone": {
+      "ruolo": "A",
+      "squadra": "TOR",
+      "mediaVoto": 6,
       "fantamedia": 6.86,
       "partiteGiocate": 7
     },
@@ -597,13 +604,6 @@
       "fantamedia": 6.75,
       "partiteGiocate": 6
     },
-    "Mandragora": {
-      "ruolo": "C",
-      "squadra": "TOR",
-      "mediaVoto": 6.08,
-      "fantamedia": 6.75,
-      "partiteGiocate": 6
-    },
     "Gueye": {
       "ruolo": "A",
       "squadra": "UDI",
@@ -660,6 +660,13 @@
       "fantamedia": 6.67,
       "partiteGiocate": 6
     },
+    "Mandragora": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 6.07,
+      "fantamedia": 6.64,
+      "partiteGiocate": 7
+    },
     "Bracaglia": {
       "ruolo": "D",
       "squadra": "FRO",
@@ -702,17 +709,17 @@
       "fantamedia": 6.6,
       "partiteGiocate": 5
     },
+    "Belghali": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6.1,
+      "fantamedia": 6.6,
+      "partiteGiocate": 5
+    },
     "N'Dri": {
       "ruolo": "A",
       "squadra": "LEC",
       "mediaVoto": 6.17,
-      "fantamedia": 6.58,
-      "partiteGiocate": 6
-    },
-    "Lontani": {
-      "ruolo": "A",
-      "squadra": "PAR",
-      "mediaVoto": 6.08,
       "fantamedia": 6.58,
       "partiteGiocate": 6
     },
@@ -814,13 +821,6 @@
       "fantamedia": 6.5,
       "partiteGiocate": 6
     },
-    "Comuzzo": {
-      "ruolo": "D",
-      "squadra": "TOR",
-      "mediaVoto": 5.9,
-      "fantamedia": 6.5,
-      "partiteGiocate": 5
-    },
     "Abankwah": {
       "ruolo": "D",
       "squadra": "UDI",
@@ -877,6 +877,13 @@
       "fantamedia": 6.43,
       "partiteGiocate": 7
     },
+    "Lontani": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 6,
+      "fantamedia": 6.43,
+      "partiteGiocate": 7
+    },
     "Jimenez A.": {
       "ruolo": "D",
       "squadra": "FIO",
@@ -888,6 +895,13 @@
       "ruolo": "D",
       "squadra": "ROM",
       "mediaVoto": 6.25,
+      "fantamedia": 6.42,
+      "partiteGiocate": 6
+    },
+    "Comuzzo": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6,
       "fantamedia": 6.42,
       "partiteGiocate": 6
     },
@@ -1080,13 +1094,6 @@
       "fantamedia": 6.25,
       "partiteGiocate": 2
     },
-    "Cacciamani": {
-      "ruolo": "C",
-      "squadra": "TOR",
-      "mediaVoto": 6.08,
-      "fantamedia": 6.25,
-      "partiteGiocate": 6
-    },
     "Foe Ondoa": {
       "ruolo": "C",
       "squadra": "MON",
@@ -1126,6 +1133,13 @@
       "ruolo": "C",
       "squadra": "SAS",
       "mediaVoto": 5.86,
+      "fantamedia": 6.21,
+      "partiteGiocate": 7
+    },
+    "Cacciamani": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 6.07,
       "fantamedia": 6.21,
       "partiteGiocate": 7
     },
@@ -1318,6 +1332,13 @@
       "fantamedia": 6.07,
       "partiteGiocate": 7
     },
+    "Coco": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 6.07,
+      "fantamedia": 6.07,
+      "partiteGiocate": 7
+    },
     "Sulemana I.": {
       "ruolo": "C",
       "squadra": "SAS",
@@ -1493,26 +1514,12 @@
       "fantamedia": 6,
       "partiteGiocate": 1
     },
-    "Valeri": {
-      "ruolo": "D",
-      "squadra": "PAR",
-      "mediaVoto": 6,
-      "fantamedia": 6,
-      "partiteGiocate": 6
-    },
-    "Britschgi": {
-      "ruolo": "D",
-      "squadra": "PAR",
-      "mediaVoto": 6,
-      "fantamedia": 6,
-      "partiteGiocate": 3
-    },
     "Diallo O.": {
       "ruolo": "C",
       "squadra": "PAR",
       "mediaVoto": 6,
       "fantamedia": 6,
-      "partiteGiocate": 1
+      "partiteGiocate": 2
     },
     "Elphege": {
       "ruolo": "A",
@@ -1541,13 +1548,6 @@
       "mediaVoto": 6.17,
       "fantamedia": 6,
       "partiteGiocate": 3
-    },
-    "Coco": {
-      "ruolo": "D",
-      "squadra": "TOR",
-      "mediaVoto": 6,
-      "fantamedia": 6,
-      "partiteGiocate": 6
     },
     "Pedersen": {
       "ruolo": "D",
@@ -1654,13 +1654,6 @@
       "fantamedia": 6,
       "partiteGiocate": 1
     },
-    "Belghali": {
-      "ruolo": "D",
-      "squadra": "TOR",
-      "mediaVoto": 5.88,
-      "fantamedia": 6,
-      "partiteGiocate": 4
-    },
     "Fernandez T.": {
       "ruolo": "C",
       "squadra": "VEN",
@@ -1703,6 +1696,13 @@
       "fantamedia": 5.93,
       "partiteGiocate": 7
     },
+    "Valeri": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.93,
+      "fantamedia": 5.93,
+      "partiteGiocate": 7
+    },
     "Yeboah J.": {
       "ruolo": "A",
       "squadra": "VEN",
@@ -1714,13 +1714,6 @@
       "ruolo": "D",
       "squadra": "INT",
       "mediaVoto": 6,
-      "fantamedia": 5.92,
-      "partiteGiocate": 6
-    },
-    "Tourè E.": {
-      "ruolo": "A",
-      "squadra": "PAR",
-      "mediaVoto": 5.75,
       "fantamedia": 5.92,
       "partiteGiocate": 6
     },
@@ -1741,13 +1734,6 @@
     "Monterisi": {
       "ruolo": "D",
       "squadra": "FRO",
-      "mediaVoto": 5.9,
-      "fantamedia": 5.9,
-      "partiteGiocate": 5
-    },
-    "Ismajli": {
-      "ruolo": "D",
-      "squadra": "TOR",
       "mediaVoto": 5.9,
       "fantamedia": 5.9,
       "partiteGiocate": 5
@@ -1805,6 +1791,13 @@
       "ruolo": "C",
       "squadra": "LEC",
       "mediaVoto": 5.93,
+      "fantamedia": 5.86,
+      "partiteGiocate": 7
+    },
+    "Tourè E.": {
+      "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 5.71,
       "fantamedia": 5.86,
       "partiteGiocate": 7
     },
@@ -1892,6 +1885,13 @@
       "fantamedia": 5.83,
       "partiteGiocate": 3
     },
+    "Ismajli": {
+      "ruolo": "D",
+      "squadra": "TOR",
+      "mediaVoto": 5.92,
+      "fantamedia": 5.83,
+      "partiteGiocate": 6
+    },
     "Njie": {
       "ruolo": "C",
       "squadra": "FIO",
@@ -1930,6 +1930,13 @@
     "Luis Henrique": {
       "ruolo": "C",
       "squadra": "INT",
+      "mediaVoto": 5.8,
+      "fantamedia": 5.8,
+      "partiteGiocate": 5
+    },
+    "Bernabè": {
+      "ruolo": "C",
+      "squadra": "PAR",
       "mediaVoto": 5.8,
       "fantamedia": 5.8,
       "partiteGiocate": 5
@@ -2053,27 +2060,6 @@
       "fantamedia": 5.75,
       "partiteGiocate": 4
     },
-    "Delprato": {
-      "ruolo": "D",
-      "squadra": "PAR",
-      "mediaVoto": 5.92,
-      "fantamedia": 5.75,
-      "partiteGiocate": 6
-    },
-    "Bernabè": {
-      "ruolo": "C",
-      "squadra": "PAR",
-      "mediaVoto": 5.75,
-      "fantamedia": 5.75,
-      "partiteGiocate": 4
-    },
-    "Gineitis": {
-      "ruolo": "C",
-      "squadra": "TOR",
-      "mediaVoto": 5.62,
-      "fantamedia": 5.75,
-      "partiteGiocate": 4
-    },
     "Ilkhan": {
       "ruolo": "C",
       "squadra": "TOR",
@@ -2193,6 +2179,13 @@
       "fantamedia": 5.7,
       "partiteGiocate": 5
     },
+    "Gineitis": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 5.6,
+      "fantamedia": 5.7,
+      "partiteGiocate": 5
+    },
     "Solet": {
       "ruolo": "D",
       "squadra": "UDI",
@@ -2221,19 +2214,19 @@
       "fantamedia": 5.67,
       "partiteGiocate": 6
     },
-    "Keita M.": {
-      "ruolo": "C",
-      "squadra": "PAR",
-      "mediaVoto": 5.75,
-      "fantamedia": 5.67,
-      "partiteGiocate": 6
-    },
-    "Simeone": {
+    "Frigan": {
       "ruolo": "A",
+      "squadra": "PAR",
+      "mediaVoto": 5.67,
+      "fantamedia": 5.67,
+      "partiteGiocate": 3
+    },
+    "Aboukhlal": {
+      "ruolo": "C",
       "squadra": "TOR",
       "mediaVoto": 5.67,
       "fantamedia": 5.67,
-      "partiteGiocate": 6
+      "partiteGiocate": 3
     },
     "Bertola": {
       "ruolo": "D",
@@ -2276,6 +2269,34 @@
       "mediaVoto": 5.64,
       "fantamedia": 5.64,
       "partiteGiocate": 7
+    },
+    "Delprato": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.79,
+      "fantamedia": 5.64,
+      "partiteGiocate": 7
+    },
+    "Keita M.": {
+      "ruolo": "C",
+      "squadra": "PAR",
+      "mediaVoto": 5.71,
+      "fantamedia": 5.64,
+      "partiteGiocate": 7
+    },
+    "Vlasic": {
+      "ruolo": "C",
+      "squadra": "TOR",
+      "mediaVoto": 5.64,
+      "fantamedia": 5.64,
+      "partiteGiocate": 7
+    },
+    "Britschgi": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.62,
+      "partiteGiocate": 4
     },
     "Chakvetadze": {
       "ruolo": "C",
@@ -2450,7 +2471,7 @@
       "squadra": "PAR",
       "mediaVoto": 5.5,
       "fantamedia": 5.5,
-      "partiteGiocate": 3
+      "partiteGiocate": 4
     },
     "Ostigard": {
       "ruolo": "D",
@@ -2536,21 +2557,7 @@
       "fantamedia": 5.5,
       "partiteGiocate": 1
     },
-    "Frigan": {
-      "ruolo": "A",
-      "squadra": "PAR",
-      "mediaVoto": 5.5,
-      "fantamedia": 5.5,
-      "partiteGiocate": 2
-    },
-    "Vlasic": {
-      "ruolo": "C",
-      "squadra": "TOR",
-      "mediaVoto": 5.5,
-      "fantamedia": 5.5,
-      "partiteGiocate": 6
-    },
-    "Aboukhlal": {
+    "Casadei": {
       "ruolo": "C",
       "squadra": "TOR",
       "mediaVoto": 5.5,
@@ -2588,9 +2595,9 @@
     "Drobnic": {
       "ruolo": "D",
       "squadra": "PAR",
-      "mediaVoto": 5.75,
+      "mediaVoto": 5.67,
       "fantamedia": 5.5,
-      "partiteGiocate": 2
+      "partiteGiocate": 3
     },
     "Gagliardini": {
       "ruolo": "C",
@@ -2627,13 +2634,6 @@
       "fantamedia": 5.5,
       "partiteGiocate": 1
     },
-    "Diego Carlos": {
-      "ruolo": "D",
-      "squadra": "PAR",
-      "mediaVoto": 5.5,
-      "fantamedia": 5.5,
-      "partiteGiocate": 4
-    },
     "Nzola": {
       "ruolo": "A",
       "squadra": "CAG",
@@ -2665,13 +2665,6 @@
     "Vasquez": {
       "ruolo": "D",
       "squadra": "GEN",
-      "mediaVoto": 5.58,
-      "fantamedia": 5.42,
-      "partiteGiocate": 6
-    },
-    "Troilo": {
-      "ruolo": "D",
-      "squadra": "PAR",
       "mediaVoto": 5.58,
       "fantamedia": 5.42,
       "partiteGiocate": 6
@@ -2767,10 +2760,24 @@
       "fantamedia": 5.3,
       "partiteGiocate": 5
     },
+    "Diego Carlos": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.4,
+      "fantamedia": 5.3,
+      "partiteGiocate": 5
+    },
     "Dragusin": {
       "ruolo": "D",
       "squadra": "FIO",
       "mediaVoto": 5.21,
+      "fantamedia": 5.29,
+      "partiteGiocate": 7
+    },
+    "Troilo": {
+      "ruolo": "D",
+      "squadra": "PAR",
+      "mediaVoto": 5.5,
       "fantamedia": 5.29,
       "partiteGiocate": 7
     },
@@ -2900,13 +2907,6 @@
       "fantamedia": 5,
       "partiteGiocate": 1
     },
-    "Casadei": {
-      "ruolo": "C",
-      "squadra": "TOR",
-      "mediaVoto": 5,
-      "fantamedia": 5,
-      "partiteGiocate": 1
-    },
     "Kabasele": {
       "ruolo": "D",
       "squadra": "UDI",
@@ -2963,6 +2963,13 @@
       "fantamedia": 5,
       "partiteGiocate": 1
     },
+    "Perri": {
+      "ruolo": "P",
+      "squadra": "TOR",
+      "mediaVoto": 5.9,
+      "fantamedia": 4.9,
+      "partiteGiocate": 5
+    },
     "Martinez Jo.": {
       "ruolo": "P",
       "squadra": "INT",
@@ -2998,25 +3005,18 @@
       "fantamedia": 4.5,
       "partiteGiocate": 1
     },
-    "Perri": {
-      "ruolo": "P",
-      "squadra": "TOR",
-      "mediaVoto": 5.75,
-      "fantamedia": 4.5,
-      "partiteGiocate": 4
-    },
-    "Corvi": {
-      "ruolo": "P",
-      "squadra": "PAR",
-      "mediaVoto": 6,
-      "fantamedia": 4.33,
-      "partiteGiocate": 6
-    },
     "Falcone": {
       "ruolo": "P",
       "squadra": "LEC",
       "mediaVoto": 6,
       "fantamedia": 4.21,
+      "partiteGiocate": 7
+    },
+    "Corvi": {
+      "ruolo": "P",
+      "squadra": "PAR",
+      "mediaVoto": 6,
+      "fantamedia": 4.14,
       "partiteGiocate": 7
     },
     "Skorupski": {
