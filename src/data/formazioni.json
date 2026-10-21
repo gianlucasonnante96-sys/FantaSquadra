@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-21T17:55:05.910Z",
+  "aggiornato": "2026-10-21T22:07:04.921Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -10935,8 +10935,8 @@
             "starter": true
           },
           {
-            "nome": "Liberali",
-            "perc": 90,
+            "nome": "Caqueret",
+            "perc": 70,
             "starter": true
           },
           {
@@ -10946,7 +10946,7 @@
           },
           {
             "nome": "Baturina",
-            "perc": 85,
+            "perc": 90,
             "starter": true
           },
           {
@@ -10990,8 +10990,8 @@
             "starter": false
           },
           {
-            "nome": "Caqueret",
-            "perc": 60,
+            "nome": "Liberali",
+            "perc": 40,
             "starter": false
           },
           {
@@ -11001,7 +11001,7 @@
           },
           {
             "nome": "Ricci S.",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -11016,7 +11016,7 @@
           },
           {
             "nome": "Kean",
-            "perc": 30,
+            "perc": 40,
             "starter": false
           }
         ]
@@ -11661,7 +11661,7 @@
           },
           {
             "nome": "Bisseck",
-            "perc": 85,
+            "perc": 90,
             "starter": true
           },
           {
@@ -11691,7 +11691,7 @@
           },
           {
             "nome": "Zielinski",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
@@ -11701,7 +11701,7 @@
           },
           {
             "nome": "Esposito F.P.",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
@@ -11801,8 +11801,8 @@
             "starter": true
           },
           {
-            "nome": "Oulai",
-            "perc": 60,
+            "nome": "Brescianini",
+            "perc": 55,
             "starter": true
           },
           {
@@ -11851,8 +11851,8 @@
             "starter": false
           },
           {
-            "nome": "Brescianini",
-            "perc": 55,
+            "nome": "Oulai",
+            "perc": 60,
             "starter": false
           },
           {
