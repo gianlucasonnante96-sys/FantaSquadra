@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-20T22:07:53.648Z",
+  "aggiornato": "2026-10-21T12:44:03.535Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -10376,7 +10376,7 @@
           },
           {
             "nome": "Ismajli",
-            "perc": 55,
+            "perc": 60,
             "starter": true
           },
           {
@@ -10431,12 +10431,7 @@
           },
           {
             "nome": "Comert",
-            "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "Rodriguez R.",
-            "perc": 55,
+            "perc": 50,
             "starter": false
           },
           {
@@ -11181,7 +11176,7 @@
           },
           {
             "nome": "Badiashile",
-            "perc": 60,
+            "perc": 85,
             "starter": true
           },
           {
@@ -11191,7 +11186,7 @@
           },
           {
             "nome": "McTominay",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -11251,12 +11246,17 @@
           },
           {
             "nome": "Gilmour",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Zambo Anguissa",
-            "perc": 50,
+            "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Vergara",
+            "perc": 20,
             "starter": false
           },
           {
@@ -12705,6 +12705,11 @@
             "starter": false
           },
           {
+            "nome": "Zaniolo",
+            "perc": 50,
+            "starter": false
+          },
+          {
             "nome": "Lovric",
             "perc": 35,
             "starter": false
@@ -12741,13 +12746,13 @@
             "starter": true
           },
           {
-            "nome": "Chukwueze",
-            "perc": 80,
+            "nome": "Moreira",
+            "perc": 90,
             "starter": true
           },
           {
             "nome": "Musah",
-            "perc": 55,
+            "perc": 60,
             "starter": true
           },
           {
@@ -12756,8 +12761,8 @@
             "starter": true
           },
           {
-            "nome": "Moreira",
-            "perc": 90,
+            "nome": "Estupinan",
+            "perc": 60,
             "starter": true
           },
           {
@@ -12772,7 +12777,7 @@
           },
           {
             "nome": "Ramos G.",
-            "perc": 90,
+            "perc": 55,
             "starter": true
           },
           {
@@ -12792,7 +12797,7 @@
           },
           {
             "nome": "Bartesaghi",
-            "perc": 40,
+            "perc": 60,
             "starter": false
           },
           {
@@ -12806,18 +12811,13 @@
             "starter": false
           },
           {
-            "nome": "Estupinan",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Cissè A.",
             "perc": 55,
             "starter": false
           },
           {
             "nome": "Jashari",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -12827,7 +12827,7 @@
           },
           {
             "nome": "Hutchinson",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
@@ -12837,7 +12837,7 @@
           },
           {
             "nome": "Camarda",
-            "perc": 30,
+            "perc": 55,
             "starter": false
           }
         ]
