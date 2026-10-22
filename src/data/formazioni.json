@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-21T22:07:04.921Z",
+  "aggiornato": "2026-10-22T12:47:34.200Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -11656,7 +11656,7 @@
         "giocatori": [
           {
             "nome": "Martinez Jo.",
-            "perc": 75,
+            "perc": 70,
             "starter": true
           },
           {
@@ -11711,7 +11711,7 @@
           },
           {
             "nome": "Provedel",
-            "perc": 5,
+            "perc": 30,
             "starter": false
           },
           {
