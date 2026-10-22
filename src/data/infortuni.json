@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-22T12:48:14.258Z",
+  "aggiornato": "2026-10-22T17:52:18.600Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -232,9 +232,9 @@
     },
     "Chukwueze": {
       "squadra": "Milan",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il nigeriano da mercoledì fermo per un problema all'anca e viaggia verso il forfait domenica in campionato a Udine. Da valutare con visita specialistica in programma."
+      "stato": "out",
+      "rientro": "01/11",
+      "descrizione": "Il nigeriano dal 21 ottobre fermo per un problema all'anca sinistra e non sarà a disposizione domenica in campionato a Udine. Iniziato un trattamento infiltrativo all'anca, a inizio novembre nuovi controlli medici per stabilire i tempi di rientro."
     },
     "Pessina": {
       "squadra": "Monza",
@@ -266,17 +266,17 @@
       "rientro": "15/11",
       "descrizione": "L'ala offensiva azzurra ai box per una lesione di basso grado al muscolo semimembranoso della coscia destra, tentativo di rientro tra i convocati dalla prima metà di novembre."
     },
-    "Santos A.": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/12",
-      "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
-    },
     "Buongiorno": {
       "squadra": "Napoli",
       "stato": "out-lungo",
       "rientro": "15/07",
       "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
+    },
+    "Santos A.": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "01/12",
+      "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
     },
     "Elphege": {
       "squadra": "Parma",
@@ -311,8 +311,8 @@
     "Pellegrini Lo.": {
       "squadra": "Roma",
       "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha lamentato un fastidio muscolare alla gamba che andrà valutato. Viaggia verso il forfait per sabato contro il Napoli."
+      "rientro": "30/12",
+      "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha rimediato una lesione di alto grado in corrispondenza della giunzione muscolo - tendinea distale del muscolo semitendinoso della coscia destra. Stop lungo, ipotizziamo un rientro dalla fine di dicembre."
     },
     "Svilar": {
       "squadra": "Roma",

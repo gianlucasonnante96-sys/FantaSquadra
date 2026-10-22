@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-22T12:47:34.200Z",
+  "aggiornato": "2026-10-22T17:51:38.703Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -10431,7 +10431,7 @@
           },
           {
             "nome": "Comert",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
@@ -10446,7 +10446,7 @@
           },
           {
             "nome": "Fitz-Jim",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -10777,7 +10777,7 @@
           },
           {
             "nome": "Casale",
-            "perc": 60,
+            "perc": 75,
             "starter": true
           },
           {
@@ -10817,7 +10817,7 @@
           },
           {
             "nome": "Enem",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -10882,7 +10882,7 @@
           },
           {
             "nome": "Odgaard",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -11231,7 +11231,7 @@
           },
           {
             "nome": "Marianucci",
-            "perc": 30,
+            "perc": 20,
             "starter": false
           },
           {
@@ -11246,7 +11246,7 @@
           },
           {
             "nome": "Beukema",
-            "perc": 40,
+            "perc": 35,
             "starter": false
           },
           {
@@ -11261,7 +11261,7 @@
           },
           {
             "nome": "Vergara",
-            "perc": 20,
+            "perc": 40,
             "starter": false
           },
           {
@@ -12507,17 +12507,17 @@
           },
           {
             "nome": "Bremer",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Lucumì",
-            "perc": 80,
+            "perc": 90,
             "starter": true
           },
           {
             "nome": "Gonzalez N.",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -12527,7 +12527,7 @@
           },
           {
             "nome": "Douglas Luiz",
-            "perc": 90,
+            "perc": 85,
             "starter": true
           },
           {
