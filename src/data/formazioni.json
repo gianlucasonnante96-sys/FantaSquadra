@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-22T17:51:38.703Z",
+  "aggiornato": "2026-10-22T22:07:00.383Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -10592,7 +10592,7 @@
           },
           {
             "nome": "Tourè I.",
-            "perc": 20,
+            "perc": 30,
             "starter": false
           },
           {
@@ -11886,7 +11886,7 @@
           },
           {
             "nome": "Bellanova",
-            "perc": 80,
+            "perc": 60,
             "starter": true
           },
           {
@@ -11896,12 +11896,12 @@
           },
           {
             "nome": "Obric",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
             "nome": "Bernasconi",
-            "perc": 60,
+            "perc": 80,
             "starter": true
           },
           {
@@ -11911,27 +11911,27 @@
           },
           {
             "nome": "Ederson D.S.",
-            "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Elmas",
-            "perc": 70,
-            "starter": true
-          },
-          {
-            "nome": "De Ketelaere",
-            "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Rowe",
             "perc": 80,
             "starter": true
           },
           {
-            "nome": "Krstovic",
+            "nome": "Elmas",
             "perc": 60,
+            "starter": true
+          },
+          {
+            "nome": "De Ketelaere",
+            "perc": 80,
+            "starter": true
+          },
+          {
+            "nome": "Rowe",
+            "perc": 90,
+            "starter": true
+          },
+          {
+            "nome": "Krstovic",
+            "perc": 75,
             "starter": true
           },
           {
@@ -12220,6 +12220,11 @@
             "starter": false
           },
           {
+            "nome": "Meichtry",
+            "perc": 20,
+            "starter": false
+          },
+          {
             "nome": "Robinho Junior",
             "perc": 30,
             "starter": false
@@ -12471,17 +12476,17 @@
           },
           {
             "nome": "Pierotti",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Monteiro J.",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
             "nome": "Stulic",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -12507,11 +12512,31 @@
           },
           {
             "nome": "Bremer",
-            "perc": 80,
+            "perc": 60,
             "starter": true
           },
           {
             "nome": "Lucumì",
+            "perc": 90,
+            "starter": true
+          },
+          {
+            "nome": "McKennie",
+            "perc": 60,
+            "starter": true
+          },
+          {
+            "nome": "Douglas Luiz",
+            "perc": 80,
+            "starter": true
+          },
+          {
+            "nome": "Sarr P.",
+            "perc": 90,
+            "starter": true
+          },
+          {
+            "nome": "Cambiaso",
             "perc": 90,
             "starter": true
           },
@@ -12521,33 +12546,13 @@
             "starter": true
           },
           {
-            "nome": "McKennie",
-            "perc": 80,
-            "starter": true
-          },
-          {
-            "nome": "Douglas Luiz",
-            "perc": 85,
-            "starter": true
-          },
-          {
-            "nome": "Sarr P.",
-            "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Celik",
-            "perc": 60,
-            "starter": true
-          },
-          {
             "nome": "Woltemade",
             "perc": 60,
             "starter": true
           },
           {
             "nome": "Kolo Muani",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -12566,11 +12571,6 @@
             "starter": false
           },
           {
-            "nome": "Cambiaso",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Cabal",
             "perc": 35,
             "starter": false
@@ -12582,7 +12582,7 @@
           },
           {
             "nome": "Gatti",
-            "perc": 35,
+            "perc": 50,
             "starter": false
           },
           {
@@ -12602,7 +12602,7 @@
           },
           {
             "nome": "Boga",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           }
         ]
@@ -12752,22 +12752,22 @@
           },
           {
             "nome": "De Winter",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Pavlovic",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Moreira",
-            "perc": 90,
+            "perc": 85,
             "starter": true
           },
           {
             "nome": "Musah",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {

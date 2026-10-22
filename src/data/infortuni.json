@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-22T17:52:18.600Z",
+  "aggiornato": "2026-10-22T22:07:39.322Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -116,12 +116,6 @@
       "rientro": "01/11",
       "descrizione": "il calciatore operato al tendine rotuleo e ora in fase di recupero. Di certo assente nel prossimo turno di campionato, rientro da inizio novembre."
     },
-    "Meichtry": {
-      "squadra": "Genoa",
-      "stato": "out",
-      "rientro": "15/10",
-      "descrizione": "Il calciatore in recupero da una distrazione della muscolatura di un'anca, può tornare tra i convocati dalla seconda metà di ottobre."
-    },
     "Colombo": {
       "squadra": "Genoa",
       "stato": "out",
@@ -157,6 +151,12 @@
       "stato": "out",
       "rientro": "01/11",
       "descrizione": "il difensore out per un risentimento agli adduttori della coscia destra, recuperabile dall'inizio di novembre."
+    },
+    "Celik": {
+      "squadra": "Juventus",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Il turco giovedì in Europa League ha lamentato un fastidio muscolare alla gamba che andrà valutato. Viaggia verso il forfait per domenica a Lecce."
     },
     "Locatelli": {
       "squadra": "Juventus",
@@ -242,17 +242,17 @@
       "rientro": "15/08",
       "descrizione": "Il centrocampista costretto a saltare l'inizio di campionato per una lussazione della rotula del ginocchio destro rimediata nella prima metà di agosto in allenamento. Tempi di recupero da monitorare, ma proverà a tornare arruolabile dalla metà di novembre."
     },
-    "Ziolkowski": {
-      "squadra": "Monza",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, recuperabile dalla metà di novembre."
-    },
     "Maye": {
       "squadra": "Monza",
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il difensore ai box per noie fisiche, assente nel precedente turno di campionato e ora da valutare in vista di venerdì a Torino."
+    },
+    "Ziolkowski": {
+      "squadra": "Monza",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, recuperabile dalla metà di novembre."
     },
     "Favasuli": {
       "squadra": "Napoli",
@@ -260,11 +260,11 @@
       "rientro": "01/10",
       "descrizione": "Il cursore di fascia degli azzurri ai box da inizio ottobre per una lesione muscolare di secondo grado del retto femorale della coscia destra. Recuperabile dalla metà di novembre."
     },
-    "Neres": {
+    "Santos A.": {
       "squadra": "Napoli",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "L'ala offensiva azzurra ai box per una lesione di basso grado al muscolo semimembranoso della coscia destra, tentativo di rientro tra i convocati dalla prima metà di novembre."
+      "rientro": "01/12",
+      "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
     },
     "Buongiorno": {
       "squadra": "Napoli",
@@ -272,11 +272,11 @@
       "rientro": "15/07",
       "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
-    "Santos A.": {
+    "Neres": {
       "squadra": "Napoli",
       "stato": "out",
-      "rientro": "01/12",
-      "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
+      "rientro": "15/11",
+      "descrizione": "L'ala offensiva azzurra ai box per una lesione di basso grado al muscolo semimembranoso della coscia destra, tentativo di rientro tra i convocati dalla prima metà di novembre."
     },
     "Elphege": {
       "squadra": "Parma",
@@ -380,29 +380,11 @@
       "rientro": "15/11",
       "descrizione": "il difensore sostituito nell'intervallo della sfida contro il Lecce (18 ottobre) per un risentimento muscolare al polpaccio destro. Recuperabile dalla metà di novembre."
     },
-    "Bella-Kotchap": {
+    "Adorante": {
       "squadra": "Venezia",
       "stato": "out",
-      "rientro": "N/D",
-      "descrizione": "il difensore in ripresa da noie fisiche che lo hanno condizionato nelle ultime settimane, proverà a esserci dall'8a giornata di A domenica a Genova."
-    },
-    "Sverko": {
-      "squadra": "Venezia",
-      "stato": "out-lungo",
-      "rientro": "30/10",
-      "descrizione": "il difensore operato in estate per il perdurare di un problema all'anca e recuperabile da fine ottobre."
-    },
-    "Franjic": {
-      "squadra": "Venezia",
-      "stato": "out-lungo",
-      "rientro": "30/08",
-      "descrizione": "il difensore costretto al cambio a Milano contro i rossoneri a fine agosto per un guaio alla spalla che ha richiesto l'intervento chirurgico. Lungo stop e rientro dalla metà di dicembre."
-    },
-    "Correia T.": {
-      "squadra": "Venezia",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un risentimento muscolare al flessore della gamba sinistra, sarà out domenica contro il Genoa."
+      "rientro": "30/07",
+      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dalla fine di ottobre."
     },
     "Busio": {
       "squadra": "Venezia",
@@ -410,11 +392,29 @@
       "rientro": "15/10",
       "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già domenica a Genova."
     },
-    "Adorante": {
+    "Correia T.": {
       "squadra": "Venezia",
       "stato": "out",
-      "rientro": "30/07",
-      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dalla fine di ottobre."
+      "rientro": "01/10",
+      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un risentimento muscolare al flessore della gamba sinistra, sarà out domenica contro il Genoa."
+    },
+    "Franjic": {
+      "squadra": "Venezia",
+      "stato": "out-lungo",
+      "rientro": "30/08",
+      "descrizione": "il difensore costretto al cambio a Milano contro i rossoneri a fine agosto per un guaio alla spalla che ha richiesto l'intervento chirurgico. Lungo stop e rientro dalla metà di dicembre."
+    },
+    "Sverko": {
+      "squadra": "Venezia",
+      "stato": "out-lungo",
+      "rientro": "30/10",
+      "descrizione": "il difensore operato in estate per il perdurare di un problema all'anca e recuperabile da fine ottobre."
+    },
+    "Bella-Kotchap": {
+      "squadra": "Venezia",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "il difensore in ripresa da noie fisiche che lo hanno condizionato nelle ultime settimane, proverà a esserci dall'8a giornata di A domenica a Genova."
     }
   }
 }
