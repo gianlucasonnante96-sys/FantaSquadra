@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-23T12:26:18.610Z",
+  "aggiornato": "2026-10-23T17:44:28.336Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -74,6 +74,12 @@
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
     },
+    "Liberali": {
+      "squadra": "Como",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Il centrocampista offensivo dei lariani mercoledì ha lamentato un fastidio alla gamba, è out per sabato in campionato contro il Sassuolo, ma può recuperare per il successivo turno (infrasettimanale) di A."
+    },
     "Rodriguez Je.": {
       "squadra": "Como",
       "stato": "dubbio",
@@ -92,6 +98,12 @@
       "rientro": "01/11",
       "descrizione": "il difensore il 18 ottobre a Firenze costretto al cambio per un guaio muscolare alla gamba, rientro da inizio novembre."
     },
+    "Kean": {
+      "squadra": "Como",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "l'attaccante in recupero dal fastidio alla tibia e, dopo aver saltato le sfide contro Roma e Fiorentina, non ci sarà neppure sabato contro il Sassuolo. Tuttavia, punta a tornare convocabile nella 9a giornata di A."
+    },
     "Parisi": {
       "squadra": "Fiorentina",
       "stato": "out",
@@ -103,6 +115,12 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "il centrocampista non al meglio per un sovraccarico funzionale dell'addome, assente contro Genoa e Como. Da valutare nei prossimi allenamenti, ma va verso il forfait anche per domenica a Milano contro i nerazzurri."
+    },
+    "Ranieri L.": {
+      "squadra": "Fiorentina",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il difensore alle prese con uno schiacciamento di un nervo al piede, forfait anche domenica contro l'Inter a San Siro. Da valutare in vista del turno infrasettimanale."
     },
     "Grillitsch": {
       "squadra": "Frosinone",
@@ -158,12 +176,6 @@
       "rientro": "15/11",
       "descrizione": "l'esterno nerazzurro sottoposto il 23 ottobre a esami medici che hanno evidenziato un risentimento all'adduttore lungo della coscia sinistra. Ipotesi di recupero da metà novembre."
     },
-    "Celik": {
-      "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "N/D",
-      "descrizione": "Il turco giovedì in Europa League ha lamentato un fastidio muscolare alla gamba che andrà valutato. Viaggia verso il forfait per domenica a Lecce."
-    },
     "Locatelli": {
       "squadra": "Juventus",
       "stato": "out-lungo",
@@ -200,23 +212,35 @@
       "rientro": "01/04",
       "descrizione": "Il portiere out dal 20 settembre per una lesione al crociato anteriore del ginocchio destro. Operazione chirurgica e lungo stop, rientro da aprile."
     },
+    "Gonzalez N.": {
+      "squadra": "Juventus",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "l'argentino ai box per una lesione di basso grado del soleo destro, recuperabile da metà novembre."
+    },
+    "Celik": {
+      "squadra": "Juventus",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "Il turco il 22 ottobre in Europa League ha lamentato una lesione di basso grado del bicipite femorale sinistro, recuperabile da metà novembre."
+    },
     "Marusic": {
       "squadra": "Lazio",
-      "stato": "dubbio",
+      "stato": "out",
       "rientro": "30/10",
-      "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Recuperabile dalla fine di ottobre. Da valutare convocazione nel turno infrasettimanale."
-    },
-    "Rovella": {
-      "squadra": "Lazio",
-      "stato": "dubbio",
-      "rientro": "30/10",
-      "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio, ai box fino alla fine di ottobre. Da valutare convocazione nel turno infrasettimanale."
+      "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Recuperabile dalla fine di ottobre."
     },
     "Gudmundsson A.": {
       "squadra": "Lazio",
       "stato": "out",
       "rientro": "15/11",
       "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla destra dopo una caduta fortuita in partita. Condizioni da monitorare, si confida di riaverlo a disposizione dalla metà di novembre."
+    },
+    "Rovella": {
+      "squadra": "Lazio",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio, ai box fino alla fine di ottobre."
     },
     "Coulibaly L.": {
       "squadra": "Lecce",
@@ -404,17 +428,17 @@
       "rientro": "15/11",
       "descrizione": "il difensore sostituito nell'intervallo della sfida contro il Lecce (18 ottobre) per un risentimento muscolare al polpaccio destro. Recuperabile dalla metà di novembre."
     },
-    "Adorante": {
-      "squadra": "Venezia",
-      "stato": "out",
-      "rientro": "30/07",
-      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dalla fine di ottobre."
-    },
     "Busio": {
       "squadra": "Venezia",
       "stato": "dubbio",
       "rientro": "15/10",
       "descrizione": "il regista dei veneti KO l'11 settembre contro la Fiorentina vittima di una distrazione intratendinea del bicipite femorale destro. Rientro dalla seconda metà di ottobre, ma da valutare nei prossimi allenamenti le possibilità di convocazione già domenica a Genova."
+    },
+    "Adorante": {
+      "squadra": "Venezia",
+      "stato": "out",
+      "rientro": "30/07",
+      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dalla fine di ottobre."
     },
     "Correia T.": {
       "squadra": "Venezia",
