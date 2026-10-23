@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-23T17:44:22.485Z",
+  "aggiornato": "2026-10-23T21:51:44.113Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -93,6 +93,19 @@
         "L"
       ]
     },
+    "Torino": {
+      "punti": 13,
+      "g": 8,
+      "gf": 13,
+      "gs": 11,
+      "forma": [
+        "L",
+        "D",
+        "W",
+        "W",
+        "W"
+      ]
+    },
     "Juventus": {
       "punti": 11,
       "g": 7,
@@ -117,19 +130,6 @@
         "D",
         "W",
         "L"
-      ]
-    },
-    "Torino": {
-      "punti": 10,
-      "g": 7,
-      "gf": 10,
-      "gs": 9,
-      "forma": [
-        "W",
-        "L",
-        "D",
-        "W",
-        "W"
       ]
     },
     "Atalanta": {
@@ -173,15 +173,15 @@
     },
     "Monza": {
       "punti": 7,
-      "g": 7,
-      "gf": 13,
-      "gs": 15,
+      "g": 8,
+      "gf": 15,
+      "gs": 18,
       "forma": [
-        "D",
         "L",
         "W",
         "L",
-        "W"
+        "W",
+        "L"
       ]
     },
     "Bologna": {

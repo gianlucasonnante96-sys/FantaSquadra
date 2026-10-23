@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-23T17:43:46.819Z",
+  "aggiornato": "2026-10-23T21:51:10.306Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -10366,57 +10366,57 @@
         "giocatori": [
           {
             "nome": "Perri",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Comuzzo",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ismajli",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Coco",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Belghali",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mandragora",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Fitz-Jim",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Cacciamani",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Vlasic",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Adams C.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Simeone",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -10492,57 +10492,57 @@
         "giocatori": [
           {
             "nome": "Tornqvist",
-            "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Kouadio",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Goglichidze",
-            "perc": 85,
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Lucchesi",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Carboni A.",
-            "perc": 75,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Birindelli",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Akinsanmiro",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Foe Ondoa",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mangas",
-            "perc": 55,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mota",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Robinson J.",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Varela G.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -10556,13 +10556,13 @@
             "starter": false
           },
           {
-            "nome": "Lucchesi",
-            "perc": 40,
+            "nome": "Kouadio",
+            "perc": 60,
             "starter": false
           },
           {
             "nome": "Bakoune",
-            "perc": 50,
+            "perc": 35,
             "starter": false
           },
           {
