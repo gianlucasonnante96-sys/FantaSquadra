@@ -1,7 +1,20 @@
 {
-  "aggiornato": "2026-10-24T19:16:16.294Z",
+  "aggiornato": "2026-10-24T22:55:27.644Z",
   "fonte": "fantacalcio.it",
   "squadre": {
+    "Lazio": {
+      "punti": 22,
+      "g": 8,
+      "gf": 16,
+      "gs": 5,
+      "forma": [
+        "D",
+        "W",
+        "W",
+        "W",
+        "W"
+      ]
+    },
     "Inter": {
       "punti": 19,
       "g": 7,
@@ -11,19 +24,6 @@
         "W",
         "W",
         "D",
-        "W",
-        "W"
-      ]
-    },
-    "Lazio": {
-      "punti": 19,
-      "g": 7,
-      "gf": 14,
-      "gs": 4,
-      "forma": [
-        "W",
-        "D",
-        "W",
         "W",
         "W"
       ]
@@ -238,13 +238,13 @@
     },
     "Parma": {
       "punti": 4,
-      "g": 7,
-      "gf": 4,
-      "gs": 13,
+      "g": 8,
+      "gf": 5,
+      "gs": 15,
       "forma": [
-        "D",
         "L",
         "W",
+        "L",
         "L",
         "L"
       ]
