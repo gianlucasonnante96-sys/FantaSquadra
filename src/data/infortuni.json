@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-24T16:27:36.617Z",
+  "aggiornato": "2026-10-24T19:16:22.232Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -134,12 +134,6 @@
       "rientro": "01/11",
       "descrizione": "il calciatore operato al tendine rotuleo e ora in fase di recupero. Di certo assente nel prossimo turno di campionato, rientro da inizio novembre."
     },
-    "Colombo": {
-      "squadra": "Genoa",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "L'attaccante non al meglio per un problema alla caviglia, darà forfait nel prossimo turno di campionato. Rientro da fine ottobre."
-    },
     "Havel": {
       "squadra": "Genoa",
       "stato": "out",
@@ -151,6 +145,12 @@
       "stato": "out",
       "rientro": "01/11",
       "descrizione": "Il centrocampista svizzero il 6 ottobre in Nazionale vittima di una distrazione muscolare al bicipite femorale della coscia sinistra, rientro in campo da inizio novembre."
+    },
+    "Ehizibue": {
+      "squadra": "Genoa",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il difensore out domenica contro il Venezia per noie fisiche. Da valutare in vista del turno infrasettimanale."
     },
     "Luis Henrique": {
       "squadra": "Inter",
