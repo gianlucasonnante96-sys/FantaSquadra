@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-24T22:54:51.633Z",
+  "aggiornato": "2026-10-25T12:21:18.214Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -11620,63 +11620,63 @@
         "nome": "Inter",
         "giocatori": [
           {
-            "nome": "Martinez Jo.",
-            "perc": 70,
+            "nome": "Provedel",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Bisseck",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Akanji",
-            "perc": 70,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Bastoni",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Diouf",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Barella",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Calhanoglu",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Zielinski",
-            "perc": 80,
+            "nome": "Mkhitaryan",
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Dimarco",
-            "perc": 55,
+            "nome": "Carlos Augusto",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Esposito F.P.",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Thuram",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Provedel",
-            "perc": 30,
+            "nome": "Martinez Jo.",
+            "perc": 5,
             "starter": false
           },
           {
@@ -11685,18 +11685,18 @@
             "starter": false
           },
           {
-            "nome": "Carlos Augusto",
-            "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Stones",
-            "perc": 10,
+            "nome": "Dimarco",
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Spence",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Zielinski",
+            "perc": 60,
             "starter": false
           },
           {
@@ -11707,11 +11707,6 @@
           {
             "nome": "Stankovic A.",
             "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "Mkhitaryan",
-            "perc": 55,
             "starter": false
           },
           {
@@ -11727,57 +11722,57 @@
         "giocatori": [
           {
             "nome": "De Gea",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Jimenez A.",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Dragusin",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Pongracic",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Viery",
-            "perc": 85,
+            "nome": "Valdepenas",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ndour",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Fagioli",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Brescianini",
-            "perc": 70,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mastantuono",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Njie",
-            "perc": 75,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Pellegrino M.",
-            "perc": 55,
+            "perc": 100,
             "starter": true
           },
           {
@@ -11796,8 +11791,8 @@
             "starter": false
           },
           {
-            "nome": "Valdepenas",
-            "perc": 50,
+            "nome": "Viery",
+            "perc": 60,
             "starter": false
           },
           {
@@ -11861,7 +11856,7 @@
           },
           {
             "nome": "Gaetano",
-            "perc": 60,
+            "perc": 85,
             "starter": true
           },
           {
@@ -11897,11 +11892,6 @@
           {
             "nome": "Zappacosta",
             "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Kessiè",
-            "perc": 20,
             "starter": false
           },
           {
@@ -12115,13 +12105,13 @@
             "starter": true
           },
           {
-            "nome": "El Shaarawy",
+            "nome": "Osmajic",
             "perc": 90,
             "starter": true
           },
           {
-            "nome": "Osmajic",
-            "perc": 90,
+            "nome": "Vitinha O.",
+            "perc": 60,
             "starter": true
           },
           {
@@ -12175,6 +12165,11 @@
             "starter": false
           },
           {
+            "nome": "El Shaarawy",
+            "perc": 60,
+            "starter": false
+          },
+          {
             "nome": "Robinho Junior",
             "perc": 30,
             "starter": false
@@ -12182,11 +12177,6 @@
           {
             "nome": "Colombo",
             "perc": 50,
-            "starter": false
-          },
-          {
-            "nome": "Vitinha O.",
-            "perc": 60,
             "starter": false
           }
         ]
@@ -12281,8 +12271,13 @@
             "starter": false
           },
           {
-            "nome": "Panada",
+            "nome": "Bella-Kotchap",
             "perc": 25,
+            "starter": false
+          },
+          {
+            "nome": "Busio",
+            "perc": 30,
             "starter": false
           },
           {
