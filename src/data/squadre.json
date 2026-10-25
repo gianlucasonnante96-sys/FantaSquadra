@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-25T19:30:05.373Z",
+  "aggiornato": "2026-10-25T23:02:35.178Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -41,6 +41,19 @@
         "D"
       ]
     },
+    "Milan": {
+      "punti": 18,
+      "g": 8,
+      "gf": 16,
+      "gs": 7,
+      "forma": [
+        "D",
+        "W",
+        "D",
+        "W",
+        "W"
+      ]
+    },
     "Como": {
       "punti": 17,
       "g": 8,
@@ -51,19 +64,6 @@
         "L",
         "D",
         "W",
-        "W"
-      ]
-    },
-    "Milan": {
-      "punti": 15,
-      "g": 7,
-      "gf": 14,
-      "gs": 7,
-      "forma": [
-        "D",
-        "D",
-        "W",
-        "D",
         "W"
       ]
     },
@@ -212,9 +212,9 @@
     },
     "Udinese": {
       "punti": 4,
-      "g": 7,
+      "g": 8,
       "gf": 9,
-      "gs": 16,
+      "gs": 18,
       "forma": [
         "L",
         "L",

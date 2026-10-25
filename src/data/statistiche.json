@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-25T19:29:58.869Z",
+  "aggiornato": "2026-10-25T23:02:29.390Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Varela G.": {
@@ -114,6 +114,13 @@
       "fantamedia": 7.92,
       "partiteGiocate": 6
     },
+    "Pulisic": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.6,
+      "fantamedia": 7.9,
+      "partiteGiocate": 5
+    },
     "Kvernadze": {
       "ruolo": "A",
       "squadra": "FRO",
@@ -191,13 +198,6 @@
       "fantamedia": 7.67,
       "partiteGiocate": 6
     },
-    "Ekkelenkamp": {
-      "ruolo": "C",
-      "squadra": "UDI",
-      "mediaVoto": 6.21,
-      "fantamedia": 7.64,
-      "partiteGiocate": 7
-    },
     "Cissè A.": {
       "ruolo": "C",
       "squadra": "MIL",
@@ -261,6 +261,13 @@
       "fantamedia": 7.5,
       "partiteGiocate": 8
     },
+    "Hutchinson": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6,
+      "fantamedia": 7.5,
+      "partiteGiocate": 2
+    },
     "Zeballos": {
       "ruolo": "A",
       "squadra": "MON",
@@ -289,12 +296,12 @@
       "fantamedia": 7.4,
       "partiteGiocate": 5
     },
-    "Pulisic": {
+    "Ekkelenkamp": {
       "ruolo": "C",
-      "squadra": "MIL",
-      "mediaVoto": 6.5,
+      "squadra": "UDI",
+      "mediaVoto": 6.12,
       "fantamedia": 7.38,
-      "partiteGiocate": 4
+      "partiteGiocate": 8
     },
     "Esposito F.P.": {
       "ruolo": "A",
@@ -541,20 +548,6 @@
       "fantamedia": 6.86,
       "partiteGiocate": 7
     },
-    "Kamara H.": {
-      "ruolo": "D",
-      "squadra": "UDI",
-      "mediaVoto": 6.07,
-      "fantamedia": 6.86,
-      "partiteGiocate": 7
-    },
-    "Piotrowski": {
-      "ruolo": "C",
-      "squadra": "UDI",
-      "mediaVoto": 6,
-      "fantamedia": 6.83,
-      "partiteGiocate": 3
-    },
     "Kessiè": {
       "ruolo": "C",
       "squadra": "ATA",
@@ -610,6 +603,13 @@
       "mediaVoto": 6.25,
       "fantamedia": 6.75,
       "partiteGiocate": 6
+    },
+    "Kamara H.": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 6.06,
+      "fantamedia": 6.75,
+      "partiteGiocate": 8
     },
     "Gueye": {
       "ruolo": "A",
@@ -737,13 +737,6 @@
       "fantamedia": 6.64,
       "partiteGiocate": 7
     },
-    "Ramos G.": {
-      "ruolo": "A",
-      "squadra": "MIL",
-      "mediaVoto": 6.14,
-      "fantamedia": 6.64,
-      "partiteGiocate": 7
-    },
     "Romano": {
       "ruolo": "C",
       "squadra": "CAG",
@@ -814,6 +807,13 @@
       "fantamedia": 6.5,
       "partiteGiocate": 8
     },
+    "Tomori": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 6.5,
+      "fantamedia": 6.5,
+      "partiteGiocate": 1
+    },
     "Saelemaekers": {
       "ruolo": "C",
       "squadra": "MIL",
@@ -849,12 +849,12 @@
       "fantamedia": 6.5,
       "partiteGiocate": 6
     },
-    "Abankwah": {
-      "ruolo": "D",
+    "Piotrowski": {
+      "ruolo": "C",
       "squadra": "UDI",
-      "mediaVoto": 6.08,
+      "mediaVoto": 5.88,
       "fantamedia": 6.5,
-      "partiteGiocate": 6
+      "partiteGiocate": 4
     },
     "Busio": {
       "ruolo": "C",
@@ -884,6 +884,20 @@
       "fantamedia": 6.44,
       "partiteGiocate": 8
     },
+    "Modric": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.25,
+      "fantamedia": 6.44,
+      "partiteGiocate": 8
+    },
+    "Ramos G.": {
+      "ruolo": "A",
+      "squadra": "MIL",
+      "mediaVoto": 6.06,
+      "fantamedia": 6.44,
+      "partiteGiocate": 8
+    },
     "Hermoso": {
       "ruolo": "D",
       "squadra": "ROM",
@@ -894,6 +908,13 @@
     "N'Dri": {
       "ruolo": "A",
       "squadra": "LEC",
+      "mediaVoto": 6.07,
+      "fantamedia": 6.43,
+      "partiteGiocate": 7
+    },
+    "Abankwah": {
+      "ruolo": "D",
+      "squadra": "UDI",
       "mediaVoto": 6.07,
       "fantamedia": 6.43,
       "partiteGiocate": 7
@@ -975,12 +996,12 @@
       "fantamedia": 6.33,
       "partiteGiocate": 3
     },
-    "Davis K.": {
-      "ruolo": "A",
-      "squadra": "UDI",
-      "mediaVoto": 6.08,
+    "Bartesaghi": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 6.33,
       "fantamedia": 6.33,
-      "partiteGiocate": 6
+      "partiteGiocate": 3
     },
     "Molina N.": {
       "ruolo": "D",
@@ -1042,13 +1063,6 @@
       "ruolo": "C",
       "squadra": "LAZ",
       "mediaVoto": 6.36,
-      "fantamedia": 6.29,
-      "partiteGiocate": 7
-    },
-    "Modric": {
-      "ruolo": "C",
-      "squadra": "MIL",
-      "mediaVoto": 6.14,
       "fantamedia": 6.29,
       "partiteGiocate": 7
     },
@@ -1171,13 +1185,6 @@
       "fantamedia": 6.21,
       "partiteGiocate": 7
     },
-    "Karlstrom": {
-      "ruolo": "C",
-      "squadra": "UDI",
-      "mediaVoto": 5.93,
-      "fantamedia": 6.21,
-      "partiteGiocate": 7
-    },
     "Chalobah T.": {
       "ruolo": "D",
       "squadra": "COM",
@@ -1213,13 +1220,6 @@
       "fantamedia": 6.17,
       "partiteGiocate": 6
     },
-    "Jashari": {
-      "ruolo": "C",
-      "squadra": "MIL",
-      "mediaVoto": 6.17,
-      "fantamedia": 6.17,
-      "partiteGiocate": 3
-    },
     "Giovane": {
       "ruolo": "A",
       "squadra": "NAP",
@@ -1245,6 +1245,13 @@
       "ruolo": "D",
       "squadra": "NAP",
       "mediaVoto": 6.07,
+      "fantamedia": 6.14,
+      "partiteGiocate": 7
+    },
+    "Davis K.": {
+      "ruolo": "A",
+      "squadra": "UDI",
+      "mediaVoto": 5.93,
       "fantamedia": 6.14,
       "partiteGiocate": 7
     },
@@ -1283,6 +1290,13 @@
       "fantamedia": 6.12,
       "partiteGiocate": 8
     },
+    "Jashari": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.12,
+      "fantamedia": 6.12,
+      "partiteGiocate": 4
+    },
     "Di Lorenzo": {
       "ruolo": "D",
       "squadra": "NAP",
@@ -1311,6 +1325,13 @@
       "fantamedia": 6.12,
       "partiteGiocate": 8
     },
+    "Karlstrom": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 5.94,
+      "fantamedia": 6.12,
+      "partiteGiocate": 8
+    },
     "Fini": {
       "ruolo": "C",
       "squadra": "FRO",
@@ -1332,13 +1353,6 @@
       "fantamedia": 6.1,
       "partiteGiocate": 5
     },
-    "Musah": {
-      "ruolo": "C",
-      "squadra": "MIL",
-      "mediaVoto": 6.08,
-      "fantamedia": 6.08,
-      "partiteGiocate": 6
-    },
     "Calvani": {
       "ruolo": "D",
       "squadra": "FRO",
@@ -1350,6 +1364,13 @@
       "ruolo": "D",
       "squadra": "LEC",
       "mediaVoto": 5.93,
+      "fantamedia": 6.07,
+      "partiteGiocate": 7
+    },
+    "Musah": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 6.07,
       "fantamedia": 6.07,
       "partiteGiocate": 7
     },
@@ -1378,6 +1399,13 @@
       "ruolo": "D",
       "squadra": "LEC",
       "mediaVoto": 5.88,
+      "fantamedia": 6.06,
+      "partiteGiocate": 8
+    },
+    "Pavlovic": {
+      "ruolo": "D",
+      "squadra": "MIL",
+      "mediaVoto": 6.12,
       "fantamedia": 6.06,
       "partiteGiocate": 8
     },
@@ -1521,26 +1549,19 @@
       "fantamedia": 6,
       "partiteGiocate": 1
     },
-    "Pavlovic": {
-      "ruolo": "D",
-      "squadra": "MIL",
-      "mediaVoto": 6.07,
-      "fantamedia": 6,
-      "partiteGiocate": 7
-    },
     "De Winter": {
       "ruolo": "D",
       "squadra": "MIL",
-      "mediaVoto": 6.14,
+      "mediaVoto": 6.12,
       "fantamedia": 6,
-      "partiteGiocate": 7
+      "partiteGiocate": 8
     },
-    "Bartesaghi": {
+    "Diawara S.": {
       "ruolo": "D",
       "squadra": "MIL",
       "mediaVoto": 6,
       "fantamedia": 6,
-      "partiteGiocate": 2
+      "partiteGiocate": 1
     },
     "Delli Carri": {
       "ruolo": "D",
@@ -1639,13 +1660,6 @@
       "mediaVoto": 5.8,
       "fantamedia": 6,
       "partiteGiocate": 5
-    },
-    "Palma": {
-      "ruolo": "D",
-      "squadra": "UDI",
-      "mediaVoto": 6,
-      "fantamedia": 6,
-      "partiteGiocate": 2
     },
     "Zanoli": {
       "ruolo": "D",
@@ -1969,6 +1983,13 @@
       "fantamedia": 5.83,
       "partiteGiocate": 6
     },
+    "Palma": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.83,
+      "partiteGiocate": 3
+    },
     "Forson O.": {
       "ruolo": "C",
       "squadra": "MON",
@@ -2165,13 +2186,6 @@
       "fantamedia": 5.75,
       "partiteGiocate": 4
     },
-    "Zaniolo": {
-      "ruolo": "C",
-      "squadra": "UDI",
-      "mediaVoto": 6,
-      "fantamedia": 5.75,
-      "partiteGiocate": 2
-    },
     "Franjic": {
       "ruolo": "D",
       "squadra": "VEN",
@@ -2218,6 +2232,13 @@
       "ruolo": "C",
       "squadra": "LEC",
       "mediaVoto": 5.71,
+      "fantamedia": 5.71,
+      "partiteGiocate": 7
+    },
+    "Loftus-Cheek": {
+      "ruolo": "C",
+      "squadra": "MIL",
+      "mediaVoto": 5.79,
       "fantamedia": 5.71,
       "partiteGiocate": 7
     },
@@ -2284,13 +2305,6 @@
       "fantamedia": 5.67,
       "partiteGiocate": 3
     },
-    "Loftus-Cheek": {
-      "ruolo": "C",
-      "squadra": "MIL",
-      "mediaVoto": 5.75,
-      "fantamedia": 5.67,
-      "partiteGiocate": 6
-    },
     "Aboukhlal": {
       "ruolo": "C",
       "squadra": "TOR",
@@ -2305,12 +2319,26 @@
       "fantamedia": 5.67,
       "partiteGiocate": 3
     },
+    "Miller L.": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 5.75,
+      "fantamedia": 5.67,
+      "partiteGiocate": 6
+    },
     "Unai Gomez": {
       "ruolo": "C",
       "squadra": "UDI",
       "mediaVoto": 5.5,
       "fantamedia": 5.67,
       "partiteGiocate": 6
+    },
+    "Zaniolo": {
+      "ruolo": "C",
+      "squadra": "UDI",
+      "mediaVoto": 5.83,
+      "fantamedia": 5.67,
+      "partiteGiocate": 3
     },
     "Helgason": {
       "ruolo": "C",
@@ -2382,13 +2410,6 @@
       "fantamedia": 5.62,
       "partiteGiocate": 4
     },
-    "Chakvetadze": {
-      "ruolo": "C",
-      "squadra": "UDI",
-      "mediaVoto": 5.62,
-      "fantamedia": 5.62,
-      "partiteGiocate": 4
-    },
     "Badiashile": {
       "ruolo": "D",
       "squadra": "NAP",
@@ -2417,10 +2438,10 @@
       "fantamedia": 5.62,
       "partiteGiocate": 4
     },
-    "Miller L.": {
+    "Chakvetadze": {
       "ruolo": "C",
       "squadra": "UDI",
-      "mediaVoto": 5.7,
+      "mediaVoto": 5.6,
       "fantamedia": 5.6,
       "partiteGiocate": 5
     },
@@ -2480,16 +2501,16 @@
       "fantamedia": 5.57,
       "partiteGiocate": 7
     },
-    "Vojvoda": {
-      "ruolo": "D",
-      "squadra": "UDI",
-      "mediaVoto": 5.57,
-      "fantamedia": 5.57,
-      "partiteGiocate": 7
-    },
     "Obert": {
       "ruolo": "D",
       "squadra": "CAG",
+      "mediaVoto": 5.56,
+      "fantamedia": 5.56,
+      "partiteGiocate": 8
+    },
+    "Vojvoda": {
+      "ruolo": "D",
+      "squadra": "UDI",
       "mediaVoto": 5.56,
       "fantamedia": 5.56,
       "partiteGiocate": 8
@@ -2641,6 +2662,13 @@
       "fantamedia": 5.5,
       "partiteGiocate": 1
     },
+    "Arizala": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 5.5,
+      "fantamedia": 5.5,
+      "partiteGiocate": 2
+    },
     "Lauberbach": {
       "ruolo": "A",
       "squadra": "VEN",
@@ -2654,13 +2682,6 @@
       "mediaVoto": 5.62,
       "fantamedia": 5.5,
       "partiteGiocate": 4
-    },
-    "Hutchinson": {
-      "ruolo": "C",
-      "squadra": "MIL",
-      "mediaVoto": 5.5,
-      "fantamedia": 5.5,
-      "partiteGiocate": 1
     },
     "Jovanovic": {
       "ruolo": "C",
@@ -2767,6 +2788,13 @@
       "fantamedia": 5.33,
       "partiteGiocate": 3
     },
+    "Maignan": {
+      "ruolo": "P",
+      "squadra": "MIL",
+      "mediaVoto": 6.19,
+      "fantamedia": 5.31,
+      "partiteGiocate": 8
+    },
     "Caprile": {
       "ruolo": "P",
       "squadra": "CAG",
@@ -2794,6 +2822,13 @@
       "mediaVoto": 5.25,
       "fantamedia": 5.25,
       "partiteGiocate": 2
+    },
+    "Kabasele": {
+      "ruolo": "D",
+      "squadra": "UDI",
+      "mediaVoto": 5.25,
+      "fantamedia": 5.25,
+      "partiteGiocate": 4
     },
     "Moreno M.": {
       "ruolo": "D",
@@ -2841,13 +2876,6 @@
       "ruolo": "D",
       "squadra": "FIO",
       "mediaVoto": 5.36,
-      "fantamedia": 5.21,
-      "partiteGiocate": 7
-    },
-    "Maignan": {
-      "ruolo": "P",
-      "squadra": "MIL",
-      "mediaVoto": 6.21,
       "fantamedia": 5.21,
       "partiteGiocate": 7
     },
@@ -2938,20 +2966,6 @@
     "Candè": {
       "ruolo": "D",
       "squadra": "SAS",
-      "mediaVoto": 5,
-      "fantamedia": 5,
-      "partiteGiocate": 1
-    },
-    "Kabasele": {
-      "ruolo": "D",
-      "squadra": "UDI",
-      "mediaVoto": 5,
-      "fantamedia": 5,
-      "partiteGiocate": 3
-    },
-    "Arizala": {
-      "ruolo": "D",
-      "squadra": "UDI",
       "mediaVoto": 5,
       "fantamedia": 5,
       "partiteGiocate": 1
@@ -3096,19 +3110,19 @@
       "fantamedia": 4,
       "partiteGiocate": 1
     },
-    "Okoye": {
-      "ruolo": "P",
-      "squadra": "UDI",
-      "mediaVoto": 6.07,
-      "fantamedia": 3.79,
-      "partiteGiocate": 7
-    },
     "Mascardi": {
       "ruolo": "P",
       "squadra": "TOR",
       "mediaVoto": 5.75,
       "fantamedia": 3.75,
       "partiteGiocate": 2
+    },
+    "Okoye": {
+      "ruolo": "P",
+      "squadra": "UDI",
+      "mediaVoto": 6,
+      "fantamedia": 3.75,
+      "partiteGiocate": 8
     },
     "De Gea": {
       "ruolo": "P",
@@ -3630,20 +3644,6 @@
     },
     "Torriani": {
       "ruolo": "P",
-      "squadra": "MIL",
-      "mediaVoto": 0,
-      "fantamedia": 0,
-      "partiteGiocate": 0
-    },
-    "Tomori": {
-      "ruolo": "D",
-      "squadra": "MIL",
-      "mediaVoto": 0,
-      "fantamedia": 0,
-      "partiteGiocate": 0
-    },
-    "Diawara S.": {
-      "ruolo": "D",
       "squadra": "MIL",
       "mediaVoto": 0,
       "fantamedia": 0,
