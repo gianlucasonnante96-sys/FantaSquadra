@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-25T16:58:04.395Z",
+  "aggiornato": "2026-10-25T19:29:28.593Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -12556,57 +12556,57 @@
         "giocatori": [
           {
             "nome": "Okoye",
-            "perc": 90,
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Abankwah",
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Kabasele",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Palma",
-            "perc": 80,
-            "starter": true
-          },
-          {
-            "nome": "Solet",
-            "perc": 55,
-            "starter": true
-          },
-          {
-            "nome": "Ebosse",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Vojvoda",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Karlstrom",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Piotrowski",
-            "perc": 55,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Kamara H.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ekkelenkamp",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Chakvetadze",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Davis K.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -12620,17 +12620,12 @@
             "starter": false
           },
           {
+            "nome": "Ebosse",
+            "perc": 55,
+            "starter": false
+          },
+          {
             "nome": "Bertola",
-            "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "Abankwah",
-            "perc": 40,
-            "starter": false
-          },
-          {
-            "nome": "Kabasele",
             "perc": 35,
             "starter": false
           },
@@ -12677,57 +12672,57 @@
         "giocatori": [
           {
             "nome": "Maignan",
-            "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Tomori",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "De Winter",
-            "perc": 90,
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Diawara S.",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Pavlovic",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Terracciano F.",
-            "perc": 90,
-            "starter": true
-          },
-          {
-            "nome": "Musah",
-            "perc": 55,
+            "nome": "Tomori",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Modric",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Estupinan",
-            "perc": 60,
+            "nome": "Jashari",
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Cissè A.",
-            "perc": 60,
+            "nome": "Bartesaghi",
+            "perc": 100,
+            "starter": true
+          },
+          {
+            "nome": "Hutchinson",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Pulisic",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ramos G.",
-            "perc": 70,
+            "perc": 100,
             "starter": true
           },
           {
@@ -12736,28 +12731,28 @@
             "starter": false
           },
           {
-            "nome": "Bartesaghi",
+            "nome": "Estupinan",
             "perc": 60,
             "starter": false
           },
           {
-            "nome": "Diawara S.",
-            "perc": 20,
+            "nome": "Terracciano F.",
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Jashari",
+            "nome": "Cissè A.",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Musah",
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Comotto",
             "perc": 10,
-            "starter": false
-          },
-          {
-            "nome": "Hutchinson",
-            "perc": 60,
             "starter": false
           },
           {

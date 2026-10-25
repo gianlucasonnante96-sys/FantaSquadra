@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-25T16:58:43.536Z",
+  "aggiornato": "2026-10-25T19:30:11.280Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Scalvini": {
@@ -469,6 +469,12 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il cursore di fascia dei friulani out domenica contro il Milan per noie muscolari. Da valutare."
+    },
+    "Solet": {
+      "squadra": "Udinese",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Il difensore non al meglio per un risentimento muscolare alla gamba, out contro il Milan."
     },
     "Bayo V.": {
       "squadra": "Udinese",

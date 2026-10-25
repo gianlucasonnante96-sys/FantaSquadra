@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-25T16:58:37.907Z",
+  "aggiornato": "2026-10-25T19:30:05.373Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -80,6 +80,19 @@
         "D"
       ]
     },
+    "Juventus": {
+      "punti": 14,
+      "g": 8,
+      "gf": 11,
+      "gs": 8,
+      "forma": [
+        "L",
+        "W",
+        "D",
+        "L",
+        "W"
+      ]
+    },
     "Torino": {
       "punti": 13,
       "g": 8,
@@ -103,19 +116,6 @@
         "W",
         "D",
         "L",
-        "L"
-      ]
-    },
-    "Juventus": {
-      "punti": 11,
-      "g": 7,
-      "gf": 9,
-      "gs": 8,
-      "forma": [
-        "D",
-        "L",
-        "W",
-        "D",
         "L"
       ]
     },
@@ -147,15 +147,15 @@
     },
     "Lecce": {
       "punti": 9,
-      "g": 7,
+      "g": 8,
       "gf": 9,
-      "gs": 12,
+      "gs": 14,
       "forma": [
-        "L",
         "W",
         "L",
         "L",
-        "W"
+        "W",
+        "L"
       ]
     },
     "Bologna": {
