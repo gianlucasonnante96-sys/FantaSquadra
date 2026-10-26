@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-26T13:55:02.141Z",
+  "aggiornato": "2026-10-26T20:19:05.669Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -13019,6 +13019,11 @@
             "nome": "Cancellieri",
             "perc": 60,
             "starter": false
+          },
+          {
+            "nome": "Pinamonti",
+            "perc": 25,
+            "starter": false
           }
         ]
       }
@@ -13496,11 +13501,6 @@
             "starter": false
           },
           {
-            "nome": "Liberali",
-            "perc": 25,
-            "starter": false
-          },
-          {
             "nome": "Lahdo",
             "perc": 10,
             "starter": false
@@ -13508,11 +13508,6 @@
           {
             "nome": "Addai",
             "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Kean",
-            "perc": 50,
             "starter": false
           }
         ]
@@ -13530,8 +13525,8 @@
             "starter": true
           },
           {
-            "nome": "Gila",
-            "perc": 55,
+            "nome": "Tomori",
+            "perc": 90,
             "starter": true
           },
           {
@@ -13551,7 +13546,7 @@
           },
           {
             "nome": "Hutchinson",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
@@ -13561,7 +13556,7 @@
           },
           {
             "nome": "Jashari",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
@@ -13585,18 +13580,13 @@
             "starter": false
           },
           {
-            "nome": "Tomori",
-            "perc": 55,
-            "starter": false
-          },
-          {
             "nome": "Terracciano F.",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Diawara S.",
-            "perc": 30,
+            "perc": 55,
             "starter": false
           },
           {
@@ -13606,12 +13596,7 @@
           },
           {
             "nome": "Comotto",
-            "perc": 20,
-            "starter": false
-          },
-          {
-            "nome": "Moreira",
-            "perc": 50,
+            "perc": 35,
             "starter": false
           },
           {
@@ -15162,7 +15147,7 @@
           },
           {
             "nome": "Scalvini",
-            "perc": 15,
+            "perc": 25,
             "starter": false
           },
           {
@@ -15181,13 +15166,8 @@
             "starter": false
           },
           {
-            "nome": "Kessiè",
-            "perc": 25,
-            "starter": false
-          },
-          {
             "nome": "Sulemana K.",
-            "perc": 20,
+            "perc": 30,
             "starter": false
           },
           {

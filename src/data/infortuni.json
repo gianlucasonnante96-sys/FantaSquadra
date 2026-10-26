@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-26T13:55:41.297Z",
+  "aggiornato": "2026-10-26T20:19:45.876Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -25,6 +25,12 @@
       "stato": "out",
       "rientro": "01/11",
       "descrizione": "Nuovo stop muscolare per l'attaccante, frenato il 15 ottobre in Conference League da una distrazione muscolare di basso grado al bicipite femorale della coscia destra, rientro dall'inizio di novembre."
+    },
+    "Kessiè": {
+      "squadra": "Atalanta",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "L'ivoriano condizionato da una distrazione di basso grado al polpaccio della gamba destra e out contro Milan e Frosinone. Da valutare in vista di giovedì a Firenze nel turno infrasettimanale, proverà a recuperare in extremis."
     },
     "Pompei": {
       "squadra": "Atalanta",
@@ -74,6 +80,12 @@
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
     },
+    "Liberali": {
+      "squadra": "Como",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il centrocampista offensivo dei lariani mercoledì scorso in Champions League prima di subentrare ha lamentato un fastidio alla gamba, out ora in campionato contro Sassuolo e Torino. Da valutare rientro nella 10a di A."
+    },
     "Rodriguez Je.": {
       "squadra": "Como",
       "stato": "dubbio",
@@ -91,6 +103,12 @@
       "stato": "out",
       "rientro": "01/11",
       "descrizione": "il difensore il 18 ottobre a Firenze costretto al cambio per un guaio muscolare alla gamba, rientro da inizio novembre."
+    },
+    "Kean": {
+      "squadra": "Como",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "l'attaccante in recupero dal fastidio alla tibia e, dopo aver saltato le sfide contro Sassuolo, Roma e Fiorentina, non è tra i convocati neppure per martedì a Torino. Punta a tornare dalla 10a giornata di A."
     },
     "Pongracic": {
       "squadra": "Fiorentina",
@@ -230,12 +248,6 @@
       "rientro": "30/10",
       "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio, ai box fino alla fine di ottobre."
     },
-    "Pinamonti": {
-      "squadra": "Lazio",
-      "stato": "out",
-      "rientro": "N/D",
-      "descrizione": "L'attaccante si è accomodato in tribuna sabato sera contro il Parma per una forte tracheite con febbre. Condizioni da monitorare, ma rischia il forfait anche per martedì in campionato contro il Sassuolo."
-    },
     "Gudmundsson A.": {
       "squadra": "Lazio",
       "stato": "out",
@@ -266,6 +278,12 @@
       "rientro": "01/11",
       "descrizione": "il centrocampista costretto al cambio il 18 ottobre a Udine per una lesione muscolare al bicipite femorale della coscia destra, recuperabile dall'inizio di novembre."
     },
+    "Moreira": {
+      "squadra": "Milan",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "L'esterno rossonero frenato da un affaticamento muscolare al flessore sinistro e out domenica scorsa contro l'Udinese. Da valutare, convocazione a rischio anche mercoledì contro il Bologna."
+    },
     "Chukwueze": {
       "squadra": "Milan",
       "stato": "out",
@@ -282,7 +300,13 @@
       "squadra": "Milan",
       "stato": "dubbio",
       "rientro": "01/10",
-      "descrizione": "il centrocampista non al meglio per un problema alla gamba destra ravvisato sul finire del match di Udine (25 ottobre). Condizioni da valutare, ma viaggia verso il forfait per mercoledì contro il Bologna."
+      "descrizione": "il centrocampista non al meglio per un problema al flessore ravvisato sul finire del match di Udine (25 ottobre). Condizioni da valutare, forfait certo per mercoledì contro il Bologna."
+    },
+    "Gila": {
+      "squadra": "Milan",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il difensore assente domenica scorsa contro l'Udinese per un sovraccarico alla caviglia sinistra. Da valutare, a rischio anche per mercoledì a San Siro contro il Bologna."
     },
     "Gabbia": {
       "squadra": "Milan",
@@ -360,7 +384,7 @@
       "squadra": "Parma",
       "stato": "out-lungo",
       "rientro": "15/07",
-      "descrizione": "il centrocampista alle prese dalla seconda metà di luglio con una lesione di medio grado alla coscia destra, ma a fine agosto ha deciso, assieme allo staff medico ducale, di operarsi. Lungo stop e ipotesi di ritorno in campo da dicembre."
+      "descrizione": "il centrocampista alle prese dalla seconda metà di luglio con una lesione di medio grado alla coscia destra, ma a fine agosto ha deciso, assieme allo staff medico ducale, di operarsi. Lungo stop e ritorno in campo da inizio novembre."
     },
     "Almqvist": {
       "squadra": "Parma",
@@ -420,19 +444,19 @@
       "squadra": "Torino",
       "stato": "out",
       "rientro": "01/10",
-      "descrizione": "il centrocampista il 12 ottobre costretto al cambio contro l'Udinese per un fastidio muscolare alla gamba. Fuori già contro Monza e Parma, non ci sarà neppure mercoledì contro il Como."
+      "descrizione": "il centrocampista il 12 ottobre costretto al cambio contro l'Udinese per un fastidio muscolare alla gamba. Fuori già contro Monza e Parma, non ci sarà neppure martedì contro il Como."
     },
     "Fortini": {
       "squadra": "Torino",
       "stato": "dubbio",
       "rientro": "01/10",
-      "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Da valutare nei prossimi allenamenti le possibilità di convocazione per mercoledì in casa contro il Como."
+      "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Da valutare nei prossimi allenamenti le possibilità di convocazione per martedì in casa contro il Como."
     },
     "Mandragora": {
       "squadra": "Torino",
       "stato": "dubbio",
       "rientro": "01/10",
-      "descrizione": "il centrocampista granata fermato il 23 ottobre contro il Monza da un problema muscolare al flessore sinistro. Condizioni da valutare, di certo out mercoledì in campionato contro il Como."
+      "descrizione": "il centrocampista granata fermato il 23 ottobre contro il Monza da un problema muscolare al flessore sinistro. Condizioni da valutare, di certo out martedì in campionato contro il Como."
     },
     "Rodriguez R.": {
       "squadra": "Torino",
