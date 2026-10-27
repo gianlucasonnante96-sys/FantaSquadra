@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-26T20:19:05.669Z",
+  "aggiornato": "2026-10-27T00:14:57.288Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -12922,12 +12922,12 @@
           },
           {
             "nome": "Sutalo J.",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
-            "nome": "Provstgaard",
-            "perc": 60,
+            "nome": "Leite",
+            "perc": 75,
             "starter": true
           },
           {
@@ -12986,8 +12986,8 @@
             "starter": false
           },
           {
-            "nome": "Leite",
-            "perc": 35,
+            "nome": "Provstgaard",
+            "perc": 50,
             "starter": false
           },
           {
@@ -13071,7 +13071,7 @@
           },
           {
             "nome": "Wesley",
-            "perc": 70,
+            "perc": 55,
             "starter": true
           },
           {
@@ -13081,7 +13081,7 @@
           },
           {
             "nome": "Mora",
-            "perc": 60,
+            "perc": 70,
             "starter": true
           },
           {
@@ -13111,12 +13111,12 @@
           },
           {
             "nome": "Rensch",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Lulli",
-            "perc": 50,
+            "perc": 60,
             "starter": false
           },
           {
