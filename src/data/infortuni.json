@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-27T13:00:03.805Z",
+  "aggiornato": "2026-10-27T18:40:01.210Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -16,15 +16,21 @@
     },
     "Bellanova": {
       "squadra": "Atalanta",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "il terzino KO il 25 ottobre per un risentimento muscolare all’inguine. Di certo out giovedì nel turno infrasettimanale a Firenze, tempi di recupero da valutare."
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "il terzino KO il 25 ottobre per una distrazione di basso grado dell'adduttore lungo dell’arto sinistro, recuperabile dalla metà di novembre."
     },
     "Raspadori": {
       "squadra": "Atalanta",
       "stato": "out",
       "rientro": "01/11",
       "descrizione": "Nuovo stop muscolare per l'attaccante, frenato il 15 ottobre in Conference League da una distrazione muscolare di basso grado al bicipite femorale della coscia destra, rientro dall'inizio di novembre."
+    },
+    "Scamacca": {
+      "squadra": "Atalanta",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "L'attaccante fuori causa per giovedì a Firenze a causa di un risentimento ai muscoli flessori della coscia destra. Verrà rivalutato la prossima settimana, si spera di averlo a disposizione prima della sosta di metà novembre."
     },
     "Kessiè": {
       "squadra": "Atalanta",
@@ -47,8 +53,8 @@
     "Orsolini": {
       "squadra": "Bologna",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il capitano dei felsinei KO l'11 ottobre a Lecce sul finale di match per una lesione di primo grado al bicipite femorale della coscia destra, stop di circa tre settimane. Recuperabile dalla prima metà di novembre."
+      "rientro": "01/11",
+      "descrizione": "il capitano dei felsinei KO l'11 ottobre a Lecce sul finale di match per una lesione di primo grado al bicipite femorale della coscia destra, stop di circa tre settimane. Recuperabile dall'inizio di novembre."
     },
     "Piccoli": {
       "squadra": "Bologna",
@@ -113,8 +119,8 @@
     "Pongracic": {
       "squadra": "Fiorentina",
       "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "il difensore il 15 ottobre contro l'Inter ha rimediato un problema al bicipite femorale della coscia destra, che andrà valutato. Forfait nel frattempo per giovedì contro l'Atalanta al Franchi."
+      "rientro": "15/11",
+      "descrizione": "il difensore il 15 ottobre contro l'Inter ha rimediato una lesione mio-fasciale a carico del capo lungo del bicipite femorale della coscia destra, rientro dalla seconda metà di novembre."
     },
     "Parisi": {
       "squadra": "Fiorentina",
@@ -125,8 +131,8 @@
     "Atta": {
       "squadra": "Fiorentina",
       "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il centrocampista non al meglio per un sovraccarico funzionale dell'addome, assente contro Inter, Genoa e Como. Da valutare nei prossimi allenamenti, ma va verso il forfait anche per giovedì contro l'Atalanta."
+      "rientro": "01/11",
+      "descrizione": "il centrocampista non al meglio per un sovraccarico funzionale dell'addome, assente contro Atalanta, Inter, Genoa e Como. Da valutare nei prossimi allenamenti, si proverà a recuperarlo da inizio novembre."
     },
     "Grillitsch": {
       "squadra": "Frosinone",
@@ -160,9 +166,9 @@
     },
     "Stones": {
       "squadra": "Inter",
-      "stato": "dubbio",
+      "stato": "out",
       "rientro": "30/10",
-      "descrizione": "il difensore alle prese con un risentimento ai flessori della coscia sinistra, recuperabile dalla fine di ottobre. Da valutare nei prossimi allenamenti le possibilità di convocazione per mercoledì a Venezia."
+      "descrizione": "il difensore alle prese con un risentimento ai flessori della coscia sinistra, recuperabile dalla fine di ottobre."
     },
     "Pavard": {
       "squadra": "Inter",
@@ -254,17 +260,17 @@
       "rientro": "15/11",
       "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla destra dopo una caduta fortuita in partita. Condizioni da monitorare, si confida di riaverlo a disposizione dalla metà di novembre."
     },
-    "Pierotti": {
-      "squadra": "Lecce",
-      "stato": "out-lungo",
-      "rientro": "01/01",
-      "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre. Si prospetta un lungo stop, ipotizziamo un rientro in campo da gennaio."
-    },
     "Ilic": {
       "squadra": "Lecce",
       "stato": "out",
       "rientro": "30/03",
       "descrizione": "il regista dei salentini KO l'11 ottobre in casa contro il Bologna vittima di una lesione miotendinea del retto femorale sinistro con lesione parziale del tendine, rientro da fine marzo."
+    },
+    "Pierotti": {
+      "squadra": "Lecce",
+      "stato": "out-lungo",
+      "rientro": "01/01",
+      "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre. Si prospetta un lungo stop, ipotizziamo un rientro in campo da gennaio."
     },
     "Berisha M.": {
       "squadra": "Lecce",
@@ -290,12 +296,6 @@
       "rientro": "15/11",
       "descrizione": "il centrocampista non al meglio per una lesione muscolare al flessore ravvisato sul finire del match di Udine (25 ottobre). Recuperabile dalla seconda metà di novembre."
     },
-    "Rabiot": {
-      "squadra": "Milan",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il francese out domenica scorsa a Udine per un affaticamento muscolare al polpaccio rimediato nella rifinitura, salterà anche il turno infrasettimanale contro il Bologna. Da valutare, ma l'obiettivo è averlo a disposizione per il derby di sabato."
-    },
     "Chukwueze": {
       "squadra": "Milan",
       "stato": "out",
@@ -305,14 +305,20 @@
     "Moreira": {
       "squadra": "Milan",
       "stato": "dubbio",
+      "rientro": "30/10",
+      "descrizione": "L'esterno rossonero frenato da un affaticamento muscolare al flessore sinistro e out contro Udinese e Bologna. Da valutare in vista del derby di fine ottobre."
+    },
+    "Rabiot": {
+      "squadra": "Milan",
+      "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "L'esterno rossonero frenato da un affaticamento muscolare al flessore sinistro e out domenica scorsa contro l'Udinese. Da valutare, convocazione a rischio anche mercoledì contro il Bologna."
+      "descrizione": "Il francese out domenica scorsa a Udine per un affaticamento muscolare al polpaccio rimediato nella rifinitura, salterà anche il turno infrasettimanale contro il Bologna. Da valutare, ma l'obiettivo è averlo a disposizione per il derby di sabato."
     },
     "Gila": {
       "squadra": "Milan",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il difensore assente domenica scorsa contro l'Udinese per un sovraccarico alla caviglia sinistra. Da valutare, a rischio anche per mercoledì a San Siro contro il Bologna."
+      "descrizione": "Il difensore assente contro Udinese e Bologna per un sovraccarico alla caviglia sinistra. Da valutare in vista della 10a giornata di campionato."
     },
     "Gabbia": {
       "squadra": "Milan",
@@ -386,35 +392,11 @@
       "rientro": "30/11",
       "descrizione": "il difensore KO il 24 ottobre contro la Roma per una lesione distrattiva di medio grado del retto femorale destro, recuperabile dalla fine di novembre."
     },
-    "Nicolussi Caviglia": {
-      "squadra": "Parma",
-      "stato": "out-lungo",
-      "rientro": "15/07",
-      "descrizione": "il centrocampista alle prese dalla seconda metà di luglio con una lesione di medio grado alla coscia destra, ma a fine agosto ha deciso, assieme allo staff medico ducale, di operarsi. Lungo stop e ritorno in campo da inizio novembre."
-    },
-    "Almqvist": {
-      "squadra": "Parma",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "L'ala offensiva dei ducali KO dal 6 ottobre per una lesione muscolare al polpaccio sinistro, recuperabile dalla fine di ottobre."
-    },
     "Elphege": {
       "squadra": "Parma",
       "stato": "dubbio",
       "rientro": "01/10",
       "descrizione": "l'attaccante operato per una appendicite acuta l'11 ottobre, condizioni ora da valutare per stabilire i tempi di rientro in campo. Di certo assente mercoledì al Tardini contro l'Udinese."
-    },
-    "Dybala": {
-      "squadra": "Roma",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "l'argentino out anche martedì contro il Cagliari, ma le sue condizioni migliorano e il fastidio al polpaccio va attenuandosi. Appare recuperabile da fine ottobre e convocabile nella 10a giornata di A."
-    },
-    "Pellegrini Lo.": {
-      "squadra": "Roma",
-      "stato": "out",
-      "rientro": "30/12",
-      "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha rimediato una lesione di alto grado in corrispondenza della giunzione muscolo - tendinea distale del muscolo semitendinoso della coscia destra. Stop lungo, ipotizziamo un rientro dalla fine di dicembre."
     },
     "Konè M.": {
       "squadra": "Roma",
@@ -422,17 +404,23 @@
       "rientro": "15/11",
       "descrizione": "Il centrocampista frenato il 14 ottobre in Champions League contro il Real Madrid da una lesione di primo grado al bicipite femorale destro, tentativo di rientro tra i convocati in campionato dalla prima metà di novembre."
     },
+    "Pellegrini Lo.": {
+      "squadra": "Roma",
+      "stato": "out",
+      "rientro": "30/12",
+      "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha rimediato una lesione di alto grado in corrispondenza della giunzione muscolo - tendinea distale del muscolo semitendinoso della coscia destra. Stop lungo, ipotizziamo un rientro dalla fine di dicembre."
+    },
+    "Dybala": {
+      "squadra": "Roma",
+      "stato": "out",
+      "rientro": "30/10",
+      "descrizione": "l'argentino out anche martedì contro il Cagliari, ma le sue condizioni migliorano e il fastidio al polpaccio va attenuandosi. Appare recuperabile da fine ottobre e convocabile nella 10a giornata di A."
+    },
     "Svilar": {
       "squadra": "Roma",
       "stato": "out",
       "rientro": "01/11",
       "descrizione": "Il portiere condizionato da una frattura a un dito del piede e fuori dal match contro il Como. Ipotesi di rientro a disposizione dall'inizio di novembre."
-    },
-    "Idzes": {
-      "squadra": "Sassuolo",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "Il difensore ai box per una lesione di grado moderato al quadricipite della gamba sinistra, proverà a tornerà arruolabile dalla fine di ottobre."
     },
     "Boloca": {
       "squadra": "Sassuolo",
@@ -451,12 +439,6 @@
       "stato": "out-lungo",
       "rientro": "01/04",
       "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
-    },
-    "Ilkhan": {
-      "squadra": "Torino",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "il centrocampista il 12 ottobre costretto al cambio contro l'Udinese per un fastidio muscolare alla gamba. Fuori già contro Monza e Parma, non ci sarà neppure martedì contro il Como."
     },
     "Fortini": {
       "squadra": "Torino",
