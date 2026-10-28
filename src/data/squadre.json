@@ -1,7 +1,20 @@
 {
-  "aggiornato": "2026-10-28T13:50:57.450Z",
+  "aggiornato": "2026-10-28T20:06:01.947Z",
   "fonte": "fantacalcio.it",
   "squadre": {
+    "Inter": {
+      "punti": 25,
+      "g": 9,
+      "gf": 25,
+      "gs": 10,
+      "forma": [
+        "D",
+        "W",
+        "W",
+        "W",
+        "W"
+      ]
+    },
     "Lazio": {
       "punti": 25,
       "g": 9,
@@ -10,19 +23,6 @@
       "forma": [
         "W",
         "W",
-        "W",
-        "W",
-        "W"
-      ]
-    },
-    "Inter": {
-      "punti": 22,
-      "g": 8,
-      "gf": 23,
-      "gs": 10,
-      "forma": [
-        "W",
-        "D",
         "W",
         "W",
         "W"
@@ -56,15 +56,15 @@
     },
     "Milan": {
       "punti": 18,
-      "g": 8,
-      "gf": 16,
-      "gs": 7,
+      "g": 9,
+      "gf": 18,
+      "gs": 11,
       "forma": [
-        "D",
         "W",
         "D",
         "W",
-        "W"
+        "W",
+        "L"
       ]
     },
     "Frosinone": {
@@ -132,6 +132,19 @@
         "D"
       ]
     },
+    "Bologna": {
+      "punti": 11,
+      "g": 9,
+      "gf": 12,
+      "gs": 12,
+      "forma": [
+        "D",
+        "W",
+        "L",
+        "W",
+        "W"
+      ]
+    },
     "Atalanta": {
       "punti": 10,
       "g": 8,
@@ -156,19 +169,6 @@
         "L",
         "W",
         "L"
-      ]
-    },
-    "Bologna": {
-      "punti": 8,
-      "g": 8,
-      "gf": 8,
-      "gs": 10,
-      "forma": [
-        "L",
-        "D",
-        "W",
-        "L",
-        "W"
       ]
     },
     "Sassuolo": {
@@ -211,8 +211,8 @@
       ]
     },
     "Udinese": {
-      "punti": 4,
-      "g": 8,
+      "punti": 5,
+      "g": 9,
       "gf": 9,
       "gs": 18,
       "forma": [
@@ -220,7 +220,20 @@
         "L",
         "L",
         "L",
-        "L"
+        "D"
+      ]
+    },
+    "Parma": {
+      "punti": 5,
+      "g": 9,
+      "gf": 5,
+      "gs": 15,
+      "forma": [
+        "W",
+        "L",
+        "L",
+        "L",
+        "D"
       ]
     },
     "Fiorentina": {
@@ -236,29 +249,16 @@
         "L"
       ]
     },
-    "Parma": {
-      "punti": 4,
-      "g": 8,
-      "gf": 5,
-      "gs": 15,
-      "forma": [
-        "L",
-        "W",
-        "L",
-        "L",
-        "L"
-      ]
-    },
     "Venezia": {
       "punti": 3,
-      "g": 8,
+      "g": 9,
       "gf": 6,
-      "gs": 17,
+      "gs": 19,
       "forma": [
         "L",
         "L",
-        "L",
         "W",
+        "L",
         "L"
       ]
     }
