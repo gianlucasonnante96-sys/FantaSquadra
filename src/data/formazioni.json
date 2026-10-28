@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-27T22:51:54.907Z",
+  "aggiornato": "2026-10-28T13:50:22.430Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -14151,11 +14151,6 @@
             "starter": true
           },
           {
-            "nome": "Carlos Augusto",
-            "perc": 80,
-            "starter": true
-          },
-          {
             "nome": "Bisseck",
             "perc": 80,
             "starter": true
@@ -14163,6 +14158,11 @@
           {
             "nome": "Bastoni",
             "perc": 55,
+            "starter": true
+          },
+          {
+            "nome": "Carlos Augusto",
+            "perc": 80,
             "starter": true
           },
           {
@@ -14622,7 +14622,7 @@
         "giocatori": [
           {
             "nome": "Milinkovic-Savic V.",
-            "perc": 55,
+            "perc": 75,
             "starter": true
           },
           {
@@ -14667,17 +14667,17 @@
           },
           {
             "nome": "Hojlund",
-            "perc": 80,
+            "perc": 55,
             "starter": true
           },
           {
             "nome": "Giovane",
-            "perc": 60,
+            "perc": 85,
             "starter": true
           },
           {
             "nome": "Meret",
-            "perc": 45,
+            "perc": 5,
             "starter": false
           },
           {
@@ -14717,7 +14717,7 @@
           },
           {
             "nome": "Lucca",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           }
         ]

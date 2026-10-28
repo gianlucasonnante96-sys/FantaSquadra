@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-27T22:52:36.586Z",
+  "aggiornato": "2026-10-28T13:51:03.306Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -29,14 +29,14 @@
     "Scamacca": {
       "squadra": "Atalanta",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "L'attaccante fuori causa per giovedì a Firenze a causa di un risentimento ai muscoli flessori della coscia destra. Verrà rivalutato la prossima settimana, si spera di averlo a disposizione prima della sosta di metà novembre."
+      "rientro": "01/11",
+      "descrizione": "L'attaccante fuori causa per giovedì a Firenze a causa di un risentimento ai muscoli flessori della coscia destra. Verrà rivalutato, si proverà ad averlo a disposizione già da inizio novembre."
     },
     "Kessiè": {
       "squadra": "Atalanta",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "L'ivoriano condizionato da una distrazione di basso grado al polpaccio della gamba destra e out contro Milan e Frosinone. Da valutare in vista di giovedì a Firenze nel turno infrasettimanale, proverà a recuperare in extremis."
+      "stato": "out",
+      "rientro": "01/11",
+      "descrizione": "L'ivoriano condizionato da una distrazione di basso grado al polpaccio della gamba destra, tentativo rientro da inizio novembre."
     },
     "Pompei": {
       "squadra": "Atalanta",
@@ -263,8 +263,8 @@
     "Ilic": {
       "squadra": "Lecce",
       "stato": "out",
-      "rientro": "30/03",
-      "descrizione": "il regista dei salentini KO l'11 ottobre in casa contro il Bologna vittima di una lesione miotendinea del retto femorale sinistro con lesione parziale del tendine, rientro da fine marzo."
+      "rientro": "01/04",
+      "descrizione": "il regista dei salentini KO l'11 ottobre in casa contro il Bologna vittima di una lesione miotendinea del retto femorale sinistro con lesione parziale del tendine, rientro da aprile."
     },
     "Pierotti": {
       "squadra": "Lecce",
