@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-28T20:06:01.947Z",
+  "aggiornato": "2026-10-29T00:37:44.172Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -80,17 +80,30 @@
         "D"
       ]
     },
+    "Napoli": {
+      "punti": 14,
+      "g": 9,
+      "gf": 17,
+      "gs": 11,
+      "forma": [
+        "D",
+        "W",
+        "L",
+        "D",
+        "W"
+      ]
+    },
     "Juventus": {
       "punti": 14,
-      "g": 8,
+      "g": 9,
       "gf": 11,
-      "gs": 8,
+      "gs": 10,
       "forma": [
-        "L",
         "W",
         "D",
         "L",
-        "W"
+        "W",
+        "L"
       ]
     },
     "Torino": {
@@ -119,19 +132,6 @@
         "L"
       ]
     },
-    "Napoli": {
-      "punti": 11,
-      "g": 8,
-      "gf": 13,
-      "gs": 10,
-      "forma": [
-        "W",
-        "D",
-        "W",
-        "L",
-        "D"
-      ]
-    },
     "Bologna": {
       "punti": 11,
       "g": 9,
@@ -156,6 +156,19 @@
         "W",
         "L",
         "D"
+      ]
+    },
+    "Genoa": {
+      "punti": 10,
+      "g": 9,
+      "gf": 8,
+      "gs": 13,
+      "forma": [
+        "L",
+        "W",
+        "L",
+        "W",
+        "W"
       ]
     },
     "Lecce": {
@@ -186,28 +199,15 @@
     },
     "Monza": {
       "punti": 7,
-      "g": 8,
-      "gf": 15,
-      "gs": 18,
+      "g": 9,
+      "gf": 16,
+      "gs": 22,
       "forma": [
-        "L",
         "W",
         "L",
         "W",
+        "L",
         "L"
-      ]
-    },
-    "Genoa": {
-      "punti": 7,
-      "g": 8,
-      "gf": 6,
-      "gs": 13,
-      "forma": [
-        "D",
-        "L",
-        "W",
-        "L",
-        "W"
       ]
     },
     "Udinese": {
