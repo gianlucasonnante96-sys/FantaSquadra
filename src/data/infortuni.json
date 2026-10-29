@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-29T13:57:25.887Z",
+  "aggiornato": "2026-10-29T20:05:19.812Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -314,11 +314,11 @@
       "rientro": "In settimana",
       "descrizione": "Il difensore assente contro Udinese e Bologna per un sovraccarico alla caviglia sinistra. Da valutare in vista della 10a giornata di campionato."
     },
-    "Gabbia": {
+    "Saelemaekers": {
       "squadra": "Milan",
       "stato": "out",
-      "rientro": "30/02",
-      "descrizione": "il difensore KO l'11 ottobre contro il Sassuolo vittima di una lesione del flessore della coscia sinistra con parziale interessamento tendineo. Lo stop sarà lungo, anche con la terapia conservativa. Ipotesi rientro in campo da fine febbraio."
+      "rientro": "01/02",
+      "descrizione": "Il belga fermo da inizio ottobre per un problema alla caviglia destra e operata il 13 ottobre. Stop lungo e lo rivedremo in campo nel 2027 inoltrato (ipotesi da febbraio)."
     },
     "Terracciano": {
       "squadra": "Milan",
@@ -326,11 +326,11 @@
       "rientro": "In settimana",
       "descrizione": "il portiere non al meglio per noie fisiche, forfait nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Saelemaekers": {
+    "Gabbia": {
       "squadra": "Milan",
       "stato": "out",
-      "rientro": "01/02",
-      "descrizione": "Il belga fermo da inizio ottobre per un problema alla caviglia destra e operata il 13 ottobre. Stop lungo e lo rivedremo in campo nel 2027 inoltrato (ipotesi da febbraio)."
+      "rientro": "30/02",
+      "descrizione": "il difensore KO l'11 ottobre contro il Sassuolo vittima di una lesione del flessore della coscia sinistra con parziale interessamento tendineo. Lo stop sarà lungo, anche con la terapia conservativa. Ipotesi rientro in campo da fine febbraio."
     },
     "Pessina": {
       "squadra": "Monza",
@@ -392,11 +392,11 @@
       "rientro": "01/10",
       "descrizione": "l'attaccante operato per una appendicite acuta l'11 ottobre, condizioni ora da valutare per stabilire i tempi di rientro in campo. Di certo assente mercoledì al Tardini contro l'Udinese."
     },
-    "Konè M.": {
+    "Dybala": {
       "squadra": "Roma",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "Il centrocampista frenato il 14 ottobre in Champions League contro il Real Madrid da una lesione di primo grado al bicipite femorale destro, tentativo di rientro tra i convocati in campionato dalla prima metà di novembre."
+      "rientro": "30/10",
+      "descrizione": "l'argentino out anche martedì contro il Cagliari, ma le sue condizioni migliorano e il fastidio al polpaccio va attenuandosi. Appare recuperabile da fine ottobre e convocabile nella 10a giornata di A."
     },
     "Pellegrini Lo.": {
       "squadra": "Roma",
@@ -404,11 +404,11 @@
       "rientro": "30/12",
       "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha rimediato una lesione di alto grado in corrispondenza della giunzione muscolo - tendinea distale del muscolo semitendinoso della coscia destra. Stop lungo, ipotizziamo un rientro dalla fine di dicembre."
     },
-    "Dybala": {
+    "Konè M.": {
       "squadra": "Roma",
       "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "l'argentino out anche martedì contro il Cagliari, ma le sue condizioni migliorano e il fastidio al polpaccio va attenuandosi. Appare recuperabile da fine ottobre e convocabile nella 10a giornata di A."
+      "rientro": "15/11",
+      "descrizione": "Il centrocampista frenato il 14 ottobre in Champions League contro il Real Madrid da una lesione di primo grado al bicipite femorale destro, tentativo di rientro tra i convocati in campionato dalla prima metà di novembre."
     },
     "Svilar": {
       "squadra": "Roma",

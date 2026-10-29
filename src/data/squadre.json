@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-29T13:57:20.092Z",
+  "aggiornato": "2026-10-29T20:05:14.496Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -68,16 +68,16 @@
       ]
     },
     "Frosinone": {
-      "punti": 14,
-      "g": 8,
-      "gf": 17,
-      "gs": 13,
+      "punti": 17,
+      "g": 9,
+      "gf": 22,
+      "gs": 14,
       "forma": [
-        "D",
         "W",
         "L",
         "W",
-        "D"
+        "D",
+        "W"
       ]
     },
     "Napoli": {
@@ -173,14 +173,14 @@
     },
     "Lecce": {
       "punti": 9,
-      "g": 8,
-      "gf": 9,
-      "gs": 14,
+      "g": 9,
+      "gf": 10,
+      "gs": 19,
       "forma": [
-        "W",
         "L",
         "L",
         "W",
+        "L",
         "L"
       ]
     },

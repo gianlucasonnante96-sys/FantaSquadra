@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-29T13:59:26.722Z",
+  "aggiornato": "2026-10-29T20:07:10.977Z",
   "fonte": "fantacalcio.it",
   "giornate": {
     "1": [
@@ -550,8 +550,8 @@
       {
         "casa": "Frosinone",
         "trasferta": "Lecce",
-        "golCasa": 0,
-        "golTrasferta": 0
+        "golCasa": 5,
+        "golTrasferta": 1
       },
       {
         "casa": "Fiorentina",
