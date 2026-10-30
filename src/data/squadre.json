@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-29T20:05:14.496Z",
+  "aggiornato": "2026-10-30T00:38:14.522Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Inter": {
@@ -146,15 +146,15 @@
       ]
     },
     "Atalanta": {
-      "punti": 10,
-      "g": 8,
-      "gf": 14,
-      "gs": 15,
+      "punti": 11,
+      "g": 9,
+      "gf": 16,
+      "gs": 17,
       "forma": [
-        "L",
         "L",
         "W",
         "L",
+        "D",
         "D"
       ]
     },
@@ -223,6 +223,19 @@
         "D"
       ]
     },
+    "Fiorentina": {
+      "punti": 5,
+      "g": 9,
+      "gf": 11,
+      "gs": 21,
+      "forma": [
+        "D",
+        "L",
+        "L",
+        "L",
+        "D"
+      ]
+    },
     "Parma": {
       "punti": 5,
       "g": 9,
@@ -234,19 +247,6 @@
         "L",
         "L",
         "D"
-      ]
-    },
-    "Fiorentina": {
-      "punti": 4,
-      "g": 8,
-      "gf": 9,
-      "gs": 19,
-      "forma": [
-        "W",
-        "D",
-        "L",
-        "L",
-        "L"
       ]
     },
     "Venezia": {
