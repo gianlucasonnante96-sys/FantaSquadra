@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-30T13:52:29.568Z",
+  "aggiornato": "2026-10-30T19:51:53.929Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -143,8 +143,8 @@
     "Atta": {
       "squadra": "Fiorentina",
       "stato": "dubbio",
-      "rientro": "01/11",
-      "descrizione": "il centrocampista non al meglio per un sovraccarico funzionale dell'addome, assente contro Atalanta, Inter, Genoa e Como. Da valutare nei prossimi allenamenti, si proverà a recuperarlo da inizio novembre."
+      "rientro": "15/11",
+      "descrizione": "il centrocampista non al meglio per un sovraccarico funzionale dell'addome, assente contro Atalanta, Inter, Genoa e Como. Da valutare nei prossimi allenamenti, si proverà a recuperarlo dalla prima metà di novembre."
     },
     "Grillitsch": {
       "squadra": "Frosinone",
@@ -212,12 +212,6 @@
       "rientro": "15/11",
       "descrizione": "il portoghese KO il 18 ottobre contro la Lazio vittima di una lussazione alla spalla sinistra, prontamente ridotta. Recuperabile dalla metà di novembre."
     },
-    "Ekhator": {
-      "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "l'attaccante vittima di una lesione di medio grado del muscolo semitendinoso, rientro dalla metà di novembre."
-    },
     "Yildiz": {
       "squadra": "Juventus",
       "stato": "out-lungo",
@@ -248,18 +242,6 @@
       "rientro": "15/11",
       "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla destra dopo una caduta fortuita in partita. Condizioni da monitorare, si confida di riaverlo a disposizione dalla metà di novembre."
     },
-    "Rovella": {
-      "squadra": "Lazio",
-      "stato": "out",
-      "rientro": "01/11",
-      "descrizione": "il regista dei biancocelesti KO il 30 agosto contro il Genoa vittima di una lesione muscolare al polpaccio, ai box fino all'inizio di novembre."
-    },
-    "Marusic": {
-      "squadra": "Lazio",
-      "stato": "out",
-      "rientro": "01/11",
-      "descrizione": "il terzino dei biancocelesti KO il 24 agosto a Bologna vittima di una lesione muscolare alla coscia. Recuperabile da inizio novembre."
-    },
     "Coulibaly L.": {
       "squadra": "Lecce",
       "stato": "out",
@@ -281,8 +263,8 @@
     "Geubbels": {
       "squadra": "Lecce",
       "stato": "out",
-      "rientro": "N/D",
-      "descrizione": "L'attaccante si è fermato giovedì scorso a Frosinone nella fase di riscaldamento prematch a causa di un fastidio muscolare all'adduttore e andrà valutato. Forfait per domenica contro il Genoa."
+      "rientro": "15/11",
+      "descrizione": "L'attaccante si è fermato il 29 ottobre a Frosinone nella fase di riscaldamento prematch a causa di una lesione muscolare di basso grado all'adduttore della coscia destra. Recuperabile dalla metà di novembre."
     },
     "Ilic": {
       "squadra": "Lecce",
@@ -336,13 +318,13 @@
       "squadra": "Monza",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il difensore ai box per noie fisiche, assente nelle ultime tre sfide di campionato e ora da valutare in vista di sabato a Bologna."
+      "descrizione": "Il difensore ai box per noie fisiche, assente nelle ultime 4 sfide di campionato e ora da valutare in vista della 11a giornata di campionato."
     },
     "Folorunsho": {
       "squadra": "Monza",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, viaggia verso il forfait sabato a Bologna. Da valutare."
+      "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, forfait sabato a Bologna. Da valutare in vista della 11a giornata."
     },
     "Ziolkowski": {
       "squadra": "Monza",
@@ -412,9 +394,9 @@
     },
     "Dybala": {
       "squadra": "Roma",
-      "stato": "dubbio",
+      "stato": "out",
       "rientro": "01/11",
-      "descrizione": "l'argentino out anche martedì scorso contro il Cagliari, ma le sue condizioni migliorano e il fastidio al polpaccio va attenuandosi. Appare recuperabile da inizio novembre, dunque difficilmente convocabile nella 10a giornata di A sabato a Udine. Da valutare nella rifinitura odierna."
+      "descrizione": "l'argentino in recupero da un fastidio al polpaccio, out dunque anche per sabato a Udine. Appare recuperabile da inizio novembre per l'11a giornata di campionato."
     },
     "Pellegrini Lo.": {
       "squadra": "Roma",
@@ -440,11 +422,11 @@
       "rientro": "01/04",
       "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
     },
-    "Fortini": {
+    "Cacciamani": {
       "squadra": "Torino",
       "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Da valutare nei prossimi allenamenti le possibilità di convocazione per domenica a Frosinone."
+      "rientro": "In settimana",
+      "descrizione": "l'esterno dei granata non al meglio per una sub-lussazione alla spalla sinistra rimediata nel turno precedente e ora verso il forfait per domenica a Frosinone. Da valutare."
     },
     "Rodriguez R.": {
       "squadra": "Torino",
@@ -458,17 +440,23 @@
       "rientro": "15/11",
       "descrizione": "il centrocampista granata fermato il 23 ottobre contro il Monza da un problema muscolare al flessore sinistro. Rientro dalla metà di novembre."
     },
-    "Cacciamani": {
+    "Fortini": {
       "squadra": "Torino",
       "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "l'esterno dei granata non al meglio per una sub-lussazione alla spalla sinistra rimediata nel turno precedente e ora verso il forfait per domenica a Frosinone. Da valutare."
+      "rientro": "01/10",
+      "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Da valutare nei prossimi allenamenti le possibilità di convocazione per domenica a Frosinone."
+    },
+    "Solet": {
+      "squadra": "Udinese",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "Il difensore non al meglio per un problema muscolare al pettineo sinistro, recuperabile dalla prima metà di novembre."
     },
     "Zanoli": {
       "squadra": "Udinese",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il cursore di fascia dei friulani out contro Milan e Parma per noie muscolari. Da valutare, ma rischia il forfait anche sabato contro la Roma."
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "Il cursore di fascia dei friulani frenato da noie muscolari alla gamba, recuperabile dalla metà di novembre."
     },
     "Bayo V.": {
       "squadra": "Udinese",

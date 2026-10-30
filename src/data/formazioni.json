@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-30T13:51:49.447Z",
+  "aggiornato": "2026-10-30T19:51:14.843Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -15201,7 +15201,7 @@
           },
           {
             "nome": "Zortea",
-            "perc": 85,
+            "perc": 55,
             "starter": true
           },
           {
@@ -15211,7 +15211,7 @@
           },
           {
             "nome": "Ferguson",
-            "perc": 55,
+            "perc": 75,
             "starter": true
           },
           {
@@ -15271,12 +15271,12 @@
           },
           {
             "nome": "El Azzouzi O.",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
             "nome": "Amondarain",
-            "perc": 35,
+            "perc": 55,
             "starter": false
           },
           {
@@ -15312,7 +15312,7 @@
           },
           {
             "nome": "Kouadio",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -15346,8 +15346,8 @@
             "starter": true
           },
           {
-            "nome": "Ngonge",
-            "perc": 55,
+            "nome": "Mota",
+            "perc": 70,
             "starter": true
           },
           {
@@ -15416,12 +15416,12 @@
             "starter": false
           },
           {
-            "nome": "Cutrone",
-            "perc": 60,
+            "nome": "Ngonge",
+            "perc": 55,
             "starter": false
           },
           {
-            "nome": "Mota",
+            "nome": "Cutrone",
             "perc": 60,
             "starter": false
           },
@@ -15510,11 +15510,6 @@
             "starter": false
           },
           {
-            "nome": "Solet",
-            "perc": 25,
-            "starter": false
-          },
-          {
             "nome": "Ebosse",
             "perc": 55,
             "starter": false
@@ -15571,13 +15566,13 @@
             "starter": true
           },
           {
-            "nome": "Mancini",
+            "nome": "Ghilardi",
             "perc": 75,
             "starter": true
           },
           {
             "nome": "Balerdi",
-            "perc": 60,
+            "perc": 80,
             "starter": true
           },
           {
@@ -15586,13 +15581,13 @@
             "starter": true
           },
           {
-            "nome": "Molina N.",
-            "perc": 60,
+            "nome": "Lulli",
+            "perc": 55,
             "starter": true
           },
           {
-            "nome": "De Roon",
-            "perc": 90,
+            "nome": "Cristante",
+            "perc": 60,
             "starter": true
           },
           {
@@ -15611,8 +15606,8 @@
             "starter": true
           },
           {
-            "nome": "Cristante",
-            "perc": 60,
+            "nome": "Mora",
+            "perc": 70,
             "starter": true
           },
           {
@@ -15632,21 +15627,16 @@
           },
           {
             "nome": "Koulierakis",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
-            "nome": "N'Dicka",
+            "nome": "Mancini",
             "perc": 60,
             "starter": false
           },
           {
-            "nome": "Ghilardi",
-            "perc": 30,
-            "starter": false
-          },
-          {
-            "nome": "Lulli",
+            "nome": "N'Dicka",
             "perc": 60,
             "starter": false
           },
@@ -15656,8 +15646,18 @@
             "starter": false
           },
           {
-            "nome": "Mora",
+            "nome": "Molina N.",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "De Roon",
+            "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Di Nunzio",
+            "perc": 20,
             "starter": false
           },
           {
@@ -15695,7 +15695,7 @@
             "starter": true
           },
           {
-            "nome": "Bartesaghi",
+            "nome": "Estupinan",
             "perc": 60,
             "starter": true
           },
@@ -15721,7 +15721,7 @@
           },
           {
             "nome": "Moreira",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
@@ -15735,7 +15735,7 @@
             "starter": false
           },
           {
-            "nome": "Estupinan",
+            "nome": "Bartesaghi",
             "perc": 60,
             "starter": false
           },
@@ -15781,7 +15781,7 @@
         "nome": "Inter",
         "giocatori": [
           {
-            "nome": "Provedel",
+            "nome": "Martinez Jo.",
             "perc": 55,
             "starter": true
           },
@@ -15797,7 +15797,7 @@
           },
           {
             "nome": "Bastoni",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -15816,8 +15816,8 @@
             "starter": true
           },
           {
-            "nome": "Zielinski",
-            "perc": 75,
+            "nome": "Mkhitaryan",
+            "perc": 55,
             "starter": true
           },
           {
@@ -15832,11 +15832,11 @@
           },
           {
             "nome": "Esposito F.P.",
-            "perc": 65,
+            "perc": 75,
             "starter": true
           },
           {
-            "nome": "Martinez Jo.",
+            "nome": "Provedel",
             "perc": 45,
             "starter": false
           },
@@ -15856,6 +15856,11 @@
             "starter": false
           },
           {
+            "nome": "Zielinski",
+            "perc": 60,
+            "starter": false
+          },
+          {
             "nome": "Stankovic A.",
             "perc": 35,
             "starter": false
@@ -15863,11 +15868,6 @@
           {
             "nome": "Sucic P.",
             "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Mkhitaryan",
-            "perc": 55,
             "starter": false
           },
           {
@@ -15895,8 +15895,8 @@
             "starter": true
           },
           {
-            "nome": "Couto",
-            "perc": 55,
+            "nome": "Smolcic I.",
+            "perc": 80,
             "starter": true
           },
           {
@@ -15910,7 +15910,7 @@
             "starter": true
           },
           {
-            "nome": "Valle",
+            "nome": "Kaiki",
             "perc": 55,
             "starter": true
           },
@@ -15925,8 +15925,8 @@
             "starter": true
           },
           {
-            "nome": "Caqueret",
-            "perc": 70,
+            "nome": "Couto",
+            "perc": 55,
             "starter": true
           },
           {
@@ -15955,17 +15955,12 @@
             "starter": false
           },
           {
-            "nome": "Smolcic I.",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Goldaniga",
             "perc": 30,
             "starter": false
           },
           {
-            "nome": "Kaiki",
+            "nome": "Valle",
             "perc": 60,
             "starter": false
           },
@@ -15977,6 +15972,11 @@
           {
             "nome": "Dossena",
             "perc": 20,
+            "starter": false
+          },
+          {
+            "nome": "Caqueret",
+            "perc": 60,
             "starter": false
           },
           {
@@ -16376,11 +16376,6 @@
             "starter": false
           },
           {
-            "nome": "Cacciamani",
-            "perc": 50,
-            "starter": false
-          },
-          {
             "nome": "Ilkhan",
             "perc": 60,
             "starter": false
@@ -16500,6 +16495,11 @@
             "starter": false
           },
           {
+            "nome": "Marusic",
+            "perc": 10,
+            "starter": false
+          },
+          {
             "nome": "Cataldi",
             "perc": 40,
             "starter": false
@@ -16507,6 +16507,11 @@
           {
             "nome": "Przyborek",
             "perc": 15,
+            "starter": false
+          },
+          {
+            "nome": "Rovella",
+            "perc": 10,
             "starter": false
           },
           {
@@ -16561,13 +16566,13 @@
             "starter": true
           },
           {
-            "nome": "Romano",
+            "nome": "Winks",
             "perc": 90,
             "starter": true
           },
           {
-            "nome": "Deiola",
-            "perc": 80,
+            "nome": "Romano",
+            "perc": 90,
             "starter": true
           },
           {
@@ -16622,7 +16627,7 @@
           },
           {
             "nome": "Gagliardini",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
@@ -16636,8 +16641,8 @@
             "starter": false
           },
           {
-            "nome": "Winks",
-            "perc": 25,
+            "nome": "Deiola",
+            "perc": 60,
             "starter": false
           },
           {
@@ -16710,7 +16715,7 @@
             "starter": true
           },
           {
-            "nome": "N'Dri",
+            "nome": "Monteiro J.",
             "perc": 55,
             "starter": true
           },
@@ -16721,7 +16726,7 @@
           },
           {
             "nome": "Fatah",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -16760,13 +16765,13 @@
             "starter": false
           },
           {
-            "nome": "Monteiro J.",
-            "perc": 60,
+            "nome": "Fofana Sa.",
+            "perc": 25,
             "starter": false
           },
           {
-            "nome": "Fofana Sa.",
-            "perc": 25,
+            "nome": "N'Dri",
+            "perc": 55,
             "starter": false
           },
           {
@@ -16882,7 +16887,7 @@
           },
           {
             "nome": "Ellertsson",
-            "perc": 15,
+            "perc": 35,
             "starter": false
           },
           {
@@ -16931,7 +16936,7 @@
           },
           {
             "nome": "Bremer",
-            "perc": 90,
+            "perc": 65,
             "starter": true
           },
           {
@@ -17018,6 +17023,11 @@
             "nome": "Boga",
             "perc": 60,
             "starter": false
+          },
+          {
+            "nome": "Ekhator",
+            "perc": 30,
+            "starter": false
           }
         ]
       },
@@ -17037,7 +17047,7 @@
           },
           {
             "nome": "Rrahmani",
-            "perc": 90,
+            "perc": 65,
             "starter": true
           },
           {
