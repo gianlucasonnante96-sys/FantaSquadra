@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-30T19:51:53.929Z",
+  "aggiornato": "2026-10-31T00:24:56.106Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -422,11 +422,11 @@
       "rientro": "01/04",
       "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
     },
-    "Cacciamani": {
+    "Fortini": {
       "squadra": "Torino",
       "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "l'esterno dei granata non al meglio per una sub-lussazione alla spalla sinistra rimediata nel turno precedente e ora verso il forfait per domenica a Frosinone. Da valutare."
+      "rientro": "01/10",
+      "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Da valutare nei prossimi allenamenti le possibilità di convocazione per domenica a Frosinone."
     },
     "Rodriguez R.": {
       "squadra": "Torino",
@@ -440,11 +440,11 @@
       "rientro": "15/11",
       "descrizione": "il centrocampista granata fermato il 23 ottobre contro il Monza da un problema muscolare al flessore sinistro. Rientro dalla metà di novembre."
     },
-    "Fortini": {
+    "Cacciamani": {
       "squadra": "Torino",
       "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Da valutare nei prossimi allenamenti le possibilità di convocazione per domenica a Frosinone."
+      "rientro": "In settimana",
+      "descrizione": "l'esterno dei granata non al meglio per una sub-lussazione alla spalla sinistra rimediata nel turno precedente e ora verso il forfait per domenica a Frosinone. Da valutare."
     },
     "Solet": {
       "squadra": "Udinese",
@@ -476,17 +476,17 @@
       "rientro": "15/11",
       "descrizione": "il difensore sostituito nell'intervallo della sfida contro il Lecce (18 ottobre) per un risentimento muscolare al polpaccio destro. Recuperabile dalla metà di novembre."
     },
-    "Correia T.": {
-      "squadra": "Venezia",
-      "stato": "dubbio",
-      "rientro": "01/10",
-      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un risentimento muscolare al flessore della gamba sinistra, sarà out anche domenica a Como. Da valutare in vista dell'11a giornata."
-    },
     "Adorante": {
       "squadra": "Venezia",
       "stato": "out",
       "rientro": "30/07",
       "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dall'inizio di novembre."
+    },
+    "Correia T.": {
+      "squadra": "Venezia",
+      "stato": "dubbio",
+      "rientro": "01/10",
+      "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un risentimento muscolare al flessore della gamba sinistra, sarà out anche domenica a Como. Da valutare in vista dell'11a giornata."
     },
     "Franjic": {
       "squadra": "Venezia",

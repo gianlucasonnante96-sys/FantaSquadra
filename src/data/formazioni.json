@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-30T19:51:14.843Z",
+  "aggiornato": "2026-10-31T00:24:16.560Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -15681,7 +15681,7 @@
           },
           {
             "nome": "Gila",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
@@ -15695,13 +15695,18 @@
             "starter": true
           },
           {
-            "nome": "Estupinan",
+            "nome": "Diawara S.",
+            "perc": 55,
+            "starter": true
+          },
+          {
+            "nome": "Moreira",
             "perc": 60,
             "starter": true
           },
           {
-            "nome": "Rabiot",
-            "perc": 55,
+            "nome": "Musah",
+            "perc": 80,
             "starter": true
           },
           {
@@ -15710,18 +15715,13 @@
             "starter": true
           },
           {
-            "nome": "Hutchinson",
-            "perc": 75,
-            "starter": true
-          },
-          {
             "nome": "Pulisic",
             "perc": 90,
             "starter": true
           },
           {
-            "nome": "Moreira",
-            "perc": 60,
+            "nome": "Rabiot",
+            "perc": 55,
             "starter": true
           },
           {
@@ -15740,8 +15740,8 @@
             "starter": false
           },
           {
-            "nome": "Diawara S.",
-            "perc": 35,
+            "nome": "Estupinan",
+            "perc": 60,
             "starter": false
           },
           {
@@ -15760,7 +15760,7 @@
             "starter": false
           },
           {
-            "nome": "Musah",
+            "nome": "Hutchinson",
             "perc": 60,
             "starter": false
           },
