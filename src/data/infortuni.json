@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-10-31T13:20:01.453Z",
+  "aggiornato": "2026-10-31T19:07:57.604Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -164,11 +164,11 @@
       "rientro": "01/11",
       "descrizione": "L'attaccante ha deciso di operarsi alla caviglia e dovrebbe tornare arruolabile dall'inizio di novembre."
     },
-    "Pavard": {
+    "Stones": {
       "squadra": "Inter",
       "stato": "out",
       "rientro": "01/11",
-      "descrizione": "il difensore out per un risentimento agli adduttori della coscia destra, recuperabile dall'inizio di novembre."
+      "descrizione": "il difensore alle prese con un risentimento ai flessori della coscia sinistra, rientro dall'inizio di novembre."
     },
     "Jones C.": {
       "squadra": "Inter",
@@ -182,17 +182,29 @@
       "rientro": "15/11",
       "descrizione": "L'argentino sottoposto il 15 ottobre a controlli medici che hanno evidenziato un risentimento muscolare ai flessori della coscia sinistra. Recuperabile dalla metà di novembre."
     },
+    "Pavard": {
+      "squadra": "Inter",
+      "stato": "out",
+      "rientro": "01/11",
+      "descrizione": "il difensore out per un risentimento agli adduttori della coscia destra, recuperabile dall'inizio di novembre."
+    },
+    "Provedel": {
+      "squadra": "Inter",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il portiere fermato sabato dall'influenza, out nel derby contro il Milan. Da valutare in vista della 11a giornata di campionato."
+    },
     "Luis Henrique": {
       "squadra": "Inter",
       "stato": "out",
       "rientro": "15/11",
       "descrizione": "l'esterno nerazzurro sottoposto il 23 ottobre a esami medici che hanno evidenziato un risentimento all'adduttore lungo della coscia sinistra. Ipotesi di recupero da metà novembre."
     },
-    "Stones": {
-      "squadra": "Inter",
+    "Celik": {
+      "squadra": "Juventus",
       "stato": "out",
-      "rientro": "01/11",
-      "descrizione": "il difensore alle prese con un risentimento ai flessori della coscia sinistra, rientro dall'inizio di novembre."
+      "rientro": "15/11",
+      "descrizione": "Il turco il 22 ottobre in Europa League ha lamentato una lesione di basso grado del bicipite femorale sinistro, recuperabile da metà novembre."
     },
     "Locatelli": {
       "squadra": "Juventus",
@@ -229,12 +241,6 @@
       "stato": "out",
       "rientro": "15/11",
       "descrizione": "l'argentino ai box per una lesione di basso grado del soleo destro, recuperabile da metà novembre."
-    },
-    "Celik": {
-      "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "Il turco il 22 ottobre in Europa League ha lamentato una lesione di basso grado del bicipite femorale sinistro, recuperabile da metà novembre."
     },
     "Gudmundsson A.": {
       "squadra": "Lazio",
@@ -332,18 +338,6 @@
       "rientro": "15/11",
       "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, recuperabile dalla metà di novembre."
     },
-    "Favasuli": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "Il cursore di fascia degli azzurri ai box da inizio ottobre per una lesione muscolare di secondo grado del retto femorale della coscia destra. Recuperabile dalla metà di novembre."
-    },
-    "Neres": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "L'ala offensiva azzurra ai box per una lesione di basso grado al muscolo semimembranoso della coscia destra, tentativo di rientro tra i convocati dalla prima metà di novembre."
-    },
     "Badiashile": {
       "squadra": "Napoli",
       "stato": "out",
@@ -355,6 +349,18 @@
       "stato": "out",
       "rientro": "15/11",
       "descrizione": "Il terzino vittima di una lesione di basso grado del bicipite femorale della coscia destra, recuperabile dalla metà di novembre."
+    },
+    "Favasuli": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "Il cursore di fascia degli azzurri ai box da inizio ottobre per una lesione muscolare di secondo grado del retto femorale della coscia destra. Recuperabile dalla metà di novembre."
+    },
+    "Neres": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "L'ala offensiva azzurra ai box per una lesione di basso grado al muscolo semimembranoso della coscia destra, tentativo di rientro tra i convocati dalla prima metà di novembre."
     },
     "Lobotka": {
       "squadra": "Napoli",
@@ -476,17 +482,17 @@
       "rientro": "15/11",
       "descrizione": "il difensore sostituito nell'intervallo della sfida contro il Lecce (18 ottobre) per un risentimento muscolare al polpaccio destro. Recuperabile dalla metà di novembre."
     },
-    "Adorante": {
-      "squadra": "Venezia",
-      "stato": "out",
-      "rientro": "30/07",
-      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dall'inizio di novembre."
-    },
     "Correia T.": {
       "squadra": "Venezia",
       "stato": "dubbio",
       "rientro": "01/10",
       "descrizione": "il cursore di fascia dei veneti KO il 12 ottobre a Bergamo vittima di un risentimento muscolare al flessore della gamba sinistra, sarà out anche domenica a Como. Da valutare in vista dell'11a giornata."
+    },
+    "Adorante": {
+      "squadra": "Venezia",
+      "stato": "out",
+      "rientro": "30/07",
+      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dall'inizio di novembre."
     },
     "Franjic": {
       "squadra": "Venezia",
