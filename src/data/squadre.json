@@ -1,20 +1,7 @@
 {
-  "aggiornato": "2026-10-31T19:07:52.207Z",
+  "aggiornato": "2026-10-31T23:57:53.854Z",
   "fonte": "fantacalcio.it",
   "squadre": {
-    "Inter": {
-      "punti": 25,
-      "g": 9,
-      "gf": 25,
-      "gs": 10,
-      "forma": [
-        "D",
-        "W",
-        "W",
-        "W",
-        "W"
-      ]
-    },
     "Lazio": {
       "punti": 25,
       "g": 9,
@@ -26,6 +13,19 @@
         "W",
         "W",
         "W"
+      ]
+    },
+    "Inter": {
+      "punti": 25,
+      "g": 10,
+      "gf": 26,
+      "gs": 13,
+      "forma": [
+        "W",
+        "W",
+        "W",
+        "W",
+        "L"
       ]
     },
     "Roma": {
@@ -41,6 +41,19 @@
         "W"
       ]
     },
+    "Milan": {
+      "punti": 21,
+      "g": 10,
+      "gf": 21,
+      "gs": 12,
+      "forma": [
+        "D",
+        "W",
+        "W",
+        "L",
+        "W"
+      ]
+    },
     "Como": {
       "punti": 20,
       "g": 9,
@@ -52,19 +65,6 @@
         "W",
         "W",
         "W"
-      ]
-    },
-    "Milan": {
-      "punti": 18,
-      "g": 9,
-      "gf": 18,
-      "gs": 11,
-      "forma": [
-        "W",
-        "D",
-        "W",
-        "W",
-        "L"
       ]
     },
     "Frosinone": {
