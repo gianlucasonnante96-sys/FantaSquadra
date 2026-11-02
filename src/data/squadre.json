@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-01T19:23:02.211Z",
+  "aggiornato": "2026-11-02T00:16:15.473Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Lazio": {
@@ -80,28 +80,28 @@
         "W"
       ]
     },
-    "Napoli": {
-      "punti": 14,
-      "g": 9,
-      "gf": 17,
-      "gs": 11,
+    "Juventus": {
+      "punti": 17,
+      "g": 10,
+      "gf": 13,
+      "gs": 10,
       "forma": [
         "D",
+        "L",
         "W",
         "L",
-        "D",
         "W"
       ]
     },
-    "Juventus": {
+    "Napoli": {
       "punti": 14,
-      "g": 9,
-      "gf": 11,
-      "gs": 10,
+      "g": 10,
+      "gf": 17,
+      "gs": 13,
       "forma": [
         "W",
-        "D",
         "L",
+        "D",
         "W",
         "L"
       ]
