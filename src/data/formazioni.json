@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-02T16:50:15.795Z",
+  "aggiornato": "2026-11-02T23:47:41.892Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -17346,57 +17346,57 @@
         "giocatori": [
           {
             "nome": "Carnesecchi",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Zappacosta",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Scalvini",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Obric",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Bernasconi",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Pasalic",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ederson D.S.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Elmas",
-            "perc": 60,
+            "nome": "Zalewski",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "De Ketelaere",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Rowe",
-            "perc": 85,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Krstovic",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -17425,7 +17425,7 @@
             "starter": false
           },
           {
-            "nome": "Zalewski",
+            "nome": "Elmas",
             "perc": 60,
             "starter": false
           },
@@ -17442,57 +17442,57 @@
         "giocatori": [
           {
             "nome": "Daffara",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Delprato",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Troilo",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Diego Carlos",
-            "perc": 55,
+            "nome": "Drobnic",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Britschgi",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Fabbian",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Sierro",
-            "perc": 85,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Keita M.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Valeri",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Tourè E.",
-            "perc": 75,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Romero D.",
-            "perc": 60,
+            "nome": "Lontani",
+            "perc": 100,
             "starter": true
           },
           {
@@ -17506,8 +17506,8 @@
             "starter": false
           },
           {
-            "nome": "Drobnic",
-            "perc": 60,
+            "nome": "Diego Carlos",
+            "perc": 55,
             "starter": false
           },
           {
@@ -17551,7 +17551,7 @@
             "starter": false
           },
           {
-            "nome": "Lontani",
+            "nome": "Romero D.",
             "perc": 60,
             "starter": false
           },

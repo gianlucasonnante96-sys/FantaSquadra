@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-02T16:50:50.856Z",
+  "aggiornato": "2026-11-02T23:48:17.059Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Lazio": {
@@ -160,15 +160,15 @@
     },
     "Atalanta": {
       "punti": 11,
-      "g": 9,
+      "g": 10,
       "gf": 16,
-      "gs": 17,
+      "gs": 20,
       "forma": [
-        "L",
         "W",
         "L",
         "D",
-        "D"
+        "D",
+        "L"
       ]
     },
     "Lecce": {
@@ -184,14 +184,40 @@
         "L"
       ]
     },
-    "Sassuolo": {
+    "Parma": {
       "punti": 8,
-      "g": 9,
-      "gf": 14,
-      "gs": 22,
+      "g": 10,
+      "gf": 8,
+      "gs": 15,
       "forma": [
         "L",
+        "L",
+        "L",
         "D",
+        "W"
+      ]
+    },
+    "Fiorentina": {
+      "punti": 8,
+      "g": 10,
+      "gf": 15,
+      "gs": 23,
+      "forma": [
+        "L",
+        "L",
+        "L",
+        "D",
+        "W"
+      ]
+    },
+    "Sassuolo": {
+      "punti": 8,
+      "g": 10,
+      "gf": 16,
+      "gs": 26,
+      "forma": [
+        "D",
+        "L",
         "L",
         "L",
         "L"
@@ -208,32 +234,6 @@
         "L",
         "L",
         "L"
-      ]
-    },
-    "Fiorentina": {
-      "punti": 5,
-      "g": 9,
-      "gf": 11,
-      "gs": 21,
-      "forma": [
-        "D",
-        "L",
-        "L",
-        "L",
-        "D"
-      ]
-    },
-    "Parma": {
-      "punti": 5,
-      "g": 9,
-      "gf": 5,
-      "gs": 15,
-      "forma": [
-        "W",
-        "L",
-        "L",
-        "L",
-        "D"
       ]
     },
     "Udinese": {
