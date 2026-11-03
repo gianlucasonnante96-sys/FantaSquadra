@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-03T14:51:33.723Z",
+  "aggiornato": "2026-11-03T20:47:04.505Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -17717,12 +17717,12 @@
           },
           {
             "nome": "Abankwah",
-            "perc": 80,
+            "perc": 60,
             "starter": true
           },
           {
             "nome": "Solet",
-            "perc": 55,
+            "perc": 85,
             "starter": true
           },
           {
@@ -18606,7 +18606,7 @@
         "giocatori": [
           {
             "nome": "Gollini",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
@@ -18616,12 +18616,12 @@
           },
           {
             "nome": "N'Dicka",
-            "perc": 60,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Hermoso",
-            "perc": 80,
+            "perc": 60,
             "starter": true
           },
           {
@@ -18646,7 +18646,7 @@
           },
           {
             "nome": "Soulè",
-            "perc": 90,
+            "perc": 85,
             "starter": true
           },
           {
@@ -18660,12 +18660,12 @@
             "starter": true
           },
           {
-            "nome": "De Marzi",
+            "nome": "Vasquez D.",
             "perc": 5,
             "starter": false
           },
           {
-            "nome": "Vasquez D.",
+            "nome": "De Marzi",
             "perc": 1,
             "starter": false
           },
@@ -19507,7 +19507,7 @@
           },
           {
             "nome": "Krstovic",
-            "perc": 90,
+            "perc": 65,
             "starter": true
           },
           {
@@ -19532,7 +19532,7 @@
           },
           {
             "nome": "Samardzic",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -19542,6 +19542,11 @@
           },
           {
             "nome": "Sulemana K.",
+            "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Scamacca",
             "perc": 60,
             "starter": false
           }
