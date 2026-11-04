@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-03T20:47:04.505Z",
+  "aggiornato": "2026-11-04T01:03:34.831Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -17891,7 +17891,7 @@
           },
           {
             "nome": "Mendy P.",
-            "perc": 55,
+            "perc": 60,
             "starter": true
           },
           {
@@ -17931,7 +17931,7 @@
           },
           {
             "nome": "Gagliardini",
-            "perc": 40,
+            "perc": 30,
             "starter": false
           },
           {
@@ -17946,7 +17946,7 @@
           },
           {
             "nome": "Nzola",
-            "perc": 60,
+            "perc": 25,
             "starter": false
           },
           {
@@ -17956,12 +17956,12 @@
           },
           {
             "nome": "Trepy",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Kevin Carlos",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           }
         ]
@@ -18313,6 +18313,11 @@
           {
             "nome": "Kaba",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Coulibaly L.",
+            "perc": 35,
             "starter": false
           },
           {
@@ -18687,11 +18692,6 @@
           {
             "nome": "Balerdi",
             "perc": 55,
-            "starter": false
-          },
-          {
-            "nome": "Rensch",
-            "perc": 50,
             "starter": false
           },
           {
