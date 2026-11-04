@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-04T01:03:34.831Z",
+  "aggiornato": "2026-11-04T15:07:03.006Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -17826,6 +17826,11 @@
             "starter": false
           },
           {
+            "nome": "Bayo V.",
+            "perc": 20,
+            "starter": false
+          },
+          {
             "nome": "Vinciati",
             "perc": 35,
             "starter": false
@@ -18531,7 +18536,7 @@
             "starter": true
           },
           {
-            "nome": "Odgaard",
+            "nome": "Piccoli",
             "perc": 55,
             "starter": true
           },
@@ -18582,7 +18587,7 @@
           },
           {
             "nome": "Mbangula",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -18596,8 +18601,13 @@
             "starter": false
           },
           {
-            "nome": "Dovbyk",
+            "nome": "Odgaard",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Dovbyk",
+            "perc": 55,
             "starter": false
           }
         ]
@@ -18611,7 +18621,7 @@
         "giocatori": [
           {
             "nome": "Gollini",
-            "perc": 70,
+            "perc": 55,
             "starter": true
           },
           {
@@ -18666,7 +18676,7 @@
           },
           {
             "nome": "Vasquez D.",
-            "perc": 5,
+            "perc": 45,
             "starter": false
           },
           {
@@ -18917,11 +18927,6 @@
           {
             "nome": "Milinkovic-Savic V.",
             "perc": 1,
-            "starter": false
-          },
-          {
-            "nome": "Di Lorenzo",
-            "perc": 20,
             "starter": false
           },
           {
@@ -19640,18 +19645,23 @@
             "starter": false
           },
           {
+            "nome": "Stones",
+            "perc": 25,
+            "starter": false
+          },
+          {
             "nome": "Mkhitaryan",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
             "nome": "Stankovic A.",
-            "perc": 35,
+            "perc": 30,
             "starter": false
           },
           {
             "nome": "Jones C.",
-            "perc": 20,
+            "perc": 55,
             "starter": false
           },
           {
@@ -19661,7 +19671,7 @@
           },
           {
             "nome": "Lavelli",
-            "perc": 20,
+            "perc": 10,
             "starter": false
           },
           {
@@ -19707,7 +19717,7 @@
           },
           {
             "nome": "Da Cunha",
-            "perc": 100,
+            "perc": 70,
             "starter": true
           },
           {
@@ -19830,7 +19840,7 @@
             "starter": true
           },
           {
-            "nome": "Brescianini",
+            "nome": "Oulai",
             "perc": 60,
             "starter": true
           },
@@ -19870,7 +19880,7 @@
             "starter": false
           },
           {
-            "nome": "Oulai",
+            "nome": "Brescianini",
             "perc": 60,
             "starter": false
           },

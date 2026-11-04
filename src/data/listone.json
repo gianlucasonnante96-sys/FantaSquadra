@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-04T01:03:48.563Z",
+  "aggiornato": "2026-11-04T15:07:16.907Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -80,7 +80,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 28,
       "quotazioneAttuale": 24,
-      "fvm": 200
+      "fvm": 190
     },
     {
       "nome": "Dimarco",
@@ -160,7 +160,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 27,
       "quotazioneAttuale": 20,
-      "fvm": 175
+      "fvm": 180
     },
     {
       "nome": "Varela G.",
@@ -168,7 +168,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 20,
-      "fvm": 140
+      "fvm": 170
     },
     {
       "nome": "Mastantuono",
