@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-04T15:07:03.006Z",
+  "aggiornato": "2026-11-04T22:25:29.173Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -17950,11 +17950,6 @@
             "starter": false
           },
           {
-            "nome": "Nzola",
-            "perc": 25,
-            "starter": false
-          },
-          {
             "nome": "Sugamele",
             "perc": 10,
             "starter": false
@@ -18302,7 +18297,7 @@
           },
           {
             "nome": "Ndaba",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
@@ -18322,7 +18317,7 @@
           },
           {
             "nome": "Coulibaly L.",
-            "perc": 35,
+            "perc": 50,
             "starter": false
           },
           {
@@ -18996,13 +18991,13 @@
             "starter": true
           },
           {
-            "nome": "Noslin",
+            "nome": "Pinamonti",
             "perc": 60,
             "starter": true
           },
           {
-            "nome": "Zaccagni",
-            "perc": 90,
+            "nome": "Noslin",
+            "perc": 80,
             "starter": true
           },
           {
@@ -19022,7 +19017,7 @@
           },
           {
             "nome": "Marusic",
-            "perc": 10,
+            "perc": 20,
             "starter": false
           },
           {
@@ -19047,7 +19042,7 @@
           },
           {
             "nome": "Rovella",
-            "perc": 10,
+            "perc": 20,
             "starter": false
           },
           {
@@ -19067,11 +19062,6 @@
           },
           {
             "nome": "Cancellieri",
-            "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Pinamonti",
             "perc": 60,
             "starter": false
           }

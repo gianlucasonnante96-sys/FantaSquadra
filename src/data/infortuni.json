@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-04T15:07:42.931Z",
+  "aggiornato": "2026-11-04T22:26:10.301Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -73,6 +73,12 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Lavoro a parte negli ultimi giorni per l'attaccante a causa di un lieve affaticamento muscolare alla gamba. Out contro Milan e Monza, da valutare in vista di domenica a Parma nella 11a giornata."
+    },
+    "Nzola": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "L'attaccante alle prese con una distrazione muscolare ai flessori della coscia destra, rientro dalla seconda metà di novembre."
     },
     "Fadera": {
       "squadra": "Cagliari",
@@ -209,8 +215,8 @@
     "Yildiz": {
       "squadra": "Juventus",
       "stato": "out-lungo",
-      "rientro": "01/12",
-      "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro, stop di circa tre mesi. Rientro in campo da inizio dicembre."
+      "rientro": "15/12",
+      "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro, stop di circa tre mesi. Rientro in campo da prima metà di dicembre."
     },
     "Grabara": {
       "squadra": "Juventus",
@@ -229,6 +235,12 @@
       "stato": "out",
       "rientro": "15/11",
       "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla destra dopo una caduta fortuita in partita. Condizioni da monitorare, si confida di riaverlo a disposizione dalla seconda metà di novembre."
+    },
+    "Zaccagni": {
+      "squadra": "Lazio",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Il capitano dei biancocelesti alle prese con un problema muscolare alla coscia sinistra. Out domenica a Napoli, rischia uno stop di un mese."
     },
     "Berisha M.": {
       "squadra": "Lecce",
