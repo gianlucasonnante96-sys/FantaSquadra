@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-04T22:26:10.301Z",
+  "aggiornato": "2026-11-05T15:11:52.165Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -74,6 +74,12 @@
       "rientro": "In settimana",
       "descrizione": "Lavoro a parte negli ultimi giorni per l'attaccante a causa di un lieve affaticamento muscolare alla gamba. Out contro Milan e Monza, da valutare in vista di domenica a Parma nella 11a giornata."
     },
+    "Idrissi R.": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla metà di novembre."
+    },
     "Nzola": {
       "squadra": "Cagliari",
       "stato": "out",
@@ -85,12 +91,6 @@
       "stato": "out",
       "rientro": "01/12",
       "descrizione": "il centrocampista offensivo dei sardi fermo dalla gara contro la Lazio (1 novembre) per una lesione muscolare al bicipite femorale, tentativo di rientro dall'inizio di dicembre."
-    },
-    "Idrissi R.": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla metà di novembre."
     },
     "Felici": {
       "squadra": "Cagliari",
@@ -401,8 +401,8 @@
     "Rensch": {
       "squadra": "Roma",
       "stato": "out",
-      "rientro": "01/11",
-      "descrizione": "Il difensore KO a Manchester in Champions League il 3 novembre per un problema fisico che andrà valutato. Out per domenica in campionato contro il Sassuolo."
+      "rientro": "30/11",
+      "descrizione": "Il difensore KO a Manchester in Champions League il 3 novembre per una lesione di primo grado dell'adduttore lungo di destra, rientro in campo da fine novembre."
     },
     "Konè M.": {
       "squadra": "Roma",
@@ -460,9 +460,9 @@
     },
     "Mandragora": {
       "squadra": "Torino",
-      "stato": "out",
+      "stato": "dubbio",
       "rientro": "15/11",
-      "descrizione": "il centrocampista granata fermato il 23 ottobre contro il Monza da un problema muscolare al flessore sinistro. Rientro dalla metà di novembre."
+      "descrizione": "il centrocampista granata fermato il 23 ottobre contro il Monza da un problema muscolare al flessore sinistro. Rientro dalla metà di novembre, ma sta provando a esserci già sabato contro il Lecce. Da valutare nella rifinitura di venerdì."
     },
     "Rodriguez R.": {
       "squadra": "Torino",
@@ -498,7 +498,7 @@
       "squadra": "Venezia",
       "stato": "out",
       "rientro": "30/07",
-      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Tentativo di rientro dalla metà di novembre."
+      "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Rientro dalla metà di novembre."
     },
     "Correia T.": {
       "squadra": "Venezia",

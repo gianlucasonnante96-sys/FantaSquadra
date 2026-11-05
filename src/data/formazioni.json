@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-04T22:25:29.173Z",
+  "aggiornato": "2026-11-05T15:11:13.149Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -17762,7 +17762,7 @@
           },
           {
             "nome": "Davis K.",
-            "perc": 90,
+            "perc": 65,
             "starter": true
           },
           {
@@ -17777,7 +17777,7 @@
           },
           {
             "nome": "Kabasele",
-            "perc": 55,
+            "perc": 50,
             "starter": false
           },
           {
@@ -17792,7 +17792,7 @@
           },
           {
             "nome": "Arizala",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -17812,7 +17812,7 @@
           },
           {
             "nome": "Miller L.",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -17827,12 +17827,12 @@
           },
           {
             "nome": "Bayo V.",
-            "perc": 20,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Vinciati",
-            "perc": 35,
+            "perc": 25,
             "starter": false
           }
         ]
@@ -18126,7 +18126,7 @@
           },
           {
             "nome": "Belghali",
-            "perc": 55,
+            "perc": 60,
             "starter": true
           },
           {
@@ -18876,7 +18876,7 @@
           },
           {
             "nome": "Beukema",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -18891,7 +18891,7 @@
           },
           {
             "nome": "Gilmour",
-            "perc": 70,
+            "perc": 85,
             "starter": true
           },
           {
@@ -18901,7 +18901,7 @@
           },
           {
             "nome": "Lang",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
@@ -18967,7 +18967,7 @@
           },
           {
             "nome": "Tavares N.",
-            "perc": 90,
+            "perc": 55,
             "starter": true
           },
           {
@@ -19017,7 +19017,7 @@
           },
           {
             "nome": "Marusic",
-            "perc": 20,
+            "perc": 35,
             "starter": false
           },
           {
@@ -19042,7 +19042,7 @@
           },
           {
             "nome": "Rovella",
-            "perc": 20,
+            "perc": 30,
             "starter": false
           },
           {
@@ -19677,7 +19677,7 @@
         "giocatori": [
           {
             "nome": "Butez",
-            "perc": 75,
+            "perc": 55,
             "starter": true
           },
           {
@@ -19696,7 +19696,7 @@
             "starter": true
           },
           {
-            "nome": "Valle",
+            "nome": "Kaiki",
             "perc": 55,
             "starter": true
           },
@@ -19707,7 +19707,7 @@
           },
           {
             "nome": "Da Cunha",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
@@ -19722,17 +19722,17 @@
           },
           {
             "nome": "Baturina",
-            "perc": 60,
+            "perc": 85,
             "starter": true
           },
           {
             "nome": "Douvikas",
-            "perc": 90,
+            "perc": 75,
             "starter": true
           },
           {
             "nome": "Sanchez Ro.",
-            "perc": 5,
+            "perc": 45,
             "starter": false
           },
           {
@@ -19741,7 +19741,7 @@
             "starter": false
           },
           {
-            "nome": "Kaiki",
+            "nome": "Valle",
             "perc": 60,
             "starter": false
           },
