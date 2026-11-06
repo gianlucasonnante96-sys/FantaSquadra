@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-05T22:33:54.771Z",
+  "aggiornato": "2026-11-06T14:48:56.169Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -60,13 +60,7 @@
       "squadra": "Bologna",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Lavoro a parte negli ultimi giorni per l'attaccante a causa di un lieve affaticamento muscolare alla gamba. Out contro Milan e Monza, da valutare in vista di domenica a Parma nella 11a giornata."
-    },
-    "Idrissi R.": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla metà di novembre."
+      "descrizione": "Lavoro a parte negli ultimi giorni per l'attaccante a causa di un lieve affaticamento muscolare alla gamba. Out contro Parma, Milan e Monza, da valutare in vista della 12a giornata."
     },
     "Nzola": {
       "squadra": "Cagliari",
@@ -77,8 +71,26 @@
     "Fadera": {
       "squadra": "Cagliari",
       "stato": "out",
-      "rientro": "01/12",
-      "descrizione": "il centrocampista offensivo dei sardi fermo dalla gara contro la Lazio (1 novembre) per una lesione muscolare al bicipite femorale, tentativo di rientro dall'inizio di dicembre."
+      "rientro": "15/11",
+      "descrizione": "il centrocampista offensivo dei sardi fermo dalla gara contro la Lazio (1 novembre) per una lesione muscolare al bicipite femorale, rientro dalla seconda metà di novembre."
+    },
+    "Aurelio": {
+      "squadra": "Cagliari",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il difensore alle prese con un affaticamento al soleo della gamba sinistra, out per sabato contro il Frosinone. Da valutare durante la sosta per le Nazionali."
+    },
+    "Idrissi R.": {
+      "squadra": "Cagliari",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla metà di novembre."
+    },
+    "Mina": {
+      "squadra": "Cagliari",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out sabato contro il Frosinone. Da valutare durante la sosta per le Nazionali."
     },
     "Felici": {
       "squadra": "Cagliari",
@@ -116,11 +128,11 @@
       "rientro": "01/12",
       "descrizione": "l'attaccante si sottoporrà a nuove cure per il perdurare del fastidio alla tibia che lo affligge da diverse settimane. Appare recuperabile dall'inizio di dicembre."
     },
-    "Ranieri L.": {
+    "Parisi": {
       "squadra": "Fiorentina",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il difensore alle prese con uno schiacciamento di un nervo al piede, forfait anche lunedì scorso contro il Sassuolo. Da valutare il rientro tra i convocati già domenica contro la Juve al Franchi, altrimenti lo rivedremo dalla 12a di A."
+      "stato": "out",
+      "rientro": "01/12",
+      "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da dicembre."
     },
     "Atta": {
       "squadra": "Fiorentina",
@@ -128,11 +140,11 @@
       "rientro": "15/11",
       "descrizione": "il centrocampista non al meglio per un sovraccarico funzionale dell'addome, assente contro Sassuolo, Atalanta, Inter, Genoa e Como. Da valutare nei prossimi allenamenti, difficile averlo a disposizione domenica contro la Juve; si proverà a recuperarlo a pieno dalla metà di novembre."
     },
-    "Parisi": {
+    "Ranieri L.": {
       "squadra": "Fiorentina",
-      "stato": "out",
-      "rientro": "01/12",
-      "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da dicembre."
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il difensore alle prese con uno schiacciamento di un nervo al piede, forfait anche lunedì scorso contro il Sassuolo. Da valutare il rientro tra i convocati già domenica contro la Juve al Franchi, altrimenti lo rivedremo dalla 12a di A."
     },
     "Pongracic": {
       "squadra": "Fiorentina",
@@ -164,11 +176,11 @@
       "rientro": "15/11",
       "descrizione": "L'argentino sottoposto il 15 ottobre a controlli medici che hanno evidenziato un risentimento muscolare ai flessori della coscia sinistra. Recuperabile dalla metà di novembre."
     },
-    "Celik": {
+    "Locatelli": {
       "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "Il turco il 22 ottobre in Europa League ha lamentato una lesione di basso grado del bicipite femorale sinistro, recuperabile da metà novembre."
+      "stato": "out-lungo",
+      "rientro": "01/02",
+      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
     },
     "Gonzalez N.": {
       "squadra": "Juventus",
@@ -194,11 +206,11 @@
       "rientro": "01/01",
       "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
     },
-    "Locatelli": {
+    "Celik": {
       "squadra": "Juventus",
-      "stato": "out-lungo",
-      "rientro": "01/02",
-      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "Il turco il 22 ottobre in Europa League ha lamentato una lesione di basso grado del bicipite femorale sinistro, recuperabile da metà novembre."
     },
     "Conceicao": {
       "squadra": "Juventus",
@@ -229,12 +241,6 @@
       "stato": "out-lungo",
       "rientro": "01/01",
       "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre, poi operato a inizio novembre. Lungo stop, ipotizziamo un rientro in campo da gennaio."
-    },
-    "Geubbels": {
-      "squadra": "Lecce",
-      "stato": "dubbio",
-      "rientro": "15/11",
-      "descrizione": "L'attaccante si è fermato il 29 ottobre a Frosinone nella fase di riscaldamento prematch a causa di una lesione muscolare di basso grado all'adduttore della coscia destra. Recuperabile dalla metà di novembre, ma proverà a forzare per sabato a Torino. Da valutare."
     },
     "Ilic": {
       "squadra": "Lecce",
@@ -344,12 +350,6 @@
       "rientro": "15/11",
       "descrizione": "il capitano azzurro costretto al cambio l'1 novembre contro la Juve per un risentimento all'adduttore, recuperabile dalla seconda metà di novembre."
     },
-    "Olivera": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/11",
-      "descrizione": "il difensore uruguaiano KO l'1 novembre contro la Juve per un guaio muscolare alla gamba che andrà valutato. Forfait nel prossimo turno contro la Lazio."
-    },
     "Buongiorno": {
       "squadra": "Napoli",
       "stato": "out-lungo",
@@ -410,6 +410,12 @@
       "rientro": "01/04",
       "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
     },
+    "Berardi": {
+      "squadra": "Sassuolo",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il capitano dei neroverdi out a Roma per domenica a causa di un problema fisico. Condizioni da valutare."
+    },
     "Konè I.": {
       "squadra": "Sassuolo",
       "stato": "out-lungo",
@@ -422,23 +428,11 @@
       "rientro": "15/11",
       "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da metà novembre."
     },
-    "Cacciamani": {
-      "squadra": "Torino",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "l'esterno dei granata non al meglio per una sub-lussazione alla spalla sinistra rimediata nel turno precedente e forfait domenica scorsa a Frosinone. Da valutare nei prossimi allenamenti in vista di sabato contro il Lecce nella 11a giornata di campionato."
-    },
     "Fortini": {
       "squadra": "Torino",
-      "stato": "dubbio",
+      "stato": "out",
       "rientro": "01/10",
-      "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Da valutare nei prossimi allenamenti le possibilità di convocazione per sabato contro il Lecce."
-    },
-    "Mandragora": {
-      "squadra": "Torino",
-      "stato": "dubbio",
-      "rientro": "15/11",
-      "descrizione": "il centrocampista granata fermato il 23 ottobre contro il Monza da un problema muscolare al flessore sinistro. Rientro dalla metà di novembre, ma sta provando a esserci già sabato contro il Lecce. Da valutare nella rifinitura di venerdì."
+      "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Recuperabile dalla seconda metà di novembre."
     },
     "Rodriguez R.": {
       "squadra": "Torino",
