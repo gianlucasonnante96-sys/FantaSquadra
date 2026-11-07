@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-06T20:42:53.611Z",
+  "aggiornato": "2026-11-07T00:39:03.457Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Lazio": {
@@ -236,28 +236,28 @@
         "L"
       ]
     },
+    "Venezia": {
+      "punti": 6,
+      "g": 11,
+      "gf": 8,
+      "gs": 21,
+      "forma": [
+        "W",
+        "L",
+        "L",
+        "L",
+        "W"
+      ]
+    },
     "Udinese": {
       "punti": 5,
-      "g": 10,
-      "gf": 11,
-      "gs": 23,
+      "g": 11,
+      "gf": 12,
+      "gs": 25,
       "forma": [
-        "L",
         "L",
         "L",
         "D",
-        "L"
-      ]
-    },
-    "Venezia": {
-      "punti": 3,
-      "g": 10,
-      "gf": 6,
-      "gs": 20,
-      "forma": [
-        "L",
-        "W",
-        "L",
         "L",
         "L"
       ]
