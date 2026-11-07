@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-07T13:45:47.994Z",
+  "aggiornato": "2026-11-07T19:16:24.567Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -121,6 +121,12 @@
       "stato": "out",
       "rientro": "15/11",
       "descrizione": "L'attaccante KO il 14 ottobre in Champions League, costretto al cambio per una lesione muscolare al flessore della gamba, rientro tra i convocati dalla metà di novembre."
+    },
+    "Chalobah T.": {
+      "squadra": "Como",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "il difensore il 18 ottobre a Firenze costretto al cambio per un guaio muscolare alla gamba. Punta a rientrare dalla metà di novembre tra i convocati."
     },
     "Kean": {
       "squadra": "Como",
@@ -296,29 +302,23 @@
       "rientro": "In settimana",
       "descrizione": "il portiere non al meglio per noie fisiche, forfait nel prossimo turno di campionato. Tempi di recupero da valutare."
     },
-    "Pessina": {
+    "Birindelli": {
       "squadra": "Monza",
-      "stato": "out",
-      "rientro": "15/08",
-      "descrizione": "Il centrocampista costretto a saltare l'inizio di campionato per una lussazione della rotula del ginocchio destro rimediata nella prima metà di agosto in allenamento. Tempi di recupero da monitorare, ma proverà a tornare arruolabile dalla metà di novembre."
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il cursore di fascia dei brianzoli out domenica contro l'Atalanta per un problema fisico lamentato nella rifinitura. Da valutare in vista della 12a di campionato."
     },
     "Maye": {
       "squadra": "Monza",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il difensore ai box per noie fisiche, assente nelle ultime 4 sfide di campionato e ora da valutare in vista della 11a giornata di campionato."
+      "descrizione": "Il difensore ai box per noie fisiche, assente nelle ultime sfide di campionato e ora da valutare in vista della 12a giornata di campionato."
     },
     "Folorunsho": {
       "squadra": "Monza",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, forfait sabato scorso a Bologna. Da valutare in vista di domenica contro l'Atalanta nella 11a giornata."
-    },
-    "Ziolkowski": {
-      "squadra": "Monza",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "Il difensore condizionato da una fastidiosa fascite plantare, recuperabile dalla metà di novembre."
+      "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, da valutare in vista nella sosta in vista della 12a giornata."
     },
     "Badiashile": {
       "squadra": "Napoli",
@@ -476,11 +476,11 @@
       "rientro": "15/11",
       "descrizione": "il difensore sostituito nell'intervallo della sfida contro il Lecce (18 ottobre) per un risentimento muscolare al polpaccio destro. Recuperabile dalla metà di novembre."
     },
-    "Franjic": {
+    "Sverko": {
       "squadra": "Venezia",
       "stato": "out-lungo",
-      "rientro": "30/08",
-      "descrizione": "il difensore costretto al cambio a Milano contro i rossoneri a fine agosto per un guaio alla spalla che ha richiesto l'intervento chirurgico. Lungo stop e rientro dalla metà di dicembre."
+      "rientro": "15/11",
+      "descrizione": "il difensore operato in estate per il perdurare di un problema all'anca e recuperabile dalla metà di novembre."
     },
     "Adorante": {
       "squadra": "Venezia",
@@ -488,11 +488,11 @@
       "rientro": "30/07",
       "descrizione": "l'attaccante a fine luglio ha deciso di operarsi per un problema alla schiena, che lo costringerà a stare ai box per buona parte del girone d'andata del campionato. Rientro dalla metà di novembre."
     },
-    "Sverko": {
+    "Franjic": {
       "squadra": "Venezia",
       "stato": "out-lungo",
-      "rientro": "15/11",
-      "descrizione": "il difensore operato in estate per il perdurare di un problema all'anca e recuperabile dalla metà di novembre."
+      "rientro": "30/08",
+      "descrizione": "il difensore costretto al cambio a Milano contro i rossoneri a fine agosto per un guaio alla spalla che ha richiesto l'intervento chirurgico. Lungo stop e rientro dalla metà di dicembre."
     }
   }
 }
