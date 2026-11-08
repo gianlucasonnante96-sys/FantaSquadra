@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-08T14:08:00.312Z",
+  "aggiornato": "2026-11-08T19:23:24.694Z",
   "fonte": "fantacalcio.it",
   "giornate": {
     "1": [
@@ -662,19 +662,19 @@
       {
         "casa": "Genoa",
         "trasferta": "Milan",
-        "golCasa": 0,
-        "golTrasferta": 0
+        "golCasa": 1,
+        "golTrasferta": 2
       },
       {
         "casa": "Monza",
         "trasferta": "Atalanta",
         "golCasa": 0,
-        "golTrasferta": 0
+        "golTrasferta": 1
       },
       {
         "casa": "Inter",
         "trasferta": "Como",
-        "golCasa": 0,
+        "golCasa": 2,
         "golTrasferta": 0
       },
       {
