@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-08T00:13:52.080Z",
+  "aggiornato": "2026-11-08T14:05:53.086Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -164,6 +164,12 @@
       "rientro": "15/11",
       "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile da metà novembre."
     },
+    "Frendrup": {
+      "squadra": "Genoa",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Non disponibile per la sfida con il Milan a causa di una contusione alla caviglia sinistra"
+    },
     "Luis Henrique": {
       "squadra": "Inter",
       "stato": "out",
@@ -176,11 +182,11 @@
       "rientro": "15/11",
       "descrizione": "L'argentino sottoposto il 15 ottobre a controlli medici che hanno evidenziato un risentimento muscolare ai flessori della coscia sinistra. Recuperabile dalla metà di novembre."
     },
-    "Cambiaso": {
+    "Celik": {
       "squadra": "Juventus",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il difensore affaticato dopo l'impegno di giovedì in Europa League e out per domenica sera al Franchi in campionato contro la Fiorentina. Da valutare nella sosta Nazionali."
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "Il turco il 22 ottobre in Europa League ha lamentato una lesione di basso grado del bicipite femorale sinistro, recuperabile da metà novembre."
     },
     "Gonzalez N.": {
       "squadra": "Juventus",
@@ -212,11 +218,11 @@
       "rientro": "01/02",
       "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
     },
-    "Celik": {
+    "Cambiaso": {
       "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "Il turco il 22 ottobre in Europa League ha lamentato una lesione di basso grado del bicipite femorale sinistro, recuperabile da metà novembre."
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il difensore affaticato dopo l'impegno di giovedì in Europa League e out per domenica sera al Franchi in campionato contro la Fiorentina. Da valutare nella sosta Nazionali."
     },
     "Conceicao": {
       "squadra": "Juventus",

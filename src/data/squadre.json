@@ -1,18 +1,18 @@
 {
-  "aggiornato": "2026-11-08T00:13:46.735Z",
+  "aggiornato": "2026-11-08T14:05:47.217Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Lazio": {
-      "punti": 28,
-      "g": 10,
-      "gf": 24,
-      "gs": 8,
+      "punti": 29,
+      "g": 11,
+      "gf": 25,
+      "gs": 9,
       "forma": [
         "W",
         "W",
         "W",
         "W",
-        "W"
+        "D"
       ]
     },
     "Roma": {
@@ -120,16 +120,16 @@
       ]
     },
     "Napoli": {
-      "punti": 14,
-      "g": 10,
-      "gf": 17,
-      "gs": 13,
+      "punti": 15,
+      "g": 11,
+      "gf": 18,
+      "gs": 14,
       "forma": [
-        "W",
         "L",
         "D",
         "W",
-        "L"
+        "L",
+        "D"
       ]
     },
     "Torino": {
