@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-07T19:15:45.555Z",
+  "aggiornato": "2026-11-08T00:13:11.255Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -18706,7 +18706,7 @@
         "nome": "Sassuolo",
         "giocatori": [
           {
-            "nome": "Turati",
+            "nome": "Muric",
             "perc": 100,
             "starter": true
           },
@@ -18761,7 +18761,7 @@
             "starter": true
           },
           {
-            "nome": "Muric",
+            "nome": "Turati",
             "perc": 5,
             "starter": false
           },
@@ -19190,13 +19190,13 @@
             "starter": false
           },
           {
-            "nome": "Vitinha O.",
-            "perc": 60,
+            "nome": "Venturino",
+            "perc": 15,
             "starter": false
           },
           {
-            "nome": "Robinho Junior",
-            "perc": 15,
+            "nome": "Vitinha O.",
+            "perc": 60,
             "starter": false
           },
           {
@@ -19590,7 +19590,7 @@
             "starter": true
           },
           {
-            "nome": "Diouf",
+            "nome": "Spence",
             "perc": 55,
             "starter": true
           },
@@ -19645,13 +19645,13 @@
             "starter": false
           },
           {
-            "nome": "Spence",
-            "perc": 60,
+            "nome": "Stones",
+            "perc": 25,
             "starter": false
           },
           {
-            "nome": "Stones",
-            "perc": 25,
+            "nome": "Diouf",
+            "perc": 60,
             "starter": false
           },
           {
@@ -19942,12 +19942,12 @@
           },
           {
             "nome": "McKennie",
-            "perc": 60,
+            "perc": 70,
             "starter": true
           },
           {
             "nome": "Koopmeiners",
-            "perc": 80,
+            "perc": 55,
             "starter": true
           },
           {
@@ -19982,7 +19982,7 @@
           },
           {
             "nome": "Gatti",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {

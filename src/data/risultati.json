@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-07T19:18:17.911Z",
+  "aggiornato": "2026-11-08T00:15:50.601Z",
   "fonte": "fantacalcio.it",
   "giornate": {
     "1": [
@@ -620,6 +620,68 @@
         "trasferta": "Parma",
         "golCasa": 0,
         "golTrasferta": 3
+      }
+    ],
+    "11": [
+      {
+        "casa": "Venezia",
+        "trasferta": "Udinese",
+        "golCasa": 2,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Cagliari",
+        "trasferta": "Frosinone",
+        "golCasa": 1,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Torino",
+        "trasferta": "Lecce",
+        "golCasa": 1,
+        "golTrasferta": 1
+      },
+      {
+        "casa": "Parma",
+        "trasferta": "Bologna",
+        "golCasa": 1,
+        "golTrasferta": 2
+      },
+      {
+        "casa": "Roma",
+        "trasferta": "Sassuolo",
+        "golCasa": 3,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Napoli",
+        "trasferta": "Lazio",
+        "golCasa": 0,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Genoa",
+        "trasferta": "Milan",
+        "golCasa": 0,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Monza",
+        "trasferta": "Atalanta",
+        "golCasa": 0,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Inter",
+        "trasferta": "Como",
+        "golCasa": 0,
+        "golTrasferta": 0
+      },
+      {
+        "casa": "Fiorentina",
+        "trasferta": "Juventus",
+        "golCasa": 0,
+        "golTrasferta": 0
       }
     ]
   }

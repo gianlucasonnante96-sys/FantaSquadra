@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-07T19:16:24.567Z",
+  "aggiornato": "2026-11-08T00:13:52.080Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -200,11 +200,11 @@
       "rientro": "15/12",
       "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro, stop di circa tre mesi. Rientro in campo da prima metà di dicembre."
     },
-    "Conceicao": {
+    "Thuram K.": {
       "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il portoghese KO il 18 ottobre contro la Lazio vittima di una lussazione alla spalla sinistra, prontamente ridotta. Recuperabile dalla metà di novembre."
+      "stato": "out-lungo",
+      "rientro": "01/01",
+      "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
     },
     "Locatelli": {
       "squadra": "Juventus",
@@ -218,11 +218,11 @@
       "rientro": "15/11",
       "descrizione": "Il turco il 22 ottobre in Europa League ha lamentato una lesione di basso grado del bicipite femorale sinistro, recuperabile da metà novembre."
     },
-    "Thuram K.": {
+    "Conceicao": {
       "squadra": "Juventus",
-      "stato": "out-lungo",
-      "rientro": "01/01",
-      "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "il portoghese KO il 18 ottobre contro la Lazio vittima di una lussazione alla spalla sinistra, prontamente ridotta. Recuperabile dalla metà di novembre."
     },
     "Zaccagni": {
       "squadra": "Lazio",
