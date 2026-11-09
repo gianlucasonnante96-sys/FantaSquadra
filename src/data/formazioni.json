@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-08T19:20:48.470Z",
+  "aggiornato": "2026-11-09T00:33:23.465Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -19988,6 +19988,11 @@
           {
             "nome": "Kelly L.",
             "perc": 40,
+            "starter": false
+          },
+          {
+            "nome": "Celik",
+            "perc": 50,
             "starter": false
           },
           {

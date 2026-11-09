@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-08T19:21:22.858Z",
+  "aggiornato": "2026-11-09T00:33:58.464Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Lazio": {
@@ -81,16 +81,16 @@
       ]
     },
     "Juventus": {
-      "punti": 17,
-      "g": 10,
-      "gf": 13,
-      "gs": 10,
+      "punti": 18,
+      "g": 11,
+      "gf": 15,
+      "gs": 12,
       "forma": [
-        "D",
         "L",
         "W",
         "L",
-        "W"
+        "W",
+        "D"
       ]
     },
     "Bologna": {
@@ -185,16 +185,16 @@
       ]
     },
     "Fiorentina": {
-      "punti": 8,
-      "g": 10,
-      "gf": 15,
-      "gs": 23,
+      "punti": 9,
+      "g": 11,
+      "gf": 17,
+      "gs": 25,
       "forma": [
         "L",
         "L",
-        "L",
         "D",
-        "W"
+        "W",
+        "D"
       ]
     },
     "Parma": {
