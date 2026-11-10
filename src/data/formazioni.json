@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-10T01:54:25.709Z",
+  "aggiornato": "2026-11-10T15:25:18.881Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -22002,7 +22002,7 @@
           },
           {
             "nome": "Mkhitaryan",
-            "perc": 40,
+            "perc": 55,
             "starter": false
           },
           {
@@ -22023,11 +22023,6 @@
           {
             "nome": "Lavelli",
             "perc": 10,
-            "starter": false
-          },
-          {
-            "nome": "Bonny",
-            "perc": 60,
             "starter": false
           }
         ]
