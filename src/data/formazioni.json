@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-10T15:25:18.881Z",
+  "aggiornato": "2026-11-10T22:09:04.540Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20722,7 +20722,7 @@
           },
           {
             "nome": "Ghilardi",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
@@ -20752,7 +20752,7 @@
           },
           {
             "nome": "Dybala",
-            "perc": 30,
+            "perc": 50,
             "starter": false
           }
         ]
@@ -21961,12 +21961,12 @@
             "starter": true
           },
           {
-            "nome": "Esposito F.P.",
-            "perc": 80,
+            "nome": "Sucic P.",
+            "perc": 70,
             "starter": true
           },
           {
-            "nome": "Thuram",
+            "nome": "Esposito F.P.",
             "perc": 90,
             "starter": true
           },
@@ -21987,7 +21987,7 @@
           },
           {
             "nome": "Pavard",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -22006,23 +22006,18 @@
             "starter": false
           },
           {
-            "nome": "Stankovic A.",
-            "perc": 30,
-            "starter": false
-          },
-          {
             "nome": "Jones C.",
-            "perc": 55,
-            "starter": false
-          },
-          {
-            "nome": "Sucic P.",
             "perc": 60,
             "starter": false
           },
           {
             "nome": "Lavelli",
             "perc": 10,
+            "starter": false
+          },
+          {
+            "nome": "Martinez L.",
+            "perc": 50,
             "starter": false
           }
         ]
@@ -22376,7 +22371,7 @@
           },
           {
             "nome": "Gonzalez N.",
-            "perc": 20,
+            "perc": 30,
             "starter": false
           },
           {
