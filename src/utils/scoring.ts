@@ -1,5 +1,4 @@
 import { Player, LeagueRules, FormationSlot } from '../types';
-import { getLivelloTitolarita } from './titolarita';
 import { cercaInfortunio } from './infortuni';
 import squadreData from '../data/squadre.json';
 import risultatiData from '../data/risultati.json';
@@ -9,89 +8,42 @@ import risultatiData from '../data/risultati.json';
 // ============================================================
 
 const CONFIG = {
-  pesoFantamedia: 0.6,
-  pesoMediaVoto: 0.4,
-  fantamediaSogliaZero: 0.1,
+  // Fantavoto medio di chi scende in campo, per ruolo (Serie A 2026/27).
+  // È il punto di partenza per giocatori con poche partite.
+  mediaRuolo: { P: 4.8, D: 6.0, C: 6.4, A: 6.9 } as Record<string, number>,
 
-  malusSubentrante: 1.5,
-  minProbTitolare: 0.05,
+  // Quante "partite virtuali" alla media di ruolo si aggiungono alla fantamedia.
+  // Con 2 partite giocate la fantamedia conta poco, con 10 conta molto.
+  partiteVirtuali: 5,
 
-  bonusCasa: 0.3,
-  malusTrasferta: 0.25,
+  // Quanto la fantamedia del giocatore sposta il voto previsto rispetto alla media
+  // di ruolo. Valori < 1 perché una parte della fantamedia è fortuna (un gol in
+  // più o in meno) e non si ripete.
+  pesoFantamedia: { P: 0.15, D: 0.6, C: 0.75, A: 0.9 } as Record<string, number>,
 
-  pesoMomentum: 0.2,
+  // Effetto della forza della propria squadra e dell'avversario (forza 1 = media).
+  // Per i portieri pesano molto perché il loro fantavoto dipende dai gol subiti.
+  pesoForzaSquadra: { P: 2.4, D: 1.0, C: 0.9, A: 1.2 } as Record<string, number>,
+  pesoForzaAvversario: { P: 2.1, D: 0.9, C: 1.0, A: 1.95 } as Record<string, number>,
 
-  pesoFixturePerRuolo: {
-    'P': 0.5, 'D': 0.25, 'C': 0.30, 'A': 0.40,
-  } as Record<string, number>,
+  // Differenza casa/trasferta: metà in più in casa, metà in meno fuori.
+  vantaggioCasa: { P: 0.3, D: 0.05, C: 0.1, A: 0.35 } as Record<string, number>,
 
-  pesoTeamStrengthPerRuolo: {
-    'P': 0.3, 'D': 0.4, 'C': 0.6, 'A': 0.7,
-  } as Record<string, number>,
+  // Se un titolare non gioca entra un panchinaro: in media vale circa 6 punti,
+  // ma non sempre c'è un cambio disponibile (massimo 3, stesso ruolo).
+  valoreSostituto: 4,
 
-  rangeVotoPerRuolo: {
-    'P': [5.0, 7.5],
-    'D': [5.0, 7.5],
-    'C': [5.0, 8.0],
-    'A': [5.0, 8.0],
-  } as Record<string, [number, number]>,
+  // Probabilità residua di giocare per un giocatore segnalato "in dubbio"
+  fattoreDubbio: 0.3,
 
-  sogliaCompressione: 7.0,
-  fattoreCompressione: 0.7,
-
-  pesoGolFattiPerRuolo: { 'C': 0.3, 'A': 0.3 } as Record<string, number>,
-  pesoGolSubitiPerRuolo: { 'D': 0.4 } as Record<string, number>,
-
+  // Clean sheet (solo se la lega usa il bonus imbattibilità)
   mediaGolCampionato: 1.4,
 
-  qualityBonus: {
-    fm7_5: 0.6,
-    fm7_0: 0.4,
-    fm6_5: 0.2,
-    fmBassa: -0.3,
-  },
+  pesoMomentum: 0.2,
 
   sosPeso: 0.5,
   sosMinPartite: 3,
   strengthRange: [0.55, 1.40] as [number, number],
-
-  portieri: {
-    pesoCleanSheet: 1.5,
-    pesoMalusGolSubito: 0.3,
-    bonusCasa: 0.2,
-    malusTrasferta: 0.2,
-  },
-
-  difensori: {
-    golProbability: { 1: 0.15, 2: 0.12, 3: 0.08, 4: 0.04, 5: 0.02 } as Record<number, number>,
-    pesoGol: 0.6,
-    assistProbability: { 1: 0.10, 2: 0.08, 3: 0.05, 4: 0.03, 5: 0.02 } as Record<number, number>,
-    pesoAssist: 0.4,
-    malusAvversarioForte: 0.2,
-  },
-
-  centrocampisti: {
-    golProbability: { 1: 0.50, 2: 0.35, 3: 0.20, 4: 0.10, 5: 0.05 } as Record<number, number>,
-    pesoGol: 0.7,
-    assistProbability: { 1: 0.60, 2: 0.45, 3: 0.30, 4: 0.15, 5: 0.08 } as Record<number, number>,
-    pesoAssist: 0.5,
-    bonusCasaControllo: 0.2,
-    malusTrasfertaDifficile: 0.3,
-  },
-
-  attaccanti: {
-    golProbability: { 1: 0.75, 2: 0.55, 3: 0.35, 4: 0.18, 5: 0.08 } as Record<number, number>,
-    pesoGol: 0.8,
-    assistProbability: { 1: 0.50, 2: 0.40, 3: 0.28, 4: 0.15, 5: 0.08 } as Record<number, number>,
-    pesoAssist: 0.5,
-    rigoreProbability: { 1: 0.15, 2: 0.15, 3: 0.12, 4: 0.08, 5: 0.05 } as Record<number, number>,
-    pesoRigore: 0.5,
-    bonusCasaFacile: 0.4,
-    malusTrasfertaDifficile: 0.4,
-  },
-
-  minVoto: 5,
-  maxVoto: 8,
 };
 
 // ============================================================
@@ -340,12 +292,8 @@ export function getStatisticheSquadra(team: string | undefined): StatsSquadra | 
   return getStatsSquadra(team);
 }
 
-function convertiDifficoltaInBonus(difficolta: number): number {
-  return (3 - difficolta) * 0.75;
-}
-
 // ============================================================
-// STIMA GOL SUBITI ATTESI (Poisson)
+// STIMA GOL SUBITI ATTESI (Poisson) — per il bonus imbattibilità
 // ============================================================
 
 function stimaGolSubitiAttesi(
@@ -373,272 +321,86 @@ function stimaGolSubitiAttesi(
   return Math.max(0.2, Math.min(3.5, lambda));
 }
 
-function probCleanSheet(lambdaGolSubiti: number): number {
-  return Math.exp(-lambdaGolSubiti);
-}
-
 // ============================================================
-// TITOLARITÀ
+// PROBABILITÀ DI GIOCARE
 // ============================================================
 
-function calcolaFattoreTitolaritaArricchito(player: Player): number {
+export function calcolaProbabilitaGioca(player: Player): number {
   if (!player) return 0.5;
-  const prob = (player.titolarita ?? 50) / 100;
-  return Math.max(CONFIG.minProbTitolare, Math.min(1, prob));
-}
+  let prob = (player.titolarita ?? 50) / 100;
 
-// ============================================================
-// PESI AFFIDABILI
-// ============================================================
-
-function calcolaPesiAffidabili(player: Player): { pesoFantamedia: number; pesoMediaVoto: number } {
-  const fantamedia = player.fantamedia ?? 0;
-  const partite = player.partiteGiocate ?? 0;
-
-  if (fantamedia < CONFIG.fantamediaSogliaZero) {
-    return { pesoFantamedia: 0, pesoMediaVoto: 1 };
+  const infortunio = cercaInfortunio(player);
+  if (infortunio) {
+    if (infortunio.stato === 'out' || infortunio.stato === 'out-lungo') prob = 0;
+    else if (infortunio.stato === 'dubbio') prob *= CONFIG.fattoreDubbio;
   }
 
-  const affidabilitaFM = Math.min(1, partite / 10);
-  const pesoFM = CONFIG.pesoFantamedia * affidabilitaFM;
-  const pesoMV = 1 - pesoFM;
-
-  return { pesoFantamedia: pesoFM, pesoMediaVoto: pesoMV };
+  return Math.max(0, Math.min(1, prob));
 }
 
 // ============================================================
-// QUALITY BONUS
+// VOTO PREVISTO SE GIOCA
 // ============================================================
 
-function calcolaQualityBonus(player: Player): number {
-  const fm = player.fantamedia ?? 0;
-  const qb = CONFIG.qualityBonus;
+/**
+ * Fantavoto atteso nel caso in cui il giocatore scenda in campo.
+ * Ogni fattore entra una sola volta:
+ *   media di ruolo
+ *   + quanto il giocatore è sopra/sotto la media (fantamedia "prudente")
+ *   + forza della propria squadra − forza dell'avversario
+ *   ± casa/trasferta
+ * La fantamedia contiene già gol, assist e malus: non si aggiungono di nuovo.
+ */
+export function calcolaVotoSeGioca(player: Player, rules: LeagueRules): number {
+  const role = player.role;
+  const media = CONFIG.mediaRuolo[role] ?? 6;
 
-  if (fm >= 7.5) return qb.fm7_5;
-  if (fm >= 7.0) return qb.fm7_0;
-  if (fm >= 6.5) return qb.fm6_5;
-  if (fm > 0 && fm < 5.8) return qb.fmBassa;
-  return 0;
-}
+  const fm = (player.fantamedia ?? 0) > 0 ? player.fantamedia : media;
+  const partite = (player.fantamedia ?? 0) > 0 ? Math.max(0, player.partiteGiocate ?? 0) : 0;
+  const k = CONFIG.partiteVirtuali;
+  const fantamediaPrudente = (fm * partite + media * k) / (partite + k);
 
-// ============================================================
-// COMPRESSIONE VALORI ALTI
-// ============================================================
+  let voto = media;
+  voto += (CONFIG.pesoFantamedia[role] ?? 0.6) * (fantamediaPrudente - media);
 
-function comprimiValoriAlti(voto: number): number {
-  if (voto <= CONFIG.sogliaCompressione) return voto;
-
-  return CONFIG.sogliaCompressione +
-         (voto - CONFIG.sogliaCompressione) * CONFIG.fattoreCompressione;
-}
-
-// ============================================================
-// VP PORTIERI
-// ============================================================
-
-function calcolaVPPortiere(player: Player, rules: LeagueRules): number {
-  const P = CONFIG.portieri;
-  const inCasa = player.inCasa ?? true;
-
-  const pesi = calcolaPesiAffidabili(player);
-  let vp = (player.fantamedia ?? 0) * pesi.pesoFantamedia;
-  vp += (player.mediaVoto ?? 6) * pesi.pesoMediaVoto;
-
-  if (inCasa) vp += P.bonusCasa;
-  else vp -= P.malusTrasferta;
-
-  const lambdaGolSubiti = stimaGolSubitiAttesi(player.team, player.avversario, inCasa);
-  const pCS = probCleanSheet(lambdaGolSubiti);
-
-  if (rules.bonusImbattibilita !== 'off') {
-    const bonusValue = rules.bonusImbattibilita === '1' ? 1 : 0.5;
-    vp += pCS * bonusValue * P.pesoCleanSheet;
+  if (player.avversario) {
+    voto += (CONFIG.pesoForzaSquadra[role] ?? 1) * (getTeamStrength(player.team) - 1);
+    voto -= (CONFIG.pesoForzaAvversario[role] ?? 1) * (getTeamStrength(player.avversario) - 1);
   }
 
-  const malusGol = rules.golSubito ?? -1;
-  vp += lambdaGolSubiti * malusGol * P.pesoMalusGolSubito;
+  const casa = (CONFIG.vantaggioCasa[role] ?? 0.1) / 2;
+  voto += (player.inCasa ?? true) ? casa : -casa;
 
-  return vp;
+  // Il bonus imbattibilità non è nella fantamedia di Fantacalcio.it: si aggiunge qui
+  if (role === 'P' && rules.bonusImbattibilita !== 'off') {
+    const bonus = rules.bonusImbattibilita === '1' ? 1 : 0.5;
+    const lambda = stimaGolSubitiAttesi(player.team, player.avversario, player.inCasa ?? true);
+    voto += Math.exp(-lambda) * bonus;
+  }
+
+  return voto;
 }
 
 // ============================================================
 // CALCOLO VOTO PREVISTO
 // ============================================================
 
+/**
+ * Punti attesi che il giocatore porta se schierato titolare:
+ *   probabilità che giochi × voto se gioca
+ * + probabilità che non giochi × valore medio del sostituto dalla panchina.
+ * Non viene arrotondato: l'arrotondamento si fa solo quando si mostra il numero.
+ */
 export function calculateExpectedScore(player: Player, rules: LeagueRules): number {
   if (!player) return 6;
 
-  const role = player.role;
-  const inCasa = player.inCasa ?? true;
+  const prob = calcolaProbabilitaGioca(player);
+  const votoSeGioca = calcolaVotoSeGioca(player, rules);
+  const valore = prob * votoSeGioca + (1 - prob) * CONFIG.valoreSostituto;
 
-  // PORTIERI
-  if (role === 'P') {
-    let vp = calcolaVPPortiere(player, rules);
-
-    const infortunio = cercaInfortunio(player);
-    if (infortunio) {
-      if (infortunio.stato === 'out' || infortunio.stato === 'out-lungo') {
-        vp = 3.5;
-      } else if (infortunio.stato === 'dubbio') {
-        vp *= 0.85;
-      }
-    }
-
-    vp = comprimiValoriAlti(vp);
-
-    const rangePortieri = CONFIG.rangeVotoPerRuolo['P'];
-    const rounded = Math.round(vp * 2) / 2;
-    return Math.max(rangePortieri[0], Math.min(rangePortieri[1], rounded));
-  }
-
-  // ALTRI RUOLI
-  const teamStrength = getTeamStrength(player.team);
-  const fixtureDiff = getFixtureDifficulty(player.avversario);
-  const difficulty = Math.max(1, Math.min(5, Math.round(fixtureDiff)));
-  const momentum = getMomentum(player.team);
-
-  const pesoFixture = CONFIG.pesoFixturePerRuolo[role] ?? 0.5;
-  const pesoTeamStrength = CONFIG.pesoTeamStrengthPerRuolo[role] ?? 0.4;
-  const rangeVoto = CONFIG.rangeVotoPerRuolo[role] ?? [CONFIG.minVoto, CONFIG.maxVoto];
-  const teamBonus = (teamStrength - 1.0) * pesoTeamStrength;
-
-  const pesi = calcolaPesiAffidabili(player);
-  let votoPrevisto = (player.fantamedia ?? 0) * pesi.pesoFantamedia;
-  votoPrevisto += (player.mediaVoto ?? 6) * pesi.pesoMediaVoto;
-
-  const titularFactor = calcolaFattoreTitolaritaArricchito(player);
-  votoPrevisto *= (0.6 + 0.4 * titularFactor);
-
-  const nomeCompleto = `${player.name || ''} ${player.surname || ''}`.trim();
-  if (nomeCompleto) {
-    const livello = getLivelloTitolarita(nomeCompleto);
-    if (livello === 'incerto' && (player.titolarita ?? 50) < 30) {
-      votoPrevisto -= 0.3;
-    }
-  }
-
-  if (inCasa) votoPrevisto += CONFIG.bonusCasa;
-  else votoPrevisto -= CONFIG.malusTrasferta;
-
-  const fixtureBonus = convertiDifficoltaInBonus(fixtureDiff) * (pesoFixture / 0.75);
-  votoPrevisto += fixtureBonus;
-
-  votoPrevisto += teamBonus;
-  votoPrevisto += momentum;
-
-  votoPrevisto += calcolaQualityBonus(player);
-
-  const statsSquadra = getStatsSquadra(player.team);
-
-  if (statsSquadra && statsSquadra.g > 0) {
-    const mediaGolFatti = statsSquadra.gf / statsSquadra.g;
-    const mediaGolSubiti = statsSquadra.gs / statsSquadra.g;
-
-    const pesoGolFatti = CONFIG.pesoGolFattiPerRuolo[role];
-    if (pesoGolFatti !== undefined) {
-      const bonusGol = (mediaGolFatti - 1.5) * pesoGolFatti;
-      votoPrevisto += bonusGol;
-    }
-
-    const pesoGolSubiti = CONFIG.pesoGolSubitiPerRuolo[role];
-    if (pesoGolSubiti !== undefined) {
-      const bonusGolSubiti = (1.5 - mediaGolSubiti) * pesoGolSubiti;
-      votoPrevisto += bonusGolSubiti;
-    }
-  }
-
-  // DIFENSORI
-  if (role === 'D') {
-    const D = CONFIG.difensori;
-
-    const golProb = D.golProbability[difficulty] ?? 0.08;
-    votoPrevisto += golProb * D.pesoGol;
-
-    if (rules.assist !== 'off') {
-      const assistValue = rules.assist === '1' ? 1 : 0.5;
-      const assistProb = D.assistProbability[difficulty] ?? 0.05;
-      votoPrevisto += assistProb * assistValue * D.pesoAssist;
-    }
-
-    if (difficulty >= 4) {
-      votoPrevisto -= D.malusAvversarioForte;
-    }
-  }
-
-  // CENTROCAMPISTI
-  if (role === 'C') {
-    const C = CONFIG.centrocampisti;
-
-    const golProb = C.golProbability[difficulty] ?? 0.2;
-    votoPrevisto += golProb * C.pesoGol;
-
-    if (rules.assist !== 'off') {
-      const assistValue = rules.assist === '1' ? 1 : 0.5;
-      const assistProb = C.assistProbability[difficulty] ?? 0.3;
-      votoPrevisto += assistProb * assistValue * C.pesoAssist;
-    }
-
-    if (inCasa && difficulty <= 3) {
-      votoPrevisto += C.bonusCasaControllo;
-    }
-
-    if (!inCasa && difficulty >= 4) {
-      votoPrevisto -= C.malusTrasfertaDifficile;
-    }
-  }
-
-  // ATTACCANTI
-  if (role === 'A') {
-    const A = CONFIG.attaccanti;
-
-    const golProb = A.golProbability[difficulty] ?? 0.35;
-    votoPrevisto += golProb * A.pesoGol;
-
-    if (rules.assist !== 'off') {
-      const assistValue = rules.assist === '1' ? 1 : 0.5;
-      const assistProb = A.assistProbability[difficulty] ?? 0.28;
-      votoPrevisto += assistProb * assistValue * A.pesoAssist;
-    }
-
-    const rigoreProb = A.rigoreProbability[difficulty] ?? 0.12;
-    votoPrevisto += rigoreProb * A.pesoRigore;
-
-    if (inCasa && difficulty <= 2) {
-      votoPrevisto += A.bonusCasaFacile;
-    }
-
-    if (!inCasa && difficulty >= 4) {
-      votoPrevisto -= A.malusTrasfertaDifficile;
-    }
-  }
-
-  if (!Number.isFinite(votoPrevisto)) return 6;
-
-  const probTitolare = calcolaFattoreTitolaritaArricchito(player);
-  if (probTitolare < 0.95) {
-    const vpSeTitolare = votoPrevisto;
-    const vpSeSubentra = votoPrevisto - CONFIG.malusSubentrante;
-    votoPrevisto = probTitolare * vpSeTitolare + (1 - probTitolare) * vpSeSubentra;
-  }
-
-  const infortunio = cercaInfortunio(player);
-  if (infortunio) {
-    if (infortunio.stato === 'out' || infortunio.stato === 'out-lungo') {
-      votoPrevisto = 3.5;
-    } else if (infortunio.stato === 'dubbio') {
-      votoPrevisto *= 0.85;
-    }
-  }
-
-  votoPrevisto = comprimiValoriAlti(votoPrevisto);
-
-  const rounded = Math.round(votoPrevisto * 2) / 2;
-  return Math.max(rangeVoto[0], Math.min(rangeVoto[1], rounded));
+  if (!Number.isFinite(valore)) return 6;
+  return Math.round(valore * 100) / 100;
 }
-
-// ============================================================
-// MODIFICATORE DIFESA
-// ============================================================
 
 export function calculateModificatoreBonus(
   defenders: FormationSlot[],
