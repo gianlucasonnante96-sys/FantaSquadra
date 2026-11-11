@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-11T14:56:15.692Z",
+  "aggiornato": "2026-11-11T21:45:33.467Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -20,17 +20,17 @@
       "rientro": "01/10",
       "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Recuperabile da dicembre."
     },
-    "Kristensen T.": {
-      "squadra": "Atalanta",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il difensore costretto al cambio il 29 ottobre a Firenze dopo pochi minuti di gara a causa di una distrazione di basso grado ai muscoli flessori della coscia sinistra. Recuperabile dalla seconda metà di novembre."
-    },
     "Gaetano": {
       "squadra": "Atalanta",
       "stato": "out",
       "rientro": "30/10",
       "descrizione": "il centrocampista frenato nella gara di fine ottobre a Firenze per una distrazione di medio grado ai muscoli adduttori della coscia destra, recuperabile da fine novembre."
+    },
+    "Kristensen T.": {
+      "squadra": "Atalanta",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "il difensore costretto al cambio il 29 ottobre a Firenze dopo pochi minuti di gara a causa di una distrazione di basso grado ai muscoli flessori della coscia sinistra. Recuperabile dalla seconda metà di novembre."
     },
     "De Silvestri": {
       "squadra": "Bologna",
@@ -73,12 +73,6 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "il difensore alle prese con un affaticamento al soleo della gamba sinistra, out nel turno precedente contro il Frosinone. Da valutare durante la sosta per le Nazionali in vista della trasferta di Como."
-    },
-    "Idrissi R.": {
-      "squadra": "Cagliari",
-      "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "il calciatore in ripresa dalla rottura del legamento crociato, può tornare arruolabile dalla fine di novembre."
     },
     "Mina": {
       "squadra": "Cagliari",
@@ -158,12 +152,6 @@
       "rientro": "01/12",
       "descrizione": "L'attaccante ai box per un risentimento muscolare ai flessori della coscia destra, rientro possibile dall'inizio di dicembre."
     },
-    "Thuram": {
-      "squadra": "Inter",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il francese condizionato da un problema muscolare al bicipite femorale della coscia. Condizioni da valutare durante questa sosta, a rischio la sua convocazione alla ripresa del campionato contro l'Atalanta."
-    },
     "Kalulu": {
       "squadra": "Juventus",
       "stato": "out",
@@ -212,17 +200,17 @@
       "rientro": "15/11",
       "descrizione": "L'islandese in Nazionale il 26 settembre vittima di un problema alla spalla destra dopo una caduta fortuita in partita. Verrà testato sul campo in allenamento durante la sosta Nazionali, si confida di riaverlo a disposizione dalla seconda metà di novembre."
     },
-    "Ilic": {
-      "squadra": "Lecce",
-      "stato": "out",
-      "rientro": "01/04",
-      "descrizione": "il regista dei salentini KO l'11 ottobre in casa contro il Bologna vittima di una lesione miotendinea del retto femorale sinistro con lesione parziale del tendine, rientro da aprile."
-    },
     "Monteiro J.": {
       "squadra": "Lecce",
       "stato": "out",
       "rientro": "01/12",
       "descrizione": "l'ala offensiva dei salentini KO l'1 novembre contro il Bologna vittima di una lesione di primo grado al polpaccio sinistro. Recuperabile dall'inizio di dicembre."
+    },
+    "Ilic": {
+      "squadra": "Lecce",
+      "stato": "out",
+      "rientro": "01/04",
+      "descrizione": "il regista dei salentini KO l'11 ottobre in casa contro il Bologna vittima di una lesione miotendinea del retto femorale sinistro con lesione parziale del tendine, rientro da aprile."
     },
     "Pierotti": {
       "squadra": "Lecce",
@@ -230,35 +218,17 @@
       "rientro": "01/01",
       "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre, poi operato a inizio novembre. Lungo stop, ipotizziamo un rientro in campo da gennaio."
     },
-    "Berisha M.": {
-      "squadra": "Lecce",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "Il centrocampista ha lamentato un sovraccarico muscolare alla gamba e non ha preso parte alle ultime sfide di campionato. Recuperabile dalla seconda metà di novembre."
-    },
     "Terracciano": {
       "squadra": "Milan",
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "il portiere non al meglio per noie fisiche, a rischio forfait anche nel prossimo turno di campionato contro il Frosinone. Condizioni da valutare durante la sosta."
     },
-    "Chukwueze": {
-      "squadra": "Milan",
-      "stato": "out-lungo",
-      "rientro": "01/04",
-      "descrizione": "Il nigeriano dal 21 ottobre fermato dalla rottura del tendine del muscolo tensore della fascia lata dell'anca sinistra. Operato il 4 novembre, lungo stop. Ipotesi di rientro in campo da aprile."
-    },
-    "Loftus-Cheek": {
+    "Gabbia": {
       "squadra": "Milan",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il centrocampista non al meglio per una lesione muscolare al flessore ravvisato sul finire del match di Udine (25 ottobre). Recuperabile dalla seconda metà di novembre."
-    },
-    "Saelemaekers": {
-      "squadra": "Milan",
-      "stato": "out",
-      "rientro": "01/02",
-      "descrizione": "Il belga fermo da inizio ottobre per un problema alla caviglia destra e operata il 13 ottobre. Stop lungo e lo rivedremo in campo nel 2027 inoltrato (ipotesi da febbraio)."
+      "rientro": "30/02",
+      "descrizione": "il difensore KO l'11 ottobre contro il Sassuolo vittima di una lesione del flessore della coscia sinistra con parziale interessamento tendineo. Lo stop sarà lungo, anche con la terapia conservativa. Ipotesi rientro in campo da fine febbraio."
     },
     "Tomori": {
       "squadra": "Milan",
@@ -266,11 +236,23 @@
       "rientro": "15/11",
       "descrizione": "Il difensore KO il 28 ottobre contro il Bologna vittima di una lesione a carico del muscolo flessore mediale della coscia destra. Recuperabile dalla seconda metà di novembre."
     },
-    "Gabbia": {
+    "Saelemaekers": {
       "squadra": "Milan",
       "stato": "out",
-      "rientro": "30/02",
-      "descrizione": "il difensore KO l'11 ottobre contro il Sassuolo vittima di una lesione del flessore della coscia sinistra con parziale interessamento tendineo. Lo stop sarà lungo, anche con la terapia conservativa. Ipotesi rientro in campo da fine febbraio."
+      "rientro": "01/02",
+      "descrizione": "Il belga fermo da inizio ottobre per un problema alla caviglia destra e operata il 13 ottobre. Stop lungo e lo rivedremo in campo nel 2027 inoltrato (ipotesi da febbraio)."
+    },
+    "Loftus-Cheek": {
+      "squadra": "Milan",
+      "stato": "out",
+      "rientro": "15/11",
+      "descrizione": "il centrocampista non al meglio per una lesione muscolare al flessore ravvisato sul finire del match di Udine (25 ottobre). Recuperabile dalla seconda metà di novembre."
+    },
+    "Chukwueze": {
+      "squadra": "Milan",
+      "stato": "out-lungo",
+      "rientro": "01/04",
+      "descrizione": "Il nigeriano dal 21 ottobre fermato dalla rottura del tendine del muscolo tensore della fascia lata dell'anca sinistra. Operato il 4 novembre, lungo stop. Ipotesi di rientro in campo da aprile."
     },
     "Birindelli": {
       "squadra": "Monza",
@@ -308,17 +290,17 @@
       "rientro": "30/11",
       "descrizione": "il capitano azzurro costretto al cambio l'1 novembre contro la Juve per una lesione distrattiva del muscolo adduttore lungo della coscia sinistra, tentativo di recupero dalla fine di novembre."
     },
-    "Lobotka": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "15/12",
-      "descrizione": "lo slovacco il 28 ottobre vittima a Monza di una lesione della sindesmosi tibio-peroneale senza instabilità, associata a lesione di basso grado del LPAA della caviglia sinistra. Recuperabile dalla metà di dicembre."
-    },
     "Buongiorno": {
       "squadra": "Napoli",
       "stato": "out-lungo",
       "rientro": "15/07",
       "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
+    },
+    "Lobotka": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "15/12",
+      "descrizione": "lo slovacco il 28 ottobre vittima a Monza di una lesione della sindesmosi tibio-peroneale senza instabilità, associata a lesione di basso grado del LPAA della caviglia sinistra. Recuperabile dalla metà di dicembre."
     },
     "Bernabè": {
       "squadra": "Parma",
@@ -344,17 +326,17 @@
       "rientro": "30/12",
       "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha rimediato una lesione di alto grado in corrispondenza della giunzione muscolo - tendinea distale del muscolo semitendinoso della coscia destra. Stop lungo, ipotizziamo un rientro dalla fine di dicembre."
     },
-    "Leysen F.": {
-      "squadra": "Sassuolo",
-      "stato": "out-lungo",
-      "rientro": "01/04",
-      "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
-    },
     "Berardi": {
       "squadra": "Sassuolo",
       "stato": "dubbio",
       "rientro": "01/11",
       "descrizione": "il capitano dei neroverdi out a Roma il 7 novembre a causa di un problema fisico. Condizioni da valutare in questa sosta delle Nazionali, ma rischia il forfait anche alla ripresa del campionato contro il Genoa."
+    },
+    "Leysen F.": {
+      "squadra": "Sassuolo",
+      "stato": "out-lungo",
+      "rientro": "01/04",
+      "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
     },
     "Volpato": {
       "squadra": "Sassuolo",

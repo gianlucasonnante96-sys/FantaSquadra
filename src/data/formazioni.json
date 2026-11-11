@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-11T14:55:33.950Z",
+  "aggiornato": "2026-11-11T21:44:52.172Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20026,7 +20026,7 @@
         "giocatori": [
           {
             "nome": "Butez",
-            "perc": 70,
+            "perc": 90,
             "starter": true
           },
           {
@@ -20081,7 +20081,7 @@
           },
           {
             "nome": "Sanchez Ro.",
-            "perc": 30,
+            "perc": 5,
             "starter": false
           },
           {
@@ -20223,6 +20223,11 @@
           {
             "nome": "Sugawara",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Idrissi R.",
+            "perc": 20,
             "starter": false
           },
           {
@@ -20498,6 +20503,11 @@
           {
             "nome": "Fofana Sa.",
             "perc": 25,
+            "starter": false
+          },
+          {
+            "nome": "Berisha M.",
+            "perc": 35,
             "starter": false
           },
           {
@@ -21871,7 +21881,7 @@
           },
           {
             "nome": "Obric",
-            "perc": 50,
+            "perc": 35,
             "starter": false
           },
           {
@@ -21886,7 +21896,7 @@
           },
           {
             "nome": "Bellanova",
-            "perc": 20,
+            "perc": 50,
             "starter": false
           },
           {
@@ -21911,7 +21921,7 @@
           },
           {
             "nome": "Raspadori",
-            "perc": 30,
+            "perc": 50,
             "starter": false
           },
           {
@@ -21997,7 +22007,7 @@
           },
           {
             "nome": "Pavard",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
@@ -22023,6 +22033,11 @@
           {
             "nome": "Lavelli",
             "perc": 10,
+            "starter": false
+          },
+          {
+            "nome": "Thuram",
+            "perc": 50,
             "starter": false
           },
           {
@@ -22391,7 +22406,7 @@
           },
           {
             "nome": "Conceicao",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
