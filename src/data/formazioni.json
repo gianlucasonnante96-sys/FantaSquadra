@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-10T22:09:04.540Z",
+  "aggiornato": "2026-11-11T14:55:33.950Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20351,7 +20351,7 @@
           },
           {
             "nome": "Doekhi",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           },
           {
@@ -20387,6 +20387,11 @@
           {
             "nome": "Cancellieri",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Zaccagni",
+            "perc": 50,
             "starter": false
           }
         ]
@@ -20718,6 +20723,11 @@
           {
             "nome": "Koulierakis",
             "perc": 40,
+            "starter": false
+          },
+          {
+            "nome": "Mancini",
+            "perc": 50,
             "starter": false
           },
           {
@@ -21901,7 +21911,7 @@
           },
           {
             "nome": "Raspadori",
-            "perc": 20,
+            "perc": 30,
             "starter": false
           },
           {
@@ -22371,7 +22381,7 @@
           },
           {
             "nome": "Gonzalez N.",
-            "perc": 30,
+            "perc": 35,
             "starter": false
           },
           {
@@ -22381,7 +22391,7 @@
           },
           {
             "nome": "Conceicao",
-            "perc": 30,
+            "perc": 50,
             "starter": false
           },
           {
@@ -22391,7 +22401,7 @@
           },
           {
             "nome": "Ekhator",
-            "perc": 50,
+            "perc": 40,
             "starter": false
           }
         ]

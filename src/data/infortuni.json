@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-10T22:09:45.432Z",
+  "aggiornato": "2026-11-11T14:56:15.692Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -154,9 +154,9 @@
     },
     "Bonny": {
       "squadra": "Inter",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "L'attaccante ai box per un risentimento muscolare ai flessori della coscia destra, da valutare convocazione contro Atalanta nel prossimo turno di campionato."
+      "stato": "out",
+      "rientro": "01/12",
+      "descrizione": "L'attaccante ai box per un risentimento muscolare ai flessori della coscia destra, rientro possibile dall'inizio di dicembre."
     },
     "Thuram": {
       "squadra": "Inter",
@@ -198,13 +198,7 @@
       "squadra": "Lazio",
       "stato": "dubbio",
       "rientro": "01/11",
-      "descrizione": "il terzino dei biancocelesti costretto al cambio l'8 novembre a Napoli a causa di un guaio muscolare al flessore della gamba. Condizioni da valutare, verso il forfait alla ripresa del campionato contro il Lecce all'Olimpico di Roma."
-    },
-    "Zaccagni": {
-      "squadra": "Lazio",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il capitano dei biancocelesti in rapido recupero da una lesione del quadricipite femorale sinistro, proverà a tornare arruolabile già alla ripresa del campionato contro il Lecce. Condizioni da valutare quotidianamente a Formello in vista della 12a di A."
+      "descrizione": "il terzino dei biancocelesti costretto al cambio l'8 novembre a Napoli a causa di un guaio muscolare al flessore della gamba. Condizioni da valutare, ma darà forfait alla ripresa del campionato contro il Lecce all'Olimpico di Roma."
     },
     "Sutalo J.": {
       "squadra": "Lazio",
@@ -337,12 +331,6 @@
       "stato": "dubbio",
       "rientro": "01/11",
       "descrizione": "l'attaccante KO il 7 novembre contro il Bologna vittima in campo di una lussazione acromion-claveare della spalla destra. Condizioni da valutare, ma non ci sarà nel prossimo turno al Tardini contro la Roma."
-    },
-    "Mancini": {
-      "squadra": "Roma",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il difensore fuori dai convocati nel turno precedente contro il Sassuolo per un risentimento muscolare alla gamba accusato nella rifinitura. Da valutare nella sosta in vista della 12a di campionato contro il Parma al Tardini."
     },
     "Rensch": {
       "squadra": "Roma",
