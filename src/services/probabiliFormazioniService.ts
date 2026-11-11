@@ -204,8 +204,15 @@ export function updateTitolaritaFromProbabili(
     // 🔥 Cerca il giocatore e prendi la sua percentuale ESATTA
     let percentualeTrovata = 0;
     let matchTrovato = false;
-    
-    for (const [nomeTitolare, perc] of formazioneSquadra) {
+
+    // Prima il nome completo esatto (listone e formazioni usano lo stesso formato,
+    // es. "Martinez L."), così non si confondono giocatori con lo stesso cognome
+    if (fullName && formazioneSquadra.has(fullName)) {
+      percentualeTrovata = formazioneSquadra.get(fullName)!;
+      matchTrovato = true;
+    }
+
+    if (!matchTrovato) for (const [nomeTitolare, perc] of formazioneSquadra) {
       if (!nomeTitolare) continue;
       
       // Match per cognome (più affidabile)

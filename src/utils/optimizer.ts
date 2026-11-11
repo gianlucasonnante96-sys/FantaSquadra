@@ -38,12 +38,6 @@ const MODULES: ModuleConfig[] = [
     { role: 'C', count: 5, label: 'CEN' },
     { role: 'A', count: 2, label: 'ATT' },
   ]},
-  { name: '4-3-1-2', positions: [
-    { role: 'P', count: 1, label: 'POR' },
-    { role: 'D', count: 4, label: 'DIF' },
-    { role: 'C', count: 4, label: 'CEN' },
-    { role: 'A', count: 2, label: 'ATT' },
-  ]},
 ];
 
 export function optimizeFormation(

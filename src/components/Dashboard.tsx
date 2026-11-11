@@ -7,6 +7,8 @@ import { calculateDifficulty } from '../services/apiService';
 import { determinaGiornataCorrente } from '../utils/giornataCorrente';
 import { cercaInfortunio, Infortunio } from '../utils/infortuni';
 
+const MEDIA_RUOLO: Record<string, number> = { P: 4.8, D: 6.0, C: 6.4, A: 6.9 };
+
 interface DashboardProps {
   roster: Player[];
   rules: LeagueRules;
@@ -125,9 +127,12 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
     return 'text-red-400';
   };
 
-  const getVPColor = (vp: number) => {
-    if (vp >= 7) return 'text-emerald-400';
-    if (vp >= 6) return 'text-yellow-400';
+  // Colori relativi al ruolo: un portiere a 5.5 è un'ottima scelta,
+  // un attaccante a 5.5 no (fantavoto medio: P 4.8, D 6.0, C 6.4, A 6.9)
+  const getVPColor = (vp: number, role?: string) => {
+    const media = MEDIA_RUOLO[role ?? ''] ?? 6;
+    if (vp >= media + 0.5) return 'text-emerald-400';
+    if (vp >= media - 0.5) return 'text-yellow-400';
     return 'text-red-400';
   };
 
@@ -309,7 +314,7 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
                       </div>
                     </div>
                     <div className="text-right flex-shrink-0">
-                      <div className={`text-xs md:text-sm font-black ${getVPColor(vp)}`}>{vp.toFixed(1)}</div>
+                      <div className={`text-xs md:text-sm font-black ${getVPColor(vp, slot.player.role)}`}>{vp.toFixed(1)}</div>
                       <div className="text-slate-600 text-[9px] md:text-[10px] font-bold">VP</div>
                     </div>
                   </button>
@@ -377,14 +382,14 @@ export default function Dashboard({ roster, rules, onBack, onReset }: DashboardP
 interface PlayerOnFieldProps {
   slot: { player: Player; expectedScore: number; position: string };
   getRoleGradient: (role: string) => string;
-  getVPColor: (vp: number) => string;
+  getVPColor: (vp: number, role?: string) => string;
   onClick: () => void;
 }
 
 function PlayerOnField({ slot, getRoleGradient, getVPColor, onClick }: PlayerOnFieldProps) {
   const { player, expectedScore } = slot;
   const titolarita = player?.titolarita ?? 50;
-  const isHighVP = expectedScore >= 7.5;
+  const isHighVP = expectedScore >= (MEDIA_RUOLO[player.role] ?? 6) + 1;
   const infortunio = cercaInfortunio(player);
 
   return (
@@ -407,7 +412,7 @@ function PlayerOnField({ slot, getRoleGradient, getVPColor, onClick }: PlayerOnF
         FM {player.fantamedia ?? 0}
       </div>
       
-      <div className={`bg-black/80 px-1.5 md:px-2 py-0.5 rounded text-[8px] md:text-xs font-black ${getVPColor(expectedScore)} border border-white/10`}>
+      <div className={`bg-black/80 px-1.5 md:px-2 py-0.5 rounded text-[8px] md:text-xs font-black ${getVPColor(expectedScore, player.role)} border border-white/10`}>
         {expectedScore.toFixed(1)}
       </div>
     </button>
