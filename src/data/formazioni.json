@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-12T15:46:59.635Z",
+  "aggiornato": "2026-11-12T22:35:37.732Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20347,11 +20347,6 @@
           {
             "nome": "Renzetti",
             "perc": 1,
-            "starter": false
-          },
-          {
-            "nome": "Marusic",
-            "perc": 40,
             "starter": false
           },
           {
