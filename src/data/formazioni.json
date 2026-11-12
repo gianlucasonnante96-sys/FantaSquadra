@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-11T21:44:52.172Z",
+  "aggiornato": "2026-11-12T15:46:59.635Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20395,6 +20395,11 @@
             "starter": false
           },
           {
+            "nome": "Gudmundsson A.",
+            "perc": 35,
+            "starter": false
+          },
+          {
             "nome": "Zaccagni",
             "perc": 50,
             "starter": false
@@ -22028,6 +22033,11 @@
           {
             "nome": "Jones C.",
             "perc": 60,
+            "starter": false
+          },
+          {
+            "nome": "Luis Henrique",
+            "perc": 30,
             "starter": false
           },
           {
