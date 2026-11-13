@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-12T22:35:37.732Z",
+  "aggiornato": "2026-11-13T15:07:15.650Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20932,7 +20932,7 @@
           },
           {
             "nome": "Belghali",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
@@ -21756,6 +21756,11 @@
             "starter": false
           },
           {
+            "nome": "Alaba",
+            "perc": 30,
+            "starter": false
+          },
+          {
             "nome": "Ebosse",
             "perc": 30,
             "starter": false
@@ -21981,7 +21986,7 @@
             "starter": true
           },
           {
-            "nome": "Sucic P.",
+            "nome": "Thuram",
             "perc": 70,
             "starter": true
           },
@@ -22036,13 +22041,13 @@
             "starter": false
           },
           {
-            "nome": "Lavelli",
-            "perc": 10,
+            "nome": "Sucic P.",
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Thuram",
-            "perc": 50,
+            "nome": "Lavelli",
+            "perc": 10,
             "starter": false
           },
           {
@@ -22282,7 +22287,7 @@
           },
           {
             "nome": "Atta",
-            "perc": 25,
+            "perc": 35,
             "starter": false
           },
           {

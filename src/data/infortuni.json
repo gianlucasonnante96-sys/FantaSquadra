@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-12T22:36:17.958Z",
+  "aggiornato": "2026-11-13T15:07:57.334Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -178,9 +178,9 @@
     },
     "Tavares N.": {
       "squadra": "Lazio",
-      "stato": "dubbio",
-      "rientro": "01/11",
-      "descrizione": "il terzino dei biancocelesti costretto al cambio l'8 novembre a Napoli a causa di un guaio muscolare al flessore della gamba. Condizioni da valutare, ma darà forfait alla ripresa del campionato contro il Lecce all'Olimpico di Roma."
+      "stato": "out",
+      "rientro": "15/12",
+      "descrizione": "il terzino dei biancocelesti costretto al cambio l'8 novembre a Napoli a causa di un guaio muscolare al flessore della gamba. Recuperabile dalla metà di dicembre, proverà a esserci nel derby."
     },
     "Marusic": {
       "squadra": "Lazio",
@@ -190,9 +190,9 @@
     },
     "Sutalo J.": {
       "squadra": "Lazio",
-      "stato": "dubbio",
-      "rientro": "01/11",
-      "descrizione": "il difensore KO l'8 novembre a Napoli vittima di un guaio muscolare al flessore della gamba. Condizioni da valutare, verso il forfait alla ripresa del campionato contro il Lecce all'Olimpico di Roma."
+      "stato": "out",
+      "rientro": "15/12",
+      "descrizione": "il difensore KO l'8 novembre a Napoli vittima di una lesione muscolare di secondo grado al flessore della gamba. Recuperabile dalla seconda metà di dicembre."
     },
     "Monteiro J.": {
       "squadra": "Lecce",
@@ -367,12 +367,6 @@
       "stato": "out-lungo",
       "rientro": "30/01",
       "descrizione": "L'attaccante vittima di un problema alla caviglia a fine settembre. Ha deciso di operarsi, lungo stop di circa tre mesi e possibile ritorno in campo da fine gennaio."
-    },
-    "Alaba": {
-      "squadra": "Udinese",
-      "stato": "dubbio",
-      "rientro": "15/11",
-      "descrizione": "il difensore sostituito nell'intervallo della sfida contro il Lecce (18 ottobre) per un risentimento muscolare al polpaccio destro. Recuperabile dalla metà di novembre e ora da valutare il rientro tra i convocati già nel prossimo turno a Bologna in campionato."
     },
     "Sverko": {
       "squadra": "Venezia",
