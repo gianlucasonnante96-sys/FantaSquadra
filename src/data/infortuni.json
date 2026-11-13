@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-13T15:07:57.334Z",
+  "aggiornato": "2026-11-13T22:24:07.714Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -74,17 +74,17 @@
       "rientro": "In settimana",
       "descrizione": "il difensore alle prese con un affaticamento al soleo della gamba sinistra, out nel turno precedente contro il Frosinone. Da valutare durante la sosta per le Nazionali in vista della trasferta di Como."
     },
-    "Mina": {
-      "squadra": "Cagliari",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out nel turno precedente contro il Frosinone. Da valutare durante la sosta per le Nazionali in vista della ripresa del campionato contro il Como."
-    },
     "Felici": {
       "squadra": "Cagliari",
       "stato": "out-lungo",
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
+    },
+    "Mina": {
+      "squadra": "Cagliari",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out nel turno precedente contro il Frosinone. Da valutare durante la sosta per le Nazionali in vista della ripresa del campionato contro il Como."
     },
     "Addai": {
       "squadra": "Como",
@@ -284,17 +284,17 @@
       "rientro": "30/11",
       "descrizione": "il capitano azzurro costretto al cambio l'1 novembre contro la Juve per una lesione distrattiva del muscolo adduttore lungo della coscia sinistra, tentativo di recupero dalla fine di novembre."
     },
-    "Buongiorno": {
-      "squadra": "Napoli",
-      "stato": "out-lungo",
-      "rientro": "15/07",
-      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
-    },
     "Lobotka": {
       "squadra": "Napoli",
       "stato": "out",
       "rientro": "15/12",
       "descrizione": "lo slovacco il 28 ottobre vittima a Monza di una lesione della sindesmosi tibio-peroneale senza instabilità, associata a lesione di basso grado del LPAA della caviglia sinistra. Recuperabile dalla metà di dicembre."
+    },
+    "Buongiorno": {
+      "squadra": "Napoli",
+      "stato": "out-lungo",
+      "rientro": "15/07",
+      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
     "Bernabè": {
       "squadra": "Parma",
@@ -320,6 +320,24 @@
       "rientro": "30/12",
       "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha rimediato una lesione di alto grado in corrispondenza della giunzione muscolo - tendinea distale del muscolo semitendinoso della coscia destra. Stop lungo, ipotizziamo un rientro dalla fine di dicembre."
     },
+    "Boloca": {
+      "squadra": "Sassuolo",
+      "stato": "dubbio",
+      "rientro": "30/11",
+      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da fine novembre."
+    },
+    "Konè I.": {
+      "squadra": "Sassuolo",
+      "stato": "out-lungo",
+      "rientro": "01/06",
+      "descrizione": "il centrocampista canadese vittima a giugno nella gara dei Mondiali di una rottura di tibia e perone. Operato, punta a tornare in campo da fine dicembre."
+    },
+    "Volpato": {
+      "squadra": "Sassuolo",
+      "stato": "dubbio",
+      "rientro": "01/11",
+      "descrizione": "l'ala offensiva dei neroverdi out dal match del 2 novembre contro la Fiorentina per un problema muscolare alla gamba. Tempi di recupero da valutare, verso il forfait anche nel prossimo turno di campionato contro il Genoa."
+    },
     "Berardi": {
       "squadra": "Sassuolo",
       "stato": "dubbio",
@@ -332,29 +350,17 @@
       "rientro": "01/04",
       "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
     },
-    "Volpato": {
-      "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "01/11",
-      "descrizione": "l'ala offensiva dei neroverdi out dal match del 2 novembre contro la Fiorentina per un problema muscolare alla gamba. Tempi di recupero da valutare, verso il forfait anche nel prossimo turno di campionato contro il Genoa."
-    },
-    "Konè I.": {
-      "squadra": "Sassuolo",
-      "stato": "out-lungo",
-      "rientro": "01/06",
-      "descrizione": "il centrocampista canadese vittima a giugno nella gara dei Mondiali di una rottura di tibia e perone. Operato, punta a tornare in campo da fine dicembre."
-    },
-    "Boloca": {
-      "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "30/11",
-      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da fine novembre."
-    },
     "Fortini": {
       "squadra": "Torino",
       "stato": "dubbio",
       "rientro": "01/10",
       "descrizione": "Il cursore di fascia dei granata rientrato in anticipo dagli impegni con l'U21 azzurra a inizio ottobre a causa di un affaticamento muscolare all'adduttore. Recuperabile dalla seconda metà di novembre, da valutare la convocazione già a Napoli nel prossimo turno."
+    },
+    "Bertola": {
+      "squadra": "Udinese",
+      "stato": "dubbio",
+      "rientro": "15/11",
+      "descrizione": "Il difensore alle prese con un problema muscolare alla coscia destra dalla metà di novembre, condizioni da valutare ma sarà out nel prossimo turno di campionato."
     },
     "Zanoli": {
       "squadra": "Udinese",

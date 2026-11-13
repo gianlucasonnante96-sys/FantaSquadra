@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-13T15:07:15.650Z",
+  "aggiornato": "2026-11-13T22:23:28.669Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20311,7 +20311,7 @@
           },
           {
             "nome": "Frattesi",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
@@ -20661,23 +20661,23 @@
         "nome": "Roma",
         "giocatori": [
           {
-            "nome": "Vasquez D.",
-            "perc": 70,
+            "nome": "Svilar",
+            "perc": 80,
             "starter": true
           },
           {
-            "nome": "Balerdi",
+            "nome": "Mancini",
             "perc": 70,
             "starter": true
           },
           {
             "nome": "N'Dicka",
-            "perc": 85,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "Hermoso",
-            "perc": 85,
+            "perc": 80,
             "starter": true
           },
           {
@@ -20707,7 +20707,7 @@
           },
           {
             "nome": "Mora",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -20716,8 +20716,8 @@
             "starter": true
           },
           {
-            "nome": "Svilar",
-            "perc": 30,
+            "nome": "Vasquez D.",
+            "perc": 5,
             "starter": false
           },
           {
@@ -20731,13 +20731,13 @@
             "starter": false
           },
           {
-            "nome": "Koulierakis",
-            "perc": 40,
+            "nome": "Balerdi",
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Mancini",
-            "perc": 50,
+            "nome": "Koulierakis",
+            "perc": 40,
             "starter": false
           },
           {
@@ -20767,12 +20767,12 @@
           },
           {
             "nome": "Castro S.",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Dybala",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           }
         ]
@@ -21747,11 +21747,6 @@
           },
           {
             "nome": "Kabasele",
-            "perc": 40,
-            "starter": false
-          },
-          {
-            "nome": "Bertola",
             "perc": 40,
             "starter": false
           },
