@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-13T22:23:28.669Z",
+  "aggiornato": "2026-11-14T13:57:24.234Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20306,12 +20306,12 @@
           },
           {
             "nome": "Pedraza",
-            "perc": 75,
+            "perc": 85,
             "starter": true
           },
           {
-            "nome": "Frattesi",
-            "perc": 70,
+            "nome": "Dele-Bashiru",
+            "perc": 80,
             "starter": true
           },
           {
@@ -20366,12 +20366,12 @@
           },
           {
             "nome": "Rovella",
-            "perc": 40,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Cataldi",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -20380,8 +20380,8 @@
             "starter": false
           },
           {
-            "nome": "Dele-Bashiru",
-            "perc": 60,
+            "nome": "Frattesi",
+            "perc": 50,
             "starter": false
           },
           {
@@ -20391,7 +20391,7 @@
           },
           {
             "nome": "Gudmundsson A.",
-            "perc": 35,
+            "perc": 50,
             "starter": false
           },
           {
@@ -21596,12 +21596,12 @@
           },
           {
             "nome": "Orsolini",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
-            "nome": "Cambiaghi",
-            "perc": 80,
+            "nome": "Bernardeschi",
+            "perc": 70,
             "starter": true
           },
           {
@@ -21660,8 +21660,8 @@
             "starter": false
           },
           {
-            "nome": "Bernardeschi",
-            "perc": 60,
+            "nome": "Cambiaghi",
+            "perc": 50,
             "starter": false
           },
           {

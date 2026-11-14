@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-13T22:24:07.714Z",
+  "aggiornato": "2026-11-14T13:58:05.856Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -116,11 +116,11 @@
       "rientro": "30/12",
       "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da fine dicembre."
     },
-    "Grillitsch": {
+    "Raimondo": {
       "squadra": "Frosinone",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile dalla seconda metà di novembre."
+      "rientro": "15/12",
+      "descrizione": "l'attaccante KO l'1 novembre contro il Toro vittima di una lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Iniziate le cure del caso, proverà a tornare già da metà dicembre in campo."
     },
     "Terzic": {
       "squadra": "Frosinone",
@@ -128,11 +128,11 @@
       "rientro": "In settimana",
       "descrizione": "il terzino out nel turno precedente di campionato a Cagliari per un fastidio fisico che rimane da valutare in vista della trasferta di Milano alla ripresa del campionato."
     },
-    "Raimondo": {
+    "Grillitsch": {
       "squadra": "Frosinone",
       "stato": "out",
-      "rientro": "15/12",
-      "descrizione": "l'attaccante KO l'1 novembre contro il Toro vittima di una lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Iniziate le cure del caso, proverà a tornare già da metà dicembre in campo."
+      "rientro": "15/11",
+      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile dalla seconda metà di novembre."
     },
     "Stankovic A.": {
       "squadra": "Inter",
@@ -146,6 +146,12 @@
       "rientro": "01/12",
       "descrizione": "L'attaccante ai box per un risentimento muscolare ai flessori della coscia destra, rientro possibile dall'inizio di dicembre."
     },
+    "Locatelli": {
+      "squadra": "Juventus",
+      "stato": "out-lungo",
+      "rientro": "01/02",
+      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
+    },
     "Grabara": {
       "squadra": "Juventus",
       "stato": "out-lungo",
@@ -157,12 +163,6 @@
       "stato": "out-lungo",
       "rientro": "15/12",
       "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro, stop di circa tre mesi. Rientro in campo da prima metà di dicembre."
-    },
-    "Locatelli": {
-      "squadra": "Juventus",
-      "stato": "out-lungo",
-      "rientro": "01/02",
-      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
     },
     "Kalulu": {
       "squadra": "Juventus",
@@ -191,8 +191,8 @@
     "Sutalo J.": {
       "squadra": "Lazio",
       "stato": "out",
-      "rientro": "15/12",
-      "descrizione": "il difensore KO l'8 novembre a Napoli vittima di una lesione muscolare di secondo grado al flessore della gamba. Recuperabile dalla seconda metà di dicembre."
+      "rientro": "30/12",
+      "descrizione": "il difensore KO l'8 novembre a Napoli vittima di una lesione muscolare di secondo grado al flessore della gamba. Recuperabile dalla fine di dicembre."
     },
     "Monteiro J.": {
       "squadra": "Lecce",
@@ -278,12 +278,6 @@
       "rientro": "01/12",
       "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
     },
-    "Di Lorenzo": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "il capitano azzurro costretto al cambio l'1 novembre contro la Juve per una lesione distrattiva del muscolo adduttore lungo della coscia sinistra, tentativo di recupero dalla fine di novembre."
-    },
     "Lobotka": {
       "squadra": "Napoli",
       "stato": "out",
@@ -295,6 +289,12 @@
       "stato": "out-lungo",
       "rientro": "15/07",
       "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
+    },
+    "Di Lorenzo": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "30/11",
+      "descrizione": "il capitano azzurro costretto al cambio l'1 novembre contro la Juve per una lesione distrattiva del muscolo adduttore lungo della coscia sinistra, tentativo di recupero dalla fine di novembre."
     },
     "Bernabè": {
       "squadra": "Parma",
