@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-14T13:57:24.234Z",
+  "aggiornato": "2026-11-14T19:42:49.558Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20071,7 +20071,7 @@
           },
           {
             "nome": "Baturina",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -20550,7 +20550,7 @@
             "starter": true
           },
           {
-            "nome": "Diego Carlos",
+            "nome": "Drobnic",
             "perc": 70,
             "starter": true
           },
@@ -20600,13 +20600,13 @@
             "starter": false
           },
           {
-            "nome": "Carboni F.",
-            "perc": 40,
+            "nome": "Diego Carlos",
+            "perc": 20,
             "starter": false
           },
           {
-            "nome": "Drobnic",
-            "perc": 20,
+            "nome": "Carboni F.",
+            "perc": 40,
             "starter": false
           },
           {
@@ -21972,7 +21972,7 @@
           },
           {
             "nome": "Zielinski",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -22105,8 +22105,8 @@
             "starter": true
           },
           {
-            "nome": "Robinson J.",
-            "perc": 80,
+            "nome": "Zeballos",
+            "perc": 70,
             "starter": true
           },
           {
@@ -22151,7 +22151,7 @@
           },
           {
             "nome": "Pessina",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -22175,8 +22175,8 @@
             "starter": false
           },
           {
-            "nome": "Zeballos",
-            "perc": 55,
+            "nome": "Robinson J.",
+            "perc": 30,
             "starter": false
           },
           {
