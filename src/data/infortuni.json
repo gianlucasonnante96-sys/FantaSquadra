@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-15T00:46:49.335Z",
+  "aggiornato": "2026-11-15T14:32:36.234Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -116,11 +116,11 @@
       "rientro": "30/12",
       "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da fine dicembre."
     },
-    "Raimondo": {
+    "Grillitsch": {
       "squadra": "Frosinone",
       "stato": "out",
-      "rientro": "15/12",
-      "descrizione": "l'attaccante KO l'1 novembre contro il Toro vittima di una lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Iniziate le cure del caso, proverà a tornare già da metà dicembre in campo."
+      "rientro": "15/11",
+      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile dalla seconda metà di novembre."
     },
     "Terzic": {
       "squadra": "Frosinone",
@@ -128,11 +128,11 @@
       "rientro": "In settimana",
       "descrizione": "il terzino out nel turno precedente di campionato a Cagliari per un fastidio fisico che rimane da valutare in vista della trasferta di Milano alla ripresa del campionato."
     },
-    "Grillitsch": {
+    "Raimondo": {
       "squadra": "Frosinone",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile dalla seconda metà di novembre."
+      "rientro": "15/12",
+      "descrizione": "l'attaccante KO l'1 novembre contro il Toro vittima di una lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Iniziate le cure del caso, proverà a tornare già da metà dicembre in campo."
     },
     "Stankovic A.": {
       "squadra": "Inter",
@@ -146,12 +146,6 @@
       "rientro": "01/12",
       "descrizione": "L'attaccante ai box per un risentimento muscolare ai flessori della coscia destra, rientro possibile dall'inizio di dicembre."
     },
-    "Locatelli": {
-      "squadra": "Juventus",
-      "stato": "out-lungo",
-      "rientro": "01/02",
-      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
-    },
     "Grabara": {
       "squadra": "Juventus",
       "stato": "out-lungo",
@@ -161,8 +155,14 @@
     "Yildiz": {
       "squadra": "Juventus",
       "stato": "out-lungo",
-      "rientro": "15/12",
-      "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro, stop di circa tre mesi. Rientro in campo da prima metà di dicembre."
+      "rientro": "30/12",
+      "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro. Rientro in campo da fine di dicembre."
+    },
+    "Locatelli": {
+      "squadra": "Juventus",
+      "stato": "out-lungo",
+      "rientro": "01/02",
+      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
     },
     "Kalulu": {
       "squadra": "Juventus",

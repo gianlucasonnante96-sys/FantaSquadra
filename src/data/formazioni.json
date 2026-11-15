@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-15T00:46:10.139Z",
+  "aggiornato": "2026-11-15T14:31:55.991Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -21947,7 +21947,7 @@
           },
           {
             "nome": "Akanji",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
@@ -21971,7 +21971,7 @@
             "starter": true
           },
           {
-            "nome": "Zielinski",
+            "nome": "Jones C.",
             "perc": 70,
             "starter": true
           },
@@ -22017,17 +22017,17 @@
           },
           {
             "nome": "Diouf",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
             "nome": "Mkhitaryan",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Jones C.",
-            "perc": 60,
+            "nome": "Zielinski",
+            "perc": 50,
             "starter": false
           },
           {
