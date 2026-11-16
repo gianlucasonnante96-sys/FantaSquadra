@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-16T00:46:07.733Z",
+  "aggiornato": "2026-11-16T16:46:19.433Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -21900,6 +21900,11 @@
             "starter": false
           },
           {
+            "nome": "Kristensen T.",
+            "perc": 30,
+            "starter": false
+          },
+          {
             "nome": "Pasalic",
             "perc": 60,
             "starter": false
@@ -21907,6 +21912,11 @@
           {
             "nome": "Samardzic",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Gaetano",
+            "perc": 20,
             "starter": false
           },
           {
@@ -22401,7 +22411,7 @@
           },
           {
             "nome": "Gonzalez N.",
-            "perc": 35,
+            "perc": 55,
             "starter": false
           },
           {
@@ -22416,7 +22426,7 @@
           },
           {
             "nome": "Zhegrova",
-            "perc": 55,
+            "perc": 20,
             "starter": false
           },
           {
