@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-15T20:10:01.820Z",
+  "aggiornato": "2026-11-16T00:46:48.061Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -74,17 +74,17 @@
       "rientro": "In settimana",
       "descrizione": "il difensore alle prese con un affaticamento al soleo della gamba sinistra, out nel turno precedente contro il Frosinone. Da valutare durante la sosta per le Nazionali in vista della trasferta di Como."
     },
-    "Mina": {
-      "squadra": "Cagliari",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out nel turno precedente contro il Frosinone. Da valutare durante la sosta per le Nazionali in vista della ripresa del campionato contro il Como."
-    },
     "Felici": {
       "squadra": "Cagliari",
       "stato": "out-lungo",
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
+    },
+    "Mina": {
+      "squadra": "Cagliari",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out nel turno precedente contro il Frosinone. Da valutare durante la sosta per le Nazionali in vista della ripresa del campionato contro il Como."
     },
     "Addai": {
       "squadra": "Como",
@@ -194,11 +194,11 @@
       "rientro": "30/12",
       "descrizione": "il difensore KO l'8 novembre a Napoli vittima di una lesione muscolare di secondo grado al flessore della gamba. Recuperabile dalla fine di dicembre."
     },
-    "Monteiro J.": {
+    "Pierotti": {
       "squadra": "Lecce",
-      "stato": "out",
-      "rientro": "01/12",
-      "descrizione": "l'ala offensiva dei salentini KO l'1 novembre contro il Bologna vittima di una lesione di primo grado al polpaccio sinistro. Recuperabile dall'inizio di dicembre."
+      "stato": "out-lungo",
+      "rientro": "01/01",
+      "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre, poi operato a inizio novembre. Lungo stop, ipotizziamo un rientro in campo da gennaio."
     },
     "Ilic": {
       "squadra": "Lecce",
@@ -206,11 +206,11 @@
       "rientro": "01/04",
       "descrizione": "il regista dei salentini KO l'11 ottobre in casa contro il Bologna vittima di una lesione miotendinea del retto femorale sinistro con lesione parziale del tendine, rientro da aprile."
     },
-    "Pierotti": {
+    "Monteiro J.": {
       "squadra": "Lecce",
-      "stato": "out-lungo",
-      "rientro": "01/01",
-      "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre, poi operato a inizio novembre. Lungo stop, ipotizziamo un rientro in campo da gennaio."
+      "stato": "out",
+      "rientro": "01/12",
+      "descrizione": "l'ala offensiva dei salentini KO l'1 novembre contro il Bologna vittima di una lesione di primo grado al polpaccio sinistro. Recuperabile dall'inizio di dicembre."
     },
     "Terracciano": {
       "squadra": "Milan",
