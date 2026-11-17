@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-17T00:39:46.951Z",
+  "aggiornato": "2026-11-17T16:41:36.852Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20310,8 +20310,8 @@
             "starter": true
           },
           {
-            "nome": "Dele-Bashiru",
-            "perc": 80,
+            "nome": "Frattesi",
+            "perc": 70,
             "starter": true
           },
           {
@@ -20370,6 +20370,11 @@
             "starter": false
           },
           {
+            "nome": "Dele-Bashiru",
+            "perc": 60,
+            "starter": false
+          },
+          {
             "nome": "Cataldi",
             "perc": 60,
             "starter": false
@@ -20380,22 +20385,12 @@
             "starter": false
           },
           {
-            "nome": "Frattesi",
-            "perc": 50,
-            "starter": false
-          },
-          {
             "nome": "Cancellieri",
             "perc": 60,
             "starter": false
           },
           {
             "nome": "Gudmundsson A.",
-            "perc": 50,
-            "starter": false
-          },
-          {
-            "nome": "Zaccagni",
             "perc": 50,
             "starter": false
           }
@@ -20600,11 +20595,6 @@
             "starter": false
           },
           {
-            "nome": "Diego Carlos",
-            "perc": 20,
-            "starter": false
-          },
-          {
             "nome": "Carboni F.",
             "perc": 40,
             "starter": false
@@ -20671,7 +20661,7 @@
             "starter": true
           },
           {
-            "nome": "N'Dicka",
+            "nome": "Ndicka",
             "perc": 80,
             "starter": true
           },
@@ -20785,7 +20775,7 @@
         "nome": "Napoli",
         "giocatori": [
           {
-            "nome": "Milinkovic-Savic V.",
+            "nome": "Meret",
             "perc": 70,
             "starter": true
           },
@@ -20806,7 +20796,7 @@
           },
           {
             "nome": "Olivera",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
@@ -20826,7 +20816,7 @@
           },
           {
             "nome": "Politano",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -20840,7 +20830,7 @@
             "starter": true
           },
           {
-            "nome": "Meret",
+            "nome": "Milinkovic-Savic V.",
             "perc": 30,
             "starter": false
           },
@@ -20861,7 +20851,7 @@
           },
           {
             "nome": "Spinazzola",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -20881,7 +20871,7 @@
           },
           {
             "nome": "Gilmour",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -20936,7 +20926,7 @@
             "starter": true
           },
           {
-            "nome": "Vlasic",
+            "nome": "Braganca",
             "perc": 70,
             "starter": true
           },
@@ -21006,18 +20996,18 @@
             "starter": false
           },
           {
+            "nome": "Vlasic",
+            "perc": 50,
+            "starter": false
+          },
+          {
             "nome": "Aboukhlal",
             "perc": 55,
             "starter": false
           },
           {
-            "nome": "Braganca",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Gineitis",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -21326,7 +21316,7 @@
         "giocatori": [
           {
             "nome": "Maignan",
-            "perc": 70,
+            "perc": 85,
             "starter": true
           },
           {
@@ -21646,7 +21636,7 @@
           },
           {
             "nome": "El Azzouzi O.",
-            "perc": 40,
+            "perc": 55,
             "starter": false
           },
           {
@@ -22032,12 +22022,12 @@
           },
           {
             "nome": "Mkhitaryan",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Zielinski",
-            "perc": 50,
+            "perc": 60,
             "starter": false
           },
           {
@@ -22325,8 +22315,8 @@
             "starter": true
           },
           {
-            "nome": "Celik",
-            "perc": 80,
+            "nome": "Cambiaso",
+            "perc": 70,
             "starter": true
           },
           {
@@ -22395,13 +22385,13 @@
             "starter": false
           },
           {
-            "nome": "Kelly L.",
-            "perc": 35,
+            "nome": "Celik",
+            "perc": 50,
             "starter": false
           },
           {
-            "nome": "Cambiaso",
-            "perc": 20,
+            "nome": "Kelly L.",
+            "perc": 40,
             "starter": false
           },
           {
@@ -22411,7 +22401,7 @@
           },
           {
             "nome": "Gonzalez N.",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
@@ -22421,12 +22411,12 @@
           },
           {
             "nome": "Conceicao",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
             "nome": "Zhegrova",
-            "perc": 20,
+            "perc": 50,
             "starter": false
           },
           {
