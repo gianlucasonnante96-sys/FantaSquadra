@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-17T16:42:15.738Z",
+  "aggiornato": "2026-11-17T23:45:24.326Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -8,17 +8,17 @@
       "rientro": "30/11",
       "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla fine di novembre."
     },
-    "Pompei": {
-      "squadra": "Atalanta",
-      "stato": "out",
-      "rientro": "01/10",
-      "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Recuperabile da dicembre."
-    },
     "Hien": {
       "squadra": "Atalanta",
       "stato": "out-lungo",
       "rientro": "30/06",
       "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla fine di novembre."
+    },
+    "Pompei": {
+      "squadra": "Atalanta",
+      "stato": "out",
+      "rientro": "01/10",
+      "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Recuperabile da dicembre."
     },
     "De Silvestri": {
       "squadra": "Bologna",
@@ -68,12 +68,6 @@
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
     },
-    "Mina": {
-      "squadra": "Cagliari",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out nel turno precedente contro il Frosinone. Da valutare durante la sosta per le Nazionali in vista della ripresa del campionato contro il Como."
-    },
     "Addai": {
       "squadra": "Como",
       "stato": "dubbio",
@@ -89,8 +83,8 @@
     "Kean": {
       "squadra": "Como",
       "stato": "out",
-      "rientro": "01/12",
-      "descrizione": "l'attaccante si sottoporrà a nuove cure per il perdurare del fastidio alla tibia che lo affligge da diverse settimane. Appare recuperabile dall'inizio di dicembre."
+      "rientro": "30/12",
+      "descrizione": "l'attaccante si sottoporrà a nuove cure per il perdurare del fastidio alla tibia che lo affligge da diverse settimane. Appare recuperabile non prima della fine di dicembre."
     },
     "Pongracic": {
       "squadra": "Fiorentina",
@@ -361,12 +355,6 @@
       "stato": "dubbio",
       "rientro": "15/11",
       "descrizione": "Il difensore alle prese con un problema muscolare alla coscia destra dalla metà di novembre, condizioni da valutare ma sarà out nel prossimo turno di campionato."
-    },
-    "Zanoli": {
-      "squadra": "Udinese",
-      "stato": "dubbio",
-      "rientro": "15/11",
-      "descrizione": "Il cursore di fascia dei friulani frenato da noie muscolari alla gamba, recuperabile dalla metà di novembre e ora da valutare il rientro tra i convocati già nel prossimo turno a Bologna in campionato."
     },
     "Gueye": {
       "squadra": "Udinese",

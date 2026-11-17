@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-17T16:41:36.852Z",
+  "aggiornato": "2026-11-17T23:44:43.393Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20226,6 +20226,11 @@
             "starter": false
           },
           {
+            "nome": "Mina",
+            "perc": 30,
+            "starter": false
+          },
+          {
             "nome": "Idrissi R.",
             "perc": 20,
             "starter": false
@@ -20652,12 +20657,12 @@
         "giocatori": [
           {
             "nome": "Svilar",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
             "nome": "Mancini",
-            "perc": 70,
+            "perc": 80,
             "starter": true
           },
           {
@@ -20762,7 +20767,7 @@
           },
           {
             "nome": "Dybala",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           }
         ]
@@ -21751,6 +21756,11 @@
             "starter": false
           },
           {
+            "nome": "Zanoli",
+            "perc": 20,
+            "starter": false
+          },
+          {
             "nome": "Arizala",
             "perc": 55,
             "starter": false
@@ -21826,12 +21836,12 @@
           },
           {
             "nome": "Bernasconi",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
             "nome": "Kessiè",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
@@ -21876,22 +21886,22 @@
           },
           {
             "nome": "Idele",
-            "perc": 15,
+            "perc": 20,
             "starter": false
           },
           {
             "nome": "Plaia",
-            "perc": 15,
+            "perc": 20,
             "starter": false
           },
           {
             "nome": "Bellanova",
-            "perc": 50,
+            "perc": 60,
             "starter": false
           },
           {
             "nome": "Kristensen T.",
-            "perc": 30,
+            "perc": 15,
             "starter": false
           },
           {
@@ -21901,12 +21911,12 @@
           },
           {
             "nome": "Samardzic",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
             "nome": "Gaetano",
-            "perc": 20,
+            "perc": 15,
             "starter": false
           },
           {
@@ -21921,7 +21931,7 @@
           },
           {
             "nome": "Raspadori",
-            "perc": 50,
+            "perc": 60,
             "starter": false
           },
           {
@@ -21982,7 +21992,7 @@
           },
           {
             "nome": "Thuram",
-            "perc": 70,
+            "perc": 75,
             "starter": true
           },
           {
@@ -22022,7 +22032,7 @@
           },
           {
             "nome": "Mkhitaryan",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
@@ -22047,7 +22057,7 @@
           },
           {
             "nome": "Martinez L.",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           }
         ]
@@ -22217,7 +22227,7 @@
           },
           {
             "nome": "Joao Mario",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
@@ -22242,7 +22252,7 @@
           },
           {
             "nome": "Njie",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
