@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-18T16:11:18.025Z",
+  "aggiornato": "2026-11-18T23:16:15.979Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20060,8 +20060,8 @@
             "starter": true
           },
           {
-            "nome": "Diao",
-            "perc": 55,
+            "nome": "Liberali",
+            "perc": 70,
             "starter": true
           },
           {
@@ -20116,7 +20116,7 @@
           },
           {
             "nome": "Chalobah T.",
-            "perc": 20,
+            "perc": 45,
             "starter": false
           },
           {
@@ -20137,11 +20137,6 @@
           {
             "nome": "Lahdo",
             "perc": 10,
-            "starter": false
-          },
-          {
-            "nome": "Liberali",
-            "perc": 60,
             "starter": false
           }
         ]
@@ -20371,7 +20366,7 @@
           },
           {
             "nome": "Rovella",
-            "perc": 55,
+            "perc": 40,
             "starter": false
           },
           {
@@ -20396,7 +20391,7 @@
           },
           {
             "nome": "Gudmundsson A.",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           }
         ]
@@ -20551,7 +20546,7 @@
           },
           {
             "nome": "Drobnic",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -21900,11 +21895,6 @@
             "starter": false
           },
           {
-            "nome": "Kristensen T.",
-            "perc": 15,
-            "starter": false
-          },
-          {
             "nome": "Pasalic",
             "perc": 60,
             "starter": false
@@ -21912,11 +21902,6 @@
           {
             "nome": "Samardzic",
             "perc": 40,
-            "starter": false
-          },
-          {
-            "nome": "Gaetano",
-            "perc": 15,
             "starter": false
           },
           {
