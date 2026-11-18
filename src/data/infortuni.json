@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-17T23:45:24.326Z",
+  "aggiornato": "2026-11-18T16:11:57.735Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -107,8 +107,8 @@
     "Grillitsch": {
       "squadra": "Frosinone",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Stop di circa sei settimane, può tornare convocabile dalla seconda metà di novembre."
+      "rientro": "30/11",
+      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Può tornare convocabile dalla fine di novembre."
     },
     "Terzic": {
       "squadra": "Frosinone",
@@ -127,6 +127,12 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il centrocampista frenato da una lesione al muscolo adduttore della coscia destra. Out alla ripresa del campionato contro l'Atalanta, tempi di recupero da valutare."
+    },
+    "Kalulu": {
+      "squadra": "Juventus",
+      "stato": "out",
+      "rientro": "30/11",
+      "descrizione": "Il terzino bianconero ai box per una lesione ai muscoli ischiocrurali della gamba sinistra, recuperabile dalla fine di novembre."
     },
     "Locatelli": {
       "squadra": "Juventus",
@@ -152,12 +158,6 @@
       "rientro": "01/04",
       "descrizione": "Il portiere out dal 20 settembre per una lesione al crociato anteriore del ginocchio destro. Operazione chirurgica e lungo stop, rientro da aprile."
     },
-    "Kalulu": {
-      "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "Il terzino bianconero ai box per una lesione ai muscoli ischiocrurali della gamba sinistra, recuperabile dalla fine di novembre."
-    },
     "Sutalo J.": {
       "squadra": "Lazio",
       "stato": "out",
@@ -168,7 +168,7 @@
       "squadra": "Lazio",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il capitano dei biancocelesti in rapido recupero da una lesione del quadricipite femorale sinistro, proverà a tornare arruolabile già alla ripresa del campionato contro il Lecce. Condizioni da valutare quotidianamente a Formello in vista della 12a di A."
+      "descrizione": "Il capitano dei biancocelesti in rapido recupero da una lesione del quadricipite femorale sinistro, proverà a tornare arruolabile già alla ripresa del campionato. Condizioni da valutare quotidianamente a Formello in vista di sabato contro il Lecce nella 12a di A."
     },
     "Marusic": {
       "squadra": "Lazio",
@@ -182,11 +182,11 @@
       "rientro": "15/12",
       "descrizione": "il terzino dei biancocelesti costretto al cambio l'8 novembre a Napoli a causa di un guaio muscolare al flessore della gamba. Recuperabile dalla metà di dicembre, proverà a esserci nel derby."
     },
-    "Pierotti": {
+    "Monteiro J.": {
       "squadra": "Lecce",
-      "stato": "out-lungo",
-      "rientro": "01/01",
-      "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre, poi operato a inizio novembre. Lungo stop, ipotizziamo un rientro in campo da gennaio."
+      "stato": "out",
+      "rientro": "01/12",
+      "descrizione": "l'ala offensiva dei salentini KO l'1 novembre contro il Bologna vittima di una lesione di primo grado al polpaccio sinistro. Recuperabile dall'inizio di dicembre."
     },
     "Ilic": {
       "squadra": "Lecce",
@@ -194,11 +194,11 @@
       "rientro": "01/04",
       "descrizione": "il regista dei salentini KO l'11 ottobre in casa contro il Bologna vittima di una lesione miotendinea del retto femorale sinistro con lesione parziale del tendine, rientro da aprile."
     },
-    "Monteiro J.": {
+    "Pierotti": {
       "squadra": "Lecce",
-      "stato": "out",
-      "rientro": "01/12",
-      "descrizione": "l'ala offensiva dei salentini KO l'1 novembre contro il Bologna vittima di una lesione di primo grado al polpaccio sinistro. Recuperabile dall'inizio di dicembre."
+      "stato": "out-lungo",
+      "rientro": "01/01",
+      "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre, poi operato a inizio novembre. Lungo stop, ipotizziamo un rientro in campo da gennaio."
     },
     "Terracciano": {
       "squadra": "Milan",
@@ -216,7 +216,7 @@
       "squadra": "Milan",
       "stato": "out",
       "rientro": "15/11",
-      "descrizione": "Il difensore KO il 28 ottobre contro il Bologna vittima di una lesione a carico del muscolo flessore mediale della coscia destra. Recuperabile dalla seconda metà di novembre."
+      "descrizione": "Il difensore KO il 28 ottobre contro il Bologna vittima di una lesione a carico del muscolo flessore mediale della coscia destra. Recuperabile dalla seconda metà di novembre, ma non ci sarà domenica contro il Frosinone."
     },
     "Saelemaekers": {
       "squadra": "Milan",
@@ -227,8 +227,8 @@
     "Loftus-Cheek": {
       "squadra": "Milan",
       "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il centrocampista non al meglio per una lesione muscolare al flessore ravvisato sul finire del match di Udine (25 ottobre). Recuperabile dalla seconda metà di novembre."
+      "rientro": "30/11",
+      "descrizione": "il centrocampista non al meglio per una lesione muscolare al flessore ravvisato sul finire del match di Udine (25 ottobre). Recuperabile dalla fine di novembre."
     },
     "Chukwueze": {
       "squadra": "Milan",
@@ -236,17 +236,11 @@
       "rientro": "01/04",
       "descrizione": "Il nigeriano dal 21 ottobre fermato dalla rottura del tendine del muscolo tensore della fascia lata dell'anca sinistra. Operato il 4 novembre, lungo stop. Ipotesi di rientro in campo da aprile."
     },
-    "Birindelli": {
-      "squadra": "Monza",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Il cursore di fascia dei brianzoli out nel turno precedente di A contro l'Atalanta per un problema fisico lamentato nella rifinitura. Da valutare durante la sosta in vista della 12a di campionato contro la Fiorentina."
-    },
     "Maye": {
       "squadra": "Monza",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il difensore ai box per noie fisiche, assente nelle ultime sfide di campionato e ora da valutare in vista della 12a giornata di campionato."
+      "descrizione": "Il difensore ai box per noie fisiche, assente nelle ultime sfide di campionato e ora da valutare in vista della 13a giornata di campionato."
     },
     "Folorunsho": {
       "squadra": "Monza",
@@ -254,17 +248,17 @@
       "rientro": "In settimana",
       "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, da valutare nella sosta in vista della 12a giornata contro la Fiorentina."
     },
-    "Santos A.": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/12",
-      "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
-    },
     "Badiashile": {
       "squadra": "Napoli",
       "stato": "out",
       "rientro": "30/11",
       "descrizione": "il difensore KO il 24 ottobre contro la Roma per una lesione distrattiva di medio grado del retto femorale destro, recuperabile dalla fine di novembre."
+    },
+    "Santos A.": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "01/12",
+      "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
     },
     "Di Lorenzo": {
       "squadra": "Napoli",
@@ -336,7 +330,7 @@
       "squadra": "Sassuolo",
       "stato": "dubbio",
       "rientro": "01/11",
-      "descrizione": "il capitano dei neroverdi out a Roma il 7 novembre a causa di un problema fisico. Condizioni da valutare in questa sosta delle Nazionali, ma rischia il forfait anche alla ripresa del campionato contro il Genoa."
+      "descrizione": "il capitano dei neroverdi out a Roma il 7 novembre a causa di un problema fisico. Condizioni da valutare nei prossimi allenamenti, ma rischia il forfait anche alla ripresa del campionato contro il Genoa."
     },
     "Leysen F.": {
       "squadra": "Sassuolo",
