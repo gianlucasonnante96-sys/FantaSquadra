@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-19T16:18:45.866Z",
+  "aggiornato": "2026-11-19T23:24:17.787Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20050,8 +20050,8 @@
             "starter": true
           },
           {
-            "nome": "Da Cunha",
-            "perc": 90,
+            "nome": "Milla",
+            "perc": 55,
             "starter": true
           },
           {
@@ -20060,8 +20060,8 @@
             "starter": true
           },
           {
-            "nome": "Liberali",
-            "perc": 70,
+            "nome": "Da Cunha",
+            "perc": 90,
             "starter": true
           },
           {
@@ -20120,11 +20120,6 @@
             "starter": false
           },
           {
-            "nome": "Milla",
-            "perc": 60,
-            "starter": false
-          },
-          {
             "nome": "Caqueret",
             "perc": 60,
             "starter": false
@@ -20137,6 +20132,11 @@
           {
             "nome": "Lahdo",
             "perc": 10,
+            "starter": false
+          },
+          {
+            "nome": "Liberali",
+            "perc": 60,
             "starter": false
           }
         ]
@@ -20775,8 +20775,8 @@
         "nome": "Napoli",
         "giocatori": [
           {
-            "nome": "Meret",
-            "perc": 60,
+            "nome": "Milinkovic-Savic V.",
+            "perc": 90,
             "starter": true
           },
           {
@@ -20801,12 +20801,12 @@
           },
           {
             "nome": "Zambo Anguissa",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
             "nome": "De Bruyne",
-            "perc": 90,
+            "perc": 60,
             "starter": true
           },
           {
@@ -20830,13 +20830,8 @@
             "starter": true
           },
           {
-            "nome": "Milinkovic-Savic V.",
-            "perc": 40,
-            "starter": false
-          },
-          {
             "nome": "Contini",
-            "perc": 1,
+            "perc": 5,
             "starter": false
           },
           {
@@ -21135,11 +21130,6 @@
             "starter": false
           },
           {
-            "nome": "Adzic",
-            "perc": 55,
-            "starter": false
-          },
-          {
             "nome": "Sulemana I.",
             "perc": 60,
             "starter": false
@@ -21151,7 +21141,12 @@
           },
           {
             "nome": "Lipani",
-            "perc": 50,
+            "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "Volpato",
+            "perc": 20,
             "starter": false
           },
           {
@@ -21165,8 +21160,8 @@
             "starter": false
           },
           {
-            "nome": "Kulla",
-            "perc": 10,
+            "nome": "Berardi",
+            "perc": 50,
             "starter": false
           }
         ]
