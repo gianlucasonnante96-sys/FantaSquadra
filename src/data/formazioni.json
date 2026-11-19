@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-18T23:16:15.979Z",
+  "aggiornato": "2026-11-19T16:18:45.866Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -20237,7 +20237,7 @@
           },
           {
             "nome": "Massolin",
-            "perc": 60,
+            "perc": 40,
             "starter": false
           },
           {
@@ -20246,18 +20246,18 @@
             "starter": false
           },
           {
-            "nome": "Winks",
-            "perc": 25,
+            "nome": "Fadera",
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Ciervo",
-            "perc": 30,
+            "perc": 25,
             "starter": false
           },
           {
             "nome": "Liteta",
-            "perc": 40,
+            "perc": 35,
             "starter": false
           },
           {
@@ -20502,7 +20502,7 @@
           },
           {
             "nome": "Berisha M.",
-            "perc": 35,
+            "perc": 20,
             "starter": false
           },
           {
@@ -20652,12 +20652,12 @@
         "giocatori": [
           {
             "nome": "Svilar",
-            "perc": 55,
+            "perc": 70,
             "starter": true
           },
           {
             "nome": "Mancini",
-            "perc": 80,
+            "perc": 60,
             "starter": true
           },
           {
@@ -20672,7 +20672,7 @@
           },
           {
             "nome": "Molina N.",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -20692,12 +20692,12 @@
           },
           {
             "nome": "Soulè",
-            "perc": 90,
+            "perc": 55,
             "starter": true
           },
           {
-            "nome": "Mora",
-            "perc": 55,
+            "nome": "Dybala",
+            "perc": 75,
             "starter": true
           },
           {
@@ -20707,12 +20707,12 @@
           },
           {
             "nome": "Vasquez D.",
-            "perc": 45,
+            "perc": 30,
             "starter": false
           },
           {
             "nome": "Gollini",
-            "perc": 1,
+            "perc": 5,
             "starter": false
           },
           {
@@ -20751,6 +20751,11 @@
             "starter": false
           },
           {
+            "nome": "Mora",
+            "perc": 60,
+            "starter": false
+          },
+          {
             "nome": "Arena A.",
             "perc": 20,
             "starter": false
@@ -20758,11 +20763,6 @@
           {
             "nome": "Castro S.",
             "perc": 50,
-            "starter": false
-          },
-          {
-            "nome": "Dybala",
-            "perc": 60,
             "starter": false
           }
         ]
@@ -20922,7 +20922,7 @@
           },
           {
             "nome": "Belghali",
-            "perc": 65,
+            "perc": 55,
             "starter": true
           },
           {
@@ -20971,11 +20971,6 @@
             "starter": false
           },
           {
-            "nome": "Biraghi",
-            "perc": 15,
-            "starter": false
-          },
-          {
             "nome": "Rodriguez R.",
             "perc": 20,
             "starter": false
@@ -20983,6 +20978,11 @@
           {
             "nome": "Patterson",
             "perc": 40,
+            "starter": false
+          },
+          {
+            "nome": "Fortini",
+            "perc": 30,
             "starter": false
           },
           {
@@ -21202,12 +21202,12 @@
           },
           {
             "nome": "Frendrup",
-            "perc": 70,
+            "perc": 55,
             "starter": true
           },
           {
             "nome": "Traorè Hj.",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
@@ -21222,7 +21222,7 @@
           },
           {
             "nome": "El Shaarawy",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
@@ -21331,7 +21331,7 @@
           },
           {
             "nome": "Pavlovic",
-            "perc": 75,
+            "perc": 70,
             "starter": true
           },
           {
@@ -21361,7 +21361,7 @@
           },
           {
             "nome": "Pulisic",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -21622,6 +21622,11 @@
           {
             "nome": "Helland",
             "perc": 55,
+            "starter": false
+          },
+          {
+            "nome": "De Silvestri",
+            "perc": 20,
             "starter": false
           },
           {
@@ -22397,11 +22402,6 @@
           {
             "nome": "Sarr P.",
             "perc": 60,
-            "starter": false
-          },
-          {
-            "nome": "Gonzalez N.",
-            "perc": 40,
             "starter": false
           },
           {
