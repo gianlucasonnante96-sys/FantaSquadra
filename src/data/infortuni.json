@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-20T15:55:56.405Z",
+  "aggiornato": "2026-11-20T22:58:39.102Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -7,12 +7,6 @@
       "stato": "out-lungo",
       "rientro": "30/11",
       "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla fine di novembre."
-    },
-    "Gaetano": {
-      "squadra": "Atalanta",
-      "stato": "out",
-      "rientro": "30/10",
-      "descrizione": "il centrocampista frenato nella gara di fine ottobre a Firenze per una distrazione di medio grado ai muscoli adduttori della coscia destra, sta provando a recuperare già per la sfida contro l'Inter alla ripresa del campionato."
     },
     "Kristensen T.": {
       "squadra": "Atalanta",
@@ -56,12 +50,6 @@
       "rientro": "In settimana",
       "descrizione": "Lavoro a parte negli ultimi giorni per l'attaccante a causa di un affaticamento muscolare alla gamba. Out contro Parma, Milan e Monza, forfait anche per domenica contro l'Udinese. Da valutare rientro tra i convocati in vista della sfida di campionato nella 13a giornata."
     },
-    "Mina": {
-      "squadra": "Cagliari",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out anche alla ripresa del campionato contro il Como. Da valutare in vista della 13a giornata di A."
-    },
     "Felici": {
       "squadra": "Cagliari",
       "stato": "out-lungo",
@@ -73,6 +61,12 @@
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il regista dei sardi in tribuna nel turno precedente di A contro il Frosinone per il perdurare di una fastidiosa lombalgia. Assente anche alla ripresa del campionato contro il Como, da valutare in vista della 13a di campionato."
+    },
+    "Mina": {
+      "squadra": "Cagliari",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out anche alla ripresa del campionato contro il Como. Da valutare in vista della 13a giornata di A."
     },
     "Liteta": {
       "squadra": "Cagliari",
@@ -104,29 +98,17 @@
       "rientro": "30/01",
       "descrizione": "l'attaccante si sottoporrà a nuove cure per un problema osseo alla gamba destra. Ipotizziamo un recupero da fine gennaio, ma la situazione rimane da monitorare."
     },
-    "Parisi": {
-      "squadra": "Fiorentina",
-      "stato": "out",
-      "rientro": "30/12",
-      "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da fine dicembre."
-    },
     "Pongracic": {
       "squadra": "Fiorentina",
       "stato": "out",
       "rientro": "30/11",
       "descrizione": "il difensore il 15 ottobre contro l'Inter ha rimediato una lesione mio-fasciale a carico del capo lungo del bicipite femorale della coscia destra, rientro dalla fine di novembre."
     },
-    "Raimondo": {
-      "squadra": "Frosinone",
+    "Parisi": {
+      "squadra": "Fiorentina",
       "stato": "out",
-      "rientro": "15/12",
-      "descrizione": "l'attaccante KO l'1 novembre contro il Toro vittima di una lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Iniziate le cure del caso, proverà a tornare già da metà dicembre in campo."
-    },
-    "Grillitsch": {
-      "squadra": "Frosinone",
-      "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Può tornare convocabile dalla fine di novembre."
+      "rientro": "30/12",
+      "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da fine dicembre."
     },
     "Terzic": {
       "squadra": "Frosinone",
@@ -134,17 +116,29 @@
       "rientro": "In settimana",
       "descrizione": "il terzino out nel turno precedente di campionato a Cagliari per un fastidio fisico che rimane da valutare in vista della trasferta di Milano alla ripresa del campionato."
     },
+    "Grillitsch": {
+      "squadra": "Frosinone",
+      "stato": "out",
+      "rientro": "30/11",
+      "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Può tornare convocabile dalla fine di novembre."
+    },
+    "Raimondo": {
+      "squadra": "Frosinone",
+      "stato": "out",
+      "rientro": "15/12",
+      "descrizione": "l'attaccante KO l'1 novembre contro il Toro vittima di una lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Iniziate le cure del caso, proverà a tornare già da metà dicembre in campo."
+    },
     "Bonny": {
       "squadra": "Inter",
       "stato": "out",
       "rientro": "01/12",
       "descrizione": "L'attaccante ai box per un risentimento muscolare ai flessori della coscia destra, rientro possibile dall'inizio di dicembre."
     },
-    "Kalulu": {
+    "Locatelli": {
       "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "Il terzino bianconero ai box per una lesione ai muscoli ischiocrurali della gamba sinistra, recuperabile dalla fine di novembre."
+      "stato": "out-lungo",
+      "rientro": "01/02",
+      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
     },
     "Gonzalez N.": {
       "squadra": "Juventus",
@@ -164,11 +158,11 @@
       "rientro": "01/01",
       "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
     },
-    "Locatelli": {
+    "Kalulu": {
       "squadra": "Juventus",
-      "stato": "out-lungo",
-      "rientro": "01/02",
-      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
+      "stato": "out",
+      "rientro": "30/11",
+      "descrizione": "Il terzino bianconero ai box per una lesione ai muscoli ischiocrurali della gamba sinistra, recuperabile dalla fine di novembre."
     },
     "Yildiz": {
       "squadra": "Juventus",
@@ -200,17 +194,17 @@
       "rientro": "30/12",
       "descrizione": "il difensore KO l'8 novembre a Napoli vittima di una lesione muscolare di secondo grado al flessore della gamba. Recuperabile dalla fine di dicembre."
     },
-    "Pierotti": {
-      "squadra": "Lecce",
-      "stato": "out-lungo",
-      "rientro": "01/01",
-      "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre, poi operato a inizio novembre. Lungo stop, ipotizziamo un rientro in campo da gennaio."
-    },
     "Ilic": {
       "squadra": "Lecce",
       "stato": "out",
       "rientro": "01/04",
       "descrizione": "il regista dei salentini KO l'11 ottobre in casa contro il Bologna vittima di una lesione miotendinea del retto femorale sinistro con lesione parziale del tendine, rientro da aprile."
+    },
+    "Pierotti": {
+      "squadra": "Lecce",
+      "stato": "out-lungo",
+      "rientro": "01/01",
+      "descrizione": "l'ala offensiva dei salentini ferma ai box per la frattura composta del malleolo mediale della caviglia destra rimediata nella seconda metà di ottobre, poi operato a inizio novembre. Lungo stop, ipotizziamo un rientro in campo da gennaio."
     },
     "Gabbia": {
       "squadra": "Milan",
@@ -302,11 +296,11 @@
       "rientro": "15/12",
       "descrizione": "l'attaccante KO il 7 novembre contro il Bologna vittima in campo di una lussazione acromion-claveare della spalla destra. Recuperabile dalla metà di dicembre."
     },
-    "Diego Carlos": {
+    "Drobnic": {
       "squadra": "Parma",
-      "stato": "out",
-      "rientro": "N/D",
-      "descrizione": "Il difensore sabato scorso in allenamento ha lamentato un fastidio muscolare alla gamba e ora a forte rischio la sua convocazione in campionato contro la Roma."
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il difensore non ha recuperato da un problema al piede e non è tra i convocati per sabato contro la Roma. Da valutare in vista della 13a giornata di campionato."
     },
     "Rensch": {
       "squadra": "Roma",
