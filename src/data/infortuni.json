@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-21T15:06:55.601Z",
+  "aggiornato": "2026-11-21T22:03:03.527Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -254,17 +254,17 @@
       "rientro": "In settimana",
       "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, da valutare nella sosta in vista della 12a giornata contro la Fiorentina."
     },
+    "Meret": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "01/01",
+      "descrizione": "Il portiere KO il 19 novembre in allenamento vittima della frattura della quinta vertebra lombare e ipotizziamo un rientro in campo da gennaio."
+    },
     "Badiashile": {
       "squadra": "Napoli",
       "stato": "out",
       "rientro": "30/11",
       "descrizione": "il difensore KO il 24 ottobre contro la Roma per una lesione distrattiva di medio grado del retto femorale destro, recuperabile dalla fine di novembre."
-    },
-    "Buongiorno": {
-      "squadra": "Napoli",
-      "stato": "out-lungo",
-      "rientro": "15/07",
-      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
     "Santos A.": {
       "squadra": "Napoli",
@@ -278,11 +278,11 @@
       "rientro": "30/11",
       "descrizione": "il capitano azzurro costretto al cambio l'1 novembre contro la Juve per una lesione distrattiva del muscolo adduttore lungo della coscia sinistra, tentativo di recupero dalla fine di novembre."
     },
-    "Meret": {
+    "Buongiorno": {
       "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/01",
-      "descrizione": "Il portiere KO il 19 novembre in allenamento vittima della frattura della quinta vertebra lombare e ipotizziamo un rientro in campo da gennaio."
+      "stato": "out-lungo",
+      "rientro": "15/07",
+      "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
     "Lobotka": {
       "squadra": "Napoli",
@@ -314,23 +314,11 @@
       "rientro": "30/12",
       "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha rimediato una lesione di alto grado in corrispondenza della giunzione muscolo - tendinea distale del muscolo semitendinoso della coscia destra. Stop lungo, ipotizziamo un rientro dalla fine di dicembre."
     },
-    "Boloca": {
-      "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "30/11",
-      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da fine novembre."
-    },
-    "Konè I.": {
+    "Leysen F.": {
       "squadra": "Sassuolo",
       "stato": "out-lungo",
-      "rientro": "01/06",
-      "descrizione": "il centrocampista canadese vittima a giugno nella gara dei Mondiali di una rottura di tibia e perone. Operato, punta a tornare in campo da fine dicembre."
-    },
-    "Adzic": {
-      "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "15/11",
-      "descrizione": "Il centrocampista fermo da metà novembre a causa di un fastidio al ginocchio e non ci sarà nel prossimo turno di campionato. Tempi di recupero da valutare."
+      "rientro": "01/04",
+      "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
     },
     "Volpato": {
       "squadra": "Sassuolo",
@@ -338,11 +326,23 @@
       "rientro": "01/11",
       "descrizione": "l'ala offensiva dei neroverdi out dal match del 2 novembre contro la Fiorentina per un problema muscolare alla gamba. Da valutare, forfait anche nel prossimo turno di campionato contro il Genoa."
     },
-    "Leysen F.": {
+    "Adzic": {
+      "squadra": "Sassuolo",
+      "stato": "dubbio",
+      "rientro": "15/11",
+      "descrizione": "Il centrocampista fermo da metà novembre a causa di un fastidio al ginocchio e non ci sarà nel prossimo turno di campionato. Tempi di recupero da valutare."
+    },
+    "Konè I.": {
       "squadra": "Sassuolo",
       "stato": "out-lungo",
-      "rientro": "01/04",
-      "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
+      "rientro": "01/06",
+      "descrizione": "il centrocampista canadese vittima a giugno nella gara dei Mondiali di una rottura di tibia e perone. Operato, punta a tornare in campo da fine dicembre."
+    },
+    "Boloca": {
+      "squadra": "Sassuolo",
+      "stato": "dubbio",
+      "rientro": "30/11",
+      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da fine novembre."
     },
     "Bertola": {
       "squadra": "Udinese",
