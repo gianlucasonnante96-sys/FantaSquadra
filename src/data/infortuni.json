@@ -1,13 +1,7 @@
 {
-  "aggiornato": "2026-11-22T15:04:26.905Z",
+  "aggiornato": "2026-11-22T22:19:18.851Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
-    "Kossounou": {
-      "squadra": "Atalanta",
-      "stato": "out-lungo",
-      "rientro": "30/11",
-      "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla fine di novembre."
-    },
     "Hien": {
       "squadra": "Atalanta",
       "stato": "out-lungo",
@@ -19,6 +13,12 @@
       "stato": "out",
       "rientro": "01/10",
       "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Recuperabile da dicembre."
+    },
+    "Kossounou": {
+      "squadra": "Atalanta",
+      "stato": "out-lungo",
+      "rientro": "30/11",
+      "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla fine di novembre."
     },
     "Happonen": {
       "squadra": "Bologna",
@@ -242,11 +242,17 @@
       "rientro": "In settimana",
       "descrizione": "Il difensore ai box per noie fisiche, assente nelle ultime sfide di campionato e ora da valutare in vista della 13a giornata di campionato."
     },
+    "Ngonge": {
+      "squadra": "Monza",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "L'attaccante out lunedì contro la Fiorentina per noie fisiche. Da valutare."
+    },
     "Folorunsho": {
       "squadra": "Monza",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, da valutare nella sosta in vista della 12a giornata contro la Fiorentina."
+      "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, da valutare in vista della 13a giornata di campionato."
     },
     "Badiashile": {
       "squadra": "Napoli",
