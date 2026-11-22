@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-21T22:03:03.527Z",
+  "aggiornato": "2026-11-22T15:04:26.905Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Kossounou": {
@@ -8,11 +8,11 @@
       "rientro": "30/11",
       "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla fine di novembre."
     },
-    "Kristensen T.": {
+    "Hien": {
       "squadra": "Atalanta",
-      "stato": "out",
-      "rientro": "15/11",
-      "descrizione": "il difensore costretto al cambio il 29 ottobre a Firenze dopo pochi minuti di gara a causa di una distrazione di basso grado ai muscoli flessori della coscia sinistra. Recuperabile dalla seconda metà di novembre, ma sta provando a esserci già alla ripresa del campionato contro l'Inter."
+      "stato": "out-lungo",
+      "rientro": "30/06",
+      "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla fine di novembre."
     },
     "Pompei": {
       "squadra": "Atalanta",
@@ -20,23 +20,17 @@
       "rientro": "01/10",
       "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Recuperabile da dicembre."
     },
-    "Hien": {
-      "squadra": "Atalanta",
-      "stato": "out-lungo",
-      "rientro": "30/06",
-      "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla fine di novembre."
-    },
-    "Holm": {
-      "squadra": "Bologna",
-      "stato": "out-lungo",
-      "rientro": "30/02",
-      "descrizione": "Lo svedese KO in Nazionale il 26 settembre vittima di un problema al tendine della coscia destra. Ha deciso di operarsi e affronterà un lungo stop. Ipotesi di rientro in campo da fine febbraio."
-    },
-    "Miranda J.": {
+    "Happonen": {
       "squadra": "Bologna",
       "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "il terzino KO a Parma il 7 novembre per una lesione di primo grado al bicipite femorale della coscia sinistra, tentativo rientro in campo dalla fine di novembre."
+      "rientro": "15/12",
+      "descrizione": "Il portiere ai box per un trauma distorsivo del quinto dito della mano sinistra, recuperabile dalla prima metà di dicembre."
+    },
+    "Enem": {
+      "squadra": "Bologna",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Lavoro a parte negli ultimi giorni per l'attaccante a causa di un affaticamento muscolare alla gamba. Out contro Parma, Milan e Monza, forfait anche per domenica contro l'Udinese. Da valutare rientro tra i convocati in vista della sfida di campionato nella 13a giornata."
     },
     "El Azzouzi O.": {
       "squadra": "Bologna",
@@ -44,11 +38,17 @@
       "rientro": "01/12",
       "descrizione": "il centrocampista ai box per una lesione all'adduttore della coscia sinistra, recuperabile da inizio dicembre."
     },
-    "Enem": {
+    "Miranda J.": {
       "squadra": "Bologna",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "Lavoro a parte negli ultimi giorni per l'attaccante a causa di un affaticamento muscolare alla gamba. Out contro Parma, Milan e Monza, forfait anche per domenica contro l'Udinese. Da valutare rientro tra i convocati in vista della sfida di campionato nella 13a giornata."
+      "stato": "out",
+      "rientro": "30/11",
+      "descrizione": "il terzino KO a Parma il 7 novembre per una lesione di primo grado al bicipite femorale della coscia sinistra, tentativo rientro in campo dalla fine di novembre."
+    },
+    "Holm": {
+      "squadra": "Bologna",
+      "stato": "out-lungo",
+      "rientro": "30/02",
+      "descrizione": "Lo svedese KO in Nazionale il 26 settembre vittima di un problema al tendine della coscia destra. Ha deciso di operarsi e affronterà un lungo stop. Ipotesi di rientro in campo da fine febbraio."
     },
     "Felici": {
       "squadra": "Cagliari",
@@ -62,17 +62,17 @@
       "rientro": "In settimana",
       "descrizione": "Il regista dei sardi in tribuna nel turno precedente di A contro il Frosinone per il perdurare di una fastidiosa lombalgia. Assente anche alla ripresa del campionato contro il Como, da valutare in vista della 13a di campionato."
     },
-    "Liteta": {
-      "squadra": "Cagliari",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il centrocampista out a Como sabato per noie fisiche, da valutare in vista della 13a di campionato."
-    },
     "Mina": {
       "squadra": "Cagliari",
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "il colombiano condizionato da una vecchia ferita alla gamba (microlesione muscolare al bicipite femorale), out anche alla ripresa del campionato contro il Como. Da valutare in vista della 13a giornata di A."
+    },
+    "Liteta": {
+      "squadra": "Cagliari",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il centrocampista out a Como sabato per noie fisiche, da valutare in vista della 13a di campionato."
     },
     "Addai": {
       "squadra": "Como",
@@ -110,11 +110,11 @@
       "rientro": "30/12",
       "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da fine dicembre."
     },
-    "Terzic": {
+    "Raimondo": {
       "squadra": "Frosinone",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il terzino out nel turno precedente di campionato a Cagliari per un fastidio fisico che rimane da valutare in vista della trasferta di Milano alla ripresa del campionato."
+      "stato": "out",
+      "rientro": "15/12",
+      "descrizione": "l'attaccante KO l'1 novembre contro il Toro vittima di una lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Iniziate le cure del caso, proverà a tornare già da metà dicembre in campo."
     },
     "Grillitsch": {
       "squadra": "Frosinone",
@@ -122,29 +122,17 @@
       "rientro": "30/11",
       "descrizione": "il centrocampista non convocato dalla gara di Genova (12 settembre) a causa di una sindrome retto-adduttoria, ha poi deciso di operarsi. Può tornare convocabile dalla fine di novembre."
     },
-    "Raimondo": {
-      "squadra": "Frosinone",
-      "stato": "out",
-      "rientro": "15/12",
-      "descrizione": "l'attaccante KO l'1 novembre contro il Toro vittima di una lesione multilegamentosa contusivo-distorsiva della caviglia sinistra. Iniziate le cure del caso, proverà a tornare già da metà dicembre in campo."
-    },
     "Bonny": {
       "squadra": "Inter",
       "stato": "out",
       "rientro": "01/12",
       "descrizione": "L'attaccante ai box per un risentimento muscolare ai flessori della coscia destra, rientro possibile dall'inizio di dicembre."
     },
-    "Locatelli": {
-      "squadra": "Juventus",
-      "stato": "out-lungo",
-      "rientro": "01/02",
-      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
-    },
     "Gonzalez N.": {
       "squadra": "Juventus",
       "stato": "dubbio",
       "rientro": "In settimana",
-      "descrizione": "L'argentino sta ultimando il recupero dal problema muscolare al polpaccio destro che lo ha frenato nelle ultime settimane. Da valutare, ma difficile la convocazione già domenica contro il Venezia."
+      "descrizione": "L'argentino sta ultimando il recupero dal problema muscolare al polpaccio destro che lo ha frenato nelle ultime settimane. Da valutare, può tornare convocabile dalla 13a giornata di campionato."
     },
     "Grabara": {
       "squadra": "Juventus",
@@ -152,11 +140,17 @@
       "rientro": "01/04",
       "descrizione": "Il portiere out dal 20 settembre per una lesione al crociato anteriore del ginocchio destro. Operazione chirurgica e lungo stop, rientro da aprile."
     },
-    "Thuram K.": {
+    "Yildiz": {
       "squadra": "Juventus",
       "stato": "out-lungo",
-      "rientro": "01/01",
-      "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
+      "rientro": "30/12",
+      "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro. Rientro in campo da fine di dicembre."
+    },
+    "Locatelli": {
+      "squadra": "Juventus",
+      "stato": "out-lungo",
+      "rientro": "01/02",
+      "descrizione": "il metronomo del centrocampo bianconero ha rimediato la rottura del menisco esterno del ginocchio. Verrà operato a Lione a stretto giro. Lungo stop e possibilità di rivederlo in campo da febbraio."
     },
     "Kalulu": {
       "squadra": "Juventus",
@@ -164,11 +158,11 @@
       "rientro": "30/11",
       "descrizione": "Il terzino bianconero ai box per una lesione ai muscoli ischiocrurali della gamba sinistra, recuperabile dalla fine di novembre."
     },
-    "Yildiz": {
+    "Thuram K.": {
       "squadra": "Juventus",
       "stato": "out-lungo",
-      "rientro": "30/12",
-      "descrizione": "l'attaccante turco, dopo la gara di Frosinone (23 agosto), ha lamentato un problema al piede. Operato il 31 agosto di osteosintesi della frattura della base del V metatarso del piede sinistro. Rientro in campo da fine di dicembre."
+      "rientro": "01/01",
+      "descrizione": "il centrocampista condizionato da una sindrome femoro-rotulea e, dopo un consulto medico a fine agosto, è stato sottoposto il 3 settembre a operazione chirurgica. Lungo stop, ipotizziamo un rientro da gennaio."
     },
     "Tavares N.": {
       "squadra": "Lazio",
@@ -254,12 +248,6 @@
       "rientro": "In settimana",
       "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, da valutare nella sosta in vista della 12a giornata contro la Fiorentina."
     },
-    "Meret": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "01/01",
-      "descrizione": "Il portiere KO il 19 novembre in allenamento vittima della frattura della quinta vertebra lombare e ipotizziamo un rientro in campo da gennaio."
-    },
     "Badiashile": {
       "squadra": "Napoli",
       "stato": "out",
@@ -272,11 +260,11 @@
       "rientro": "01/12",
       "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
     },
-    "Di Lorenzo": {
+    "Lobotka": {
       "squadra": "Napoli",
       "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "il capitano azzurro costretto al cambio l'1 novembre contro la Juve per una lesione distrattiva del muscolo adduttore lungo della coscia sinistra, tentativo di recupero dalla fine di novembre."
+      "rientro": "15/12",
+      "descrizione": "lo slovacco il 28 ottobre vittima a Monza di una lesione della sindesmosi tibio-peroneale senza instabilità, associata a lesione di basso grado del LPAA della caviglia sinistra. Recuperabile dalla metà di dicembre."
     },
     "Buongiorno": {
       "squadra": "Napoli",
@@ -284,11 +272,17 @@
       "rientro": "15/07",
       "descrizione": "il difensore operato nella seconda metà di luglio al menisco del ginocchio destro. Sta recuperando lentamente, ipotizziamo possa tornare arruolabile da fine dicembre."
     },
-    "Lobotka": {
+    "Di Lorenzo": {
       "squadra": "Napoli",
       "stato": "out",
-      "rientro": "15/12",
-      "descrizione": "lo slovacco il 28 ottobre vittima a Monza di una lesione della sindesmosi tibio-peroneale senza instabilità, associata a lesione di basso grado del LPAA della caviglia sinistra. Recuperabile dalla metà di dicembre."
+      "rientro": "30/11",
+      "descrizione": "il capitano azzurro costretto al cambio l'1 novembre contro la Juve per una lesione distrattiva del muscolo adduttore lungo della coscia sinistra, tentativo di recupero dalla fine di novembre."
+    },
+    "Meret": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "01/01",
+      "descrizione": "Il portiere KO il 19 novembre in allenamento vittima della frattura della quinta vertebra lombare e ipotizziamo un rientro in campo da gennaio."
     },
     "Romero D.": {
       "squadra": "Parma",
@@ -314,23 +308,11 @@
       "rientro": "30/12",
       "descrizione": "Il centrocampista dei giallorossi il 20 ottobre in Champions League ha rimediato una lesione di alto grado in corrispondenza della giunzione muscolo - tendinea distale del muscolo semitendinoso della coscia destra. Stop lungo, ipotizziamo un rientro dalla fine di dicembre."
     },
-    "Leysen F.": {
-      "squadra": "Sassuolo",
-      "stato": "out-lungo",
-      "rientro": "01/04",
-      "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
-    },
-    "Volpato": {
+    "Boloca": {
       "squadra": "Sassuolo",
       "stato": "dubbio",
-      "rientro": "01/11",
-      "descrizione": "l'ala offensiva dei neroverdi out dal match del 2 novembre contro la Fiorentina per un problema muscolare alla gamba. Da valutare, forfait anche nel prossimo turno di campionato contro il Genoa."
-    },
-    "Adzic": {
-      "squadra": "Sassuolo",
-      "stato": "dubbio",
-      "rientro": "15/11",
-      "descrizione": "Il centrocampista fermo da metà novembre a causa di un fastidio al ginocchio e non ci sarà nel prossimo turno di campionato. Tempi di recupero da valutare."
+      "rientro": "30/11",
+      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da fine novembre."
     },
     "Konè I.": {
       "squadra": "Sassuolo",
@@ -338,17 +320,35 @@
       "rientro": "01/06",
       "descrizione": "il centrocampista canadese vittima a giugno nella gara dei Mondiali di una rottura di tibia e perone. Operato, punta a tornare in campo da fine dicembre."
     },
-    "Boloca": {
+    "Adzic": {
       "squadra": "Sassuolo",
       "stato": "dubbio",
-      "rientro": "30/11",
-      "descrizione": "il centrocampista fuori causa per un problema al ginocchio e fuori causa in questo inizio di campionato. Da valutare rientro da fine novembre."
+      "rientro": "15/11",
+      "descrizione": "Il centrocampista fermo da metà novembre a causa di un fastidio al ginocchio e non ci sarà nel prossimo turno di campionato. Tempi di recupero da valutare."
+    },
+    "Volpato": {
+      "squadra": "Sassuolo",
+      "stato": "dubbio",
+      "rientro": "01/11",
+      "descrizione": "l'ala offensiva dei neroverdi out dal match del 2 novembre contro la Fiorentina per un problema muscolare alla gamba. Da valutare, forfait anche nel prossimo turno di campionato contro il Genoa."
+    },
+    "Leysen F.": {
+      "squadra": "Sassuolo",
+      "stato": "out-lungo",
+      "rientro": "01/04",
+      "descrizione": "il difensore KO l'11 ottobre contro il Milan vittima di una lesione al crociato anteriore del ginocchio sinistro. Lungo stop, ipotesi rientro in campo da aprile."
     },
     "Bertola": {
       "squadra": "Udinese",
       "stato": "dubbio",
       "rientro": "15/11",
       "descrizione": "Il difensore alle prese con un problema muscolare alla coscia destra dalla metà di novembre, condizioni da valutare ma sarà out nel prossimo turno di campionato."
+    },
+    "Davis K.": {
+      "squadra": "Udinese",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "l'attaccante condizionato da noie muscolari e out a Bologna domenica in campionato."
     },
     "Gueye": {
       "squadra": "Udinese",
@@ -362,11 +362,29 @@
       "rientro": "30/11",
       "descrizione": "il difensore operato in estate per il perdurare di un problema all'anca e recuperabile dalla fine di novembre."
     },
+    "Basic": {
+      "squadra": "Venezia",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il centrocampista non convocato per domenica contro la Juventus per un affaticamento muscolare alla gamba. Da valutare in vista della 13a di campionato."
+    },
+    "Correia T.": {
+      "squadra": "Venezia",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il difensore assente domenica contro la Juventus per noie fisiche. Da valutare in vista della prossima giornata di campionato."
+    },
     "Franjic": {
       "squadra": "Venezia",
       "stato": "out-lungo",
       "rientro": "30/08",
       "descrizione": "il difensore costretto al cambio a Milano contro i rossoneri a fine agosto per un guaio alla spalla che ha richiesto l'intervento chirurgico. Lungo stop e rientro dalla metà di dicembre."
+    },
+    "Mazzocchi": {
+      "squadra": "Venezia",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "Il cursore di fascia dei lagunari non convocato per domenica contro la Juventus per un risentimento muscolare alla gamba. Da valutare."
     }
   }
 }

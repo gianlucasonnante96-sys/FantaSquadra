@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-21T22:02:57.756Z",
+  "aggiornato": "2026-11-22T15:04:21.543Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Lazio": {
@@ -67,6 +67,19 @@
         "W"
       ]
     },
+    "Juventus": {
+      "punti": 21,
+      "g": 12,
+      "gf": 19,
+      "gs": 12,
+      "forma": [
+        "W",
+        "L",
+        "W",
+        "D",
+        "W"
+      ]
+    },
     "Frosinone": {
       "punti": 20,
       "g": 11,
@@ -78,19 +91,6 @@
         "W",
         "W",
         "L"
-      ]
-    },
-    "Juventus": {
-      "punti": 18,
-      "g": 11,
-      "gf": 15,
-      "gs": 12,
-      "forma": [
-        "L",
-        "W",
-        "L",
-        "W",
-        "D"
       ]
     },
     "Napoli": {
@@ -238,15 +238,15 @@
     },
     "Venezia": {
       "punti": 6,
-      "g": 11,
+      "g": 12,
       "gf": 8,
-      "gs": 21,
+      "gs": 25,
       "forma": [
+        "L",
+        "L",
+        "L",
         "W",
-        "L",
-        "L",
-        "L",
-        "W"
+        "L"
       ]
     },
     "Udinese": {
