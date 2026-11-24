@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-24T04:16:12.058Z",
+  "aggiornato": "2026-11-24T18:39:47.547Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -7,15 +7,15 @@
       "squadra": "ROM",
       "ruolo": "A",
       "quotazioneIniziale": 34,
-      "quotazioneAttuale": 37,
-      "fvm": 425
+      "quotazioneAttuale": 40,
+      "fvm": 500
     },
     {
       "nome": "Thuram",
       "squadra": "INT",
       "ruolo": "A",
       "quotazioneIniziale": 29,
-      "quotazioneAttuale": 35,
+      "quotazioneAttuale": 36,
       "fvm": 345
     },
     {
@@ -24,79 +24,95 @@
       "ruolo": "A",
       "quotazioneIniziale": 35,
       "quotazioneAttuale": 32,
-      "fvm": 345
-    },
-    {
-      "nome": "Paz N.",
-      "squadra": "COM",
-      "ruolo": "C",
-      "quotazioneIniziale": 30,
-      "quotazioneAttuale": 29,
-      "fvm": 220
+      "fvm": 340
     },
     {
       "nome": "Rabiot",
       "squadra": "MIL",
       "ruolo": "C",
       "quotazioneIniziale": 22,
-      "quotazioneAttuale": 29,
-      "fvm": 225
+      "quotazioneAttuale": 30,
+      "fvm": 240
     },
     {
       "nome": "Pulisic",
       "squadra": "MIL",
       "ruolo": "C",
       "quotazioneIniziale": 25,
-      "quotazioneAttuale": 28,
-      "fvm": 180
-    },
-    {
-      "nome": "Douvikas",
-      "squadra": "COM",
-      "ruolo": "A",
-      "quotazioneIniziale": 20,
-      "quotazioneAttuale": 27,
-      "fvm": 143
-    },
-    {
-      "nome": "Calhanoglu",
-      "squadra": "INT",
-      "ruolo": "C",
-      "quotazioneIniziale": 27,
-      "quotazioneAttuale": 27,
+      "quotazioneAttuale": 29,
       "fvm": 200
+    },
+    {
+      "nome": "Paz N.",
+      "squadra": "COM",
+      "ruolo": "C",
+      "quotazioneIniziale": 30,
+      "quotazioneAttuale": 28,
+      "fvm": 210
     },
     {
       "nome": "Krstovic",
       "squadra": "ATA",
       "ruolo": "A",
       "quotazioneIniziale": 18,
-      "quotazioneAttuale": 25,
-      "fvm": 186
+      "quotazioneAttuale": 26,
+      "fvm": 184
     },
     {
-      "nome": "Hojlund",
-      "squadra": "NAP",
+      "nome": "Douvikas",
+      "squadra": "COM",
       "ruolo": "A",
-      "quotazioneIniziale": 28,
-      "quotazioneAttuale": 24,
-      "fvm": 175
+      "quotazioneIniziale": 20,
+      "quotazioneAttuale": 26,
+      "fvm": 140
+    },
+    {
+      "nome": "Calhanoglu",
+      "squadra": "INT",
+      "ruolo": "C",
+      "quotazioneIniziale": 27,
+      "quotazioneAttuale": 26,
+      "fvm": 180
     },
     {
       "nome": "Mora",
       "squadra": "ROM",
       "ruolo": "C",
       "quotazioneIniziale": 19,
-      "quotazioneAttuale": 24,
-      "fvm": 80
+      "quotazioneAttuale": 26,
+      "fvm": 111
+    },
+    {
+      "nome": "Esposito F.P.",
+      "squadra": "INT",
+      "ruolo": "A",
+      "quotazioneIniziale": 16,
+      "quotazioneAttuale": 25,
+      "fvm": 125
     },
     {
       "nome": "De Bruyne",
       "squadra": "NAP",
       "ruolo": "C",
       "quotazioneIniziale": 15,
+      "quotazioneAttuale": 24,
+      "fvm": 90
+    },
+    {
+      "nome": "Varela G.",
+      "squadra": "MON",
+      "ruolo": "A",
+      "quotazioneIniziale": 3,
       "quotazioneAttuale": 23,
-      "fvm": 111
+      "fvm": 200
+    },
+    {
+      "nome": "Hojlund",
+      "squadra": "NAP",
+      "ruolo": "A",
+      "quotazioneIniziale": 28,
+      "quotazioneAttuale": 23,
+      "fvm": 165
     },
     {
       "nome": "Baturina",
@@ -104,7 +120,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 19,
       "quotazioneAttuale": 22,
-      "fvm": 155
+      "fvm": 120
     },
     {
       "nome": "Dimarco",
@@ -115,12 +131,12 @@
       "fvm": 135
     },
     {
-      "nome": "Zaccagni",
-      "squadra": "LAZ",
-      "ruolo": "C",
-      "quotazioneIniziale": 16,
+      "nome": "Soulè",
+      "squadra": "ROM",
+      "ruolo": "A",
+      "quotazioneIniziale": 12,
       "quotazioneAttuale": 22,
-      "fvm": 117
+      "fvm": 89
     },
     {
       "nome": "Calò",
@@ -128,23 +144,47 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 21,
-      "fvm": 100
+      "fvm": 95
     },
     {
-      "nome": "Esposito F.P.",
-      "squadra": "INT",
-      "ruolo": "A",
+      "nome": "Zaccagni",
+      "squadra": "LAZ",
+      "ruolo": "C",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 21,
-      "fvm": 88
+      "fvm": 110
     },
     {
-      "nome": "Soulè",
-      "squadra": "ROM",
+      "nome": "Noslin",
+      "squadra": "LAZ",
       "ruolo": "A",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 21,
+      "fvm": 130
+    },
+    {
+      "nome": "McTominay",
+      "squadra": "NAP",
+      "ruolo": "C",
+      "quotazioneIniziale": 28,
+      "quotazioneAttuale": 21,
+      "fvm": 170
+    },
+    {
+      "nome": "Moreira",
+      "squadra": "MIL",
+      "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 21,
-      "fvm": 90
+      "fvm": 105
+    },
+    {
+      "nome": "Woltemade",
+      "squadra": "JUV",
+      "ruolo": "A",
+      "quotazioneIniziale": 23,
+      "quotazioneAttuale": 21,
+      "fvm": 57
     },
     {
       "nome": "Orsolini",
@@ -152,23 +192,39 @@
       "ruolo": "C",
       "quotazioneIniziale": 26,
       "quotazioneAttuale": 20,
-      "fvm": 125
+      "fvm": 115
     },
     {
-      "nome": "Varela G.",
-      "squadra": "MON",
-      "ruolo": "A",
-      "quotazioneIniziale": 3,
+      "nome": "Ramon",
+      "squadra": "COM",
+      "ruolo": "D",
+      "quotazioneIniziale": 10,
       "quotazioneAttuale": 20,
-      "fvm": 168
+      "fvm": 65
     },
     {
-      "nome": "McTominay",
-      "squadra": "NAP",
+      "nome": "Isaksen",
+      "squadra": "LAZ",
       "ruolo": "C",
-      "quotazioneIniziale": 28,
+      "quotazioneIniziale": 9,
       "quotazioneAttuale": 20,
-      "fvm": 145
+      "fvm": 88
+    },
+    {
+      "nome": "Ramos G.",
+      "squadra": "MIL",
+      "ruolo": "A",
+      "quotazioneIniziale": 27,
+      "quotazioneAttuale": 20,
+      "fvm": 185
+    },
+    {
+      "nome": "Wesley",
+      "squadra": "ROM",
+      "ruolo": "D",
+      "quotazioneIniziale": 17,
+      "quotazioneAttuale": 20,
+      "fvm": 100
     },
     {
       "nome": "Esposito Se.",
@@ -176,7 +232,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 19,
-      "fvm": 37
+      "fvm": 34
     },
     {
       "nome": "Bremer",
@@ -184,23 +240,15 @@
       "ruolo": "D",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 19,
-      "fvm": 75
+      "fvm": 77
     },
     {
-      "nome": "Isaksen",
+      "nome": "Taylor K.",
       "squadra": "LAZ",
       "ruolo": "C",
-      "quotazioneIniziale": 9,
+      "quotazioneIniziale": 13,
       "quotazioneAttuale": 19,
-      "fvm": 60
-    },
-    {
-      "nome": "Ramos G.",
-      "squadra": "MIL",
-      "ruolo": "A",
-      "quotazioneIniziale": 27,
-      "quotazioneAttuale": 19,
-      "fvm": 182
+      "fvm": 74
     },
     {
       "nome": "Mastantuono",
@@ -208,39 +256,47 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 19,
-      "fvm": 87
+      "fvm": 85
     },
     {
-      "nome": "Moreira",
-      "squadra": "MIL",
+      "nome": "Schmid",
+      "squadra": "FRO",
       "ruolo": "C",
-      "quotazioneIniziale": 12,
+      "quotazioneIniziale": 8,
       "quotazioneAttuale": 19,
-      "fvm": 82
+      "fvm": 59
     },
     {
-      "nome": "Woltemade",
-      "squadra": "JUV",
+      "nome": "Osmajic",
+      "squadra": "GEN",
       "ruolo": "A",
-      "quotazioneIniziale": 23,
+      "quotazioneIniziale": 8,
       "quotazioneAttuale": 19,
-      "fvm": 45
+      "fvm": 100
     },
     {
-      "nome": "Ramon",
-      "squadra": "COM",
-      "ruolo": "D",
-      "quotazioneIniziale": 10,
+      "nome": "Maldini",
+      "squadra": "CAG",
+      "ruolo": "A",
+      "quotazioneIniziale": 5,
       "quotazioneAttuale": 18,
-      "fvm": 41
+      "fvm": 59
     },
     {
-      "nome": "Raimondo",
+      "nome": "Bernardeschi",
+      "squadra": "BOL",
+      "ruolo": "C",
+      "quotazioneIniziale": 9,
+      "quotazioneAttuale": 18,
+      "fvm": 48
+    },
+    {
+      "nome": "Kvernadze",
       "squadra": "FRO",
       "ruolo": "A",
-      "quotazioneIniziale": 7,
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 18,
-      "fvm": 80
+      "fvm": 54
     },
     {
       "nome": "Barella",
@@ -248,31 +304,31 @@
       "ruolo": "C",
       "quotazioneIniziale": 17,
       "quotazioneAttuale": 18,
-      "fvm": 63
+      "fvm": 64
     },
     {
-      "nome": "Zielinski",
-      "squadra": "INT",
-      "ruolo": "C",
-      "quotazioneIniziale": 10,
-      "quotazioneAttuale": 18,
-      "fvm": 42
-    },
-    {
-      "nome": "Taylor K.",
+      "nome": "Frattesi",
       "squadra": "LAZ",
       "ruolo": "C",
-      "quotazioneIniziale": 13,
+      "quotazioneIniziale": 7,
       "quotazioneAttuale": 18,
-      "fvm": 60
+      "fvm": 145
     },
     {
-      "nome": "Noslin",
-      "squadra": "LAZ",
+      "nome": "Kolo Muani",
+      "squadra": "JUV",
       "ruolo": "A",
-      "quotazioneIniziale": 6,
+      "quotazioneIniziale": 26,
       "quotazioneAttuale": 18,
-      "fvm": 100
+      "fvm": 87
+    },
+    {
+      "nome": "Mandas",
+      "squadra": "LAZ",
+      "ruolo": "P",
+      "quotazioneIniziale": 9,
+      "quotazioneAttuale": 18,
+      "fvm": 68
     },
     {
       "nome": "Leao",
@@ -283,20 +339,12 @@
       "fvm": 75
     },
     {
-      "nome": "Wesley",
-      "squadra": "ROM",
-      "ruolo": "D",
-      "quotazioneIniziale": 17,
-      "quotazioneAttuale": 18,
-      "fvm": 87
-    },
-    {
       "nome": "Adams C.",
       "squadra": "TOR",
       "ruolo": "A",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 18,
-      "fvm": 33
+      "fvm": 31
     },
     {
       "nome": "Simeone",
@@ -304,23 +352,23 @@
       "ruolo": "A",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 18,
-      "fvm": 69
+      "fvm": 64
     },
     {
-      "nome": "Schmid",
-      "squadra": "FRO",
+      "nome": "Ekkelenkamp",
+      "squadra": "UDI",
       "ruolo": "C",
-      "quotazioneIniziale": 8,
+      "quotazioneIniziale": 10,
       "quotazioneAttuale": 18,
-      "fvm": 62
+      "fvm": 46
     },
     {
-      "nome": "Maldini",
-      "squadra": "CAG",
+      "nome": "De Ketelaere",
+      "squadra": "ATA",
       "ruolo": "A",
-      "quotazioneIniziale": 5,
+      "quotazioneIniziale": 17,
       "quotazioneAttuale": 17,
-      "fvm": 63
+      "fvm": 75
     },
     {
       "nome": "Miranda J.",
@@ -328,15 +376,15 @@
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 17,
-      "fvm": 41
+      "fvm": 40
     },
     {
-      "nome": "Bernardeschi",
-      "squadra": "BOL",
+      "nome": "Da Cunha",
+      "squadra": "COM",
       "ruolo": "C",
-      "quotazioneIniziale": 9,
+      "quotazioneIniziale": 18,
       "quotazioneAttuale": 17,
-      "fvm": 48
+      "fvm": 65
     },
     {
       "nome": "Ghedjemis",
@@ -344,31 +392,23 @@
       "ruolo": "A",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 17,
-      "fvm": 56
+      "fvm": 53
     },
     {
-      "nome": "Kvernadze",
+      "nome": "Raimondo",
       "squadra": "FRO",
       "ruolo": "A",
-      "quotazioneIniziale": 4,
+      "quotazioneIniziale": 7,
       "quotazioneAttuale": 17,
-      "fvm": 58
+      "fvm": 75
     },
     {
-      "nome": "Kolo Muani",
-      "squadra": "JUV",
-      "ruolo": "A",
-      "quotazioneIniziale": 26,
+      "nome": "Zielinski",
+      "squadra": "INT",
+      "ruolo": "C",
+      "quotazioneIniziale": 10,
       "quotazioneAttuale": 17,
-      "fvm": 82
-    },
-    {
-      "nome": "Mandas",
-      "squadra": "LAZ",
-      "ruolo": "P",
-      "quotazioneIniziale": 9,
-      "quotazioneAttuale": 17,
-      "fvm": 64
+      "fvm": 41
     },
     {
       "nome": "Politano",
@@ -376,70 +416,6 @@
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 17,
-      "fvm": 51
-    },
-    {
-      "nome": "Ekkelenkamp",
-      "squadra": "UDI",
-      "ruolo": "C",
-      "quotazioneIniziale": 10,
-      "quotazioneAttuale": 17,
-      "fvm": 57
-    },
-    {
-      "nome": "Jimenez A.",
-      "squadra": "FIO",
-      "ruolo": "D",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 16,
-      "fvm": 40
-    },
-    {
-      "nome": "Kean",
-      "squadra": "COM",
-      "ruolo": "A",
-      "quotazioneIniziale": 25,
-      "quotazioneAttuale": 16,
-      "fvm": 40
-    },
-    {
-      "nome": "Carlos Augusto",
-      "squadra": "INT",
-      "ruolo": "D",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 16,
-      "fvm": 45
-    },
-    {
-      "nome": "Frattesi",
-      "squadra": "LAZ",
-      "ruolo": "C",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 16,
-      "fvm": 120
-    },
-    {
-      "nome": "Tavares N.",
-      "squadra": "LAZ",
-      "ruolo": "D",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 16,
-      "fvm": 95
-    },
-    {
-      "nome": "Gila",
-      "squadra": "MIL",
-      "ruolo": "D",
-      "quotazioneIniziale": 12,
-      "quotazioneAttuale": 16,
-      "fvm": 35
-    },
-    {
-      "nome": "Pellegrino M.",
-      "squadra": "FIO",
-      "ruolo": "A",
-      "quotazioneIniziale": 15,
-      "quotazioneAttuale": 16,
       "fvm": 50
     },
     {
@@ -447,16 +423,72 @@
       "squadra": "ROM",
       "ruolo": "A",
       "quotazioneIniziale": 14,
-      "quotazioneAttuale": 16,
-      "fvm": 75
+      "quotazioneAttuale": 17,
+      "fvm": 72
     },
     {
-      "nome": "Berardi",
-      "squadra": "SAS",
+      "nome": "Kaiki",
+      "squadra": "COM",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 16,
+      "fvm": 22
+    },
+    {
+      "nome": "Messias",
+      "squadra": "GEN",
+      "ruolo": "C",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 16,
+      "fvm": 22
+    },
+    {
+      "nome": "Carlos Augusto",
+      "squadra": "INT",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 16,
+      "fvm": 43
+    },
+    {
+      "nome": "Tavares N.",
+      "squadra": "LAZ",
+      "ruolo": "D",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 16,
+      "fvm": 90
+    },
+    {
+      "nome": "Gila",
+      "squadra": "MIL",
+      "ruolo": "D",
+      "quotazioneIniziale": 12,
+      "quotazioneAttuale": 16,
+      "fvm": 37
+    },
+    {
+      "nome": "Pellegrino M.",
+      "squadra": "FIO",
       "ruolo": "A",
+      "quotazioneIniziale": 15,
+      "quotazioneAttuale": 16,
+      "fvm": 47
+    },
+    {
+      "nome": "Svilar",
+      "squadra": "ROM",
+      "ruolo": "P",
       "quotazioneIniziale": 18,
       "quotazioneAttuale": 16,
-      "fvm": 70
+      "fvm": 67
+    },
+    {
+      "nome": "Hermoso",
+      "squadra": "ROM",
+      "ruolo": "D",
+      "quotazioneIniziale": 10,
+      "quotazioneAttuale": 16,
+      "fvm": 46
     },
     {
       "nome": "Laurientè",
@@ -464,23 +496,31 @@
       "ruolo": "A",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 16,
-      "fvm": 55
+      "fvm": 52
     },
     {
-      "nome": "Romero D.",
-      "squadra": "PAR",
+      "nome": "Pinamonti",
+      "squadra": "LAZ",
       "ruolo": "A",
-      "quotazioneIniziale": 10,
+      "quotazioneIniziale": 13,
       "quotazioneAttuale": 16,
-      "fvm": 26
+      "fvm": 38
     },
     {
-      "nome": "Osmajic",
-      "squadra": "GEN",
+      "nome": "Robinson J.",
+      "squadra": "MON",
       "ruolo": "A",
-      "quotazioneIniziale": 8,
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 16,
-      "fvm": 85
+      "fvm": 35
+    },
+    {
+      "nome": "Zalewski",
+      "squadra": "ATA",
+      "ruolo": "C",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 15,
+      "fvm": 14
     },
     {
       "nome": "Pobega",
@@ -488,55 +528,39 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 15,
-      "fvm": 22
+      "fvm": 20
     },
     {
-      "nome": "Kaiki",
+      "nome": "Butez",
       "squadra": "COM",
+      "ruolo": "P",
+      "quotazioneIniziale": 16,
+      "quotazioneAttuale": 15,
+      "fvm": 59
+    },
+    {
+      "nome": "Jimenez A.",
+      "squadra": "FIO",
       "ruolo": "D",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 15,
-      "fvm": 21
-    },
-    {
-      "nome": "Da Cunha",
-      "squadra": "COM",
-      "ruolo": "C",
-      "quotazioneIniziale": 18,
-      "quotazioneAttuale": 15,
-      "fvm": 51
-    },
-    {
-      "nome": "Messias",
-      "squadra": "GEN",
-      "ruolo": "C",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 15,
-      "fvm": 18
-    },
-    {
-      "nome": "Diouf",
-      "squadra": "INT",
-      "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 15,
-      "fvm": 50
+      "fvm": 38
     },
     {
-      "nome": "Svilar",
-      "squadra": "ROM",
-      "ruolo": "P",
-      "quotazioneIniziale": 18,
+      "nome": "Kean",
+      "squadra": "COM",
+      "ruolo": "A",
+      "quotazioneIniziale": 25,
       "quotazioneAttuale": 15,
-      "fvm": 65
+      "fvm": 20
     },
     {
-      "nome": "Hermoso",
-      "squadra": "ROM",
-      "ruolo": "D",
-      "quotazioneIniziale": 10,
+      "nome": "Zhegrova",
+      "squadra": "JUV",
+      "ruolo": "C",
+      "quotazioneIniziale": 6,
       "quotazioneAttuale": 15,
-      "fvm": 45
+      "fvm": 18
     },
     {
       "nome": "Castro S.",
@@ -544,15 +568,23 @@
       "ruolo": "A",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 15,
-      "fvm": 42
+      "fvm": 35
     },
     {
-      "nome": "Pinamonti",
-      "squadra": "LAZ",
+      "nome": "Berardi",
+      "squadra": "SAS",
       "ruolo": "A",
-      "quotazioneIniziale": 13,
+      "quotazioneIniziale": 18,
       "quotazioneAttuale": 15,
-      "fvm": 43
+      "fvm": 65
+    },
+    {
+      "nome": "Hainaut",
+      "squadra": "VEN",
+      "ruolo": "D",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 15,
+      "fvm": 29
     },
     {
       "nome": "Molina N.",
@@ -560,23 +592,15 @@
       "ruolo": "D",
       "quotazioneIniziale": 18,
       "quotazioneAttuale": 15,
-      "fvm": 42
+      "fvm": 37
     },
     {
-      "nome": "De Ketelaere",
-      "squadra": "ATA",
+      "nome": "Romero D.",
+      "squadra": "PAR",
       "ruolo": "A",
-      "quotazioneIniziale": 17,
-      "quotazioneAttuale": 14,
-      "fvm": 55
-    },
-    {
-      "nome": "Scamacca",
-      "squadra": "ATA",
-      "ruolo": "A",
-      "quotazioneIniziale": 19,
-      "quotazioneAttuale": 14,
-      "fvm": 41
+      "quotazioneIniziale": 10,
+      "quotazioneAttuale": 15,
+      "fvm": 18
     },
     {
       "nome": "Cambiaghi",
@@ -584,7 +608,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 14,
-      "fvm": 35
+      "fvm": 34
     },
     {
       "nome": "Mendy P.",
@@ -592,15 +616,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 14,
-      "fvm": 30
-    },
-    {
-      "nome": "Butez",
-      "squadra": "COM",
-      "ruolo": "P",
-      "quotazioneIniziale": 16,
-      "quotazioneAttuale": 14,
-      "fvm": 56
+      "fvm": 26
     },
     {
       "nome": "Bisseck",
@@ -608,39 +624,31 @@
       "ruolo": "D",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 14,
-      "fvm": 29
+      "fvm": 27
     },
     {
-      "nome": "Zhegrova",
+      "nome": "Diouf",
+      "squadra": "INT",
+      "ruolo": "C",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 14,
+      "fvm": 45
+    },
+    {
+      "nome": "Sucic P.",
+      "squadra": "INT",
+      "ruolo": "C",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 14,
+      "fvm": 22
+    },
+    {
+      "nome": "Koopmeiners",
       "squadra": "JUV",
       "ruolo": "C",
-      "quotazioneIniziale": 6,
+      "quotazioneIniziale": 5,
       "quotazioneAttuale": 14,
-      "fvm": 16
-    },
-    {
-      "nome": "Alajbegovic",
-      "squadra": "JUV",
-      "ruolo": "C",
-      "quotazioneIniziale": 12,
-      "quotazioneAttuale": 14,
-      "fvm": 30
-    },
-    {
-      "nome": "Conceicao",
-      "squadra": "JUV",
-      "ruolo": "C",
-      "quotazioneIniziale": 12,
-      "quotazioneAttuale": 14,
-      "fvm": 40
-    },
-    {
-      "nome": "Yildiz",
-      "squadra": "JUV",
-      "ruolo": "A",
-      "quotazioneIniziale": 23,
-      "quotazioneAttuale": 14,
-      "fvm": 60
+      "fvm": 12
     },
     {
       "nome": "Maignan",
@@ -648,7 +656,15 @@
       "ruolo": "P",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 14,
-      "fvm": 48
+      "fvm": 47
+    },
+    {
+      "nome": "Modric",
+      "squadra": "MIL",
+      "ruolo": "C",
+      "quotazioneIniziale": 12,
+      "quotazioneAttuale": 14,
+      "fvm": 60
     },
     {
       "nome": "Mangas",
@@ -659,12 +675,28 @@
       "fvm": 20
     },
     {
+      "nome": "Mota",
+      "squadra": "MON",
+      "ruolo": "A",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 14,
+      "fvm": 14
+    },
+    {
+      "nome": "Cristante",
+      "squadra": "ROM",
+      "ruolo": "C",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 14,
+      "fvm": 44
+    },
+    {
       "nome": "Konè M.",
       "squadra": "ROM",
       "ruolo": "C",
       "quotazioneIniziale": 10,
       "quotazioneAttuale": 14,
-      "fvm": 45
+      "fvm": 50
     },
     {
       "nome": "Pisilli",
@@ -672,7 +704,15 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 14,
-      "fvm": 36
+      "fvm": 32
+    },
+    {
+      "nome": "Njie",
+      "squadra": "FIO",
+      "ruolo": "C",
+      "quotazioneIniziale": 4,
+      "quotazioneAttuale": 14,
+      "fvm": 80
     },
     {
       "nome": "Kamara H.",
@@ -683,30 +723,6 @@
       "fvm": 17
     },
     {
-      "nome": "Davis K.",
-      "squadra": "UDI",
-      "ruolo": "A",
-      "quotazioneIniziale": 19,
-      "quotazioneAttuale": 14,
-      "fvm": 65
-    },
-    {
-      "nome": "Hainaut",
-      "squadra": "VEN",
-      "ruolo": "D",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 14,
-      "fvm": 30
-    },
-    {
-      "nome": "Robinson J.",
-      "squadra": "MON",
-      "ruolo": "A",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 14,
-      "fvm": 20
-    },
-    {
       "nome": "Lontani",
       "squadra": "PAR",
       "ruolo": "A",
@@ -715,12 +731,36 @@
       "fvm": 22
     },
     {
-      "nome": "Zalewski",
-      "squadra": "ATA",
-      "ruolo": "C",
+      "nome": "Vicario",
+      "squadra": "JUV",
+      "ruolo": "P",
+      "quotazioneIniziale": 16,
+      "quotazioneAttuale": 14,
+      "fvm": 55
+    },
+    {
+      "nome": "Balerdi",
+      "squadra": "ROM",
+      "ruolo": "D",
       "quotazioneIniziale": 6,
+      "quotazioneAttuale": 14,
+      "fvm": 32
+    },
+    {
+      "nome": "Belghali",
+      "squadra": "TOR",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 14,
+      "fvm": 28
+    },
+    {
+      "nome": "Scamacca",
+      "squadra": "ATA",
+      "ruolo": "A",
+      "quotazioneIniziale": 19,
       "quotazioneAttuale": 13,
-      "fvm": 14
+      "fvm": 30
     },
     {
       "nome": "Caprile",
@@ -731,28 +771,20 @@
       "fvm": 30
     },
     {
-      "nome": "Diao",
-      "squadra": "COM",
-      "ruolo": "A",
-      "quotazioneIniziale": 11,
-      "quotazioneAttuale": 13,
-      "fvm": 41
-    },
-    {
       "nome": "Mandragora",
       "squadra": "TOR",
       "ruolo": "C",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 13,
-      "fvm": 30
+      "fvm": 28
     },
     {
-      "nome": "Palmisani",
-      "squadra": "FRO",
-      "ruolo": "P",
-      "quotazioneIniziale": 4,
+      "nome": "Baldanzi",
+      "squadra": "GEN",
+      "ruolo": "C",
+      "quotazioneIniziale": 11,
       "quotazioneAttuale": 13,
-      "fvm": 28
+      "fvm": 17
     },
     {
       "nome": "Bonny",
@@ -760,15 +792,39 @@
       "ruolo": "A",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 13,
-      "fvm": 18
+      "fvm": 15
     },
     {
-      "nome": "Modric",
-      "squadra": "MIL",
+      "nome": "Alajbegovic",
+      "squadra": "JUV",
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 13,
+      "fvm": 27
+    },
+    {
+      "nome": "Conceicao",
+      "squadra": "JUV",
+      "ruolo": "C",
+      "quotazioneIniziale": 12,
+      "quotazioneAttuale": 13,
+      "fvm": 35
+    },
+    {
+      "nome": "Yildiz",
+      "squadra": "JUV",
+      "ruolo": "A",
+      "quotazioneIniziale": 23,
+      "quotazioneAttuale": 13,
       "fvm": 55
+    },
+    {
+      "nome": "Coulibaly L.",
+      "squadra": "LEC",
+      "ruolo": "C",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 13,
+      "fvm": 17
     },
     {
       "nome": "Nkunku",
@@ -779,52 +835,44 @@
       "fvm": 20
     },
     {
-      "nome": "Cristante",
-      "squadra": "ROM",
-      "ruolo": "C",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 13,
-      "fvm": 42
-    },
-    {
-      "nome": "Njie",
-      "squadra": "FIO",
-      "ruolo": "C",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 13,
-      "fvm": 83
-    },
-    {
-      "nome": "Adams A.",
-      "squadra": "VEN",
+      "nome": "Lang",
+      "squadra": "NAP",
       "ruolo": "A",
-      "quotazioneIniziale": 12,
-      "quotazioneAttuale": 13,
-      "fvm": 29
-    },
-    {
-      "nome": "Vicario",
-      "squadra": "JUV",
-      "ruolo": "P",
-      "quotazioneIniziale": 16,
-      "quotazioneAttuale": 13,
-      "fvm": 53
-    },
-    {
-      "nome": "Balerdi",
-      "squadra": "ROM",
-      "ruolo": "D",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 13,
-      "fvm": 34
-    },
-    {
-      "nome": "Belghali",
-      "squadra": "TOR",
-      "ruolo": "D",
-      "quotazioneIniziale": 7,
+      "quotazioneIniziale": 3,
       "quotazioneAttuale": 13,
       "fvm": 28
+    },
+    {
+      "nome": "Matic",
+      "squadra": "SAS",
+      "ruolo": "C",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 13,
+      "fvm": 15
+    },
+    {
+      "nome": "Zaniolo",
+      "squadra": "UDI",
+      "ruolo": "C",
+      "quotazioneIniziale": 18,
+      "quotazioneAttuale": 13,
+      "fvm": 55
+    },
+    {
+      "nome": "Davis K.",
+      "squadra": "UDI",
+      "ruolo": "A",
+      "quotazioneIniziale": 19,
+      "quotazioneAttuale": 13,
+      "fvm": 50
+    },
+    {
+      "nome": "Cissè A.",
+      "squadra": "MIL",
+      "ruolo": "C",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 13,
+      "fvm": 100
     },
     {
       "nome": "Carnesecchi",
@@ -832,15 +880,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 12,
-      "fvm": 34
-    },
-    {
-      "nome": "Samardzic",
-      "squadra": "ATA",
-      "ruolo": "C",
-      "quotazioneIniziale": 12,
-      "quotazioneAttuale": 12,
-      "fvm": 14
+      "fvm": 20
     },
     {
       "nome": "Raspadori",
@@ -851,12 +891,28 @@
       "fvm": 12
     },
     {
+      "nome": "Skorupski",
+      "squadra": "BOL",
+      "ruolo": "P",
+      "quotazioneIniziale": 10,
+      "quotazioneAttuale": 12,
+      "fvm": 21
+    },
+    {
+      "nome": "Adopo",
+      "squadra": "CAG",
+      "ruolo": "C",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 12,
+      "fvm": 20
+    },
+    {
       "nome": "Romano",
       "squadra": "CAG",
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 12,
-      "fvm": 25
+      "fvm": 23
     },
     {
       "nome": "Caqueret",
@@ -864,47 +920,31 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 12,
-      "fvm": 19
+      "fvm": 16
     },
     {
-      "nome": "Bracaglia",
-      "squadra": "FRO",
-      "ruolo": "D",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 12,
-      "fvm": 14
-    },
-    {
-      "nome": "Oyono A.",
-      "squadra": "FRO",
-      "ruolo": "D",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 12,
-      "fvm": 12
-    },
-    {
-      "nome": "Baldanzi",
-      "squadra": "GEN",
-      "ruolo": "C",
+      "nome": "Diao",
+      "squadra": "COM",
+      "ruolo": "A",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 12,
-      "fvm": 19
+      "fvm": 35
     },
     {
-      "nome": "Bastoni",
-      "squadra": "INT",
-      "ruolo": "D",
-      "quotazioneIniziale": 14,
-      "quotazioneAttuale": 12,
-      "fvm": 37
-    },
-    {
-      "nome": "Sucic P.",
-      "squadra": "INT",
+      "nome": "Ellertsson",
+      "squadra": "GEN",
       "ruolo": "C",
-      "quotazioneIniziale": 8,
+      "quotazioneIniziale": 6,
       "quotazioneAttuale": 12,
-      "fvm": 20
+      "fvm": 25
+    },
+    {
+      "nome": "Masini",
+      "squadra": "FRO",
+      "ruolo": "C",
+      "quotazioneIniziale": 2,
+      "quotazioneAttuale": 12,
+      "fvm": 14
     },
     {
       "nome": "McKennie",
@@ -912,23 +952,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 17,
       "quotazioneAttuale": 12,
-      "fvm": 50
-    },
-    {
-      "nome": "Koopmeiners",
-      "squadra": "JUV",
-      "ruolo": "C",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 12,
-      "fvm": 12
-    },
-    {
-      "nome": "Dele-Bashiru",
-      "squadra": "LAZ",
-      "ruolo": "C",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 12,
-      "fvm": 10
+      "fvm": 51
     },
     {
       "nome": "Tiago Gabriel",
@@ -936,23 +960,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 12,
-      "fvm": 21
-    },
-    {
-      "nome": "Coulibaly L.",
-      "squadra": "LEC",
-      "ruolo": "C",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 12,
-      "fvm": 17
-    },
-    {
-      "nome": "Mota",
-      "squadra": "MON",
-      "ruolo": "A",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 12,
-      "fvm": 14
+      "fvm": 19
     },
     {
       "nome": "Rrahmani",
@@ -960,7 +968,15 @@
       "ruolo": "D",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 12,
-      "fvm": 44
+      "fvm": 42
+    },
+    {
+      "nome": "Gilmour",
+      "squadra": "NAP",
+      "ruolo": "C",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 12,
+      "fvm": 11
     },
     {
       "nome": "Lobotka",
@@ -971,20 +987,12 @@
       "fvm": 12
     },
     {
-      "nome": "Lang",
-      "squadra": "NAP",
-      "ruolo": "A",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 12,
-      "fvm": 26
-    },
-    {
       "nome": "Mancini",
       "squadra": "ROM",
       "ruolo": "D",
       "quotazioneIniziale": 15,
       "quotazioneAttuale": 12,
-      "fvm": 49
+      "fvm": 50
     },
     {
       "nome": "Ndicka",
@@ -992,15 +1000,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 12,
-      "fvm": 34
-    },
-    {
-      "nome": "Matic",
-      "squadra": "SAS",
-      "ruolo": "C",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 12,
-      "fvm": 15
+      "fvm": 35
     },
     {
       "nome": "Adzic",
@@ -1008,23 +1008,23 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 12,
-      "fvm": 31
-    },
-    {
-      "nome": "Kulenovic",
-      "squadra": "TOR",
-      "ruolo": "A",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 12,
-      "fvm": 15
-    },
-    {
-      "nome": "Gonzalez N.",
-      "squadra": "JUV",
-      "ruolo": "C",
-      "quotazioneIniziale": 11,
-      "quotazioneAttuale": 12,
       "fvm": 25
+    },
+    {
+      "nome": "Adams A.",
+      "squadra": "VEN",
+      "ruolo": "A",
+      "quotazioneIniziale": 12,
+      "quotazioneAttuale": 12,
+      "fvm": 27
+    },
+    {
+      "nome": "Kessiè",
+      "squadra": "ATA",
+      "ruolo": "C",
+      "quotazioneIniziale": 12,
+      "quotazioneAttuale": 12,
+      "fvm": 17
     },
     {
       "nome": "Mbangula",
@@ -1032,31 +1032,55 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 12,
+      "fvm": 13
+    },
+    {
+      "nome": "Samardzic",
+      "squadra": "ATA",
+      "ruolo": "C",
+      "quotazioneIniziale": 12,
+      "quotazioneAttuale": 11,
       "fvm": 14
     },
     {
-      "nome": "Skorupski",
+      "nome": "Casale",
       "squadra": "BOL",
+      "ruolo": "D",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 11,
+      "fvm": 7
+    },
+    {
+      "nome": "Palmisani",
+      "squadra": "FRO",
       "ruolo": "P",
-      "quotazioneIniziale": 10,
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 11,
-      "fvm": 21
+      "fvm": 28
     },
     {
-      "nome": "Adopo",
-      "squadra": "CAG",
-      "ruolo": "C",
-      "quotazioneIniziale": 6,
+      "nome": "Bracaglia",
+      "squadra": "FRO",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
       "quotazioneAttuale": 11,
-      "fvm": 20
+      "fvm": 13
     },
     {
-      "nome": "Ellertsson",
+      "nome": "Oyono A.",
+      "squadra": "FRO",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 11,
+      "fvm": 12
+    },
+    {
+      "nome": "Bijlow",
       "squadra": "GEN",
-      "ruolo": "C",
-      "quotazioneIniziale": 6,
+      "ruolo": "P",
+      "quotazioneIniziale": 8,
       "quotazioneAttuale": 11,
-      "fvm": 25
+      "fvm": 13
     },
     {
       "nome": "Akanji",
@@ -1064,7 +1088,15 @@
       "ruolo": "D",
       "quotazioneIniziale": 16,
       "quotazioneAttuale": 11,
-      "fvm": 29
+      "fvm": 28
+    },
+    {
+      "nome": "Bastoni",
+      "squadra": "INT",
+      "ruolo": "D",
+      "quotazioneIniziale": 14,
+      "quotazioneAttuale": 11,
+      "fvm": 35
     },
     {
       "nome": "Belahyane",
@@ -1073,6 +1105,14 @@
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 11,
       "fvm": 13
+    },
+    {
+      "nome": "Dele-Bashiru",
+      "squadra": "LAZ",
+      "ruolo": "C",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 11,
+      "fvm": 11
     },
     {
       "nome": "Cancellieri",
@@ -1088,7 +1128,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 11,
-      "fvm": 53
+      "fvm": 52
     },
     {
       "nome": "Di Lorenzo",
@@ -1096,15 +1136,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 11,
-      "fvm": 32
-    },
-    {
-      "nome": "Gilmour",
-      "squadra": "NAP",
-      "ruolo": "C",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 11,
-      "fvm": 11
+      "fvm": 30
     },
     {
       "nome": "Vergara",
@@ -1115,44 +1147,36 @@
       "fvm": 13
     },
     {
-      "nome": "Bakola",
-      "squadra": "SAS",
-      "ruolo": "C",
-      "quotazioneIniziale": 5,
+      "nome": "Kulenovic",
+      "squadra": "TOR",
+      "ruolo": "A",
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 11,
       "fvm": 15
     },
     {
-      "nome": "Bowie",
-      "squadra": "SAS",
-      "ruolo": "A",
-      "quotazioneIniziale": 10,
+      "nome": "Couto",
+      "squadra": "COM",
+      "ruolo": "D",
+      "quotazioneIniziale": 8,
       "quotazioneAttuale": 11,
-      "fvm": 14
+      "fvm": 30
     },
     {
-      "nome": "Vlasic",
-      "squadra": "TOR",
-      "ruolo": "C",
-      "quotazioneIniziale": 14,
+      "nome": "Goglichidze",
+      "squadra": "MON",
+      "ruolo": "D",
+      "quotazioneIniziale": 2,
       "quotazioneAttuale": 11,
-      "fvm": 52
+      "fvm": 5
     },
     {
-      "nome": "Zaniolo",
-      "squadra": "UDI",
+      "nome": "Gonzalez N.",
+      "squadra": "JUV",
       "ruolo": "C",
-      "quotazioneIniziale": 18,
+      "quotazioneIniziale": 11,
       "quotazioneAttuale": 11,
-      "fvm": 47
-    },
-    {
-      "nome": "Cissè A.",
-      "squadra": "MIL",
-      "ruolo": "C",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 11,
-      "fvm": 82
+      "fvm": 24
     },
     {
       "nome": "El Shaarawy",
@@ -1160,7 +1184,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 11,
-      "fvm": 24
+      "fvm": 21
     },
     {
       "nome": "Ederson D.S.",
@@ -1168,7 +1192,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 10,
-      "fvm": 34
+      "fvm": 31
     },
     {
       "nome": "Gaetano",
@@ -1179,12 +1203,12 @@
       "fvm": 14
     },
     {
-      "nome": "Casale",
+      "nome": "Zortea",
       "squadra": "BOL",
       "ruolo": "D",
-      "quotazioneIniziale": 3,
+      "quotazioneIniziale": 6,
       "quotazioneAttuale": 10,
-      "fvm": 7
+      "fvm": 15
     },
     {
       "nome": "Ferguson",
@@ -1192,23 +1216,23 @@
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 10,
-      "fvm": 22
+      "fvm": 21
     },
     {
-      "nome": "Dovbyk",
-      "squadra": "BOL",
-      "ruolo": "A",
-      "quotazioneIniziale": 16,
-      "quotazioneAttuale": 10,
-      "fvm": 10
-    },
-    {
-      "nome": "Perrone",
+      "nome": "Liberali",
       "squadra": "COM",
       "ruolo": "C",
-      "quotazioneIniziale": 10,
+      "quotazioneIniziale": 6,
       "quotazioneAttuale": 10,
-      "fvm": 20
+      "fvm": 16
+    },
+    {
+      "nome": "Fabbian",
+      "squadra": "PAR",
+      "ruolo": "C",
+      "quotazioneIniziale": 4,
+      "quotazioneAttuale": 10,
+      "fvm": 18
     },
     {
       "nome": "Gudmundsson A.",
@@ -1216,39 +1240,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 10,
-      "fvm": 15
-    },
-    {
-      "nome": "Bijlow",
-      "squadra": "GEN",
-      "ruolo": "P",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 10,
       "fvm": 14
-    },
-    {
-      "nome": "Masini",
-      "squadra": "FRO",
-      "ruolo": "C",
-      "quotazioneIniziale": 2,
-      "quotazioneAttuale": 10,
-      "fvm": 14
-    },
-    {
-      "nome": "Martinez Jo.",
-      "squadra": "INT",
-      "ruolo": "P",
-      "quotazioneIniziale": 17,
-      "quotazioneAttuale": 10,
-      "fvm": 51
-    },
-    {
-      "nome": "Kalulu",
-      "squadra": "JUV",
-      "ruolo": "D",
-      "quotazioneIniziale": 13,
-      "quotazioneAttuale": 10,
-      "fvm": 24
     },
     {
       "nome": "Floriani Mussolini",
@@ -1256,7 +1248,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 10,
-      "fvm": 20
+      "fvm": 22
     },
     {
       "nome": "Dia",
@@ -1275,20 +1267,20 @@
       "fvm": 14
     },
     {
-      "nome": "Saelemaekers",
-      "squadra": "MIL",
-      "ruolo": "C",
-      "quotazioneIniziale": 10,
-      "quotazioneAttuale": 10,
-      "fvm": 20
-    },
-    {
       "nome": "Chukwueze",
       "squadra": "MIL",
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 10,
       "fvm": 18
+    },
+    {
+      "nome": "Milinkovic-Savic V.",
+      "squadra": "NAP",
+      "ruolo": "P",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 10,
+      "fvm": 25
     },
     {
       "nome": "Lukaku",
@@ -1305,6 +1297,30 @@
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 10,
       "fvm": 12
+    },
+    {
+      "nome": "Bakola",
+      "squadra": "SAS",
+      "ruolo": "C",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 10,
+      "fvm": 12
+    },
+    {
+      "nome": "Bowie",
+      "squadra": "SAS",
+      "ruolo": "A",
+      "quotazioneIniziale": 10,
+      "quotazioneAttuale": 10,
+      "fvm": 14
+    },
+    {
+      "nome": "Coco",
+      "squadra": "TOR",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 10,
+      "fvm": 14
     },
     {
       "nome": "Comuzzo",
@@ -1331,28 +1347,52 @@
       "fvm": 18
     },
     {
-      "nome": "Stankovic F.",
-      "squadra": "VEN",
-      "ruolo": "P",
-      "quotazioneIniziale": 6,
+      "nome": "Vlasic",
+      "squadra": "TOR",
+      "ruolo": "C",
+      "quotazioneIniziale": 14,
       "quotazioneAttuale": 10,
-      "fvm": 10
+      "fvm": 40
     },
     {
-      "nome": "Goglichidze",
-      "squadra": "MON",
-      "ruolo": "D",
-      "quotazioneIniziale": 2,
-      "quotazioneAttuale": 10,
-      "fvm": 5
-    },
-    {
-      "nome": "Kessiè",
+      "nome": "Elmas",
       "squadra": "ATA",
       "ruolo": "C",
-      "quotazioneIniziale": 12,
+      "quotazioneIniziale": 7,
       "quotazioneAttuale": 10,
-      "fvm": 17
+      "fvm": 27
+    },
+    {
+      "nome": "Lulli",
+      "squadra": "ROM",
+      "ruolo": "D",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 10,
+      "fvm": 25
+    },
+    {
+      "nome": "Birligea",
+      "squadra": "FRO",
+      "ruolo": "A",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 10,
+      "fvm": 20
+    },
+    {
+      "nome": "Perri",
+      "squadra": "TOR",
+      "ruolo": "P",
+      "quotazioneIniziale": 9,
+      "quotazioneAttuale": 10,
+      "fvm": 13
+    },
+    {
+      "nome": "Theate",
+      "squadra": "BOL",
+      "ruolo": "D",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 10,
+      "fvm": 11
     },
     {
       "nome": "Hutchinson",
@@ -1360,7 +1400,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 10,
-      "fvm": 21
+      "fvm": 16
     },
     {
       "nome": "Beto",
@@ -1368,7 +1408,15 @@
       "ruolo": "A",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 10,
-      "fvm": 15
+      "fvm": 14
+    },
+    {
+      "nome": "Braganca",
+      "squadra": "TOR",
+      "ruolo": "C",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 10,
+      "fvm": 16
     },
     {
       "nome": "Goncalves P.",
@@ -1376,31 +1424,31 @@
       "ruolo": "C",
       "quotazioneIniziale": 12,
       "quotazioneAttuale": 10,
-      "fvm": 33
+      "fvm": 32
     },
     {
-      "nome": "Liberali",
+      "nome": "Nzola",
+      "squadra": "CAG",
+      "ruolo": "A",
+      "quotazioneIniziale": 4,
+      "quotazioneAttuale": 10,
+      "fvm": 20
+    },
+    {
+      "nome": "Dovbyk",
+      "squadra": "BOL",
+      "ruolo": "A",
+      "quotazioneIniziale": 16,
+      "quotazioneAttuale": 9,
+      "fvm": 10
+    },
+    {
+      "nome": "Perrone",
       "squadra": "COM",
       "ruolo": "C",
-      "quotazioneIniziale": 6,
+      "quotazioneIniziale": 10,
       "quotazioneAttuale": 9,
-      "fvm": 16
-    },
-    {
-      "nome": "Atta",
-      "squadra": "FIO",
-      "ruolo": "C",
-      "quotazioneIniziale": 17,
-      "quotazioneAttuale": 9,
-      "fvm": 30
-    },
-    {
-      "nome": "Fabbian",
-      "squadra": "PAR",
-      "ruolo": "C",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 9,
-      "fvm": 20
+      "fvm": 21
     },
     {
       "nome": "Piccoli",
@@ -1408,15 +1456,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 9,
-      "fvm": 23
-    },
-    {
-      "nome": "Calvani",
-      "squadra": "FRO",
-      "ruolo": "D",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 9,
-      "fvm": 16
+      "fvm": 21
     },
     {
       "nome": "Cichella",
@@ -1427,6 +1467,14 @@
       "fvm": 10
     },
     {
+      "nome": "Martinez Jo.",
+      "squadra": "INT",
+      "ruolo": "P",
+      "quotazioneIniziale": 17,
+      "quotazioneAttuale": 9,
+      "fvm": 47
+    },
+    {
       "nome": "Di Gregorio",
       "squadra": "JUV",
       "ruolo": "P",
@@ -1435,12 +1483,20 @@
       "fvm": 10
     },
     {
-      "nome": "Douglas Luiz",
+      "nome": "Gatti",
       "squadra": "JUV",
-      "ruolo": "C",
+      "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 9,
-      "fvm": 27
+      "fvm": 12
+    },
+    {
+      "nome": "Kalulu",
+      "squadra": "JUV",
+      "ruolo": "D",
+      "quotazioneIniziale": 13,
+      "quotazioneAttuale": 9,
+      "fvm": 23
     },
     {
       "nome": "Provstgaard",
@@ -1448,7 +1504,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 9,
-      "fvm": 18
+      "fvm": 16
     },
     {
       "nome": "Ratkov",
@@ -1459,6 +1515,22 @@
       "fvm": 22
     },
     {
+      "nome": "Saelemaekers",
+      "squadra": "MIL",
+      "ruolo": "C",
+      "quotazioneIniziale": 10,
+      "quotazioneAttuale": 9,
+      "fvm": 20
+    },
+    {
+      "nome": "Kouadio",
+      "squadra": "MON",
+      "ruolo": "D",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 9,
+      "fvm": 11
+    },
+    {
       "nome": "Akinsanmiro",
       "squadra": "MON",
       "ruolo": "C",
@@ -1467,60 +1539,12 @@
       "fvm": 12
     },
     {
-      "nome": "Colpani",
-      "squadra": "MON",
-      "ruolo": "C",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 9,
-      "fvm": 9
-    },
-    {
-      "nome": "Meret",
-      "squadra": "NAP",
-      "ruolo": "P",
-      "quotazioneIniziale": 11,
-      "quotazioneAttuale": 9,
-      "fvm": 42
-    },
-    {
-      "nome": "Milinkovic-Savic V.",
-      "squadra": "NAP",
-      "ruolo": "P",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 9,
-      "fvm": 15
-    },
-    {
-      "nome": "Zambo Anguissa",
-      "squadra": "NAP",
-      "ruolo": "C",
-      "quotazioneIniziale": 11,
-      "quotazioneAttuale": 9,
-      "fvm": 23
-    },
-    {
-      "nome": "Daffara",
-      "squadra": "PAR",
-      "ruolo": "P",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 9,
-      "fvm": 15
-    },
-    {
-      "nome": "Coco",
-      "squadra": "TOR",
-      "ruolo": "D",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 9,
-      "fvm": 13
-    },
-    {
       "nome": "Abankwah",
       "squadra": "UDI",
       "ruolo": "D",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 9,
-      "fvm": 12
+      "fvm": 13
     },
     {
       "nome": "Perez K.",
@@ -1531,14 +1555,6 @@
       "fvm": 20
     },
     {
-      "nome": "Couto",
-      "squadra": "COM",
-      "ruolo": "D",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 9,
-      "fvm": 22
-    },
-    {
       "nome": "Fatah",
       "squadra": "LEC",
       "ruolo": "A",
@@ -1547,44 +1563,12 @@
       "fvm": 7
     },
     {
-      "nome": "Birligea",
-      "squadra": "FRO",
-      "ruolo": "A",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 9,
-      "fvm": 25
-    },
-    {
-      "nome": "Theate",
-      "squadra": "BOL",
+      "nome": "Ehizibue",
+      "squadra": "GEN",
       "ruolo": "D",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 9,
-      "fvm": 11
-    },
-    {
-      "nome": "Braganca",
-      "squadra": "TOR",
-      "ruolo": "C",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 9,
-      "fvm": 16
-    },
-    {
-      "nome": "Nzola",
-      "squadra": "CAG",
-      "ruolo": "A",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 9,
-      "fvm": 21
-    },
-    {
-      "nome": "Alaba",
-      "squadra": "UDI",
-      "ruolo": "D",
-      "quotazioneIniziale": 10,
-      "quotazioneAttuale": 9,
-      "fvm": 12
+      "fvm": 9
     },
     {
       "nome": "Dallinga",
@@ -1603,20 +1587,12 @@
       "fvm": 15
     },
     {
-      "nome": "Valle",
-      "squadra": "COM",
-      "ruolo": "D",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 8,
-      "fvm": 20
-    },
-    {
       "nome": "Milla",
       "squadra": "COM",
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 8,
-      "fvm": 21
+      "fvm": 22
     },
     {
       "nome": "Fagioli",
@@ -1624,7 +1600,15 @@
       "ruolo": "C",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 20
+      "fvm": 17
+    },
+    {
+      "nome": "Atta",
+      "squadra": "FIO",
+      "ruolo": "C",
+      "quotazioneIniziale": 17,
+      "quotazioneAttuale": 8,
+      "fvm": 25
     },
     {
       "nome": "Ostigard",
@@ -1632,7 +1616,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 8,
-      "fvm": 26
+      "fvm": 29
     },
     {
       "nome": "Norton-Cuffy",
@@ -1651,12 +1635,12 @@
       "fvm": 15
     },
     {
-      "nome": "Gatti",
+      "nome": "Douglas Luiz",
       "squadra": "JUV",
-      "ruolo": "D",
+      "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 8,
-      "fvm": 12
+      "fvm": 24
     },
     {
       "nome": "Boga",
@@ -1664,7 +1648,7 @@
       "ruolo": "A",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 8,
-      "fvm": 17
+      "fvm": 16
     },
     {
       "nome": "David",
@@ -1675,6 +1659,14 @@
       "fvm": 25
     },
     {
+      "nome": "Doekhi",
+      "squadra": "LAZ",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 8,
+      "fvm": 11
+    },
+    {
       "nome": "Pedraza",
       "squadra": "LAZ",
       "ruolo": "D",
@@ -1683,20 +1675,20 @@
       "fvm": 7
     },
     {
-      "nome": "Veiga D.",
-      "squadra": "LEC",
+      "nome": "De Winter",
+      "squadra": "MIL",
       "ruolo": "D",
-      "quotazioneIniziale": 5,
+      "quotazioneIniziale": 3,
       "quotazioneAttuale": 8,
-      "fvm": 12
+      "fvm": 16
     },
     {
-      "nome": "Gallo",
-      "squadra": "LEC",
-      "ruolo": "D",
-      "quotazioneIniziale": 6,
+      "nome": "Jashari",
+      "squadra": "MIL",
+      "ruolo": "C",
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 8,
-      "fvm": 12
+      "fvm": 11
     },
     {
       "nome": "Musah",
@@ -1707,20 +1699,28 @@
       "fvm": 17
     },
     {
-      "nome": "Kouadio",
-      "squadra": "MON",
-      "ruolo": "D",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 8,
-      "fvm": 13
-    },
-    {
       "nome": "Birindelli",
       "squadra": "MON",
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 8,
       "fvm": 12
+    },
+    {
+      "nome": "Colpani",
+      "squadra": "MON",
+      "ruolo": "C",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 8,
+      "fvm": 9
+    },
+    {
+      "nome": "Meret",
+      "squadra": "NAP",
+      "ruolo": "P",
+      "quotazioneIniziale": 11,
+      "quotazioneAttuale": 8,
+      "fvm": 35
     },
     {
       "nome": "Gutierrez",
@@ -1731,20 +1731,28 @@
       "fvm": 26
     },
     {
+      "nome": "Zambo Anguissa",
+      "squadra": "NAP",
+      "ruolo": "C",
+      "quotazioneIniziale": 11,
+      "quotazioneAttuale": 8,
+      "fvm": 22
+    },
+    {
       "nome": "Santos A.",
       "squadra": "NAP",
       "ruolo": "A",
       "quotazioneIniziale": 14,
       "quotazioneAttuale": 8,
-      "fvm": 17
+      "fvm": 15
     },
     {
-      "nome": "Valeri",
+      "nome": "Daffara",
       "squadra": "PAR",
-      "ruolo": "D",
-      "quotazioneIniziale": 8,
+      "ruolo": "P",
+      "quotazioneIniziale": 7,
       "quotazioneAttuale": 8,
-      "fvm": 20
+      "fvm": 12
     },
     {
       "nome": "Gollini",
@@ -1752,7 +1760,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 8,
-      "fvm": 20
+      "fvm": 15
     },
     {
       "nome": "Ghilardi",
@@ -1763,20 +1771,20 @@
       "fvm": 15
     },
     {
-      "nome": "Thorstvedt",
-      "squadra": "SAS",
-      "ruolo": "C",
-      "quotazioneIniziale": 10,
-      "quotazioneAttuale": 8,
-      "fvm": 17
-    },
-    {
       "nome": "Volpato",
       "squadra": "SAS",
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 8,
-      "fvm": 13
+      "fvm": 11
+    },
+    {
+      "nome": "Ismajli",
+      "squadra": "TOR",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 8,
+      "fvm": 9
     },
     {
       "nome": "Solet",
@@ -1784,7 +1792,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 13,
       "quotazioneAttuale": 8,
-      "fvm": 20
+      "fvm": 18
     },
     {
       "nome": "Karlstrom",
@@ -1803,12 +1811,20 @@
       "fvm": 11
     },
     {
+      "nome": "Stankovic F.",
+      "squadra": "VEN",
+      "ruolo": "P",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 8,
+      "fvm": 10
+    },
+    {
       "nome": "Basic",
       "squadra": "VEN",
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 8,
-      "fvm": 17
+      "fvm": 16
     },
     {
       "nome": "Yeboah J.",
@@ -1816,63 +1832,15 @@
       "ruolo": "A",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 8,
-      "fvm": 21
+      "fvm": 18
     },
     {
-      "nome": "Chalobah T.",
-      "squadra": "COM",
+      "nome": "Terzic",
+      "squadra": "FRO",
       "ruolo": "D",
-      "quotazioneIniziale": 9,
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 8,
-      "fvm": 15
-    },
-    {
-      "nome": "Spence",
-      "squadra": "INT",
-      "ruolo": "D",
-      "quotazioneIniziale": 12,
-      "quotazioneAttuale": 8,
-      "fvm": 17
-    },
-    {
-      "nome": "Jones C.",
-      "squadra": "INT",
-      "ruolo": "C",
-      "quotazioneIniziale": 12,
-      "quotazioneAttuale": 8,
-      "fvm": 12
-    },
-    {
-      "nome": "Leysen F.",
-      "squadra": "SAS",
-      "ruolo": "D",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 8,
-      "fvm": 4
-    },
-    {
-      "nome": "Elmas",
-      "squadra": "ATA",
-      "ruolo": "C",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 8,
-      "fvm": 23
-    },
-    {
-      "nome": "Lulli",
-      "squadra": "ROM",
-      "ruolo": "D",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 8,
-      "fvm": 20
-    },
-    {
-      "nome": "Perri",
-      "squadra": "TOR",
-      "ruolo": "P",
-      "quotazioneIniziale": 9,
-      "quotazioneAttuale": 8,
-      "fvm": 13
+      "fvm": 5
     },
     {
       "nome": "Zeballos",
@@ -1883,26 +1851,18 @@
       "fvm": 9
     },
     {
-      "nome": "Ehizibue",
-      "squadra": "GEN",
+      "nome": "Alaba",
+      "squadra": "UDI",
       "ruolo": "D",
-      "quotazioneIniziale": 4,
+      "quotazioneIniziale": 10,
       "quotazioneAttuale": 8,
-      "fvm": 9
+      "fvm": 10
     },
     {
       "nome": "Djimsiti",
       "squadra": "ATA",
       "ruolo": "D",
       "quotazioneIniziale": 7,
-      "quotazioneAttuale": 7,
-      "fvm": 16
-    },
-    {
-      "nome": "Scalvini",
-      "squadra": "ATA",
-      "ruolo": "D",
-      "quotazioneIniziale": 10,
       "quotazioneAttuale": 7,
       "fvm": 16
     },
@@ -1915,20 +1875,12 @@
       "fvm": 10
     },
     {
-      "nome": "Zortea",
-      "squadra": "BOL",
-      "ruolo": "D",
-      "quotazioneIniziale": 6,
+      "nome": "Rowe",
+      "squadra": "ATA",
+      "ruolo": "C",
+      "quotazioneIniziale": 11,
       "quotazioneAttuale": 7,
-      "fvm": 15
-    },
-    {
-      "nome": "Zè Pedro",
-      "squadra": "CAG",
-      "ruolo": "D",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 7,
-      "fvm": 13
+      "fvm": 24
     },
     {
       "nome": "Winks",
@@ -1936,15 +1888,15 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 7,
-      "fvm": 13
+      "fvm": 12
     },
     {
-      "nome": "Rodriguez Je.",
+      "nome": "Valle",
       "squadra": "COM",
-      "ruolo": "C",
-      "quotazioneIniziale": 12,
+      "ruolo": "D",
+      "quotazioneIniziale": 6,
       "quotazioneAttuale": 7,
-      "fvm": 14
+      "fvm": 19
     },
     {
       "nome": "Joao Mario",
@@ -1955,28 +1907,20 @@
       "fvm": 13
     },
     {
-      "nome": "Ndour",
-      "squadra": "FIO",
-      "ruolo": "C",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 7,
-      "fvm": 18
-    },
-    {
-      "nome": "Monterisi",
+      "nome": "Calvani",
       "squadra": "FRO",
       "ruolo": "D",
-      "quotazioneIniziale": 6,
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 7,
-      "fvm": 10
+      "fvm": 13
     },
     {
-      "nome": "Colombo",
+      "nome": "Vasquez",
       "squadra": "GEN",
-      "ruolo": "A",
-      "quotazioneIniziale": 11,
+      "ruolo": "D",
+      "quotazioneIniziale": 9,
       "quotazioneAttuale": 7,
-      "fvm": 17
+      "fvm": 18
     },
     {
       "nome": "Mkhitaryan",
@@ -1984,15 +1928,31 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 7,
-      "fvm": 13
+      "fvm": 12
     },
     {
-      "nome": "Doekhi",
-      "squadra": "LAZ",
+      "nome": "Cabal",
+      "squadra": "JUV",
       "ruolo": "D",
-      "quotazioneIniziale": 7,
+      "quotazioneIniziale": 1,
       "quotazioneAttuale": 7,
-      "fvm": 11
+      "fvm": 4
+    },
+    {
+      "nome": "Veiga D.",
+      "squadra": "LEC",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 7,
+      "fvm": 12
+    },
+    {
+      "nome": "Gallo",
+      "squadra": "LEC",
+      "ruolo": "D",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 7,
+      "fvm": 12
     },
     {
       "nome": "Maleh",
@@ -2011,14 +1971,6 @@
       "fvm": 10
     },
     {
-      "nome": "De Winter",
-      "squadra": "MIL",
-      "ruolo": "D",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 7,
-      "fvm": 16
-    },
-    {
       "nome": "Suzuki",
       "squadra": "PAR",
       "ruolo": "P",
@@ -2027,12 +1979,28 @@
       "fvm": 20
     },
     {
-      "nome": "Ismajli",
-      "squadra": "TOR",
+      "nome": "Valeri",
+      "squadra": "PAR",
       "ruolo": "D",
-      "quotazioneIniziale": 7,
+      "quotazioneIniziale": 8,
       "quotazioneAttuale": 7,
-      "fvm": 9
+      "fvm": 19
+    },
+    {
+      "nome": "Elphege",
+      "squadra": "PAR",
+      "ruolo": "A",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 7,
+      "fvm": 10
+    },
+    {
+      "nome": "Thorstvedt",
+      "squadra": "SAS",
+      "ruolo": "C",
+      "quotazioneIniziale": 10,
+      "quotazioneAttuale": 7,
+      "fvm": 16
     },
     {
       "nome": "Tourè E.",
@@ -2040,15 +2008,39 @@
       "ruolo": "A",
       "quotazioneIniziale": 11,
       "quotazioneAttuale": 7,
-      "fvm": 20
+      "fvm": 17
     },
     {
-      "nome": "Terzic",
-      "squadra": "FRO",
+      "nome": "Chalobah T.",
+      "squadra": "COM",
       "ruolo": "D",
-      "quotazioneIniziale": 4,
+      "quotazioneIniziale": 9,
       "quotazioneAttuale": 7,
-      "fvm": 5
+      "fvm": 15
+    },
+    {
+      "nome": "Spence",
+      "squadra": "INT",
+      "ruolo": "D",
+      "quotazioneIniziale": 12,
+      "quotazioneAttuale": 7,
+      "fvm": 17
+    },
+    {
+      "nome": "Jones C.",
+      "squadra": "INT",
+      "ruolo": "C",
+      "quotazioneIniziale": 12,
+      "quotazioneAttuale": 7,
+      "fvm": 12
+    },
+    {
+      "nome": "Leysen F.",
+      "squadra": "SAS",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 7,
+      "fvm": 4
     },
     {
       "nome": "Monteiro J.",
@@ -2067,12 +2059,20 @@
       "fvm": 4
     },
     {
-      "nome": "Kolasinac",
+      "nome": "Sierro",
+      "squadra": "PAR",
+      "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 7,
+      "fvm": 12
+    },
+    {
+      "nome": "Scalvini",
       "squadra": "ATA",
       "ruolo": "D",
-      "quotazioneIniziale": 5,
+      "quotazioneIniziale": 10,
       "quotazioneAttuale": 6,
-      "fvm": 10
+      "fvm": 16
     },
     {
       "nome": "Ahanor",
@@ -2081,22 +2081,6 @@
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
       "fvm": 13
-    },
-    {
-      "nome": "Lucumì",
-      "squadra": "JUV",
-      "ruolo": "D",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 6,
-      "fvm": 14
-    },
-    {
-      "nome": "Rowe",
-      "squadra": "ATA",
-      "ruolo": "C",
-      "quotazioneIniziale": 11,
-      "quotazioneAttuale": 6,
-      "fvm": 22
     },
     {
       "nome": "Odgaard",
@@ -2115,20 +2099,20 @@
       "fvm": 11
     },
     {
+      "nome": "Zè Pedro",
+      "squadra": "CAG",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 6,
+      "fvm": 13
+    },
+    {
       "nome": "Mutandwa",
       "squadra": "CAG",
       "ruolo": "A",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
       "fvm": 7
-    },
-    {
-      "nome": "Tornqvist",
-      "squadra": "MON",
-      "ruolo": "P",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 6,
-      "fvm": 6
     },
     {
       "nome": "Fadera",
@@ -2139,12 +2123,12 @@
       "fvm": 10
     },
     {
-      "nome": "De Gea",
-      "squadra": "FIO",
-      "ruolo": "P",
-      "quotazioneIniziale": 13,
+      "nome": "Rodriguez Je.",
+      "squadra": "COM",
+      "ruolo": "C",
+      "quotazioneIniziale": 12,
       "quotazioneAttuale": 6,
-      "fvm": 13
+      "fvm": 12
     },
     {
       "nome": "Pongracic",
@@ -2152,23 +2136,39 @@
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 6,
-      "fvm": 8
+      "fvm": 7
     },
     {
-      "nome": "Fini",
-      "squadra": "FRO",
+      "nome": "Ndour",
+      "squadra": "FIO",
       "ruolo": "C",
-      "quotazioneIniziale": 3,
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 6,
+      "fvm": 18
+    },
+    {
+      "nome": "Monterisi",
+      "squadra": "FRO",
+      "ruolo": "D",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 6,
+      "fvm": 9
+    },
+    {
+      "nome": "Vitinha O.",
+      "squadra": "GEN",
+      "ruolo": "A",
+      "quotazioneIniziale": 8,
       "quotazioneAttuale": 6,
       "fvm": 10
     },
     {
-      "nome": "Vasquez",
+      "nome": "Colombo",
       "squadra": "GEN",
-      "ruolo": "D",
-      "quotazioneIniziale": 9,
+      "ruolo": "A",
+      "quotazioneIniziale": 11,
       "quotazioneAttuale": 6,
-      "fvm": 18
+      "fvm": 10
     },
     {
       "nome": "Stones",
@@ -2211,22 +2211,6 @@
       "fvm": 20
     },
     {
-      "nome": "Falcone",
-      "squadra": "LEC",
-      "ruolo": "P",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 6,
-      "fvm": 17
-    },
-    {
-      "nome": "Jashari",
-      "squadra": "MIL",
-      "ruolo": "C",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 6,
-      "fvm": 11
-    },
-    {
       "nome": "Gimenez",
       "squadra": "MIL",
       "ruolo": "A",
@@ -2243,20 +2227,20 @@
       "fvm": 22
     },
     {
+      "nome": "Olivera",
+      "squadra": "NAP",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 6,
+      "fvm": 10
+    },
+    {
       "nome": "Spinazzola",
       "squadra": "NAP",
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 6,
       "fvm": 11
-    },
-    {
-      "nome": "Mazzocchi",
-      "squadra": "VEN",
-      "ruolo": "D",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 6,
-      "fvm": 10
     },
     {
       "nome": "Circati",
@@ -2291,14 +2275,6 @@
       "fvm": 5
     },
     {
-      "nome": "Gineitis",
-      "squadra": "TOR",
-      "ruolo": "C",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 6,
-      "fvm": 10
-    },
-    {
       "nome": "Okoye",
       "squadra": "UDI",
       "ruolo": "P",
@@ -2313,22 +2289,6 @@
       "quotazioneIniziale": 2,
       "quotazioneAttuale": 6,
       "fvm": 6
-    },
-    {
-      "nome": "Gueye",
-      "squadra": "UDI",
-      "ruolo": "A",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 6,
-      "fvm": 4
-    },
-    {
-      "nome": "Sagrado",
-      "squadra": "VEN",
-      "ruolo": "D",
-      "quotazioneIniziale": 2,
-      "quotazioneAttuale": 6,
-      "fvm": 3
     },
     {
       "nome": "Busio",
@@ -2363,20 +2323,28 @@
       "fvm": 12
     },
     {
-      "nome": "Sierro",
-      "squadra": "PAR",
-      "ruolo": "C",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 6,
-      "fvm": 15
-    },
-    {
       "nome": "Leite",
       "squadra": "LAZ",
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 6,
       "fvm": 8
+    },
+    {
+      "nome": "Darmian",
+      "squadra": "BOL",
+      "ruolo": "D",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 6,
+      "fvm": 12
+    },
+    {
+      "nome": "Kolasinac",
+      "squadra": "ATA",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 5,
+      "fvm": 10
     },
     {
       "nome": "Bellanova",
@@ -2400,7 +2368,15 @@
       "ruolo": "C",
       "quotazioneIniziale": 9,
       "quotazioneAttuale": 5,
-      "fvm": 13
+      "fvm": 11
+    },
+    {
+      "nome": "Lucumì",
+      "squadra": "JUV",
+      "ruolo": "D",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 5,
+      "fvm": 12
     },
     {
       "nome": "Helland",
@@ -2427,14 +2403,6 @@
       "fvm": 11
     },
     {
-      "nome": "Obert",
-      "squadra": "CAG",
-      "ruolo": "D",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 5,
-      "fvm": 12
-    },
-    {
       "nome": "Deiola",
       "squadra": "CAG",
       "ruolo": "C",
@@ -2443,33 +2411,33 @@
       "fvm": 10
     },
     {
-      "nome": "Dragusin",
-      "squadra": "FIO",
-      "ruolo": "D",
-      "quotazioneIniziale": 8,
+      "nome": "Fazzini",
+      "squadra": "CAG",
+      "ruolo": "C",
+      "quotazioneIniziale": 7,
       "quotazioneAttuale": 5,
       "fvm": 12
+    },
+    {
+      "nome": "Tornqvist",
+      "squadra": "MON",
+      "ruolo": "P",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 5,
+      "fvm": 6
+    },
+    {
+      "nome": "De Gea",
+      "squadra": "FIO",
+      "ruolo": "P",
+      "quotazioneIniziale": 13,
+      "quotazioneAttuale": 5,
+      "fvm": 10
     },
     {
       "nome": "Valdepenas",
       "squadra": "FIO",
       "ruolo": "D",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 5,
-      "fvm": 10
-    },
-    {
-      "nome": "Dodò",
-      "squadra": "FIO",
-      "ruolo": "D",
-      "quotazioneIniziale": 10,
-      "quotazioneAttuale": 5,
-      "fvm": 7
-    },
-    {
-      "nome": "Oulai",
-      "squadra": "FIO",
-      "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 5,
       "fvm": 10
@@ -2481,6 +2449,14 @@
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 5,
       "fvm": 7
+    },
+    {
+      "nome": "Fini",
+      "squadra": "FRO",
+      "ruolo": "C",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 5,
+      "fvm": 10
     },
     {
       "nome": "Zerbin",
@@ -2499,20 +2475,12 @@
       "fvm": 11
     },
     {
-      "nome": "Amorim",
+      "nome": "Traorè Hj.",
       "squadra": "GEN",
       "ruolo": "C",
-      "quotazioneIniziale": 4,
+      "quotazioneIniziale": 5,
       "quotazioneAttuale": 5,
-      "fvm": 6
-    },
-    {
-      "nome": "Vitinha O.",
-      "squadra": "GEN",
-      "ruolo": "A",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 5,
-      "fvm": 10
+      "fvm": 11
     },
     {
       "nome": "Cambiaso",
@@ -2523,20 +2491,12 @@
       "fvm": 8
     },
     {
-      "nome": "Rovella",
-      "squadra": "LAZ",
-      "ruolo": "C",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 5,
-      "fvm": 12
-    },
-    {
-      "nome": "Siebert",
+      "nome": "Falcone",
       "squadra": "LEC",
-      "ruolo": "D",
-      "quotazioneIniziale": 4,
+      "ruolo": "P",
+      "quotazioneIniziale": 8,
       "quotazioneAttuale": 5,
-      "fvm": 12
+      "fvm": 15
     },
     {
       "nome": "Gorter",
@@ -2547,12 +2507,28 @@
       "fvm": 9
     },
     {
-      "nome": "Olivera",
-      "squadra": "NAP",
+      "nome": "Carboni A.",
+      "squadra": "MON",
       "ruolo": "D",
-      "quotazioneIniziale": 5,
+      "quotazioneIniziale": 3,
       "quotazioneAttuale": 5,
-      "fvm": 10
+      "fvm": 9
+    },
+    {
+      "nome": "Pessina",
+      "squadra": "MON",
+      "ruolo": "C",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 5,
+      "fvm": 15
+    },
+    {
+      "nome": "Mazzocchi",
+      "squadra": "VEN",
+      "ruolo": "D",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 5,
+      "fvm": 9
     },
     {
       "nome": "Giovane",
@@ -2563,20 +2539,12 @@
       "fvm": 6
     },
     {
-      "nome": "Corvi",
-      "squadra": "PAR",
-      "ruolo": "P",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 5,
-      "fvm": 2
-    },
-    {
       "nome": "Troilo",
       "squadra": "PAR",
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 5,
-      "fvm": 13
+      "fvm": 11
     },
     {
       "nome": "Ondrejka",
@@ -2603,36 +2571,28 @@
       "fvm": 12
     },
     {
-      "nome": "Casadei",
+      "nome": "Gineitis",
       "squadra": "TOR",
       "ruolo": "C",
-      "quotazioneIniziale": 10,
-      "quotazioneAttuale": 5,
-      "fvm": 8
-    },
-    {
-      "nome": "Vojvoda",
-      "squadra": "UDI",
-      "ruolo": "D",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 5,
-      "fvm": 13
-    },
-    {
-      "nome": "Unai Gomez",
-      "squadra": "UDI",
-      "ruolo": "C",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 5,
-      "fvm": 12
-    },
-    {
-      "nome": "Haps",
-      "squadra": "VEN",
-      "ruolo": "D",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 5,
       "fvm": 8
+    },
+    {
+      "nome": "Gueye",
+      "squadra": "UDI",
+      "ruolo": "A",
+      "quotazioneIniziale": 4,
+      "quotazioneAttuale": 5,
+      "fvm": 4
+    },
+    {
+      "nome": "Sagrado",
+      "squadra": "VEN",
+      "ruolo": "D",
+      "quotazioneIniziale": 2,
+      "quotazioneAttuale": 5,
+      "fvm": 3
     },
     {
       "nome": "Sohm",
@@ -2672,6 +2632,14 @@
       "ruolo": "D",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 5,
+      "fvm": 8
+    },
+    {
+      "nome": "Foe Ondoa",
+      "squadra": "MON",
+      "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 5,
       "fvm": 10
     },
     {
@@ -2683,44 +2651,12 @@
       "fvm": 9
     },
     {
-      "nome": "Juan Jesus",
-      "squadra": "VEN",
-      "ruolo": "D",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 5,
-      "fvm": 11
-    },
-    {
-      "nome": "Diego Carlos",
-      "squadra": "PAR",
-      "ruolo": "D",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 5,
-      "fvm": 10
-    },
-    {
       "nome": "Sarr P.",
       "squadra": "JUV",
       "ruolo": "C",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 5,
       "fvm": 12
-    },
-    {
-      "nome": "Gnonto",
-      "squadra": "FIO",
-      "ruolo": "A",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 5,
-      "fvm": 12
-    },
-    {
-      "nome": "Darmian",
-      "squadra": "BOL",
-      "ruolo": "D",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 5,
-      "fvm": 10
     },
     {
       "nome": "Bernasconi",
@@ -2736,7 +2672,7 @@
       "ruolo": "D",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 4,
-      "fvm": 10
+      "fvm": 5
     },
     {
       "nome": "Holm",
@@ -2763,20 +2699,20 @@
       "fvm": 7
     },
     {
+      "nome": "Obert",
+      "squadra": "CAG",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 4,
+      "fvm": 12
+    },
+    {
       "nome": "Prati",
       "squadra": "CAG",
       "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
       "fvm": 7
-    },
-    {
-      "nome": "Fazzini",
-      "squadra": "CAG",
-      "ruolo": "C",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 4,
-      "fvm": 10
     },
     {
       "nome": "Borrelli",
@@ -2811,9 +2747,33 @@
       "fvm": 7
     },
     {
+      "nome": "Dragusin",
+      "squadra": "FIO",
+      "ruolo": "D",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 4,
+      "fvm": 12
+    },
+    {
       "nome": "Viery",
       "squadra": "FIO",
       "ruolo": "D",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 4,
+      "fvm": 10
+    },
+    {
+      "nome": "Dodò",
+      "squadra": "FIO",
+      "ruolo": "D",
+      "quotazioneIniziale": 10,
+      "quotazioneAttuale": 4,
+      "fvm": 5
+    },
+    {
+      "nome": "Oulai",
+      "squadra": "FIO",
+      "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 4,
       "fvm": 10
@@ -2851,36 +2811,20 @@
       "fvm": 8
     },
     {
-      "nome": "Traorè Hj.",
+      "nome": "Amorim",
       "squadra": "GEN",
-      "ruolo": "C",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 4,
-      "fvm": 11
-    },
-    {
-      "nome": "Provedel",
-      "squadra": "INT",
-      "ruolo": "P",
-      "quotazioneIniziale": 2,
-      "quotazioneAttuale": 4,
-      "fvm": 10
-    },
-    {
-      "nome": "Luis Henrique",
-      "squadra": "INT",
       "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
-      "fvm": 10
+      "fvm": 6
     },
     {
-      "nome": "Cabal",
+      "nome": "Kelly L.",
       "squadra": "JUV",
       "ruolo": "D",
-      "quotazioneIniziale": 1,
+      "quotazioneIniziale": 5,
       "quotazioneAttuale": 4,
-      "fvm": 4
+      "fvm": 10
     },
     {
       "nome": "Thuram K.",
@@ -2891,12 +2835,20 @@
       "fvm": 10
     },
     {
-      "nome": "Gaspar K.",
+      "nome": "Rovella",
+      "squadra": "LAZ",
+      "ruolo": "C",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 4,
+      "fvm": 12
+    },
+    {
+      "nome": "Siebert",
       "squadra": "LEC",
       "ruolo": "D",
-      "quotazioneIniziale": 5,
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
-      "fvm": 8
+      "fvm": 12
     },
     {
       "nome": "Ngom",
@@ -2912,7 +2864,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 4,
-      "fvm": 10
+      "fvm": 7
     },
     {
       "nome": "Geubbels",
@@ -2923,12 +2875,28 @@
       "fvm": 11
     },
     {
+      "nome": "Diawara S.",
+      "squadra": "MIL",
+      "ruolo": "D",
+      "quotazioneIniziale": 2,
+      "quotazioneAttuale": 4,
+      "fvm": 11
+    },
+    {
       "nome": "Bartesaghi",
       "squadra": "MIL",
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 4,
       "fvm": 10
+    },
+    {
+      "nome": "Estupinan",
+      "squadra": "MIL",
+      "ruolo": "D",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 4,
+      "fvm": 9
     },
     {
       "nome": "Fofana Y.",
@@ -2955,30 +2923,6 @@
       "fvm": 11
     },
     {
-      "nome": "Lucchesi",
-      "squadra": "MON",
-      "ruolo": "D",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 4,
-      "fvm": 11
-    },
-    {
-      "nome": "Carboni A.",
-      "squadra": "MON",
-      "ruolo": "D",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 4,
-      "fvm": 10
-    },
-    {
-      "nome": "Bakoune",
-      "squadra": "MON",
-      "ruolo": "D",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 4,
-      "fvm": 2
-    },
-    {
       "nome": "Cutrone",
       "squadra": "MON",
       "ruolo": "A",
@@ -2987,12 +2931,20 @@
       "fvm": 10
     },
     {
-      "nome": "Lucca",
+      "nome": "Beukema",
       "squadra": "NAP",
-      "ruolo": "A",
-      "quotazioneIniziale": 3,
+      "ruolo": "D",
+      "quotazioneIniziale": 6,
       "quotazioneAttuale": 4,
-      "fvm": 10
+      "fvm": 7
+    },
+    {
+      "nome": "Corvi",
+      "squadra": "PAR",
+      "ruolo": "P",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 4,
+      "fvm": 2
     },
     {
       "nome": "Britschgi",
@@ -3003,14 +2955,6 @@
       "fvm": 10
     },
     {
-      "nome": "Bernabè",
-      "squadra": "PAR",
-      "ruolo": "C",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 4,
-      "fvm": 16
-    },
-    {
       "nome": "Frigan",
       "squadra": "PAR",
       "ruolo": "A",
@@ -3019,20 +2963,12 @@
       "fvm": 1
     },
     {
-      "nome": "Elphege",
-      "squadra": "PAR",
-      "ruolo": "A",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 4,
-      "fvm": 3
-    },
-    {
       "nome": "Koulierakis",
       "squadra": "ROM",
       "ruolo": "D",
       "quotazioneIniziale": 8,
       "quotazioneAttuale": 4,
-      "fvm": 8
+      "fvm": 7
     },
     {
       "nome": "El Aynaoui",
@@ -3051,14 +2987,6 @@
       "fvm": 10
     },
     {
-      "nome": "Konè I.",
-      "squadra": "SAS",
-      "ruolo": "C",
-      "quotazioneIniziale": 9,
-      "quotazioneAttuale": 4,
-      "fvm": 20
-    },
-    {
       "nome": "Ilic",
       "squadra": "LEC",
       "ruolo": "C",
@@ -3067,20 +2995,44 @@
       "fvm": 12
     },
     {
-      "nome": "Ebosse",
-      "squadra": "UDI",
-      "ruolo": "D",
-      "quotazioneIniziale": 2,
+      "nome": "Casadei",
+      "squadra": "TOR",
+      "ruolo": "C",
+      "quotazioneIniziale": 10,
       "quotazioneAttuale": 4,
-      "fvm": 5
+      "fvm": 8
     },
     {
-      "nome": "Halhal",
-      "squadra": "VEN",
+      "nome": "Kabasele",
+      "squadra": "UDI",
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
       "fvm": 7
+    },
+    {
+      "nome": "Vojvoda",
+      "squadra": "UDI",
+      "ruolo": "D",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 4,
+      "fvm": 13
+    },
+    {
+      "nome": "Zanoli",
+      "squadra": "UDI",
+      "ruolo": "D",
+      "quotazioneIniziale": 4,
+      "quotazioneAttuale": 4,
+      "fvm": 8
+    },
+    {
+      "nome": "Unai Gomez",
+      "squadra": "UDI",
+      "ruolo": "C",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 4,
+      "fvm": 12
     },
     {
       "nome": "Correia T.",
@@ -3091,20 +3043,20 @@
       "fvm": 7
     },
     {
+      "nome": "Haps",
+      "squadra": "VEN",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 4,
+      "fvm": 8
+    },
+    {
       "nome": "Helgason",
       "squadra": "VEN",
       "ruolo": "C",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 4,
       "fvm": 6
-    },
-    {
-      "nome": "Rrahmani Al.",
-      "squadra": "VEN",
-      "ruolo": "A",
-      "quotazioneIniziale": 8,
-      "quotazioneAttuale": 4,
-      "fvm": 5
     },
     {
       "nome": "Sow",
@@ -3123,28 +3075,28 @@
       "fvm": 5
     },
     {
-      "nome": "Foe Ondoa",
-      "squadra": "MON",
-      "ruolo": "C",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 4,
-      "fvm": 10
-    },
-    {
       "nome": "Badiashile",
       "squadra": "NAP",
       "ruolo": "D",
       "quotazioneIniziale": 7,
       "quotazioneAttuale": 4,
-      "fvm": 7
+      "fvm": 5
     },
     {
-      "nome": "Dembelè A.",
-      "squadra": "LEC",
+      "nome": "Juan Jesus",
+      "squadra": "VEN",
       "ruolo": "D",
-      "quotazioneIniziale": 1,
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 4,
-      "fvm": 1
+      "fvm": 11
+    },
+    {
+      "nome": "Diego Carlos",
+      "squadra": "PAR",
+      "ruolo": "D",
+      "quotazioneIniziale": 8,
+      "quotazioneAttuale": 4,
+      "fvm": 10
     },
     {
       "nome": "Sugawara",
@@ -3153,6 +3105,14 @@
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 4,
       "fvm": 8
+    },
+    {
+      "nome": "Gnonto",
+      "squadra": "FIO",
+      "ruolo": "A",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 4,
+      "fvm": 12
     },
     {
       "nome": "Wiafe",
@@ -3171,20 +3131,20 @@
       "fvm": 8
     },
     {
-      "nome": "Vitik",
-      "squadra": "BOL",
-      "ruolo": "D",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 3,
-      "fvm": 5
-    },
-    {
       "nome": "Moro N.",
       "squadra": "BOL",
       "ruolo": "C",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 3,
       "fvm": 12
+    },
+    {
+      "nome": "Lahdo",
+      "squadra": "COM",
+      "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 3,
+      "fvm": 1
     },
     {
       "nome": "Kuhn",
@@ -3219,6 +3179,14 @@
       "fvm": 6
     },
     {
+      "nome": "Provedel",
+      "squadra": "INT",
+      "ruolo": "P",
+      "quotazioneIniziale": 2,
+      "quotazioneAttuale": 3,
+      "fvm": 10
+    },
+    {
       "nome": "Pavard",
       "squadra": "INT",
       "ruolo": "D",
@@ -3227,10 +3195,10 @@
       "fvm": 10
     },
     {
-      "nome": "Kelly L.",
-      "squadra": "JUV",
-      "ruolo": "D",
-      "quotazioneIniziale": 5,
+      "nome": "Luis Henrique",
+      "squadra": "INT",
+      "ruolo": "C",
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 3,
       "fvm": 10
     },
@@ -3251,12 +3219,12 @@
       "fvm": 4
     },
     {
-      "nome": "Marusic",
-      "squadra": "LAZ",
+      "nome": "Gaspar K.",
+      "squadra": "LEC",
       "ruolo": "D",
-      "quotazioneIniziale": 6,
+      "quotazioneIniziale": 5,
       "quotazioneAttuale": 3,
-      "fvm": 7
+      "fvm": 8
     },
     {
       "nome": "Gandelman",
@@ -3283,28 +3251,12 @@
       "fvm": 7
     },
     {
-      "nome": "Diawara S.",
-      "squadra": "MIL",
-      "ruolo": "D",
-      "quotazioneIniziale": 2,
-      "quotazioneAttuale": 3,
-      "fvm": 10
-    },
-    {
       "nome": "Athekame",
       "squadra": "MIL",
       "ruolo": "D",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 3,
       "fvm": 8
-    },
-    {
-      "nome": "Estupinan",
-      "squadra": "MIL",
-      "ruolo": "D",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 3,
-      "fvm": 9
     },
     {
       "nome": "Ricci S.",
@@ -3315,28 +3267,36 @@
       "fvm": 10
     },
     {
-      "nome": "Pessina",
+      "nome": "Thiam",
+      "squadra": "MON",
+      "ruolo": "P",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 3,
+      "fvm": 1
+    },
+    {
+      "nome": "Lucchesi",
+      "squadra": "MON",
+      "ruolo": "D",
+      "quotazioneIniziale": 4,
+      "quotazioneAttuale": 3,
+      "fvm": 10
+    },
+    {
+      "nome": "Bakoune",
+      "squadra": "MON",
+      "ruolo": "D",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 3,
+      "fvm": 2
+    },
+    {
+      "nome": "Colombo L.",
       "squadra": "MON",
       "ruolo": "C",
-      "quotazioneIniziale": 7,
+      "quotazioneIniziale": 3,
       "quotazioneAttuale": 3,
-      "fvm": 14
-    },
-    {
-      "nome": "Beukema",
-      "squadra": "NAP",
-      "ruolo": "D",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 3,
-      "fvm": 7
-    },
-    {
-      "nome": "Buongiorno",
-      "squadra": "NAP",
-      "ruolo": "D",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 3,
-      "fvm": 7
+      "fvm": 3
     },
     {
       "nome": "Folorunsho",
@@ -3355,12 +3315,28 @@
       "fvm": 11
     },
     {
+      "nome": "Lucca",
+      "squadra": "NAP",
+      "ruolo": "A",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 3,
+      "fvm": 10
+    },
+    {
       "nome": "Ordonez C.",
       "squadra": "PAR",
       "ruolo": "C",
       "quotazioneIniziale": 2,
       "quotazioneAttuale": 3,
       "fvm": 6
+    },
+    {
+      "nome": "Bernabè",
+      "squadra": "PAR",
+      "ruolo": "C",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 3,
+      "fvm": 16
     },
     {
       "nome": "Sorensen O.",
@@ -3403,12 +3379,12 @@
       "fvm": 3
     },
     {
-      "nome": "Lipani",
+      "nome": "Konè I.",
       "squadra": "SAS",
       "ruolo": "C",
-      "quotazioneIniziale": 2,
+      "quotazioneIniziale": 9,
       "quotazioneAttuale": 3,
-      "fvm": 3
+      "fvm": 15
     },
     {
       "nome": "Ilkhan",
@@ -3435,20 +3411,12 @@
       "fvm": 4
     },
     {
-      "nome": "Kabasele",
+      "nome": "Ebosse",
       "squadra": "UDI",
       "ruolo": "D",
-      "quotazioneIniziale": 4,
+      "quotazioneIniziale": 2,
       "quotazioneAttuale": 3,
-      "fvm": 7
-    },
-    {
-      "nome": "Kristensen T.",
-      "squadra": "ATA",
-      "ruolo": "D",
-      "quotazioneIniziale": 7,
-      "quotazioneAttuale": 3,
-      "fvm": 10
+      "fvm": 5
     },
     {
       "nome": "Bertola",
@@ -3459,14 +3427,6 @@
       "fvm": 7
     },
     {
-      "nome": "Zanoli",
-      "squadra": "UDI",
-      "ruolo": "D",
-      "quotazioneIniziale": 4,
-      "quotazioneAttuale": 3,
-      "fvm": 8
-    },
-    {
       "nome": "Miller L.",
       "squadra": "UDI",
       "ruolo": "C",
@@ -3475,18 +3435,18 @@
       "fvm": 12
     },
     {
-      "nome": "Moreno M.",
+      "nome": "Halhal",
       "squadra": "VEN",
       "ruolo": "D",
-      "quotazioneIniziale": 5,
+      "quotazioneIniziale": 4,
       "quotazioneAttuale": 3,
-      "fvm": 6
+      "fvm": 7
     },
     {
-      "nome": "Tourè I.",
-      "squadra": "MON",
-      "ruolo": "C",
-      "quotazioneIniziale": 6,
+      "nome": "Rrahmani Al.",
+      "squadra": "VEN",
+      "ruolo": "A",
+      "quotazioneIniziale": 8,
       "quotazioneAttuale": 3,
       "fvm": 5
     },
@@ -3501,6 +3461,14 @@
     {
       "nome": "Drobnic",
       "squadra": "PAR",
+      "ruolo": "D",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 3,
+      "fvm": 1
+    },
+    {
+      "nome": "Dembelè A.",
+      "squadra": "LEC",
       "ruolo": "D",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 3,
@@ -3547,6 +3515,14 @@
       "fvm": 6
     },
     {
+      "nome": "Lovric",
+      "squadra": "UDI",
+      "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 3,
+      "fvm": 1
+    },
+    {
       "nome": "Kossounou",
       "squadra": "ATA",
       "ruolo": "D",
@@ -3579,6 +3555,14 @@
       "fvm": 1
     },
     {
+      "nome": "Vitik",
+      "squadra": "BOL",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 2,
+      "fvm": 5
+    },
+    {
       "nome": "De Silvestri",
       "squadra": "BOL",
       "ruolo": "D",
@@ -3609,14 +3593,6 @@
       "quotazioneIniziale": 2,
       "quotazioneAttuale": 2,
       "fvm": 6
-    },
-    {
-      "nome": "Liteta",
-      "squadra": "CAG",
-      "ruolo": "C",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 2,
-      "fvm": 1
     },
     {
       "nome": "Felici",
@@ -3667,12 +3643,12 @@
       "fvm": 5
     },
     {
-      "nome": "Stankovic A.",
-      "squadra": "INT",
-      "ruolo": "C",
-      "quotazioneIniziale": 3,
+      "nome": "Marusic",
+      "squadra": "LAZ",
+      "ruolo": "D",
+      "quotazioneIniziale": 6,
       "quotazioneAttuale": 2,
-      "fvm": 6
+      "fvm": 7
     },
     {
       "nome": "Ndaba",
@@ -3699,28 +3675,20 @@
       "fvm": 4
     },
     {
-      "nome": "Thiam",
-      "squadra": "MON",
-      "ruolo": "P",
-      "quotazioneIniziale": 5,
-      "quotazioneAttuale": 2,
-      "fvm": 1
-    },
-    {
-      "nome": "Colombo L.",
-      "squadra": "MON",
-      "ruolo": "C",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 2,
-      "fvm": 3
-    },
-    {
       "nome": "Petagna",
       "squadra": "MON",
       "ruolo": "A",
       "quotazioneIniziale": 2,
       "quotazioneAttuale": 2,
       "fvm": 5
+    },
+    {
+      "nome": "Buongiorno",
+      "squadra": "NAP",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 2,
+      "fvm": 7
     },
     {
       "nome": "Ndiaye",
@@ -3747,20 +3715,28 @@
       "fvm": 1
     },
     {
-      "nome": "Nicolussi Caviglia",
-      "squadra": "PAR",
-      "ruolo": "C",
-      "quotazioneIniziale": 6,
-      "quotazioneAttuale": 2,
-      "fvm": 10
-    },
-    {
       "nome": "Diallo O.",
       "squadra": "PAR",
       "ruolo": "C",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 2,
       "fvm": 1
+    },
+    {
+      "nome": "Ziolkowski",
+      "squadra": "MON",
+      "ruolo": "D",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 2,
+      "fvm": 2
+    },
+    {
+      "nome": "Lipani",
+      "squadra": "SAS",
+      "ruolo": "C",
+      "quotazioneIniziale": 2,
+      "quotazioneAttuale": 2,
+      "fvm": 3
     },
     {
       "nome": "Aboukhlal",
@@ -3771,12 +3747,20 @@
       "fvm": 2
     },
     {
+      "nome": "Kristensen T.",
+      "squadra": "ATA",
+      "ruolo": "D",
+      "quotazioneIniziale": 7,
+      "quotazioneAttuale": 2,
+      "fvm": 10
+    },
+    {
       "nome": "Arizala",
       "squadra": "UDI",
       "ruolo": "D",
       "quotazioneIniziale": 4,
       "quotazioneAttuale": 2,
-      "fvm": 7
+      "fvm": 4
     },
     {
       "nome": "Zarraga",
@@ -3795,6 +3779,14 @@
       "fvm": 9
     },
     {
+      "nome": "Bayo V.",
+      "squadra": "UDI",
+      "ruolo": "A",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 2,
+      "fvm": 3
+    },
+    {
       "nome": "Buksa",
       "squadra": "UDI",
       "ruolo": "A",
@@ -3809,6 +3801,14 @@
       "quotazioneIniziale": 6,
       "quotazioneAttuale": 2,
       "fvm": 8
+    },
+    {
+      "nome": "Moreno M.",
+      "squadra": "VEN",
+      "ruolo": "D",
+      "quotazioneIniziale": 5,
+      "quotazioneAttuale": 2,
+      "fvm": 6
     },
     {
       "nome": "Schingtienne",
@@ -3835,6 +3835,14 @@
       "fvm": 1
     },
     {
+      "nome": "Tourè I.",
+      "squadra": "MON",
+      "ruolo": "C",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 2,
+      "fvm": 5
+    },
+    {
       "nome": "Mout",
       "squadra": "MON",
       "ruolo": "C",
@@ -3857,14 +3865,6 @@
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 2,
       "fvm": 6
-    },
-    {
-      "nome": "Kambwala",
-      "squadra": "COM",
-      "ruolo": "D",
-      "quotazioneIniziale": 3,
-      "quotazioneAttuale": 2,
-      "fvm": 4
     },
     {
       "nome": "Jovanovic",
@@ -3912,7 +3912,7 @@
       "ruolo": "P",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
-      "fvm": 1
+      "fvm": 10
     },
     {
       "nome": "Happonen",
@@ -3955,6 +3955,14 @@
       "fvm": 1
     },
     {
+      "nome": "Liteta",
+      "squadra": "CAG",
+      "ruolo": "C",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
       "nome": "Albarracin",
       "squadra": "CAG",
       "ruolo": "A",
@@ -3985,14 +3993,6 @@
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
       "fvm": 8
-    },
-    {
-      "nome": "Lahdo",
-      "squadra": "COM",
-      "ruolo": "C",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 1,
-      "fvm": 1
     },
     {
       "nome": "Azon",
@@ -4161,6 +4161,14 @@
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
       "fvm": 1
+    },
+    {
+      "nome": "Stankovic A.",
+      "squadra": "INT",
+      "ruolo": "C",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 1,
+      "fvm": 6
     },
     {
       "nome": "Pinsoglio",
@@ -4355,20 +4363,20 @@
       "fvm": 3
     },
     {
+      "nome": "Nicolussi Caviglia",
+      "squadra": "PAR",
+      "ruolo": "C",
+      "quotazioneIniziale": 6,
+      "quotazioneAttuale": 1,
+      "fvm": 8
+    },
+    {
       "nome": "De Marzi",
       "squadra": "ROM",
       "ruolo": "P",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
       "fvm": 1
-    },
-    {
-      "nome": "Ziolkowski",
-      "squadra": "MON",
-      "ruolo": "D",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 1,
-      "fvm": 2
     },
     {
       "nome": "Vaz",
@@ -4515,14 +4523,6 @@
       "fvm": 3
     },
     {
-      "nome": "Bayo V.",
-      "squadra": "UDI",
-      "ruolo": "A",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 1,
-      "fvm": 3
-    },
-    {
       "nome": "Grandi",
       "squadra": "VEN",
       "ruolo": "P",
@@ -4624,7 +4624,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 5,
       "quotazioneAttuale": 1,
-      "fvm": 7
+      "fvm": 5
     },
     {
       "nome": "Penev",
@@ -4747,6 +4747,14 @@
       "fvm": 1
     },
     {
+      "nome": "Kambwala",
+      "squadra": "COM",
+      "ruolo": "D",
+      "quotazioneIniziale": 3,
+      "quotazioneAttuale": 1,
+      "fvm": 4
+    },
+    {
       "nome": "Mrozek",
       "squadra": "UDI",
       "ruolo": "P",
@@ -4760,7 +4768,7 @@
       "ruolo": "C",
       "quotazioneIniziale": 3,
       "quotazioneAttuale": 1,
-      "fvm": 7
+      "fvm": 5
     },
     {
       "nome": "Ghidotti",
@@ -4797,14 +4805,6 @@
     {
       "nome": "Libra",
       "squadra": "BOL",
-      "ruolo": "C",
-      "quotazioneIniziale": 1,
-      "quotazioneAttuale": 1,
-      "fvm": 1
-    },
-    {
-      "nome": "Lovric",
-      "squadra": "UDI",
       "ruolo": "C",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
