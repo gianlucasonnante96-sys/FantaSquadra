@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-23T18:59:10.658Z",
+  "aggiornato": "2026-11-24T04:15:57.822Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -22030,62 +22030,62 @@
         "nome": "Monza",
         "giocatori": [
           {
-            "nome": "Tornqvist",
-            "perc": 90,
+            "nome": "Thiam",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Kouadio",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Goglichidze",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Lucchesi",
-            "perc": 90,
+            "nome": "Carboni A.",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Birindelli",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Foe Ondoa",
-            "perc": 75,
+            "nome": "Colombo L.",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Akinsanmiro",
-            "perc": 85,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mangas",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Mota",
-            "perc": 60,
+            "nome": "Pessina",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Robinson J.",
-            "perc": 60,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Varela G.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Thiam",
+            "nome": "Tornqvist",
             "perc": 5,
             "starter": false
           },
@@ -22100,8 +22100,8 @@
             "starter": false
           },
           {
-            "nome": "Carboni A.",
-            "perc": 60,
+            "nome": "Lucchesi",
+            "perc": 50,
             "starter": false
           },
           {
@@ -22115,6 +22115,11 @@
             "starter": false
           },
           {
+            "nome": "Foe Ondoa",
+            "perc": 55,
+            "starter": false
+          },
+          {
             "nome": "Tourè I.",
             "perc": 60,
             "starter": false
@@ -22122,11 +22127,6 @@
           {
             "nome": "Mout",
             "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "Pessina",
-            "perc": 40,
             "starter": false
           },
           {
@@ -22140,8 +22140,8 @@
             "starter": false
           },
           {
-            "nome": "Colombo L.",
-            "perc": 55,
+            "nome": "Mota",
+            "perc": 60,
             "starter": false
           },
           {
@@ -22162,57 +22162,57 @@
         "giocatori": [
           {
             "nome": "De Gea",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Jimenez A.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Dragusin",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Viery",
-            "perc": 80,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Joao Mario",
-            "perc": 75,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Ndour",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Fagioli",
-            "perc": 60,
+            "nome": "Oulai",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Mastantuono",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Goncalves P.",
-            "perc": 55,
+            "perc": 100,
             "starter": true
           },
           {
-            "nome": "Njie",
-            "perc": 55,
+            "nome": "Gnonto",
+            "perc": 100,
             "starter": true
           },
           {
             "nome": "Pellegrino M.",
-            "perc": 90,
+            "perc": 100,
             "starter": true
           },
           {
@@ -22241,13 +22241,13 @@
             "starter": false
           },
           {
-            "nome": "Oulai",
-            "perc": 60,
+            "nome": "Atta",
+            "perc": 55,
             "starter": false
           },
           {
-            "nome": "Atta",
-            "perc": 55,
+            "nome": "Fagioli",
+            "perc": 60,
             "starter": false
           },
           {
@@ -22256,13 +22256,13 @@
             "starter": false
           },
           {
-            "nome": "Beto",
+            "nome": "Njie",
             "perc": 55,
             "starter": false
           },
           {
-            "nome": "Gnonto",
-            "perc": 60,
+            "nome": "Beto",
+            "perc": 55,
             "starter": false
           }
         ]

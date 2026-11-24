@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-23T18:59:45.132Z",
+  "aggiornato": "2026-11-24T04:16:32.569Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Lazio": {
@@ -171,6 +171,19 @@
         "L"
       ]
     },
+    "Monza": {
+      "punti": 10,
+      "g": 12,
+      "gf": 20,
+      "gs": 25,
+      "forma": [
+        "L",
+        "L",
+        "L",
+        "L",
+        "W"
+      ]
+    },
     "Lecce": {
       "punti": 10,
       "g": 12,
@@ -186,15 +199,15 @@
     },
     "Fiorentina": {
       "punti": 9,
-      "g": 11,
+      "g": 12,
       "gf": 17,
-      "gs": 25,
+      "gs": 28,
       "forma": [
-        "L",
         "L",
         "D",
         "W",
-        "D"
+        "D",
+        "L"
       ]
     },
     "Parma": {
@@ -217,19 +230,6 @@
       "gs": 31,
       "forma": [
         "L",
-        "L",
-        "L",
-        "L",
-        "L"
-      ]
-    },
-    "Monza": {
-      "punti": 7,
-      "g": 11,
-      "gf": 17,
-      "gs": 25,
-      "forma": [
-        "W",
         "L",
         "L",
         "L",
