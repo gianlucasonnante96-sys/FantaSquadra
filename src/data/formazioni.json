@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-24T18:39:33.841Z",
+  "aggiornato": "2026-11-25T02:56:38.204Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -24291,7 +24291,7 @@
         "giocatori": [
           {
             "nome": "Butez",
-            "perc": 75,
+            "perc": 80,
             "starter": true
           },
           {
@@ -24315,11 +24315,6 @@
             "starter": true
           },
           {
-            "nome": "Milla",
-            "perc": 80,
-            "starter": true
-          },
-          {
             "nome": "Perrone",
             "perc": 85,
             "starter": true
@@ -24330,13 +24325,18 @@
             "starter": true
           },
           {
+            "nome": "Liberali",
+            "perc": 55,
+            "starter": true
+          },
+          {
             "nome": "Paz N.",
             "perc": 90,
             "starter": true
           },
           {
             "nome": "Baturina",
-            "perc": 80,
+            "perc": 70,
             "starter": true
           },
           {
@@ -24380,13 +24380,13 @@
             "starter": false
           },
           {
-            "nome": "Ricci S.",
-            "perc": 55,
+            "nome": "Milla",
+            "perc": 60,
             "starter": false
           },
           {
-            "nome": "Liberali",
-            "perc": 60,
+            "nome": "Ricci S.",
+            "perc": 55,
             "starter": false
           },
           {
