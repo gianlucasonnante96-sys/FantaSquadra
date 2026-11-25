@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T02:56:51.891Z",
+  "aggiornato": "2026-11-25T17:49:32.659Z",
   "fonte": "fantacalcio.it",
   "giocatori": [
     {
@@ -4822,6 +4822,30 @@
       "nome": "Neto",
       "squadra": "JUV",
       "ruolo": "P",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
+      "nome": "Pellegri",
+      "squadra": "TOR",
+      "ruolo": "A",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
+      "nome": "Sonzogni",
+      "squadra": "ATA",
+      "ruolo": "P",
+      "quotazioneIniziale": 1,
+      "quotazioneAttuale": 1,
+      "fvm": 1
+    },
+    {
+      "nome": "Grandu",
+      "squadra": "CAG",
+      "ruolo": "D",
       "quotazioneIniziale": 1,
       "quotazioneAttuale": 1,
       "fvm": 1

@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T02:57:17.616Z",
+  "aggiornato": "2026-11-25T17:49:58.232Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Hien": {
@@ -68,17 +68,17 @@
       "rientro": "01/03",
       "descrizione": "il centrocampista KO il 7 settembre contro il Lecce in casa vittima della rottura del legamento crociato anteriore. Verrà operato e costretto a un lungo stop (ipotizziamo un rientro da marzo)."
     },
-    "Liteta": {
-      "squadra": "Cagliari",
-      "stato": "dubbio",
-      "rientro": "In settimana",
-      "descrizione": "il centrocampista out a Como sabato scorso per noie fisiche, da valutare in vista di lunedì nella 13a di campionato contro il Milan."
-    },
     "Winks": {
       "squadra": "Cagliari",
       "stato": "dubbio",
       "rientro": "In settimana",
       "descrizione": "Il regista dei sardi out contro Como e Frosinone per il perdurare di una fastidiosa lombalgia. Da valutare in vista di lunedì sera nella 13a di campionato contro il Milan."
+    },
+    "Liteta": {
+      "squadra": "Cagliari",
+      "stato": "dubbio",
+      "rientro": "In settimana",
+      "descrizione": "il centrocampista out a Como sabato scorso per noie fisiche, da valutare in vista di lunedì nella 13a di campionato contro il Milan."
     },
     "Addai": {
       "squadra": "Como",
@@ -266,17 +266,17 @@
       "rientro": "01/02",
       "descrizione": "il centrocampista azzurro fermo dal 21 novembre per una lesione di alto grado del bicipite femorale della coscia sinistra. Lungo stop e ipotizziamo un rientro da febbraio."
     },
-    "Badiashile": {
-      "squadra": "Napoli",
-      "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "il difensore KO il 24 ottobre contro la Roma per una lesione distrattiva di medio grado del retto femorale destro, recuperabile dalla fine di novembre."
-    },
     "Santos A.": {
       "squadra": "Napoli",
       "stato": "out",
       "rientro": "01/12",
       "descrizione": "l'ala offensiva azzurra KO il 18 ottobre a Venezia, vittima di una lesione distrattiva di medio grado del bicipite femorale sinistro. Recuperabile dall'inizio di dicembre."
+    },
+    "Badiashile": {
+      "squadra": "Napoli",
+      "stato": "out",
+      "rientro": "30/11",
+      "descrizione": "il difensore KO il 24 ottobre contro la Roma per una lesione distrattiva di medio grado del retto femorale destro, recuperabile dalla fine di novembre."
     },
     "Di Lorenzo": {
       "squadra": "Napoli",

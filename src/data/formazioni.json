@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T02:56:38.204Z",
+  "aggiornato": "2026-11-25T17:49:19.199Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -23437,7 +23437,7 @@
           },
           {
             "nome": "Ostigard",
-            "perc": 90,
+            "perc": 70,
             "starter": true
           },
           {
@@ -24356,7 +24356,7 @@
           },
           {
             "nome": "Smolcic I.",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -24396,12 +24396,12 @@
           },
           {
             "nome": "Caqueret",
-            "perc": 60,
+            "perc": 20,
             "starter": false
           },
           {
             "nome": "Diao",
-            "perc": 25,
+            "perc": 35,
             "starter": false
           }
         ]
@@ -24512,7 +24512,7 @@
           },
           {
             "nome": "Alajbegovic",
-            "perc": 20,
+            "perc": 50,
             "starter": false
           },
           {
@@ -24952,7 +24952,7 @@
           },
           {
             "nome": "Diawara S.",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
@@ -24992,7 +24992,7 @@
           },
           {
             "nome": "Tomori",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -25002,12 +25002,12 @@
           },
           {
             "nome": "Bartesaghi",
-            "perc": 60,
+            "perc": 50,
             "starter": false
           },
           {
             "nome": "Estupinan",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -25032,7 +25032,7 @@
           },
           {
             "nome": "Camarda",
-            "perc": 35,
+            "perc": 20,
             "starter": false
           }
         ]

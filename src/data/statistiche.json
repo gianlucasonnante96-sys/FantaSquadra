@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T02:57:06.694Z",
+  "aggiornato": "2026-11-25T17:49:47.141Z",
   "fonte": "fantacalcio.it",
   "statistiche": {
     "Malen": {
@@ -4219,6 +4219,27 @@
     "Neto": {
       "ruolo": "P",
       "squadra": "JUV",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Pellegri": {
+      "ruolo": "A",
+      "squadra": "TOR",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Sonzogni": {
+      "ruolo": "P",
+      "squadra": "ATA",
+      "mediaVoto": 0,
+      "fantamedia": 0,
+      "partiteGiocate": 0
+    },
+    "Grandu": {
+      "ruolo": "D",
+      "squadra": "CAG",
       "mediaVoto": 0,
       "fantamedia": 0,
       "partiteGiocate": 0
