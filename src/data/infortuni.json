@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T17:49:58.232Z",
+  "aggiornato": "2026-11-26T02:03:04.920Z",
   "fonte": "fantacalcio.it",
   "infortunati": {
     "Hien": {
@@ -8,11 +8,11 @@
       "rientro": "30/06",
       "descrizione": "il difensore operato a fine giugno per una lesione del tendine prossimale del muscolo semimembranoso della coscia sinistra, in recupero e pronto a tornare in campo dalla fine di novembre."
     },
-    "Carnesecchi": {
+    "Kossounou": {
       "squadra": "Atalanta",
-      "stato": "out",
-      "rientro": "01/01",
-      "descrizione": "il portiere KO per un lesione del menisco mediale del ginocchio sinistro dalla sfida del 22 novembre contro l'Inter. Recuperabile da gennaio."
+      "stato": "out-lungo",
+      "rientro": "30/11",
+      "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla fine di novembre."
     },
     "Pompei": {
       "squadra": "Atalanta",
@@ -20,11 +20,11 @@
       "rientro": "01/10",
       "descrizione": "Il portiere fermo da inizio ottobre per la frattura della falange della mano destra, out nel prossimo turno di campionato. Recuperabile da metà dicembre."
     },
-    "Kossounou": {
+    "Carnesecchi": {
       "squadra": "Atalanta",
-      "stato": "out-lungo",
-      "rientro": "30/11",
-      "descrizione": "Il difensore frenato da una lesione muscolare di medio-alto grado del bicipite femorale della coscia sinistra alla vigilia della sfida di campionato contro la Juventus (del 20 settembre). Lungo stop, rientro dalla fine di novembre."
+      "stato": "out",
+      "rientro": "01/01",
+      "descrizione": "il portiere KO per un lesione del menisco mediale del ginocchio sinistro dalla sfida del 22 novembre contro l'Inter. Recuperabile da gennaio."
     },
     "Happonen": {
       "squadra": "Bologna",
@@ -98,12 +98,6 @@
       "rientro": "30/01",
       "descrizione": "l'attaccante si sottoporrà a nuove cure per un problema osseo alla gamba destra. Ipotizziamo un recupero da fine gennaio, ma la situazione rimane da monitorare."
     },
-    "Pongracic": {
-      "squadra": "Fiorentina",
-      "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "il difensore il 15 ottobre contro l'Inter ha rimediato una lesione mio-fasciale a carico del capo lungo del bicipite femorale della coscia destra, rientro dalla fine di novembre."
-    },
     "Viery": {
       "squadra": "Fiorentina",
       "stato": "dubbio",
@@ -115,6 +109,12 @@
       "stato": "out",
       "rientro": "30/12",
       "descrizione": "il cursore di fascia della Viola sta svolgendo l'iter di recupero dall'infortunio al legamento crociato al ginocchio, punta a tornare convocabile da fine dicembre."
+    },
+    "Pongracic": {
+      "squadra": "Fiorentina",
+      "stato": "out",
+      "rientro": "30/11",
+      "descrizione": "il difensore il 15 ottobre contro l'Inter ha rimediato una lesione mio-fasciale a carico del capo lungo del bicipite femorale della coscia destra, rientro dalla fine di novembre."
     },
     "Raimondo": {
       "squadra": "Frosinone",
@@ -152,6 +152,18 @@
       "rientro": "15/12",
       "descrizione": "il turco il 22 novembre a Bergamo ha ravvisato un risentimento muscolare ai flessori della coscia destra, rientro in campo dalla seconda metà di dicembre."
     },
+    "Bastoni": {
+      "squadra": "Inter",
+      "stato": "out",
+      "rientro": "N/D",
+      "descrizione": "Il difensore mercoledì in Champions League ha dovuto lasciare il campo per un fastidio muscolare alla gamba e andrà valutato. A rischio forfait ora in campionato contro il Genoa."
+    },
+    "Kalulu": {
+      "squadra": "Juventus",
+      "stato": "out",
+      "rientro": "30/11",
+      "descrizione": "Il terzino bianconero ai box per una lesione ai muscoli ischiocrurali della gamba sinistra, recuperabile dalla fine di novembre."
+    },
     "Locatelli": {
       "squadra": "Juventus",
       "stato": "out-lungo",
@@ -175,12 +187,6 @@
       "stato": "out-lungo",
       "rientro": "01/04",
       "descrizione": "Il portiere out dal 20 settembre per una lesione al crociato anteriore del ginocchio destro. Operazione chirurgica e lungo stop, rientro da aprile."
-    },
-    "Kalulu": {
-      "squadra": "Juventus",
-      "stato": "out",
-      "rientro": "30/11",
-      "descrizione": "Il terzino bianconero ai box per una lesione ai muscoli ischiocrurali della gamba sinistra, recuperabile dalla fine di novembre."
     },
     "Sutalo J.": {
       "squadra": "Lazio",
@@ -260,12 +266,6 @@
       "rientro": "In settimana",
       "descrizione": "Il centrocampista alle prese con noie muscolari al polpaccio, da valutare in vista della 14a giornata di campionato."
     },
-    "Vergara": {
-      "squadra": "Napoli",
-      "stato": "out-lungo",
-      "rientro": "01/02",
-      "descrizione": "il centrocampista azzurro fermo dal 21 novembre per una lesione di alto grado del bicipite femorale della coscia sinistra. Lungo stop e ipotizziamo un rientro da febbraio."
-    },
     "Santos A.": {
       "squadra": "Napoli",
       "stato": "out",
@@ -277,6 +277,12 @@
       "stato": "out",
       "rientro": "30/11",
       "descrizione": "il difensore KO il 24 ottobre contro la Roma per una lesione distrattiva di medio grado del retto femorale destro, recuperabile dalla fine di novembre."
+    },
+    "Vergara": {
+      "squadra": "Napoli",
+      "stato": "out-lungo",
+      "rientro": "01/02",
+      "descrizione": "il centrocampista azzurro fermo dal 21 novembre per una lesione di alto grado del bicipite femorale della coscia sinistra. Lungo stop e ipotizziamo un rientro da febbraio."
     },
     "Di Lorenzo": {
       "squadra": "Napoli",

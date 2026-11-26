@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-25T17:49:19.199Z",
+  "aggiornato": "2026-11-26T02:02:24.595Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -23320,13 +23320,13 @@
             "starter": true
           },
           {
-            "nome": "Bastoni",
-            "perc": 70,
+            "nome": "Carlos Augusto",
+            "perc": 60,
             "starter": true
           },
           {
             "nome": "Spence",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -23346,7 +23346,7 @@
           },
           {
             "nome": "Dimarco",
-            "perc": 60,
+            "perc": 80,
             "starter": true
           },
           {
@@ -23371,17 +23371,12 @@
           },
           {
             "nome": "Pavard",
-            "perc": 50,
-            "starter": false
-          },
-          {
-            "nome": "Carlos Augusto",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
             "nome": "Stones",
-            "perc": 25,
+            "perc": 35,
             "starter": false
           },
           {
@@ -23396,7 +23391,7 @@
           },
           {
             "nome": "Stankovic A.",
-            "perc": 40,
+            "perc": 50,
             "starter": false
           },
           {
@@ -23406,7 +23401,7 @@
           },
           {
             "nome": "Mkhitaryan",
-            "perc": 55,
+            "perc": 60,
             "starter": false
           },
           {
@@ -24046,7 +24041,7 @@
           },
           {
             "nome": "Mancini",
-            "perc": 80,
+            "perc": 75,
             "starter": true
           },
           {
@@ -24056,7 +24051,7 @@
           },
           {
             "nome": "Hermoso",
-            "perc": 80,
+            "perc": 75,
             "starter": true
           },
           {
@@ -24081,7 +24076,7 @@
           },
           {
             "nome": "Soulè",
-            "perc": 90,
+            "perc": 80,
             "starter": true
           },
           {
@@ -24091,7 +24086,7 @@
           },
           {
             "nome": "Malen",
-            "perc": 80,
+            "perc": 90,
             "starter": true
           },
           {
