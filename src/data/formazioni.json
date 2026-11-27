@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-26T17:32:20.004Z",
+  "aggiornato": "2026-11-27T02:02:24.154Z",
   "fonte": "fantacalcio.it",
   "partite": {
     "VEN-FIO": {
@@ -23211,8 +23211,8 @@
             "starter": true
           },
           {
-            "nome": "Taylor K.",
-            "perc": 55,
+            "nome": "Dele-Bashiru",
+            "perc": 80,
             "starter": true
           },
           {
@@ -23257,12 +23257,7 @@
           },
           {
             "nome": "Rovella",
-            "perc": 35,
-            "starter": false
-          },
-          {
-            "nome": "Dele-Bashiru",
-            "perc": 60,
+            "perc": 55,
             "starter": false
           },
           {
@@ -23427,7 +23422,7 @@
           },
           {
             "nome": "Ostigard",
-            "perc": 70,
+            "perc": 60,
             "starter": true
           },
           {
@@ -24667,7 +24662,7 @@
           },
           {
             "nome": "Scalvini",
-            "perc": 85,
+            "perc": 65,
             "starter": true
           },
           {
@@ -24682,17 +24677,17 @@
           },
           {
             "nome": "Kessiè",
-            "perc": 80,
-            "starter": true
-          },
-          {
-            "nome": "Ederson D.S.",
             "perc": 90,
             "starter": true
           },
           {
+            "nome": "Ederson D.S.",
+            "perc": 60,
+            "starter": true
+          },
+          {
             "nome": "Elmas",
-            "perc": 80,
+            "perc": 85,
             "starter": true
           },
           {
@@ -24702,7 +24697,7 @@
           },
           {
             "nome": "Zalewski",
-            "perc": 60,
+            "perc": 55,
             "starter": true
           },
           {
@@ -24757,7 +24752,7 @@
           },
           {
             "nome": "Gaetano",
-            "perc": 50,
+            "perc": 55,
             "starter": false
           },
           {
@@ -24972,7 +24967,7 @@
           },
           {
             "nome": "Ramos G.",
-            "perc": 90,
+            "perc": 75,
             "starter": true
           },
           {
