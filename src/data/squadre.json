@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-11-27T17:15:24.283Z",
+  "aggiornato": "2026-11-28T01:47:36.285Z",
   "fonte": "fantacalcio.it",
   "squadre": {
     "Lazio": {
@@ -93,6 +93,19 @@
         "L"
       ]
     },
+    "Bologna": {
+      "punti": 19,
+      "g": 13,
+      "gf": 17,
+      "gs": 15,
+      "forma": [
+        "W",
+        "W",
+        "W",
+        "D",
+        "D"
+      ]
+    },
     "Napoli": {
       "punti": 18,
       "g": 12,
@@ -104,19 +117,6 @@
         "L",
         "D",
         "W"
-      ]
-    },
-    "Bologna": {
-      "punti": 18,
-      "g": 12,
-      "gf": 17,
-      "gs": 15,
-      "forma": [
-        "W",
-        "W",
-        "W",
-        "W",
-        "D"
       ]
     },
     "Genoa": {
@@ -236,6 +236,19 @@
         "L"
       ]
     },
+    "Venezia": {
+      "punti": 7,
+      "g": 13,
+      "gf": 8,
+      "gs": 25,
+      "forma": [
+        "L",
+        "L",
+        "W",
+        "L",
+        "D"
+      ]
+    },
     "Udinese": {
       "punti": 6,
       "g": 12,
@@ -247,19 +260,6 @@
         "L",
         "L",
         "D"
-      ]
-    },
-    "Venezia": {
-      "punti": 6,
-      "g": 12,
-      "gf": 8,
-      "gs": 25,
-      "forma": [
-        "L",
-        "L",
-        "L",
-        "W",
-        "L"
       ]
     }
   }
